@@ -27,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     private func setupWindowAndRootViewController() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        navigationController = UINavigationController(rootViewController: ViewController(nibName: nil, bundle: nil))
+        let rootViewController = MenuViewController()
+        navigationController = UINavigationController(rootViewController: rootViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }

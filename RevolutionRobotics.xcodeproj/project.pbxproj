@@ -7,20 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09ED1B9722523EBA009CF262 /* UIViewController+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B9622523EBA009CF262 /* UIViewController+NibLoadable.swift */; };
+		09ED1B9A225241C9009CF262 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B99225241C9009CF262 /* NibLoadable.swift */; };
+		09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B9B2252424F009CF262 /* Reusable.swift */; };
+		09ED1B9E22524284009CF262 /* UIView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B9D22524284009CF262 /* UIView+Reusable.swift */; };
+		09ED1BA0225242A6009CF262 /* UIView+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B9F225242A6009CF262 /* UIView+NibLoadable.swift */; };
+		09ED1BA72252437B009CF262 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1BA62252437B009CF262 /* ViewController.swift */; };
+		09ED1BA9225247B1009CF262 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1BA8225247B1009CF262 /* MenuViewController.swift */; };
+		09ED1BAB225247E2009CF262 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09ED1BAA225247E2009CF262 /* MenuViewController.xib */; };
+		09ED1BAD22524B09009CF262 /* Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1BAC22524B09009CF262 /* Callback.swift */; };
 		2ABD618422500F7C00587F1C /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABD618322500F7C00587F1C /* AppDependencies.swift */; };
 		2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF1F74224AB3B400CC721F /* AppDelegate.swift */; };
-		2ADF1F77224AB3B400CC721F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF1F76224AB3B400CC721F /* ViewController.swift */; };
 		2ADF1F7C224AB3B600CC721F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7B224AB3B600CC721F /* Assets.xcassets */; };
 		2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7D224AB3B600CC721F /* LaunchScreen.storyboard */; };
 		7F0414BC64A018F897BBD651 /* Pods_RevolutionRobotics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 501042543EFB612DD78FF858 /* Pods_RevolutionRobotics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09ED1B9622523EBA009CF262 /* UIViewController+NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NibLoadable.swift"; sourceTree = "<group>"; };
+		09ED1B99225241C9009CF262 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		09ED1B9B2252424F009CF262 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		09ED1B9D22524284009CF262 /* UIView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Reusable.swift"; sourceTree = "<group>"; };
+		09ED1B9F225242A6009CF262 /* UIView+NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadable.swift"; sourceTree = "<group>"; };
+		09ED1BA62252437B009CF262 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		09ED1BA8225247B1009CF262 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		09ED1BAA225247E2009CF262 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		09ED1BAC22524B09009CF262 /* Callback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
 		28DC1BF7DA2AC02961B896D7 /* Pods-RevolutionRobotics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug.xcconfig"; sourceTree = "<group>"; };
 		2ABD618322500F7C00587F1C /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		2ADF1F71224AB3B400CC721F /* RevolutionRobotics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevolutionRobotics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADF1F74224AB3B400CC721F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2ADF1F76224AB3B400CC721F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2ADF1F7B224AB3B600CC721F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2ADF1F7E224AB3B600CC721F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2ADF1F80224AB3B600CC721F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,6 +60,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09ED1B9022523C22009CF262 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF1F80224AB3B600CC721F /* Info.plist */,
+				09ED1BA4225242E8009CF262 /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		09ED1B9522523EA8009CF262 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				09ED1B9622523EBA009CF262 /* UIViewController+NibLoadable.swift */,
+				09ED1B9D22524284009CF262 /* UIView+Reusable.swift */,
+				09ED1B9F225242A6009CF262 /* UIView+NibLoadable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		09ED1B98225241A7009CF262 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				09ED1B99225241C9009CF262 /* NibLoadable.swift */,
+				09ED1B9B2252424F009CF262 /* Reusable.swift */,
+				09ED1BAC22524B09009CF262 /* Callback.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		09ED1BA1225242C5009CF262 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		09ED1BA2225242CB009CF262 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09ED1BA62252437B009CF262 /* ViewController.swift */,
+				09ED1BA8225247B1009CF262 /* MenuViewController.swift */,
+				09ED1BAA225247E2009CF262 /* MenuViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		09ED1BA3225242D0009CF262 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		09ED1BA4225242E8009CF262 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF1F7B224AB3B600CC721F /* Assets.xcassets */,
+				2ADF1F7D224AB3B600CC721F /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		09ED1BA52252434E009CF262 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF1F74224AB3B400CC721F /* AppDelegate.swift */,
+				2ABD618322500F7C00587F1C /* AppDependencies.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		2ADF1F68224AB3B400CC721F = {
 			isa = PBXGroup;
 			children = (
@@ -65,12 +152,13 @@
 		2ADF1F73224AB3B400CC721F /* RevolutionRobotics */ = {
 			isa = PBXGroup;
 			children = (
-				2ADF1F74224AB3B400CC721F /* AppDelegate.swift */,
-				2ADF1F76224AB3B400CC721F /* ViewController.swift */,
-				2ADF1F7B224AB3B600CC721F /* Assets.xcassets */,
-				2ADF1F7D224AB3B600CC721F /* LaunchScreen.storyboard */,
-				2ADF1F80224AB3B600CC721F /* Info.plist */,
-				2ABD618322500F7C00587F1C /* AppDependencies.swift */,
+				09ED1BA52252434E009CF262 /* App */,
+				09ED1B9022523C22009CF262 /* Resources */,
+				09ED1B9522523EA8009CF262 /* Extensions */,
+				09ED1B98225241A7009CF262 /* Utils */,
+				09ED1BA1225242C5009CF262 /* Model */,
+				09ED1BA2225242CB009CF262 /* View */,
+				09ED1BA3225242D0009CF262 /* Controller */,
 			);
 			path = RevolutionRobotics;
 			sourceTree = "<group>";
@@ -109,6 +197,7 @@
 				2ADF1F6E224AB3B400CC721F /* Frameworks */,
 				2ADF1F6F224AB3B400CC721F /* Resources */,
 				2ABD618222500F2F00587F1C /* Fabric */,
+				BEC4650931DB65A5AE8DC0C6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09ED1BAB225247E2009CF262 /* MenuViewController.xib in Resources */,
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
 				2ADF1F7C224AB3B600CC721F /* Assets.xcassets in Resources */,
 			);
@@ -223,6 +313,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BEC4650931DB65A5AE8DC0C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RevolutionRoboticsBlockly/RevolutionRoboticsBlockly.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevolutionRoboticsBlockly.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -230,8 +342,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09ED1B9E22524284009CF262 /* UIView+Reusable.swift in Sources */,
+				09ED1BA9225247B1009CF262 /* MenuViewController.swift in Sources */,
+				09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */,
 				2ABD618422500F7C00587F1C /* AppDependencies.swift in Sources */,
-				2ADF1F77224AB3B400CC721F /* ViewController.swift in Sources */,
+				09ED1BAD22524B09009CF262 /* Callback.swift in Sources */,
+				09ED1BA0225242A6009CF262 /* UIView+NibLoadable.swift in Sources */,
+				09ED1BA72252437B009CF262 /* ViewController.swift in Sources */,
+				09ED1B9722523EBA009CF262 /* UIViewController+NibLoadable.swift in Sources */,
+				09ED1B9A225241C9009CF262 /* NibLoadable.swift in Sources */,
 				2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,7 +437,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DisplayNamePrefix = "Dev ";
-				INFOPLIST_FILE = RevolutionRobotics/Info.plist;
+				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -392,7 +511,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DisplayNamePrefix = "Dev ";
-				INFOPLIST_FILE = RevolutionRobotics/Info.plist;
+				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -527,7 +646,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DisplayNamePrefix = "";
-				INFOPLIST_FILE = RevolutionRobotics/Info.plist;
+				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,7 +665,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DisplayNamePrefix = "";
-				INFOPLIST_FILE = RevolutionRobotics/Info.plist;
+				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
