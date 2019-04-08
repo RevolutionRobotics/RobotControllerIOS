@@ -10,7 +10,7 @@ DEPENDENCIES:
   - Crashlytics (~> 3.12.0)
   - Fabric (~> 1.9.0)
   - Kingfisher (~> 5.3.1)
-  - "RevolutionRoboticsBlockly (from `git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git`, branch `fix-pod`)"
+  - "RevolutionRoboticsBlockly (from `git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git`, branch `development`)"
   - SwiftLint (~> 0.31.0)
 
 SPEC REPOS:
@@ -22,13 +22,15 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   RevolutionRoboticsBlockly:
-    :branch: fix-pod
+    :branch: development
     :git: "git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git"
+    :submodules: true
 
 CHECKOUT OPTIONS:
   RevolutionRoboticsBlockly:
-    :commit: 6a458ddc0a0e740b80b62d0a848509210876d27e
+    :commit: bc925d4c639730d8b3ccb20e18cccd72541357d1
     :git: "git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git"
+    :submodules: true
 
 SPEC CHECKSUMS:
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
@@ -37,6 +39,6 @@ SPEC CHECKSUMS:
   RevolutionRoboticsBlockly: f97619e33c3f0062e92fbb49a39b8cd7f7d32ed7
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: 71499ba48cb1a6dfafd31174ab02b1ddf5229fbf
+PODFILE CHECKSUM: f3a5c467498f720d4f499dc593fd4715576a10f2
 
 COCOAPODS: 1.6.1

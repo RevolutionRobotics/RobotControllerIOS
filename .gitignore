@@ -23,8 +23,8 @@ DerivedData
 ## Bundler
 .bundle
 
-## Python virtual env
-otp-env/
+## Archives
+*.xcarchive
 
 ## Cocoapods
 Pods/

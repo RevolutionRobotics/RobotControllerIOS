@@ -20,7 +20,7 @@
 		2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF1F74224AB3B400CC721F /* AppDelegate.swift */; };
 		2ADF1F7C224AB3B600CC721F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7B224AB3B600CC721F /* Assets.xcassets */; };
 		2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7D224AB3B600CC721F /* LaunchScreen.storyboard */; };
-		7F0414BC64A018F897BBD651 /* Pods_RevolutionRobotics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 501042543EFB612DD78FF858 /* Pods_RevolutionRobotics.framework */; };
+		3EDBEDA7C8D9D5683FEC00E3 /* Pods_RevolutionRobotics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2703FDDD1F3944173CF58883 /* Pods_RevolutionRobotics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,19 +33,17 @@
 		09ED1BA8225247B1009CF262 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		09ED1BAA225247E2009CF262 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		09ED1BAC22524B09009CF262 /* Callback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
-		28DC1BF7DA2AC02961B896D7 /* Pods-RevolutionRobotics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug.xcconfig"; sourceTree = "<group>"; };
+		2703FDDD1F3944173CF58883 /* Pods_RevolutionRobotics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutionRobotics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ABD618322500F7C00587F1C /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		2ADF1F71224AB3B400CC721F /* RevolutionRobotics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevolutionRobotics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADF1F74224AB3B400CC721F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ADF1F7B224AB3B600CC721F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2ADF1F7E224AB3B600CC721F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2ADF1F80224AB3B600CC721F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		501042543EFB612DD78FF858 /* Pods_RevolutionRobotics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutionRobotics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		687D7B888E6BAEB992D9A11A /* Pods-RevolutionRobotics.release prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.release prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.release prod.xcconfig"; sourceTree = "<group>"; };
-		DD78C2F8F4A1C45510B4DF54 /* Pods-RevolutionRobotics.release dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.release dev.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.release dev.xcconfig"; sourceTree = "<group>"; };
-		F418FC44B3FF3BE94E1D5FA8 /* Pods-RevolutionRobotics.debug dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug dev.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug dev.xcconfig"; sourceTree = "<group>"; };
-		FAE2DD8A53B53B914D42BCCB /* Pods-RevolutionRobotics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.release.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.release.xcconfig"; sourceTree = "<group>"; };
-		FC59B881F8590B0245E60014 /* Pods-RevolutionRobotics.debug prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug prod.xcconfig"; sourceTree = "<group>"; };
+		3222BBCEACAD7CD926CA491F /* Pods-RevolutionRobotics.debug prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug prod.xcconfig"; sourceTree = "<group>"; };
+		885A268C4635C8205C22591E /* Pods-RevolutionRobotics.release dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.release dev.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.release dev.xcconfig"; sourceTree = "<group>"; };
+		A1B6FE6D4EED82B8B42949D3 /* Pods-RevolutionRobotics.release prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.release prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.release prod.xcconfig"; sourceTree = "<group>"; };
+		AD7B4F2CA1426678DEA6006D /* Pods-RevolutionRobotics.debug dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug dev.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug dev.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F0414BC64A018F897BBD651 /* Pods_RevolutionRobotics.framework in Frameworks */,
+				3EDBEDA7C8D9D5683FEC00E3 /* Pods_RevolutionRobotics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +135,7 @@
 				2ADF1F73224AB3B400CC721F /* RevolutionRobotics */,
 				2ADF1F72224AB3B400CC721F /* Products */,
 				81A36322A0A179BE2DDBC53B /* Pods */,
-				A018A1E8660AAFE81CCF398D /* Frameworks */,
+				34CA9ADCE5F78D42662B0BB5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,25 +161,23 @@
 			path = RevolutionRobotics;
 			sourceTree = "<group>";
 		};
+		34CA9ADCE5F78D42662B0BB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2703FDDD1F3944173CF58883 /* Pods_RevolutionRobotics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		81A36322A0A179BE2DDBC53B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				28DC1BF7DA2AC02961B896D7 /* Pods-RevolutionRobotics.debug.xcconfig */,
-				FAE2DD8A53B53B914D42BCCB /* Pods-RevolutionRobotics.release.xcconfig */,
-				FC59B881F8590B0245E60014 /* Pods-RevolutionRobotics.debug prod.xcconfig */,
-				F418FC44B3FF3BE94E1D5FA8 /* Pods-RevolutionRobotics.debug dev.xcconfig */,
-				687D7B888E6BAEB992D9A11A /* Pods-RevolutionRobotics.release prod.xcconfig */,
-				DD78C2F8F4A1C45510B4DF54 /* Pods-RevolutionRobotics.release dev.xcconfig */,
+				3222BBCEACAD7CD926CA491F /* Pods-RevolutionRobotics.debug prod.xcconfig */,
+				AD7B4F2CA1426678DEA6006D /* Pods-RevolutionRobotics.debug dev.xcconfig */,
+				A1B6FE6D4EED82B8B42949D3 /* Pods-RevolutionRobotics.release prod.xcconfig */,
+				885A268C4635C8205C22591E /* Pods-RevolutionRobotics.release dev.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		A018A1E8660AAFE81CCF398D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				501042543EFB612DD78FF858 /* Pods_RevolutionRobotics.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,13 +187,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2ADF1F83224AB3B600CC721F /* Build configuration list for PBXNativeTarget "RevolutionRobotics" */;
 			buildPhases = (
-				BD8DBBBDE379D5FA29142F20 /* [CP] Check Pods Manifest.lock */,
+				D969390872A2BADDEC0A65DC /* [CP] Check Pods Manifest.lock */,
 				2ABD61812250052E00587F1C /* ShellScript */,
 				2ADF1F6D224AB3B400CC721F /* Sources */,
 				2ADF1F6E224AB3B400CC721F /* Frameworks */,
 				2ADF1F6F224AB3B400CC721F /* Resources */,
 				2ABD618222500F2F00587F1C /* Fabric */,
-				BEC4650931DB65A5AE8DC0C6 /* [CP] Embed Pods Frameworks */,
+				BDA5FAD6FA3D495C4FCF1056 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -291,29 +287,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 67f938d8e574a4ead3786995193bd4fec3d43c01 bd9ebad83e0940c8d27774be4c51e149e32afd3dde6406b186aa6968b18e38c0\n";
 		};
-		BD8DBBBDE379D5FA29142F20 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RevolutionRobotics-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BEC4650931DB65A5AE8DC0C6 /* [CP] Embed Pods Frameworks */ = {
+		BDA5FAD6FA3D495C4FCF1056 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -335,6 +309,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D969390872A2BADDEC0A65DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RevolutionRobotics-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -434,18 +430,22 @@
 		};
 		2ABD61862250AB1300587F1C /* Debug Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F418FC44B3FF3BE94E1D5FA8 /* Pods-RevolutionRobotics.debug dev.xcconfig */;
+			baseConfigurationReference = AD7B4F2CA1426678DEA6006D /* Pods-RevolutionRobotics.debug dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = TP6VZ3G227;
 				DisplayNamePrefix = "Dev ";
 				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.dev.development;
+				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.dev.development.sc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development org.revolutionrobotics.RevolutionRobotics.dev.development.sc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -508,18 +508,21 @@
 		};
 		2ABD61882250AB2800587F1C /* Release Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD78C2F8F4A1C45510B4DF54 /* Pods-RevolutionRobotics.release dev.xcconfig */;
+			baseConfigurationReference = 885A268C4635C8205C22591E /* Pods-RevolutionRobotics.release dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = TP6VZ3G227;
 				DisplayNamePrefix = "Dev ";
 				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.dev.sc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Supercharge Wildcard";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -643,18 +646,22 @@
 		};
 		2ADF1F84224AB3B600CC721F /* Debug Prod */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC59B881F8590B0245E60014 /* Pods-RevolutionRobotics.debug prod.xcconfig */;
+			baseConfigurationReference = 3222BBCEACAD7CD926CA491F /* Pods-RevolutionRobotics.debug prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = TP6VZ3G227;
 				DisplayNamePrefix = "";
 				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.development;
+				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.development.sc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development org.revolutionrobotics.RevolutionRobotics.development.sc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -662,18 +669,21 @@
 		};
 		2ADF1F85224AB3B600CC721F /* Release Prod */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 687D7B888E6BAEB992D9A11A /* Pods-RevolutionRobotics.release prod.xcconfig */;
+			baseConfigurationReference = A1B6FE6D4EED82B8B42949D3 /* Pods-RevolutionRobotics.release prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = TP6VZ3G227;
 				DisplayNamePrefix = "";
 				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics;
+				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.sc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Supercharge Wildcard";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
