@@ -11,4 +11,7 @@ target 'RevolutionRobotics' do
   pod 'Fabric', '~> 1.9.0'
   pod 'Crashlytics', '~> 3.12.0'
   pod 'RevolutionRoboticsBlockly', git: 'git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git', branch: 'fix-pod'
+
+  # UI
+  pod 'Kingfisher', '~> 5.3.1'
 end
