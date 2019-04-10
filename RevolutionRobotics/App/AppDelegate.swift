@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupWindowAndRootViewController()
         dependencies.setup()
+        FirebaseController.shared.setup()
         return true
     }
 }
