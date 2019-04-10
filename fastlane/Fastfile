@@ -1,0 +1,74 @@
+default_platform(:ios)
+
+# Constants
+KEYCHAIN_NAME = ENV["BUILD_TAG"] + "-keychain"
+
+platform :ios do
+  ####################################################
+  # =>          Runs before every lane ⚡️         <= #
+  ####################################################
+  desc 'Run this for every submitted merge request'
+  before_all do |lane, options|
+
+  	create_keychain(
+  		name: KEYCHAIN_NAME,
+  		password: ENV["MATCH_PASSWORD"],
+  		unlock: true,
+  		timeout: 3600,
+  		default_keychain: false
+  		)
+
+  	unlock_keychain(
+  		path: KEYCHAIN_NAME,
+  		password: ENV["MATCH_PASSWORD"]
+  		)
+
+  	xcode_select "/Applications/Xcode10.2.app"
+  	clear_derived_data()
+  	cocoapods(
+  		use_bundle_exec: true,
+  		try_repo_update_on_error: true,
+  		)
+  end
+
+  ####################################################
+  # =>            Merge request lane ↩️           <= #
+  ####################################################
+  desc 'Run this for every submitted merge request'
+  lane :mr do |options|
+  	match(type: "development",
+  		readonly: true,
+  		keychain_name: KEYCHAIN_NAME,
+  		keychain_password: ENV["MATCH_PASSWORD"]
+  		)
+
+
+  	xcodebuild(
+  		workspace: "RevolutionRobotics.xcworkspace",
+  		scheme: "DEV - RevolutionRobotics",
+  		configuration: "Debug Dev",
+  		clean: options[:clean],
+  		build: true
+  		)
+  end
+
+  ####################################################
+  # =>                After all ✅               <= #
+  ####################################################
+  desc 'Runs after all'
+  after_all do |lane|
+    delete_keychain(
+      name: KEYCHAIN_NAME
+    ) if File.exist? File.expand_path("~/Library/Keychains/#{KEYCHAIN_NAME}-db")
+  end
+
+  ####################################################
+  # =>                 On error ❌                <= #
+  ####################################################
+  desc 'Runs after error'
+  error do |lane, exception|
+    delete_keychain(
+      name: KEYCHAIN_NAME
+    ) if File.exist? File.expand_path("~/Library/Keychains/#{KEYCHAIN_NAME}-db")
+  end
+end

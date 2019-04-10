@@ -1,0 +1,14 @@
+git_url("git@gitlab.supercharge.io:revolutionrobotics/mobile-ios-certificates.git")
+storage_mode("git")
+readonly(true)
+clone_branch_directly(true)
+app_identifier([
+  'org.revolutionrobotics.RevolutionRobotics.dev.development.sc',
+  'org.revolutionrobotics.RevolutionRobotics.development.sc',
+  'org.revolutionrobotics.RevolutionRobotics.dev.sc',
+  'org.revolutionrobotics.RevolutionRobotics.sc'
+])
+
+for_lane "mr" do
+  team_id "TP6VZ3G227"
+end
