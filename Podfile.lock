@@ -3,6 +3,11 @@ PODS:
     - Fabric (~> 1.9.0)
   - Fabric (1.9.0)
   - Kingfisher (5.3.1)
+  - Realm (3.14.1):
+    - Realm/Headers (= 3.14.1)
+  - Realm/Headers (3.14.1)
+  - RealmSwift (3.14.1):
+    - Realm (= 3.14.1)
   - RevolutionRoboticsBlockly (0.1.2)
   - SwiftLint (0.31.0)
 
@@ -10,6 +15,7 @@ DEPENDENCIES:
   - Crashlytics (~> 3.12.0)
   - Fabric (~> 1.9.0)
   - Kingfisher (~> 5.3.1)
+  - RealmSwift (~> 3.14.1)
   - "RevolutionRoboticsBlockly (from `git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git`, branch `development`)"
   - SwiftLint (~> 0.31.0)
 
@@ -18,6 +24,8 @@ SPEC REPOS:
     - Crashlytics
     - Fabric
     - Kingfisher
+    - Realm
+    - RealmSwift
     - SwiftLint
 
 EXTERNAL SOURCES:
@@ -36,9 +44,11 @@ SPEC CHECKSUMS:
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
+  Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
+  RealmSwift: a82eab9b04c3e1616082c7e17aa300740847769c
   RevolutionRoboticsBlockly: 04b73d5a4b2ec1d37f292ad8dca6c0938ebde131
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: f3a5c467498f720d4f499dc593fd4715576a10f2
+PODFILE CHECKSUM: 2e190cccb2c0d4fbe42290dd4bf74e1ef2e613e5
 
 COCOAPODS: 1.6.1

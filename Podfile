@@ -10,8 +10,13 @@ target 'RevolutionRobotics' do
   # Release management
   pod 'Fabric', '~> 1.9.0'
   pod 'Crashlytics', '~> 3.12.0'
-  pod 'RevolutionRoboticsBlockly', git: 'git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git', branch: 'development', :submodules => true
 
   # UI
   pod 'Kingfisher', '~> 5.3.1'
+
+  # Stprage
+  pod 'RealmSwift', '~> 3.14.1'
+
+  # RevolutionRobotics
+  pod 'RevolutionRoboticsBlockly', git: 'git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git', branch: 'development', :submodules => true
 end
