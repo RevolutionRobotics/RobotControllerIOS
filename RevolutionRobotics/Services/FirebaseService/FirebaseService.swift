@@ -1,5 +1,5 @@
 //
-//  FirebaseController.swift
+//  FirebaseService.swift
 //  RevolutionRobotics
 //
 //  Created by Robert Klacso on 2019. 04. 15..
@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-final class FirebaseController {
+final class FirebaseService {
     // MARK: - Constants
     private enum Constants {
         static let robot = "robot"
@@ -19,15 +19,12 @@ final class FirebaseController {
     }
 
     // MARK: - Properties
-    var databaseRef: DatabaseReference!
-    var storageRef: StorageReference!
+    private var databaseRef: DatabaseReference!
+    private var storageRef: StorageReference!
 
-    static let shared = FirebaseController()
-
-    // MARK: - Public functions
-    public func setup() {
-        setupDatabase()
-        setupStorage()
+    // MARK: - Initialization
+    init() {
+        setup()
     }
 
     public func getData<T: FirebaseData>(for path: String, type: T.Type) {
@@ -53,20 +50,26 @@ final class FirebaseController {
         }
     }
 
-    // MARK: - Private functions
-    private func setupDatabase() {
-        databaseRef = Database.database().reference()
-    }
-
-    private func setupStorage() {
-        storageRef = Storage.storage().reference()
-    }
-
     // Testing purposes
     private func getData() {
         getData(for: Constants.robot, type: Robot.self)
         getData(for: Constants.configuration, type: Configuration.self)
         getData(for: Constants.buildStep, type: BuildStep.self)
         getData(for: Constants.testCode, type: TestCode.self)
+    }
+}
+
+// MARK: - Setups
+extension FirebaseService {
+    private func setup() {
+        databaseRef = Database.database().reference()
+        storageRef = Storage.storage().reference()
+    }
+}
+
+// MARK: - FirebaseServiceInterface
+extension FirebaseService: FirebaseServiceInterface {
+    func getRobots() -> [Robot] {
+        return []
     }
 }
