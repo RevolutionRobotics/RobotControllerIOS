@@ -14,10 +14,14 @@ target 'RevolutionRobotics' do
   # UI
   pod 'Kingfisher', '~> 5.3.1'
 
-  # Stprage
+  # Storage
   pod 'RealmSwift', '~> 3.14.1'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 
   # RevolutionRobotics
   pod 'RevolutionRoboticsBlockly', git: 'git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git', branch: 'development', :submodules => true
   pod 'RevolutionRoboticsBluetooth', git: 'git@gitlab.supercharge.io:revolutionrobotics/bluetooth-ios.git', branch: 'development'
+
 end

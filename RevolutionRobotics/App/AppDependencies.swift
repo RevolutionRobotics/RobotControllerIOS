@@ -9,15 +9,21 @@
 import Foundation
 import Fabric
 import Crashlytics
+import Firebase
 
 struct AppDependencies {
     func setup() {
         setupFabric()
+        setupFirebase()
     }
 }
 
 extension AppDependencies {
     private func setupFabric() {
         Fabric.with([Crashlytics.self])
+    }
+
+    private func setupFirebase() {
+        FirebaseApp.configure()
     }
 }
