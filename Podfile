@@ -25,3 +25,7 @@ target 'RevolutionRobotics' do
   pod 'RevolutionRoboticsBluetooth', git: 'git@gitlab.supercharge.io:revolutionrobotics/bluetooth-ios.git', branch: 'development'
 
 end
+
+post_install do |installer|
+    plugin 'cocoapods-acknowledgements', :settings_bundle => true
+end

@@ -8,18 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097F8432225BA37800DD32BF /* Jura-Bold.ttf */; };
-		09ED1B9722523EBA009CF262 /* UIViewController+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B9622523EBA009CF262 /* UIViewController+NibLoadable.swift */; };
 		09ED1B9A225241C9009CF262 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B99225241C9009CF262 /* NibLoadable.swift */; };
 		09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B9B2252424F009CF262 /* Reusable.swift */; };
 		09ED1BA72252437B009CF262 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1BA62252437B009CF262 /* ViewController.swift */; };
 		09ED1BA9225247B1009CF262 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1BA8225247B1009CF262 /* MenuViewController.swift */; };
 		09ED1BAB225247E2009CF262 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09ED1BAA225247E2009CF262 /* MenuViewController.xib */; };
 		09ED1BAD22524B09009CF262 /* Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1BAC22524B09009CF262 /* Callback.swift */; };
+		196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43BC08A3B14DC91EF1DFAB7E /* Pods-RevolutionRobotics-metadata.plist */; };
+		2A77320322648FB000D7F38D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A77320222648FB000D7F38D /* Settings.bundle */; };
 		2A91937A225F7C6F00E927FD /* BluetoothReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A919379225F7C6F00E927FD /* BluetoothReachability.swift */; };
 		2ABD618422500F7C00587F1C /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABD618322500F7C00587F1C /* AppDependencies.swift */; };
 		2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF1F74224AB3B400CC721F /* AppDelegate.swift */; };
 		2ADF1F7C224AB3B600CC721F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7B224AB3B600CC721F /* Assets.xcassets */; };
 		2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7D224AB3B600CC721F /* LaunchScreen.storyboard */; };
+		2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */; };
 		3EDBEDA7C8D9D5683FEC00E3 /* Pods_RevolutionRobotics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2703FDDD1F3944173CF58883 /* Pods_RevolutionRobotics.framework */; };
 		D008E0392260979400089DC7 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E0382260979300089DC7 /* FirebaseData.swift */; };
 		D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E03B2260AAF500089DC7 /* UIViewController+NibLoadable.swift */; };
@@ -46,7 +48,6 @@
 
 /* Begin PBXFileReference section */
 		097F8432225BA37800DD32BF /* Jura-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Bold.ttf"; sourceTree = "<group>"; };
-		09ED1B9622523EBA009CF262 /* UIViewController+NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NibLoadable.swift"; sourceTree = "<group>"; };
 		09ED1B99225241C9009CF262 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		09ED1B9B2252424F009CF262 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		09ED1BA62252437B009CF262 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +55,7 @@
 		09ED1BAA225247E2009CF262 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		09ED1BAC22524B09009CF262 /* Callback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
 		2703FDDD1F3944173CF58883 /* Pods_RevolutionRobotics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutionRobotics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A77320222648FB000D7F38D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2A919379225F7C6F00E927FD /* BluetoothReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothReachability.swift; sourceTree = "<group>"; };
 		2ABD618322500F7C00587F1C /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		2ADF1F71224AB3B400CC721F /* RevolutionRobotics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevolutionRobotics.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,7 +63,9 @@
 		2ADF1F7B224AB3B600CC721F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2ADF1F7E224AB3B600CC721F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2ADF1F80224AB3B600CC721F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Pods-RevolutionRobotics-settings-metadata.plist"; path = "../RevolutionRobotics/Resources/Settings/Settings.bundle/Pods-RevolutionRobotics-settings-metadata.plist"; sourceTree = "<group>"; };
 		3222BBCEACAD7CD926CA491F /* Pods-RevolutionRobotics.debug prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug prod.xcconfig"; sourceTree = "<group>"; };
+		43BC08A3B14DC91EF1DFAB7E /* Pods-RevolutionRobotics-metadata.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RevolutionRobotics-metadata.plist"; sourceTree = "<group>"; };
 		885A268C4635C8205C22591E /* Pods-RevolutionRobotics.release dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.release dev.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.release dev.xcconfig"; sourceTree = "<group>"; };
 		A1B6FE6D4EED82B8B42949D3 /* Pods-RevolutionRobotics.release prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.release prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.release prod.xcconfig"; sourceTree = "<group>"; };
 		AD7B4F2CA1426678DEA6006D /* Pods-RevolutionRobotics.debug dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug dev.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug dev.xcconfig"; sourceTree = "<group>"; };
@@ -120,9 +124,10 @@
 		09ED1B9022523C22009CF262 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				097F8431225BA33800DD32BF /* Fonts */,
 				2ADF1F80224AB3B600CC721F /* Info.plist */,
 				09ED1BA4225242E8009CF262 /* Assets */,
+				097F8431225BA33800DD32BF /* Fonts */,
+				2A77320122648F9A00D7F38D /* Settings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -174,6 +179,14 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		2A77320122648F9A00D7F38D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2A77320222648FB000D7F38D /* Settings.bundle */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		2ADF1F68224AB3B400CC721F = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +234,8 @@
 				AD7B4F2CA1426678DEA6006D /* Pods-RevolutionRobotics.debug dev.xcconfig */,
 				A1B6FE6D4EED82B8B42949D3 /* Pods-RevolutionRobotics.release prod.xcconfig */,
 				885A268C4635C8205C22591E /* Pods-RevolutionRobotics.release dev.xcconfig */,
+				43BC08A3B14DC91EF1DFAB7E /* Pods-RevolutionRobotics-metadata.plist */,
+				2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -349,6 +364,9 @@
 				097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */,
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
 				2ADF1F7C224AB3B600CC721F /* Assets.xcassets in Resources */,
+				196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */,
+				2A77320322648FB000D7F38D /* Settings.bundle in Resources */,
+				2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +499,6 @@
 				D05C64D0225F57BC00B7BF4F /* Robot.swift in Sources */,
 				09ED1BA72252437B009CF262 /* ViewController.swift in Sources */,
 				D05C64DB225F590100B7BF4F /* Port.swift in Sources */,
-				D08C1CE922647E700052EE1F /* UIView+Reusable.swift in Sources */,
 				09ED1B9A225241C9009CF262 /* NibLoadable.swift in Sources */,
 				D008E0392260979400089DC7 /* FirebaseData.swift in Sources */,
 				2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */,
