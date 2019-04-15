@@ -11,10 +11,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CarouselViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WhoToBuildViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="Khj-tZ-cCT" id="PCS-GE-39m"/>
                 <outlet property="leftButton" destination="mzB-FK-UOJ" id="CKf-SO-KL2"/>
+                <outlet property="navigationBar" destination="cDH-Vx-iGI" id="A1v-5T-2tf"/>
                 <outlet property="rigthButton" destination="9UF-wg-exO" id="ar2-d3-fc2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,21 +25,32 @@
             <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Gl-0y-FP2">
-                    <rect key="frame" x="0.0" y="0.0" width="667" height="44"/>
-                    <color key="backgroundColor" name="DarkGrey"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDH-Vx-iGI" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="667" height="71"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONa-fq-Gt8" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="487" y="8" width="156" height="29"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="156" id="fR2-qj-AJS"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="build your own" image="AddIcon">
+                                <color key="titleColor" name="White"/>
+                            </state>
+                            <connections>
+                                <action selector="builYourOwnButtonTapped:" destination="-1" eventType="touchUpInside" id="kww-mp-yYy"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="5bL-Wa-7L8"/>
+                        <constraint firstAttribute="trailing" secondItem="ONa-fq-Gt8" secondAttribute="trailing" constant="24" id="Bld-22-3tZ"/>
+                        <constraint firstAttribute="height" constant="71" id="KT3-D7-MaS"/>
+                        <constraint firstItem="ONa-fq-Gt8" firstAttribute="top" secondItem="cDH-Vx-iGI" secondAttribute="top" constant="8" id="yMS-cn-WMC"/>
                     </constraints>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopHeader" translatesAutoresizingMaskIntoConstraints="NO" id="nB7-3S-pYN">
-                    <rect key="frame" x="0.0" y="44" width="667" height="33"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="33" id="35c-5u-LP4"/>
-                    </constraints>
-                </imageView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Khj-tZ-cCT">
-                    <rect key="frame" x="0.0" y="77" width="667" height="268"/>
+                    <rect key="frame" x="0.0" y="71" width="667" height="274"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xl1-Xa-YzG">
                         <size key="itemSize" width="300" height="300"/>
@@ -48,14 +60,14 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9UF-wg-exO">
-                    <rect key="frame" x="642" y="162.5" width="25" height="50"/>
+                    <rect key="frame" x="651" y="176.5" width="16" height="22"/>
                     <state key="normal" image="RightButton"/>
                     <connections>
                         <action selector="rightButtonTapped:" destination="-1" eventType="touchUpInside" id="5OS-1K-FzR"/>
                     </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzB-FK-UOJ">
-                    <rect key="frame" x="0.0" y="162.5" width="25" height="50"/>
+                    <rect key="frame" x="0.0" y="176.5" width="16" height="22"/>
                     <state key="normal" image="LeftButton"/>
                     <connections>
                         <action selector="leftButtonTapped:" destination="-1" eventType="touchUpInside" id="gdB-V8-RrC"/>
@@ -65,18 +77,15 @@
             <color key="backgroundColor" name="Black"/>
             <constraints>
                 <constraint firstItem="mzB-FK-UOJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="00O-Ht-8C0"/>
-                <constraint firstAttribute="trailing" secondItem="nB7-3S-pYN" secondAttribute="trailing" id="0m6-qq-7Do"/>
-                <constraint firstAttribute="trailing" secondItem="5Gl-0y-FP2" secondAttribute="trailing" id="8xx-vs-xXZ"/>
-                <constraint firstItem="5Gl-0y-FP2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EJw-xr-VHG"/>
-                <constraint firstItem="Khj-tZ-cCT" firstAttribute="top" secondItem="nB7-3S-pYN" secondAttribute="bottom" id="IFB-9u-LXa"/>
-                <constraint firstItem="nB7-3S-pYN" firstAttribute="top" secondItem="5Gl-0y-FP2" secondAttribute="bottom" id="PcC-Dd-bWs"/>
+                <constraint firstItem="cDH-Vx-iGI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ArX-qm-aUN"/>
+                <constraint firstItem="Khj-tZ-cCT" firstAttribute="top" secondItem="cDH-Vx-iGI" secondAttribute="bottom" id="Gvh-Gx-hIy"/>
+                <constraint firstAttribute="trailing" secondItem="cDH-Vx-iGI" secondAttribute="trailing" id="Jop-Lg-qis"/>
                 <constraint firstAttribute="trailing" secondItem="Khj-tZ-cCT" secondAttribute="trailing" id="R8r-Di-D5q"/>
                 <constraint firstItem="9UF-wg-exO" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="TGg-xw-0KX"/>
                 <constraint firstAttribute="bottom" secondItem="Khj-tZ-cCT" secondAttribute="bottom" constant="30" id="WvB-tc-yo1"/>
+                <constraint firstItem="cDH-Vx-iGI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="d3x-YE-b1L"/>
                 <constraint firstItem="Khj-tZ-cCT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lxx-hq-uTq"/>
-                <constraint firstItem="nB7-3S-pYN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rde-pl-3kx"/>
                 <constraint firstItem="mzB-FK-UOJ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="yVc-Ja-6vh"/>
-                <constraint firstItem="5Gl-0y-FP2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ym4-WR-fGr"/>
                 <constraint firstAttribute="trailing" secondItem="9UF-wg-exO" secondAttribute="trailing" id="z2k-59-2Oy"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -84,14 +93,14 @@
         </view>
     </objects>
     <resources>
+        <image name="AddIcon" width="30" height="29"/>
         <image name="LeftButton" width="25" height="50"/>
         <image name="RightButton" width="25" height="50"/>
-        <image name="TopHeader" width="361" height="33"/>
         <namedColor name="Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="DarkGrey">
-            <color red="0.15700000524520874" green="0.15700000524520874" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

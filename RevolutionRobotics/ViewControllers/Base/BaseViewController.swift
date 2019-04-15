@@ -16,12 +16,17 @@ class BaseViewController: UIViewController, NibLoadable {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-}
 
-extension BaseViewController {
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+}
+
+// MARK: - RRNavigationBarDelegate
+extension BaseViewController: RRNavigationBarDelegate {
+    func backButtonDidTap() {
+        navigationController?.popViewController(animated: true)
     }
 }

@@ -9,4 +9,12 @@
 import UIKit
 
 final class SettingsViewController: BaseViewController {
+    // MARK: - Outlet
+    @IBOutlet private weak var navigationBar: RRNavigationBar!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        navigationBar.setup(title: "Settings", delegate: self)
+    }
 }

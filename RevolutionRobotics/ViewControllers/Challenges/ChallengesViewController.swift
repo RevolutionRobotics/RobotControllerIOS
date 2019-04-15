@@ -9,4 +9,12 @@
 import UIKit
 
 final class ChallengesViewController: BaseViewController {
+    // MARK: - Outlet
+    @IBOutlet private weak var navigationBar: RRNavigationBar!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        navigationBar.setup(title: "Challenges", delegate: self)
+    }
 }
