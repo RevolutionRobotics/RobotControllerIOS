@@ -78,6 +78,7 @@ PODS:
   - RevolutionRoboticsBlockly (0.1.2)
   - RevolutionRoboticsBluetooth (0.1.0)
   - SwiftLint (0.31.0)
+  - Swinject (2.6.0)
 
 DEPENDENCIES:
   - Crashlytics (~> 3.12.0)
@@ -90,6 +91,7 @@ DEPENDENCIES:
   - "RevolutionRoboticsBlockly (from `git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git`, branch `development`)"
   - "RevolutionRoboticsBluetooth (from `git@gitlab.supercharge.io:revolutionrobotics/bluetooth-ios.git`, branch `development`)"
   - SwiftLint (~> 0.31.0)
+  - Swinject (~> 2.6.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -111,6 +113,7 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SwiftLint
+    - Swinject
 
 EXTERNAL SOURCES:
   RevolutionRoboticsBlockly:
@@ -151,7 +154,8 @@ SPEC CHECKSUMS:
   RevolutionRoboticsBlockly: 04b73d5a4b2ec1d37f292ad8dca6c0938ebde131
   RevolutionRoboticsBluetooth: 58f750d8765d00eb1324dfe2f642d249afe626c0
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
+  Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
 
-PODFILE CHECKSUM: a4184b0dc3be47eed704b834d820b3a330c1fa18
+PODFILE CHECKSUM: 2f7e163b2322fa429e98be523f53107a69deea3f
 
 COCOAPODS: 1.6.1

@@ -9,15 +9,14 @@
 import CoreBluetooth
 
 final class BluetoothReachability: NSObject {
-    // MARK: - Properties
     static let shared = BluetoothReachability()
 
+    // MARK: - Properties
     var isBluetoothEnabled: Bool {
         return bluetoothManager.state == .poweredOn
     }
-
+    var stateChangeHandler: ((CBManagerState) -> Void)?
     private var bluetoothManager: CBPeripheralManager!
-    private var stateChangeHandler: ((CBManagerState) -> Void)?
 
     // MARK: - Initialization
     private override init() {

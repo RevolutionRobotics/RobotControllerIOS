@@ -14,12 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     private var navigationController: UINavigationController!
     private let dependencies = AppDependencies()
+    private let assemblyRegister = AssemblyRegister()
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        setupWindowAndRootViewController()
+        assemblyRegister.registerAssemblies()
         dependencies.setup()
-        FirebaseController.shared.setup()
+        setupWindowAndRootViewController()
         return true
     }
 }
@@ -28,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     private func setupWindowAndRootViewController() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let rootViewController = MenuViewController()
+        let rootViewController = assemblyRegister.container.resolve(MenuViewController.self)!
         navigationController = UINavigationController(rootViewController: rootViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
