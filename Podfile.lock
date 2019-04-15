@@ -9,6 +9,7 @@ PODS:
   - RealmSwift (3.14.1):
     - Realm (= 3.14.1)
   - RevolutionRoboticsBlockly (0.1.2)
+  - RevolutionRoboticsBluetooth (0.1.0)
   - SwiftLint (0.31.0)
 
 DEPENDENCIES:
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - Kingfisher (~> 5.3.1)
   - RealmSwift (~> 3.14.1)
   - "RevolutionRoboticsBlockly (from `git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git`, branch `development`)"
+  - "RevolutionRoboticsBluetooth (from `git@gitlab.supercharge.io:revolutionrobotics/bluetooth-ios.git`, branch `development`)"
   - SwiftLint (~> 0.31.0)
 
 SPEC REPOS:
@@ -33,12 +35,18 @@ EXTERNAL SOURCES:
     :branch: development
     :git: "git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git"
     :submodules: true
+  RevolutionRoboticsBluetooth:
+    :branch: development
+    :git: "git@gitlab.supercharge.io:revolutionrobotics/bluetooth-ios.git"
 
 CHECKOUT OPTIONS:
   RevolutionRoboticsBlockly:
     :commit: e4ec7df6148b1c2e057e92408acdc4cd825bf30a
     :git: "git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git"
     :submodules: true
+  RevolutionRoboticsBluetooth:
+    :commit: 9b6b67e36829b425ca961a929f60f75f600c9432
+    :git: "git@gitlab.supercharge.io:revolutionrobotics/bluetooth-ios.git"
 
 SPEC CHECKSUMS:
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
@@ -47,8 +55,9 @@ SPEC CHECKSUMS:
   Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
   RealmSwift: a82eab9b04c3e1616082c7e17aa300740847769c
   RevolutionRoboticsBlockly: 04b73d5a4b2ec1d37f292ad8dca6c0938ebde131
+  RevolutionRoboticsBluetooth: 58f750d8765d00eb1324dfe2f642d249afe626c0
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: 2e190cccb2c0d4fbe42290dd4bf74e1ef2e613e5
+PODFILE CHECKSUM: 3f06b0f119fac6ddaf35bddfafec06d5dd5c1285
 
 COCOAPODS: 1.6.1
