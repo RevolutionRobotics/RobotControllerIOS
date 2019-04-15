@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097F8432225BA37800DD32BF /* Jura-Bold.ttf */; };
+		09ED1B9722523EBA009CF262 /* UIViewController+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B9622523EBA009CF262 /* UIViewController+NibLoadable.swift */; };
 		09ED1B9A225241C9009CF262 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B99225241C9009CF262 /* NibLoadable.swift */; };
 		09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B9B2252424F009CF262 /* Reusable.swift */; };
 		09ED1BA72252437B009CF262 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1BA62252437B009CF262 /* ViewController.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		097F8432225BA37800DD32BF /* Jura-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Bold.ttf"; sourceTree = "<group>"; };
+		09ED1B9622523EBA009CF262 /* UIViewController+NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NibLoadable.swift"; sourceTree = "<group>"; };
 		09ED1B99225241C9009CF262 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		09ED1B9B2252424F009CF262 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		09ED1BA62252437B009CF262 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,9 +100,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		097F8431225BA33800DD32BF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				097F8432225BA37800DD32BF /* Jura-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		09D41808225B861C000E2CE7 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				09ED1BA8225247B1009CF262 /* MenuViewController.swift */,
+				09ED1BAA225247E2009CF262 /* MenuViewController.xib */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		09ED1B9022523C22009CF262 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				097F8431225BA33800DD32BF /* Fonts */,
 				2ADF1F80224AB3B600CC721F /* Info.plist */,
 				09ED1BA4225242E8009CF262 /* Assets */,
 			);
@@ -121,9 +143,8 @@
 		09ED1BA2225242CB009CF262 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				09D41808225B861C000E2CE7 /* Menu */,
 				09ED1BA62252437B009CF262 /* ViewController.swift */,
-				09ED1BA8225247B1009CF262 /* MenuViewController.swift */,
-				09ED1BAA225247E2009CF262 /* MenuViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -325,6 +346,7 @@
 			files = (
 				09ED1BAB225247E2009CF262 /* MenuViewController.xib in Resources */,
 				D05C64E9225F683800B7BF4F /* GoogleService-Info.plist in Resources */,
+				097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */,
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
 				2ADF1F7C224AB3B600CC721F /* Assets.xcassets in Resources */,
 			);
