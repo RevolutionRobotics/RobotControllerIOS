@@ -10,14 +10,12 @@ import Swinject
 
 final class AssemblyRegister {
     // MARK: - Properties
-    var assembler: Assembler?
-    var container: Container = Container()
+    private var assembler: Assembler = Assembler(container: AppContainer.shared.container)
 }
 
 // MARK: - Public methods
 extension AssemblyRegister {
     func registerAssemblies() {
-        assembler = Assembler(container: container)
-        assembler?.apply(assemblies: [ServiceAssembly(), ScreenAssembly()])
+        assembler.apply(assemblies: [ServiceAssembly(), ScreenAssembly()])
     }
 }

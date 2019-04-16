@@ -33,7 +33,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Prd-F0-sSF" userLabel="topContainer">
                     <rect key="frame" x="0.0" y="0.0" width="736" height="41"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT3-dM-8fq" userLabel="communityButton">
+                        <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT3-dM-8fq" userLabel="communityButton">
                             <rect key="frame" x="627" y="0.0" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="Wk9-x4-E2O"/>
@@ -41,15 +41,21 @@
                             </constraints>
                             <inset key="imageEdgeInsets" minX="11" minY="11" maxX="11" maxY="11"/>
                             <state key="normal" image="CommunityIcon"/>
+                            <connections>
+                                <action selector="communityButtonTapped:" destination="-1" eventType="touchUpInside" id="5zj-ot-KDo"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Na-bl-7Us" userLabel="logoButton">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Na-bl-7Us" userLabel="settingsButton">
                             <rect key="frame" x="681" y="0.0" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="9Lb-zd-0PN"/>
                                 <constraint firstAttribute="width" constant="44" id="QeQ-z4-wsT"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="11" minY="11" maxX="11" maxY="11"/>
-                            <state key="normal" image="RevolutionRoboticsLogo"/>
+                            <state key="normal" image="SettingsIcon"/>
+                            <connections>
+                                <action selector="settingsButtonTapped:" destination="-1" eventType="touchUpInside" id="HmX-66-43V"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" name="DarkGrey"/>
@@ -88,6 +94,9 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tG-bp-Kep" userLabel="robotsButton">
                                     <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="215.33333333333334"/>
+                                    <connections>
+                                        <action selector="robotsButtonTapped:" destination="-1" eventType="touchUpInside" id="TVt-Op-Xu1"/>
+                                    </connections>
                                 </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RedBorder" translatesAutoresizingMaskIntoConstraints="NO" id="DC8-to-Bve" userLabel="robotBorderImageView">
                                     <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="215.33333333333334"/>
@@ -127,6 +136,9 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nhf-hF-ha3" userLabel="programsButton">
                                     <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="215.33333333333334"/>
+                                    <connections>
+                                        <action selector="programsButtonTapped:" destination="-1" eventType="touchUpInside" id="slO-cK-YlI"/>
+                                    </connections>
                                 </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowBorder" translatesAutoresizingMaskIntoConstraints="NO" id="8uq-Ly-nT8" userLabel="programBorderImageView">
                                     <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="215.33333333333334"/>
@@ -165,6 +177,9 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SU3-nm-HDD" userLabel="challengesButton">
                                     <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="215.33333333333334"/>
+                                    <connections>
+                                        <action selector="challengesButtonTapped:" destination="-1" eventType="touchUpInside" id="8Oq-3t-L62"/>
+                                    </connections>
                                 </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueBorder" translatesAutoresizingMaskIntoConstraints="NO" id="DfH-8t-ewJ" userLabel="challengesBorderImageView">
                                     <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="215.33333333333334"/>
@@ -255,12 +270,12 @@
         <image name="BlueBorder" width="124" height="162"/>
         <image name="BottomHeader" width="361" height="33"/>
         <image name="ChallengeModel" width="120" height="158"/>
-        <image name="CommunityIcon" width="22" height="21"/>
+        <image name="CommunityIcon" width="22" height="22"/>
         <image name="Logo" width="37" height="37"/>
         <image name="ProgramModel" width="120" height="102"/>
         <image name="RedBorder" width="124" height="162"/>
-        <image name="RevolutionRoboticsLogo" width="22" height="22"/>
         <image name="RobotModel" width="120" height="150"/>
+        <image name="SettingsIcon" width="22" height="22"/>
         <image name="TopHeader" width="361" height="33"/>
         <image name="YellowBorder" width="124" height="162"/>
         <namedColor name="Black">
