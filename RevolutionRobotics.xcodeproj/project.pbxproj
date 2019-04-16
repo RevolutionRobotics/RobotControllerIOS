@@ -33,6 +33,8 @@
 		2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF1F74224AB3B400CC721F /* AppDelegate.swift */; };
 		2ADF1F7C224AB3B600CC721F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7B224AB3B600CC721F /* Assets.xcassets */; };
 		2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7D224AB3B600CC721F /* LaunchScreen.storyboard */; };
+		2AFAA11022663006002BE0A2 /* RRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAA10F22663006002BE0A2 /* RRButton.swift */; };
+		2AFAA11222663111002BE0A2 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAA11122663111002BE0A2 /* UIImage+Color.swift */; };
 		2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */; };
 		3EDBEDA7C8D9D5683FEC00E3 /* Pods_RevolutionRobotics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2703FDDD1F3944173CF58883 /* Pods_RevolutionRobotics.framework */; };
 		D008E0392260979400089DC7 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E0382260979300089DC7 /* FirebaseData.swift */; };
@@ -88,6 +90,8 @@
 		2ADF1F7B224AB3B600CC721F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2ADF1F7E224AB3B600CC721F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2ADF1F80224AB3B600CC721F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AFAA10F22663006002BE0A2 /* RRButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRButton.swift; sourceTree = "<group>"; };
+		2AFAA11122663111002BE0A2 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Pods-RevolutionRobotics-settings-metadata.plist"; path = "../RevolutionRobotics/Resources/Settings/Settings.bundle/Pods-RevolutionRobotics-settings-metadata.plist"; sourceTree = "<group>"; };
 		3222BBCEACAD7CD926CA491F /* Pods-RevolutionRobotics.debug prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug prod.xcconfig"; sourceTree = "<group>"; };
 		43BC08A3B14DC91EF1DFAB7E /* Pods-RevolutionRobotics-metadata.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RevolutionRobotics-metadata.plist"; sourceTree = "<group>"; };
@@ -313,11 +317,20 @@
 				09ED1BA52252434E009CF262 /* App */,
 				D05C64C6225F56C400B7BF4F /* Model */,
 				09ED1BA2225242CB009CF262 /* ViewControllers */,
+				2AFAA10E22662FF6002BE0A2 /* View */,
 				2A77320B2264A73A00D7F38D /* Services */,
 				09ED1B98225241A7009CF262 /* Utils */,
 				09ED1B9022523C22009CF262 /* Resources */,
 			);
 			path = RevolutionRobotics;
+			sourceTree = "<group>";
+		};
+		2AFAA10E22662FF6002BE0A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2AFAA10F22663006002BE0A2 /* RRButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		34CA9ADCE5F78D42662B0BB5 /* Frameworks */ = {
@@ -349,6 +362,7 @@
 				D008E03C2260AAF500089DC7 /* UIView+NibLoadable.swift */,
 				D008E03D2260AAF500089DC7 /* UIView+Reusable.swift */,
 				2A9F52172265EC0500F9F651 /* Container+Unwrapped.swift */,
+				2AFAA11122663111002BE0A2 /* UIImage+Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -593,11 +607,13 @@
 				D05C64CA225F572F00B7BF4F /* MilestoneType.swift in Sources */,
 				D05C64D6225F587700B7BF4F /* UserRobot.swift in Sources */,
 				D05C64C8225F570000B7BF4F /* TestCode.swift in Sources */,
+				2AFAA11022663006002BE0A2 /* RRButton.swift in Sources */,
 				D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */,
 				09ED1BA9225247B1009CF262 /* MenuViewController.swift in Sources */,
 				2A91937A225F7C6F00E927FD /* BluetoothReachability.swift in Sources */,
 				D05C64CC225F575A00B7BF4F /* Milestone.swift in Sources */,
 				09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */,
+				2AFAA11222663111002BE0A2 /* UIImage+Color.swift in Sources */,
 				2A9F520D2265E95600F9F651 /* ChallengesViewController.swift in Sources */,
 				2A9F52112265E96B00F9F651 /* ProgramsViewController.swift in Sources */,
 				D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */,
