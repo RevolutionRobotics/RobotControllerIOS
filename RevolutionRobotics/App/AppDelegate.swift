@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     private func setupWindowAndRootViewController() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let rootViewController = assemblyRegister.container.resolve(MenuViewController.self)!
+        let rootViewController = AppContainer.shared.container.unwrappedResolve(MenuViewController.self)
         navigationController = UINavigationController(rootViewController: rootViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
