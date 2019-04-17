@@ -56,6 +56,8 @@ extension MenuViewController {
     }
 
     @IBAction private func robotsButtonTapped(_ sender: UIButton) {
+        let carouselViewController = AppContainer.shared.container.unwrappedResolve(CarouselViewController.self)
+        navigationController?.pushViewController(carouselViewController, animated: true)
     }
 
     @IBAction private func programsButtonTapped(_ sender: UIButton) {
