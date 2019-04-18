@@ -9,4 +9,12 @@
 import UIKit
 
 final class ProgramsViewController: BaseViewController {
+    // MARK: - Outlet
+    @IBOutlet private weak var navigationBar: RRNavigationBar!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        navigationBar.setup(title: "Programs", delegate: self)
+    }
 }

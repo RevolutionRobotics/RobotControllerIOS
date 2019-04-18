@@ -1,5 +1,5 @@
 //
-//  CarouselViewController.swift
+//  WhoToBuildViewController.swift
 //  RevolutionRobotics
 //
 //  Created by Robert Klacso on 2019. 04. 16..
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class CarouselViewController: BaseViewController {
+final class WhoToBuildViewController: BaseViewController {
     // MARK: - Constants
     enum Constants {
         static let cellRatio: CGFloat = 213 / 224
@@ -16,10 +16,10 @@ final class CarouselViewController: BaseViewController {
         static let cellMaxSize: CGFloat = 0.74
         static let minimumLineSpacing: CGFloat = 40
         static let duration: Double = 0.3
-        static let cellIdentifier: String = "CarouselCollectionViewCell"
     }
 
     // MARK: - Outlets
+    @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var rigthButton: UIButton!
     @IBOutlet private weak var leftButton: UIButton!
@@ -30,7 +30,7 @@ final class CarouselViewController: BaseViewController {
 }
 
 // MARK: - Private functions
-extension CarouselViewController {
+extension WhoToBuildViewController {
     private func resizeVisibleCells() {
         highestSine = 0
         for cell in collectionView.visibleCells {
@@ -76,7 +76,7 @@ extension CarouselViewController {
 }
 
 // MARK: - Event handlers
-extension CarouselViewController {
+extension WhoToBuildViewController {
     @IBAction private func rightButtonTapped(_ sender: Any) {
         if leftButton.isHidden {
             leftButton.isHidden = false
@@ -106,16 +106,22 @@ extension CarouselViewController {
         }
         centerCell()
     }
+
+    @IBAction private func builYourOwnButtonTapped(_ sender: Any) {
+        let buildRobotViewController = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
+        navigationController?.pushViewController(buildRobotViewController, animated: true)
+    }
 }
 
 // MARK: - View lifecycle
-extension CarouselViewController {
+extension WhoToBuildViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CarouselCollectionViewCell.self)
+        navigationBar.setup(title: "Who to build?", delegate: self)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -150,24 +156,20 @@ extension CarouselViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension CarouselViewController: UICollectionViewDataSource {
+extension WhoToBuildViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier,
-                                                         for: indexPath) as? CarouselCollectionViewCell {
-            return cell
-        }
-
-        return UICollectionViewCell()
+        let cell: CarouselCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        return cell
     }
 }
 
 // MARK: - UICollectionViewDelegate
-extension CarouselViewController: UICollectionViewDelegate {
+extension WhoToBuildViewController: UICollectionViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         centerCell()
     }

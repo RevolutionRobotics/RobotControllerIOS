@@ -6,5 +6,6 @@
 //  Copyright © 2019. Revolution Robotics. All rights reserved.
 //
 
-typealias Callback<T> = ((T) -> Void)
-typealias OptionalCallback<T> = ((T?) -> Void)
+typealias Callback = () -> Void
+typealias CallbackType<T> = (T) -> Void
+typealias CallbackOptionalType<T> = (T?) -> Void

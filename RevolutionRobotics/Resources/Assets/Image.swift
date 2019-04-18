@@ -2,7 +2,7 @@
 //  Image.swift
 //  RevolutionRobotics
 //
-//  Created by Robert Klacso on 2019. 04. 17..
+//  Created by Mate Papp on 2019. 04. 15..
 //  Copyright © 2019. Revolution Robotics. All rights reserved.
 //
 

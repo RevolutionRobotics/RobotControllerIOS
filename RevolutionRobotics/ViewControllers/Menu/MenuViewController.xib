@@ -30,23 +30,11 @@
             <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Prd-F0-sSF" userLabel="topContainer">
-                    <rect key="frame" x="0.0" y="0.0" width="736" height="41"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCU-Rj-rLS" userLabel="navigationBar" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="736" height="71"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT3-dM-8fq" userLabel="communityButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="627" y="0.0" width="44" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="Wk9-x4-E2O"/>
-                                <constraint firstAttribute="width" constant="44" id="t8y-un-hww"/>
-                            </constraints>
-                            <inset key="imageEdgeInsets" minX="11" minY="11" maxX="11" maxY="11"/>
-                            <state key="normal" image="CommunityIcon"/>
-                            <connections>
-                                <action selector="communityButtonTapped:" destination="-1" eventType="touchUpInside" id="5zj-ot-KDo"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Na-bl-7Us" userLabel="settingsButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="681" y="0.0" width="44" height="44"/>
+                            <rect key="frame" x="679" y="1" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="9Lb-zd-0PN"/>
                                 <constraint firstAttribute="width" constant="44" id="QeQ-z4-wsT"/>
@@ -57,22 +45,37 @@
                                 <action selector="settingsButtonTapped:" destination="-1" eventType="touchUpInside" id="HmX-66-43V"/>
                             </connections>
                         </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="CZ9-GL-3zH" userLabel="logoImageView">
+                            <rect key="frame" x="14" y="10" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Mb5-13-9VW"/>
+                                <constraint firstAttribute="width" constant="40" id="tMN-SE-AE0"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT3-dM-8fq" userLabel="communityButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="632" y="1" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Wk9-x4-E2O"/>
+                                <constraint firstAttribute="width" constant="44" id="t8y-un-hww"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="11" minY="11" maxX="11" maxY="11"/>
+                            <state key="normal" image="CommunityIcon"/>
+                            <connections>
+                                <action selector="communityButtonTapped:" destination="-1" eventType="touchUpInside" id="5zj-ot-KDo"/>
+                            </connections>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" name="DarkGrey"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="7Na-bl-7Us" secondAttribute="trailing" constant="11" id="Kiu-2B-9N1"/>
-                        <constraint firstAttribute="height" constant="41" id="MHs-RI-ynP"/>
-                        <constraint firstItem="7Na-bl-7Us" firstAttribute="leading" secondItem="OT3-dM-8fq" secondAttribute="trailing" constant="10" id="Tt8-b5-XAG"/>
-                        <constraint firstItem="OT3-dM-8fq" firstAttribute="centerY" secondItem="7Na-bl-7Us" secondAttribute="centerY" id="uVq-ON-5gG"/>
-                        <constraint firstItem="7Na-bl-7Us" firstAttribute="top" secondItem="Prd-F0-sSF" secondAttribute="top" id="uxQ-yH-HQP"/>
+                        <constraint firstItem="CZ9-GL-3zH" firstAttribute="leading" secondItem="wCU-Rj-rLS" secondAttribute="leading" constant="14" id="7GT-Jc-YaH"/>
+                        <constraint firstItem="7Na-bl-7Us" firstAttribute="leading" secondItem="OT3-dM-8fq" secondAttribute="trailing" constant="3" id="9cO-Ir-MYP"/>
+                        <constraint firstAttribute="trailing" secondItem="7Na-bl-7Us" secondAttribute="trailing" constant="13" id="Gzd-FI-pES"/>
+                        <constraint firstItem="OT3-dM-8fq" firstAttribute="centerY" secondItem="7Na-bl-7Us" secondAttribute="centerY" id="MQA-dy-a5U"/>
+                        <constraint firstItem="CZ9-GL-3zH" firstAttribute="top" secondItem="wCU-Rj-rLS" secondAttribute="top" constant="10" id="WDx-2l-cth"/>
+                        <constraint firstAttribute="height" constant="71" id="fNC-hG-9Yn"/>
+                        <constraint firstItem="7Na-bl-7Us" firstAttribute="top" secondItem="wCU-Rj-rLS" secondAttribute="top" constant="1" id="qw8-Ws-OpC"/>
                     </constraints>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopHeader" translatesAutoresizingMaskIntoConstraints="NO" id="NQU-yc-0Gp" userLabel="topHeaderImageView">
-                    <rect key="frame" x="0.0" y="41" width="736" height="33"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="33" id="bOM-5L-8IC"/>
-                    </constraints>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kUA-G4-FdK" userLabel="bottomContainer">
                     <rect key="frame" x="0.0" y="387" width="736" height="27"/>
                     <color key="backgroundColor" name="DarkGrey"/>
@@ -215,36 +218,23 @@
                         <constraint firstItem="NaX-YQ-t9C" firstAttribute="width" secondItem="NaX-YQ-t9C" secondAttribute="height" multiplier="124:162" id="xHw-7Y-fz1"/>
                     </constraints>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="CZ9-GL-3zH" userLabel="logoImageView">
-                    <rect key="frame" x="12" y="12" width="40" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="Mb5-13-9VW"/>
-                        <constraint firstAttribute="width" constant="40" id="tMN-SE-AE0"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" name="Black"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Prd-F0-sSF" secondAttribute="trailing" id="1Ed-pR-aQ6"/>
-                <constraint firstItem="CZ9-GL-3zH" firstAttribute="top" secondItem="bcb-n4-Ic4" secondAttribute="top" constant="12" id="2Cz-Zb-AxO"/>
-                <constraint firstItem="NQU-yc-0Gp" firstAttribute="top" secondItem="Prd-F0-sSF" secondAttribute="bottom" id="2F0-cw-k1A"/>
-                <constraint firstItem="Prd-F0-sSF" firstAttribute="top" secondItem="qib-6H-b5c" secondAttribute="top" id="4OI-aE-dr3"/>
-                <constraint firstItem="NQU-yc-0Gp" firstAttribute="leading" secondItem="qib-6H-b5c" secondAttribute="leading" id="F0w-7v-qRw"/>
-                <constraint firstAttribute="trailing" secondItem="NQU-yc-0Gp" secondAttribute="trailing" id="JGm-Z7-h3X"/>
+                <constraint firstAttribute="trailing" secondItem="wCU-Rj-rLS" secondAttribute="trailing" id="KkG-eF-4wo"/>
                 <constraint firstItem="bcb-n4-Ic4" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="tLI-po-cnB" secondAttribute="trailing" constant="60" id="QBE-oR-zfb"/>
                 <constraint firstItem="tLI-po-cnB" firstAttribute="centerY" secondItem="qib-6H-b5c" secondAttribute="centerY" id="QHB-nA-Jjc"/>
                 <constraint firstItem="tLI-po-cnB" firstAttribute="leading" relation="lessThanOrEqual" secondItem="bcb-n4-Ic4" secondAttribute="leading" constant="60" id="SwT-tu-Gll"/>
-                <constraint firstItem="CZ9-GL-3zH" firstAttribute="leading" secondItem="qib-6H-b5c" secondAttribute="leading" constant="12" id="V3l-cf-WeE"/>
+                <constraint firstItem="wCU-Rj-rLS" firstAttribute="leading" secondItem="qib-6H-b5c" secondAttribute="leading" id="TeU-Dc-dSV"/>
                 <constraint firstAttribute="trailing" secondItem="o2p-Xq-X84" secondAttribute="trailing" id="Vn3-sI-Nmc"/>
                 <constraint firstItem="o2p-Xq-X84" firstAttribute="top" relation="greaterThanOrEqual" secondItem="tLI-po-cnB" secondAttribute="bottom" constant="16" id="VyL-lC-qJs"/>
+                <constraint firstItem="wCU-Rj-rLS" firstAttribute="top" secondItem="qib-6H-b5c" secondAttribute="top" id="d9f-dg-Y0m"/>
                 <constraint firstAttribute="bottom" secondItem="kUA-G4-FdK" secondAttribute="bottom" id="eEx-hJ-356"/>
                 <constraint firstItem="o2p-Xq-X84" firstAttribute="leading" secondItem="qib-6H-b5c" secondAttribute="leading" id="lFz-fA-foU"/>
                 <constraint firstItem="kUA-G4-FdK" firstAttribute="leading" secondItem="qib-6H-b5c" secondAttribute="leading" id="niw-Qi-6UT"/>
                 <constraint firstItem="tLI-po-cnB" firstAttribute="centerX" secondItem="qib-6H-b5c" secondAttribute="centerX" id="oAQ-Fy-ago"/>
-                <constraint firstItem="tLI-po-cnB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NQU-yc-0Gp" secondAttribute="bottom" constant="16" id="tdg-6h-tzu"/>
                 <constraint firstItem="kUA-G4-FdK" firstAttribute="top" secondItem="o2p-Xq-X84" secondAttribute="bottom" id="xRp-HA-Qx7"/>
                 <constraint firstAttribute="trailing" secondItem="kUA-G4-FdK" secondAttribute="trailing" id="xX7-rI-fgI"/>
-                <constraint firstItem="Prd-F0-sSF" firstAttribute="leading" secondItem="qib-6H-b5c" secondAttribute="leading" id="zHe-GJ-hHF"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="bcb-n4-Ic4"/>
@@ -263,7 +253,6 @@
         <image name="RedBorderHighlighted" width="124" height="162"/>
         <image name="RobotModel" width="120" height="150"/>
         <image name="SettingsIcon" width="22" height="22"/>
-        <image name="TopHeader" width="361" height="33"/>
         <image name="YellowBorder" width="124" height="162"/>
         <image name="YellowBorderHighlighted" width="124" height="162"/>
         <namedColor name="Black">
