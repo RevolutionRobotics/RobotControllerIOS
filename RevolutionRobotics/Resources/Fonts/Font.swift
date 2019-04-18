@@ -11,6 +11,8 @@ import UIKit
 enum Font {
     static func jura(size: CGFloat, weight: UIFont.Weight = .bold) -> UIFont {
         switch weight {
+        case .regular:
+            return UIFont(name: "Jura-Regular", size: size)!
         case .bold:
             return UIFont(name: "Jura-Bold", size: size)!
         default:
@@ -22,6 +24,8 @@ enum Font {
         switch weight {
         case .regular:
             return UIFont(name: "Barlow-Regular", size: size)!
+        case .medium:
+            return UIFont(name: "Barlow-Medium", size: size)!
         case .bold:
             return UIFont(name: "Barlow-Bold", size: size)!
         default:

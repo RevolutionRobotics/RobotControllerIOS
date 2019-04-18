@@ -8,6 +8,8 @@
 
 import UIKit
 
+extension UIViewController: NibLoadable { }
+
 extension NibLoadable where Self: UIViewController {
     static var nibName: String {
         return String(describing: self)
