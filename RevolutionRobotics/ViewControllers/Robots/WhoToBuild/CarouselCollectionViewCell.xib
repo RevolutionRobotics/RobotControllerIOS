@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,34 +14,80 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CarouselCollectionViewCell" id="gTV-IL-0wX" customClass="CarouselCollectionViewCell" customModule="RevolutionRobotics" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="225" height="213"/>
+            <rect key="frame" x="0.0" y="0.0" width="213" height="224"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="225" height="213"/>
+                <rect key="frame" x="0.0" y="0.0" width="213" height="224"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CellWhiteBorder" translatesAutoresizingMaskIntoConstraints="NO" id="Tjp-Nc-9oD">
-                        <rect key="frame" x="0.0" y="0.0" width="225" height="213"/>
+                        <rect key="frame" x="0.0" y="0.0" width="213" height="224"/>
                     </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ClockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="umV-bW-z6B">
+                        <rect key="frame" x="16" y="198" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="PgM-7v-IbN"/>
+                            <constraint firstAttribute="width" constant="12" id="YHF-AV-KAl"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeS-qf-oG6">
+                        <rect key="frame" x="30" y="192" width="19" height="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" name="White"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RobotPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="v1o-zG-JRy">
+                        <rect key="frame" x="74.5" y="70" width="64" height="84"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="v1o-zG-JRy" secondAttribute="height" multiplier="70:92" id="mPp-2k-Uh4"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="revvy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve1-vd-p6q">
+                        <rect key="frame" x="24" y="24" width="165" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" name="White"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="v1o-zG-JRy" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="1dh-ns-41R"/>
+                <constraint firstItem="Ve1-vd-p6q" firstAttribute="top" secondItem="Tjp-Nc-9oD" secondAttribute="top" constant="24" id="3PU-7h-cYg"/>
+                <constraint firstItem="Tjp-Nc-9oD" firstAttribute="bottom" secondItem="umV-bW-z6B" secondAttribute="bottom" constant="14" id="6Ad-U5-4gR"/>
+                <constraint firstItem="Tjp-Nc-9oD" firstAttribute="trailing" secondItem="Ve1-vd-p6q" secondAttribute="trailing" constant="24" id="F0U-HC-tXI"/>
+                <constraint firstItem="Ve1-vd-p6q" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="RC2-I9-gYx"/>
+                <constraint firstItem="JeS-qf-oG6" firstAttribute="leading" secondItem="umV-bW-z6B" secondAttribute="trailing" constant="2" id="S0A-lt-IrK"/>
                 <constraint firstItem="Tjp-Nc-9oD" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="USe-yi-upF"/>
+                <constraint firstItem="Ve1-vd-p6q" firstAttribute="leading" secondItem="Tjp-Nc-9oD" secondAttribute="leading" constant="24" id="Zgj-K0-fcV"/>
                 <constraint firstItem="Tjp-Nc-9oD" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="a7r-cy-jqg"/>
+                <constraint firstItem="Tjp-Nc-9oD" firstAttribute="bottom" secondItem="JeS-qf-oG6" secondAttribute="bottom" constant="12" id="aEf-YA-ChF"/>
                 <constraint firstItem="Tjp-Nc-9oD" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="eVD-zC-dSx"/>
+                <constraint firstItem="umV-bW-z6B" firstAttribute="leading" secondItem="Tjp-Nc-9oD" secondAttribute="leading" constant="16" id="gSC-6q-Vhs"/>
+                <constraint firstItem="v1o-zG-JRy" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="raG-AF-tOz"/>
+                <constraint firstItem="v1o-zG-JRy" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.3" id="xik-wi-l8a"/>
                 <constraint firstItem="Tjp-Nc-9oD" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="yfp-xm-66D"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="225" height="187"/>
             <connections>
-                <outlet property="backgroundImage" destination="Tjp-Nc-9oD" id="Yed-zY-BcY"/>
+                <outlet property="backgroundImageView" destination="Tjp-Nc-9oD" id="piq-v5-dGT"/>
                 <outlet property="baseHeight" destination="USe-yi-upF" id="6d9-aw-twd"/>
+                <outlet property="baseImageWidth" destination="xik-wi-l8a" id="BwN-8v-PAL"/>
                 <outlet property="baseWidth" destination="yfp-xm-66D" id="gN8-rS-j2K"/>
+                <outlet property="buildTimeLabel" destination="JeS-qf-oG6" id="cSj-rW-ZxS"/>
+                <outlet property="clockImageView" destination="umV-bW-z6B" id="3fT-sS-jTf"/>
+                <outlet property="robotImageView" destination="v1o-zG-JRy" id="RaG-S7-8M1"/>
+                <outlet property="robotNameLabel" destination="Ve1-vd-p6q" id="IO5-fp-LlQ"/>
             </connections>
-            <point key="canvasLocation" x="64" y="95"/>
+            <point key="canvasLocation" x="63.04347826086957" y="94.754464285714278"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="CellWhiteBorder" width="213" height="225"/>
+        <image name="CellWhiteBorder" width="159" height="167"/>
+        <image name="ClockIcon" width="12" height="12"/>
+        <image name="RobotPlaceholder" width="70" height="92"/>
+        <namedColor name="White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
