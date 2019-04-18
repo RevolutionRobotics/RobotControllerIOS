@@ -16,6 +16,7 @@ final class ScreenAssembly: Assembly {
         registerChallengesViewController(to: container)
         registerProgramsViewController(to: container)
         registerSettingsViewController(to: container)
+        registerCarouselViewController(to: container)
     }
 }
 
@@ -41,6 +42,11 @@ extension ScreenAssembly {
 
     private func registerSettingsViewController(to container: Container) {
         container.register(SettingsViewController.self, factory: { _ in return SettingsViewController() })
+            .inObjectScope(.weak)
+    }
+
+    private func registerCarouselViewController(to container: Container) {
+        container.register(CarouselViewController.self, factory: { _ in return CarouselViewController() })
             .inObjectScope(.weak)
     }
 }

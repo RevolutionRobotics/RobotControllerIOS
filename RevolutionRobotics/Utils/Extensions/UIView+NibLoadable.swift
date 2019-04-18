@@ -13,3 +13,6 @@ extension NibLoadable where Self: UIView {
         return String(describing: self)
     }
 }
+
+extension UICollectionViewCell: NibLoadable {
+}
