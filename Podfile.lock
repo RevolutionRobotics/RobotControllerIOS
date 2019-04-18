@@ -1,6 +1,7 @@
 PODS:
   - Crashlytics (3.12.0):
     - Fabric (~> 1.9.0)
+  - EFImageViewZoom (0.0.3)
   - Fabric (1.9.0)
   - Firebase/Core (5.20.2):
     - Firebase/CoreOnly
@@ -82,6 +83,7 @@ PODS:
 
 DEPENDENCIES:
   - Crashlytics (~> 3.12.0)
+  - EFImageViewZoom (from `https://github.com/ezefranca/EFImageViewZoom.git`)
   - Fabric (~> 1.9.0)
   - Firebase/Core
   - Firebase/Database
@@ -116,6 +118,8 @@ SPEC REPOS:
     - Swinject
 
 EXTERNAL SOURCES:
+  EFImageViewZoom:
+    :git: https://github.com/ezefranca/EFImageViewZoom.git
   RevolutionRoboticsBlockly:
     :branch: development
     :git: "git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git"
@@ -125,6 +129,9 @@ EXTERNAL SOURCES:
     :git: "git@gitlab.supercharge.io:revolutionrobotics/bluetooth-ios.git"
 
 CHECKOUT OPTIONS:
+  EFImageViewZoom:
+    :commit: e4dbb819d02c959e4f570243fa4e61b1faaab456
+    :git: https://github.com/ezefranca/EFImageViewZoom.git
   RevolutionRoboticsBlockly:
     :commit: e4ec7df6148b1c2e057e92408acdc4cd825bf30a
     :git: "git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git"
@@ -135,6 +142,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  EFImageViewZoom: 00c327c1d876e0f9086880681549179b0dbe9811
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   Firebase: 0c8cf33f266410c61ab3e2265cfa412200351d9c
   FirebaseAnalytics: ece1aa57a4f43c64d53a648b5a5e05151aae947b
@@ -156,6 +164,6 @@ SPEC CHECKSUMS:
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
 
-PODFILE CHECKSUM: 2f7e163b2322fa429e98be523f53107a69deea3f
+PODFILE CHECKSUM: 44829f0f907932eb7328ecacc2d24a75cd4bcb6d
 
 COCOAPODS: 1.6.1

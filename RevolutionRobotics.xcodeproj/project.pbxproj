@@ -46,10 +46,12 @@
 		2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF1F74224AB3B400CC721F /* AppDelegate.swift */; };
 		2ADF1F7C224AB3B600CC721F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7B224AB3B600CC721F /* Assets.xcassets */; };
 		2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7D224AB3B600CC721F /* LaunchScreen.storyboard */; };
-		2AFAA11022663006002BE0A2 /* RRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAA10F22663006002BE0A2 /* RRButton.swift */; };
 		2AFAA11222663111002BE0A2 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAA11122663111002BE0A2 /* UIImage+Color.swift */; };
 		2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */; };
 		3EDBEDA7C8D9D5683FEC00E3 /* Pods_RevolutionRobotics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2703FDDD1F3944173CF58883 /* Pods_RevolutionRobotics.framework */; };
+		D0049A1E226F0929007FA256 /* RRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0049A1D226F0929007FA256 /* RRButton.swift */; };
+		D0049A25226F0A15007FA256 /* BuildStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0049A23226F0A15007FA256 /* BuildStepViewController.xib */; };
+		D0049A26226F0A15007FA256 /* BuildStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0049A24226F0A15007FA256 /* BuildStepViewController.swift */; };
 		D008E0392260979400089DC7 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E0382260979300089DC7 /* FirebaseData.swift */; };
 		D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E03B2260AAF500089DC7 /* UIViewController+NibLoadable.swift */; };
 		D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA78226769E900624438 /* NSLayoutConstraint+Multiplier.swift */; };
@@ -120,7 +122,6 @@
 		2ADF1F7B224AB3B600CC721F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2ADF1F7E224AB3B600CC721F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2ADF1F80224AB3B600CC721F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AFAA10F22663006002BE0A2 /* RRButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRButton.swift; sourceTree = "<group>"; };
 		2AFAA11122663111002BE0A2 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Pods-RevolutionRobotics-settings-metadata.plist"; path = "../RevolutionRobotics/Resources/Settings/Settings.bundle/Pods-RevolutionRobotics-settings-metadata.plist"; sourceTree = "<group>"; };
 		3222BBCEACAD7CD926CA491F /* Pods-RevolutionRobotics.debug prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug prod.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +129,9 @@
 		885A268C4635C8205C22591E /* Pods-RevolutionRobotics.release dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.release dev.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.release dev.xcconfig"; sourceTree = "<group>"; };
 		A1B6FE6D4EED82B8B42949D3 /* Pods-RevolutionRobotics.release prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.release prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.release prod.xcconfig"; sourceTree = "<group>"; };
 		AD7B4F2CA1426678DEA6006D /* Pods-RevolutionRobotics.debug dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug dev.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug dev.xcconfig"; sourceTree = "<group>"; };
+		D0049A1D226F0929007FA256 /* RRButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRButton.swift; sourceTree = "<group>"; };
+		D0049A23226F0A15007FA256 /* BuildStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuildStepViewController.xib; sourceTree = "<group>"; };
+		D0049A24226F0A15007FA256 /* BuildStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildStepViewController.swift; sourceTree = "<group>"; };
 		D008E0382260979300089DC7 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
 		D008E03B2260AAF500089DC7 /* UIViewController+NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NibLoadable.swift"; sourceTree = "<group>"; };
 		D05BAA78226769E900624438 /* NSLayoutConstraint+Multiplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Multiplier.swift"; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 		09FB0D6D2267762700735B74 /* WhoToBuild */ = {
 			isa = PBXGroup;
 			children = (
+				D0049A24226F0A15007FA256 /* BuildStepViewController.swift */,
+				D0049A23226F0A15007FA256 /* BuildStepViewController.xib */,
 				D05BAA9C22676BCA00624438 /* CarouselCollectionViewCell.swift */,
 				D05BAA9A22676BCA00624438 /* CarouselCollectionViewCell.xib */,
 				0964798022686DE000F68456 /* WhoToBuildViewController.swift */,
@@ -287,7 +293,7 @@
 		09FB0D7222677BF500735B74 /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				2AFAA10F22663006002BE0A2 /* RRButton.swift */,
+				D0049A1D226F0929007FA256 /* RRButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -584,6 +590,7 @@
 				09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */,
 				2ADF1F7C224AB3B600CC721F /* Assets.xcassets in Resources */,
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
+				D0049A25226F0A15007FA256 /* BuildStepViewController.xib in Resources */,
 				196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */,
 				096479872268776200F68456 /* BuildRobotViewController.xib in Resources */,
 				D05BAA9E22676BCA00624438 /* CarouselCollectionViewCell.xib in Resources */,
@@ -644,6 +651,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EFImageViewZoom/EFImageViewZoom.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -658,6 +666,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFImageViewZoom.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
@@ -714,7 +723,6 @@
 				D05C64CA225F572F00B7BF4F /* MilestoneType.swift in Sources */,
 				D05C64D6225F587700B7BF4F /* UserRobot.swift in Sources */,
 				D05C64C8225F570000B7BF4F /* TestCode.swift in Sources */,
-				2AFAA11022663006002BE0A2 /* RRButton.swift in Sources */,
 				D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */,
 				09ED1BA9225247B1009CF262 /* MenuViewController.swift in Sources */,
 				D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */,
@@ -743,12 +751,14 @@
 				D05C64DF225F5C4E00B7BF4F /* Rotation.swift in Sources */,
 				D05C64D0225F57BC00B7BF4F /* Robot.swift in Sources */,
 				094F9DDE2264CA5600BE118B /* RRNavigationBar.swift in Sources */,
+				D0049A26226F0A15007FA256 /* BuildStepViewController.swift in Sources */,
 				D05C64DB225F590100B7BF4F /* Port.swift in Sources */,
 				D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */,
 				D05BAA7B226769F300624438 /* UICollectionView+CellReuse.swift in Sources */,
 				2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */,
 				09FB0D69226761E900735B74 /* YourRobotsViewController.swift in Sources */,
 				09ED1B9A225241C9009CF262 /* NibLoadable.swift in Sources */,
+				D0049A1E226F0929007FA256 /* RRButton.swift in Sources */,
 				D008E0392260979400089DC7 /* FirebaseData.swift in Sources */,
 				2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */,
 				094F9DDA2264BE9600BE118B /* Image.swift in Sources */,
