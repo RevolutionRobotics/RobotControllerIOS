@@ -1,5 +1,5 @@
 //
-//  CarouselCollectionViewCell.swift
+//  WhoToBuildCollectionViewCell.swift
 //  RevolutionRobotics
 //
 //  Created by Robert Klacso on 2019. 04. 16..
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CarouselCollectionViewCell: UICollectionViewCell {
+class WhoToBuildCollectionViewCell: UICollectionViewCell {
     // MARK: - Outlets
     @IBOutlet private weak var baseHeight: NSLayoutConstraint!
     @IBOutlet private weak var baseWidth: NSLayoutConstraint!
@@ -36,7 +36,7 @@ class CarouselCollectionViewCell: UICollectionViewCell {
 }
 
 // MARK: - Functions
-extension CarouselCollectionViewCell {
+extension WhoToBuildCollectionViewCell {
     func setSize(multiplier: CGFloat) {
         baseWidth = baseWidth.setMultiplier(multiplier: multiplier * baseWidthMultiplier)
         baseHeight = baseHeight.setMultiplier(multiplier: multiplier * baseHeightMultiplier)
@@ -47,7 +47,7 @@ extension CarouselCollectionViewCell {
 }
 
 // MARK: - View lifecycle
-extension CarouselCollectionViewCell {
+extension WhoToBuildCollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 

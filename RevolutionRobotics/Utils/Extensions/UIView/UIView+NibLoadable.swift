@@ -12,6 +12,7 @@ extension UIView: NibLoadable {
     static var nibName: String {
         return String(describing: self)
     }
+
 }
 
 // MARK: - Public

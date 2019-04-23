@@ -36,7 +36,7 @@ extension WhoToBuildViewController {
     private func resizeVisibleCells() {
         highestSine = 0
         for cell in collectionView.visibleCells {
-            guard let customCell = cell as? CarouselCollectionViewCell else {
+            guard let customCell = cell as? WhoToBuildCollectionViewCell else {
                 continue
             }
             let distaneFromLeft = collectionView.convert(CGPoint(x: customCell.frame.midX, y: customCell.frame.midY),
@@ -71,7 +71,7 @@ extension WhoToBuildViewController {
 
     private func designCells() {
         for cell in collectionView.visibleCells {
-            if let cell = cell as? CarouselCollectionViewCell {
+            if let cell = cell as? WhoToBuildCollectionViewCell {
                 guard let cellIP = cell.indexPath, let selected = selectedIndexPath else {
                     return
                 }
@@ -131,7 +131,7 @@ extension WhoToBuildViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.decelerationRate = .fast
-        collectionView.register(CarouselCollectionViewCell.self)
+        collectionView.register(WhoToBuildCollectionViewCell.self)
         navigationBar.setup(title: RobotsKeys.WhoToBuild.title.translate(), delegate: self)
         buildYourOwnButton.setTitle(RobotsKeys.WhoToBuild.buildNewButtonTitle.translate(), for: .normal)
     }
@@ -177,7 +177,7 @@ extension WhoToBuildViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: CarouselCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        let cell: WhoToBuildCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.indexPath = indexPath
         return cell
     }
