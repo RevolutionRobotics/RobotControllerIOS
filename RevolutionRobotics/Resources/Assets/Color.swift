@@ -10,7 +10,7 @@ import UIKit
 
 enum Color {
     static let black = UIColor(named: "Black")!
-    static let black24 = UIColor(named: "Black24")!
+    static let black26 = UIColor(named: "Black26")!
     static let blackTwo = UIColor(named: "BlackTwo")!
     static let brightBlue = UIColor(named: "BrightBlue")!
     static let brightRed = UIColor(named: "BrightRed")!
