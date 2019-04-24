@@ -18,6 +18,7 @@
 // MARK: - Who to build
 "who_to_build_screen_title" = "Who to build?";
 "who_to_build_build_new_button_title" = "build your own";
+"who_to_build_searching_title" = "Searching for robots in the area";
 
 // MARK: - Build robot
 "build_robot_turn_on_the_brain_instruction" = "To take control, switch the brain on";
