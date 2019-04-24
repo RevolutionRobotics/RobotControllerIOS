@@ -15,6 +15,6 @@ final class SettingsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.setup(title: "Settings", delegate: self)
+        navigationBar.setup(title: SettingsKeys.Main.title.translate(), delegate: self)
     }
 }

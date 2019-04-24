@@ -22,10 +22,21 @@ final class MenuViewController: BaseViewController {
     @IBOutlet private weak var robotsTitleLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var programsTitleLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var challengesTitleLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var robotsTitleLabel: UILabel!
+    @IBOutlet private weak var programsTitleLabel: UILabel!
+    @IBOutlet private weak var challengesTitleLabel: UILabel!
 }
 
 // MARK: - View lifecycle
 extension MenuViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        robotsTitleLabel.text = MenuKeys.robotCellTitle.translate()
+        programsTitleLabel.text = MenuKeys.programsCellTitle.translate()
+        challengesTitleLabel.text = MenuKeys.challengesCellTitle.translate()
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 

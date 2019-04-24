@@ -18,9 +18,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
+                <outlet property="challengesTitleLabel" destination="T0b-dc-HmJ" id="3cJ-py-Etq"/>
                 <outlet property="challengesTitleLabelTopConstraint" destination="kH7-qp-eYI" id="myg-hZ-znk"/>
                 <outlet property="menuItemContainer" destination="tLI-po-cnB" id="ah9-e4-lxQ"/>
+                <outlet property="programsTitleLabel" destination="7rE-LI-5D6" id="Htn-Z5-O4Q"/>
                 <outlet property="programsTitleLabelTopConstraint" destination="DHD-9S-USV" id="8QJ-c2-gTm"/>
+                <outlet property="robotsTitleLabel" destination="afy-Ag-Xyl" id="z3O-j6-Z1I"/>
                 <outlet property="robotsTitleLabelTopConstraint" destination="8mc-TQ-nHo" id="Hap-kW-1bt"/>
                 <outlet property="view" destination="qib-6H-b5c" id="X1u-7A-uPe"/>
             </connections>

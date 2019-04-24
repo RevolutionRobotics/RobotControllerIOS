@@ -18,6 +18,7 @@ struct AppDependencies {
     }
 }
 
+// MARK: - Setup
 extension AppDependencies {
     private func setupFabric() {
         Fabric.with([Crashlytics.self])

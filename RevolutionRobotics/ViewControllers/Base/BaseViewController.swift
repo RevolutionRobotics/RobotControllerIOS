@@ -9,6 +9,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    // MARK: - Initialization
     init() {
         super.init(nibName: type(of: self).nibName, bundle: Bundle(for: type(of: self)))
     }
@@ -16,8 +17,10 @@ class BaseViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+}
 
-    // MARK: - Lifecycle
+// MARK: - View lifecycle
+extension BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
