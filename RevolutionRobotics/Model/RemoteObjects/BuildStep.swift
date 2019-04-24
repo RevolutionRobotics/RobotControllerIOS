@@ -19,6 +19,9 @@ struct BuildStep: FirebaseData {
         static let milestone = "milestone"
     }
 
+    // MARK: - Path
+    static var firebasePath: String = "buildStep"
+
     // MARK: - Properties
     var robotId: String
     var image: String

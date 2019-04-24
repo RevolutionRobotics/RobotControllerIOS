@@ -17,6 +17,9 @@ struct Configuration: FirebaseData {
         static let mapping = "mapping"
     }
 
+    // MARK: - Path
+    static var firebasePath: String = "configuration"
+
     // MARK: - Properties
     var id: Int
     var controller: String

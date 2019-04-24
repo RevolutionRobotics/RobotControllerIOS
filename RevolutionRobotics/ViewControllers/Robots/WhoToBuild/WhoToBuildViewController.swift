@@ -15,20 +15,34 @@ final class WhoToBuildViewController: BaseViewController {
         static let sineMultiplier: CGFloat = 0.25
         static let cellMaxSize: CGFloat = 0.74
         static let minimumLineSpacing: CGFloat = 40
-        static let duration: Double = 0.3
+        static let duration: Double = 0.5
     }
 
     // MARK: - Outlets
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var collectionView: UICollectionView!
-    @IBOutlet private weak var rigthButton: UIButton!
+    @IBOutlet private weak var rightButton: UIButton!
     @IBOutlet private weak var leftButton: UIButton!
     @IBOutlet private weak var buildYourOwnButton: RRButton!
 
     // MARK: - Variables
+    var firebaseService: FirebaseServiceInterface!
     private var highestSine: CGFloat = 0
-    private var indexPathOfCentermostCell: IndexPath?
-    private var selectedIndexPath: IndexPath?
+    private var indexPathOfCentermostCell = IndexPath(row: 0, section: 0) {
+        didSet {
+            leftButton.isHidden = indexPathOfCentermostCell.row == 0
+            rightButton.isHidden = indexPathOfCentermostCell.row == robots.count - 1
+        }
+    }
+
+    private var robots: [Robot] = [] {
+        didSet {
+            collectionView.reloadData()
+            collectionView.performBatchUpdates(nil) { [weak self] completed in
+                if completed { self?.refreshCollectionView() }
+            }
+        }
+    }
 }
 
 // MARK: - Private functions
@@ -43,77 +57,58 @@ extension WhoToBuildViewController {
                                                          to: collectionView.superview).x
             let multiplier = min(max(distaneFromLeft / collectionView.frame.width, 0), 1)
             let sine = Constants.sineMultiplier * sin(multiplier * CGFloat(Double.pi)) + Constants.cellMaxSize
-            if sine > highestSine, let indexPath = customCell.indexPath {
+            if sine > highestSine, let indexPath = collectionView.indexPath(for: customCell) {
                 indexPathOfCentermostCell = indexPath
                 highestSine = sine
-                rigthButton.isHidden = indexPath.row == collectionView.numberOfItems(inSection: 0) - 1
-                leftButton.isHidden = indexPath.row == 0
             }
             customCell.setSize(multiplier: sine)
-            guard let cellIP = customCell.indexPath, let selected = selectedIndexPath else {
-                return
-            }
-            if cellIP != selected {
-                customCell.isCentered = false
-            } else {
-                customCell.isCentered = true
-            }
-        }
-    }
-
-    private func centerCell() {
-        if let indexPath = indexPathOfCentermostCell {
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            selectedIndexPath = indexPath
             designCells()
         }
     }
 
+    private func centerCell() {
+        collectionView.scrollToItem(at: indexPathOfCentermostCell, at: .centeredHorizontally, animated: true)
+        designCells()
+    }
+
     private func designCells() {
-        for cell in collectionView.visibleCells {
-            if let cell = cell as? WhoToBuildCollectionViewCell {
-                guard let cellIP = cell.indexPath, let selected = selectedIndexPath else {
-                    return
-                }
-                if cellIP != selected {
-                    cell.isCentered = false
-                } else {
-                    cell.isCentered = true
-                }
+        collectionView.visibleCells
+            .compactMap { $0 as? WhoToBuildCollectionViewCell }
+            .forEach { cell in
+                cell.isCentered = collectionView.indexPath(for: cell)! == indexPathOfCentermostCell
+            }
+    }
+
+    private func fetchRobots() {
+        firebaseService.getRobots { [weak self] result in
+            switch result {
+            case .success(let robots):
+                self?.robots = robots
+            case .failure(let error):
+                print(error)
             }
         }
+    }
+
+    private func refreshCollectionView() {
+        centerCell()
+        resizeVisibleCells()
     }
 }
 
 // MARK: - Event handlers
 extension WhoToBuildViewController {
     @IBAction private func rightButtonTapped(_ sender: Any) {
-        if leftButton.isHidden {
-            leftButton.isHidden = false
-        }
-        guard indexPathOfCentermostCell != nil,
-            indexPathOfCentermostCell!.row != collectionView.numberOfItems(inSection: 0) - 1 else {
-                return
-        }
-        indexPathOfCentermostCell!.row += 1
-        if indexPathOfCentermostCell!.row == collectionView.numberOfItems(inSection: 0) - 1 {
-            rigthButton.isHidden = true
-        }
+        guard indexPathOfCentermostCell.row != collectionView.numberOfItems(inSection: 0) - 1 else { return }
+        indexPathOfCentermostCell.row += 1
+
         centerCell()
     }
 
     @IBAction private func leftButtonTapped(_ sender: Any) {
-        if rigthButton.isHidden {
-            rigthButton.isHidden = false
-        }
-        guard indexPathOfCentermostCell != nil,
-            indexPathOfCentermostCell!.row != 0 else {
-                return
-        }
-        indexPathOfCentermostCell!.row -= 1
-        if indexPathOfCentermostCell!.row == 0 {
-            leftButton.isHidden = true
-        }
+        guard indexPathOfCentermostCell.row != 0 else { return }
+        indexPathOfCentermostCell.row -= 1
+
         centerCell()
     }
 
@@ -134,6 +129,8 @@ extension WhoToBuildViewController {
         collectionView.register(WhoToBuildCollectionViewCell.self)
         navigationBar.setup(title: RobotsKeys.WhoToBuild.title.translate(), delegate: self)
         buildYourOwnButton.setTitle(RobotsKeys.WhoToBuild.buildNewButtonTitle.translate(), for: .normal)
+
+        fetchRobots()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -144,10 +141,7 @@ extension WhoToBuildViewController {
         let cellSize = CGSize(width: cellWidth, height: cellheight)
         let padding = (collectionView.frame.width / 2) - (cellWidth / 2)
         collectionView.layoutIfNeeded()
-        collectionView.contentInset = UIEdgeInsets(top: 0,
-                                                   left: padding,
-                                                   bottom: 0,
-                                                   right: padding)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: padding, bottom: 0, right: padding)
 
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -155,30 +149,18 @@ extension WhoToBuildViewController {
         layout.minimumLineSpacing = Constants.minimumLineSpacing
         collectionView.setCollectionViewLayout(layout, animated: true)
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        resizeVisibleCells()
-        centerCell()
-        collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .centeredHorizontally, animated: true)
-        selectedIndexPath = IndexPath(row: 0, section: 0)
-        UIView.animate(withDuration: Constants.duration) { [unowned self] in
-            self.collectionView.alpha = 1
-        }
-    }
 }
 
 // MARK: - UICollectionViewDataSource
 extension WhoToBuildViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return robots.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: WhoToBuildCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.indexPath = indexPath
+        cell.configure(with: robots[indexPath.row])
         return cell
     }
 }

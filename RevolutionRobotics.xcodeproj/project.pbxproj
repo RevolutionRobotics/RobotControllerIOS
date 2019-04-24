@@ -20,10 +20,12 @@
 		0964798D22689DEC00F68456 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0964798B22689DEC00F68456 /* ModalViewController.swift */; };
 		0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0964798C22689DEC00F68456 /* ModalViewController.xib */; };
 		097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097F8432225BA37800DD32BF /* Jura-Bold.ttf */; };
+		0985495C2271D44500A7C2DC /* UIImageView+GoogleStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985495B2271D44500A7C2DC /* UIImageView+GoogleStorage.swift */; };
 		09C3874D226F32F70097619D /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C3874C226F32F70097619D /* UIView+Anchor.swift */; };
 		09C38753226F38F40097619D /* Jura-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09C38752226F38F40097619D /* Jura-Regular.ttf */; };
 		09C38755226F3ABC0097619D /* Barlow-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09C38754226F3ABC0097619D /* Barlow-Medium.ttf */; };
 		09C38758226F58260097619D /* RRCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C38757226F58260097619D /* RRCustomView.swift */; };
+		09C3875A2270A7100097619D /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C387592270A7100097619D /* FirebaseError.swift */; };
 		09ED1B9A225241C9009CF262 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B99225241C9009CF262 /* NibLoadable.swift */; };
 		09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1B9B2252424F009CF262 /* Reusable.swift */; };
 		09ED1BA9225247B1009CF262 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ED1BA8225247B1009CF262 /* MenuViewController.swift */; };
@@ -112,10 +114,13 @@
 		0964798B22689DEC00F68456 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		0964798C22689DEC00F68456 /* ModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
 		097F8432225BA37800DD32BF /* Jura-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Bold.ttf"; sourceTree = "<group>"; };
+		0985495B2271D44500A7C2DC /* UIImageView+GoogleStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+GoogleStorage.swift"; sourceTree = "<group>"; };
 		09C3874C226F32F70097619D /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
 		09C38752226F38F40097619D /* Jura-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Regular.ttf"; sourceTree = "<group>"; };
 		09C38754226F3ABC0097619D /* Barlow-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Medium.ttf"; sourceTree = "<group>"; };
 		09C38757226F58260097619D /* RRCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRCustomView.swift; sourceTree = "<group>"; };
+		09C387592270A7100097619D /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
+		09C3875B2271AD6A0097619D /* UIImageView+GoogleStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+GoogleStorage.swift"; sourceTree = "<group>"; };
 		09ED1B99225241C9009CF262 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		09ED1B9B2252424F009CF262 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		09ED1BA8225247B1009CF262 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +251,22 @@
 				09C38752226F38F40097619D /* Jura-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		098549592271D36200A7C2DC /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				09C3875B2271AD6A0097619D /* UIImageView+GoogleStorage.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		0985495A2271D42400A7C2DC /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				0985495B2271D44500A7C2DC /* UIImageView+GoogleStorage.swift */,
+			);
+			path = UIImageView;
 			sourceTree = "<group>";
 		};
 		09C38756226F58180097619D /* CustomView */ = {
@@ -397,6 +418,7 @@
 			children = (
 				D08C1CE1226478200052EE1F /* FirebaseService.swift */,
 				2A77320E2264A79900D7F38D /* FirebaseServiceInterface.swift */,
+				09C387592270A7100097619D /* FirebaseError.swift */,
 			);
 			path = FirebaseService;
 			sourceTree = "<group>";
@@ -533,6 +555,7 @@
 				2ADF1F72224AB3B400CC721F /* Products */,
 				81A36322A0A179BE2DDBC53B /* Pods */,
 				34CA9ADCE5F78D42662B0BB5 /* Frameworks */,
+				098549592271D36200A7C2DC /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -616,6 +639,7 @@
 				2ADE8C2F2270A6B400ECEC72 /* String */,
 				2ADE8C2C2270A69400ECEC72 /* UICollectionView */,
 				2ADE8C2D2270A6A000ECEC72 /* UIImage */,
+				0985495A2271D42400A7C2DC /* UIImageView */,
 				2ADE8C2A2270A67600ECEC72 /* UIView */,
 				2ADE8C2B2270A68800ECEC72 /* UIViewController */,
 			);
@@ -880,6 +904,7 @@
 				2A9F52062265E31C00F9F651 /* BaseViewController.swift in Sources */,
 				D05C64CE225F578A00B7BF4F /* BuildStep.swift in Sources */,
 				D05C64D9225F58E200B7BF4F /* Side.swift in Sources */,
+				09C3875A2270A7100097619D /* FirebaseError.swift in Sources */,
 				094F9DD82264BE1900BE118B /* Color.swift in Sources */,
 				D05C64CA225F572F00B7BF4F /* MilestoneType.swift in Sources */,
 				D05C64D6225F587700B7BF4F /* UserRobot.swift in Sources */,
@@ -898,6 +923,7 @@
 				2ADE8C362270A79300ECEC72 /* ProgramsKeys.swift in Sources */,
 				D0049A532271CC52007FA256 /* TurnOnBrainView.swift in Sources */,
 				2A9F520D2265E95600F9F651 /* ChallengesViewController.swift in Sources */,
+				0985495C2271D44500A7C2DC /* UIImageView+GoogleStorage.swift in Sources */,
 				2ADE8C3C2270A80F00ECEC72 /* MenuKeys.swift in Sources */,
 				2A9F52112265E96B00F9F651 /* ProgramsViewController.swift in Sources */,
 				D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */,

@@ -57,6 +57,9 @@ extension ScreenAssembly {
     private func registerWhoToBuildViewController(to container: Container) {
         container
             .register(WhoToBuildViewController.self, factory: { _ in return WhoToBuildViewController() })
+            .initCompleted { (resolver, menuViewController) in
+                menuViewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
+            }
             .inObjectScope(.weak)
     }
 

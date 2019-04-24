@@ -10,12 +10,14 @@ import Swinject
 
 final class ServiceAssembly: Assembly {
     func assemble(container: Container) {
+        registerFirebaseService(to: container)
     }
 }
 
 extension ServiceAssembly {
     private func registerFirebaseService(to container: Container) {
-        container.register(FirebaseServiceInterface.self, factory: { _ in return FirebaseService() })
+        container
+            .register(FirebaseServiceInterface.self, factory: { _ in return FirebaseService() })
             .inObjectScope(.container)
     }
 }

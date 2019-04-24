@@ -7,5 +7,5 @@
 //
 
 protocol FirebaseServiceInterface {
-    func getRobots() -> [Robot]
+    func getRobots(completion: CallbackType<Result<[Robot], FirebaseError>>?)
 }

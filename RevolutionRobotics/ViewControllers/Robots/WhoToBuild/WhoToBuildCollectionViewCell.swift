@@ -8,13 +8,12 @@
 
 import UIKit
 
-class WhoToBuildCollectionViewCell: UICollectionViewCell {
+final class WhoToBuildCollectionViewCell: UICollectionViewCell {
     // MARK: - Outlets
     @IBOutlet private weak var baseHeight: NSLayoutConstraint!
     @IBOutlet private weak var baseWidth: NSLayoutConstraint!
     @IBOutlet private weak var baseImageWidth: NSLayoutConstraint!
     @IBOutlet private weak var backgroundImageView: UIImageView!
-    @IBOutlet private weak var clockImageView: UIImageView!
     @IBOutlet private weak var buildTimeLabel: UILabel!
     @IBOutlet private weak var robotImageView: UIImageView!
     @IBOutlet private weak var robotNameLabel: UILabel!
@@ -31,12 +30,16 @@ class WhoToBuildCollectionViewCell: UICollectionViewCell {
             backgroundImageView.image = isCentered ? Image.BuildRobot.cellRedBorder : Image.BuildRobot.cellWhiteBorder
         }
     }
-
-    var indexPath: IndexPath?
 }
 
 // MARK: - Functions
 extension WhoToBuildCollectionViewCell {
+    func configure(with robot: Robot) {
+        robotNameLabel.text = robot.name
+        buildTimeLabel.text = robot.buildTime
+        robotImageView.downloadImage(googleStorageURL: robot.coverImageGSURL)
+    }
+
     func setSize(multiplier: CGFloat) {
         baseWidth = baseWidth.setMultiplier(multiplier: multiplier * baseWidthMultiplier)
         baseHeight = baseHeight.setMultiplier(multiplier: multiplier * baseHeightMultiplier)
