@@ -27,6 +27,7 @@ final class WhoToBuildViewController: BaseViewController {
     // MARK: - Variables
     private var highestSine: CGFloat = 0
     private var indexPathOfCentermostCell: IndexPath?
+    private var selectedIndexPath: IndexPath?
 }
 
 // MARK: - Private functions
@@ -41,19 +42,28 @@ extension WhoToBuildViewController {
                                                          to: collectionView.superview).x
             let multiplier = min(max(distaneFromLeft / collectionView.frame.width, 0), 1)
             let sine = Constants.sineMultiplier * sin(multiplier * CGFloat(Double.pi)) + Constants.cellMaxSize
-            if sine > highestSine, let indexPath = collectionView.indexPath(for: cell) {
+            if sine > highestSine, let indexPath = customCell.indexPath {
                 indexPathOfCentermostCell = indexPath
                 highestSine = sine
                 rigthButton.isHidden = indexPath.row == collectionView.numberOfItems(inSection: 0) - 1
                 leftButton.isHidden = indexPath.row == 0
             }
             customCell.setSize(multiplier: sine)
+            guard let cellIP = customCell.indexPath, let selected = selectedIndexPath else {
+                return
+            }
+            if cellIP != selected {
+                customCell.isCentered = false
+            } else {
+                customCell.isCentered = true
+            }
         }
     }
 
     private func centerCell() {
         if let indexPath = indexPathOfCentermostCell {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            selectedIndexPath = indexPath
             designCells()
         }
     }
@@ -61,14 +71,13 @@ extension WhoToBuildViewController {
     private func designCells() {
         for cell in collectionView.visibleCells {
             if let cell = cell as? CarouselCollectionViewCell {
-                let asd = cell.superview?.convert(CGPoint(x: cell.frame.midX, y: cell.frame.midY), to: nil).x
-                let basd = collectionView.superview?.convert(CGPoint(x: collectionView.frame.midX,
-                                                                     y: collectionView.frame.midY), to: nil).x
-
-                if let cellMid = asd, let collMid = basd, Int(cellMid) == Int(collMid) {
-                    cell.centered = true
+                guard let cellIP = cell.indexPath, let selected = selectedIndexPath else {
+                    return
+                }
+                if cellIP != selected {
+                    cell.isCentered = false
                 } else {
-                    cell.centered = false
+                    cell.isCentered = true
                 }
             }
         }
@@ -120,6 +129,7 @@ extension WhoToBuildViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.decelerationRate = .fast
         collectionView.register(CarouselCollectionViewCell.self)
         navigationBar.setup(title: "Who to build?", delegate: self)
     }
@@ -149,6 +159,8 @@ extension WhoToBuildViewController {
 
         resizeVisibleCells()
         centerCell()
+        collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .centeredHorizontally, animated: true)
+        selectedIndexPath = IndexPath(row: 0, section: 0)
         UIView.animate(withDuration: Constants.duration) { [unowned self] in
             self.collectionView.alpha = 1
         }
@@ -164,6 +176,7 @@ extension WhoToBuildViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CarouselCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.indexPath = indexPath
         return cell
     }
 }

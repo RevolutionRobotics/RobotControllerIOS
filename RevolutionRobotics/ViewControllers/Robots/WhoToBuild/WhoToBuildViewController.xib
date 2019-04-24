@@ -49,7 +49,13 @@
                         <constraint firstItem="ONa-fq-Gt8" firstAttribute="top" secondItem="cDH-Vx-iGI" secondAttribute="top" constant="8" id="yMS-cn-WMC"/>
                     </constraints>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Khj-tZ-cCT">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="TopHeader" translatesAutoresizingMaskIntoConstraints="NO" id="nB7-3S-pYN">
+                    <rect key="frame" x="0.0" y="44" width="667" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="35c-5u-LP4"/>
+                    </constraints>
+                </imageView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Khj-tZ-cCT">
                     <rect key="frame" x="0.0" y="71" width="667" height="274"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xl1-Xa-YzG">
@@ -60,14 +66,14 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9UF-wg-exO">
-                    <rect key="frame" x="651" y="176.5" width="16" height="22"/>
+                    <rect key="frame" x="642" y="162.5" width="25" height="50"/>
                     <state key="normal" image="RightButton"/>
                     <connections>
                         <action selector="rightButtonTapped:" destination="-1" eventType="touchUpInside" id="5OS-1K-FzR"/>
                     </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzB-FK-UOJ">
-                    <rect key="frame" x="0.0" y="176.5" width="16" height="22"/>
+                    <rect key="frame" x="0.0" y="162.5" width="25" height="50"/>
                     <state key="normal" image="LeftButton"/>
                     <connections>
                         <action selector="leftButtonTapped:" destination="-1" eventType="touchUpInside" id="gdB-V8-RrC"/>
@@ -96,6 +102,7 @@
         <image name="AddIcon" width="30" height="29"/>
         <image name="LeftButton" width="25" height="50"/>
         <image name="RightButton" width="25" height="50"/>
+        <image name="TopHeader" width="16" height="16"/>
         <namedColor name="Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
