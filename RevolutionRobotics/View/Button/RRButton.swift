@@ -9,17 +9,10 @@
 import UIKit
 
 final class RRButton: UIButton {
-    // MARK: - Constants
-    private enum Constants {
-        static let highlightColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.13)
-    }
-}
-
-// MARK: - View lifecycle
-extension RRButton {
+    // MARK: - View lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        setBackgroundImage(UIImage.from(color: Constants.highlightColor), for: .highlighted)
+        setBackgroundImage(UIImage.from(color: Color.transparentWhite), for: .highlighted)
     }
 }

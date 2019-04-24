@@ -31,8 +31,8 @@ extension UIView {
     }
 
     // MARK: - public functions
-    func crop(fillColor: UIColor = .darkGray,
-              strokeColor: UIColor = .lightGray,
+    func crop(fillColor: UIColor = Color.darkGrey,
+              strokeColor: UIColor = Color.lightGrey,
               lineWidth: CGFloat = 1.0,
               radius: CGFloat? = 10.0,
               corners: [Corner] = [.topRight, .bottomLeft]) {

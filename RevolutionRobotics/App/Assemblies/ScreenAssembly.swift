@@ -19,6 +19,7 @@ final class ScreenAssembly: Assembly {
         registerWhoToBuildViewController(to: container)
         registerYourRobotsViewController(to: container)
         registerBuildRobotViewController(to: container)
+        registerModalViewController(to: container)
     }
 }
 
@@ -68,6 +69,12 @@ extension ScreenAssembly {
     private func registerBuildRobotViewController(to container: Container) {
         container
             .register(BuildRobotViewController.self, factory: { _ in return BuildRobotViewController() })
+            .inObjectScope(.weak)
+    }
+
+    private func registerModalViewController(to container: Container) {
+        container
+            .register(ModalViewController.self, factory: { _ in return ModalViewController() })
             .inObjectScope(.weak)
     }
 }

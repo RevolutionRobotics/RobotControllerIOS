@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseViewController: UIViewController, NibLoadable {
+class BaseViewController: UIViewController {
     init() {
         super.init(nibName: type(of: self).nibName, bundle: Bundle(for: type(of: self)))
     }
@@ -28,5 +28,24 @@ class BaseViewController: UIViewController, NibLoadable {
 extension BaseViewController: RRNavigationBarDelegate {
     func backButtonDidTap() {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+// MARK: - Modal
+extension BaseViewController {
+    func presentModal(with contentView: UIView, animated: Bool = true) {
+        let modalViewController = AppContainer.shared.container.unwrappedResolve(ModalViewController.self)
+        modalViewController.modalPresentationStyle = .overFullScreen
+        modalViewController.modalTransitionStyle = .crossDissolve
+        modalViewController.delegate = self
+        modalViewController.contentView = contentView
+        present(modalViewController, animated: animated)
+    }
+}
+
+// MARK: - ModalViewControllerDelegate
+extension BaseViewController: ModalViewControllerDelegate {
+    func dismissViewController() {
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ModalViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+            <connections>
+                <outlet property="modalContainer" destination="tL4-XZ-zRj" id="MuU-Mc-Ghx"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9M-4R-2Ba" userLabel="Background">
+                    <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                    <color key="backgroundColor" name="TransparentBlack"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="fyA-vC-1UA" appends="YES" id="vs6-ox-UGI"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tL4-XZ-zRj">
+                    <rect key="frame" x="218" y="87" width="460" height="240"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="460" id="WGu-Pr-7AB"/>
+                        <constraint firstAttribute="height" constant="240" id="duR-lQ-CLN"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0s-xa-7Fp">
+                    <rect key="frame" x="218" y="87" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="bcD-Xo-0er"/>
+                        <constraint firstAttribute="height" constant="40" id="lgt-Uk-kgk"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                    <state key="normal" image="CloseIcon"/>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="zuL-i5-B2K"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="tL4-XZ-zRj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Gpb-O4-I9p"/>
+                <constraint firstAttribute="bottom" secondItem="Z9M-4R-2Ba" secondAttribute="bottom" id="Ogt-5R-sO3"/>
+                <constraint firstItem="Z9M-4R-2Ba" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aMO-zE-yDf"/>
+                <constraint firstItem="m0s-xa-7Fp" firstAttribute="top" secondItem="tL4-XZ-zRj" secondAttribute="top" id="cnv-qz-ccp"/>
+                <constraint firstItem="tL4-XZ-zRj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="dpP-q0-dPo"/>
+                <constraint firstAttribute="trailing" secondItem="Z9M-4R-2Ba" secondAttribute="trailing" id="g7e-S6-iCT"/>
+                <constraint firstItem="m0s-xa-7Fp" firstAttribute="leading" secondItem="tL4-XZ-zRj" secondAttribute="leading" id="oCO-gg-p1r"/>
+                <constraint firstItem="Z9M-4R-2Ba" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="oU9-h8-UQJ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+        <tapGestureRecognizer id="fyA-vC-1UA">
+            <connections>
+                <action selector="backgroundTapped:" destination="-1" id="tqq-EO-5Te"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="CloseIcon" width="14" height="14"/>
+        <namedColor name="TransparentBlack">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

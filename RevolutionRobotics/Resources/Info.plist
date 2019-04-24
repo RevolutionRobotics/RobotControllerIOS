@@ -57,7 +57,9 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Jura-Bold.ttf</string>
+		<string>Jura-Regular.ttf</string>
 		<string>Barlow-Regular.ttf</string>
+		<string>Barlow-Medium.ttf</string>
 		<string>Barlow-Bold.ttf</string>
 	</array>
 </dict>
