@@ -69,7 +69,6 @@ extension ScreenAssembly {
     private func registerBuildRobotViewController(to container: Container) {
         container
             .register(BuildRobotViewController.self, factory: { _ in return BuildRobotViewController() })
-            .inObjectScope(.weak)
     }
 
     private func registerModalViewController(to container: Container) {

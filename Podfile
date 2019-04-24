@@ -17,6 +17,9 @@ target 'RevolutionRobotics' do
   # UI
   pod 'Kingfisher', '~> 5.3.1'
 
+  # Image
+  pod 'EFImageViewZoom', :git => 'https://github.com/ezefranca/EFImageViewZoom.git'
+
   # Storage
   pod 'RealmSwift', '~> 3.14.1'
   pod 'Firebase/Core'
