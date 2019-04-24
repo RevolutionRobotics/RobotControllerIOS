@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WhoToBuildViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
+                <outlet property="buildYourOwnButton" destination="ONa-fq-Gt8" id="NfM-s2-daN"/>
                 <outlet property="collectionView" destination="Khj-tZ-cCT" id="PCS-GE-39m"/>
                 <outlet property="leftButton" destination="mzB-FK-UOJ" id="CKf-SO-KL2"/>
                 <outlet property="navigationBar" destination="cDH-Vx-iGI" id="A1v-5T-2tf"/>

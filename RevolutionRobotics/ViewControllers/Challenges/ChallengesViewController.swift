@@ -15,6 +15,6 @@ final class ChallengesViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.setup(title: "Challenges", delegate: self)
+        navigationBar.setup(title: ChallengesKeys.Main.title.translate(), delegate: self)
     }
 }

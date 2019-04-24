@@ -23,6 +23,7 @@ final class WhoToBuildViewController: BaseViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var rigthButton: UIButton!
     @IBOutlet private weak var leftButton: UIButton!
+    @IBOutlet private weak var buildYourOwnButton: RRButton!
 
     // MARK: - Variables
     private var highestSine: CGFloat = 0
@@ -131,7 +132,8 @@ extension WhoToBuildViewController {
         collectionView.dataSource = self
         collectionView.decelerationRate = .fast
         collectionView.register(CarouselCollectionViewCell.self)
-        navigationBar.setup(title: "Who to build?", delegate: self)
+        navigationBar.setup(title: RobotsKeys.WhoToBuild.title.translate(), delegate: self)
+        buildYourOwnButton.setTitle(RobotsKeys.WhoToBuild.buildNewButtonTitle.translate(), for: .normal)
     }
 
     override func viewWillAppear(_ animated: Bool) {

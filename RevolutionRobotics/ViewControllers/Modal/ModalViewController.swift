@@ -21,8 +21,10 @@ final class ModalViewController: BaseViewController {
 
     // MARK: - Content
     var contentView: UIView?
+}
 
-    // MARK: - Lifecycle
+// MARK: - View lifecycle
+extension ModalViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         modalContainer.crop(strokeColor: Color.darkGrey)

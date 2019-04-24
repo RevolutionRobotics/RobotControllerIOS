@@ -76,10 +76,12 @@ PODS:
   - Realm/Headers (3.14.1)
   - RealmSwift (3.14.1):
     - Realm (= 3.14.1)
-  - RevolutionRoboticsBlockly (0.1.2)
+  - RevolutionRoboticsBlockly (0.1.2):
+    - WKWebViewJavascriptBridge (~> 1.2.0)
   - RevolutionRoboticsBluetooth (0.1.0)
   - SwiftLint (0.31.0)
   - Swinject (2.6.0)
+  - WKWebViewJavascriptBridge (1.2.0)
 
 DEPENDENCIES:
   - Crashlytics (~> 3.12.0)
@@ -116,6 +118,7 @@ SPEC REPOS:
     - RealmSwift
     - SwiftLint
     - Swinject
+    - WKWebViewJavascriptBridge
 
 EXTERNAL SOURCES:
   EFImageViewZoom:
@@ -133,11 +136,11 @@ CHECKOUT OPTIONS:
     :commit: e4dbb819d02c959e4f570243fa4e61b1faaab456
     :git: https://github.com/ezefranca/EFImageViewZoom.git
   RevolutionRoboticsBlockly:
-    :commit: e4ec7df6148b1c2e057e92408acdc4cd825bf30a
+    :commit: ae022575ea16c0d733ab43158a2b82101047c88c
     :git: "git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git"
     :submodules: true
   RevolutionRoboticsBluetooth:
-    :commit: 9b6b67e36829b425ca961a929f60f75f600c9432
+    :commit: 6636233d45d6c97b43a81aba4818245048f7d86f
     :git: "git@gitlab.supercharge.io:revolutionrobotics/bluetooth-ios.git"
 
 SPEC CHECKSUMS:
@@ -159,10 +162,11 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
   RealmSwift: a82eab9b04c3e1616082c7e17aa300740847769c
-  RevolutionRoboticsBlockly: 04b73d5a4b2ec1d37f292ad8dca6c0938ebde131
-  RevolutionRoboticsBluetooth: 58f750d8765d00eb1324dfe2f642d249afe626c0
+  RevolutionRoboticsBlockly: d44590882291ff155337656deb4bd0574e506a82
+  RevolutionRoboticsBluetooth: 1af416fe3140aba90113bd7bd469b7279a09dd8b
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
+  WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
 
 PODFILE CHECKSUM: 44829f0f907932eb7328ecacc2d24a75cd4bcb6d
 

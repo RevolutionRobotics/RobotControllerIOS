@@ -15,6 +15,6 @@ final class ProgramsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.setup(title: "Programs", delegate: self)
+        navigationBar.setup(title: ProgramsKeys.Main.title.translate(), delegate: self)
     }
 }

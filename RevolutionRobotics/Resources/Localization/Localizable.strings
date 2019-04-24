@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  RevolutionRobotics
+
+  Created by Gabor Nagy Farkas on 2019. 04. 24..
+  Copyright © 2019. Revolution Robotics. All rights reserved.
+*/
+
+// MARK: - Menu
+"menu_robots_title" = "robots";
+"menu_programs_title" = "programs";
+"menu_challenges_title" = "challenges";
+
+// MARK: - Your robots
+"your_robots_screen_title" = "Your robots";
+"your_robots_build_new_button_title" = "build new";
+
+// MARK: - Who to build
+"who_to_build_screen_title" = "Who to build?";
+"who_to_build_build_new_button_title" = "build your own";
+
+// MARK: - Programs
+"programs_screen_title" = "Programs";
+
+// MARK: - Settings
+"settings_screen_title" = "Settings";
+
+// MARK: - Challenges
+"challenges_screen_title" = "Challenges";

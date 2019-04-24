@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YourRobotsViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
+                <outlet property="buildNewButton" destination="AhN-ka-1xz" id="iC3-iB-fFo"/>
                 <outlet property="navigationBar" destination="wMT-cF-hD1" id="HkW-zx-BUl"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kUu-hN-uyr"/>
             </connections>

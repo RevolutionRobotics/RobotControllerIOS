@@ -8,4 +8,3 @@
 
 typealias Callback = () -> Void
 typealias CallbackType<T> = (T) -> Void
-typealias CallbackOptionalType<T> = (T?) -> Void
