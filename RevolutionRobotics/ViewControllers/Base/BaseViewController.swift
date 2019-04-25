@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, ModalViewControllerDelegate {
     // MARK: - Initialization
     init() {
         super.init(nibName: type(of: self).nibName, bundle: Bundle(for: type(of: self)))
@@ -16,6 +16,11 @@ class BaseViewController: UIViewController {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+
+    // MARK: - ModalViewControllerDelegate
+    func dismissViewController() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -43,12 +48,5 @@ extension BaseViewController {
         modalViewController.delegate = self
         modalViewController.contentView = contentView
         present(modalViewController, animated: animated)
-    }
-}
-
-// MARK: - ModalViewControllerDelegate
-extension BaseViewController: ModalViewControllerDelegate {
-    func dismissViewController() {
-        dismiss(animated: true, completion: nil)
     }
 }

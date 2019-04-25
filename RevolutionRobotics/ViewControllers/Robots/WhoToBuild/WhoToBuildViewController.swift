@@ -116,25 +116,65 @@ extension WhoToBuildViewController: RRCollectionViewDelegate {
 extension WhoToBuildViewController {
     private func showTurnOnTheBrain() {
         let turnOnModal = TurnOnBrainView.instatiate()
-        turnOnModal.laterHandler = { [weak self] in
-            self?.dismissViewController()
-        }
-        turnOnModal.tipsHandler = { [weak self] in
-            self?.dismissViewController()
-        }
-        turnOnModal.startHandler = { [weak self] in
-            self?.dismissViewController()
-            self?.showBluetoothDiscovery()
-        }
+        setupHandlers(on: turnOnModal)
         presentModal(with: turnOnModal)
+    }
+
+    private func setupHandlers(on modal: TurnOnBrainView) {
+        setupLaterHandler(on: modal)
+        setupTipsHandler(on: modal)
+        setupStartDiscoveryHandler(on: modal)
+    }
+
+    private func setupLaterHandler(on modal: TurnOnBrainView) {
+        modal.laterHandler = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                let buildScreen = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
+                self?.navigationController?.pushViewController(buildScreen, animated: true)
+            })
+        }
+    }
+
+    private func setupTipsHandler(on modal: TurnOnBrainView) {
+        modal.tipsHandler = { [weak self] in
+            self?.showTipsModal()
+        }
+    }
+
+    private func showTipsModal() {
+        self.dismiss(animated: true, completion: {
+            let tips = FailedConnectionTipsModal.instatiate()
+            tips.skipCallback = { [weak self] in
+                self?.dismiss(animated: true, completion: {
+                    let buildScreen = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
+                    self?.navigationController?.pushViewController(buildScreen, animated: true)
+                })
+            }
+            tips.tryAgainCallback = { [weak self] in
+                self?.dismiss(animated: true, completion: {
+                    self?.showTurnOnTheBrain()
+                })
+            }
+            self.presentModal(with: tips)
+        })
+    }
+
+    private func setupStartDiscoveryHandler(on modal: TurnOnBrainView) {
+        modal.startHandler = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                self?.showBluetoothDiscovery()
+            })
+        }
     }
 
     private func showBluetoothDiscovery() {
         self.presentModal(with: bluetoothDiscovery)
-        discoverer.discoverRobots(onScanResult: { [weak self] (devices) in
-            self?.bluetoothDiscovery.discoveredDevices = devices
-        }, onError: { error in
-            print(error.localizedDescription)
+        discoverer.discoverRobots(
+            onScanResult: { [weak self] (devices) in
+                self?.bluetoothDiscovery.discoveredDevices = devices
+            },
+            onError: { error in
+                print(error.localizedDescription)
         })
     }
 }
