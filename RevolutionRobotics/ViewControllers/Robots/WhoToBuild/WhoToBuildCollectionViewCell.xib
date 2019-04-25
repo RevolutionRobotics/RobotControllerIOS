@@ -27,7 +27,7 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CellWhiteBorder" translatesAutoresizingMaskIntoConstraints="NO" id="Tjp-Nc-9oD">
                         <rect key="frame" x="0.0" y="0.0" width="225" height="213"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ClockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="umV-bW-z6B">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ClockImage" translatesAutoresizingMaskIntoConstraints="NO" id="umV-bW-z6B">
                         <rect key="frame" x="16" y="187" width="12" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="PgM-7v-IbN"/>
@@ -40,7 +40,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v1o-zG-JRy">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RobotPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="v1o-zG-JRy">
                         <rect key="frame" x="79" y="62" width="67.5" height="89"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="v1o-zG-JRy" secondAttribute="height" multiplier="70:92" id="mPp-2k-Uh4"/>
@@ -87,6 +87,7 @@
     </objects>
     <resources>
         <image name="CellWhiteBorder" width="159" height="167"/>
-        <image name="ClockIcon" width="12" height="12"/>
+        <image name="ClockImage" width="12" height="12"/>
+        <image name="RobotPlaceholder" width="70" height="92"/>
     </resources>
 </document>
