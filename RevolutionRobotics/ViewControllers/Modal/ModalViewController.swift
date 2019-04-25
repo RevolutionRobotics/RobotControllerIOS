@@ -27,7 +27,7 @@ final class ModalViewController: BaseViewController {
 extension ModalViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        modalContainer.crop(strokeColor: Color.darkGrey)
+        modalContainer.setBorder(strokeColor: Color.darkGrey)
 
         guard let content = contentView else { return }
         modalContainer.addSubview(content)

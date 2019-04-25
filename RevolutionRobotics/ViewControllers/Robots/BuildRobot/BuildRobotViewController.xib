@@ -25,6 +25,7 @@
                 <outlet property="currentStepCountLabel" destination="Moz-sg-mfQ" id="xpb-J8-TB5"/>
                 <outlet property="navigationBar" destination="IxG-51-Oet" id="HKX-6k-zjx"/>
                 <outlet property="overallStepCountLabel" destination="sYq-fd-hML" id="0ga-Ca-p9r"/>
+                <outlet property="partStackView" destination="5uw-FO-bon" id="zdG-nV-fJM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -48,38 +49,53 @@
                             <state key="normal" image="BluetoothIcon"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/ 48" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYq-fd-hML">
-                            <rect key="frame" x="732.66666666666663" y="13" width="25.333333333333371" height="18"/>
+                            <rect key="frame" x="732" y="13" width="26" height="18"/>
                             <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="15"/>
                             <color key="textColor" name="White"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Moz-sg-mfQ">
-                            <rect key="frame" x="712.66666666666663" y="13" width="16" height="18"/>
+                            <rect key="frame" x="712" y="13" width="16" height="18"/>
                             <fontDescription key="fontDescription" name="Barlow-Bold" family="Barlow" pointSize="15"/>
                             <color key="textColor" name="White"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHd-YH-4xv">
+                            <rect key="frame" x="712" y="2" width="46" height="40"/>
+                            <connections>
+                                <action selector="showPartsButtonTapped:" destination="-1" eventType="touchUpInside" id="mna-DR-qt7"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="JHd-YH-4xv" firstAttribute="centerY" secondItem="qT2-XC-Jw8" secondAttribute="centerY" id="3J5-ag-pHo"/>
+                        <constraint firstItem="JHd-YH-4xv" firstAttribute="leading" secondItem="Moz-sg-mfQ" secondAttribute="leading" id="4El-9P-h8Z"/>
                         <constraint firstItem="sYq-fd-hML" firstAttribute="centerY" secondItem="qT2-XC-Jw8" secondAttribute="centerY" id="4R3-cO-LNA"/>
                         <constraint firstAttribute="height" constant="71" id="N99-YK-ZpF"/>
                         <constraint firstItem="qT2-XC-Jw8" firstAttribute="leading" secondItem="sYq-fd-hML" secondAttribute="trailing" constant="4" id="UYk-Pk-bLZ"/>
+                        <constraint firstItem="JHd-YH-4xv" firstAttribute="trailing" secondItem="sYq-fd-hML" secondAttribute="trailing" id="bwa-nN-ZHp"/>
                         <constraint firstItem="Moz-sg-mfQ" firstAttribute="centerY" secondItem="sYq-fd-hML" secondAttribute="centerY" id="cgq-2Y-fQ4"/>
                         <constraint firstAttribute="trailing" secondItem="qT2-XC-Jw8" secondAttribute="trailing" constant="10" id="ffa-TY-NZQ"/>
+                        <constraint firstItem="JHd-YH-4xv" firstAttribute="height" secondItem="qT2-XC-Jw8" secondAttribute="height" id="imL-uq-zgz"/>
                         <constraint firstItem="sYq-fd-hML" firstAttribute="leading" secondItem="Moz-sg-mfQ" secondAttribute="trailing" constant="4" id="nFz-QS-CUR"/>
                         <constraint firstItem="qT2-XC-Jw8" firstAttribute="top" secondItem="IxG-51-Oet" secondAttribute="top" constant="2" id="tHR-h2-h7r"/>
                     </constraints>
                 </view>
+                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="200" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5uw-FO-bon">
+                    <rect key="frame" x="680" y="44" width="110" height="200"/>
+                </stackView>
             </subviews>
             <color key="backgroundColor" name="Black"/>
             <constraints>
                 <constraint firstItem="UXT-Hc-TIW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="39U-y2-JzF"/>
                 <constraint firstItem="IxG-51-Oet" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AZn-Um-Hvk"/>
+                <constraint firstItem="5uw-FO-bon" firstAttribute="top" secondItem="JHd-YH-4xv" secondAttribute="bottom" constant="2" id="ISN-dL-d97"/>
                 <constraint firstAttribute="bottom" secondItem="UXT-Hc-TIW" secondAttribute="bottom" id="QIG-7Y-eEh"/>
                 <constraint firstItem="UXT-Hc-TIW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Qn9-uh-l79"/>
                 <constraint firstAttribute="trailing" secondItem="UXT-Hc-TIW" secondAttribute="trailing" id="UCe-Cc-pR0"/>
                 <constraint firstAttribute="trailing" secondItem="IxG-51-Oet" secondAttribute="trailing" id="WmF-gH-8z7"/>
+                <constraint firstItem="5uw-FO-bon" firstAttribute="centerX" secondItem="JHd-YH-4xv" secondAttribute="centerX" id="XIm-aE-HUv"/>
                 <constraint firstItem="IxG-51-Oet" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="v2R-8s-qwe"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
