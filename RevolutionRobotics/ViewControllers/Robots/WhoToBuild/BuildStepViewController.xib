@@ -37,7 +37,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3W-9S-Kqb">
                     <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
-                    <color key="backgroundColor" name="DarkGrey"/>
+                    <color key="backgroundColor" name="BlackTwo"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="0XD-wO-XGD"/>
                         <constraint firstAttribute="height" constant="44" id="v5S-fh-3W3"/>
@@ -72,7 +72,7 @@
         <namedColor name="Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="DarkGrey">
+        <namedColor name="BlackTwo">
             <color red="0.15700000524520874" green="0.15700000524520874" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>

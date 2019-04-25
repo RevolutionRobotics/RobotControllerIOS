@@ -13,6 +13,6 @@ final class RRButton: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        setBackgroundImage(UIImage.from(color: Color.transparentWhite), for: .highlighted)
+        setBackgroundImage(UIImage.from(color: Color.white40), for: .highlighted)
     }
 }
