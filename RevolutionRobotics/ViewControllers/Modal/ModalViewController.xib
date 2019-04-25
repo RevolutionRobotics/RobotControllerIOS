@@ -24,7 +24,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9M-4R-2Ba" userLabel="Background">
                     <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
-                    <color key="backgroundColor" name="TransparentBlack"/>
+                    <color key="backgroundColor" name="Black24"/>
                     <gestureRecognizers/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="fyA-vC-1UA" appends="YES" id="vs6-ox-UGI"/>
@@ -73,7 +73,7 @@
     </objects>
     <resources>
         <image name="CloseIcon" width="14" height="14"/>
-        <namedColor name="TransparentBlack">
+        <namedColor name="Black24">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>

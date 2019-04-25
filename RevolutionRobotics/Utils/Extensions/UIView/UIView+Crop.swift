@@ -31,8 +31,8 @@ extension UIView {
     }
 
     // MARK: - Public functions
-    func setBorder(fillColor: UIColor = Color.darkGrey,
-                   strokeColor: UIColor = Color.lightGrey,
+    func setBorder(fillColor: UIColor = Color.blackTwo,
+                   strokeColor: UIColor = Color.blackTwo,
                    lineWidth: CGFloat = 1.0,
                    radius: CGFloat? = 10.0,
                    showTopArrow: Bool = false,
