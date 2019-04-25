@@ -111,6 +111,8 @@
 		D05C64E9225F683800B7BF4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D05C64E8225F683800B7BF4F /* GoogleService-Info.plist */; };
 		D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CE1226478200052EE1F /* FirebaseService.swift */; };
 		D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CEF22648F990052EE1F /* UIView+Crop.swift */; };
+		D0BD2B1A2271EB1D00596B1D /* ConnectionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BD2B192271EB1D00596B1D /* ConnectionModal.swift */; };
+		D0BD2B1C2271EB2400596B1D /* ConnectionModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BD2B1B2271EB2400596B1D /* ConnectionModal.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -224,6 +226,8 @@
 		D05C64E8225F683800B7BF4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D08C1CE1226478200052EE1F /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D08C1CEF22648F990052EE1F /* UIView+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Crop.swift"; sourceTree = "<group>"; };
+		D0BD2B192271EB1D00596B1D /* ConnectionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionModal.swift; sourceTree = "<group>"; };
+		D0BD2B1B2271EB2400596B1D /* ConnectionModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectionModal.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +267,7 @@
 				09676C652272EA970044FEEC /* Modal */,
 				D0049A552271CC59007FA256 /* View */,
 				D0049A5A2271D4BD007FA256 /* Modal */,
+				D0BD2B182271EAD600596B1D /* Modal */,
 				D0049A29226F3996007FA256 /* View */,
 				096479842268776200F68456 /* BuildRobotViewController.swift */,
 				096479852268776200F68456 /* BuildRobotViewController.xib */,
@@ -744,6 +749,15 @@
 			path = MixedObjects;
 			sourceTree = "<group>";
 		};
+		D0BD2B182271EAD600596B1D /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				D0BD2B192271EB1D00596B1D /* ConnectionModal.swift */,
+				D0BD2B1B2271EB2400596B1D /* ConnectionModal.xib */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -814,6 +828,7 @@
 				D05C64E9225F683800B7BF4F /* GoogleService-Info.plist in Resources */,
 				09676C692272EAE00044FEEC /* ChapterFinishedModal.xib in Resources */,
 				09C38755226F3ABC0097619D /* Barlow-Medium.ttf in Resources */,
+				D0BD2B1C2271EB2400596B1D /* ConnectionModal.xib in Resources */,
 				097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */,
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
 				09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */,
@@ -1008,6 +1023,7 @@
 				094F9DDE2264CA5600BE118B /* RRNavigationBar.swift in Sources */,
 				D0049A26226F0A15007FA256 /* BuildStepViewController.swift in Sources */,
 				D05C64DB225F590100B7BF4F /* Port.swift in Sources */,
+				D0BD2B1A2271EB1D00596B1D /* ConnectionModal.swift in Sources */,
 				D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */,
 				D05BAA7B226769F300624438 /* UICollectionView+CellReuse.swift in Sources */,
 				2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */,

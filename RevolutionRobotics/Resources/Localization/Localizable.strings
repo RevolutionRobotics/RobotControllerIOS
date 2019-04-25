@@ -33,6 +33,14 @@
 "build_robot_testing_positive_button_title" = "Works fine!";
 "build_robot_testing_negative_button_title" = "Not really";
 
+// MARK: - Build robot
+"connection_successful_message" = "Connection has been established";
+"connection_failed_message" = "Connection failed";
+"connection_failed_subtitle" = "What to do?";
+"connection_failed_skip_button_title" = "Skip connection";
+"connection_failed_tips_button_title" = "Tips";
+"connection_failed_try_again_button_title" = "Try again";
+
 // MARK: - Programs
 "programs_screen_title" = "Programs";
 
