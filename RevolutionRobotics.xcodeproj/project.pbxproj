@@ -19,8 +19,6 @@
 		096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 096479882268797F00F68456 /* Barlow-Bold.ttf */; };
 		0964798D22689DEC00F68456 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0964798B22689DEC00F68456 /* ModalViewController.swift */; };
 		0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0964798C22689DEC00F68456 /* ModalViewController.xib */; };
-		09676C672272EAD40044FEEC /* ChapterFinishedModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09676C662272EAD40044FEEC /* ChapterFinishedModal.swift */; };
-		09676C692272EAE00044FEEC /* ChapterFinishedModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09676C682272EAE00044FEEC /* ChapterFinishedModal.xib */; };
 		097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097F8432225BA37800DD32BF /* Jura-Bold.ttf */; };
 		0985495C2271D44500A7C2DC /* UIImageView+GoogleStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985495B2271D44500A7C2DC /* UIImageView+GoogleStorage.swift */; };
 		09C3874D226F32F70097619D /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C3874C226F32F70097619D /* UIView+Anchor.swift */; };
@@ -78,16 +76,18 @@
 		D0049A492270BBD2007FA256 /* UITableView+CellReuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0049A482270BBD2007FA256 /* UITableView+CellReuse.swift */; };
 		D0049A532271CC52007FA256 /* TurnOnBrainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0049A512271CC52007FA256 /* TurnOnBrainView.swift */; };
 		D0049A542271CC52007FA256 /* TurnOnBrainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0049A522271CC52007FA256 /* TurnOnBrainView.xib */; };
-		D0049A582271CC59007FA256 /* PartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0049A562271CC59007FA256 /* PartView.xib */; };
-		D0049A592271CC59007FA256 /* PartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0049A572271CC59007FA256 /* PartView.swift */; };
-		D0049A31226F3A76007FA256 /* PartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0049A30226F3A76007FA256 /* PartView.swift */; };
-		D0049A33226F3A7F007FA256 /* PartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0049A32226F3A7F007FA256 /* PartView.xib */; };
-		D0049A5C2271D526007FA256 /* TestingModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0049A5B2271D526007FA256 /* TestingModal.swift */; };
-		D0049A5E2271D52E007FA256 /* TestingModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0049A5D2271D52E007FA256 /* TestingModal.xib */; };
 		D008E0392260979400089DC7 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E0382260979300089DC7 /* FirebaseData.swift */; };
 		D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E03B2260AAF500089DC7 /* UIViewController+NibLoadable.swift */; };
 		D03BA8532276F323005B3E33 /* PartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8512276F323005B3E33 /* PartView.swift */; };
 		D03BA8542276F323005B3E33 /* PartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8522276F323005B3E33 /* PartView.xib */; };
+		D03BA85C2277384A005B3E33 /* ConnectionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8562277384A005B3E33 /* ConnectionModal.swift */; };
+		D03BA85D2277384A005B3E33 /* TestingModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8572277384A005B3E33 /* TestingModal.xib */; };
+		D03BA85E2277384A005B3E33 /* TestingModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8582277384A005B3E33 /* TestingModal.swift */; };
+		D03BA85F2277384A005B3E33 /* ChapterFinishedModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8592277384A005B3E33 /* ChapterFinishedModal.xib */; };
+		D03BA8602277384A005B3E33 /* ChapterFinishedModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA85A2277384A005B3E33 /* ChapterFinishedModal.swift */; };
+		D03BA8612277384A005B3E33 /* ConnectionModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA85B2277384A005B3E33 /* ConnectionModal.xib */; };
+		D03BA8642277385E005B3E33 /* FailedConnectionTipsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8622277385E005B3E33 /* FailedConnectionTipsModal.swift */; };
+		D03BA8652277385E005B3E33 /* FailedConnectionTipsModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8632277385E005B3E33 /* FailedConnectionTipsModal.xib */; };
 		D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA78226769E900624438 /* NSLayoutConstraint+Multiplier.swift */; };
 		D05BAA7B226769F300624438 /* UICollectionView+CellReuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA7A226769F300624438 /* UICollectionView+CellReuse.swift */; };
 		D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA7C22676A0C00624438 /* UIView+NibLoadable.swift */; };
@@ -111,8 +111,6 @@
 		D05C64E9225F683800B7BF4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D05C64E8225F683800B7BF4F /* GoogleService-Info.plist */; };
 		D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CE1226478200052EE1F /* FirebaseService.swift */; };
 		D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CEF22648F990052EE1F /* UIView+Crop.swift */; };
-		D0BD2B1A2271EB1D00596B1D /* ConnectionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BD2B192271EB1D00596B1D /* ConnectionModal.swift */; };
-		D0BD2B1C2271EB2400596B1D /* ConnectionModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BD2B1B2271EB2400596B1D /* ConnectionModal.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,8 +126,6 @@
 		096479882268797F00F68456 /* Barlow-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Bold.ttf"; sourceTree = "<group>"; };
 		0964798B22689DEC00F68456 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		0964798C22689DEC00F68456 /* ModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
-		09676C662272EAD40044FEEC /* ChapterFinishedModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterFinishedModal.swift; sourceTree = "<group>"; };
-		09676C682272EAE00044FEEC /* ChapterFinishedModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChapterFinishedModal.xib; sourceTree = "<group>"; };
 		097F8432225BA37800DD32BF /* Jura-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Bold.ttf"; sourceTree = "<group>"; };
 		0985495B2271D44500A7C2DC /* UIImageView+GoogleStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+GoogleStorage.swift"; sourceTree = "<group>"; };
 		09C3874C226F32F70097619D /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
@@ -193,16 +189,18 @@
 		D0049A482270BBD2007FA256 /* UITableView+CellReuse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+CellReuse.swift"; sourceTree = "<group>"; };
 		D0049A512271CC52007FA256 /* TurnOnBrainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnOnBrainView.swift; sourceTree = "<group>"; };
 		D0049A522271CC52007FA256 /* TurnOnBrainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TurnOnBrainView.xib; sourceTree = "<group>"; };
-		D0049A562271CC59007FA256 /* PartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartView.xib; sourceTree = "<group>"; };
-		D0049A572271CC59007FA256 /* PartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartView.swift; sourceTree = "<group>"; };
-		D0049A30226F3A76007FA256 /* PartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartView.swift; sourceTree = "<group>"; };
-		D0049A32226F3A7F007FA256 /* PartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartView.xib; sourceTree = "<group>"; };
-		D0049A5B2271D526007FA256 /* TestingModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingModal.swift; sourceTree = "<group>"; };
-		D0049A5D2271D52E007FA256 /* TestingModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestingModal.xib; sourceTree = "<group>"; };
 		D008E0382260979300089DC7 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
 		D008E03B2260AAF500089DC7 /* UIViewController+NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NibLoadable.swift"; sourceTree = "<group>"; };
 		D03BA8512276F323005B3E33 /* PartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartView.swift; sourceTree = "<group>"; };
 		D03BA8522276F323005B3E33 /* PartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartView.xib; sourceTree = "<group>"; };
+		D03BA8562277384A005B3E33 /* ConnectionModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionModal.swift; sourceTree = "<group>"; };
+		D03BA8572277384A005B3E33 /* TestingModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestingModal.xib; sourceTree = "<group>"; };
+		D03BA8582277384A005B3E33 /* TestingModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingModal.swift; sourceTree = "<group>"; };
+		D03BA8592277384A005B3E33 /* ChapterFinishedModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChapterFinishedModal.xib; sourceTree = "<group>"; };
+		D03BA85A2277384A005B3E33 /* ChapterFinishedModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterFinishedModal.swift; sourceTree = "<group>"; };
+		D03BA85B2277384A005B3E33 /* ConnectionModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionModal.xib; sourceTree = "<group>"; };
+		D03BA8622277385E005B3E33 /* FailedConnectionTipsModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailedConnectionTipsModal.swift; sourceTree = "<group>"; };
+		D03BA8632277385E005B3E33 /* FailedConnectionTipsModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FailedConnectionTipsModal.xib; sourceTree = "<group>"; };
 		D05BAA78226769E900624438 /* NSLayoutConstraint+Multiplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Multiplier.swift"; sourceTree = "<group>"; };
 		D05BAA7A226769F300624438 /* UICollectionView+CellReuse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+CellReuse.swift"; sourceTree = "<group>"; };
 		D05BAA7C22676A0C00624438 /* UIView+NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadable.swift"; sourceTree = "<group>"; };
@@ -226,8 +224,6 @@
 		D05C64E8225F683800B7BF4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D08C1CE1226478200052EE1F /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D08C1CEF22648F990052EE1F /* UIView+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Crop.swift"; sourceTree = "<group>"; };
-		D0BD2B192271EB1D00596B1D /* ConnectionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionModal.swift; sourceTree = "<group>"; };
-		D0BD2B1B2271EB2400596B1D /* ConnectionModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectionModal.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,12 +259,8 @@
 		096479832268773700F68456 /* BuildRobot */ = {
 			isa = PBXGroup;
 			children = (
+				D03BA8552277384A005B3E33 /* Modal */,
 				0939A37C2276E6EF005EE307 /* View */,
-				09676C652272EA970044FEEC /* Modal */,
-				D0049A552271CC59007FA256 /* View */,
-				D0049A5A2271D4BD007FA256 /* Modal */,
-				D0BD2B182271EAD600596B1D /* Modal */,
-				D0049A29226F3996007FA256 /* View */,
 				096479842268776200F68456 /* BuildRobotViewController.swift */,
 				096479852268776200F68456 /* BuildRobotViewController.xib */,
 			);
@@ -280,15 +272,6 @@
 			children = (
 				0964798B22689DEC00F68456 /* ModalViewController.swift */,
 				0964798C22689DEC00F68456 /* ModalViewController.xib */,
-			);
-			path = Modal;
-			sourceTree = "<group>";
-		};
-		09676C652272EA970044FEEC /* Modal */ = {
-			isa = PBXGroup;
-			children = (
-				09676C662272EAD40044FEEC /* ChapterFinishedModal.swift */,
-				09676C682272EAE00044FEEC /* ChapterFinishedModal.xib */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -677,15 +660,6 @@
 			path = Modal;
 			sourceTree = "<group>";
 		};
-		D0049A5A2271D4BD007FA256 /* Modal */ = {
-			isa = PBXGroup;
-			children = (
-				D0049A5B2271D526007FA256 /* TestingModal.swift */,
-				D0049A5D2271D52E007FA256 /* TestingModal.xib */,
-			);
-			path = Modal;
-			sourceTree = "<group>";
-		};
 		D008E03A2260AAF500089DC7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -700,6 +674,21 @@
 				2ADE8C2B2270A68800ECEC72 /* UIViewController */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D03BA8552277384A005B3E33 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				D03BA8622277385E005B3E33 /* FailedConnectionTipsModal.swift */,
+				D03BA8632277385E005B3E33 /* FailedConnectionTipsModal.xib */,
+				D03BA8572277384A005B3E33 /* TestingModal.xib */,
+				D03BA8582277384A005B3E33 /* TestingModal.swift */,
+				D03BA8592277384A005B3E33 /* ChapterFinishedModal.xib */,
+				D03BA85A2277384A005B3E33 /* ChapterFinishedModal.swift */,
+				D03BA8562277384A005B3E33 /* ConnectionModal.swift */,
+				D03BA85B2277384A005B3E33 /* ConnectionModal.xib */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 		D05C64C6225F56C400B7BF4F /* Model */ = {
@@ -747,15 +736,6 @@
 				D05C64D8225F58E200B7BF4F /* Side.swift */,
 			);
 			path = MixedObjects;
-			sourceTree = "<group>";
-		};
-		D0BD2B182271EAD600596B1D /* Modal */ = {
-			isa = PBXGroup;
-			children = (
-				D0BD2B192271EB1D00596B1D /* ConnectionModal.swift */,
-				D0BD2B1B2271EB2400596B1D /* ConnectionModal.xib */,
-			);
-			path = Modal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -820,15 +800,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D03BA8612277384A005B3E33 /* ConnectionModal.xib in Resources */,
+				D03BA85D2277384A005B3E33 /* TestingModal.xib in Resources */,
+				D03BA85F2277384A005B3E33 /* ChapterFinishedModal.xib in Resources */,
 				09ED1BAB225247E2009CF262 /* MenuViewController.xib in Resources */,
 				2A9F52122265E96B00F9F651 /* ProgramsViewController.xib in Resources */,
 				2ADE8C412270AFFD00ECEC72 /* Localizable.strings in Resources */,
 				2A9F52162265E97700F9F651 /* SettingsViewController.xib in Resources */,
 				D0049A3F2270A8D7007FA256 /* AvailableRobotsView.xib in Resources */,
 				D05C64E9225F683800B7BF4F /* GoogleService-Info.plist in Resources */,
-				09676C692272EAE00044FEEC /* ChapterFinishedModal.xib in Resources */,
 				09C38755226F3ABC0097619D /* Barlow-Medium.ttf in Resources */,
-				D0BD2B1C2271EB2400596B1D /* ConnectionModal.xib in Resources */,
 				097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */,
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
 				09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */,
@@ -837,6 +818,7 @@
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
 				D0049A25226F0A15007FA256 /* BuildStepViewController.xib in Resources */,
 				D0049A432270ABA1007FA256 /* AvailableRobotsTableViewCell.xib in Resources */,
+				D03BA8652277385E005B3E33 /* FailedConnectionTipsModal.xib in Resources */,
 				196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */,
 				096479872268776200F68456 /* BuildRobotViewController.xib in Resources */,
 				D05BAA9E22676BCA00624438 /* WhoToBuildCollectionViewCell.xib in Resources */,
@@ -845,7 +827,6 @@
 				D0049A542271CC52007FA256 /* TurnOnBrainView.xib in Resources */,
 				2A9F520E2265E95600F9F651 /* ChallengesViewController.xib in Resources */,
 				09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */,
-				D0049A5E2271D52E007FA256 /* TestingModal.xib in Resources */,
 				0964798122686DE000F68456 /* WhoToBuildViewController.xib in Resources */,
 				0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */,
 				2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */,
@@ -980,15 +961,17 @@
 				09C3875A2270A7100097619D /* FirebaseError.swift in Sources */,
 				094F9DD82264BE1900BE118B /* Color.swift in Sources */,
 				D05C64CA225F572F00B7BF4F /* MilestoneType.swift in Sources */,
+				D03BA85E2277384A005B3E33 /* TestingModal.swift in Sources */,
 				D05C64D6225F587700B7BF4F /* UserRobot.swift in Sources */,
 				D05C64C8225F570000B7BF4F /* TestCode.swift in Sources */,
 				D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */,
+				D03BA8602277384A005B3E33 /* ChapterFinishedModal.swift in Sources */,
+				D03BA8642277385E005B3E33 /* FailedConnectionTipsModal.swift in Sources */,
 				09ED1BA9225247B1009CF262 /* MenuViewController.swift in Sources */,
 				D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */,
 				2A91937A225F7C6F00E927FD /* BluetoothReachability.swift in Sources */,
 				2ADE8C292270A61000ECEC72 /* String+Translate.swift in Sources */,
 				094F9DDC2264BEE600BE118B /* Font.swift in Sources */,
-				09676C672272EAD40044FEEC /* ChapterFinishedModal.swift in Sources */,
 				D05C64CC225F575A00B7BF4F /* Milestone.swift in Sources */,
 				09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */,
 				09C3874D226F32F70097619D /* UIView+Anchor.swift in Sources */,
@@ -1002,7 +985,6 @@
 				2A9F52112265E96B00F9F651 /* ProgramsViewController.swift in Sources */,
 				D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */,
 				D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */,
-				D0049A5C2271D526007FA256 /* TestingModal.swift in Sources */,
 				D05C64E1225F5C9900B7BF4F /* Drivetrain.swift in Sources */,
 				D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */,
 				2A9F52022265DAC900F9F651 /* AppContainer.swift in Sources */,
@@ -1017,13 +999,13 @@
 				09ED1BAD22524B09009CF262 /* Callback.swift in Sources */,
 				2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */,
 				D05C64DF225F5C4E00B7BF4F /* Rotation.swift in Sources */,
+				D03BA85C2277384A005B3E33 /* ConnectionModal.swift in Sources */,
 				2ADE8C382270A79E00ECEC72 /* SettingsKeys.swift in Sources */,
 				D05C64D0225F57BC00B7BF4F /* Robot.swift in Sources */,
 				0964798D22689DEC00F68456 /* ModalViewController.swift in Sources */,
 				094F9DDE2264CA5600BE118B /* RRNavigationBar.swift in Sources */,
 				D0049A26226F0A15007FA256 /* BuildStepViewController.swift in Sources */,
 				D05C64DB225F590100B7BF4F /* Port.swift in Sources */,
-				D0BD2B1A2271EB1D00596B1D /* ConnectionModal.swift in Sources */,
 				D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */,
 				D05BAA7B226769F300624438 /* UICollectionView+CellReuse.swift in Sources */,
 				2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */,
