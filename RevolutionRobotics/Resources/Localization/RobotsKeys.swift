@@ -20,5 +20,13 @@ enum RobotsKeys {
     enum BuildRobot {
         static let turnOnTheBrainInstruction = "build_robot_turn_on_the_brain_instruction"
         static let turnOnTheBrainTip = "build_robot_turn_on_the_brain_tip"
+
+        enum ChapterFinished {
+            static let title = "build_chapter_finish_dialog_title"
+            static let description = "build_chapter_finish_dialog_description"
+            static let homeButton = "build_chapter_finish_dialog_button_home"
+            static let testLaterButton = "build_chapter_finish_dialog_button_next_chapter"
+            static let testNowButton = "build_chapter_finish_dialog_button_test"
+        }
     }
 }

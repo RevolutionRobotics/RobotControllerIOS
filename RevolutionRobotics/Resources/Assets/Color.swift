@@ -23,5 +23,6 @@ enum Color {
     static let goldenRod = UIColor(named: "GoldenRod")!
     static let paleSkyBlue = UIColor(named: "PaleSkyBlue")!
     static let watermelon = UIColor(named: "Watermelon")!
+    static let white16 = UIColor(named: "White16")!
     static let white40 = UIColor(named: "White40")!
 }
