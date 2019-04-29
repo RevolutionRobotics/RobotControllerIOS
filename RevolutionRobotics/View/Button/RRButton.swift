@@ -14,5 +14,6 @@ final class RRButton: UIButton {
         super.awakeFromNib()
 
         setBackgroundImage(UIImage.from(color: Color.white16), for: .highlighted)
+        adjustsImageWhenHighlighted = false
     }
 }

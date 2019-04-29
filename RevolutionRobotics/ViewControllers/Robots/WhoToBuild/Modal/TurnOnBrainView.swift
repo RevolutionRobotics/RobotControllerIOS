@@ -13,9 +13,14 @@ final class TurnOnBrainView: UIView {
     @IBOutlet private weak var brainImageView: UIImageView!
     @IBOutlet private weak var instructionLabel: UILabel!
     @IBOutlet private weak var nextStepLabel: UILabel!
-    @IBOutlet private weak var laterButton: UIButton!
-    @IBOutlet private weak var startButton: UIButton!
-    @IBOutlet private weak var tipsButton: UIButton!
+    @IBOutlet private weak var laterButton: RRButton!
+    @IBOutlet private weak var startButton: RRButton!
+    @IBOutlet private weak var tipsButton: RRButton!
+
+    // MARK: - Properties
+    var laterHandler: Callback?
+    var tipsHandler: Callback?
+    var startHandler: Callback?
 }
 
 // MARK: - View lifecycle
@@ -40,11 +45,14 @@ extension TurnOnBrainView {
 // MARK: - Event handlers
 extension TurnOnBrainView {
     @IBAction private func laterButtonTapped(_ sender: Any) {
+        laterHandler?()
     }
 
     @IBAction private func startButtonTapped(_ sender: Any) {
+        startHandler?()
     }
 
     @IBAction private func tipsButtonTapped(_ sender: Any) {
+        tipsHandler?()
     }
 }

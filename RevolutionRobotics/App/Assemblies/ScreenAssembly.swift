@@ -77,6 +77,6 @@ extension ScreenAssembly {
     private func registerModalViewController(to container: Container) {
         container
             .register(ModalViewController.self, factory: { _ in return ModalViewController() })
-            .inObjectScope(.weak)
+            .inObjectScope(.transient)
     }
 }

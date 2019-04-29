@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RevolutionRoboticsBluetooth
 
 final class WhoToBuildViewController: BaseViewController {
     // MARK: - Constants
@@ -28,6 +29,8 @@ final class WhoToBuildViewController: BaseViewController {
     // MARK: - Variables
     var firebaseService: FirebaseServiceInterface!
     private var highestSine: CGFloat = 0
+    private let discoverer: RoboticsDeviceDiscovererInterface = RoboticsDeviceDiscoverer()
+    private let blutoothDiscovery = AvailableRobotsView.instatiate()
     private var indexPathOfCentermostCell = IndexPath(row: 0, section: 0) {
         didSet {
             leftButton.isHidden = indexPathOfCentermostCell.row == 0
@@ -183,5 +186,40 @@ extension WhoToBuildViewController: UICollectionViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         resizeVisibleCells()
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard !collectionView.isDecelerating,
+            let cell = collectionView.cellForItem(at: indexPath) as? WhoToBuildCollectionViewCell,
+            cell.isCentered else { return }
+
+        showTurnOnTheBrain()
+    }
+}
+
+// MARK: - Modals
+extension WhoToBuildViewController {
+    private func showTurnOnTheBrain() {
+        let turnOnModal = TurnOnBrainView.instatiate()
+        turnOnModal.laterHandler = { [weak self] in
+            self?.dismissViewController()
+        }
+        turnOnModal.tipsHandler = { [weak self] in
+            self?.dismissViewController()
+        }
+        turnOnModal.startHandler = { [weak self] in
+            self?.dismissViewController()
+            self?.showBluetoothDiscovery()
+        }
+        presentModal(with: turnOnModal)
+    }
+
+    private func showBluetoothDiscovery() {
+        self.presentModal(with: blutoothDiscovery)
+        discoverer.discoverRobots(onScanResult: { [weak self] (devices) in
+            self?.blutoothDiscovery.discoveredDevices = devices
+        }, onError: { error in
+            print(error.localizedDescription)
+        })
     }
 }
