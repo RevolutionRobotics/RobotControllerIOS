@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   RevolutionRobotics
 
@@ -22,6 +22,11 @@
 // MARK: - Build robot
 "build_robot_turn_on_the_brain_instruction" = "To take control, switch the brain on";
 "build_robot_turn_on_the_brain_tip" = "Once it is ready, tap start";
+"build_chapter_finish_dialog_title" = "Chapter finished";
+"build_chapter_finish_dialog_description" = "Well done!";
+"build_chapter_finish_dialog_button_home" = "Home";
+"build_chapter_finish_dialog_button_next_chapter" = "Test later";
+"build_chapter_finish_dialog_button_test" = "Test now";
 
 // MARK: - Programs
 "programs_screen_title" = "Programs";
