@@ -11,6 +11,8 @@ import UIKit
 enum Image {
     enum Common {
         static let imagePlaceholder = UIImage(named: "ImagePlaceholder")
+        static let connectionFailed = UIImage(named: "FailedConnectionIcon")
+        static let connectionSuccessful = UIImage(named: "SuccessfulConnectionIcon")
     }
 
     enum BuildRobot {

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+        <array key="Jura-Regular.ttf">
+            <string>Jura-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConnectionModal" customModule="RevolutionRobotics" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ConnectionModal" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FailedConnectionIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Qpw-2E-RxG">
+                    <rect key="frame" x="199" y="32" width="62" height="62"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="62" id="P2H-dQ-mE8"/>
+                        <constraint firstAttribute="height" constant="62" id="tWD-co-pna"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connection failed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQm-f5-MuM">
+                    <rect key="frame" x="147" y="110" width="166" height="24"/>
+                    <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKE-sL-XLq">
+                    <rect key="frame" x="4" y="138" width="452" height="98"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHAT TO DO?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Paw-l5-4rL">
+                            <rect key="frame" x="178.5" y="0.0" width="95" height="17"/>
+                            <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf6-bP-S27" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="52" width="150.5" height="46"/>
+                            <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Skip Connection" image="SkipIcon"/>
+                            <connections>
+                                <action selector="skipConnectionButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="1Vk-oe-hxR"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ydd-g9-TNQ" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="150.5" y="52" width="151" height="46"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="D0P-xi-CMh"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Tips" image="TipsIcon"/>
+                            <connections>
+                                <action selector="tipsButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="lpD-iS-8q2"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E28-Vo-Bte" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="301.5" y="52" width="150.5" height="46"/>
+                            <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Try again" image="RetryIcon"/>
+                            <connections>
+                                <action selector="tryAgainButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="NLb-Rf-qGu"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Ydd-g9-TNQ" firstAttribute="leading" secondItem="gf6-bP-S27" secondAttribute="trailing" id="1C7-oU-DRa"/>
+                        <constraint firstItem="Ydd-g9-TNQ" firstAttribute="height" secondItem="gf6-bP-S27" secondAttribute="height" id="2hi-Ii-mWa"/>
+                        <constraint firstItem="Ydd-g9-TNQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Paw-l5-4rL" secondAttribute="bottom" constant="31" id="65a-9p-ikz"/>
+                        <constraint firstItem="Paw-l5-4rL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HKE-sL-XLq" secondAttribute="leading" constant="12" id="Dyg-7l-JjO"/>
+                        <constraint firstAttribute="bottom" secondItem="E28-Vo-Bte" secondAttribute="bottom" id="FMN-ch-Lt6"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Paw-l5-4rL" secondAttribute="trailing" constant="12" id="HZJ-uD-7zW"/>
+                        <constraint firstItem="E28-Vo-Bte" firstAttribute="leading" secondItem="Ydd-g9-TNQ" secondAttribute="trailing" id="RMA-Df-bdR"/>
+                        <constraint firstAttribute="bottom" secondItem="gf6-bP-S27" secondAttribute="bottom" id="U0v-8A-h6d"/>
+                        <constraint firstAttribute="bottom" secondItem="Ydd-g9-TNQ" secondAttribute="bottom" id="Wda-mk-0wp"/>
+                        <constraint firstItem="Ydd-g9-TNQ" firstAttribute="width" secondItem="gf6-bP-S27" secondAttribute="width" id="aeE-Em-m5R"/>
+                        <constraint firstAttribute="trailing" secondItem="E28-Vo-Bte" secondAttribute="trailing" id="fm7-DU-fVr"/>
+                        <constraint firstItem="Paw-l5-4rL" firstAttribute="centerX" secondItem="HKE-sL-XLq" secondAttribute="centerX" id="gsr-wq-Npt"/>
+                        <constraint firstItem="Ydd-g9-TNQ" firstAttribute="width" secondItem="E28-Vo-Bte" secondAttribute="width" id="m1z-nl-ZHQ"/>
+                        <constraint firstItem="Paw-l5-4rL" firstAttribute="top" secondItem="HKE-sL-XLq" secondAttribute="top" id="op4-pj-OQw"/>
+                        <constraint firstItem="Ydd-g9-TNQ" firstAttribute="height" secondItem="E28-Vo-Bte" secondAttribute="height" id="szl-7o-Nwb"/>
+                        <constraint firstAttribute="height" constant="98" id="vw2-rU-5YV"/>
+                        <constraint firstItem="gf6-bP-S27" firstAttribute="leading" secondItem="HKE-sL-XLq" secondAttribute="leading" id="vwY-Kz-aaj"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="dQm-f5-MuM" secondAttribute="bottom" priority="750" constant="75" id="73G-2o-TsA"/>
+                <constraint firstAttribute="bottom" secondItem="HKE-sL-XLq" secondAttribute="bottom" constant="4" id="Czj-k5-sNs"/>
+                <constraint firstItem="HKE-sL-XLq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="Gdp-3M-r7j"/>
+                <constraint firstItem="Qpw-2E-RxG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="I2d-60-Q8o"/>
+                <constraint firstAttribute="trailing" secondItem="HKE-sL-XLq" secondAttribute="trailing" constant="4" id="MYT-Ye-cG2"/>
+                <constraint firstItem="Qpw-2E-RxG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="Q4j-A3-Jw4"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dQm-f5-MuM" secondAttribute="trailing" constant="12" id="ShC-rU-Dqe"/>
+                <constraint firstItem="HKE-sL-XLq" firstAttribute="top" secondItem="dQm-f5-MuM" secondAttribute="bottom" constant="4" id="iWx-hw-zh3"/>
+                <constraint firstItem="dQm-f5-MuM" firstAttribute="top" secondItem="Qpw-2E-RxG" secondAttribute="bottom" constant="16" id="lFW-Ka-hTH"/>
+                <constraint firstItem="dQm-f5-MuM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="o4W-m1-ZD1"/>
+                <constraint firstItem="dQm-f5-MuM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="syz-fW-k3M"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="connectionStatusImageView" destination="Qpw-2E-RxG" id="xh4-9g-C4a"/>
+                <outlet property="connectionStatusLabel" destination="dQm-f5-MuM" id="eYe-4v-5CL"/>
+                <outlet property="failView" destination="HKE-sL-XLq" id="WJW-ru-eQL"/>
+                <outlet property="skipConnectionButton" destination="gf6-bP-S27" id="6ZL-cm-woH"/>
+                <outlet property="subtitleLabel" destination="Paw-l5-4rL" id="65W-XG-cEB"/>
+                <outlet property="tipsButton" destination="Ydd-g9-TNQ" id="yoV-Wd-Ser"/>
+                <outlet property="tryAgainButton" destination="E28-Vo-Bte" id="QVs-HQ-Hy8"/>
+            </connections>
+            <point key="canvasLocation" x="138.61607142857142" y="153.62318840579712"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="FailedConnectionIcon" width="62" height="62"/>
+        <image name="RetryIcon" width="16" height="16"/>
+        <image name="SkipIcon" width="16" height="16"/>
+        <image name="TipsIcon" width="16" height="16"/>
+    </resources>
+</document>

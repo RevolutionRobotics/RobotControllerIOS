@@ -34,4 +34,13 @@ enum RobotsKeys {
             static let testNowButton = "build_chapter_finish_dialog_button_test"
         }
     }
+
+    enum Common {
+        static let successfulConnectionTitle = "connection_successful_message"
+        static let failedConnectionTitle = "connection_failed_message"
+        static let failedConnectionSubtitle = "connection_failed_subtitle"
+        static let failedConnectionSkipButton = "connection_failed_skip_button_title"
+        static let failedConnectionTipsButton = "connection_failed_tips_button_title"
+        static let failedConnectionTryAgainButton = "connection_failed_try_again_button_title"
+    }
 }
