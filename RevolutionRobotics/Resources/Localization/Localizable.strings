@@ -28,6 +28,10 @@
 "build_chapter_finish_dialog_button_home" = "Home";
 "build_chapter_finish_dialog_button_next_chapter" = "Test later";
 "build_chapter_finish_dialog_button_test" = "Test now";
+"build_robot_testing_title" = "Testing";
+"build_robot_testing_question" = "Looking good?";
+"build_robot_testing_positive_button_title" = "Works fine!";
+"build_robot_testing_negative_button_title" = "Not really";
 
 // MARK: - Programs
 "programs_screen_title" = "Programs";

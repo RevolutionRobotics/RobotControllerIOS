@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Bold.ttf">
+            <string>Barlow-Bold</string>
+        </array>
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestingModal" customModule="RevolutionRobotics" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TestingModal" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L09-V9-uxB">
+                    <rect key="frame" x="180" y="32" width="100" height="21.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TESTING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUC-9R-2Xx">
+                            <rect key="frame" x="24" y="0.0" width="76" height="21.5"/>
+                            <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChecklistIcon" translatesAutoresizingMaskIntoConstraints="NO" id="knZ-Gg-dNB">
+                            <rect key="frame" x="0.0" y="3" width="16" height="16"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="ZUC-9R-2Xx" firstAttribute="top" secondItem="L09-V9-uxB" secondAttribute="top" id="8M3-W1-w62"/>
+                        <constraint firstItem="knZ-Gg-dNB" firstAttribute="leading" secondItem="L09-V9-uxB" secondAttribute="leading" id="F5M-sG-YrN"/>
+                        <constraint firstAttribute="bottom" secondItem="ZUC-9R-2Xx" secondAttribute="bottom" id="Qf3-FX-fLa"/>
+                        <constraint firstItem="ZUC-9R-2Xx" firstAttribute="leading" secondItem="knZ-Gg-dNB" secondAttribute="trailing" constant="8" id="UKj-U5-NIc"/>
+                        <constraint firstAttribute="trailing" secondItem="ZUC-9R-2Xx" secondAttribute="trailing" id="aXK-Td-U0f"/>
+                        <constraint firstItem="knZ-Gg-dNB" firstAttribute="centerY" secondItem="L09-V9-uxB" secondAttribute="centerY" id="hYd-u4-i9Q"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ooA-cM-HXT">
+                    <rect key="frame" x="80" y="69.5" width="348" height="52"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="u1H-Pz-79X">
+                            <rect key="frame" x="0.0" y="0.0" width="109" height="52"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Robot moves back and forth and reaches initial position." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wws-C9-qY4">
+                            <rect key="frame" x="133" y="11.5" width="212" height="29"/>
+                            <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wws-C9-qY4" secondAttribute="trailing" id="L8l-FD-VfN"/>
+                        <constraint firstAttribute="bottom" secondItem="u1H-Pz-79X" secondAttribute="bottom" id="P9g-cd-I19"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wws-C9-qY4" secondAttribute="bottom" id="X1D-74-zDb"/>
+                        <constraint firstItem="u1H-Pz-79X" firstAttribute="leading" secondItem="ooA-cM-HXT" secondAttribute="leading" id="mp4-Be-TzH"/>
+                        <constraint firstItem="wws-C9-qY4" firstAttribute="leading" secondItem="u1H-Pz-79X" secondAttribute="trailing" constant="24" id="qHZ-jh-vzv"/>
+                        <constraint firstItem="u1H-Pz-79X" firstAttribute="top" secondItem="ooA-cM-HXT" secondAttribute="top" id="qgk-3c-V8s"/>
+                        <constraint firstItem="wws-C9-qY4" firstAttribute="centerY" secondItem="ooA-cM-HXT" secondAttribute="centerY" id="xgG-JK-bp4"/>
+                        <constraint firstItem="wws-C9-qY4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ooA-cM-HXT" secondAttribute="top" id="xsl-jo-BEh"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking good?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHU-GM-Eb6">
+                    <rect key="frame" x="179" y="137.5" width="102.5" height="17"/>
+                    <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quG-8c-x65" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="230" y="184.5" width="226" height="51.5"/>
+                    <fontDescription key="fontDescription" name="Barlow-Bold" family="Barlow" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Works fine!" image="TickWhiteIcon"/>
+                    <connections>
+                        <action selector="positiveButtonTapped:" destination="-1" eventType="touchUpInside" id="Okp-if-fLy"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxy-50-ZCi" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="4" y="184.5" width="226" height="51.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="voI-Tp-jEq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Not really" image="CrossWhiteIcon"/>
+                    <connections>
+                        <action selector="negativeButtonTapped:" destination="-1" eventType="touchUpInside" id="5kc-z5-Hc2"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pHU-GM-Eb6" secondAttribute="trailing" constant="32" id="4Gy-2s-gr4"/>
+                <constraint firstItem="pHU-GM-Eb6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8PP-8o-tNy"/>
+                <constraint firstItem="quG-8c-x65" firstAttribute="top" secondItem="rxy-50-ZCi" secondAttribute="top" id="Bf0-MV-ISl"/>
+                <constraint firstAttribute="trailing" secondItem="ooA-cM-HXT" secondAttribute="trailing" constant="32" id="DKm-5A-HNe"/>
+                <constraint firstItem="ooA-cM-HXT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="80" id="E1s-B1-VIk"/>
+                <constraint firstItem="pHU-GM-Eb6" firstAttribute="top" secondItem="ooA-cM-HXT" secondAttribute="bottom" constant="16" id="KRf-ax-gkh"/>
+                <constraint firstAttribute="trailing" secondItem="quG-8c-x65" secondAttribute="trailing" constant="4" id="KbB-Nx-UxU"/>
+                <constraint firstItem="rxy-50-ZCi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="NH0-q7-vdt"/>
+                <constraint firstItem="L09-V9-uxB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PLx-ur-63R"/>
+                <constraint firstAttribute="bottom" secondItem="rxy-50-ZCi" secondAttribute="bottom" constant="4" id="V3t-C8-h46"/>
+                <constraint firstItem="quG-8c-x65" firstAttribute="leading" secondItem="rxy-50-ZCi" secondAttribute="trailing" id="YQn-QP-eWq"/>
+                <constraint firstItem="rxy-50-ZCi" firstAttribute="top" secondItem="pHU-GM-Eb6" secondAttribute="bottom" constant="30" id="YnL-8L-hki"/>
+                <constraint firstItem="ooA-cM-HXT" firstAttribute="top" secondItem="L09-V9-uxB" secondAttribute="bottom" constant="16" id="cFD-Ph-z92"/>
+                <constraint firstAttribute="bottom" secondItem="quG-8c-x65" secondAttribute="bottom" constant="4" id="eCa-SF-XJw"/>
+                <constraint firstItem="quG-8c-x65" firstAttribute="height" secondItem="rxy-50-ZCi" secondAttribute="height" id="igL-si-Hlu"/>
+                <constraint firstItem="L09-V9-uxB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="nca-YU-gGH"/>
+                <constraint firstItem="quG-8c-x65" firstAttribute="width" secondItem="rxy-50-ZCi" secondAttribute="width" id="phP-cm-rvY"/>
+                <constraint firstItem="pHU-GM-Eb6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="xIM-pT-inD"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="negativeButton" destination="rxy-50-ZCi" id="xsJ-oH-fAS"/>
+                <outlet property="positiveButton" destination="quG-8c-x65" id="3AZ-ir-zvs"/>
+                <outlet property="questionLabel" destination="pHU-GM-Eb6" id="jUG-kA-Zir"/>
+                <outlet property="testImageView" destination="u1H-Pz-79X" id="nzh-1M-yHD"/>
+                <outlet property="testInstructionLabel" destination="wws-C9-qY4" id="J9K-Aw-je6"/>
+                <outlet property="titleLabel" destination="ZUC-9R-2Xx" id="RKm-al-gZ1"/>
+            </connections>
+            <point key="canvasLocation" x="22.767857142857142" y="76.811594202898561"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ChecklistIcon" width="16" height="16"/>
+        <image name="CrossWhiteIcon" width="14" height="12"/>
+        <image name="TestImagePlaceholder" width="109" height="52"/>
+        <image name="TickWhiteIcon" width="16" height="12"/>
+    </resources>
+</document>
