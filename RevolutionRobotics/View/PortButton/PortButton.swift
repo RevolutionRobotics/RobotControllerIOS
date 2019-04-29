@@ -115,7 +115,7 @@ extension PortButton {
         dotImageView.tintColor = selected ? borderColor : .lightGray
     }
 
-    private func setupHighlightetState() {
+    private func setupHighlightedState() {
         setBorder(strokeColor: .white, lineWidth: Constants.borderWidth)
         setLineSelectedState(to: true, color: .white)
         dotImageView.image = Image.Configuration.addIconLight
@@ -139,6 +139,6 @@ extension PortButton {
     }
 
     @objc private func buttonTouch() {
-        setupHighlightetState()
+        setupHighlightedState()
     }
 }

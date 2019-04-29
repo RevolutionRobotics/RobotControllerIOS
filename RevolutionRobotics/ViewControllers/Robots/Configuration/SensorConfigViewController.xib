@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SensorConfigViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+            <connections>
+                <outlet property="buttonContainer" destination="tSM-9g-s1O" id="VsY-fo-igE"/>
+                <outlet property="doneButton" destination="Ftu-3t-6or" id="NK2-XV-4v6"/>
+                <outlet property="nameInputField" destination="Dq7-q0-GrG" id="GRy-ZO-531"/>
+                <outlet property="testButton" destination="927-kM-12a" id="4y9-yj-NAc"/>
+                <outlet property="view" destination="wTU-bG-PV7" id="0PN-BG-mpD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="wTU-bG-PV7">
+            <rect key="frame" x="0.0" y="0.0" width="215" height="320"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tSM-9g-s1O">
+                    <rect key="frame" x="36" y="72" width="158" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="158" id="3Nt-HI-ayR"/>
+                        <constraint firstAttribute="height" constant="60" placeholder="YES" id="aJJ-Ut-mF6"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="0wg-EW-g1L"/>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5yc-Is-O4v">
+                    <rect key="frame" x="4" y="270" width="207" height="46"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="927-kM-12a" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="103.5" height="46"/>
+                            <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                            <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Test" image="TestIcon">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="testButtonTapped:" destination="-1" eventType="touchUpInside" id="KFf-iC-CzJ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ftu-3t-6or" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="103.5" y="0.0" width="103.5" height="46"/>
+                            <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                            <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Done" image="CheckIcon">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="-1" eventType="touchUpInside" id="dr0-mh-7dX"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="rE7-aP-k68"/>
+                    </constraints>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dq7-q0-GrG" customClass="RRInputField" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="16" y="16" width="183" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="4Fa-F4-1rE"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" name="BlackTwo"/>
+            <constraints>
+                <constraint firstItem="5yc-Is-O4v" firstAttribute="leading" secondItem="CT8-dg-i1L" secondAttribute="leading" constant="4" id="9UT-X6-Htw"/>
+                <constraint firstItem="Dq7-q0-GrG" firstAttribute="leading" secondItem="CT8-dg-i1L" secondAttribute="leading" constant="16" id="BCt-Mf-Jaq"/>
+                <constraint firstItem="CT8-dg-i1L" firstAttribute="trailing" secondItem="Dq7-q0-GrG" secondAttribute="trailing" constant="16" id="Klm-GW-QVI"/>
+                <constraint firstItem="Dq7-q0-GrG" firstAttribute="top" secondItem="CT8-dg-i1L" secondAttribute="top" constant="16" id="N2z-0h-yKM"/>
+                <constraint firstItem="CT8-dg-i1L" firstAttribute="bottom" secondItem="5yc-Is-O4v" secondAttribute="bottom" constant="4" id="ZD4-v5-Dl7"/>
+                <constraint firstItem="tSM-9g-s1O" firstAttribute="trailing" secondItem="Dq7-q0-GrG" secondAttribute="trailing" constant="-5" id="cD9-Sy-zBS"/>
+                <constraint firstItem="CT8-dg-i1L" firstAttribute="trailing" secondItem="5yc-Is-O4v" secondAttribute="trailing" constant="4" id="miK-0g-fXX"/>
+                <constraint firstItem="tSM-9g-s1O" firstAttribute="top" secondItem="Dq7-q0-GrG" secondAttribute="bottom" constant="16" id="tU1-ji-Yyc"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="CT8-dg-i1L"/>
+            <point key="canvasLocation" x="-28" y="87.256371814092958"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CheckIcon" width="16" height="16"/>
+        <image name="TestIcon" width="16" height="16"/>
+        <namedColor name="BlackTwo">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

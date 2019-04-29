@@ -58,6 +58,13 @@ enum RobotsKeys {
             static let clockwiseButton = "configure_motor_clockwise_button_title"
             static let counterclockwiseButton = "configure_motor_counterclockwise_button_title"
             static let nameInputfield = "configure_motor_name_inputfield_title"
+            static let testButton = "configure_motor_test_button_title"
+            static let doneButton = "configure_motor_done_button_title"
+        }
+
+        enum Sensor {
+            static let bumperButton = "configure_sensor_bumper_button_title"
+            static let ultrasoundButton = "configure_sensor_ultrasound_button_title"
         }
     }
 }

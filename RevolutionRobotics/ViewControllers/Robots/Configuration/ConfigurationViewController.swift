@@ -142,6 +142,16 @@ extension ConfigurationViewController {
 // MARK: - Actions
 extension ConfigurationViewController {
     @IBAction private func portTapped(_ sender: PortButton) {
+        switch sender.portType {
+        case .motor:
+            let motorConfig = AppContainer.shared.container.unwrappedResolve(MotorConfigViewController.self)
+            motorConfig.portNumber = sender.portNumber
+            present(viewController: motorConfig, onSide: .right)
+        case .sensor:
+            let sensorConfig = AppContainer.shared.container.unwrappedResolve(SensorConfigViewController.self)
+            sensorConfig.portNumber = sender.portNumber
+            present(viewController: sensorConfig, onSide: .left)
+        }
     }
 
     @IBAction private func saveTapped(_ sender: Any) {

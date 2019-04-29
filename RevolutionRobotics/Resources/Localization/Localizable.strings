@@ -53,6 +53,10 @@
 "configure_motor_clockwise_button_title" = "Clockwise";
 "configure_motor_counterclockwise_button_title" = "Counter\nclockwise";
 "configure_motor_name_inputfield_title" = "%@ - Name";
+"configure_motor_test_button_title" = "Test";
+"configure_motor_done_button_title" = "Done";
+"configure_sensor_bumper_button_title" = "Bumper";
+"configure_sensor_ultrasound_button_title" = "Ultrasound";
 
 // MARK: - Programs
 "programs_screen_title" = "Programs";

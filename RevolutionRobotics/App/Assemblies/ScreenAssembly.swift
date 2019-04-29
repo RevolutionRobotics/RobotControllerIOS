@@ -22,6 +22,7 @@ final class ScreenAssembly: Assembly {
         registerModalViewController(to: container)
         registerConfigurationViewController(to: container)
         registerMotorConfigViewController(to: container)
+        registerSensorConfigViewController(to: container)
     }
 }
 
@@ -95,6 +96,12 @@ extension ScreenAssembly {
     private func registerMotorConfigViewController(to container: Container) {
         container
             .register(MotorConfigViewController.self, factory: { _ in return MotorConfigViewController() })
+            .inObjectScope(.transient)
+    }
+
+    private func registerSensorConfigViewController(to container: Container) {
+        container
+            .register(SensorConfigViewController.self, factory: { _ in return SensorConfigViewController() })
             .inObjectScope(.transient)
     }
 }

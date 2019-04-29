@@ -9,6 +9,9 @@
 import UIKit
 
 final class MotorConfigViewController: BaseViewController {
+    // MARK: - MotorConfig
+    typealias MotorConfig = (State, String?)
+
     // MARK: - State
     enum State: Equatable {
         case empty
@@ -42,6 +45,10 @@ final class MotorConfigViewController: BaseViewController {
             validateActionButtons()
         }
     }
+
+    var portNumber = 0
+    var doneButtonTapped: CallbackType<MotorConfig>?
+    var testButtonTapped: CallbackType<MotorConfig>?
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -96,8 +103,8 @@ extension MotorConfigViewController {
     }
 
     private func switchToDrivetrainState(side: Side, rotation: Rotation) {
-        bottomButtonContainer.addArrangedSubview(clockwiseButton)
         bottomButtonContainer.addArrangedSubview(counterclockwiseButton)
+        bottomButtonContainer.addArrangedSubview(clockwiseButton)
         bottomButtonContainer.isHidden = false
         leftButton.set(selected: side == .left)
         rightButton.set(selected: side == .right)
@@ -109,8 +116,8 @@ extension MotorConfigViewController {
         resetButtons()
         motorButton.set(selected: true)
         middleButtonContainer.removeAllArrangedSubviews()
-        middleButtonContainer.addArrangedSubview(clockwiseButton)
         middleButtonContainer.addArrangedSubview(counterclockwiseButton)
+        middleButtonContainer.addArrangedSubview(clockwiseButton)
         middleButtonContainer.isHidden = false
         bottomButtonContainer.isHidden = true
     }
@@ -124,8 +131,7 @@ extension MotorConfigViewController {
 // MARK: - Setup
 extension MotorConfigViewController {
     private func setupNameInputField() {
-        // TODO: Change to the real name
-        nameInputField.setup(title: RobotsKeys.Configure.Motor.nameInputfield.translate(args: "M2"))
+        nameInputField.setup(title: RobotsKeys.Configure.Motor.nameInputfield.translate(args: "M\(portNumber)"))
     }
 
     private func setupTopButtonRow() {
@@ -194,7 +200,9 @@ extension MotorConfigViewController {
     }
 
     private func setupActionButtons() {
+        testButton.setTitle(RobotsKeys.Configure.Motor.testButton.translate(), for: .normal)
         testButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
+        doneButton.setTitle(RobotsKeys.Configure.Motor.doneButton.translate(), for: .normal)
         doneButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
     }
 }
@@ -243,10 +251,10 @@ extension MotorConfigViewController {
 // MARK: - Actions
 extension MotorConfigViewController {
     @IBAction private func testButtonTapped(_ sender: Any) {
-        print("Selected state: \(state)")
+        testButtonTapped?((state, nameInputField.text))
     }
 
     @IBAction private func doneButtonTapped(_ sender: Any) {
-        print("Selected state: \(state) with name: \(nameInputField.text!)")
+        doneButtonTapped?((state, nameInputField.text))
     }
 }
