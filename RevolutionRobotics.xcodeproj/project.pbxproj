@@ -50,6 +50,8 @@
 		2A9F52152265E97700F9F651 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9F52132265E97700F9F651 /* SettingsViewController.swift */; };
 		2A9F52162265E97700F9F651 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9F52142265E97700F9F651 /* SettingsViewController.xib */; };
 		2A9F52182265EC0500F9F651 /* Container+Unwrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9F52172265EC0500F9F651 /* Container+Unwrapped.swift */; };
+		2AA926D522773D95000FAA98 /* SideButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA926D422773D95000FAA98 /* SideButton.swift */; };
+		2AA926D722773DC1000FAA98 /* SideButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AA926D622773DC1000FAA98 /* SideButton.xib */; };
 		2ABD618422500F7C00587F1C /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABD618322500F7C00587F1C /* AppDependencies.swift */; };
 		2ADE8C292270A61000ECEC72 /* String+Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C282270A61000ECEC72 /* String+Translate.swift */; };
 		2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C312270A77200ECEC72 /* ChallengesKeys.swift */; };
@@ -157,6 +159,8 @@
 		2A9F52132265E97700F9F651 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2A9F52142265E97700F9F651 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		2A9F52172265EC0500F9F651 /* Container+Unwrapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+Unwrapped.swift"; sourceTree = "<group>"; };
+		2AA926D422773D95000FAA98 /* SideButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideButton.swift; sourceTree = "<group>"; };
+		2AA926D622773DC1000FAA98 /* SideButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideButton.xib; sourceTree = "<group>"; };
 		2ABD618322500F7C00587F1C /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		2ADE8C282270A61000ECEC72 /* String+Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Translate.swift"; sourceTree = "<group>"; };
 		2ADE8C312270A77200ECEC72 /* ChallengesKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesKeys.swift; sourceTree = "<group>"; };
@@ -506,6 +510,15 @@
 			path = Challenges;
 			sourceTree = "<group>";
 		};
+		2AA926D322773D82000FAA98 /* SideButton */ = {
+			isa = PBXGroup;
+			children = (
+				2AA926D422773D95000FAA98 /* SideButton.swift */,
+				2AA926D622773DC1000FAA98 /* SideButton.xib */,
+			);
+			path = SideButton;
+			sourceTree = "<group>";
+		};
 		2ADE8C272270A58600ECEC72 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,6 +628,7 @@
 		2AFAA10E22662FF6002BE0A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2AA926D322773D82000FAA98 /* SideButton */,
 				09FB0D7222677BF500735B74 /* Button */,
 				09C38756226F58180097619D /* CustomView */,
 				090EAFF32264A4B1001E121E /* NavigationBar */,
@@ -800,6 +814,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AA926D722773DC1000FAA98 /* SideButton.xib in Resources */,
 				D03BA8612277384A005B3E33 /* ConnectionModal.xib in Resources */,
 				D03BA85D2277384A005B3E33 /* TestingModal.xib in Resources */,
 				D03BA85F2277384A005B3E33 /* ChapterFinishedModal.xib in Resources */,
@@ -1007,6 +1022,7 @@
 				D0049A26226F0A15007FA256 /* BuildStepViewController.swift in Sources */,
 				D05C64DB225F590100B7BF4F /* Port.swift in Sources */,
 				D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */,
+				2AA926D522773D95000FAA98 /* SideButton.swift in Sources */,
 				D05BAA7B226769F300624438 /* UICollectionView+CellReuse.swift in Sources */,
 				2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */,
 				2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */,
