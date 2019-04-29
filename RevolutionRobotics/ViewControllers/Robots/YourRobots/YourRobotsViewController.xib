@@ -6,13 +6,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YourRobotsViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
-                <outlet property="buildNewButton" destination="AhN-ka-1xz" id="iC3-iB-fFo"/>
+                <outlet property="buildNewButton" destination="RzR-w5-NTv" id="Oqh-2j-Jgp"/>
                 <outlet property="navigationBar" destination="wMT-cF-hD1" id="HkW-zx-BUl"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kUu-hN-uyr"/>
             </connections>
@@ -22,6 +21,9 @@
             <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GlowBackground" translatesAutoresizingMaskIntoConstraints="NO" id="0I6-N1-gZz" userLabel="backgroundImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMT-cF-hD1" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="812" height="71"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -29,43 +31,39 @@
                         <constraint firstAttribute="height" constant="71" id="t7K-kn-3KF"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AhN-ka-1xz" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="668" y="322" width="120" height="29"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="120" id="CwR-jL-oJd"/>
-                    </constraints>
-                    <inset key="imageEdgeInsets" minX="-12" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="build new" image="AddIcon">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <connections>
-                        <action selector="builNewButtonTapped:" destination="-1" eventType="touchUpInside" id="U3t-nJ-keC"/>
-                    </connections>
-                </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RobotsPlaceholders" translatesAutoresizingMaskIntoConstraints="NO" id="cQA-Lh-BeE">
                     <rect key="frame" x="142" y="103" width="528" height="218"/>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RzR-w5-NTv" userLabel="sideButton" customClass="SideButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="703" y="317" width="109" height="52"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="109" id="hUM-Pg-PHj"/>
+                        <constraint firstAttribute="height" constant="52" id="prJ-vl-SQx"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" name="Black"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="0I6-N1-gZz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3cI-NC-RzD"/>
                 <constraint firstAttribute="trailing" secondItem="wMT-cF-hD1" secondAttribute="trailing" id="Kps-yP-tQj"/>
                 <constraint firstItem="cQA-Lh-BeE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="142" id="Mf0-rC-lsK"/>
-                <constraint firstAttribute="bottom" secondItem="AhN-ka-1xz" secondAttribute="bottom" constant="24" id="RCo-Af-xz0"/>
-                <constraint firstAttribute="trailing" secondItem="AhN-ka-1xz" secondAttribute="trailing" constant="24" id="WuJ-Fq-KWI"/>
+                <constraint firstAttribute="trailing" secondItem="0I6-N1-gZz" secondAttribute="trailing" id="SDr-7q-Ltg"/>
+                <constraint firstItem="0I6-N1-gZz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WMN-M1-kuR"/>
                 <constraint firstAttribute="trailing" secondItem="cQA-Lh-BeE" secondAttribute="trailing" constant="142" id="dkZ-cy-JBr"/>
                 <constraint firstItem="cQA-Lh-BeE" firstAttribute="top" secondItem="wMT-cF-hD1" secondAttribute="bottom" constant="32" id="frj-lt-4oY"/>
                 <constraint firstAttribute="bottom" secondItem="cQA-Lh-BeE" secondAttribute="bottom" constant="54" id="gh0-6B-Wa5"/>
                 <constraint firstItem="wMT-cF-hD1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lBT-jk-2Tj"/>
+                <constraint firstAttribute="bottom" secondItem="RzR-w5-NTv" secondAttribute="bottom" constant="6" id="qLf-bL-eka"/>
                 <constraint firstItem="wMT-cF-hD1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rPq-Fk-ku8"/>
+                <constraint firstAttribute="trailing" secondItem="RzR-w5-NTv" secondAttribute="trailing" id="s8o-e9-KOa"/>
+                <constraint firstAttribute="bottom" secondItem="0I6-N1-gZz" secondAttribute="bottom" id="xr3-je-lNa"/>
             </constraints>
             <point key="canvasLocation" x="24.384236453201972" y="85.599999999999994"/>
         </view>
     </objects>
     <resources>
-        <image name="AddIcon" width="30" height="29"/>
+        <image name="GlowBackground" width="568" height="320"/>
         <image name="RobotsPlaceholders" width="284" height="164"/>
-        <namedColor name="Black">
-            <color red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

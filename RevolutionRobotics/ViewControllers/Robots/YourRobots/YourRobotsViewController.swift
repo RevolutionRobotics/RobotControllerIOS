@@ -11,7 +11,7 @@ import UIKit
 final class YourRobotsViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet private weak var navigationBar: RRNavigationBar!
-    @IBOutlet private weak var buildNewButton: RRButton!
+    @IBOutlet private weak var buildNewButton: SideButton!
 }
 
 // MARK: - View lifecycle
@@ -20,14 +20,10 @@ extension YourRobotsViewController {
         super.viewDidLoad()
 
         navigationBar.setup(title: RobotsKeys.YourRobots.title.translate(), delegate: self)
-        buildNewButton.setTitle(RobotsKeys.YourRobots.buildNewButtonTitle.translate(), for: .normal)
-    }
-}
-
-// MARK: - Actions
-extension YourRobotsViewController {
-    @IBAction private func builNewButtonTapped(_ sender: Any) {
-        let whoToBuildViewController = AppContainer.shared.container.unwrappedResolve(WhoToBuildViewController.self)
-        navigationController?.pushViewController(whoToBuildViewController, animated: true)
+        buildNewButton.title = RobotsKeys.YourRobots.buildNewButtonTitle.translate()
+        buildNewButton.selectionHandler = { [weak self] in
+            let whoToBuildViewController = AppContainer.shared.container.unwrappedResolve(WhoToBuildViewController.self)
+            self?.navigationController?.pushViewController(whoToBuildViewController, animated: true)
+        }
     }
 }

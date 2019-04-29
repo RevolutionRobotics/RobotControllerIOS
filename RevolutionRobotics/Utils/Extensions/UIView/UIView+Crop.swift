@@ -20,12 +20,11 @@ extension UIView {
     // MARK: - Constants
     private enum Constants {
         static let bezierPathIdentifier = "bezierPathBorderLayer"
-        static let radius: CGFloat = 10.0
     }
 
     // MARK: - Properties
     private var bezierPathBorder: CAShapeLayer? {
-        return (self.layer.sublayers?.filter({ (layer) -> Bool in
+        return (layer.sublayers?.filter({ (layer) -> Bool in
             return layer.name == Constants.bezierPathIdentifier && (layer as? CAShapeLayer) != nil
         }) as? [CAShapeLayer])?.first
     }
@@ -34,41 +33,34 @@ extension UIView {
     func setBorder(fillColor: UIColor = Color.blackTwo,
                    strokeColor: UIColor = Color.blackTwo,
                    lineWidth: CGFloat = 1.0,
-                   radius: CGFloat? = 10.0,
+                   radius: CGFloat = 10.0,
                    showTopArrow: Bool = false,
                    croppedCorners: [Corner] = [.topRight, .bottomLeft]) {
-        let border = self.bezierPathBorder ?? createBorder()
-        self.layoutIfNeeded()
-        createMask(with: createPath(with: radius ?? Constants.radius,
-                                    showTopArrow: showTopArrow,
-                                    croppedCorners: croppedCorners))
-        border.frame = self.bounds
-        setup(border: border,
-              fillColor: fillColor,
-              strokeColor: strokeColor,
-              lineWidth: lineWidth,
-              path: createPath(with: radius ?? Constants.radius,
-                               showTopArrow: showTopArrow,
-                               croppedCorners: croppedCorners))
+        let border = bezierPathBorder ?? createBorder()
+        layoutIfNeeded()
+        let path = createPath(with: radius, showTopArrow: showTopArrow, croppedCorners: croppedCorners)
+        createMask(with: path)
+        border.frame = bounds
+        setup(border: border, fillColor: fillColor, strokeColor: strokeColor, lineWidth: lineWidth, path: path)
     }
 
     func removeBezierPathBorder() {
-        self.layer.mask = nil
-        self.bezierPathBorder?.removeFromSuperlayer()
+        layer.mask = nil
+        bezierPathBorder?.removeFromSuperlayer()
     }
 
     // MARK: - Private functions
     private func createBorder() -> CAShapeLayer {
         let border = CAShapeLayer()
         border.name = Constants.bezierPathIdentifier
-        self.layer.insertSublayer(border, at: 0)
+        layer.insertSublayer(border, at: 0)
         return border
     }
 
     private func createMask(with path: UIBezierPath) {
         let mask = CAShapeLayer()
         mask.path = path.cgPath
-        self.layer.mask = mask
+        layer.mask = mask
     }
 
     private func setup(border: CAShapeLayer,
@@ -87,21 +79,21 @@ extension UIView {
 
         path.move(to: CGPoint(x: croppedCorners.contains(.topLeft) ? radius : 0.0, y: 0.0))
         path.addLine(to: CGPoint(x: 0.0, y: radius))
-        path.addLine(to: CGPoint(x: 0.0, y: self.frame.size.height - radius))
-        path.addLine(to: CGPoint(x: croppedCorners.contains(.bottomLeft) ? radius : 0.0, y: self.frame.size.height))
-        path.addLine(to: CGPoint(x: radius, y: self.frame.size.height))
-        path.addLine(to: CGPoint(x: self.frame.size.width - radius, y: self.frame.size.height))
-        path.addLine(to: CGPoint(x: self.frame.size.width, y: croppedCorners.contains(.bottomRight) ?
-            self.frame.size.height - radius : self.frame.size.height))
-        path.addLine(to: CGPoint(x: self.frame.size.width, y: self.frame.size.height - radius))
-        path.addLine(to: CGPoint(x: self.frame.size.width, y: radius))
+        path.addLine(to: CGPoint(x: 0.0, y: frame.size.height - radius))
+        path.addLine(to: CGPoint(x: croppedCorners.contains(.bottomLeft) ? radius : 0.0, y: frame.size.height))
+        path.addLine(to: CGPoint(x: radius, y: frame.size.height))
+        path.addLine(to: CGPoint(x: frame.size.width - radius, y: frame.size.height))
+        path.addLine(to: CGPoint(x: frame.size.width, y: croppedCorners.contains(.bottomRight) ?
+            frame.size.height - radius : frame.size.height))
+        path.addLine(to: CGPoint(x: frame.size.width, y: frame.size.height - radius))
+        path.addLine(to: CGPoint(x: frame.size.width, y: radius))
         path.addLine(to: CGPoint(x: croppedCorners.contains(.topRight) ?
-            self.frame.size.width - radius : self.frame.size.width, y: 0.0))
-        path.addLine(to: CGPoint(x: self.frame.size.width - radius, y: 0.0))
+            frame.size.width - radius : frame.size.width, y: 0.0))
+        path.addLine(to: CGPoint(x: frame.size.width - radius, y: 0.0))
         if showTopArrow {
-            path.addLine(to: CGPoint(x: (self.frame.size.width / 2) + radius, y: 0.0))
-            path.addLine(to: CGPoint(x: self.frame.size.width / 2, y: -radius))
-            path.addLine(to: CGPoint(x: (self.frame.size.width / 2) - radius, y: 0.0))
+            path.addLine(to: CGPoint(x: (frame.size.width / 2) + radius, y: 0.0))
+            path.addLine(to: CGPoint(x: frame.size.width / 2, y: -radius))
+            path.addLine(to: CGPoint(x: (frame.size.width / 2) - radius, y: 0.0))
         }
         path.close()
 
