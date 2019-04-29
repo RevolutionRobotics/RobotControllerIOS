@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Bold.ttf">
+            <string>Barlow-Bold</string>
+        </array>
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FailedConnectionTipsModal" customModule="RevolutionRobotics" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FailedConnectionTipsModal" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rg-az-RWd">
+                    <rect key="frame" x="200.5" y="32" width="59" height="17"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TipsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="dMU-aB-Ze5">
+                            <rect key="frame" x="0.0" y="0.0" width="16" height="17"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIPS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tX2-AX-heJ">
+                            <rect key="frame" x="19" y="0.0" width="40" height="17"/>
+                            <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="dMU-aB-Ze5" secondAttribute="bottom" id="HVy-y4-a9f"/>
+                        <constraint firstAttribute="bottom" secondItem="tX2-AX-heJ" secondAttribute="bottom" id="JUD-Bc-79B"/>
+                        <constraint firstItem="dMU-aB-Ze5" firstAttribute="top" secondItem="9rg-az-RWd" secondAttribute="top" id="Wyl-2c-D9h"/>
+                        <constraint firstItem="dMU-aB-Ze5" firstAttribute="leading" secondItem="9rg-az-RWd" secondAttribute="leading" id="c1g-CV-lNq"/>
+                        <constraint firstItem="tX2-AX-heJ" firstAttribute="top" secondItem="9rg-az-RWd" secondAttribute="top" id="dsH-3B-RUS"/>
+                        <constraint firstItem="tX2-AX-heJ" firstAttribute="leading" secondItem="dMU-aB-Ze5" secondAttribute="trailing" constant="3" id="gxX-pV-5yZ"/>
+                        <constraint firstAttribute="trailing" secondItem="tX2-AX-heJ" secondAttribute="trailing" id="k7C-P5-bwf"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sY-RM-jjr" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="4" y="190" width="150.5" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="TVt-QM-IaK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Skip connection" image="SkipIcon">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="skipButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="F2L-bu-gmh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SB3-XG-Kyg" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="305.5" y="190" width="150.5" height="46"/>
+                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Try again" image="RetryIcon">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="tryAgainButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="a6I-Po-c3q"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcT-kH-xuq" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="154.5" y="190" width="151" height="46"/>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Community" image="CommunityIcon">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="communityButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="koS-7G-tSX"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try to..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFn-68-CPg">
+                    <rect key="frame" x="32" y="64" width="396" height="17"/>
+                    <fontDescription key="fontDescription" name="Barlow-Bold" family="Barlow" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8b4-4V-Cfc">
+                    <rect key="frame" x="32" y="89" width="396" height="72"/>
+                    <string key="text">- Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
+- Per graece denique invidunt ei. Case ullum euripidis duo eu. 
+- Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus. 
+- Get help from the Community!</string>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="8b4-4V-Cfc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="0C4-BW-1Pb"/>
+                <constraint firstItem="UFn-68-CPg" firstAttribute="top" secondItem="9rg-az-RWd" secondAttribute="bottom" constant="15" id="ADX-UQ-vcl"/>
+                <constraint firstAttribute="bottom" secondItem="pcT-kH-xuq" secondAttribute="bottom" constant="4" id="DW0-2a-lue"/>
+                <constraint firstItem="pcT-kH-xuq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8b4-4V-Cfc" secondAttribute="bottom" constant="29" id="GEe-dv-W2S"/>
+                <constraint firstItem="pcT-kH-xuq" firstAttribute="leading" secondItem="4sY-RM-jjr" secondAttribute="trailing" id="HrW-O6-E1B"/>
+                <constraint firstAttribute="trailing" secondItem="SB3-XG-Kyg" secondAttribute="trailing" constant="4" id="IWF-U4-BYF"/>
+                <constraint firstItem="4sY-RM-jjr" firstAttribute="height" secondItem="SB3-XG-Kyg" secondAttribute="height" id="KBI-sd-HTv"/>
+                <constraint firstItem="8b4-4V-Cfc" firstAttribute="top" secondItem="UFn-68-CPg" secondAttribute="bottom" constant="8" id="Li7-YH-mge"/>
+                <constraint firstItem="9rg-az-RWd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Lip-oV-hTZ"/>
+                <constraint firstItem="4sY-RM-jjr" firstAttribute="width" secondItem="pcT-kH-xuq" secondAttribute="width" id="OzD-Ek-uFK"/>
+                <constraint firstItem="4sY-RM-jjr" firstAttribute="height" secondItem="pcT-kH-xuq" secondAttribute="height" id="QzE-Te-aoh"/>
+                <constraint firstAttribute="bottom" secondItem="SB3-XG-Kyg" secondAttribute="bottom" constant="4" id="Squ-tf-Q3d"/>
+                <constraint firstAttribute="bottom" secondItem="4sY-RM-jjr" secondAttribute="bottom" constant="4" id="U6H-Cc-sX1"/>
+                <constraint firstItem="4sY-RM-jjr" firstAttribute="width" secondItem="SB3-XG-Kyg" secondAttribute="width" id="ZP8-KI-Aqu"/>
+                <constraint firstItem="UFn-68-CPg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="cPG-TF-o0h"/>
+                <constraint firstItem="SB3-XG-Kyg" firstAttribute="leading" secondItem="pcT-kH-xuq" secondAttribute="trailing" id="dAM-of-caR"/>
+                <constraint firstAttribute="trailing" secondItem="UFn-68-CPg" secondAttribute="trailing" constant="32" id="hTF-sA-XKI"/>
+                <constraint firstItem="4sY-RM-jjr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="l8L-gi-GXk"/>
+                <constraint firstAttribute="trailing" secondItem="8b4-4V-Cfc" secondAttribute="trailing" constant="32" id="omE-iL-W4N"/>
+                <constraint firstItem="9rg-az-RWd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="pfF-Cg-KJu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="communityButton" destination="pcT-kH-xuq" id="A3o-mY-N0c"/>
+                <outlet property="instructionLabel" destination="UFn-68-CPg" id="aVF-cO-A3i"/>
+                <outlet property="skipConnectionButton" destination="4sY-RM-jjr" id="cle-S4-D2E"/>
+                <outlet property="tipsLabel" destination="8b4-4V-Cfc" id="wYm-zu-uFf"/>
+                <outlet property="tipsTitleLabel" destination="tX2-AX-heJ" id="2wN-KC-s5v"/>
+                <outlet property="tryAgainButton" destination="SB3-XG-Kyg" id="skf-aM-WxK"/>
+            </connections>
+            <point key="canvasLocation" x="138.61607142857142" y="127.53623188405798"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CommunityIcon" width="22" height="22"/>
+        <image name="RetryIcon" width="16" height="16"/>
+        <image name="SkipIcon" width="16" height="16"/>
+        <image name="TipsIcon" width="16" height="16"/>
+    </resources>
+</document>
