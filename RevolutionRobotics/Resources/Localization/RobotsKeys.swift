@@ -15,6 +15,7 @@ enum RobotsKeys {
     enum WhoToBuild {
         static let title = "who_to_build_screen_title"
         static let buildNewButtonTitle = "who_to_build_build_new_button_title"
+        static let searchingForRobotsTitle = "who_to_build_searching_title"
     }
 
     enum BuildRobot {
