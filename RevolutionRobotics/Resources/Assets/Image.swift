@@ -36,4 +36,21 @@ enum Image {
         static let cellRedBorderNonEditable = UIImage(named: "YourRobotsNonEditableRedCell")
         static let cellWhiteBorderNonEditable = UIImage(named: "YourRobotsNonEditableWhiteCell")
     }
+
+    enum Configure {
+        static let emptySelected = UIImage(named: "EmptySelected")
+        static let emptyUnselected = UIImage(named: "EmptyUnselected")
+        static let drivetrainSelected = UIImage(named: "DrivetrainSelected")
+        static let drivetrainUnselected = UIImage(named: "DrivetrainUnselected")
+        static let motorSelected = UIImage(named: "MotorSelected")
+        static let motorUnselected = UIImage(named: "MotorUnselected")
+        static let clockwiseSelected = UIImage(named: "ClockwiseSelected")
+        static let clockwiseUnselected = UIImage(named: "ClockwiseUnselected")
+        static let counterclockwiseSelected = UIImage(named: "CounterclockwiseSelected")
+        static let counterclockwiseUnselected = UIImage(named: "CounterclockwiseUnselected")
+        static let leftSelected = UIImage(named: "LeftSelected")
+        static let leftUnselected = UIImage(named: "LeftUnselected")
+        static let rightSelected = UIImage(named: "RightSelected")
+        static let rightUnselected = UIImage(named: "RightUnselected")
+    }
 }

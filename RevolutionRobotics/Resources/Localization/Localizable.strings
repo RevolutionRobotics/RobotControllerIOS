@@ -44,6 +44,16 @@
 "connection_failed_tips_button_title" = "Tips";
 "connection_failed_try_again_button_title" = "Try again";
 
+// MARK: - Configure
+"configure_motor_empty_button_title" = "Empty";
+"configure_motor_drivetrain_button_title" = "Drivetrain";
+"configure_motor_motor_button_title" = "Motor";
+"configure_motor_left_button_title" = "Left";
+"configure_motor_right_button_title" = "Right";
+"configure_motor_clockwise_button_title" = "Clockwise";
+"configure_motor_counterclockwise_button_title" = "Counter\nclockwise";
+"configure_motor_name_inputfield_title" = "%@ - Name";
+
 // MARK: - Programs
 "programs_screen_title" = "Programs";
 

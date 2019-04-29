@@ -48,5 +48,16 @@ enum RobotsKeys {
         static let title = "configuration_new_screen_title"
         static let connectionTabTitle = "configure_connection_tab_title"
         static let controllerTabTitle = "configure_controller_tab_title"
+
+        enum Motor {
+            static let emptyButton = "configure_motor_empty_button_title"
+            static let drivetrainButton = "configure_motor_drivetrain_button_title"
+            static let motorButton = "configure_motor_motor_button_title"
+            static let leftButton = "configure_motor_left_button_title"
+            static let rightButton = "configure_motor_right_button_title"
+            static let clockwiseButton = "configure_motor_clockwise_button_title"
+            static let counterclockwiseButton = "configure_motor_counterclockwise_button_title"
+            static let nameInputfield = "configure_motor_name_inputfield_title"
+        }
     }
 }
