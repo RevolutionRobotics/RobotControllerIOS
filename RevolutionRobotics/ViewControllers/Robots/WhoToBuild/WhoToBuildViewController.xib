@@ -17,7 +17,7 @@
                 <outlet property="collectionView" destination="Khj-tZ-cCT" id="PCS-GE-39m"/>
                 <outlet property="leftButton" destination="mzB-FK-UOJ" id="CKf-SO-KL2"/>
                 <outlet property="navigationBar" destination="cDH-Vx-iGI" id="A1v-5T-2tf"/>
-                <outlet property="rigthButton" destination="9UF-wg-exO" id="ar2-d3-fc2"/>
+                <outlet property="rightButton" destination="9UF-wg-exO" id="Y94-Tq-Moa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,7 +36,7 @@
                             </constraints>
                             <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="build your own" image="AddIcon">
-                                <color key="titleColor" name="White"/>
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
                                 <action selector="builYourOwnButtonTapped:" destination="-1" eventType="touchUpInside" id="kww-mp-yYy"/>
@@ -50,13 +50,7 @@
                         <constraint firstItem="ONa-fq-Gt8" firstAttribute="top" secondItem="cDH-Vx-iGI" secondAttribute="top" constant="8" id="yMS-cn-WMC"/>
                     </constraints>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="TopHeader" translatesAutoresizingMaskIntoConstraints="NO" id="nB7-3S-pYN">
-                    <rect key="frame" x="0.0" y="44" width="667" height="33"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="33" id="35c-5u-LP4"/>
-                    </constraints>
-                </imageView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Khj-tZ-cCT">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Khj-tZ-cCT">
                     <rect key="frame" x="0.0" y="71" width="667" height="274"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xl1-Xa-YzG">
@@ -103,12 +97,8 @@
         <image name="AddIcon" width="30" height="29"/>
         <image name="LeftButton" width="25" height="50"/>
         <image name="RightButton" width="25" height="50"/>
-        <image name="TopHeader" width="16" height="16"/>
         <namedColor name="Black">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="White">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

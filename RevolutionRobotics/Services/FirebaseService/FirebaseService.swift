@@ -10,66 +10,40 @@ import Foundation
 import Firebase
 
 final class FirebaseService {
-    // MARK: - Constants
-    private enum Constants {
-        static let robot = "robot"
-        static let configuration = "configuration"
-        static let buildStep = "buildStep"
-        static let testCode = "testCode"
-    }
-
     // MARK: - Properties
-    private var databaseRef: DatabaseReference!
-    private var storageRef: StorageReference!
-
-    // MARK: - Initialization
-    init() {
-        setup()
-    }
-
-    public func getData<T: FirebaseData>(for path: String, type: T.Type) {
-        databaseRef.child(path).observeSingleEvent(of: .value) { snapshot in
-            for children in snapshot.children {
-                if let snap = children as? DataSnapshot {
-                    if let result = type.init(snapshot: snap) {
-                        print("\(result)\n")
-                    }
-                }
-            }
-        }
-    }
-
-    public func getImage(with path: String) {
-        let imageRef = storageRef.child(path)
-        imageRef.downloadURL { (url, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                print("got image at url: \(url!)")
-            }
-        }
-    }
-
-    // Testing purposes
-    private func getData() {
-        getData(for: Constants.robot, type: Robot.self)
-        getData(for: Constants.configuration, type: Configuration.self)
-        getData(for: Constants.buildStep, type: BuildStep.self)
-        getData(for: Constants.testCode, type: TestCode.self)
-    }
-}
-
-// MARK: - Setups
-extension FirebaseService {
-    private func setup() {
-        databaseRef = Database.database().reference()
-        storageRef = Storage.storage().reference()
-    }
+    private let databaseRef = Database.database().reference()
+    private let storageRef = Storage.storage().reference()
 }
 
 // MARK: - FirebaseServiceInterface
 extension FirebaseService: FirebaseServiceInterface {
-    func getRobots() -> [Robot] {
-        return []
+    func getRobots(completion: CallbackType<Result<[Robot], FirebaseError>>?) {
+        getDataArray(Robot.self, completion: completion)
+    }
+}
+
+// MARK: - Private
+extension FirebaseService {
+    private func getData<T: FirebaseData>(_ type: T.Type, completion: CallbackType<Result<T, FirebaseError>>?) {
+        databaseRef.child(type.firebasePath).observeSingleEvent(of: .value) { snapshot in
+            guard let data = T(snapshot: snapshot) else {
+                completion?(.failure(FirebaseError.decodeFailed("Failed to decode \(T.self) object")))
+                return
+            }
+
+            completion?(.success(data))
+        }
+    }
+
+    private func getDataArray<T: FirebaseData>(_ type: T.Type, completion: CallbackType<Result<[T], FirebaseError>>?) {
+        databaseRef.child(type.firebasePath).observeSingleEvent(of: .value) { snapshot in
+            let models = snapshot.children.compactMap { $0 as? DataSnapshot }.map(T.init)
+            guard models.contains(where: { $0 != nil }) else {
+                completion?(.failure(FirebaseError.arrayDecodeFailed("Failed to decode array of \(T.self)")))
+                return
+            }
+
+            completion?(.success(models.compactMap { $0 }))
+        }
     }
 }

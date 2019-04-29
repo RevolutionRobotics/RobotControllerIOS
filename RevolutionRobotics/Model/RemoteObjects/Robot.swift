@@ -21,11 +21,14 @@ struct Robot: FirebaseData {
         static let defaultProgram = "defaultProgram"
     }
 
+    // MARK: - Path
+    static var firebasePath: String = "robot"
+
     // MARK: - Properties
-    var id: String
+    var id: Int
     var name: String
     var description: String
-    var coverImage: String
+    var coverImageGSURL: String
     var buildTime: String
     var configurationId: Int
     var defaultProgram: String
@@ -35,7 +38,8 @@ struct Robot: FirebaseData {
         guard let dic = snapshot.value as? NSDictionary else {
             return nil
         }
-        guard let id = dic[Constants.id] as? String,
+
+        guard let id = dic[Constants.id] as? Int,
             let name = dic[Constants.name] as? String,
             let description = dic[Constants.description] as? String,
             let coverImage = dic[Constants.coverImage] as? String,
@@ -48,7 +52,7 @@ struct Robot: FirebaseData {
         self.id = id
         self.name = name
         self.description = description
-        self.coverImage = coverImage
+        self.coverImageGSURL = coverImage
         self.buildTime = buildTime
         self.configurationId = configurationId
         self.defaultProgram = defaultProgram

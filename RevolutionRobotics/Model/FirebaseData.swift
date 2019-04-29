@@ -12,4 +12,6 @@ import Firebase
 protocol FirebaseData {
     // MARK: - Initialization
     init?(snapshot: DataSnapshot)
+
+    static var firebasePath: String { get }
 }

@@ -16,6 +16,9 @@ struct TestCode: FirebaseData {
         static let codeUrl = "codeUrl"
     }
 
+    // MARK: - Path
+    static var firebasePath: String = "testCode"
+
     // MARK: - Properties
     var id: Int
     var codeUrl: String
