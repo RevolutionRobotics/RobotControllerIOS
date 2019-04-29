@@ -19,6 +19,10 @@
 "who_to_build_screen_title" = "Who to build?";
 "who_to_build_build_new_button_title" = "build your own";
 
+// MARK: - Build robot
+"build_robot_turn_on_the_brain_instruction" = "To take control, switch the brain on";
+"build_robot_turn_on_the_brain_tip" = "Once it is ready, tap start";
+
 // MARK: - Programs
 "programs_screen_title" = "Programs";
 

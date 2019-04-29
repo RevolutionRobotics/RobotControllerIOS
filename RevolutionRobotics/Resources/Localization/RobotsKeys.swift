@@ -16,4 +16,9 @@ enum RobotsKeys {
         static let title = "who_to_build_screen_title"
         static let buildNewButtonTitle = "who_to_build_build_new_button_title"
     }
+
+    enum BuildRobot {
+        static let turnOnTheBrainInstruction = "build_robot_turn_on_the_brain_instruction"
+        static let turnOnTheBrainTip = "build_robot_turn_on_the_brain_tip"
+    }
 }
