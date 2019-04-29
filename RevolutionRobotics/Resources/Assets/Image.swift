@@ -19,4 +19,10 @@ enum Image {
         static let cellRedBorder = UIImage(named: "CellRedBorder")
         static let cellWhiteBorder = UIImage(named: "CellWhiteBorder")
     }
+
+    enum Configuration {
+        static let doneIconName: String = "configDone"
+        static let addIconDarkName: String = "addIconDark"
+        static let addIconLightName: String = "addIconLight"
+    }
 }
