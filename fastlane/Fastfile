@@ -35,8 +35,8 @@ platform :ios do
   def run_before_fabric_and_itunes_lanes(options, type, match_branch)
   ## Set build number
   new_build_number = `git rev-list --count HEAD`
-  ios_set_build_number(
-    build_number: new_build_number.to_i,
+  increment_build_number(
+    build_number: new_build_number.to_i
   )
 
   ## Set version number
