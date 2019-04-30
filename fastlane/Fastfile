@@ -126,7 +126,6 @@ end
       build_secret: ENV["CRASHLYTICS_BUILD_SECRET"],
       emails: emails,
       groups: groups,
-      notes: create_release_notes(options),
       notifications: true,
       )
 
