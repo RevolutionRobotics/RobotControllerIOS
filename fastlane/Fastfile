@@ -2,6 +2,7 @@ default_platform(:ios)
 
 # Constants
 KEYCHAIN_NAME = ENV["BUILD_TAG"] + "-keychain"
+ICON_PATH  = 'RevolutionRobotics/Resources/Assets'
 
 platform :ios do
   ####################################################
@@ -50,6 +51,57 @@ platform :ios do
   		clean: options[:clean],
   		build: true
   		)
+  end
+
+  ###########################################
+  # =>           Fabric lane 🛫          <= #
+  ###########################################
+  desc 'Submit a new Beta Build to Fabric'
+  lane :fabric do |options|
+    run_before_fabric_and_itunes_lanes(options, 'adhoc', 'master')
+
+    icon_stamp_with_version(
+      icon_path: ICON_PATH,
+      label: icon_label(options),
+    )
+
+    scheme = options[:scheme]
+    branch_name = options[:branch]
+    build_ios_app(
+      scheme: scheme(options),
+      clean: true,
+      export_method: 'ad-hoc',
+      buildlog_path: "./output",
+      output_name: "RevolutionRobotics-#{scheme}-#{branch_name}.ipa",
+      export_options: {
+        method: 'ad-hoc',
+
+        # https://github.com/fastlane/fastlane/issues/10902
+        compileBitcode: false,
+        stripSwiftSymbols: false
+      },
+    )
+
+    emails = options[:test_email]
+    groups = options[:groups] || CRASHLYTICS_DEFAULT_GROUP
+
+    crashlytics(
+      api_token: ENV["CRASHLYTICS_API_TOKEN"],
+      build_secret: ENV["CRASHLYTICS_BUILD_SECRET"],
+      emails: emails,
+      groups: groups,
+      notes: create_release_notes(options),
+      notifications: true,
+    )
+
+    create_tag(options)
+
+    upload_symbols_to_crashlytics(
+      dsym_path: "./output/MobilBank-#{scheme}-#{branch_name}.app.dSYM.zip",
+      api_token: ENV["CRASHLYTICS_API_TOKEN"],
+    )
+
+    after_all()
   end
 
   ####################################################
