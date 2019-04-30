@@ -49,3 +49,8 @@
 
 // MARK: - Challenges
 "challenges_screen_title" = "Challenges";
+
+// MARK: - Modal
+"camera_dialog_title" = "ROBOTS PROFILE'S PICTURE";
+"camera_dialog_delete_title" = "Delete";
+"camera_dialog_new_photo_title" = "Take new photo";

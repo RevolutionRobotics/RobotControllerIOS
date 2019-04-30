@@ -13,6 +13,7 @@ final class PhotoModal: UIView {
     @IBOutlet private weak var robotImageView: UIImageView!
     @IBOutlet private weak var deleteButton: RRButton!
     @IBOutlet private weak var takeNewButton: RRButton!
+    @IBOutlet private weak var imagePlaceholderView: UIView!
 
     // MARK: - Callbacks
     var showImagePicker: Callback?
@@ -21,19 +22,34 @@ final class PhotoModal: UIView {
     // MARK: - Init
     override func awakeFromNib() {
         super.awakeFromNib()
+
         setupButtons()
+        setupTitle()
+        setupImagePlaceholder()
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        takeNewButton.setBorder(strokeColor: .white, croppedCorners: [.topRight])
+        deleteButton.setBorder(fillColor: .clear, strokeColor: .clear, croppedCorners: [.bottomLeft])
     }
 }
 
 // MARK: - Setups
 extension PhotoModal {
     private func setupButtons() {
-        deleteButton.setTitle("Delete", for: .normal)
-        takeNewButton.setTitle("Take new photo", for: .normal)
+        deleteButton.setTitle(ModalKeys.Camera.delete.translate(), for: .normal)
+        takeNewButton.setTitle(ModalKeys.Camera.newPhoto.translate(), for: .normal)
     }
 
     private func setupTitle() {
-        titleLabel.text = "ROBOTS PROFIL'S PICTURE"
+        titleLabel.text = ModalKeys.Camera.title.translate()
+    }
+
+    private func setupImagePlaceholder() {
+        imagePlaceholderView.layer.borderWidth = 1
+        imagePlaceholderView.layer.borderColor = Color.white40.cgColor
     }
 }
 

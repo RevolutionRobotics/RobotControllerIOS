@@ -25,6 +25,7 @@
                 <outlet property="motorPort5Dot" destination="CHn-BQ-bMY" id="ja1-vL-ZyV"/>
                 <outlet property="motorPort6" destination="czl-VH-64W" id="GF6-r0-rNW"/>
                 <outlet property="motorPort6Dot" destination="iUz-Zu-Tgm" id="bbS-yj-OMi"/>
+                <outlet property="robotImageView" destination="Pu2-zR-uY0" id="BZp-fe-S5J"/>
                 <outlet property="segmentedControl" destination="849-Dt-fTu" id="4wB-7V-652"/>
                 <outlet property="sensorPort1" destination="J3R-MP-y05" id="Aez-f6-syz"/>
                 <outlet property="sensorPort1Dot" destination="8bp-IJ-zVv" id="sFF-z3-qcf"/>
@@ -107,7 +108,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0b-BO-qaQ">
                     <rect key="frame" x="63" y="92" width="442" height="228"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultRobotImage" translatesAutoresizingMaskIntoConstraints="NO" id="Pu2-zR-uY0">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultRobotImage" translatesAutoresizingMaskIntoConstraints="NO" id="Pu2-zR-uY0">
                             <rect key="frame" x="98" y="74" width="122" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="122" id="Ema-MV-ZKz"/>

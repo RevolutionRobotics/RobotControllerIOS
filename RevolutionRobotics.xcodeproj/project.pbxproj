@@ -35,6 +35,7 @@
 		09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09FB0D68226761E900735B74 /* YourRobotsViewController.xib */; };
 		09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09FB0D6B2267735800735B74 /* Barlow-Regular.ttf */; };
 		196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43BC08A3B14DC91EF1DFAB7E /* Pods-RevolutionRobotics-metadata.plist */; };
+		2A18002D227AE5800082E801 /* ModalKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A18002C227AE5800082E801 /* ModalKeys.swift */; };
 		2A77320322648FB000D7F38D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A77320222648FB000D7F38D /* Settings.bundle */; };
 		2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732042264A15600D7F38D /* AssemblyRegister.swift */; };
 		2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732072264A32200D7F38D /* ScreenAssembly.swift */; };
@@ -120,6 +121,7 @@
 		FE4B16202277406D00CAA083 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161F2277406D00CAA083 /* SegmentedControl.swift */; };
 		FE4B162322786A5300CAA083 /* PhotoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B162222786A5300CAA083 /* PhotoModal.swift */; };
 		FE4B162522786A6C00CAA083 /* PhotoModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4B162422786A6C00CAA083 /* PhotoModal.xib */; };
+		FE82435A2278968000DFDF67 /* RRNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8243592278968000DFDF67 /* RRNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +153,7 @@
 		09FB0D68226761E900735B74 /* YourRobotsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YourRobotsViewController.xib; sourceTree = "<group>"; };
 		09FB0D6B2267735800735B74 /* Barlow-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Regular.ttf"; sourceTree = "<group>"; };
 		2703FDDD1F3944173CF58883 /* Pods_RevolutionRobotics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutionRobotics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A18002C227AE5800082E801 /* ModalKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalKeys.swift; sourceTree = "<group>"; };
 		2A77320222648FB000D7F38D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2A7732042264A15600D7F38D /* AssemblyRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyRegister.swift; sourceTree = "<group>"; };
 		2A7732072264A32200D7F38D /* ScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenAssembly.swift; sourceTree = "<group>"; };
@@ -242,6 +245,7 @@
 		FE4B161F2277406D00CAA083 /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		FE4B162222786A5300CAA083 /* PhotoModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModal.swift; sourceTree = "<group>"; };
 		FE4B162422786A6C00CAA083 /* PhotoModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoModal.xib; sourceTree = "<group>"; };
+		FE8243592278968000DFDF67 /* RRNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +350,7 @@
 		09ED1B98225241A7009CF262 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FE8243582278966F00DFDF67 /* NavigationController */,
 				09ED1BAC22524B09009CF262 /* Callback.swift */,
 				2A7732112264A96800D7F38D /* Connectivity */,
 				D008E03A2260AAF500089DC7 /* Extensions */,
@@ -544,6 +549,7 @@
 				2ADE8C352270A79300ECEC72 /* ProgramsKeys.swift */,
 				2ADE8C332270A78600ECEC72 /* RobotsKeys.swift */,
 				2ADE8C372270A79E00ECEC72 /* SettingsKeys.swift */,
+				2A18002C227AE5800082E801 /* ModalKeys.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -805,6 +811,14 @@
 			path = Modal;
 			sourceTree = "<group>";
 		};
+		FE8243582278966F00DFDF67 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				FE8243592278968000DFDF67 /* RRNavigationController.swift */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1019,6 +1033,8 @@
 				2A77320A2264A32D00D7F38D /* ServiceAssembly.swift in Sources */,
 				2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */,
 				D0049A422270ABA1007FA256 /* AvailableRobotsTableViewCell.swift in Sources */,
+				2A18002D227AE5800082E801 /* ModalKeys.swift in Sources */,
+				FE82435A2278968000DFDF67 /* RRNavigationController.swift in Sources */,
 				D05C64D4225F585500B7BF4F /* BuildStatus.swift in Sources */,
 				09C38758226F58260097619D /* RRCustomView.swift in Sources */,
 				D05C64DD225F592400B7BF4F /* Sensor.swift in Sources */,
