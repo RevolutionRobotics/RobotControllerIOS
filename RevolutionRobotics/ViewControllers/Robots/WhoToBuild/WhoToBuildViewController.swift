@@ -90,6 +90,7 @@ extension WhoToBuildViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: WhoToBuildCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.indexPath = indexPath
         cell.configure(with: robots[indexPath.row])
         return cell
     }

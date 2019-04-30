@@ -10,5 +10,6 @@ import UIKit
 
 class ResizableCell: UICollectionViewCell {
     var isCentered: Bool = false
+    var indexPath: IndexPath?
     @objc dynamic func set(multiplier: CGFloat) { }
 }

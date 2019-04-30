@@ -11,7 +11,6 @@ import UIKit
 final class RRCollectionView: UICollectionView {
     // MARK: - Constants
     enum Constants {
-        static let cellRatio: CGFloat = 213 / 224
         static let sineMultiplier: CGFloat = 0.25
         static let cellMaxSize: CGFloat = 0.74
         static let minimumLineSpacing: CGFloat = 40
@@ -21,7 +20,9 @@ final class RRCollectionView: UICollectionView {
     // MARK: - Variables
     private var highestSine: CGFloat = 0
     private var indexPathOfCentermostCell = IndexPath(row: 0, section: 0)
+    private var selectedIndexPath: IndexPath?
     weak var rrDelegate: RRCollectionViewDelegate?
+    var cellRatio: CGFloat = 213 / 224
 }
 
 // MARK: - View lifecycle
@@ -30,6 +31,9 @@ extension RRCollectionView {
         super.awakeFromNib()
 
         self.decelerationRate = .fast
+        self.showsVerticalScrollIndicator = false
+        self.showsHorizontalScrollIndicator = false
+        selectedIndexPath = IndexPath(row: 0, section: 0)
         delegate = self
     }
 }
@@ -79,11 +83,16 @@ extension RRCollectionView {
             customCell.set(multiplier: sine)
             rrDelegate?.setButtons(rightHidden: indexPathOfCentermostCell.row == self.numberOfItems(inSection: 0) - 1,
                                    leftHidden: indexPathOfCentermostCell.row == 0)
+            guard let cellIP = customCell.indexPath, let selected = selectedIndexPath else {
+                return
+            }
+            customCell.isCentered = cellIP == selected
         }
     }
 
     private func centerCell() {
         self.scrollToItem(at: indexPathOfCentermostCell, at: .centeredHorizontally, animated: true)
+        selectedIndexPath = indexPathOfCentermostCell
         designCells()
     }
 
@@ -91,7 +100,7 @@ extension RRCollectionView {
         self.visibleCells
             .compactMap { $0 as? ResizableCell }
             .forEach { cell in
-                cell.isCentered = self.indexPath(for: cell)! == indexPathOfCentermostCell
+                cell.isCentered = cell.indexPath == selectedIndexPath
         }
     }
 
@@ -120,7 +129,7 @@ extension RRCollectionView {
     }
 
     func setupInset() {
-        let cellWidth: CGFloat = self.frame.size.height * Constants.cellRatio
+        let cellWidth: CGFloat = self.frame.size.height * cellRatio
         let cellheight: CGFloat = self.frame.size.height
         let cellSize = CGSize(width: cellWidth, height: cellheight)
         let padding = (self.frame.width / 2) - (cellWidth / 2)
