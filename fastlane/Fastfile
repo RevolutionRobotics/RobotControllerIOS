@@ -105,11 +105,11 @@ end
     build_ios_app(
       scheme: scheme(options),
       clean: true,
-      export_method: 'ad-hoc',
+      export_method: 'enterprise',
       buildlog_path: "./output",
       output_name: "RevolutionRobotics-#{scheme}-#{branch_name}.ipa",
       export_options: {
-        method: 'ad-hoc',
+        method: 'enterprise',
 
         # https://github.com/fastlane/fastlane/issues/10902
         compileBitcode: false,
