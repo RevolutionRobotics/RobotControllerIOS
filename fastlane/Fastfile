@@ -131,6 +131,8 @@ end
 
     create_tag(options)
 
+    dsym_zip()
+
     upload_symbols_to_crashlytics(
       dsym_path: "./output/RevolutionRobotics-#{scheme}-#{branch_name}.app.dSYM.zip",
       api_token: ENV["CRASHLYTICS_API_TOKEN"],
