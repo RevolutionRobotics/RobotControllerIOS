@@ -37,7 +37,33 @@ platform :ios do
   new_build_number = `git rev-list --count HEAD`
   increment_build_number(
     build_number: new_build_number.to_i
-  )
+    )
+end
+
+def icon_label(options)
+  build_version  = get_info_plist_value(path: PLIST_PATH, key: "CFBundleShortVersionString")
+  build_number   = set_build_version(plist_path: PLIST_PATH, include_branch_name: !scheme(options).eql?("PROD"))
+
+  version_number = [build_version, build_number].join('-')
+  timestamp      = [scheme(options), DateTime.now.strftime("%F")].join('-')
+
+  [version_number, timestamp].join("\n")
+end
+
+def scheme(options)
+  scheme = downcased_scheme(options)
+  return 'DEV - RevolutionRobotics'   if scheme == 'dev'
+  return 'PROD - RevolutionRobotics'  if scheme == 'prod'
+end
+
+def bundle_identifier_for_options(options)
+  scheme = downcased_scheme(options)
+  return "org.revolutionrobotics.RevolutionRobotics.dev.sc"   if scheme == 'dev'
+  return "org.revolutionrobotics.RevolutionRobotics.prod.sc"  if scheme == 'prod'
+end
+
+def downcased_scheme(options)
+  return options[:scheme].downcase
 end
 
   ####################################################
@@ -71,7 +97,7 @@ end
     icon_stamp_with_version(
       icon_path: ICON_PATH,
       label: icon_label(options),
-    )
+      )
 
     scheme = options[:scheme]
     branch_name = options[:branch]
@@ -88,7 +114,7 @@ end
         compileBitcode: false,
         stripSwiftSymbols: false
       },
-    )
+      )
 
     emails = options[:test_email]
     groups = options[:groups] || CRASHLYTICS_DEFAULT_GROUP
@@ -100,14 +126,14 @@ end
       groups: groups,
       notes: create_release_notes(options),
       notifications: true,
-    )
+      )
 
     create_tag(options)
 
     upload_symbols_to_crashlytics(
       dsym_path: "./output/MobilBank-#{scheme}-#{branch_name}.app.dSYM.zip",
       api_token: ENV["CRASHLYTICS_API_TOKEN"],
-    )
+      )
 
     after_all()
   end
@@ -119,7 +145,7 @@ end
   after_all do |lane|
     delete_keychain(
       name: KEYCHAIN_NAME
-    ) if File.exist? File.expand_path("~/Library/Keychains/#{KEYCHAIN_NAME}-db")
+      ) if File.exist? File.expand_path("~/Library/Keychains/#{KEYCHAIN_NAME}-db")
   end
 
   ####################################################
@@ -129,6 +155,6 @@ end
   error do |lane, exception|
     delete_keychain(
       name: KEYCHAIN_NAME
-    ) if File.exist? File.expand_path("~/Library/Keychains/#{KEYCHAIN_NAME}-db")
+      ) if File.exist? File.expand_path("~/Library/Keychains/#{KEYCHAIN_NAME}-db")
   end
 end
