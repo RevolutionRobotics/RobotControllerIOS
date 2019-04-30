@@ -32,6 +32,38 @@ platform :ios do
   		)
   end
 
+  def run_before_fabric_and_itunes_lanes(options, type, match_branch)
+  create_keychain(
+    name: ENV["KEYCHAIN_NAME"],
+    password: ENV["MATCH_PASSWORD"],
+    unlock: true,
+    timeout: 3600,
+    default_keychain: false,
+  )
+
+  unlock_keychain(
+    path: ENV["KEYCHAIN_NAME"],
+    password: ENV["MATCH_PASSWORD"],
+  )
+
+  # unlocks keychains
+  sh "security unlock-keychain -p #{ENV["LOGIN_PASSWORD"]} ~/Library/Keychains/login.keychain-db"
+  sh "security set-key-partition-list -S apple-tool:,apple: -s -k #{ENV["LOGIN_PASSWORD"]} ~/Library/Keychains/login.keychain-db"
+  sh "security set-key-partition-list -S apple-tool:,apple: -s -k #{ENV["MATCH_PASSWORD"]} ~/Library/Keychains/#{ENV["KEYCHAIN_NAME"]}-db"
+
+  ## Set build number
+  new_build_number = `git rev-list --count HEAD`
+  ios_set_build_number(
+    build_number: new_build_number.to_i,
+  )
+
+  ## Set version number
+  version_number = options[:version]
+  if version_number != ""
+    ios_set_version(version: version_number)
+  end
+end
+
   ####################################################
   # =>            Merge request lane ↩️           <= #
   ####################################################
