@@ -38,12 +38,6 @@ platform :ios do
   increment_build_number(
     build_number: new_build_number.to_i
   )
-
-  ## Set version number
-  version_number = options[:version]
-  if version_number != ""
-    ios_set_version(version: version_number)
-  end
 end
 
   ####################################################
