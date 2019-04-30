@@ -90,6 +90,8 @@
 		D03BA8612277384A005B3E33 /* ConnectionModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA85B2277384A005B3E33 /* ConnectionModal.xib */; };
 		D03BA8642277385E005B3E33 /* FailedConnectionTipsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8622277385E005B3E33 /* FailedConnectionTipsModal.swift */; };
 		D03BA8652277385E005B3E33 /* FailedConnectionTipsModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8632277385E005B3E33 /* FailedConnectionTipsModal.xib */; };
+		D03BA86B22773DCA005B3E33 /* RRCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */; };
+		D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA87522783D17005B3E33 /* RRCollectionViewDelegate.swift */; };
 		D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA78226769E900624438 /* NSLayoutConstraint+Multiplier.swift */; };
 		D05BAA7B226769F300624438 /* UICollectionView+CellReuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA7A226769F300624438 /* UICollectionView+CellReuse.swift */; };
 		D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA7C22676A0C00624438 /* UIView+NibLoadable.swift */; };
@@ -118,6 +120,7 @@
 		FE4B161C2277219C00CAA083 /* DashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161B2277219C00CAA083 /* DashedView.swift */; };
 		FE4B161E227721C700CAA083 /* PortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161D227721C700CAA083 /* PortButton.swift */; };
 		FE4B16202277406D00CAA083 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161F2277406D00CAA083 /* SegmentedControl.swift */; };
+		D0A11084227B0BEB0064FBB6 /* ResizableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -210,6 +213,8 @@
 		D03BA85B2277384A005B3E33 /* ConnectionModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionModal.xib; sourceTree = "<group>"; };
 		D03BA8622277385E005B3E33 /* FailedConnectionTipsModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailedConnectionTipsModal.swift; sourceTree = "<group>"; };
 		D03BA8632277385E005B3E33 /* FailedConnectionTipsModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FailedConnectionTipsModal.xib; sourceTree = "<group>"; };
+		D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRCollectionView.swift; sourceTree = "<group>"; };
+		D03BA87522783D17005B3E33 /* RRCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		D05BAA78226769E900624438 /* NSLayoutConstraint+Multiplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Multiplier.swift"; sourceTree = "<group>"; };
 		D05BAA7A226769F300624438 /* UICollectionView+CellReuse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+CellReuse.swift"; sourceTree = "<group>"; };
 		D05BAA7C22676A0C00624438 /* UIView+NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadable.swift"; sourceTree = "<group>"; };
@@ -238,6 +243,7 @@
 		FE4B161B2277219C00CAA083 /* DashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedView.swift; sourceTree = "<group>"; };
 		FE4B161D227721C700CAA083 /* PortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortButton.swift; sourceTree = "<group>"; };
 		FE4B161F2277406D00CAA083 /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
+		D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -474,6 +480,7 @@
 			children = (
 				09ED1B99225241C9009CF262 /* NibLoadable.swift */,
 				09ED1B9B2252424F009CF262 /* Reusable.swift */,
+				D03BA87522783D17005B3E33 /* RRCollectionViewDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -639,6 +646,7 @@
 		2AFAA10E22662FF6002BE0A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D0BA305822784CA900DA35D2 /* CollectionView */,
 				2AA926D322773D82000FAA98 /* SideButton */,
 				FE4B161A2277207C00CAA083 /* DashedView */,
 				FE4B16192277207400CAA083 /* PortButton */,
@@ -789,6 +797,15 @@
 				FE4B161B2277219C00CAA083 /* DashedView.swift */,
 			);
 			path = DashedView;
+            sourceTree = "<group>";
+        };
+		D0BA305822784CA900DA35D2 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */,
+				D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1027,6 +1044,7 @@
 				2A91937A225F7C6F00E927FD /* BluetoothReachability.swift in Sources */,
 				2ADE8C292270A61000ECEC72 /* String+Translate.swift in Sources */,
 				094F9DDC2264BEE600BE118B /* Font.swift in Sources */,
+				D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */,
 				D05C64CC225F575A00B7BF4F /* Milestone.swift in Sources */,
 				09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */,
 				09C3874D226F32F70097619D /* UIView+Anchor.swift in Sources */,
@@ -1057,6 +1075,7 @@
 				2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */,
 				D05C64DF225F5C4E00B7BF4F /* Rotation.swift in Sources */,
 				D03BA85C2277384A005B3E33 /* ConnectionModal.swift in Sources */,
+				D0A11084227B0BEB0064FBB6 /* ResizableCell.swift in Sources */,
 				2ADE8C382270A79E00ECEC72 /* SettingsKeys.swift in Sources */,
 				FE4B161E227721C700CAA083 /* PortButton.swift in Sources */,
 				D05C64D0225F57BC00B7BF4F /* Robot.swift in Sources */,
@@ -1067,6 +1086,7 @@
 				D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */,
 				2AA926D522773D95000FAA98 /* SideButton.swift in Sources */,
 				D05BAA7B226769F300624438 /* UICollectionView+CellReuse.swift in Sources */,
+				D03BA86B22773DCA005B3E33 /* RRCollectionView.swift in Sources */,
 				2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */,
 				2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */,
 				09FB0D69226761E900735B74 /* YourRobotsViewController.swift in Sources */,
