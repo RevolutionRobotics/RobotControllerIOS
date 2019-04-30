@@ -3,6 +3,7 @@ default_platform(:ios)
 # Constants
 KEYCHAIN_NAME = ENV["BUILD_TAG"] + "-keychain"
 ICON_PATH  = 'RevolutionRobotics/Resources/Assets'
+PLIST_PATH = 'RevolutionRobotics/Resources/Info.plist'
 
 platform :ios do
   ####################################################
