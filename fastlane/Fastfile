@@ -132,11 +132,26 @@ end
     create_tag(options)
 
     upload_symbols_to_crashlytics(
-      dsym_path: "./output/MobilBank-#{scheme}-#{branch_name}.app.dSYM.zip",
+      dsym_path: "./output/RevolutionRobotics-#{scheme}-#{branch_name}.app.dSYM.zip",
       api_token: ENV["CRASHLYTICS_API_TOKEN"],
       )
 
     after_all()
+  end
+
+  def create_tag(options)
+    scheme = options[:scheme]
+    branch_name = options[:branch]
+
+    build_number = `git rev-list --count HEAD`
+    tag_name = "#{scheme}-#{branch_name}-build-#{build_number}".strip
+
+    if git_tag_exists(tag: tag_name, remote: true)
+      UI.message("GIT tag exists: #{tag_name}")
+    else
+      add_git_tag(tag: tag_name)
+      push_git_tags(tag: tag_name)
+    end
   end
 
   ####################################################
