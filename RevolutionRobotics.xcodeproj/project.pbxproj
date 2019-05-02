@@ -116,6 +116,7 @@
 		D05C64E9225F683800B7BF4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D05C64E8225F683800B7BF4F /* GoogleService-Info.plist */; };
 		D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CE1226478200052EE1F /* FirebaseService.swift */; };
 		D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CEF22648F990052EE1F /* UIView+Crop.swift */; };
+		D0A11084227B0BEB0064FBB6 /* ResizableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */; };
 		FE4B16172277202600CAA083 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B16152277202600CAA083 /* ConfigurationViewController.swift */; };
 		FE4B16182277202600CAA083 /* ConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4B16162277202600CAA083 /* ConfigurationViewController.xib */; };
 		FE4B161C2277219C00CAA083 /* DashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161B2277219C00CAA083 /* DashedView.swift */; };
@@ -124,7 +125,8 @@
 		FE4B162322786A5300CAA083 /* PhotoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B162222786A5300CAA083 /* PhotoModal.swift */; };
 		FE4B162522786A6C00CAA083 /* PhotoModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4B162422786A6C00CAA083 /* PhotoModal.xib */; };
 		FE82435A2278968000DFDF67 /* RRNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8243592278968000DFDF67 /* RRNavigationController.swift */; };
-		D0A11084227B0BEB0064FBB6 /* ResizableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */; };
+		D0A1107D227870040064FBB6 /* YourRobotsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */; };
+		D0A1107E227870040064FBB6 /* YourRobotsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0A1107C227870040064FBB6 /* YourRobotsCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -243,6 +245,7 @@
 		D05C64E8225F683800B7BF4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D08C1CE1226478200052EE1F /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D08C1CEF22648F990052EE1F /* UIView+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Crop.swift"; sourceTree = "<group>"; };
+		D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableCell.swift; sourceTree = "<group>"; };
 		FE4B16152277202600CAA083 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		FE4B16162277202600CAA083 /* ConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationViewController.xib; sourceTree = "<group>"; };
 		FE4B161B2277219C00CAA083 /* DashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedView.swift; sourceTree = "<group>"; };
@@ -251,7 +254,8 @@
 		FE4B162222786A5300CAA083 /* PhotoModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModal.swift; sourceTree = "<group>"; };
 		FE4B162422786A6C00CAA083 /* PhotoModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoModal.xib; sourceTree = "<group>"; };
 		FE8243592278968000DFDF67 /* RRNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRNavigationController.swift; sourceTree = "<group>"; };
-		D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableCell.swift; sourceTree = "<group>"; };
+		D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRobotsCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0A1107C227870040064FBB6 /* YourRobotsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourRobotsCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,6 +448,8 @@
 			children = (
 				09FB0D67226761E900735B74 /* YourRobotsViewController.swift */,
 				09FB0D68226761E900735B74 /* YourRobotsViewController.xib */,
+				D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */,
+				D0A1107C227870040064FBB6 /* YourRobotsCollectionViewCell.xib */,
 			);
 			path = YourRobots;
 			sourceTree = "<group>";
@@ -660,6 +666,7 @@
 				2AA926D322773D82000FAA98 /* SideButton */,
 				FE4B161A2277207C00CAA083 /* DashedView */,
 				FE4B16192277207400CAA083 /* PortButton */,
+				D03BA87222783A90005B3E33 /* CollectionViewCell */,
 				09FB0D7222677BF500735B74 /* Button */,
 				09C38756226F58180097619D /* CustomView */,
 				090EAFF32264A4B1001E121E /* NavigationBar */,
@@ -737,6 +744,13 @@
 			path = Modal;
 			sourceTree = "<group>";
 		};
+		D03BA87222783A90005B3E33 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
 		D05C64C6225F56C400B7BF4F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,6 +798,15 @@
 			path = MixedObjects;
 			sourceTree = "<group>";
 		};
+		D0BA305822784CA900DA35D2 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */,
+				D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
 		FE4B161422771FC000CAA083 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -808,15 +831,6 @@
 				FE4B161B2277219C00CAA083 /* DashedView.swift */,
 			);
 			path = DashedView;
-            sourceTree = "<group>";
-        };
-		D0BA305822784CA900DA35D2 /* CollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */,
-				D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */,
-			);
-			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		FE4B16212278697400CAA083 /* Modal */ = {
@@ -930,6 +944,7 @@
 				09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */,
 				0964798122686DE000F68456 /* WhoToBuildViewController.xib in Resources */,
 				0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */,
+				D0A1107E227870040064FBB6 /* YourRobotsCollectionViewCell.xib in Resources */,
 				2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */,
 				094F9DE02264CA7000BE118B /* RRNavigationBar.xib in Resources */,
 			);
@@ -1118,6 +1133,7 @@
 				D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */,
 				2AA926D522773D95000FAA98 /* SideButton.swift in Sources */,
 				D05BAA7B226769F300624438 /* UICollectionView+CellReuse.swift in Sources */,
+				D0A1107D227870040064FBB6 /* YourRobotsCollectionViewCell.swift in Sources */,
 				D03BA86B22773DCA005B3E33 /* RRCollectionView.swift in Sources */,
 				2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */,
 				2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */,

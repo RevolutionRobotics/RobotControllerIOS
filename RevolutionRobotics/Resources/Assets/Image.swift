@@ -25,4 +25,11 @@ enum Image {
         static let addIconDarkName: String = "addIconDark"
         static let addIconLightName: String = "addIconLight"
     }
+
+    enum YourRobots {
+        static let cellRedBorderEditable = UIImage(named: "YourRobotsEditableRedCell")
+        static let cellWhiteBorderEditable = UIImage(named: "YourRobotsEditableWhiteCell")
+        static let cellRedBorderNonEditable = UIImage(named: "YourRobotsNonEditableRedCell")
+        static let cellWhiteBorderNonEditable = UIImage(named: "YourRobotsNonEditableWhiteCell")
+    }
 }
