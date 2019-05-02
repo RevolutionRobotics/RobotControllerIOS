@@ -62,7 +62,7 @@
 		2ADE8C3C2270A80F00ECEC72 /* MenuKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C3B2270A80F00ECEC72 /* MenuKeys.swift */; };
 		2ADE8C412270AFFD00ECEC72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2ADE8C402270AFFD00ECEC72 /* Localizable.strings */; };
 		2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF1F74224AB3B400CC721F /* AppDelegate.swift */; };
-		2ADF1F7C224AB3B600CC721F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7B224AB3B600CC721F /* Assets.xcassets */; };
+		2ADF1F7C224AB3B600CC721F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7B224AB3B600CC721F /* Images.xcassets */; };
 		2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7D224AB3B600CC721F /* LaunchScreen.storyboard */; };
 		2AFAA11222663111002BE0A2 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAA11122663111002BE0A2 /* UIImage+Color.swift */; };
 		2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */; };
@@ -173,7 +173,7 @@
 		2ADE8C402270AFFD00ECEC72 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2ADF1F71224AB3B400CC721F /* RevolutionRobotics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevolutionRobotics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADF1F74224AB3B400CC721F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2ADF1F7B224AB3B600CC721F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2ADF1F7B224AB3B600CC721F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2ADF1F80224AB3B600CC721F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AFAA11122663111002BE0A2 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Pods-RevolutionRobotics-settings-metadata.plist"; path = "../RevolutionRobotics/Resources/Settings/Settings.bundle/Pods-RevolutionRobotics-settings-metadata.plist"; sourceTree = "<group>"; };
@@ -357,7 +357,7 @@
 		09ED1BA4225242E8009CF262 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				2ADF1F7B224AB3B600CC721F /* Assets.xcassets */,
+				2ADF1F7B224AB3B600CC721F /* Images.xcassets */,
 				094F9DD72264BE1900BE118B /* Color.swift */,
 				094F9DDB2264BEE600BE118B /* Font.swift */,
 				094F9DD92264BE9600BE118B /* Image.swift */,
@@ -829,7 +829,7 @@
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
 				09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */,
 				D03BA8542276F323005B3E33 /* PartView.xib in Resources */,
-				2ADF1F7C224AB3B600CC721F /* Assets.xcassets in Resources */,
+				2ADF1F7C224AB3B600CC721F /* Images.xcassets in Resources */,
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
 				D0049A25226F0A15007FA256 /* BuildStepViewController.xib in Resources */,
 				D0049A432270ABA1007FA256 /* AvailableRobotsTableViewCell.xib in Resources */,
@@ -1120,6 +1120,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = TP6VZ3G227;
 				DisplayNamePrefix = "Dev ";
@@ -1133,6 +1134,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.revolutionrobotics.RevolutionRobotics.dev.development.sc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Debug Dev";
 		};
@@ -1197,8 +1199,9 @@
 			baseConfigurationReference = 885A268C4635C8205C22591E /* Pods-RevolutionRobotics.release dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TP6VZ3G227;
 				DisplayNamePrefix = "Dev ";
 				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
@@ -1206,11 +1209,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.dev.development.sc;
+				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.dev.sc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Supercharge Wildcard";
+				PROVISIONING_PROFILE_SPECIFIER = "Revolution Robotics DEV Enterprise";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Release Dev";
 		};
@@ -1339,6 +1343,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = TP6VZ3G227;
 				DisplayNamePrefix = "";
@@ -1347,11 +1352,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.dev.development.sc;
+				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.development.sc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.revolutionrobotics.RevolutionRobotics.development.sc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Debug Prod";
 		};
@@ -1360,8 +1366,9 @@
 			baseConfigurationReference = A1B6FE6D4EED82B8B42949D3 /* Pods-RevolutionRobotics.release prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TP6VZ3G227;
 				DisplayNamePrefix = "";
 				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
@@ -1369,11 +1376,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.dev.development.sc;
+				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.sc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Supercharge Wildcard";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Release Prod";
 		};
