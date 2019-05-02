@@ -50,7 +50,7 @@
                         <constraint firstItem="ONa-fq-Gt8" firstAttribute="top" secondItem="cDH-Vx-iGI" secondAttribute="top" constant="8" id="yMS-cn-WMC"/>
                     </constraints>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Khj-tZ-cCT">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Khj-tZ-cCT" customClass="RRCollectionView" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="71" width="667" height="274"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xl1-Xa-YzG">

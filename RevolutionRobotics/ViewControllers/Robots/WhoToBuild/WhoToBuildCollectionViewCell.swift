@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class WhoToBuildCollectionViewCell: UICollectionViewCell {
+final class WhoToBuildCollectionViewCell: ResizableCell {
     // MARK: - Outlets
     @IBOutlet private weak var baseHeight: NSLayoutConstraint!
     @IBOutlet private weak var baseWidth: NSLayoutConstraint!
@@ -25,7 +25,7 @@ final class WhoToBuildCollectionViewCell: UICollectionViewCell {
     private var baseNameFontSize: CGFloat = 0
     private var baseBuildTimeFontSize: CGFloat = 0
 
-    var isCentered: Bool = false {
+    override var isCentered: Bool {
         didSet {
             backgroundImageView.image = isCentered ? Image.BuildRobot.cellRedBorder : Image.BuildRobot.cellWhiteBorder
         }
@@ -40,12 +40,12 @@ extension WhoToBuildCollectionViewCell {
         robotImageView.downloadImage(googleStorageURL: robot.coverImageGSURL)
     }
 
-    func setSize(multiplier: CGFloat) {
+    override func set(multiplier: CGFloat) {
         baseWidth = baseWidth.setMultiplier(multiplier: multiplier * baseWidthMultiplier)
         baseHeight = baseHeight.setMultiplier(multiplier: multiplier * baseHeightMultiplier)
         baseImageWidth = baseImageWidth.setMultiplier(multiplier: multiplier * baseImageWidthMultiplier)
-        robotNameLabel.font = robotNameLabel.font.withSize(baseNameFontSize * multiplier)
-        buildTimeLabel.font = buildTimeLabel.font.withSize(baseBuildTimeFontSize * multiplier)
+        robotNameLabel.font = robotNameLabel.font.withSize(baseNameFontSize * multiplier * multiplier)
+        buildTimeLabel.font = buildTimeLabel.font.withSize(baseBuildTimeFontSize * multiplier * multiplier)
     }
 }
 
