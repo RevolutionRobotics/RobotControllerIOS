@@ -113,6 +113,11 @@
 		D05C64E9225F683800B7BF4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D05C64E8225F683800B7BF4F /* GoogleService-Info.plist */; };
 		D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CE1226478200052EE1F /* FirebaseService.swift */; };
 		D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CEF22648F990052EE1F /* UIView+Crop.swift */; };
+		FE4B16172277202600CAA083 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B16152277202600CAA083 /* ConfigurationViewController.swift */; };
+		FE4B16182277202600CAA083 /* ConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4B16162277202600CAA083 /* ConfigurationViewController.xib */; };
+		FE4B161C2277219C00CAA083 /* DashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161B2277219C00CAA083 /* DashedView.swift */; };
+		FE4B161E227721C700CAA083 /* PortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161D227721C700CAA083 /* PortButton.swift */; };
+		FE4B16202277406D00CAA083 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161F2277406D00CAA083 /* SegmentedControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -228,6 +233,11 @@
 		D05C64E8225F683800B7BF4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D08C1CE1226478200052EE1F /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D08C1CEF22648F990052EE1F /* UIView+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Crop.swift"; sourceTree = "<group>"; };
+		FE4B16152277202600CAA083 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
+		FE4B16162277202600CAA083 /* ConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationViewController.xib; sourceTree = "<group>"; };
+		FE4B161B2277219C00CAA083 /* DashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedView.swift; sourceTree = "<group>"; };
+		FE4B161D227721C700CAA083 /* PortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortButton.swift; sourceTree = "<group>"; };
+		FE4B161F2277406D00CAA083 /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +390,7 @@
 		09FB0D66226761E900735B74 /* Robots */ = {
 			isa = PBXGroup;
 			children = (
+				FE4B161422771FC000CAA083 /* Configuration */,
 				096479832268773700F68456 /* BuildRobot */,
 				09FB0D6D2267762700735B74 /* WhoToBuild */,
 				09FB0D7322686C2500735B74 /* YourRobots */,
@@ -629,9 +640,12 @@
 			isa = PBXGroup;
 			children = (
 				2AA926D322773D82000FAA98 /* SideButton */,
+				FE4B161A2277207C00CAA083 /* DashedView */,
+				FE4B16192277207400CAA083 /* PortButton */,
 				09FB0D7222677BF500735B74 /* Button */,
 				09C38756226F58180097619D /* CustomView */,
 				090EAFF32264A4B1001E121E /* NavigationBar */,
+				FE4B161F2277406D00CAA083 /* SegmentedControl.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -752,6 +766,31 @@
 			path = MixedObjects;
 			sourceTree = "<group>";
 		};
+		FE4B161422771FC000CAA083 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				FE4B16152277202600CAA083 /* ConfigurationViewController.swift */,
+				FE4B16162277202600CAA083 /* ConfigurationViewController.xib */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		FE4B16192277207400CAA083 /* PortButton */ = {
+			isa = PBXGroup;
+			children = (
+				FE4B161D227721C700CAA083 /* PortButton.swift */,
+			);
+			path = PortButton;
+			sourceTree = "<group>";
+		};
+		FE4B161A2277207C00CAA083 /* DashedView */ = {
+			isa = PBXGroup;
+			children = (
+				FE4B161B2277219C00CAA083 /* DashedView.swift */,
+			);
+			path = DashedView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -825,6 +864,7 @@
 				D0049A3F2270A8D7007FA256 /* AvailableRobotsView.xib in Resources */,
 				D05C64E9225F683800B7BF4F /* GoogleService-Info.plist in Resources */,
 				09C38755226F3ABC0097619D /* Barlow-Medium.ttf in Resources */,
+				FE4B16182277202600CAA083 /* ConfigurationViewController.xib in Resources */,
 				097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */,
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
 				09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */,
@@ -1000,7 +1040,9 @@
 				2A9F52112265E96B00F9F651 /* ProgramsViewController.swift in Sources */,
 				D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */,
 				D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */,
+				FE4B16172277202600CAA083 /* ConfigurationViewController.swift in Sources */,
 				D05C64E1225F5C9900B7BF4F /* Drivetrain.swift in Sources */,
+				FE4B16202277406D00CAA083 /* SegmentedControl.swift in Sources */,
 				D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */,
 				2A9F52022265DAC900F9F651 /* AppContainer.swift in Sources */,
 				0964798222686DE000F68456 /* WhoToBuildViewController.swift in Sources */,
@@ -1016,6 +1058,7 @@
 				D05C64DF225F5C4E00B7BF4F /* Rotation.swift in Sources */,
 				D03BA85C2277384A005B3E33 /* ConnectionModal.swift in Sources */,
 				2ADE8C382270A79E00ECEC72 /* SettingsKeys.swift in Sources */,
+				FE4B161E227721C700CAA083 /* PortButton.swift in Sources */,
 				D05C64D0225F57BC00B7BF4F /* Robot.swift in Sources */,
 				0964798D22689DEC00F68456 /* ModalViewController.swift in Sources */,
 				094F9DDE2264CA5600BE118B /* RRNavigationBar.swift in Sources */,
@@ -1028,6 +1071,7 @@
 				2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */,
 				09FB0D69226761E900735B74 /* YourRobotsViewController.swift in Sources */,
 				D0049A3D2270A8CF007FA256 /* AvailableRobotsView.swift in Sources */,
+				FE4B161C2277219C00CAA083 /* DashedView.swift in Sources */,
 				09ED1B9A225241C9009CF262 /* NibLoadable.swift in Sources */,
 				D0049A1E226F0929007FA256 /* RRButton.swift in Sources */,
 				2ADE8C342270A78600ECEC72 /* RobotsKeys.swift in Sources */,

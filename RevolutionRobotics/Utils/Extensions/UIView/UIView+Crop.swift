@@ -31,17 +31,25 @@ extension UIView {
 
     // MARK: - Public functions
     func setBorder(fillColor: UIColor = Color.blackTwo,
-                   strokeColor: UIColor = Color.blackTwo,
+                   strokeColor: UIColor? = Color.blackTwo,
                    lineWidth: CGFloat = 1.0,
                    radius: CGFloat = 10.0,
                    showTopArrow: Bool = false,
+                   dashPatter: [NSNumber] = [],
                    croppedCorners: [Corner] = [.topRight, .bottomLeft]) {
+
         let border = bezierPathBorder ?? createBorder()
         layoutIfNeeded()
         let path = createPath(with: radius, showTopArrow: showTopArrow, croppedCorners: croppedCorners)
         createMask(with: path)
         border.frame = bounds
-        setup(border: border, fillColor: fillColor, strokeColor: strokeColor, lineWidth: lineWidth, path: path)
+
+        setup(border: border,
+              fillColor: fillColor,
+              strokeColor: strokeColor,
+              lineWidth: lineWidth,
+              dashPatter: dashPatter,
+              path: path)
     }
 
     func removeBezierPathBorder() {
@@ -65,13 +73,15 @@ extension UIView {
 
     private func setup(border: CAShapeLayer,
                        fillColor: UIColor,
-                       strokeColor: UIColor,
+                       strokeColor: UIColor?,
                        lineWidth: CGFloat,
+                       dashPatter: [NSNumber],
                        path: UIBezierPath) {
         border.path = path.cgPath
         border.fillColor = fillColor.cgColor
-        border.strokeColor = strokeColor.cgColor
+        border.strokeColor = strokeColor?.cgColor
         border.lineWidth = lineWidth
+        border.lineDashPattern = dashPatter
     }
 
     private func createPath(with radius: CGFloat, showTopArrow: Bool, croppedCorners: [Corner]) -> UIBezierPath {
