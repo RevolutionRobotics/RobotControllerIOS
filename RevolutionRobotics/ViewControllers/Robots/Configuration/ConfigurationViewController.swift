@@ -9,6 +9,11 @@
 import UIKit
 
 final class ConfigurationViewController: BaseViewController {
+    // MARK: - Constants
+    private enum Constants {
+        static let defaultRobotImage = "defaultRobotImage"
+    }
+
     @IBOutlet private weak var segmentedControl: SegmentedControl!
     // MARK: - Motor Port 1
     @IBOutlet private weak var motorPort1: PortButton!
@@ -59,6 +64,13 @@ final class ConfigurationViewController: BaseViewController {
     @IBOutlet private weak var sensorPort4: PortButton!
     @IBOutlet private var sensorPort4Lines: [DashedView]!
     @IBOutlet private weak var sensorPort4Dot: UIImageView!
+
+    // MARK: - RobotImageView
+    @IBOutlet private weak var robotImageView: UIImageView!
+    private var robotImage: UIImage?
+
+    // MARK: - Modal
+    private let photoModal = PhotoModal.instatiate()
 }
 
 // MARK: - Life Cycle
@@ -67,6 +79,7 @@ extension ConfigurationViewController {
         super.viewDidLoad()
 
         setupSegmentedControl()
+        setupRobotImageView()
 
         connectMotorPorts()
         connectSensorPorts()
@@ -116,6 +129,13 @@ extension ConfigurationViewController {
             print($0)
         }
     }
+
+    private func setupRobotImageView() {
+        if robotImage != nil {
+            robotImageView.image = robotImage
+            photoModal.setImage(robotImage)
+        }
+    }
 }
 
 // MARK: - Actions
@@ -125,15 +145,55 @@ extension ConfigurationViewController {
         print(sender.portNumber)
     }
 
-    @IBAction private func takePhotoTapped(_ sender: Any) {
-
-    }
-
     @IBAction private func saveTapped(_ sender: Any) {
 
     }
 
     @IBAction private func bluetoothTapped(_ sender: Any) {
 
+    }
+}
+
+// MARK: - Image picker
+extension ConfigurationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @IBAction private func takePhotoTapped(_ sender: Any) {
+        photoModal.showImagePicker = { [weak self] in
+            self?.showPicker()
+        }
+
+        photoModal.deleteHandler = { [weak self] in
+            self?.robotImageView.image = UIImage(named: Constants.defaultRobotImage)
+            self?.dismiss(animated: true)
+        }
+
+        presentModal(with: photoModal, animated: true)
+    }
+
+    private func showPicker() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera
+            imagePicker.modalPresentationStyle = .currentContext
+            imagePicker.allowsEditing = false
+            presentedViewController?.present(imagePicker, animated: true)
+        }
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        var newImage: UIImage
+        if let possibleImage = info[.editedImage] as? UIImage {
+            newImage = possibleImage
+        } else if let possibleImage = info[.originalImage] as? UIImage {
+            newImage = possibleImage
+        } else {
+            return
+        }
+
+        photoModal.setImage(newImage)
+        robotImageView.image = newImage
+
+        dismiss(animated: true)
     }
 }

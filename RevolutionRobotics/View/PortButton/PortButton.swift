@@ -18,6 +18,7 @@ final class PortButton: UIButton {
         static let borderWidth: CGFloat = 1.5
         static let fontSize: CGFloat = 16
         static let highlighterWidth: CGFloat = 6
+        static let addIconDark = "addIconDark"
     }
 
     // MARK: - Port Type
@@ -41,6 +42,7 @@ final class PortButton: UIButton {
     var dotImageView: UIImageView! {
         didSet {
             dotImageView.tintColor = Color.brownishGrey
+            dotImageView.image = UIImage(named: Constants.addIconDark)
         }
     }
 

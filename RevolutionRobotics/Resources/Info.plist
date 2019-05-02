@@ -61,6 +61,8 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
+	</array>	
+	<key>NSCameraUsageDescription</key>
+	<string>pls</string>
 </dict>
 </plist>

@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
     var window: UIWindow?
-    private var navigationController: UINavigationController!
+    private var navigationController: RRNavigationController!
     private let dependencies = AppDependencies()
     private let assemblyRegister = AssemblyRegister()
 
@@ -23,6 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupWindowAndRootViewController()
         return true
     }
+
+    func application(_ application: UIApplication,
+                     supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return .all
+    }
 }
 
 // MARK: - Setup
@@ -30,7 +35,7 @@ extension AppDelegate {
     private func setupWindowAndRootViewController() {
         window = UIWindow(frame: UIScreen.main.bounds)
         let rootViewController = AppContainer.shared.container.unwrappedResolve(MenuViewController.self)
-        navigationController = UINavigationController(rootViewController: rootViewController)
+        navigationController = RRNavigationController(rootViewController: rootViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
