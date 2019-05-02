@@ -117,6 +117,9 @@
 		D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CE1226478200052EE1F /* FirebaseService.swift */; };
 		D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CEF22648F990052EE1F /* UIView+Crop.swift */; };
 		D0A11084227B0BEB0064FBB6 /* ResizableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */; };
+		D0A1108C227B18480064FBB6 /* ControllerInfoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1108B227B18480064FBB6 /* ControllerInfoModal.swift */; };
+		D0A1108E227B18510064FBB6 /* ControllerInfoModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0A1108D227B18510064FBB6 /* ControllerInfoModal.xib */; };
+		D0A11090227B1DAD0064FBB6 /* ControllerKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1108F227B1DAD0064FBB6 /* ControllerKeys.swift */; };
 		FE4B16172277202600CAA083 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B16152277202600CAA083 /* ConfigurationViewController.swift */; };
 		FE4B16182277202600CAA083 /* ConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4B16162277202600CAA083 /* ConfigurationViewController.xib */; };
 		FE4B161C2277219C00CAA083 /* DashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161B2277219C00CAA083 /* DashedView.swift */; };
@@ -246,6 +249,9 @@
 		D08C1CE1226478200052EE1F /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D08C1CEF22648F990052EE1F /* UIView+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Crop.swift"; sourceTree = "<group>"; };
 		D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableCell.swift; sourceTree = "<group>"; };
+		D0A1108B227B18480064FBB6 /* ControllerInfoModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerInfoModal.swift; sourceTree = "<group>"; };
+		D0A1108D227B18510064FBB6 /* ControllerInfoModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControllerInfoModal.xib; sourceTree = "<group>"; };
+		D0A1108F227B1DAD0064FBB6 /* ControllerKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerKeys.swift; sourceTree = "<group>"; };
 		FE4B16152277202600CAA083 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		FE4B16162277202600CAA083 /* ConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationViewController.xib; sourceTree = "<group>"; };
 		FE4B161B2277219C00CAA083 /* DashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedView.swift; sourceTree = "<group>"; };
@@ -372,6 +378,7 @@
 		09ED1BA2225242CB009CF262 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D0A11089227B18110064FBB6 /* Controllers */,
 				2A9F52042265E1D500F9F651 /* Base */,
 				2A9F520A2265E92B00F9F651 /* Challenges */,
 				09D41808225B861C000E2CE7 /* Menu */,
@@ -563,6 +570,7 @@
 				2ADE8C332270A78600ECEC72 /* RobotsKeys.swift */,
 				2ADE8C372270A79E00ECEC72 /* SettingsKeys.swift */,
 				2A18002C227AE5800082E801 /* ModalKeys.swift */,
+				D0A1108F227B1DAD0064FBB6 /* ControllerKeys.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -805,6 +813,23 @@
 				D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */,
 			);
 			path = CollectionView;
+            sourceTree = "<group>";
+        };
+		D0A11089227B18110064FBB6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0A1108A227B18310064FBB6 /* Modal */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D0A1108A227B18310064FBB6 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				D0A1108B227B18480064FBB6 /* ControllerInfoModal.swift */,
+				D0A1108D227B18510064FBB6 /* ControllerInfoModal.xib */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 		FE4B161422771FC000CAA083 /* Configuration */ = {
@@ -925,6 +950,7 @@
 				09C38755226F3ABC0097619D /* Barlow-Medium.ttf in Resources */,
 				FE4B16182277202600CAA083 /* ConfigurationViewController.xib in Resources */,
 				097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */,
+				D0A1108E227B18510064FBB6 /* ControllerInfoModal.xib in Resources */,
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
 				09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */,
 				D03BA8542276F323005B3E33 /* PartView.xib in Resources */,
@@ -1064,6 +1090,7 @@
 			files = (
 				2A77320A2264A32D00D7F38D /* ServiceAssembly.swift in Sources */,
 				2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */,
+				D0A11090227B1DAD0064FBB6 /* ControllerKeys.swift in Sources */,
 				D0049A422270ABA1007FA256 /* AvailableRobotsTableViewCell.swift in Sources */,
 				2A18002D227AE5800082E801 /* ModalKeys.swift in Sources */,
 				FE82435A2278968000DFDF67 /* RRNavigationController.swift in Sources */,
@@ -1089,6 +1116,7 @@
 				D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */,
 				2A91937A225F7C6F00E927FD /* BluetoothReachability.swift in Sources */,
 				2ADE8C292270A61000ECEC72 /* String+Translate.swift in Sources */,
+				D0A1108C227B18480064FBB6 /* ControllerInfoModal.swift in Sources */,
 				094F9DDC2264BEE600BE118B /* Font.swift in Sources */,
 				D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */,
 				D05C64CC225F575A00B7BF4F /* Milestone.swift in Sources */,
