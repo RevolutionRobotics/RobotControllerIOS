@@ -82,6 +82,13 @@
                         <constraint firstItem="qT2-XC-Jw8" firstAttribute="top" secondItem="IxG-51-Oet" secondAttribute="top" constant="2" id="tHR-h2-h7r"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTV-yz-alA" userLabel="buildProgressBar" customClass="BuildProgressBar" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="52" y="314" width="708" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="YPU-ds-GGo"/>
+                    </constraints>
+                </view>
                 <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="200" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5uw-FO-bon">
                     <rect key="frame" x="680" y="44" width="110" height="200"/>
                 </stackView>
@@ -91,11 +98,14 @@
                 <constraint firstItem="UXT-Hc-TIW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="39U-y2-JzF"/>
                 <constraint firstItem="IxG-51-Oet" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AZn-Um-Hvk"/>
                 <constraint firstItem="5uw-FO-bon" firstAttribute="top" secondItem="JHd-YH-4xv" secondAttribute="bottom" constant="2" id="ISN-dL-d97"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="TTV-yz-alA" secondAttribute="leading" constant="-8" id="OUs-3m-AO5"/>
                 <constraint firstAttribute="bottom" secondItem="UXT-Hc-TIW" secondAttribute="bottom" id="QIG-7Y-eEh"/>
                 <constraint firstItem="UXT-Hc-TIW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Qn9-uh-l79"/>
                 <constraint firstAttribute="trailing" secondItem="UXT-Hc-TIW" secondAttribute="trailing" id="UCe-Cc-pR0"/>
                 <constraint firstAttribute="trailing" secondItem="IxG-51-Oet" secondAttribute="trailing" id="WmF-gH-8z7"/>
                 <constraint firstItem="5uw-FO-bon" firstAttribute="centerX" secondItem="JHd-YH-4xv" secondAttribute="centerX" id="XIm-aE-HUv"/>
+                <constraint firstAttribute="bottomMargin" secondItem="TTV-yz-alA" secondAttribute="bottom" id="oM6-u9-1lV"/>
+                <constraint firstItem="TTV-yz-alA" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-8" id="t0N-m2-4dB"/>
                 <constraint firstItem="IxG-51-Oet" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="v2R-8s-qwe"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

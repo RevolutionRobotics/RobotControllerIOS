@@ -18,6 +18,9 @@ enum Image {
     enum BuildRobot {
         static let cellRedBorder = UIImage(named: "CellRedBorder")
         static let cellWhiteBorder = UIImage(named: "CellWhiteBorder")
+        static let currentBuildStepIndicator = UIImage(named: "CurrentBuildStepIndicator")
+        static let nextButton = UIImage(named: "nextStep")
+        static let finishButton = UIImage(named: "FinishButton")
     }
 
     enum Configuration {
