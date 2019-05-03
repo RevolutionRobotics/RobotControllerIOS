@@ -49,4 +49,9 @@ enum RobotsKeys {
         static let connectionTabTitle = "configure_connection_tab_title"
         static let controllerTabTitle = "configure_controller_tab_title"
     }
+
+    enum Controllers {
+        static let controllerChooseThis = "controller_choose_this"
+        static let controllerSelected = "controller_selected"
+    }
 }

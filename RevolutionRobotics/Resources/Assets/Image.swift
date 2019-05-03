@@ -28,6 +28,10 @@ enum Image {
         static let addIconDark = UIImage(named: "addIconDark")
         static let addIconLight = UIImage(named: "addIconLight")
         static let defaultRobotImage = UIImage(named: "defaultRobotImage")
+        static let cellRedBorderSelected = UIImage(named: "ControllerCellBorderSelectedRed")
+        static let cellWhiteBorderSelected = UIImage(named: "ControllerCellBorderSelectedWhite")
+        static let cellRedBorderNonSelected = UIImage(named: "ControllerCellBorderNonSelectedRed")
+        static let cellWhiteBorderNonSelected = UIImage(named: "ControllerCellBorderNonSelectedWhite")
     }
 
     enum YourRobots {

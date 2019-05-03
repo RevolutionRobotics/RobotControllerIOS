@@ -22,6 +22,8 @@
 "configuration_new_screen_title" = "Build your own!";
 "configure_connection_tab_title" = "Connections";
 "configure_controller_tab_title" = "Controllers";
+"controller_choose_this" = "Choose this!";
+"controller_selected" = "Selected";
 
 // MARK: - Build robot
 "build_robot_turn_on_the_brain_instruction" = "To take control, switch the brain on";

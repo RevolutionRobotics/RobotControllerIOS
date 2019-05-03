@@ -9,7 +9,14 @@
 import UIKit
 
 final class ConfigurationViewController: BaseViewController {
+    // MARK: - Constants
+    private enum Constants {
+        static let defaultRobotImage = "defaultRobotImage"
+        static let cellRatio: CGFloat = 213 / 190
+    }
+
     // MARK: - Outlets
+    @IBOutlet private weak var configurationView: UIView!
     @IBOutlet private weak var segmentedControl: SegmentedControl!
     @IBOutlet private weak var navigationBar: RRNavigationBar!
 
@@ -69,20 +76,55 @@ final class ConfigurationViewController: BaseViewController {
 
     // MARK: - Modal
     private let photoModal = PhotoModal.instatiate()
+
+    // MARK: - CollectionView
+    @IBOutlet private weak var leftButton: UIButton!
+    @IBOutlet private weak var rightButton: UIButton!
+    @IBOutlet private weak var collectionView: RRCollectionView!
+    @IBOutlet private weak var controllerCollectionView: UIView!
 }
 
-// MARK: - Life Cycle
+// MARK: - View lifecycle
 extension ConfigurationViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationBar.setup(title: RobotsKeys.Configure.title.translate(), delegate: self)
 
+        collectionView.rrDelegate = self
+        collectionView.dataSource = self
+        collectionView.register(ControllerCollectionViewCell.self)
+
         setupSegmentedControl()
         setupRobotImageView()
 
         connectMotorPorts()
         connectSensorPorts()
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension ConfigurationViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: ControllerCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.indexPath = indexPath
+        return cell
+    }
+}
+
+// MARK: - RRCollectionViewDelegate
+extension ConfigurationViewController: RRCollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    }
+
+    func setButtons(rightHidden: Bool, leftHidden: Bool) {
+        leftButton.isHidden = leftHidden
+        rightButton.isHidden = rightHidden
     }
 }
 
@@ -126,8 +168,17 @@ extension ConfigurationViewController {
         segmentedControl.setup(with: [RobotsKeys.Configure.connectionTabTitle.translate(),
                                       RobotsKeys.Configure.controllerTabTitle.translate()])
         segmentedControl.setSelectedIndex(0)
-        segmentedControl.itemSelectedAt = {
-            print($0)
+        segmentedControl.itemSelectedAt = { [weak self] in
+            self?.configurationView.isHidden = $0 == .controllers
+            self?.controllerCollectionView.isHidden = $0 == .connections
+            self?.leftButton.isHidden = $0 == .connections
+            self?.rightButton.isHidden = $0 == .connections
+            if $0 == .controllers {
+                self?.collectionView.cellRatio = Constants.cellRatio
+                self?.collectionView.setupInset()
+                self?.collectionView.reloadData()
+                self?.collectionView.refreshCollectionView()
+            }
         }
     }
 
@@ -148,6 +199,14 @@ extension ConfigurationViewController {
     }
 
     @IBAction private func bluetoothTapped(_ sender: Any) {
+    }
+
+    @IBAction private func leftButtonTapped(_ sender: Any) {
+        collectionView.leftStep()
+    }
+
+    @IBAction private func rightButtonTapped(_ sender: Any) {
+        collectionView.rightStep()
     }
 }
 
