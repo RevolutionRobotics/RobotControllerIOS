@@ -9,6 +9,12 @@
 import UIKit
 
 final class WhoToBuildCollectionViewCell: ResizableCell {
+    // MARK: - Constants
+    private enum Constants {
+        static let clockIconLeadingConstraintRatio: CGFloat = 12.0 / 213.0
+        static let clockIconBottomConstraintRatio: CGFloat = 16.0 / 224.0
+    }
+
     // MARK: - Outlets
     @IBOutlet private weak var baseHeight: NSLayoutConstraint!
     @IBOutlet private weak var baseWidth: NSLayoutConstraint!
@@ -17,6 +23,8 @@ final class WhoToBuildCollectionViewCell: ResizableCell {
     @IBOutlet private weak var buildTimeLabel: UILabel!
     @IBOutlet private weak var robotImageView: UIImageView!
     @IBOutlet private weak var robotNameLabel: UILabel!
+    @IBOutlet private weak var clockImageLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var clockImageBottomConstraint: NSLayoutConstraint!
 
     // MARK: - Variables
     private var baseHeightMultiplier: CGFloat = 0
@@ -59,6 +67,13 @@ extension WhoToBuildCollectionViewCell {
         baseImageWidthMultiplier = baseImageWidth.multiplier
         baseNameFontSize = robotNameLabel.font.pointSize
         baseBuildTimeFontSize = buildTimeLabel.font.pointSize
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        clockImageLeadingConstraint.constant = Constants.clockIconLeadingConstraintRatio * frame.size.width
+        clockImageBottomConstraint.constant = Constants.clockIconBottomConstraintRatio * frame.size.height
     }
 
     override func prepareForReuse() {

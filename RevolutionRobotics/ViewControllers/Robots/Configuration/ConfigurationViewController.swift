@@ -9,12 +9,10 @@
 import UIKit
 
 final class ConfigurationViewController: BaseViewController {
-    // MARK: - Constants
-    private enum Constants {
-        static let defaultRobotImage = "defaultRobotImage"
-    }
-
+    // MARK: - Outlets
     @IBOutlet private weak var segmentedControl: SegmentedControl!
+    @IBOutlet private weak var navigationBar: RRNavigationBar!
+
     // MARK: - Motor Port 1
     @IBOutlet private weak var motorPort1: PortButton!
     @IBOutlet private var motorPort1Lines: [DashedView]!
@@ -78,6 +76,8 @@ extension ConfigurationViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationBar.setup(title: RobotsKeys.Configure.title.translate(), delegate: self)
+
         setupSegmentedControl()
         setupRobotImageView()
 
@@ -123,7 +123,8 @@ extension ConfigurationViewController {
     }
 
     private func setupSegmentedControl() {
-        segmentedControl.setup(with: ["Connections", "Controllers"])
+        segmentedControl.setup(with: [RobotsKeys.Configure.connectionTabTitle.translate(),
+                                      RobotsKeys.Configure.controllerTabTitle.translate()])
         segmentedControl.setSelectedIndex(0)
         segmentedControl.itemSelectedAt = {
             print($0)
@@ -141,16 +142,12 @@ extension ConfigurationViewController {
 // MARK: - Actions
 extension ConfigurationViewController {
     @IBAction private func portTapped(_ sender: PortButton) {
-        print(sender.portType)
-        print(sender.portNumber)
     }
 
     @IBAction private func saveTapped(_ sender: Any) {
-
     }
 
     @IBAction private func bluetoothTapped(_ sender: Any) {
-
     }
 }
 
@@ -162,7 +159,7 @@ extension ConfigurationViewController: UIImagePickerControllerDelegate, UINaviga
         }
 
         photoModal.deleteHandler = { [weak self] in
-            self?.robotImageView.image = UIImage(named: Constants.defaultRobotImage)
+            self?.robotImageView.image = Image.Configuration.defaultRobotImage
             self?.dismiss(animated: true)
         }
 

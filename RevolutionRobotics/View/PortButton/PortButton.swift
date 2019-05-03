@@ -77,7 +77,7 @@ extension PortButton {
         adjustsImageWhenHighlighted = false
         backgroundColor = Color.brownGrey
         titleLabel?.font = Font.jura(size: Constants.fontSize, weight: .bold)
-        setImage(UIImage(named: Image.Configuration.addIconLightName), for: .normal)
+        setImage(Image.Configuration.addIconLight, for: .normal)
 
         layoutIfNeeded()
         setBorder(strokeColor: Color.brownishGrey, lineWidth: Constants.borderWidth, dashPatter: Constants.dashPattern)
@@ -111,16 +111,14 @@ extension PortButton {
     }
 
     private func setupDotState(for selected: Bool) {
-        dotImageView.image = UIImage(named: selected
-            ? Image.Configuration.doneIconName
-            : Image.Configuration.addIconDarkName)
+        dotImageView.image = selected ? Image.Configuration.doneIcon : Image.Configuration.addIconDark
         dotImageView.tintColor = selected ? borderColor : .lightGray
     }
 
     private func setupHighlightetState() {
         setBorder(strokeColor: .white, lineWidth: Constants.borderWidth)
         setLineSelectedState(to: true, color: .white)
-        dotImageView.image = UIImage(named: Image.Configuration.addIconLightName)
+        dotImageView.image = Image.Configuration.addIconLight
     }
 
     private func setupSelectedState(with icon: UIImage?) {
