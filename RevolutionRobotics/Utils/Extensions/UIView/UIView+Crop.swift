@@ -86,6 +86,13 @@ extension UIView {
 
     private func createPath(with radius: CGFloat, showTopArrow: Bool, croppedCorners: [Corner]) -> UIBezierPath {
         let path = UIBezierPath()
+        var labelFrame: CGRect?
+
+        if let superView = self.superview {
+            for view in superView.subviews where view.tag == 1 {
+                labelFrame = view.frame
+            }
+        }
 
         path.move(to: CGPoint(x: croppedCorners.contains(.topLeft) ? radius : 0.0, y: 0.0))
         path.addLine(to: CGPoint(x: 0.0, y: radius))
@@ -105,6 +112,11 @@ extension UIView {
             path.addLine(to: CGPoint(x: frame.size.width / 2, y: -radius))
             path.addLine(to: CGPoint(x: (frame.size.width / 2) - radius, y: 0.0))
         }
+        if let frame = labelFrame {
+            path.addLine(to: CGPoint(x: frame.maxX + 5, y: 0.0))
+            path.move(to: CGPoint(x: frame.minX - 5, y: 0.0))
+        }
+        path.addLine(to: CGPoint(x: croppedCorners.contains(.topLeft) ? radius : 0.0, y: 0.0))
         path.close()
 
         return path
