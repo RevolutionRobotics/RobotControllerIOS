@@ -16,11 +16,13 @@ final class WhoToBuildViewController: BaseViewController {
     @IBOutlet private weak var rightButton: UIButton!
     @IBOutlet private weak var leftButton: UIButton!
     @IBOutlet private weak var buildYourOwnButton: RRButton!
+    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
 
     // MARK: - Variables
     var firebaseService: FirebaseServiceInterface!
     private let discoverer: RoboticsDeviceDiscovererInterface = RoboticsDeviceDiscoverer()
     private let bluetoothDiscovery = AvailableRobotsView.instatiate()
+    private var selectedRobot: Robot?
 
     private var robots: [Robot] = [] {
         didSet {
@@ -37,6 +39,8 @@ extension WhoToBuildViewController {
             switch result {
             case .success(let robots):
                 self?.robots = robots
+                self?.loadingIndicator.stopAnimating()
+                self?.collectionView.isHidden = false
             case .failure(let error):
                 print(error)
             }
@@ -102,7 +106,7 @@ extension WhoToBuildViewController: RRCollectionViewDelegate {
         guard !collectionView.isDecelerating,
             let cell = collectionView.cellForItem(at: indexPath) as? WhoToBuildCollectionViewCell,
             cell.isCentered else { return }
-
+        selectedRobot = robots[indexPath.row]
         showTurnOnTheBrain()
     }
 
@@ -128,10 +132,10 @@ extension WhoToBuildViewController {
 
     private func setupLaterHandler(on modal: TurnOnBrainView) {
         modal.laterHandler = { [weak self] in
-            self?.dismiss(animated: true, completion: {
-                let buildScreen = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
-                self?.navigationController?.pushViewController(buildScreen, animated: true)
-            })
+            self?.dismiss(animated: true, completion: nil)
+            let buildScreen = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
+            buildScreen.selectedRobot = self?.selectedRobot
+            self?.navigationController?.pushViewController(buildScreen, animated: true)
         }
     }
 

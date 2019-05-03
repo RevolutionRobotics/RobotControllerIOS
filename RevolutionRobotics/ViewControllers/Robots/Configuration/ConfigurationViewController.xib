@@ -81,7 +81,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zW7-n8-Bql" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="473" y="10" width="25" height="25"/>
+                            <rect key="frame" x="466" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="BgN-Wi-FXb"/>
                                 <constraint firstAttribute="width" constant="40" id="fy7-Cl-Nr7"/>
@@ -92,7 +92,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmE-pX-ILZ" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="418" y="10" width="25" height="25"/>
+                            <rect key="frame" x="414" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="Gnn-AN-iIu"/>
                                 <constraint firstAttribute="height" constant="40" id="jPU-zw-PKB"/>
@@ -126,7 +126,7 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwl-yc-5Df" customClass="PortButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="20" y="20" width="80" height="40"/>
-                            <color key="backgroundColor" name="DarkGrey"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="hCM-kj-jFI"/>
                                 <constraint firstAttribute="width" constant="80" id="oBq-As-CIQ"/>
@@ -170,7 +170,7 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjd-1s-bUH" customClass="PortButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="116" y="20" width="80" height="40"/>
-                            <color key="backgroundColor" name="DarkGrey"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="CPx-yE-0aP"/>
                                 <constraint firstAttribute="width" constant="80" id="phk-wG-nA9"/>
@@ -205,7 +205,7 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zys-Uy-KgH" userLabel="M3" customClass="PortButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="212" y="20" width="80" height="40"/>
-                            <color key="backgroundColor" name="DarkGrey"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="Vgd-b9-cKw"/>
                                 <constraint firstAttribute="height" constant="40" id="lnA-n4-Jim"/>
@@ -249,7 +249,7 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBP-4e-h8K" userLabel="M4" customClass="PortButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="20" y="168" width="80" height="40"/>
-                            <color key="backgroundColor" name="DarkGrey"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="YFh-Uy-bIg"/>
                                 <constraint firstAttribute="width" constant="80" id="u6I-XD-9tA"/>
@@ -299,7 +299,7 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Be2-Uc-pX4" userLabel="M5" customClass="PortButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="116" y="168" width="80" height="40"/>
-                            <color key="backgroundColor" name="DarkGrey"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="F6q-z4-hTD"/>
                                 <constraint firstAttribute="width" constant="80" id="viP-6n-GBV"/>
@@ -342,7 +342,7 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czl-VH-64W" customClass="PortButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="212" y="168" width="80" height="40"/>
-                            <color key="backgroundColor" name="DarkGrey"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="5pg-H7-O6k"/>
                                 <constraint firstAttribute="height" constant="40" id="GLN-Qu-ecS"/>
@@ -370,7 +370,7 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3R-MP-y05" userLabel="S1" customClass="PortButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="342" y="22" width="80" height="40"/>
-                            <color key="backgroundColor" name="DarkGrey"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="Iks-Vh-t7J"/>
                                 <constraint firstAttribute="height" constant="40" id="y63-sa-hSc"/>
@@ -421,7 +421,7 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUA-vg-wX2" userLabel="S2" customClass="PortButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="342" y="70" width="80" height="40"/>
-                            <color key="backgroundColor" name="DarkGrey"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="ZHY-7a-JJD"/>
                                 <constraint firstAttribute="height" constant="40" id="oOG-yg-ZyD"/>
@@ -465,7 +465,7 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdp-0V-HDv" customClass="PortButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="342" y="118" width="80" height="40"/>
-                            <color key="backgroundColor" name="DarkGrey"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="8M8-42-D2a"/>
                                 <constraint firstAttribute="height" constant="40" id="Nhd-lY-c7j"/>
@@ -500,7 +500,7 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wuC-Ft-DNN" customClass="PortButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="342" y="166" width="80" height="40"/>
-                            <color key="backgroundColor" name="DarkGrey"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="CiH-no-4g8"/>
                                 <constraint firstAttribute="height" constant="40" id="ytC-2f-soy"/>
@@ -679,8 +679,8 @@
         <image name="configDone" width="12" height="12"/>
         <image name="defaultRobotImage" width="122" height="80"/>
         <image name="floppy" width="25" height="25"/>
-        <namedColor name="DarkGrey">
-            <color red="0.15700000524520874" green="0.15700000524520874" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="BlackTwo">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Red">
             <color red="0.90196078431372551" green="0.011764705882352941" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

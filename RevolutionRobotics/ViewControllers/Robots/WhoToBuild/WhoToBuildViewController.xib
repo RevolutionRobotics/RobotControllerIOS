@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,6 +15,7 @@
                 <outlet property="buildYourOwnButton" destination="ONa-fq-Gt8" id="NfM-s2-daN"/>
                 <outlet property="collectionView" destination="Khj-tZ-cCT" id="PCS-GE-39m"/>
                 <outlet property="leftButton" destination="mzB-FK-UOJ" id="CKf-SO-KL2"/>
+                <outlet property="loadingIndicator" destination="SEb-Pv-g9f" id="xpE-ia-5Ll"/>
                 <outlet property="navigationBar" destination="cDH-Vx-iGI" id="A1v-5T-2tf"/>
                 <outlet property="rightButton" destination="9UF-wg-exO" id="Y94-Tq-Moa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -26,6 +26,9 @@
             <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GlowBackground" translatesAutoresizingMaskIntoConstraints="NO" id="HlK-Uf-80a" userLabel="backgroundImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDH-Vx-iGI" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="896" height="71"/>
                     <subviews>
@@ -50,7 +53,7 @@
                         <constraint firstItem="ONa-fq-Gt8" firstAttribute="top" secondItem="cDH-Vx-iGI" secondAttribute="top" constant="8" id="yMS-cn-WMC"/>
                     </constraints>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Khj-tZ-cCT" customClass="RRCollectionView" customModule="RevolutionRobotics" customModuleProvider="target">
+                <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Khj-tZ-cCT" customClass="RRCollectionView" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="71" width="896" height="313"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xl1-Xa-YzG">
@@ -60,7 +63,7 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9UF-wg-exO">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9UF-wg-exO">
                     <rect key="frame" x="871" y="182" width="25" height="50"/>
                     <state key="normal" image="RightButton"/>
                     <connections>
@@ -74,18 +77,27 @@
                         <action selector="leftButtonTapped:" destination="-1" eventType="touchUpInside" id="gdB-V8-RrC"/>
                     </connections>
                 </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SEb-Pv-g9f" userLabel="loadingIndicator">
+                    <rect key="frame" x="429.5" y="188.5" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" name="Black"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="mzB-FK-UOJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="00O-Ht-8C0"/>
+                <constraint firstItem="SEb-Pv-g9f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0BW-FI-uqH"/>
+                <constraint firstAttribute="bottom" secondItem="HlK-Uf-80a" secondAttribute="bottom" id="AlX-6A-pSc"/>
                 <constraint firstItem="cDH-Vx-iGI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ArX-qm-aUN"/>
                 <constraint firstItem="Khj-tZ-cCT" firstAttribute="top" secondItem="cDH-Vx-iGI" secondAttribute="bottom" id="Gvh-Gx-hIy"/>
                 <constraint firstAttribute="trailing" secondItem="cDH-Vx-iGI" secondAttribute="trailing" id="Jop-Lg-qis"/>
+                <constraint firstItem="SEb-Pv-g9f" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="LdF-Qd-rCP"/>
+                <constraint firstAttribute="trailing" secondItem="HlK-Uf-80a" secondAttribute="trailing" id="QNQ-ni-awD"/>
                 <constraint firstAttribute="trailing" secondItem="Khj-tZ-cCT" secondAttribute="trailing" id="R8r-Di-D5q"/>
                 <constraint firstItem="9UF-wg-exO" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="TGg-xw-0KX"/>
                 <constraint firstAttribute="bottom" secondItem="Khj-tZ-cCT" secondAttribute="bottom" constant="30" id="WvB-tc-yo1"/>
                 <constraint firstItem="cDH-Vx-iGI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="d3x-YE-b1L"/>
                 <constraint firstItem="Khj-tZ-cCT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lxx-hq-uTq"/>
+                <constraint firstItem="HlK-Uf-80a" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="mhQ-o0-27D"/>
+                <constraint firstItem="HlK-Uf-80a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pQy-N9-Wyr"/>
                 <constraint firstItem="mzB-FK-UOJ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="yVc-Ja-6vh"/>
                 <constraint firstAttribute="trailing" secondItem="9UF-wg-exO" secondAttribute="trailing" id="z2k-59-2Oy"/>
             </constraints>
@@ -95,10 +107,8 @@
     </objects>
     <resources>
         <image name="AddIcon" width="30" height="29"/>
+        <image name="GlowBackground" width="568" height="320"/>
         <image name="LeftButton" width="25" height="50"/>
         <image name="RightButton" width="25" height="50"/>
-        <namedColor name="Black">
-            <color red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

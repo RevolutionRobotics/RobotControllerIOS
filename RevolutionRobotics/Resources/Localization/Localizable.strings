@@ -16,7 +16,7 @@
 "your_robots_build_new_button_title" = "build new";
 
 // MARK: - Who to build
-"who_to_build_screen_title" = "Who to build?";
+"who_to_build_screen_title" = "Choose your robot to build!";
 "who_to_build_build_new_button_title" = "build your own";
 "who_to_build_searching_title" = "Searching for robots in the area";
 "configuration_new_screen_title" = "Build your own!";

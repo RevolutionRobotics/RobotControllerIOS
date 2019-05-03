@@ -73,6 +73,10 @@ extension ScreenAssembly {
     private func registerBuildRobotViewController(to container: Container) {
         container
             .register(BuildRobotViewController.self, factory: { _ in return BuildRobotViewController() })
+            .initCompleted { (resolver, buildRobotViewController) in
+                buildRobotViewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
+            }
+            .inObjectScope(.weak)
     }
 
     private func registerModalViewController(to container: Container) {

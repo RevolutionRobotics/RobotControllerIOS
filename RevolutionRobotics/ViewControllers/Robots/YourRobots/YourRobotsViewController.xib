@@ -26,7 +26,7 @@
             <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GlowBackground" translatesAutoresizingMaskIntoConstraints="NO" id="0I6-N1-gZz" userLabel="backgroundImageView">
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GlowBackground" translatesAutoresizingMaskIntoConstraints="NO" id="0I6-N1-gZz" userLabel="backgroundImageView">
                     <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMT-cF-hD1" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
@@ -50,7 +50,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RzR-w5-NTv" userLabel="sideButton" customClass="SideButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="787" y="356" width="109" height="52"/>
+                    <rect key="frame" x="787" y="333" width="109" height="52"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="109" id="hUM-Pg-PHj"/>
@@ -89,7 +89,7 @@
                 <constraint firstItem="cQA-Lh-BeE" firstAttribute="top" secondItem="wMT-cF-hD1" secondAttribute="bottom" constant="32" id="frj-lt-4oY"/>
                 <constraint firstAttribute="bottom" secondItem="cQA-Lh-BeE" secondAttribute="bottom" constant="54" id="gh0-6B-Wa5"/>
                 <constraint firstItem="wMT-cF-hD1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lBT-jk-2Tj"/>
-                <constraint firstAttribute="bottom" secondItem="RzR-w5-NTv" secondAttribute="bottom" constant="6" id="qLf-bL-eka"/>
+                <constraint firstItem="ES3-7Z-Wkg" firstAttribute="bottom" secondItem="RzR-w5-NTv" secondAttribute="bottom" constant="8" id="qLf-bL-eka"/>
                 <constraint firstItem="wMT-cF-hD1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rPq-Fk-ku8"/>
                 <constraint firstAttribute="trailing" secondItem="RzR-w5-NTv" secondAttribute="trailing" id="s8o-e9-KOa"/>
                 <constraint firstItem="CbJ-Mi-Gfm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uVb-Bh-f2E"/>

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,13 +30,13 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to take control, switch the brain on" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aG0-AV-zPq">
                     <rect key="frame" x="69" y="110" width="322.5" height="24"/>
                     <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="20"/>
-                    <color key="textColor" name="White"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="once it is ready, tap start" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cV-0F-sHk">
                     <rect key="frame" x="56" y="138" width="348" height="17"/>
                     <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="14"/>
-                    <color key="textColor" name="White"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvC-EL-PmB" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
@@ -46,7 +45,7 @@
                     <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Later" image="LaterIcon">
-                        <color key="titleColor" name="White"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="laterButtonTapped:" destination="-1" eventType="touchUpInside" id="sUP-g1-Udp"/>
@@ -61,7 +60,7 @@
                     <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Tips" image="TipsIcon">
-                        <color key="titleColor" name="White"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="tipsButtonTapped:" destination="-1" eventType="touchUpInside" id="VCu-O1-AVF"/>
@@ -73,7 +72,7 @@
                     <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Start" image="StartIcon">
-                        <color key="titleColor" name="White"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="startButtonTapped:" destination="-1" eventType="touchUpInside" id="vxo-5v-EJo"/>
@@ -123,8 +122,5 @@
         <image name="LaterIcon" width="16" height="16"/>
         <image name="StartIcon" width="16" height="16"/>
         <image name="TipsIcon" width="16" height="16"/>
-        <namedColor name="White">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>
