@@ -21,9 +21,10 @@ enum Image {
     }
 
     enum Configuration {
-        static let doneIconName: String = "configDone"
-        static let addIconDarkName: String = "addIconDark"
-        static let addIconLightName: String = "addIconLight"
+        static let doneIcon = UIImage(named: "configDone")
+        static let addIconDark = UIImage(named: "addIconDark")
+        static let addIconLight = UIImage(named: "addIconLight")
+        static let defaultRobotImage = UIImage(named: "defaultRobotImage")
     }
 
     enum YourRobots {

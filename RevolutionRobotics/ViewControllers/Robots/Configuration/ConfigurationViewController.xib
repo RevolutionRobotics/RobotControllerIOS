@@ -25,6 +25,7 @@
                 <outlet property="motorPort5Dot" destination="CHn-BQ-bMY" id="ja1-vL-ZyV"/>
                 <outlet property="motorPort6" destination="czl-VH-64W" id="GF6-r0-rNW"/>
                 <outlet property="motorPort6Dot" destination="iUz-Zu-Tgm" id="bbS-yj-OMi"/>
+                <outlet property="navigationBar" destination="oyj-RX-Rpw" id="CUl-UR-9sA"/>
                 <outlet property="robotImageView" destination="Pu2-zR-uY0" id="BZp-fe-S5J"/>
                 <outlet property="segmentedControl" destination="849-Dt-fTu" id="4wB-7V-652"/>
                 <outlet property="sensorPort1" destination="J3R-MP-y05" id="Aez-f6-syz"/>
@@ -79,15 +80,23 @@
                                 <action selector="bluetoothTapped:" destination="-1" eventType="touchUpInside" id="pFi-ro-gyI"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zW7-n8-Bql">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zW7-n8-Bql" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="473" y="10" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="BgN-Wi-FXb"/>
+                                <constraint firstAttribute="width" constant="40" id="fy7-Cl-Nr7"/>
+                            </constraints>
                             <state key="normal" image="floppy"/>
                             <connections>
                                 <action selector="saveTapped:" destination="-1" eventType="touchUpInside" id="ftI-dq-vFw"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmE-pX-ILZ">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmE-pX-ILZ" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="418" y="10" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="Gnn-AN-iIu"/>
+                                <constraint firstAttribute="height" constant="40" id="jPU-zw-PKB"/>
+                            </constraints>
                             <state key="normal" image="camera"/>
                             <connections>
                                 <action selector="takePhotoTapped:" destination="-1" eventType="touchUpInside" id="U1z-5Q-LqJ"/>
@@ -97,16 +106,16 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Wql-NU-OTH" secondAttribute="trailing" constant="10" id="Eb0-ds-ca9"/>
-                        <constraint firstItem="Wql-NU-OTH" firstAttribute="leading" secondItem="zW7-n8-Bql" secondAttribute="trailing" constant="20" id="LZr-V2-XwD"/>
+                        <constraint firstItem="Wql-NU-OTH" firstAttribute="leading" secondItem="zW7-n8-Bql" secondAttribute="trailing" constant="12" id="LZr-V2-XwD"/>
                         <constraint firstItem="Wql-NU-OTH" firstAttribute="top" secondItem="oyj-RX-Rpw" secondAttribute="top" constant="2" id="Wi8-Mh-2Ih"/>
                         <constraint firstAttribute="height" constant="71" id="bTo-ib-oNg"/>
-                        <constraint firstItem="zW7-n8-Bql" firstAttribute="leading" secondItem="BmE-pX-ILZ" secondAttribute="trailing" constant="30" id="eNV-Fs-dfN"/>
-                        <constraint firstItem="zW7-n8-Bql" firstAttribute="top" secondItem="oyj-RX-Rpw" secondAttribute="top" constant="10" id="pEE-zT-lmr"/>
-                        <constraint firstItem="BmE-pX-ILZ" firstAttribute="top" secondItem="oyj-RX-Rpw" secondAttribute="top" constant="10" id="uLx-L7-kiM"/>
+                        <constraint firstItem="zW7-n8-Bql" firstAttribute="leading" secondItem="BmE-pX-ILZ" secondAttribute="trailing" constant="12" id="eNV-Fs-dfN"/>
+                        <constraint firstItem="zW7-n8-Bql" firstAttribute="top" secondItem="oyj-RX-Rpw" secondAttribute="top" id="pEE-zT-lmr"/>
+                        <constraint firstItem="BmE-pX-ILZ" firstAttribute="top" secondItem="oyj-RX-Rpw" secondAttribute="top" id="uLx-L7-kiM"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0b-BO-qaQ">
-                    <rect key="frame" x="63" y="92" width="442" height="228"/>
+                    <rect key="frame" x="63" y="84" width="442" height="228"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultRobotImage" translatesAutoresizingMaskIntoConstraints="NO" id="Pu2-zR-uY0">
                             <rect key="frame" x="98" y="74" width="122" height="80"/>
@@ -648,7 +657,7 @@
             <constraints>
                 <constraint firstItem="849-Dt-fTu" firstAttribute="top" secondItem="oyj-RX-Rpw" secondAttribute="bottom" constant="8" id="1zE-R9-duT"/>
                 <constraint firstAttribute="trailing" secondItem="dqD-V3-qDN" secondAttribute="trailing" id="3aD-Ff-8lY"/>
-                <constraint firstItem="R0b-BO-qaQ" firstAttribute="bottom" secondItem="qje-Yl-IXm" secondAttribute="bottom" id="4ug-g6-S5S"/>
+                <constraint firstItem="R0b-BO-qaQ" firstAttribute="bottom" secondItem="qje-Yl-IXm" secondAttribute="bottom" constant="-8" id="4ug-g6-S5S"/>
                 <constraint firstItem="dqD-V3-qDN" firstAttribute="leading" secondItem="HeV-pd-fdw" secondAttribute="leading" id="EQx-4R-ATI"/>
                 <constraint firstItem="oyj-RX-Rpw" firstAttribute="leading" secondItem="HeV-pd-fdw" secondAttribute="leading" id="FTZ-ga-aGT"/>
                 <constraint firstAttribute="bottom" secondItem="dqD-V3-qDN" secondAttribute="bottom" id="O8o-Jg-2pF"/>

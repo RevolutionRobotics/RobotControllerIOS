@@ -35,7 +35,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeS-qf-oG6">
-                        <rect key="frame" x="30" y="174" width="14.5" height="20"/>
+                        <rect key="frame" x="32" y="176" width="14.5" height="20"/>
                         <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -60,11 +60,11 @@
                 <constraint firstItem="Tjp-Nc-9oD" firstAttribute="bottom" secondItem="umV-bW-z6B" secondAttribute="bottom" constant="14" id="6Ad-U5-4gR"/>
                 <constraint firstItem="Tjp-Nc-9oD" firstAttribute="trailing" secondItem="Ve1-vd-p6q" secondAttribute="trailing" constant="24" id="F0U-HC-tXI"/>
                 <constraint firstItem="Ve1-vd-p6q" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="RC2-I9-gYx"/>
-                <constraint firstItem="JeS-qf-oG6" firstAttribute="leading" secondItem="umV-bW-z6B" secondAttribute="trailing" constant="2" id="S0A-lt-IrK"/>
+                <constraint firstItem="JeS-qf-oG6" firstAttribute="leading" secondItem="umV-bW-z6B" secondAttribute="trailing" constant="4" id="S0A-lt-IrK"/>
                 <constraint firstItem="Tjp-Nc-9oD" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="USe-yi-upF"/>
+                <constraint firstItem="JeS-qf-oG6" firstAttribute="centerY" secondItem="umV-bW-z6B" secondAttribute="centerY" id="VZM-sO-OeL"/>
                 <constraint firstItem="Ve1-vd-p6q" firstAttribute="leading" secondItem="Tjp-Nc-9oD" secondAttribute="leading" constant="24" id="Zgj-K0-fcV"/>
                 <constraint firstItem="Tjp-Nc-9oD" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="a7r-cy-jqg"/>
-                <constraint firstItem="Tjp-Nc-9oD" firstAttribute="bottom" secondItem="JeS-qf-oG6" secondAttribute="bottom" constant="12" id="aEf-YA-ChF"/>
                 <constraint firstItem="Tjp-Nc-9oD" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="eVD-zC-dSx"/>
                 <constraint firstItem="umV-bW-z6B" firstAttribute="leading" secondItem="Tjp-Nc-9oD" secondAttribute="leading" constant="16" id="gSC-6q-Vhs"/>
                 <constraint firstItem="v1o-zG-JRy" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="raG-AF-tOz"/>
@@ -79,6 +79,8 @@
                 <outlet property="baseImageWidth" destination="xik-wi-l8a" id="BwN-8v-PAL"/>
                 <outlet property="baseWidth" destination="yfp-xm-66D" id="gN8-rS-j2K"/>
                 <outlet property="buildTimeLabel" destination="JeS-qf-oG6" id="cSj-rW-ZxS"/>
+                <outlet property="clockImageBottomConstraint" destination="6Ad-U5-4gR" id="ITD-kZ-kbR"/>
+                <outlet property="clockImageLeadingConstraint" destination="gSC-6q-Vhs" id="3dv-Vv-24x"/>
                 <outlet property="robotImageView" destination="v1o-zG-JRy" id="RaG-S7-8M1"/>
                 <outlet property="robotNameLabel" destination="Ve1-vd-p6q" id="IO5-fp-LlQ"/>
             </connections>

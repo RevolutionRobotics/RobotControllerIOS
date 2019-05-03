@@ -43,4 +43,10 @@ enum RobotsKeys {
         static let failedConnectionTipsButton = "connection_failed_tips_button_title"
         static let failedConnectionTryAgainButton = "connection_failed_try_again_button_title"
     }
+
+    enum Configure {
+        static let title = "configuration_new_screen_title"
+        static let connectionTabTitle = "configure_connection_tab_title"
+        static let controllerTabTitle = "configure_controller_tab_title"
+    }
 }

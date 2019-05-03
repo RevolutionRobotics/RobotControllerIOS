@@ -55,8 +55,8 @@ extension WhoToBuildViewController {
     }
 
     @IBAction private func builYourOwnButtonTapped(_ sender: Any) {
-        let buildRobotViewController = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
-        navigationController?.pushViewController(buildRobotViewController, animated: true)
+        let configureScreen = AppContainer.shared.container.unwrappedResolve(ConfigurationViewController.self)
+        navigationController?.pushViewController(configureScreen, animated: true)
     }
 }
 
