@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+        <array key="Jura-Regular.ttf">
+            <string>Jura-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ControllerInfoModal" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLQ-Cx-NjR">
+                    <rect key="frame" x="204.5" y="32" width="51.5" height="24"/>
+                    <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat. Per graece denique invidunt ei. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHL-oS-y6J">
+                    <rect key="frame" x="32" y="64" width="396" height="29"/>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CalendarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="BD2-ee-iwL">
+                    <rect key="frame" x="32" y="109" width="16" height="16"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019/02/15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22F-9f-oY9">
+                    <rect key="frame" x="56" y="110" width="58" height="14.5"/>
+                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXW-sN-dJ3" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="4" y="190" width="452" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="qOQ-1M-HH6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Got it!" image="TickWhiteIcon"/>
+                    <connections>
+                        <action selector="gotItButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="jIn-YU-upz"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="kXW-sN-dJ3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="7GR-nS-Y9Z"/>
+                <constraint firstItem="BD2-ee-iwL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="DCk-sU-dpN"/>
+                <constraint firstItem="BD2-ee-iwL" firstAttribute="top" secondItem="lHL-oS-y6J" secondAttribute="bottom" constant="16" id="EZc-oO-iak"/>
+                <constraint firstItem="lHL-oS-y6J" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="FUd-au-rdY"/>
+                <constraint firstItem="lHL-oS-y6J" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="FyO-P3-aqM"/>
+                <constraint firstAttribute="bottom" secondItem="kXW-sN-dJ3" secondAttribute="bottom" constant="4" id="Oro-PT-mTv"/>
+                <constraint firstItem="22F-9f-oY9" firstAttribute="centerY" secondItem="BD2-ee-iwL" secondAttribute="centerY" id="Wrq-OJ-DCp"/>
+                <constraint firstItem="lHL-oS-y6J" firstAttribute="top" secondItem="zLQ-Cx-NjR" secondAttribute="bottom" constant="8" id="YRj-dz-K7h"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zLQ-Cx-NjR" secondAttribute="trailing" constant="32" id="jLz-6O-v5M"/>
+                <constraint firstAttribute="trailing" secondItem="kXW-sN-dJ3" secondAttribute="trailing" constant="4" id="kne-Xu-mnp"/>
+                <constraint firstItem="zLQ-Cx-NjR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="miA-Tb-UDf"/>
+                <constraint firstItem="zLQ-Cx-NjR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="pdb-Ai-Z8A"/>
+                <constraint firstItem="zLQ-Cx-NjR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="x29-7T-I4d"/>
+                <constraint firstItem="22F-9f-oY9" firstAttribute="leading" secondItem="BD2-ee-iwL" secondAttribute="trailing" constant="8" id="zPM-LO-GJu"/>
+                <constraint firstAttribute="trailing" secondItem="lHL-oS-y6J" secondAttribute="trailing" constant="32" id="zfT-AG-Keh"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="controllerNameLabel" destination="zLQ-Cx-NjR" id="dJT-Kg-Nfp"/>
+                <outlet property="descriptionLabel" destination="lHL-oS-y6J" id="OVG-II-55o"/>
+                <outlet property="gotItButton" destination="kXW-sN-dJ3" id="bGd-PR-tSa"/>
+                <outlet property="lastModifiedLabel" destination="22F-9f-oY9" id="V9p-Iz-K9r"/>
+            </connections>
+            <point key="canvasLocation" x="22.767857142857142" y="76.811594202898561"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CalendarIcon" width="16" height="16"/>
+        <image name="TickWhiteIcon" width="16" height="12"/>
+    </resources>
+</document>

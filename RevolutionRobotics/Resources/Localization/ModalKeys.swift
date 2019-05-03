@@ -12,4 +12,8 @@ enum ModalKeys {
         static let delete = "camera_dialog_delete_title"
         static let newPhoto = "camera_dialog_new_photo_title"
     }
+
+    enum Controller {
+        static let infoButtonTitle = "controller_got_it_button_title"
+    }
 }
