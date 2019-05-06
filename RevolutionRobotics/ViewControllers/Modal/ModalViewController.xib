@@ -39,12 +39,11 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0s-xa-7Fp">
-                    <rect key="frame" x="218" y="87" width="40" height="40"/>
+                    <rect key="frame" x="218" y="87" width="44" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="40" id="bcD-Xo-0er"/>
-                        <constraint firstAttribute="height" constant="40" id="lgt-Uk-kgk"/>
+                        <constraint firstAttribute="width" constant="44" id="bcD-Xo-0er"/>
+                        <constraint firstAttribute="height" constant="44" id="lgt-Uk-kgk"/>
                     </constraints>
-                    <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                     <state key="normal" image="CloseIcon"/>
                     <connections>
                         <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="zuL-i5-B2K"/>
