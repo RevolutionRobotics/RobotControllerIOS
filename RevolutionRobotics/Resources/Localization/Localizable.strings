@@ -37,8 +37,13 @@
 "build_robot_testing_question" = "Looking good?";
 "build_robot_testing_positive_button_title" = "Works fine!";
 "build_robot_testing_negative_button_title" = "Not really";
+"build_robot_finished_home" = "Home";
+"build_robot_finished_drive" = "Let's drive!";
+"build_robot_finished_all_set" = "All set!";
+"build_robot_finished_message" = "Your robot is ready to drive!";
+"drive_me_screen_title" = "Drive me";
 
-// MARK: - Build robot
+// MARK: - Connection modal
 "connection_successful_message" = "Connection has been established";
 "connection_failed_message" = "Connection failed";
 "connection_failed_subtitle" = "What to do?";

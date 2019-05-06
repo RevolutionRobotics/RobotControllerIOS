@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FailedConnectionTipsModal: UIView {
+final class FailedConnectionTipsModal: UIView {
     // MARK: - Outlets
     @IBOutlet private weak var tipsTitleLabel: UILabel!
     @IBOutlet private weak var skipConnectionButton: RRButton!

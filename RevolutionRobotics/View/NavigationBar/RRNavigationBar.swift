@@ -10,6 +10,7 @@ import UIKit
 
 protocol RRNavigationBarDelegate: class {
     func backButtonDidTap()
+    func popToRootViewController(animated: Bool)
 }
 
 final class RRNavigationBar: RRCustomView {

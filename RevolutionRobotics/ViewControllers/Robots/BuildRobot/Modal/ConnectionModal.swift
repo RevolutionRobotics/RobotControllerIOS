@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConnectionModal: UIView {
+final class ConnectionModal: UIView {
     // MARK: - Outlets
     @IBOutlet private weak var connectionStatusImageView: UIImageView!
     @IBOutlet private weak var connectionStatusLabel: UILabel!
