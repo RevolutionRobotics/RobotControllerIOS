@@ -64,6 +64,7 @@ final class MotorConfigViewController: BaseViewController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+
         setupActionButtons()
     }
 }

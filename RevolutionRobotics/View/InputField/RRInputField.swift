@@ -9,23 +9,20 @@
 import UIKit
 
 final class RRInputField: RRCustomView {
-    // MARK: - Constants
-    enum Constants {
-        static let returnText = "\n"
-    }
-
     // MARK: - Outlets
     @IBOutlet private weak var borderView: UIView!
-    @IBOutlet private weak var textView: UITextView!
-    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private weak var titleLabel: UILabel!
 
     // MARK: - Variables
-    private var placeholder: String?
     private var characterLimit: Int?
+
+    // MARK: - Callbacks
+    var textFieldResigned: CallbackType<String?>?
 
     // MARK: - Public
     var text: String? {
-        return textView.text
+        return textField.text
     }
 }
 
@@ -34,47 +31,38 @@ extension RRInputField {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        borderView.setBorder(fillColor: .clear, strokeColor: Color.brownGrey)
-        textView.delegate = self
-        textView.textContainer.maximumNumberOfLines = 2
-        textView.tintAdjustmentMode = .normal
-        textView.tintColor = .white
+        textField.delegate = self
     }
 }
 
 // MARK: - Setup
 extension RRInputField {
     func setup(title: String, placeholder: String? = nil, characterLimit: Int? = nil) {
-        descriptionLabel.text = title
-        textView.text = placeholder
-
-        self.placeholder = placeholder
+        titleLabel.text = title
+        textField.placeholder = placeholder
         self.characterLimit = characterLimit
-        self.layoutIfNeeded()
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        borderView.setBorder(fillColor: .clear, strokeColor: Color.brownGrey)
     }
 }
 
 // MARK: - UITextViewDelegate
-extension RRInputField: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if let placeholder = self.placeholder, textView.text == placeholder, textView.textColor == Color.brownGrey {
-            textView.text = nil
-            textView.textColor = .white
-        }
+extension RRInputField: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        textFieldResigned?(textField.text)
+
+        return true
     }
 
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = placeholder
-            textView.textColor = Color.brownGrey
-        }
-    }
-
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text == Constants.returnText {
-            textView.resignFirstResponder()
-        }
-        if let limit = characterLimit, range.location >= limit || text.count >= limit {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        if let limit = characterLimit, range.location >= limit || string.count >= limit {
             return false
         }
         return true
