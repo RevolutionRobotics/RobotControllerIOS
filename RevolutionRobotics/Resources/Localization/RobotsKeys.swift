@@ -67,4 +67,9 @@ enum RobotsKeys {
             static let ultrasoundButton = "configure_sensor_ultrasound_button_title"
         }
     }
+
+    enum Controllers {
+        static let controllerChooseThis = "controller_choose_this"
+        static let controllerSelected = "controller_selected"
+    }
 }

@@ -8,12 +8,17 @@
 
 import UIKit
 
+enum SelectedSegment: Int {
+    case connections
+    case controllers
+}
+
 final class SegmentedControl: UIView {
     private let stackView = UIStackView()
     private var buttons: [SegmentedControlButton] = []
 
     // MARK: - Selected callback
-    var itemSelectedAt: ((Int) -> Void)?
+    var itemSelectedAt: ((SelectedSegment) -> Void)?
 
     // MARK: - Inits
     override init(frame: CGRect) {
@@ -41,6 +46,7 @@ extension SegmentedControl {
 
             let button = SegmentedControlButton()
             button.index = offset
+            button.selectedSegment = SelectedSegment(rawValue: offset) ?? SelectedSegment.connections
             button.croppedCorners = croppedCorners
             button.setTitle(element, for: .normal)
             button.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
@@ -70,7 +76,7 @@ extension SegmentedControl {
     @objc private func buttonTapped(sender: SegmentedControlButton) {
         resetButtons()
         sender.isSelected = true
-        itemSelectedAt?(sender.index)
+        itemSelectedAt?(sender.selectedSegment)
     }
 
     private func resetButtons() {
@@ -84,6 +90,7 @@ extension SegmentedControl {
 private class SegmentedControlButton: UIButton {
     public var index: Int!
     var croppedCorners: [UIView.Corner] = []
+    var selectedSegment: SelectedSegment = .connections
 
     override init(frame: CGRect) {
         super.init(frame: frame)

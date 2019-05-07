@@ -91,6 +91,9 @@ extension RRCollectionView {
     }
 
     private func centerCell() {
+        guard self.numberOfSections > 0, self.numberOfItems(inSection: 0) > 0 else {
+            return
+        }
         self.scrollToItem(at: indexPathOfCentermostCell, at: .centeredHorizontally, animated: true)
         selectedIndexPath = indexPathOfCentermostCell
         designCells()
