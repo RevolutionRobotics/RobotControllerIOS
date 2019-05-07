@@ -45,11 +45,12 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="hNj-zG-rYL" firstAttribute="top" secondItem="TRQ-qd-ndI" secondAttribute="top" id="4kb-6L-2ub"/>
-                <constraint firstItem="hNj-zG-rYL" firstAttribute="leading" secondItem="TRQ-qd-ndI" secondAttribute="leading" id="5Jn-O9-2Jk"/>
+                <constraint firstItem="hNj-zG-rYL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TRQ-qd-ndI" secondAttribute="leading" id="5Jn-O9-2Jk"/>
                 <constraint firstAttribute="trailing" secondItem="liL-HY-b00" secondAttribute="trailing" id="5tG-iG-wsA"/>
+                <constraint firstItem="hNj-zG-rYL" firstAttribute="centerX" secondItem="TRQ-qd-ndI" secondAttribute="centerX" id="DqI-Uz-Ys5"/>
                 <constraint firstItem="liL-HY-b00" firstAttribute="top" secondItem="hNj-zG-rYL" secondAttribute="bottom" constant="4" id="Jp2-iP-hfN"/>
                 <constraint firstItem="liL-HY-b00" firstAttribute="leading" secondItem="TRQ-qd-ndI" secondAttribute="leading" id="hdA-wr-qh6"/>
-                <constraint firstAttribute="trailing" secondItem="hNj-zG-rYL" secondAttribute="trailing" id="mJd-iy-fRn"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hNj-zG-rYL" secondAttribute="trailing" id="mJd-iy-fRn"/>
                 <constraint firstAttribute="bottom" secondItem="liL-HY-b00" secondAttribute="bottom" id="zAX-tB-Jnd"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

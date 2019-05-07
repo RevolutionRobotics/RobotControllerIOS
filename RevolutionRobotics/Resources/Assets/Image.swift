@@ -52,5 +52,9 @@ enum Image {
         static let leftUnselected = UIImage(named: "LeftUnselected")
         static let rightSelected = UIImage(named: "RightSelected")
         static let rightUnselected = UIImage(named: "RightUnselected")
+        static let bumperSelected = UIImage(named: "BumperSelected")
+        static let bumperUnselected = UIImage(named: "BumperUnselected")
+        static let ultrasoundSelected = UIImage(named: "UltrasoundSelected")
+        static let ultrasoundUnselected = UIImage(named: "UltrasoundUnselected")
     }
 }
