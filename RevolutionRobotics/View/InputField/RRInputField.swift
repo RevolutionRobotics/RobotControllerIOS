@@ -22,6 +22,11 @@ final class RRInputField: RRCustomView {
     // MARK: - Variables
     private var placeholder: String?
     private var characterLimit: Int?
+
+    // MARK: - Public
+    var text: String? {
+        return textView.text
+    }
 }
 
 // MARK: - View lifecycle
@@ -39,9 +44,10 @@ extension RRInputField {
 
 // MARK: - Setup
 extension RRInputField {
-    func setup(with description: String, placeholder: String, characterLimit: Int) {
-        descriptionLabel.text = description
+    func setup(title: String, placeholder: String? = nil, characterLimit: Int? = nil) {
+        descriptionLabel.text = title
         textView.text = placeholder
+
         self.placeholder = placeholder
         self.characterLimit = characterLimit
         self.layoutIfNeeded()

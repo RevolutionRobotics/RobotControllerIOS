@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="TRQ-qd-ndI" customClass="PortConfigurationItemView" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="42" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNj-zG-rYL" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="42" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="42" id="cDU-si-167"/>
+                        <constraint firstAttribute="height" constant="40" id="yHB-Zw-e7m"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonTapped" destination="TRQ-qd-ndI" eventType="touchUpInside" id="EfZ-J1-G5b"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="liL-HY-b00">
+                    <rect key="frame" x="0.0" y="44" width="42" height="16"/>
+                    <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="8"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="hNj-zG-rYL" firstAttribute="top" secondItem="TRQ-qd-ndI" secondAttribute="top" id="4kb-6L-2ub"/>
+                <constraint firstItem="hNj-zG-rYL" firstAttribute="leading" secondItem="TRQ-qd-ndI" secondAttribute="leading" id="5Jn-O9-2Jk"/>
+                <constraint firstAttribute="trailing" secondItem="liL-HY-b00" secondAttribute="trailing" id="5tG-iG-wsA"/>
+                <constraint firstItem="liL-HY-b00" firstAttribute="top" secondItem="hNj-zG-rYL" secondAttribute="bottom" constant="4" id="Jp2-iP-hfN"/>
+                <constraint firstItem="liL-HY-b00" firstAttribute="leading" secondItem="TRQ-qd-ndI" secondAttribute="leading" id="hdA-wr-qh6"/>
+                <constraint firstAttribute="trailing" secondItem="hNj-zG-rYL" secondAttribute="trailing" id="mJd-iy-fRn"/>
+                <constraint firstAttribute="bottom" secondItem="liL-HY-b00" secondAttribute="bottom" id="zAX-tB-Jnd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="button" destination="hNj-zG-rYL" id="DP2-al-SWh"/>
+                <outlet property="label" destination="liL-HY-b00" id="ciS-ai-Mfs"/>
+            </connections>
+            <point key="canvasLocation" x="-13.392857142857142" y="59.420289855072468"/>
+        </view>
+    </objects>
+</document>
