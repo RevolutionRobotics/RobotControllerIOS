@@ -23,6 +23,9 @@ final class PartView: UIView {
 
 // MARK: - Setup
 extension PartView {
-    func setup(with buildStep: BuildStep) {
+    func setup(with buildStep: BuildStep?) {
+        guard let buildStep = buildStep else { return }
+        partImageView.image = nil
+        partImageView.downloadImage(googleStorageURL: buildStep.partImage)
     }
 }

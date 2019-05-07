@@ -39,3 +39,9 @@ struct Milestone {
         self.type = milestoneType
     }
 }
+
+extension Milestone: Equatable {
+    static func == (lhs: Milestone, rhs: Milestone) -> Bool {
+        return lhs.image == rhs.image && lhs.testCodeId == rhs.testCodeId && lhs.type == rhs.type
+    }
+}

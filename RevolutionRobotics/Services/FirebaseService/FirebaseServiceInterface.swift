@@ -8,4 +8,5 @@
 
 protocol FirebaseServiceInterface {
     func getRobots(completion: CallbackType<Result<[Robot], FirebaseError>>?)
+    func getBuildSteps(for robotId: Int?, completion: CallbackType<Result<[BuildStep], FirebaseError>>?)
 }

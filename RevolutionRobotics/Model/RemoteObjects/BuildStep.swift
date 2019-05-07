@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct BuildStep: FirebaseData {
+struct BuildStep: FirebaseData, Equatable {
     // MARK: - Constants
     private enum Constants {
         static let robotId = "robotId"
@@ -23,7 +23,7 @@ struct BuildStep: FirebaseData {
     static var firebasePath: String = "buildStep"
 
     // MARK: - Properties
-    var robotId: String
+    var robotId: Int
     var image: String
     var partImage: String
     var stepNumber: Int
@@ -34,7 +34,7 @@ struct BuildStep: FirebaseData {
         guard let dic = snapshot.value as? NSDictionary else {
             return nil
         }
-        guard let robotId = dic[Constants.robotId] as? String,
+        guard let robotId = dic[Constants.robotId] as? Int,
             let image = dic[Constants.image] as? String,
             let partImage = dic[Constants.partImage] as? String,
             let stepNumber = dic[Constants.stepNumber] as? Int else {

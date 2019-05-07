@@ -36,6 +36,7 @@
 		09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09FB0D6B2267735800735B74 /* Barlow-Regular.ttf */; };
 		196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43BC08A3B14DC91EF1DFAB7E /* Pods-RevolutionRobotics-metadata.plist */; };
 		2A18002D227AE5800082E801 /* ModalKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A18002C227AE5800082E801 /* ModalKeys.swift */; };
+		2A458E27227C89AF000C03D2 /* RRProgressLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */; };
 		2A77320322648FB000D7F38D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A77320222648FB000D7F38D /* Settings.bundle */; };
 		2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732042264A15600D7F38D /* AssemblyRegister.swift */; };
 		2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732072264A32200D7F38D /* ScreenAssembly.swift */; };
@@ -68,12 +69,12 @@
 		2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF1F74224AB3B400CC721F /* AppDelegate.swift */; };
 		2ADF1F7C224AB3B600CC721F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7B224AB3B600CC721F /* Images.xcassets */; };
 		2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7D224AB3B600CC721F /* LaunchScreen.storyboard */; };
+		2AF8C75422801D9D00CE1ACB /* RRZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8C75322801D9D00CE1ACB /* RRZoomableImageView.swift */; };
+		2AF8C757228026EE00CE1ACB /* UIStackView+RemoveAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8C756228026EE00CE1ACB /* UIStackView+RemoveAll.swift */; };
 		2AFAA11222663111002BE0A2 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAA11122663111002BE0A2 /* UIImage+Color.swift */; };
 		2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */; };
 		3EDBEDA7C8D9D5683FEC00E3 /* Pods_RevolutionRobotics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2703FDDD1F3944173CF58883 /* Pods_RevolutionRobotics.framework */; };
 		D0049A1E226F0929007FA256 /* RRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0049A1D226F0929007FA256 /* RRButton.swift */; };
-		D0049A25226F0A15007FA256 /* BuildStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0049A23226F0A15007FA256 /* BuildStepViewController.xib */; };
-		D0049A26226F0A15007FA256 /* BuildStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0049A24226F0A15007FA256 /* BuildStepViewController.swift */; };
 		D0049A28226F30AA007FA256 /* WhoToBuildCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0049A27226F30AA007FA256 /* WhoToBuildCollectionViewCell.swift */; };
 		D0049A3D2270A8CF007FA256 /* AvailableRobotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0049A3C2270A8CF007FA256 /* AvailableRobotsView.swift */; };
 		D0049A3F2270A8D7007FA256 /* AvailableRobotsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0049A3E2270A8D7007FA256 /* AvailableRobotsView.xib */; };
@@ -167,6 +168,7 @@
 		09FB0D6B2267735800735B74 /* Barlow-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Regular.ttf"; sourceTree = "<group>"; };
 		2703FDDD1F3944173CF58883 /* Pods_RevolutionRobotics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutionRobotics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A18002C227AE5800082E801 /* ModalKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalKeys.swift; sourceTree = "<group>"; };
+		2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRProgressLabel.swift; sourceTree = "<group>"; };
 		2A77320222648FB000D7F38D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2A7732042264A15600D7F38D /* AssemblyRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyRegister.swift; sourceTree = "<group>"; };
 		2A7732072264A32200D7F38D /* ScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenAssembly.swift; sourceTree = "<group>"; };
@@ -201,6 +203,8 @@
 		2ADF1F74224AB3B400CC721F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ADF1F7B224AB3B600CC721F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2ADF1F80224AB3B600CC721F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AF8C75322801D9D00CE1ACB /* RRZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRZoomableImageView.swift; sourceTree = "<group>"; };
+		2AF8C756228026EE00CE1ACB /* UIStackView+RemoveAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+RemoveAll.swift"; sourceTree = "<group>"; };
 		2AFAA11122663111002BE0A2 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Pods-RevolutionRobotics-settings-metadata.plist"; path = "../RevolutionRobotics/Resources/Settings/Settings.bundle/Pods-RevolutionRobotics-settings-metadata.plist"; sourceTree = "<group>"; };
 		3222BBCEACAD7CD926CA491F /* Pods-RevolutionRobotics.debug prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug prod.xcconfig"; sourceTree = "<group>"; };
@@ -209,8 +213,6 @@
 		A1B6FE6D4EED82B8B42949D3 /* Pods-RevolutionRobotics.release prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.release prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.release prod.xcconfig"; sourceTree = "<group>"; };
 		AD7B4F2CA1426678DEA6006D /* Pods-RevolutionRobotics.debug dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug dev.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug dev.xcconfig"; sourceTree = "<group>"; };
 		D0049A1D226F0929007FA256 /* RRButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRButton.swift; sourceTree = "<group>"; };
-		D0049A23226F0A15007FA256 /* BuildStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuildStepViewController.xib; sourceTree = "<group>"; };
-		D0049A24226F0A15007FA256 /* BuildStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildStepViewController.swift; sourceTree = "<group>"; };
 		D0049A27226F30AA007FA256 /* WhoToBuildCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhoToBuildCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0049A3C2270A8CF007FA256 /* AvailableRobotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableRobotsView.swift; sourceTree = "<group>"; };
 		D0049A3E2270A8D7007FA256 /* AvailableRobotsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailableRobotsView.xib; sourceTree = "<group>"; };
@@ -438,8 +440,6 @@
 			isa = PBXGroup;
 			children = (
 				D0049A502271CC52007FA256 /* Modal */,
-				D0049A24226F0A15007FA256 /* BuildStepViewController.swift */,
-				D0049A23226F0A15007FA256 /* BuildStepViewController.xib */,
 				D0049A27226F30AA007FA256 /* WhoToBuildCollectionViewCell.swift */,
 				D05BAA9A22676BCA00624438 /* WhoToBuildCollectionViewCell.xib */,
 				0964798022686DE000F68456 /* WhoToBuildViewController.swift */,
@@ -469,6 +469,14 @@
 				D0A1107C227870040064FBB6 /* YourRobotsCollectionViewCell.xib */,
 			);
 			path = YourRobots;
+			sourceTree = "<group>";
+		};
+		2A458E25227C89A2000C03D2 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */,
+			);
+			path = Label;
 			sourceTree = "<group>";
 		};
 		2A77320122648F9A00D7F38D /* Settings */ = {
@@ -694,9 +702,27 @@
 			path = RevolutionRobotics;
 			sourceTree = "<group>";
 		};
+		2AF8C75222801D9000CE1ACB /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				2AF8C75322801D9D00CE1ACB /* RRZoomableImageView.swift */,
+			);
+			path = ImageView;
+			sourceTree = "<group>";
+		};
+		2AF8C755228026DE00CE1ACB /* UIStackView */ = {
+			isa = PBXGroup;
+			children = (
+				2AF8C756228026EE00CE1ACB /* UIStackView+RemoveAll.swift */,
+			);
+			path = UIStackView;
+			sourceTree = "<group>";
+		};
 		2AFAA10E22662FF6002BE0A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2AF8C75222801D9000CE1ACB /* ImageView */,
+				2A458E25227C89A2000C03D2 /* Label */,
 				D0BA305822784CA900DA35D2 /* CollectionView */,
 				D0A11092227B22280064FBB6 /* InputField */,
 				2AA926D322773D82000FAA98 /* SideButton */,
@@ -754,6 +780,7 @@
 		D008E03A2260AAF500089DC7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2AF8C755228026DE00CE1ACB /* UIStackView */,
 				D0049A472270BBB5007FA256 /* UITableView */,
 				2ADE8C302270A6BB00ECEC72 /* Container */,
 				2ADE8C2E2270A6A900ECEC72 /* NSLayoutConstraint */,
@@ -996,7 +1023,6 @@
 				D03BA8542276F323005B3E33 /* PartView.xib in Resources */,
 				2ADF1F7C224AB3B600CC721F /* Images.xcassets in Resources */,
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
-				D0049A25226F0A15007FA256 /* BuildStepViewController.xib in Resources */,
 				D0049A432270ABA1007FA256 /* AvailableRobotsTableViewCell.xib in Resources */,
 				D03BA8652277385E005B3E33 /* FailedConnectionTipsModal.xib in Resources */,
 				D0A11096227B23F20064FBB6 /* RRInputField.xib in Resources */,
@@ -1065,7 +1091,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EFImageViewZoom/EFImageViewZoom.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -1082,7 +1107,6 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFImageViewZoom.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
@@ -1140,6 +1164,7 @@
 				D05C64DD225F592400B7BF4F /* Sensor.swift in Sources */,
 				D0049A492270BBD2007FA256 /* UITableView+CellReuse.swift in Sources */,
 				096479862268776200F68456 /* BuildRobotViewController.swift in Sources */,
+				2AF8C757228026EE00CE1ACB /* UIStackView+RemoveAll.swift in Sources */,
 				D03BA8532276F323005B3E33 /* PartView.swift in Sources */,
 				2A9F52062265E31C00F9F651 /* BaseViewController.swift in Sources */,
 				D05C64CE225F578A00B7BF4F /* BuildStep.swift in Sources */,
@@ -1170,6 +1195,7 @@
 				2A9F520D2265E95600F9F651 /* ChallengesViewController.swift in Sources */,
 				0985495C2271D44500A7C2DC /* UIImageView+GoogleStorage.swift in Sources */,
 				2ADE8C3C2270A80F00ECEC72 /* MenuKeys.swift in Sources */,
+				2AF8C75422801D9D00CE1ACB /* RRZoomableImageView.swift in Sources */,
 				2A9F52112265E96B00F9F651 /* ProgramsViewController.swift in Sources */,
 				D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */,
 				D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */,
@@ -1181,6 +1207,7 @@
 				FE4B162322786A5300CAA083 /* PhotoModal.swift in Sources */,
 				0964798222686DE000F68456 /* WhoToBuildViewController.swift in Sources */,
 				D05C64E3225F5DBC00B7BF4F /* Motor.swift in Sources */,
+				2A458E27227C89AF000C03D2 /* RRProgressLabel.swift in Sources */,
 				D0049A28226F30AA007FA256 /* WhoToBuildCollectionViewCell.swift in Sources */,
 				D05BAA7F22676A0C00624438 /* UIView+Reusable.swift in Sources */,
 				2A9F52182265EC0500F9F651 /* Container+Unwrapped.swift in Sources */,
@@ -1198,7 +1225,6 @@
 				0964798D22689DEC00F68456 /* ModalViewController.swift in Sources */,
 				094F9DDE2264CA5600BE118B /* RRNavigationBar.swift in Sources */,
 				2AA926D22271CB07000FAA98 /* RRSlider.swift in Sources */,
-				D0049A26226F0A15007FA256 /* BuildStepViewController.swift in Sources */,
 				D05C64DB225F590100B7BF4F /* Port.swift in Sources */,
 				D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */,
 				2AA926D522773D95000FAA98 /* SideButton.swift in Sources */,
