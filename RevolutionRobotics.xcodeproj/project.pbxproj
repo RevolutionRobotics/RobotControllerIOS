@@ -885,10 +885,10 @@
 				D0BF256A2282C6C100F08C9C /* BuildFinishedModal.xib */,
 				D03BA8622277385E005B3E33 /* FailedConnectionTipsModal.swift */,
 				D03BA8632277385E005B3E33 /* FailedConnectionTipsModal.xib */,
-				D03BA8572277384A005B3E33 /* TestingModal.xib */,
 				D03BA8582277384A005B3E33 /* TestingModal.swift */,
-				D03BA8592277384A005B3E33 /* ChapterFinishedModal.xib */,
+				D03BA8572277384A005B3E33 /* TestingModal.xib */,
 				D03BA85A2277384A005B3E33 /* ChapterFinishedModal.swift */,
+				D03BA8592277384A005B3E33 /* ChapterFinishedModal.xib */,
 				D03BA8562277384A005B3E33 /* ConnectionModal.swift */,
 				D03BA85B2277384A005B3E33 /* ConnectionModal.xib */,
 			);

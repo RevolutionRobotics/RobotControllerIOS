@@ -21,7 +21,7 @@ final class WhoToBuildViewController: BaseViewController {
     // MARK: - Variables
     var firebaseService: FirebaseServiceInterface!
     private let discoverer: RoboticsDeviceDiscovererInterface = RoboticsDeviceDiscoverer()
-    private let bluetoothDiscovery = AvailableRobotsView.instatiate()
+    private let connector: RoboticsDeviceConnectorInterface = RoboticsDeviceConnector()
     private var selectedRobot: Robot?
 
     private var robots: [Robot] = [] {
@@ -176,13 +176,74 @@ extension WhoToBuildViewController {
     }
 
     private func showBluetoothDiscovery() {
-        self.presentModal(with: bluetoothDiscovery)
+        let bluetoothDiscovery = AvailableRobotsView.instatiate()
+        bluetoothDiscovery.selectionHandler = onDeviceSelected
+        presentModal(with: bluetoothDiscovery)
+
         discoverer.discoverRobots(
-            onScanResult: { [weak self] (devices) in
-                self?.bluetoothDiscovery.discoveredDevices = devices
+            onScanResult: { devices in
+                bluetoothDiscovery.discoveredDevices = devices
             },
             onError: { error in
                 print(error.localizedDescription)
         })
+    }
+}
+
+// MARK: - Connection
+extension WhoToBuildViewController {
+    private func onDeviceSelected(_ device: Device) {
+        connector.connect(
+            to: device,
+            onConnected: onSelectedDeviceConnected,
+            onDisconnected: onSelectedDeviceDisconnected,
+            onError: onSelectedDeviceConnectionError
+        )
+    }
+
+    private func onSelectedDeviceConnected() {
+        dismissViewController()
+        let connectionModal = ConnectionModal.instatiate()
+        presentModal(with: connectionModal.successful)
+
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
+            self?.dismissAndNavigateToBuildRobot()
+        }
+    }
+
+    private func onSelectedDeviceDisconnected() {
+        print("Disconnected")
+    }
+
+    private func onSelectedDeviceConnectionError(_ error: Error) {
+        let connectionModal = ConnectionModal.instatiate()
+        dismissViewController()
+        presentModal(with: connectionModal.failed)
+
+        connectionModal.skipConnectionButtonTapped = dismissAndNavigateToBuildRobot
+        connectionModal.tryAgainButtonTapped = dismissAndTryAgain
+
+        connectionModal.tipsButtonTapped = { [weak self] in
+            self?.dismissViewController()
+            let failedConnectionTipsModal = FailedConnectionTipsModal.instatiate()
+            self?.presentModal(with: failedConnectionTipsModal)
+            failedConnectionTipsModal.skipCallback = self?.dismissAndNavigateToBuildRobot
+            failedConnectionTipsModal.tryAgainCallback = self?.dismissAndTryAgain
+            failedConnectionTipsModal.communityCallback = {
+                // TODO: Use BaseViewController showCommunityViewControoler when it's implemented
+            }
+        }
+    }
+
+    private func dismissAndTryAgain() {
+        dismissViewController()
+        showBluetoothDiscovery()
+    }
+
+    private func dismissAndNavigateToBuildRobot() {
+        dismissViewController()
+        let buildRobotViewController = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
+        buildRobotViewController.remoteRobotDataModel = selectedRobot
+        navigationController?.pushViewController(buildRobotViewController, animated: true)
     }
 }
