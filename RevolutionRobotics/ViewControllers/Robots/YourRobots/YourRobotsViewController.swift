@@ -18,10 +18,13 @@ final class YourRobotsViewController: BaseViewController {
     @IBOutlet private weak var emptyStateImageView: UIImageView!
 
     // MARK: - Variables
-    private var robots: [Robot] = [] {
+    var realmService: RealmServiceInterface!
+    private var robots: [UserRobot] = [] {
         didSet {
             collectionView.reloadData()
-            self.collectionView.refreshCollectionView()
+            if !robots.isEmpty {
+                self.collectionView.refreshCollectionView()
+            }
         }
     }
 }
@@ -31,9 +34,6 @@ extension YourRobotsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.rrDelegate = self
-        collectionView.dataSource = self
-        collectionView.register(YourRobotsCollectionViewCell.self)
         navigationBar.setup(title: RobotsKeys.YourRobots.title.translate(), delegate: self)
         buildNewButton.title = RobotsKeys.YourRobots.buildNewButtonTitle.translate()
         buildNewButton.selectionHandler = { [weak self] in
@@ -42,9 +42,16 @@ extension YourRobotsViewController {
         }
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupCollectionView()
+        robots = realmService.getRobots()
+    }
 
+    private func setupCollectionView() {
+        collectionView.rrDelegate = self
+        collectionView.dataSource = self
+        collectionView.register(YourRobotsCollectionViewCell.self)
         collectionView.setupInset()
     }
 }
@@ -73,6 +80,7 @@ extension YourRobotsViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: YourRobotsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.indexPath = indexPath
+        cell.configure(with: robots[indexPath.item])
         return cell
     }
 }
