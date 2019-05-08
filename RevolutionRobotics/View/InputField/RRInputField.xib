@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -22,32 +21,36 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RRInputField" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="borderView" destination="pVc-Xh-WcH" id="Ydk-qZ-Kic"/>
-                <outlet property="descriptionLabel" destination="svc-C8-svv" id="ymi-z0-2e2"/>
-                <outlet property="textView" destination="A4R-H0-FAU" id="S3C-aL-w66"/>
+                <outlet property="textField" destination="14v-rH-h7O" id="gTG-Gj-qG2"/>
+                <outlet property="titleLabel" destination="svc-C8-svv" id="ygs-9Z-RkD"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="396" height="55"/>
+            <rect key="frame" x="0.0" y="0.0" width="396" height="45"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVc-Xh-WcH">
-                    <rect key="frame" x="0.0" y="9" width="396" height="46"/>
+                    <rect key="frame" x="0.0" y="9" width="396" height="36"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="asd" translatesAutoresizingMaskIntoConstraints="NO" id="A4R-H0-FAU">
-                            <rect key="frame" x="11" y="5.6666666666666679" width="369" height="35.333333333333329"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="asd" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="14v-rH-h7O">
+                            <rect key="frame" x="16" y="5.6666666666666661" width="369" height="24.333333333333336"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="textColor" name="BrownGrey"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                        </textView>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                    <color key="value" name="BrownGrey"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textField>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="A4R-H0-FAU" firstAttribute="leading" secondItem="pVc-Xh-WcH" secondAttribute="leading" constant="11" id="8rb-4d-Aoh"/>
-                        <constraint firstAttribute="trailing" secondItem="A4R-H0-FAU" secondAttribute="trailing" constant="16" id="QH0-OV-jZl"/>
-                        <constraint firstAttribute="bottom" secondItem="A4R-H0-FAU" secondAttribute="bottom" constant="5" id="TCu-c9-kj8"/>
+                        <constraint firstAttribute="bottom" secondItem="14v-rH-h7O" secondAttribute="bottom" constant="6" id="USK-8D-aWq"/>
+                        <constraint firstItem="14v-rH-h7O" firstAttribute="leading" secondItem="pVc-Xh-WcH" secondAttribute="leading" constant="16" id="dSN-Sj-Z4f"/>
+                        <constraint firstAttribute="trailing" secondItem="14v-rH-h7O" secondAttribute="trailing" constant="11" id="yMR-If-I9J"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svc-C8-svv">
@@ -60,17 +63,16 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="pVc-Xh-WcH" secondAttribute="bottom" id="FIL-Vs-kKk"/>
-                <constraint firstItem="pVc-Xh-WcH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ib9-F9-ra3"/>
-                <constraint firstItem="A4R-H0-FAU" firstAttribute="top" secondItem="svc-C8-svv" secondAttribute="bottom" id="MzP-Pd-rT5"/>
-                <constraint firstItem="pVc-Xh-WcH" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="9" id="S4I-Ch-0BQ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pVc-Xh-WcH" secondAttribute="trailing" id="XzR-By-qka"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="svc-C8-svv" secondAttribute="trailing" constant="16" id="aEu-Yt-g1z"/>
-                <constraint firstItem="svc-C8-svv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="gJC-GU-ipI"/>
-                <constraint firstItem="svc-C8-svv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="oXy-Zn-cNT"/>
+                <constraint firstAttribute="bottom" secondItem="pVc-Xh-WcH" secondAttribute="bottom" id="FIL-Vs-kKk"/>
+                <constraint firstItem="pVc-Xh-WcH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ib9-F9-ra3"/>
+                <constraint firstItem="pVc-Xh-WcH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="S4I-Ch-0BQ"/>
+                <constraint firstAttribute="trailing" secondItem="pVc-Xh-WcH" secondAttribute="trailing" id="XzR-By-qka"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="svc-C8-svv" secondAttribute="trailing" constant="16" id="aEu-Yt-g1z"/>
+                <constraint firstItem="svc-C8-svv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gJC-GU-ipI"/>
+                <constraint firstItem="svc-C8-svv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="oXy-Zn-cNT"/>
+                <constraint firstItem="14v-rH-h7O" firstAttribute="top" secondItem="svc-C8-svv" secondAttribute="bottom" id="opL-jU-Qbr"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="140.21739130434784" y="136.23188405797103"/>
         </view>
     </objects>
