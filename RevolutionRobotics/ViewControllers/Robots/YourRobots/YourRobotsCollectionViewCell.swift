@@ -81,7 +81,7 @@ extension YourRobotsCollectionViewCell {
         baseWidth = baseWidth.setMultiplier(multiplier: multiplier * baseWidthMultiplier)
         baseHeight = baseHeight.setMultiplier(multiplier: multiplier * baseHeightMultiplier)
         nameLabel.font = nameLabel.font.withSize(baseNameFontSize * multiplier * multiplier)
-        descriptionLabel.font = descriptionLabel.font.withSize(baseDescriptionFontSize * multiplier * multiplier)
+        descriptionLabel.font = descriptionLabel.font.withSize(baseDescriptionFontSize * multiplier)
         lastModifiedLabel.font = lastModifiedLabel.font.withSize(baseLastModifiedFontSize * multiplier * multiplier)
         actionLabel.font = actionLabel.font.withSize(baseActionFontSize * multiplier * multiplier)
     }
