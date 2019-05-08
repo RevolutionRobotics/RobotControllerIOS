@@ -77,6 +77,13 @@ extension BuildRobotViewController {
             }
             self?.presentModal(with: buildFinishedModal)
         }
+        buildProgressBar.showMilestone = { [weak self] in
+            guard let milestone = self?.currentStep?.milestone else {
+                self?.buildProgressBar.milestoneFinished()
+                return
+            }
+            self?.setupChapterFinishedModal(with: milestone)
+        }
     }
 
     private func setupStackView() {
@@ -85,6 +92,55 @@ extension BuildRobotViewController {
                                 showTopArrow: true,
                                 croppedCorners: [.topRight, .bottomLeft])
         view.bringSubviewToFront(partStackView)
+    }
+
+    private func setupChapterFinishedModal(with milestone: Milestone) {
+        let chapterFinishedModal = ChapterFinishedModal.instatiate()
+        chapterFinishedModal.homeButtonTapped = { [weak self] in
+            self?.popToRootViewController(animated: true)
+        }
+        chapterFinishedModal.testLaterButtonTapped = { [weak self] in
+            self?.dismissViewController()
+            self?.buildProgressBar.milestoneFinished()
+        }
+        chapterFinishedModal.testNowButtonTapped = { [weak self] in
+            self?.showTestingModal(with: milestone)
+        }
+        presentModal(with: chapterFinishedModal)
+    }
+
+    private func showTestingModal(with milestone: Milestone) {
+        dismissViewController()
+        let testingModal = TestingModal.instatiate()
+        testingModal.positiveButtonTapped = { [weak self] in
+            self?.dismissViewController()
+            self?.buildProgressBar.milestoneFinished()
+        }
+        testingModal.negativeButtonTapped = { [weak self] in
+            self?.showTipsModal(with: milestone)
+        }
+        presentModal(with: testingModal)
+    }
+
+    private func showTipsModal(with milestone: Milestone) {
+        dismissViewController()
+        let tipsModal = FailedConnectionTipsModal.instatiate()
+        tipsModal.communityCallback = { [weak self] in
+            self?.presentCommunityModal(presentationFinished: { [weak self] in
+                guard let milestone = self?.currentStep?.milestone else {
+                    return
+                }
+                self?.setupChapterFinishedModal(with: milestone)
+            })
+        }
+        tipsModal.skipCallback = { [weak self] in
+            self?.dismissViewController()
+            self?.buildProgressBar.milestoneFinished()
+        }
+        tipsModal.tryAgainCallback = { [weak self] in
+            self?.showTestingModal(with: milestone)
+        }
+        presentModal(with: tipsModal)
     }
 }
 

@@ -19,7 +19,7 @@ struct Milestone {
 
     // MARK: - Properties
     var image: String
-    var testCodeId: String
+    var testCodeId: Int
     var type: MilestoneType
 
     // MARK: - Initialization
@@ -28,7 +28,7 @@ struct Milestone {
             return nil
         }
         guard let image = dic[Constants.image] as? String,
-            let testCodeId = dic[Constants.testCodeId] as? String,
+            let testCodeId = dic[Constants.testCodeId] as? Int,
             let type = dic[Constants.type] as? String,
             let milestoneType = MilestoneType(rawValue: type) else {
                 return nil
