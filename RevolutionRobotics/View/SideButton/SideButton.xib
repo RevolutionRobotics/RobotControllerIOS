@@ -69,6 +69,7 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erb-vR-mV2">
                     <rect key="frame" x="0.0" y="0.0" width="109" height="60"/>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="15"/>
                     <connections>
                         <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="qxc-DC-r4L"/>
                     </connections>
