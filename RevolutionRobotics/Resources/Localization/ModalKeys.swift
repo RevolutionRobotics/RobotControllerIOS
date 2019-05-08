@@ -16,4 +16,10 @@ enum ModalKeys {
     enum Controller {
         static let infoButtonTitle = "controller_got_it_button_title"
     }
+
+    enum DeleteRobot {
+        static let description = "delete_robot_description"
+        static let confirm = "delete_robot_confirm"
+        static let cancel = "delete_robot_cancel"
+    }
 }

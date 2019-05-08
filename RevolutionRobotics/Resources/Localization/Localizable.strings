@@ -79,3 +79,6 @@
 "camera_dialog_delete_title" = "Delete";
 "camera_dialog_new_photo_title" = "Take new photo";
 "controller_got_it_button_title" = "Got it";
+"delete_robot_description" = "Are you sure you want to delete this robot?";
+"delete_robot_confirm" = "Delete";
+"delete_robot_cancel" = "Cancel";

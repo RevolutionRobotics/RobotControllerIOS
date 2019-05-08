@@ -17,6 +17,8 @@ final class YourRobotsCollectionViewCell: ResizableCell {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var lastModifiedLabel: UILabel!
     @IBOutlet private weak var actionLabel: UILabel!
+    @IBOutlet private weak var editButton: UIButton!
+    @IBOutlet private weak var deleteButton: UIButton!
 
     // MARK: - Properties
     private var baseHeightMultiplier: CGFloat = 0
@@ -47,6 +49,8 @@ final class YourRobotsCollectionViewCell: ResizableCell {
     }
 
     var isFinished: Bool = false
+    var editButtonHandler: Callback?
+    var deleteButtonHandler: Callback?
 }
 
 // MARK: - View lifecycle
@@ -80,5 +84,16 @@ extension YourRobotsCollectionViewCell {
         descriptionLabel.font = descriptionLabel.font.withSize(baseDescriptionFontSize * multiplier * multiplier)
         lastModifiedLabel.font = lastModifiedLabel.font.withSize(baseLastModifiedFontSize * multiplier * multiplier)
         actionLabel.font = actionLabel.font.withSize(baseActionFontSize * multiplier * multiplier)
+    }
+}
+
+// MARK: - Actions
+extension YourRobotsCollectionViewCell {
+    @IBAction private func editButtonTapped(_ sender: Any) {
+        editButtonHandler?()
+    }
+
+    @IBAction private func deleteButtonTapped(_ sender: Any) {
+        deleteButtonHandler?()
     }
 }

@@ -81,7 +81,35 @@ extension YourRobotsViewController: UICollectionViewDataSource {
         let cell: YourRobotsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.indexPath = indexPath
         cell.configure(with: robots[indexPath.item])
+        cell.deleteButtonHandler = { [weak self] in
+            self?.presentDeleteModal(with: self?.robots[indexPath.item])
+        }
         return cell
+    }
+
+    private func presentDeleteModal(with robot: UserRobot?) {
+        let deleteView = DeleteRobotView.instatiate()
+        setupDeleteHandlers(on: deleteView, with: robot)
+        presentModal(with: deleteView)
+    }
+
+    private func setupDeleteHandlers(on view: DeleteRobotView, with robot: UserRobot?) {
+        view.cancelButtonHandler = { [weak self] in
+            self?.dismissViewController()
+        }
+        view.deleteButtonHandler = { [weak self] in
+            guard let robot = robot else { return }
+            self?.deleteRobot(robot)
+            self?.dismissViewController()
+        }
+    }
+
+    private func deleteRobot(_ robot: UserRobot) {
+        realmService.deleteRobot(robot)
+        robots = realmService.getRobots()
+        collectionView.performBatchUpdates({
+            collectionView.reloadSections(IndexSet(integer: 0))
+        }, completion: nil)
     }
 }
 
