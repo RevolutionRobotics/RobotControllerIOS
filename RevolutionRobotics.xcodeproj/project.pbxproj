@@ -77,6 +77,11 @@
 		2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF1F7D224AB3B600CC721F /* LaunchScreen.storyboard */; };
 		2AF8C75422801D9D00CE1ACB /* RRZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8C75322801D9D00CE1ACB /* RRZoomableImageView.swift */; };
 		2AF8C757228026EE00CE1ACB /* UIStackView+RemoveAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8C756228026EE00CE1ACB /* UIStackView+RemoveAll.swift */; };
+		2AF8C75A22805EEC00CE1ACB /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8C75922805EEC00CE1ACB /* RealmService.swift */; };
+		2AF8C75C22805EFA00CE1ACB /* RealmServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8C75B22805EFA00CE1ACB /* RealmServiceInterface.swift */; };
+		2AF8C75F2280659000CE1ACB /* FileManager+Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8C75E2280659000CE1ACB /* FileManager+Documents.swift */; };
+		2AF8C762228069EC00CE1ACB /* RealmConnectorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8C761228069EC00CE1ACB /* RealmConnectorInterface.swift */; };
+		2AF8C76422806A1800CE1ACB /* RealmConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8C76322806A1800CE1ACB /* RealmConnector.swift */; };
 		2AFAA11222663111002BE0A2 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAA11122663111002BE0A2 /* UIImage+Color.swift */; };
 		2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */; };
 		3EDBEDA7C8D9D5683FEC00E3 /* Pods_RevolutionRobotics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2703FDDD1F3944173CF58883 /* Pods_RevolutionRobotics.framework */; };
@@ -224,6 +229,11 @@
 		2ADF1F80224AB3B600CC721F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AF8C75322801D9D00CE1ACB /* RRZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRZoomableImageView.swift; sourceTree = "<group>"; };
 		2AF8C756228026EE00CE1ACB /* UIStackView+RemoveAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+RemoveAll.swift"; sourceTree = "<group>"; };
+		2AF8C75922805EEC00CE1ACB /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		2AF8C75B22805EFA00CE1ACB /* RealmServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServiceInterface.swift; sourceTree = "<group>"; };
+		2AF8C75E2280659000CE1ACB /* FileManager+Documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Documents.swift"; sourceTree = "<group>"; };
+		2AF8C761228069EC00CE1ACB /* RealmConnectorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConnectorInterface.swift; sourceTree = "<group>"; };
+		2AF8C76322806A1800CE1ACB /* RealmConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConnector.swift; sourceTree = "<group>"; };
 		2AFAA11122663111002BE0A2 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Pods-RevolutionRobotics-settings-metadata.plist"; path = "../RevolutionRobotics/Resources/Settings/Settings.bundle/Pods-RevolutionRobotics-settings-metadata.plist"; sourceTree = "<group>"; };
 		3222BBCEACAD7CD926CA491F /* Pods-RevolutionRobotics.debug prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug prod.xcconfig"; sourceTree = "<group>"; };
@@ -422,8 +432,8 @@
 		09ED1B98225241A7009CF262 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				FE8243582278966F00DFDF67 /* NavigationController */,
 				09ED1BAC22524B09009CF262 /* Callback.swift */,
+				FE8243582278966F00DFDF67 /* NavigationController */,
 				2A7732112264A96800D7F38D /* Connectivity */,
 				D008E03A2260AAF500089DC7 /* Extensions */,
 				2A7732102264A95900D7F38D /* Protocols */,
@@ -544,6 +554,8 @@
 		2A77320B2264A73A00D7F38D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2AF8C760228069D800CE1ACB /* RealmConnectorService */,
+				2AF8C75822805EA800CE1ACB /* RealmService */,
 				2A77320C2264A78400D7F38D /* FirebaseService */,
 			);
 			path = Services;
@@ -762,6 +774,32 @@
 			path = UIStackView;
 			sourceTree = "<group>";
 		};
+		2AF8C75822805EA800CE1ACB /* RealmService */ = {
+			isa = PBXGroup;
+			children = (
+				2AF8C75922805EEC00CE1ACB /* RealmService.swift */,
+				2AF8C75B22805EFA00CE1ACB /* RealmServiceInterface.swift */,
+			);
+			path = RealmService;
+			sourceTree = "<group>";
+		};
+		2AF8C75D2280658500CE1ACB /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				2AF8C75E2280659000CE1ACB /* FileManager+Documents.swift */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
+		2AF8C760228069D800CE1ACB /* RealmConnectorService */ = {
+			isa = PBXGroup;
+			children = (
+				2AF8C761228069EC00CE1ACB /* RealmConnectorInterface.swift */,
+				2AF8C76322806A1800CE1ACB /* RealmConnector.swift */,
+			);
+			path = RealmConnectorService;
+			sourceTree = "<group>";
+		};
 		2AFAA10E22662FF6002BE0A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -826,6 +864,7 @@
 			children = (
 				2AF8C755228026DE00CE1ACB /* UIStackView */,
 				09105A9622801E1900AB7B72 /* UIStackView */,
+				2AF8C75D2280658500CE1ACB /* FileManager */,
 				D0049A472270BBB5007FA256 /* UITableView */,
 				2ADE8C302270A6BB00ECEC72 /* Container */,
 				2ADE8C2E2270A6A900ECEC72 /* NSLayoutConstraint */,
@@ -1235,6 +1274,7 @@
 				D05C64D9225F58E200B7BF4F /* Side.swift in Sources */,
 				09C3875A2270A7100097619D /* FirebaseError.swift in Sources */,
 				094F9DD82264BE1900BE118B /* Color.swift in Sources */,
+				2AF8C76422806A1800CE1ACB /* RealmConnector.swift in Sources */,
 				D05C64CA225F572F00B7BF4F /* MilestoneType.swift in Sources */,
 				D03BA85E2277384A005B3E33 /* TestingModal.swift in Sources */,
 				D05C64D6225F587700B7BF4F /* UserRobot.swift in Sources */,
@@ -1244,6 +1284,7 @@
 				D03BA8642277385E005B3E33 /* FailedConnectionTipsModal.swift in Sources */,
 				09ED1BA9225247B1009CF262 /* MenuViewController.swift in Sources */,
 				D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */,
+				2AF8C75A22805EEC00CE1ACB /* RealmService.swift in Sources */,
 				2A91937A225F7C6F00E927FD /* BluetoothReachability.swift in Sources */,
 				2ADE8C292270A61000ECEC72 /* String+Translate.swift in Sources */,
 				D0A1108C227B18480064FBB6 /* ControllerInfoModal.swift in Sources */,
@@ -1264,6 +1305,7 @@
 				D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */,
 				D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */,
 				FE4B16172277202600CAA083 /* ConfigurationViewController.swift in Sources */,
+				2AF8C75F2280659000CE1ACB /* FileManager+Documents.swift in Sources */,
 				D05C64E1225F5C9900B7BF4F /* Drivetrain.swift in Sources */,
 				FE4B16202277406D00CAA083 /* SegmentedControl.swift in Sources */,
 				D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */,
@@ -1281,6 +1323,7 @@
 				2A9F52152265E97700F9F651 /* SettingsViewController.swift in Sources */,
 				2ABD618422500F7C00587F1C /* AppDependencies.swift in Sources */,
 				09ED1BAD22524B09009CF262 /* Callback.swift in Sources */,
+				2AF8C762228069EC00CE1ACB /* RealmConnectorInterface.swift in Sources */,
 				2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */,
 				D05C64DF225F5C4E00B7BF4F /* Rotation.swift in Sources */,
 				D03BA85C2277384A005B3E33 /* ConnectionModal.swift in Sources */,
@@ -1300,6 +1343,7 @@
 				D03BA86B22773DCA005B3E33 /* RRCollectionView.swift in Sources */,
 				2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */,
 				2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */,
+				2AF8C75C22805EFA00CE1ACB /* RealmServiceInterface.swift in Sources */,
 				09FB0D69226761E900735B74 /* YourRobotsViewController.swift in Sources */,
 				D0A11094227B23E90064FBB6 /* RRInputField.swift in Sources */,
 				D0049A3D2270A8CF007FA256 /* AvailableRobotsView.swift in Sources */,

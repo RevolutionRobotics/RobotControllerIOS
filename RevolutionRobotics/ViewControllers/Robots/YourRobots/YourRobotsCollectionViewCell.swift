@@ -18,7 +18,7 @@ final class YourRobotsCollectionViewCell: ResizableCell {
     @IBOutlet private weak var lastModifiedLabel: UILabel!
     @IBOutlet private weak var actionLabel: UILabel!
 
-    // MARK: - Variables
+    // MARK: - Properties
     private var baseHeightMultiplier: CGFloat = 0
     private var baseWidthMultiplier: CGFloat = 0
     private var baseNameFontSize: CGFloat = 0
@@ -40,6 +40,12 @@ final class YourRobotsCollectionViewCell: ResizableCell {
         }
     }
 
+    private var dateFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY/MM/dd"
+        return dateFormatter
+    }
+
     var isFinished: Bool = false
 }
 
@@ -59,7 +65,12 @@ extension YourRobotsCollectionViewCell {
 
 // MARK: - Functions
 extension YourRobotsCollectionViewCell {
-    func configure(with robot: Robot) {
+    func configure(with robot: UserRobot) {
+        nameLabel.text = robot.customName
+        isFinished = robot.buildStatus == BuildStatus.completed.rawValue
+        actionLabel.text = isFinished ? "Play" : "Continue building"
+        descriptionLabel.text = robot.customDescription
+        lastModifiedLabel.text = dateFormatter.string(from: robot.lastModified)
     }
 
     override func set(multiplier: CGFloat) {

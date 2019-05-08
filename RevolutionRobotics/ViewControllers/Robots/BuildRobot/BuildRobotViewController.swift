@@ -17,9 +17,11 @@ class BuildRobotViewController: BaseViewController {
     @IBOutlet private weak var buildProgressBar: BuildProgressBar!
     @IBOutlet private weak var zoomableImageView: RRZoomableImageView!
 
-    // MARK: - Propertie
+    // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
-    var selectedRobot: Robot?
+    var realmService: RealmServiceInterface!
+    var remoteRobotDataModel: Robot?
+    var storedRobotDataModel: UserRobot?
     private var steps: [BuildStep] = [] {
         didSet {
             setupComponents()
@@ -34,7 +36,7 @@ extension BuildRobotViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.setup(title: selectedRobot?.name, delegate: self)
+        navigationBar.setup(title: remoteRobotDataModel?.name, delegate: self)
         fetchBuildSteps()
         setupStackView()
     }
@@ -61,6 +63,7 @@ extension BuildRobotViewController {
             self?.progressLabel.currentStep = currentStepIndex + 1
             self?.zoomableImageView.imageView.downloadImage(googleStorageURL: self?.currentStep?.image)
             self?.setupPartsView()
+            self?.updateStoredRobot(step: currentStepIndex)
         }
         buildProgressBar.buildFinished = { [weak self] in
             let buildFinishedModal = BuildFinishedModal.instatiate()
@@ -88,7 +91,7 @@ extension BuildRobotViewController {
 // MARK: - Private methods
 extension BuildRobotViewController {
     private func fetchBuildSteps() {
-        firebaseService.getBuildSteps(for: selectedRobot?.id, completion: { [weak self] result in
+        firebaseService.getBuildSteps(for: remoteRobotDataModel?.id, completion: { [weak self] result in
             switch result {
             case .success(let steps):
                 self?.steps = steps
@@ -104,5 +107,25 @@ extension BuildRobotViewController {
     private func setupPartsView() {
         partView.setup(with: currentStep)
         partView.isLast = true
+    }
+
+    private func updateStoredRobot(step: Int) {
+        realmService.updateObject { [weak self] in
+            if let robot = self?.storedRobotDataModel {
+                robot.actualBuildStep = step
+                robot.lastModified = Date()
+                robot.buildStatus = BuildStatus.inProgress.rawValue
+            } else {
+                self?.storedRobotDataModel = UserRobot(
+                    id: "\(self?.remoteRobotDataModel!.id)",
+                    buildStatus: .initial,
+                    actualBuildStep: step,
+                    lastModified: Date(),
+                    configId: "\(self?.remoteRobotDataModel!.configurationId)",
+                    customName: self?.remoteRobotDataModel?.name,
+                    customImage: nil,
+                    customDescription: nil)
+            }
+        }
     }
 }

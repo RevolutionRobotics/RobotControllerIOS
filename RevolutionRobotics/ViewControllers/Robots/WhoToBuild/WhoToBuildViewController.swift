@@ -27,7 +27,9 @@ final class WhoToBuildViewController: BaseViewController {
     private var robots: [Robot] = [] {
         didSet {
             collectionView.reloadData()
-            self.collectionView.refreshCollectionView()
+            if !robots.isEmpty {
+                self.collectionView.refreshCollectionView()
+            }
         }
     }
 }
@@ -69,18 +71,20 @@ extension WhoToBuildViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.rrDelegate = self
-        collectionView.dataSource = self
-        collectionView.register(WhoToBuildCollectionViewCell.self)
         navigationBar.setup(title: RobotsKeys.WhoToBuild.title.translate(), delegate: self)
         buildYourOwnButton.setTitle(RobotsKeys.WhoToBuild.buildNewButtonTitle.translate(), for: .normal)
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupCollectionView()
         fetchRobots()
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
+    private func setupCollectionView() {
+        collectionView.rrDelegate = self
+        collectionView.dataSource = self
+        collectionView.register(WhoToBuildCollectionViewCell.self)
         collectionView.setupInset()
     }
 }
@@ -134,7 +138,7 @@ extension WhoToBuildViewController {
         modal.laterHandler = { [weak self] in
             self?.dismiss(animated: true, completion: nil)
             let buildScreen = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
-            buildScreen.selectedRobot = self?.selectedRobot
+            buildScreen.remoteRobotDataModel = self?.selectedRobot
             self?.navigationController?.pushViewController(buildScreen, animated: true)
         }
     }

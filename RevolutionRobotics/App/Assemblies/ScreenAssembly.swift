@@ -70,6 +70,9 @@ extension ScreenAssembly {
     private func registerYourRobotsViewController(to container: Container) {
         container
             .register(YourRobotsViewController.self, factory: { _ in return YourRobotsViewController() })
+            .initCompleted { (resolver, viewController) in
+                viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
+            }
             .inObjectScope(.weak)
     }
 
@@ -78,6 +81,7 @@ extension ScreenAssembly {
             .register(BuildRobotViewController.self, factory: { _ in return BuildRobotViewController() })
             .initCompleted { (resolver, buildRobotViewController) in
                 buildRobotViewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
+                buildRobotViewController.realmService = resolver.resolve(RealmServiceInterface.self)!
             }
             .inObjectScope(.weak)
     }
