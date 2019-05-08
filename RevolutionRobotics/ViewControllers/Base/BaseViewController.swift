@@ -109,7 +109,7 @@ extension BaseViewController {
         }
     }
 
-    func dissmissSideViewController() {
+    func dismissSideViewController() {
         dismiss(animated: true, completion: nil)
     }
 }
