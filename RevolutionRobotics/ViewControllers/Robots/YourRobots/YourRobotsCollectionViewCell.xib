@@ -60,17 +60,23 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEX-QD-KEF">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEX-QD-KEF" userLabel="editButton">
                         <rect key="frame" x="139" y="186" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="VEX-QD-KEF" secondAttribute="height" multiplier="1:1" id="gVa-8A-dYi"/>
                         </constraints>
+                        <connections>
+                            <action selector="editButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="D3Q-Jd-OQH"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUD-tB-1Po">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUD-tB-1Po" userLabel="deleteButton">
                         <rect key="frame" x="175" y="186" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="EUD-tB-1Po" secondAttribute="height" multiplier="1:1" id="ZdP-FX-YDK"/>
                         </constraints>
+                        <connections>
+                            <action selector="deleteButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="lhS-Du-kR4"/>
+                        </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DOZ-1A-0H7">
                         <rect key="frame" x="3" y="186" width="133" height="35"/>
@@ -129,7 +135,9 @@
                 <outlet property="backgroundImageView" destination="u76-hq-HP7" id="2j4-ru-bUN"/>
                 <outlet property="baseHeight" destination="2LJ-Gi-spT" id="2Rr-BU-oh6"/>
                 <outlet property="baseWidth" destination="IdY-1C-a6P" id="Zcw-NF-fnU"/>
+                <outlet property="deleteButton" destination="EUD-tB-1Po" id="73E-pi-PTs"/>
                 <outlet property="descriptionLabel" destination="XhF-Su-8hc" id="G0f-4O-0cn"/>
+                <outlet property="editButton" destination="VEX-QD-KEF" id="m18-5r-CvJ"/>
                 <outlet property="lastModifiedLabel" destination="2pC-Rl-Fr1" id="RfC-1E-2bQ"/>
                 <outlet property="nameLabel" destination="Z3O-CF-ILH" id="ixW-UL-jh6"/>
             </connections>

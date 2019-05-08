@@ -61,6 +61,8 @@
 		2AA926D22271CB07000FAA98 /* RRSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA926D12271CB07000FAA98 /* RRSlider.swift */; };
 		2AA926D522773D95000FAA98 /* SideButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA926D422773D95000FAA98 /* SideButton.swift */; };
 		2AA926D722773DC1000FAA98 /* SideButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AA926D622773DC1000FAA98 /* SideButton.xib */; };
+		2AB7785F2282F6CA004442E2 /* DeleteRobotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7785E2282F6CA004442E2 /* DeleteRobotView.swift */; };
+		2AB778612282F6D4004442E2 /* DeleteRobotView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB778602282F6D4004442E2 /* DeleteRobotView.xib */; };
 		2ABD618422500F7C00587F1C /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABD618322500F7C00587F1C /* AppDependencies.swift */; };
 		2ADE8C292270A61000ECEC72 /* String+Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C282270A61000ECEC72 /* String+Translate.swift */; };
 		2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C312270A77200ECEC72 /* ChallengesKeys.swift */; };
@@ -211,6 +213,8 @@
 		2AA926D12271CB07000FAA98 /* RRSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRSlider.swift; sourceTree = "<group>"; };
 		2AA926D422773D95000FAA98 /* SideButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideButton.swift; sourceTree = "<group>"; };
 		2AA926D622773DC1000FAA98 /* SideButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideButton.xib; sourceTree = "<group>"; };
+		2AB7785E2282F6CA004442E2 /* DeleteRobotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRobotView.swift; sourceTree = "<group>"; };
+		2AB778602282F6D4004442E2 /* DeleteRobotView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteRobotView.xib; sourceTree = "<group>"; };
 		2ABD618322500F7C00587F1C /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		2ADE8C282270A61000ECEC72 /* String+Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Translate.swift"; sourceTree = "<group>"; };
 		2ADE8C312270A77200ECEC72 /* ChallengesKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesKeys.swift; sourceTree = "<group>"; };
@@ -517,6 +521,7 @@
 		09FB0D7322686C2500735B74 /* YourRobots */ = {
 			isa = PBXGroup;
 			children = (
+				2AB7785D2282F6B7004442E2 /* Modal */,
 				09FB0D67226761E900735B74 /* YourRobotsViewController.swift */,
 				09FB0D68226761E900735B74 /* YourRobotsViewController.xib */,
 				D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */,
@@ -639,6 +644,15 @@
 				2AA926D622773DC1000FAA98 /* SideButton.xib */,
 			);
 			path = SideButton;
+			sourceTree = "<group>";
+		};
+		2AB7785D2282F6B7004442E2 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				2AB7785E2282F6CA004442E2 /* DeleteRobotView.swift */,
+				2AB778602282F6D4004442E2 /* DeleteRobotView.xib */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 		2ADE8C272270A58600ECEC72 /* Localization */ = {
@@ -1124,6 +1138,7 @@
 				D0A11096227B23F20064FBB6 /* RRInputField.xib in Resources */,
 				196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */,
 				096479872268776200F68456 /* BuildRobotViewController.xib in Resources */,
+				2AB778612282F6D4004442E2 /* DeleteRobotView.xib in Resources */,
 				D05BAA9E22676BCA00624438 /* WhoToBuildCollectionViewCell.xib in Resources */,
 				2A77320322648FB000D7F38D /* Settings.bundle in Resources */,
 				09C38753226F38F40097619D /* Jura-Regular.ttf in Resources */,
@@ -1352,6 +1367,7 @@
 				D0049A1E226F0929007FA256 /* RRButton.swift in Sources */,
 				2ADE8C442271A6B000ECEC72 /* BuildProgressBar.swift in Sources */,
 				2ADE8C342270A78600ECEC72 /* RobotsKeys.swift in Sources */,
+				2AB7785F2282F6CA004442E2 /* DeleteRobotView.swift in Sources */,
 				D008E0392260979400089DC7 /* FirebaseData.swift in Sources */,
 				2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */,
 				094F9DDA2264BE9600BE118B /* Image.swift in Sources */,
