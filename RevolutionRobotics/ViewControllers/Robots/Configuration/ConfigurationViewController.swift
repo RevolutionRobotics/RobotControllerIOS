@@ -19,6 +19,11 @@ final class ConfigurationViewController: BaseViewController {
     @IBOutlet private weak var configurationView: UIView!
     @IBOutlet private weak var segmentedControl: SegmentedControl!
     @IBOutlet private weak var navigationBar: RRNavigationBar!
+    @IBOutlet private weak var leftButton: UIButton!
+    @IBOutlet private weak var rightButton: UIButton!
+    @IBOutlet private weak var collectionView: RRCollectionView!
+    @IBOutlet private weak var controllerCollectionView: UIView!
+    @IBOutlet private weak var robotImageView: UIImageView!
 
     // MARK: - Motor Port 1
     @IBOutlet private weak var motorPort1: PortButton!
@@ -70,18 +75,11 @@ final class ConfigurationViewController: BaseViewController {
     @IBOutlet private var sensorPort4Lines: [DashedView]!
     @IBOutlet private weak var sensorPort4Dot: UIImageView!
 
-    // MARK: - RobotImageView
-    @IBOutlet private weak var robotImageView: UIImageView!
+    // MARK: - Properties
+    private let photoModal = PhotoModal.instatiate()
     private var robotImage: UIImage?
 
-    // MARK: - Modal
-    private let photoModal = PhotoModal.instatiate()
-
-    // MARK: - CollectionView
-    @IBOutlet private weak var leftButton: UIButton!
-    @IBOutlet private weak var rightButton: UIButton!
-    @IBOutlet private weak var collectionView: RRCollectionView!
-    @IBOutlet private weak var controllerCollectionView: UIView!
+    var selectedRobot: UserRobot?
 }
 
 // MARK: - View lifecycle

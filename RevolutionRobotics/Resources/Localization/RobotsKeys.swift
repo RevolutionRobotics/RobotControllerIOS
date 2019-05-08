@@ -10,6 +10,8 @@ enum RobotsKeys {
     enum YourRobots {
         static let title = "your_robots_screen_title"
         static let buildNewButtonTitle = "your_robots_build_new_button_title"
+        static let play = "your_robots_play"
+        static let continueBuilding = "your_robots_continue_building"
     }
 
     enum WhoToBuild {

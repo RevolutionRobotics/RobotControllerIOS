@@ -20,13 +20,13 @@ class BuildRobotViewController: BaseViewController {
     // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
-    var remoteRobotDataModel: Robot?
-    var storedRobotDataModel: UserRobot?
-    private var steps: [BuildStep] = [] {
+    var remoteRobotDataModel: Robot? {
         didSet {
-            setupComponents()
+            fetchBuildSteps()
         }
     }
+    var storedRobotDataModel: UserRobot?
+    private var steps: [BuildStep] = []
     private var currentStep: BuildStep?
     private let partView = PartView.instatiate()
 }
@@ -36,27 +36,42 @@ extension BuildRobotViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.setup(title: remoteRobotDataModel?.name, delegate: self)
-        fetchBuildSteps()
         setupStackView()
+        navigationBar.setup(title: remoteRobotDataModel?.name, delegate: self)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        guard !steps.isEmpty else { return }
+        refreshViews()
     }
 }
 
 // MARK: - Setup
 extension BuildRobotViewController {
     private func setupComponents() {
+        setupPartsView()
         setupProgressLabel()
         setupProgressBar()
     }
 
     private func setupProgressLabel() {
-        progressLabel.currentStep = 1
+        if let actualBuildStep = storedRobotDataModel?.actualBuildStep {
+            progressLabel.currentStep = actualBuildStep + 1
+        } else {
+            progressLabel.currentStep = 1
+        }
         progressLabel.numberOfSteps = steps.count
     }
 
     private func setupProgressBar() {
         buildProgressBar.numberOfSteps = steps.count - 1
-        buildProgressBar.markers = steps.filter({ $0.milestone != nil }).map({ steps.firstIndex(of: $0)! })
+        buildProgressBar.currentStep = storedRobotDataModel?.actualBuildStep ?? 0
+        buildProgressBar.markers = steps
+            .filter({ $0.milestone != nil })
+            .map({ steps.firstIndex(of: $0) })
+            .compactMap({ $0 })
         buildProgressBar.valueDidChange = { [weak self] currentStepIndex in
             guard self?.currentStep != self?.steps[currentStepIndex] else { return }
             self?.currentStep = self?.steps[currentStepIndex]
@@ -151,9 +166,9 @@ extension BuildRobotViewController {
             switch result {
             case .success(let steps):
                 self?.steps = steps
-                self?.currentStep = steps.first
-                self?.zoomableImageView.imageView.downloadImage(googleStorageURL: steps.first?.image)
-                self?.setupPartsView()
+                self?.currentStep = steps[self?.storedRobotDataModel?.actualBuildStep ?? 0]
+                guard let loaded = self?.isViewLoaded, loaded == true else { return }
+                self?.refreshViews()
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -166,22 +181,29 @@ extension BuildRobotViewController {
     }
 
     private func updateStoredRobot(step: Int) {
-        realmService.updateObject { [weak self] in
-            if let robot = self?.storedRobotDataModel {
-                robot.actualBuildStep = step
-                robot.lastModified = Date()
-                robot.buildStatus = BuildStatus.inProgress.rawValue
-            } else {
-                self?.storedRobotDataModel = UserRobot(
-                    id: "\(self?.remoteRobotDataModel!.id)",
-                    buildStatus: .initial,
-                    actualBuildStep: step,
-                    lastModified: Date(),
-                    configId: "\(self?.remoteRobotDataModel!.configurationId)",
-                    customName: self?.remoteRobotDataModel?.name,
-                    customImage: nil,
-                    customDescription: nil)
-            }
+        guard let robot = storedRobotDataModel else {
+            storedRobotDataModel = UserRobot(
+                id: remoteRobotDataModel!.id,
+                buildStatus: .inProgress,
+                actualBuildStep: step,
+                lastModified: Date(),
+                configId: remoteRobotDataModel!.configurationId,
+                customName: remoteRobotDataModel?.name,
+                customImage: nil,
+                customDescription: nil)
+            realmService.saveRobot(storedRobotDataModel!, shouldUpdate: true)
+            return
         }
+        realmService.updateObject {
+            robot.actualBuildStep = step
+            robot.lastModified = Date()
+            robot.buildStatus = BuildStatus.inProgress.rawValue
+        }
+    }
+
+    private func refreshViews() {
+        setupComponents()
+        let imagePath = steps[storedRobotDataModel?.actualBuildStep ?? 0].image
+        zoomableImageView.imageView.downloadImage(googleStorageURL: imagePath)
     }
 }

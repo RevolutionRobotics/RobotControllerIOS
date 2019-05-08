@@ -9,6 +9,11 @@
 import UIKit
 
 final class YourRobotsCollectionViewCell: ResizableCell {
+    // MARK: - Constants
+    private enum Constants {
+        static let dateFormat = "YYYY/MM/dd"
+    }
+
     // MARK: - Outlets
     @IBOutlet private weak var baseHeight: NSLayoutConstraint!
     @IBOutlet private weak var baseWidth: NSLayoutConstraint!
@@ -44,7 +49,7 @@ final class YourRobotsCollectionViewCell: ResizableCell {
 
     private var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY/MM/dd"
+        dateFormatter.dateFormat = Constants.dateFormat
         return dateFormatter
     }
 
@@ -72,8 +77,10 @@ extension YourRobotsCollectionViewCell {
     func configure(with robot: UserRobot) {
         nameLabel.text = robot.customName
         isFinished = robot.buildStatus == BuildStatus.completed.rawValue
-        actionLabel.text = isFinished ? "Play" : "Continue building"
+        actionLabel.text = isFinished ? RobotsKeys.YourRobots.play.translate() :
+            RobotsKeys.YourRobots.continueBuilding.translate()
         descriptionLabel.text = robot.customDescription
+        editButton.isEnabled = robot.buildStatus == BuildStatus.completed.rawValue
         lastModifiedLabel.text = dateFormatter.string(from: robot.lastModified)
     }
 

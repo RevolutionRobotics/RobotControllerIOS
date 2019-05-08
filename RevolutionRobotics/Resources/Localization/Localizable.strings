@@ -14,6 +14,8 @@
 // MARK: - Your robots
 "your_robots_screen_title" = "Your robots";
 "your_robots_build_new_button_title" = "build new";
+"your_robots_play" = "Play";
+"your_robots_continue_building" = "Continue building";
 
 // MARK: - Who to build
 "who_to_build_screen_title" = "Choose your robot to build!";

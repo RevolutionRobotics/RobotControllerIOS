@@ -28,6 +28,15 @@ final class BuildProgressBar: RRCustomView {
             slider.maximumValue = Float(numberOfSteps)
         }
     }
+    var currentStep: Int {
+        get {
+            return Int(slider.value)
+        }
+        set {
+            slider.value = Float(newValue)
+        }
+    }
+
 }
 
 // MARK: - Functions
