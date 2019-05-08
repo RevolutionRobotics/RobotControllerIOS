@@ -16,6 +16,7 @@ final class BuildProgressBar: RRCustomView {
 
     // MARK: - Properties
     var valueDidChange: CallbackType<Int>?
+    var buildFinished: Callback?
     var markers: [Int] = [] {
         didSet {
             slider.markValues(markers)
@@ -39,7 +40,10 @@ extension BuildProgressBar {
     }
 
     @IBAction private func nextButtonTapped(_ sender: Any) {
-        guard slider.value + 1 <= slider.maximumValue else { return }
+        guard slider.value + 1 <= slider.maximumValue else {
+            buildFinished?()
+            return
+        }
         slider.setValue(slider.value + 1, animated: true)
         let isMaximumValueReached = slider.value == slider.maximumValue
         let image = isMaximumValueReached ? Image.BuildRobot.finishButton : Image.BuildRobot.nextButton

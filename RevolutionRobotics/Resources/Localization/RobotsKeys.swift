@@ -33,6 +33,13 @@ enum RobotsKeys {
             static let testLaterButton = "build_chapter_finish_dialog_button_next_chapter"
             static let testNowButton = "build_chapter_finish_dialog_button_test"
         }
+
+        static let buildFinishedHome = "build_robot_finished_home"
+        static let buildFinishedDrive = "build_robot_finished_drive"
+        static let buildFinishedAllSet = "build_robot_finished_all_set"
+        static let buildFinishedMessage = "build_robot_finished_message"
+
+        static let driveMeScreenTitle = "drive_me_screen_title"
     }
 
     enum Common {

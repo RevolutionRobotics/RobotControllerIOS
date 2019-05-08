@@ -40,6 +40,11 @@ extension BaseViewController: RRNavigationBarDelegate {
     func backButtonDidTap() {
         navigationController?.popViewController(animated: true)
     }
+
+    func popToRootViewController(animated: Bool) {
+        self.dismissViewController()
+        navigationController?.popToRootViewController(animated: animated)
+    }
 }
 
 // MARK: - Modal

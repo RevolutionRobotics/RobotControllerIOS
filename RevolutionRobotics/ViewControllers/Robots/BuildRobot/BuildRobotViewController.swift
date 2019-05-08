@@ -62,6 +62,18 @@ extension BuildRobotViewController {
             self?.zoomableImageView.imageView.downloadImage(googleStorageURL: self?.currentStep?.image)
             self?.setupPartsView()
         }
+        buildProgressBar.buildFinished = { [weak self] in
+            let buildFinishedModal = BuildFinishedModal.instatiate()
+            buildFinishedModal.homeCallback = { [weak self] in
+                self?.popToRootViewController(animated: true)
+            }
+            buildFinishedModal.driveCallback = { [weak self] in
+                self?.dismissViewController()
+                let driveMeScreen = AppContainer.shared.container.unwrappedResolve(DriveMeViewController.self)
+                self?.navigationController?.pushViewController(driveMeScreen, animated: true)
+            }
+            self?.presentModal(with: buildFinishedModal)
+        }
     }
 
     private func setupStackView() {
