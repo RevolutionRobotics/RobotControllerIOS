@@ -33,7 +33,7 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YourRobotsEditableWhiteCell" translatesAutoresizingMaskIntoConstraints="NO" id="u76-hq-HP7">
                         <rect key="frame" x="0.0" y="0.0" width="213" height="224"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="RobotPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="TCB-zL-eiC">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="RobotPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="TCB-zL-eiC">
                         <rect key="frame" x="87.5" y="54" width="38" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="TCB-zL-eiC" secondAttribute="height" multiplier="35:46" id="v45-br-UFI"/>
@@ -51,7 +51,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CalendarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="baB-yQ-wnU">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" image="CalendarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="baB-yQ-wnU">
                         <rect key="frame" x="18" y="155" width="16" height="16"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019/02/15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pC-Rl-Fr1">
@@ -109,7 +109,7 @@
                 <constraint firstItem="DOZ-1A-0H7" firstAttribute="top" secondItem="baB-yQ-wnU" secondAttribute="bottom" constant="15" id="PK3-K8-sPZ"/>
                 <constraint firstAttribute="trailing" secondItem="EUD-tB-1Po" secondAttribute="trailing" constant="3" id="QTc-Ev-ya6"/>
                 <constraint firstItem="Z3O-CF-ILH" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Tni-Vg-ddF"/>
-                <constraint firstItem="baB-yQ-wnU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XhF-Su-8hc" secondAttribute="bottom" constant="10" id="UrK-9b-1R9"/>
+                <constraint firstItem="baB-yQ-wnU" firstAttribute="top" secondItem="XhF-Su-8hc" secondAttribute="bottom" constant="10" id="UrK-9b-1R9"/>
                 <constraint firstItem="EUD-tB-1Po" firstAttribute="height" secondItem="u76-hq-HP7" secondAttribute="height" multiplier="0.15625" id="VSG-oG-kwl"/>
                 <constraint firstItem="TCB-zL-eiC" firstAttribute="top" secondItem="Z3O-CF-ILH" secondAttribute="bottom" constant="11" id="WHe-Dc-3Fv"/>
                 <constraint firstItem="EUD-tB-1Po" firstAttribute="leading" secondItem="VEX-QD-KEF" secondAttribute="trailing" constant="1" id="WSy-3J-JKN"/>

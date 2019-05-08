@@ -125,8 +125,15 @@ extension RRCollectionView {
     func refreshCollectionView() {
         self.performBatchUpdates(nil) { [weak self] completed in
             if completed {
-                self?.resizeVisibleCells()
-                self?.centerCell()
+                if let indexPath = self?.selectedIndexPath {
+                    self?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+                    self?.indexPathOfCentermostCell = indexPath
+                    self?.centerCell()
+                    self?.resizeVisibleCells()
+                } else {
+                    self?.resizeVisibleCells()
+                    self?.centerCell()
+                }
             }
         }
     }
