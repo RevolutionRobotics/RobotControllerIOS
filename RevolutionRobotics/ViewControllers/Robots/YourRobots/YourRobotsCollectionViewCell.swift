@@ -21,6 +21,7 @@ final class YourRobotsCollectionViewCell: ResizableCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var lastModifiedLabel: UILabel!
+    @IBOutlet private weak var statusImageView: UIImageView!
     @IBOutlet private weak var actionLabel: UILabel!
     @IBOutlet private weak var editButton: UIButton!
     @IBOutlet private weak var deleteButton: UIButton!
@@ -80,8 +81,11 @@ extension YourRobotsCollectionViewCell {
         actionLabel.text = isFinished ? RobotsKeys.YourRobots.play.translate() :
             RobotsKeys.YourRobots.continueBuilding.translate()
         descriptionLabel.text = robot.customDescription
-        editButton.isEnabled = robot.buildStatus == BuildStatus.completed.rawValue
-        lastModifiedLabel.text = dateFormatter.string(from: robot.lastModified)
+        let isCompleted = robot.buildStatus == BuildStatus.completed.rawValue
+        editButton.isEnabled = isCompleted
+        statusImageView.image = isCompleted ? Image.Common.calendar : Image.Common.underConstruction
+        lastModifiedLabel.text = isCompleted ?
+            dateFormatter.string(from: robot.lastModified) : RobotsKeys.YourRobots.underConstruction.translate()
     }
 
     override func set(multiplier: CGFloat) {

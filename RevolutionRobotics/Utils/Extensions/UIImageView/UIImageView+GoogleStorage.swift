@@ -18,7 +18,7 @@ extension UIImageView {
             switch result {
             case .success(let imageURL):
                 self?.kf.indicatorType = .activity
-                self?.kf.setImage(with: imageURL, placeholder: Image.Common.imagePlaceholder)
+                self?.kf.setImage(with: imageURL, placeholder: nil)
             case .failure(let failure):
                 print("Image Download failed with error: \(failure)")
                 self?.image = Image.Common.imagePlaceholder

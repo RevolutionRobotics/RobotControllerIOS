@@ -96,6 +96,9 @@ extension ScreenAssembly {
     private func registerConfigurationViewController(to container: Container) {
         container
             .register(ConfigurationViewController.self, factory: { _ in return ConfigurationViewController() })
+            .initCompleted({ (resolver, configurationViewController) in
+                configurationViewController.realmService = resolver.resolve(RealmServiceInterface.self)!
+            })
             .inObjectScope(.weak)
     }
 

@@ -41,11 +41,11 @@ extension YourRobotsViewController {
             let whoToBuildViewController = AppContainer.shared.container.unwrappedResolve(WhoToBuildViewController.self)
             self?.navigationController?.pushViewController(whoToBuildViewController, animated: true)
         }
+        setupCollectionView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupCollectionView()
         robots = realmService.getRobots()
     }
 
@@ -117,6 +117,7 @@ extension YourRobotsViewController: UICollectionViewDataSource {
     private func deleteRobot(_ robot: UserRobot) {
         realmService.deleteRobot(robot)
         robots = realmService.getRobots()
+        collectionView.clearIndexPath()
         collectionView.performBatchUpdates({
             collectionView.reloadSections(IndexSet(integer: 0))
         }, completion: nil)

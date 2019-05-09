@@ -37,4 +37,8 @@ extension RealmService: RealmServiceInterface {
             print(error)
         }
     }
+
+    func getControllers() -> [Int] {
+        return []
+    }
 }
