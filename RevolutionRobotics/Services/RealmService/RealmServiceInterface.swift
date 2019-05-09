@@ -13,4 +13,6 @@ protocol RealmServiceInterface: class {
     func saveRobot(_ robot: UserRobot, shouldUpdate: Bool)
     func deleteRobot(_ robot: UserRobot)
     func updateObject(closure: (() -> Void)?)
+    // TODO get actual controllers
+    func getControllers() -> [Int]
 }

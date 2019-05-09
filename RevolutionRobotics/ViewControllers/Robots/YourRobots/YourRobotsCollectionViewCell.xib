@@ -140,6 +140,7 @@
                 <outlet property="editButton" destination="VEX-QD-KEF" id="m18-5r-CvJ"/>
                 <outlet property="lastModifiedLabel" destination="2pC-Rl-Fr1" id="RfC-1E-2bQ"/>
                 <outlet property="nameLabel" destination="Z3O-CF-ILH" id="ixW-UL-jh6"/>
+                <outlet property="statusImageView" destination="baB-yQ-wnU" id="6Wo-gQ-0sb"/>
             </connections>
             <point key="canvasLocation" x="136.95652173913044" y="110.49107142857143"/>
         </collectionViewCell>

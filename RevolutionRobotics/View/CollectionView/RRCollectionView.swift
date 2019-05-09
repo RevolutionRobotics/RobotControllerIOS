@@ -123,19 +123,26 @@ extension RRCollectionView {
     }
 
     func refreshCollectionView() {
-        self.performBatchUpdates(nil) { [weak self] completed in
+        self.performBatchUpdates({
+            reloadInputViews()
+        }, completion: { [weak self] completed in
             if completed {
                 if let indexPath = self?.selectedIndexPath {
                     self?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
                     self?.indexPathOfCentermostCell = indexPath
-                    self?.centerCell()
                     self?.resizeVisibleCells()
+                    self?.centerCell()
                 } else {
                     self?.resizeVisibleCells()
                     self?.centerCell()
                 }
             }
-        }
+        })
+    }
+
+    func clearIndexPath() {
+        selectedIndexPath = nil
+        indexPathOfCentermostCell = IndexPath(row: 0, section: 0)
     }
 
     func setupInset() {

@@ -76,8 +76,18 @@ final class ConfigurationViewController: BaseViewController {
     @IBOutlet private weak var sensorPort4Dot: UIImageView!
 
     // MARK: - Properties
+    var realmService: RealmServiceInterface!
     private let photoModal = PhotoModal.instatiate()
     private var robotImage: UIImage?
+    // TODO: change to real controllers later
+    private var controllers: [Int] = [] {
+        didSet {
+            collectionView.reloadData()
+            if !controllers.isEmpty {
+                self.collectionView.refreshCollectionView()
+            }
+        }
+    }
 
     var selectedRobot: UserRobot?
 }
@@ -89,13 +99,9 @@ extension ConfigurationViewController {
 
         navigationBar.setup(title: RobotsKeys.Configure.title.translate(), delegate: self)
 
-        collectionView.rrDelegate = self
-        collectionView.dataSource = self
-        collectionView.register(ControllerCollectionViewCell.self)
-
         setupSegmentedControl()
         setupRobotImageView()
-
+        setupCollectionView()
         connectMotorPorts()
         connectSensorPorts()
     }
@@ -104,7 +110,7 @@ extension ConfigurationViewController {
 // MARK: - UICollectionViewDataSource
 extension ConfigurationViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return controllers.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -172,10 +178,10 @@ extension ConfigurationViewController {
             self?.leftButton.isHidden = $0 == .connections
             self?.rightButton.isHidden = $0 == .connections
             if $0 == .controllers {
-                self?.collectionView.cellRatio = Constants.cellRatio
-                self?.collectionView.setupInset()
-                self?.collectionView.reloadData()
-                self?.collectionView.refreshCollectionView()
+                guard let controllers = self?.realmService.getControllers() else {
+                    return
+                }
+                self?.controllers = controllers
             }
         }
     }
@@ -185,6 +191,14 @@ extension ConfigurationViewController {
             robotImageView.image = robotImage
             photoModal.setImage(robotImage)
         }
+    }
+
+    private func setupCollectionView() {
+        collectionView.rrDelegate = self
+        collectionView.dataSource = self
+        collectionView.register(ControllerCollectionViewCell.self)
+        collectionView.cellRatio = Constants.cellRatio
+        collectionView.setupInset()
     }
 }
 

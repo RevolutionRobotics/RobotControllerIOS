@@ -46,6 +46,13 @@ extension BuildRobotViewController {
         guard !steps.isEmpty else { return }
         refreshViews()
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        guard !steps.isEmpty else { return }
+        setupProgressBar()
+    }
 }
 
 // MARK: - Setup
@@ -53,7 +60,6 @@ extension BuildRobotViewController {
     private func setupComponents() {
         setupPartsView()
         setupProgressLabel()
-        setupProgressBar()
     }
 
     private func setupProgressLabel() {
@@ -83,9 +89,15 @@ extension BuildRobotViewController {
         buildProgressBar.buildFinished = { [weak self] in
             let buildFinishedModal = BuildFinishedModal.instatiate()
             buildFinishedModal.homeCallback = { [weak self] in
+                if let currentStep = self?.currentStep {
+                    self?.updateStoredRobot(step: currentStep.stepNumber)
+                }
                 self?.popToRootViewController(animated: true)
             }
             buildFinishedModal.driveCallback = { [weak self] in
+                if let currentStep = self?.currentStep {
+                    self?.updateStoredRobot(step: currentStep.stepNumber)
+                }
                 self?.dismissViewController()
                 let driveMeScreen = AppContainer.shared.container.unwrappedResolve(DriveMeViewController.self)
                 self?.navigationController?.pushViewController(driveMeScreen, animated: true)
@@ -195,9 +207,10 @@ extension BuildRobotViewController {
             return
         }
         realmService.updateObject {
-            robot.actualBuildStep = step
+            robot.actualBuildStep = step >= self.steps.count ? step - 1 : step
             robot.lastModified = Date()
-            robot.buildStatus = BuildStatus.inProgress.rawValue
+            robot.buildStatus = step >= self.steps.count ?
+                BuildStatus.completed.rawValue : BuildStatus.inProgress.rawValue
         }
     }
 

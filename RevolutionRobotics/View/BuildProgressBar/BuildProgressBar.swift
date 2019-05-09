@@ -34,6 +34,9 @@ final class BuildProgressBar: RRCustomView {
         }
         set {
             slider.value = Float(newValue)
+            if newValue >= self.numberOfSteps {
+                self.setupNextButton(step: Float(newValue))
+            }
         }
     }
 
@@ -52,15 +55,19 @@ extension BuildProgressBar {
         nextButton.setImage(image, for: .normal)
         valueDidChange?(Int(slider.value))
     }
+
+    private func setupNextButton(step: Float) {
+        let isMaximumValueReached = step == slider.maximumValue
+        let image = isMaximumValueReached ? Image.BuildRobot.finishButton : Image.BuildRobot.nextButton
+        nextButton.setImage(image, for: .normal)
+    }
 }
 
 // MARK: - Actions
 extension BuildProgressBar {
     @IBAction private func sliderValueChanged(_ sender: RRSlider) {
         sender.setValue(sender.value.rounded(), animated: true)
-        let isMaximumValueReached = sender.value == sender.maximumValue
-        let image = isMaximumValueReached ? Image.BuildRobot.finishButton : Image.BuildRobot.nextButton
-        nextButton.setImage(image, for: .normal)
+        setupNextButton(step: sender.value)
         valueDidChange?(Int(sender.value))
     }
 
