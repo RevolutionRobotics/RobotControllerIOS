@@ -19,6 +19,7 @@ final class YourRobotsViewController: BaseViewController {
 
     // MARK: - Variables
     var realmService: RealmServiceInterface!
+    var firebaseService: FirebaseServiceInterface!
     private var robots: [UserRobot] = [] {
         didSet {
             collectionView.reloadData()
@@ -81,10 +82,19 @@ extension YourRobotsViewController: UICollectionViewDataSource {
         let cell: YourRobotsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.indexPath = indexPath
         cell.configure(with: robots[indexPath.item])
+        cell.editButtonHandler = { [weak self] in
+            self?.navigateToConfiguration(with: self?.robots[indexPath.item])
+        }
         cell.deleteButtonHandler = { [weak self] in
             self?.presentDeleteModal(with: self?.robots[indexPath.item])
         }
         return cell
+    }
+
+    private func navigateToConfiguration(with robot: UserRobot?) {
+        guard let robot = robot else { return }
+        let configuration = AppContainer.shared.container.unwrappedResolve(ConfigurationViewController.self)
+        navigationController?.pushViewController(configuration, animated: true)
     }
 
     private func presentDeleteModal(with robot: UserRobot?) {
@@ -118,7 +128,33 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard !collectionView.isDecelerating,
             let cell = collectionView.cellForItem(at: indexPath) as? ResizableCell,
-            cell.isCentered else { return }
+            cell.isCentered,
+            let status = BuildStatus(rawValue: robots[indexPath.item].buildStatus)else { return }
+        switch status {
+        case .completed:
+            navigateToDriveMeViewController(with: robots[indexPath.item])
+        case .initial, .inProgress:
+            navigateToBuildYourRobotViewController(with: robots[indexPath.item])
+        }
+    }
+
+    private func navigateToDriveMeViewController(with robot: UserRobot) {
+        let driveMeViewController = AppContainer.shared.container.unwrappedResolve(DriveMeViewController.self)
+        navigationController?.pushViewController(driveMeViewController, animated: true)
+    }
+
+    private func navigateToBuildYourRobotViewController(with robot: UserRobot) {
+        firebaseService.getRobots { [weak self] result in
+            switch result {
+            case .success(let robots):
+                let buildViewController = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
+                buildViewController.remoteRobotDataModel = robots.first(where: { $0.id == robot.id })
+                buildViewController.storedRobotDataModel = robot
+                self?.navigationController?.pushViewController(buildViewController, animated: true)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
     func setButtons(rightHidden: Bool, leftHidden: Bool) {

@@ -10,21 +10,21 @@ import RealmSwift
 
 final class UserRobot: Object {
     // MARK: - Properties
-    @objc dynamic var id: String = ""
+    @objc dynamic var id: Int = 0
     @objc dynamic var buildStatus: Int = 0
     @objc dynamic var actualBuildStep: Int = 0
     @objc dynamic var lastModified: Date = Date()
-    @objc dynamic var configId: String = ""
+    @objc dynamic var configId: Int = 0
     @objc dynamic var customName: String?
     @objc dynamic var customImage: String?
     @objc dynamic var customDescription: String?
 
     // MARK: - Initialization
-    convenience init(id: String,
+    convenience init(id: Int,
                      buildStatus: BuildStatus,
                      actualBuildStep: Int,
                      lastModified: Date,
-                     configId: String,
+                     configId: Int,
                      customName: String?,
                      customImage: String?,
                      customDescription: String?) {

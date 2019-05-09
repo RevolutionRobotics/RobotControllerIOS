@@ -72,6 +72,7 @@ extension ScreenAssembly {
             .register(YourRobotsViewController.self, factory: { _ in return YourRobotsViewController() })
             .initCompleted { (resolver, viewController) in
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
+                viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
             }
             .inObjectScope(.weak)
     }
