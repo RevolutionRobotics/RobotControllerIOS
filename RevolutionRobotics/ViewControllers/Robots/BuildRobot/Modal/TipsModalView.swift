@@ -11,22 +11,62 @@ import UIKit
 final class TipsModalView: UIView {
     // MARK: - Outlets
     @IBOutlet private weak var tipsTitleLabel: UILabel!
+    @IBOutlet private weak var instructionLabel: UILabel!
+    @IBOutlet private weak var tipsLabel: UILabel!
     @IBOutlet private weak var skipConnectionButton: RRButton!
     @IBOutlet private weak var tryAgainButton: RRButton!
     @IBOutlet private weak var communityButton: RRButton!
-    @IBOutlet private weak var instructionLabel: UILabel!
-    @IBOutlet private weak var tipsLabel: UILabel!
 
     // MARK: - Properties
     var communityCallback: Callback?
     var tryAgainCallback: Callback?
     var skipCallback: Callback?
+    var title: String? {
+        get {
+            return tipsTitleLabel.text
+        }
+        set {
+            tipsTitleLabel.text = newValue
+        }
+    }
+    var subtitle: String? {
+        get {
+            return instructionLabel.text
+        }
+        set {
+            instructionLabel.text = newValue
+        }
+    }
+    var tips: String? {
+        get {
+            return tipsLabel.text
+        }
+        set {
+            tipsLabel.text = newValue
+        }
+    }
     var skipTitle: String? {
         get {
             return skipConnectionButton.titleLabel?.text
         }
         set {
-            skipConnectionButton.titleLabel?.text = newValue
+            skipConnectionButton.setTitle(newValue, for: .normal)
+        }
+    }
+    var communityTitle: String? {
+        get {
+            return communityButton.titleLabel?.text
+        }
+        set {
+            communityButton.setTitle(newValue, for: .normal)
+        }
+    }
+    var tryAgainTitle: String? {
+        get {
+            return communityButton.titleLabel?.text
+        }
+        set {
+            tryAgainButton.setTitle(newValue, for: .normal)
         }
     }
 }

@@ -9,11 +9,11 @@
 import Foundation
 
 extension String {
-    public func translate() -> String {
+    func translate() -> String {
         return self.translate(args: [])
     }
 
-    public func translate(args: CVarArg...) -> String {
+    func translate(args: CVarArg...) -> String {
         return NSString(format: NSLocalizedString(self, comment: "#"), arguments: getVaList(args)) as String
     }
 }

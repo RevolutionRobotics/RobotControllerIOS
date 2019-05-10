@@ -151,7 +151,13 @@ extension WhoToBuildViewController {
 
     private func showTipsModal() {
         self.dismiss(animated: true, completion: {
-            let tips = FailedConnectionTipsModal.instatiate()
+            let tips = TipsModalView.instatiate()
+            tips.title = ModalKeys.Tips.title.translate()
+            tips.subtitle = ModalKeys.Tips.subtitle.translate()
+            tips.tips = "Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat."
+            tips.skipTitle = ModalKeys.Connection.failedConnectionSkipButton.translate()
+            tips.communityTitle = ModalKeys.Tips.community.translate()
+            tips.tryAgainTitle = ModalKeys.Tips.tryAgin.translate()
             tips.skipCallback = { [weak self] in
                 self?.dismiss(animated: true, completion: {
                     let buildScreen = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
@@ -225,7 +231,7 @@ extension WhoToBuildViewController {
 
         connectionModal.tipsButtonTapped = { [weak self] in
             self?.dismissViewController()
-            let failedConnectionTipsModal = FailedConnectionTipsModal.instatiate()
+            let failedConnectionTipsModal = TipsModalView.instatiate()
             self?.presentModal(with: failedConnectionTipsModal)
             failedConnectionTipsModal.skipCallback = self?.dismissAndNavigateToBuildRobot
             failedConnectionTipsModal.tryAgainCallback = self?.dismissAndTryAgain

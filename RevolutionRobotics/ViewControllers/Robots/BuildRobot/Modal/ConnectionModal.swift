@@ -29,24 +29,24 @@ extension ConnectionModal {
     var successful: ConnectionModal {
         failView.removeFromSuperview()
         connectionStatusImageView.image = Image.Common.connectionSuccessful
-        connectionStatusLabel.text = RobotsKeys.Common.successfulConnectionTitle.translate().uppercased()
+        connectionStatusLabel.text = ModalKeys.Connection.successfulConnectionTitle.translate().uppercased()
 
         return self
     }
 
     var failed: ConnectionModal {
         skipConnectionButton.setBorder(fillColor: Color.black26, strokeColor: .clear, croppedCorners: [.bottomLeft])
-        skipConnectionButton.setTitle(RobotsKeys.Common.failedConnectionSkipButton.translate(), for: .normal)
+        skipConnectionButton.setTitle(ModalKeys.Connection.failedConnectionSkipButton.translate(), for: .normal)
 
         tipsButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [])
-        tipsButton.setTitle(RobotsKeys.Common.failedConnectionTipsButton.translate(), for: .normal)
+        tipsButton.setTitle(ModalKeys.Connection.failedConnectionTipsButton.translate(), for: .normal)
 
         tryAgainButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
-        tryAgainButton.setTitle(RobotsKeys.Common.failedConnectionTryAgainButton.translate(), for: .normal)
+        tryAgainButton.setTitle(ModalKeys.Connection.failedConnectionTryAgainButton.translate(), for: .normal)
 
-        subtitleLabel.text = RobotsKeys.Common.failedConnectionSubtitle.translate().uppercased()
+        subtitleLabel.text = ModalKeys.Connection.failedConnectionSubtitle.translate().uppercased()
         connectionStatusImageView.image = Image.Common.connectionFailed
-        connectionStatusLabel.text = RobotsKeys.Common.failedConnectionTitle.translate().uppercased()
+        connectionStatusLabel.text = ModalKeys.Connection.failedConnectionTitle.translate().uppercased()
 
         return self
     }

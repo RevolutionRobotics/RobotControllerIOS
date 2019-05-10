@@ -82,6 +82,14 @@
 "camera_dialog_delete_title" = "Delete";
 "camera_dialog_new_photo_title" = "Take new photo";
 "controller_got_it_button_title" = "Got it";
+
 "delete_robot_description" = "Are you sure you want to delete this robot?";
 "delete_robot_confirm" = "Delete";
 "delete_robot_cancel" = "Cancel";
+
+"tips_dialog_title" = "Tips";
+"tips_dialog_sub_title" = "Try to…";
+"tips_dialog_button_reconfigure" = "Reconfigure";
+"tips_dialog_button_skip_testing" = "Skip testing";
+"tips_dialog_button_community" = "Community";
+"tips_dialog_button_try_again" = "Try again";

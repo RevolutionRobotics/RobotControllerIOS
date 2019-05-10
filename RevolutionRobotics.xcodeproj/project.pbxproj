@@ -48,6 +48,7 @@
 		2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732072264A32200D7F38D /* ScreenAssembly.swift */; };
 		2A77320A2264A32D00D7F38D /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732092264A32D00D7F38D /* ServiceAssembly.swift */; };
 		2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77320E2264A79900D7F38D /* FirebaseServiceInterface.swift */; };
+		2A7DDB1A22859B2900891DA6 /* CommonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DDB1922859B2900891DA6 /* CommonKeys.swift */; };
 		2A91937A225F7C6F00E927FD /* BluetoothReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A919379225F7C6F00E927FD /* BluetoothReachability.swift */; };
 		2A9F52022265DAC900F9F651 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9F52012265DAC900F9F651 /* AppContainer.swift */; };
 		2A9F52062265E31C00F9F651 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9F52052265E31C00F9F651 /* BaseViewController.swift */; };
@@ -106,8 +107,8 @@
 		D03BA85F2277384A005B3E33 /* ChapterFinishedModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8592277384A005B3E33 /* ChapterFinishedModal.xib */; };
 		D03BA8602277384A005B3E33 /* ChapterFinishedModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA85A2277384A005B3E33 /* ChapterFinishedModal.swift */; };
 		D03BA8612277384A005B3E33 /* ConnectionModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA85B2277384A005B3E33 /* ConnectionModal.xib */; };
-		D03BA8642277385E005B3E33 /* FailedConnectionTipsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8622277385E005B3E33 /* FailedConnectionTipsModal.swift */; };
-		D03BA8652277385E005B3E33 /* FailedConnectionTipsModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8632277385E005B3E33 /* FailedConnectionTipsModal.xib */; };
+		D03BA8642277385E005B3E33 /* TipsModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8622277385E005B3E33 /* TipsModalView.swift */; };
+		D03BA8652277385E005B3E33 /* TipsModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8632277385E005B3E33 /* TipsModalView.xib */; };
 		D03BA86B22773DCA005B3E33 /* RRCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */; };
 		D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA87522783D17005B3E33 /* RRCollectionViewDelegate.swift */; };
 		D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA78226769E900624438 /* NSLayoutConstraint+Multiplier.swift */; };
@@ -201,6 +202,7 @@
 		2A7732072264A32200D7F38D /* ScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenAssembly.swift; sourceTree = "<group>"; };
 		2A7732092264A32D00D7F38D /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		2A77320E2264A79900D7F38D /* FirebaseServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceInterface.swift; sourceTree = "<group>"; };
+		2A7DDB1922859B2900891DA6 /* CommonKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonKeys.swift; sourceTree = "<group>"; };
 		2A919379225F7C6F00E927FD /* BluetoothReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothReachability.swift; sourceTree = "<group>"; };
 		2A9F52012265DAC900F9F651 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		2A9F52052265E31C00F9F651 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -265,8 +267,8 @@
 		D03BA8592277384A005B3E33 /* ChapterFinishedModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChapterFinishedModal.xib; sourceTree = "<group>"; };
 		D03BA85A2277384A005B3E33 /* ChapterFinishedModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterFinishedModal.swift; sourceTree = "<group>"; };
 		D03BA85B2277384A005B3E33 /* ConnectionModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionModal.xib; sourceTree = "<group>"; };
-		D03BA8622277385E005B3E33 /* FailedConnectionTipsModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailedConnectionTipsModal.swift; sourceTree = "<group>"; };
-		D03BA8632277385E005B3E33 /* FailedConnectionTipsModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FailedConnectionTipsModal.xib; sourceTree = "<group>"; };
+		D03BA8622277385E005B3E33 /* TipsModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsModalView.swift; sourceTree = "<group>"; };
+		D03BA8632277385E005B3E33 /* TipsModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipsModalView.xib; sourceTree = "<group>"; };
 		D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRCollectionView.swift; sourceTree = "<group>"; };
 		D03BA87522783D17005B3E33 /* RRCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		D05BAA78226769E900624438 /* NSLayoutConstraint+Multiplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Multiplier.swift"; sourceTree = "<group>"; };
@@ -670,6 +672,7 @@
 				2ADE8C372270A79E00ECEC72 /* SettingsKeys.swift */,
 				2A18002C227AE5800082E801 /* ModalKeys.swift */,
 				D0A1108F227B1DAD0064FBB6 /* ControllerKeys.swift */,
+				2A7DDB1922859B2900891DA6 /* CommonKeys.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -900,8 +903,8 @@
 			children = (
 				D0BF25692282C6BA00F08C9C /* BuildFinishedModal.swift */,
 				D0BF256A2282C6C100F08C9C /* BuildFinishedModal.xib */,
-				D03BA8622277385E005B3E33 /* FailedConnectionTipsModal.swift */,
-				D03BA8632277385E005B3E33 /* FailedConnectionTipsModal.xib */,
+				D03BA8622277385E005B3E33 /* TipsModalView.swift */,
+				D03BA8632277385E005B3E33 /* TipsModalView.xib */,
 				D03BA8582277384A005B3E33 /* TestingModal.swift */,
 				D03BA8572277384A005B3E33 /* TestingModal.xib */,
 				D03BA85A2277384A005B3E33 /* ChapterFinishedModal.swift */,
@@ -1145,7 +1148,7 @@
 				09105AA12280581F00AB7B72 /* PortConfigurationItemView.xib in Resources */,
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
 				D0049A432270ABA1007FA256 /* AvailableRobotsTableViewCell.xib in Resources */,
-				D03BA8652277385E005B3E33 /* FailedConnectionTipsModal.xib in Resources */,
+				D03BA8652277385E005B3E33 /* TipsModalView.xib in Resources */,
 				D0A11096227B23F20064FBB6 /* RRInputField.xib in Resources */,
 				196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */,
 				096479872268776200F68456 /* BuildRobotViewController.xib in Resources */,
@@ -1281,6 +1284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0B2A735227C7CF1004473EC /* ControllerCollectionViewCell.swift in Sources */,
+				2A7DDB1A22859B2900891DA6 /* CommonKeys.swift in Sources */,
 				2A77320A2264A32D00D7F38D /* ServiceAssembly.swift in Sources */,
 				09105AA02280581F00AB7B72 /* PortConfigurationItemView.swift in Sources */,
 				2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */,
@@ -1307,7 +1311,7 @@
 				D05C64C8225F570000B7BF4F /* TestCode.swift in Sources */,
 				D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */,
 				D03BA8602277384A005B3E33 /* ChapterFinishedModal.swift in Sources */,
-				D03BA8642277385E005B3E33 /* FailedConnectionTipsModal.swift in Sources */,
+				D03BA8642277385E005B3E33 /* TipsModalView.swift in Sources */,
 				09ED1BA9225247B1009CF262 /* MenuViewController.swift in Sources */,
 				D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */,
 				2AF8C75A22805EEC00CE1ACB /* RealmService.swift in Sources */,
