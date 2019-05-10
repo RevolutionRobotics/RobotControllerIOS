@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+            <connections>
+                <outlet property="facebookButton" destination="ImV-ps-Z6s" id="Xwd-oX-Rm8"/>
+                <outlet property="instagramButton" destination="Kya-1K-yDA" id="r4W-hs-cvg"/>
+                <outlet property="navigationBar" destination="4xZ-7I-BBn" id="nDf-7O-Ofb"/>
+                <outlet property="permissionsInfoLabel" destination="zwO-vR-93Z" id="BGS-Ms-Ywm"/>
+                <outlet property="permissionsLabel" destination="My1-gj-zbf" id="ToE-t5-Kd9"/>
+                <outlet property="permissionsView" destination="0uO-vC-D7Y" id="G17-hR-c9K"/>
+                <outlet property="privacyPolicyButton" destination="d7Y-nV-q6P" id="rEp-0l-mUk"/>
+                <outlet property="termsAndConditionsButton" destination="D1D-rd-EsW" id="4tJ-SX-1tF"/>
+                <outlet property="versionLabel" destination="vae-V2-ww6" id="9bf-SI-4I6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webButton" destination="QrG-nF-OXw" id="RXN-E8-G9Q"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4xZ-7I-BBn" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="568" height="71"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="71" id="V5K-S3-eHL"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0.7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vae-V2-ww6">
+                    <rect key="frame" x="252" y="67" width="64.5" height="14"/>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jum-qF-XhD">
+                    <rect key="frame" x="200" y="95" width="168" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-ps-Z6s" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="64" y="0.0" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="XDI-Mb-IDG"/>
+                                <constraint firstAttribute="width" constant="40" id="eT2-La-1w9"/>
+                            </constraints>
+                            <state key="normal" image="WebIcon"/>
+                            <connections>
+                                <action selector="webButtonTapped:" destination="-1" eventType="touchUpInside" id="wX7-B4-ADP"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrG-nF-OXw" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="5vI-KA-0VY"/>
+                                <constraint firstAttribute="width" constant="40" id="Sap-YO-xc1"/>
+                            </constraints>
+                            <state key="normal" image="FacebookIcon"/>
+                            <connections>
+                                <action selector="facebookButtonTapped:" destination="-1" eventType="touchUpInside" id="z3U-1a-Qjw"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kya-1K-yDA" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="128" y="0.0" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="0ky-be-7AN"/>
+                                <constraint firstAttribute="width" constant="40" id="OA9-21-SiH"/>
+                            </constraints>
+                            <state key="normal" image="InstagramIcon"/>
+                            <connections>
+                                <action selector="instagramButtonTapped:" destination="-1" eventType="touchUpInside" id="nbt-Lf-xei"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Kya-1K-yDA" secondAttribute="bottom" id="1Yg-rv-bWg"/>
+                        <constraint firstItem="ImV-ps-Z6s" firstAttribute="centerX" secondItem="jum-qF-XhD" secondAttribute="centerX" id="Cbk-zg-SYI"/>
+                        <constraint firstItem="QrG-nF-OXw" firstAttribute="top" secondItem="jum-qF-XhD" secondAttribute="top" id="JY0-90-NV8"/>
+                        <constraint firstItem="ImV-ps-Z6s" firstAttribute="top" secondItem="jum-qF-XhD" secondAttribute="top" id="WG6-IM-K71"/>
+                        <constraint firstAttribute="trailing" secondItem="Kya-1K-yDA" secondAttribute="trailing" id="bYq-LH-581"/>
+                        <constraint firstItem="QrG-nF-OXw" firstAttribute="leading" secondItem="jum-qF-XhD" secondAttribute="leading" id="clN-67-W4r"/>
+                        <constraint firstItem="Kya-1K-yDA" firstAttribute="leading" secondItem="ImV-ps-Z6s" secondAttribute="trailing" constant="24" id="d0c-oi-18m"/>
+                        <constraint firstItem="Kya-1K-yDA" firstAttribute="top" secondItem="jum-qF-XhD" secondAttribute="top" id="g3e-5D-9dM"/>
+                        <constraint firstItem="ImV-ps-Z6s" firstAttribute="leading" secondItem="QrG-nF-OXw" secondAttribute="trailing" constant="24" id="lu8-PJ-NMq"/>
+                        <constraint firstAttribute="bottom" secondItem="ImV-ps-Z6s" secondAttribute="bottom" id="wsd-6s-Awx"/>
+                        <constraint firstAttribute="bottom" secondItem="QrG-nF-OXw" secondAttribute="bottom" id="y5A-96-YDf"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="revolutionrobotics.org" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7N-Zt-zzD">
+                    <rect key="frame" x="236" y="139" width="96.5" height="12"/>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0uO-vC-D7Y">
+                    <rect key="frame" x="58" y="165" width="452" height="65"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PermissionIcon" translatesAutoresizingMaskIntoConstraints="NO" id="QfV-Vg-uJ2">
+                            <rect key="frame" x="12" y="20" width="25" height="25"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Permissions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My1-gj-zbf">
+                            <rect key="frame" x="49" y="16" width="391" height="17"/>
+                            <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="To modify them, please open the main Settings app on your device." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwO-vR-93Z">
+                            <rect key="frame" x="49" y="33" width="391" height="16"/>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r07-hf-VeY" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="452" height="65"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="permissionsButtonTapped:" destination="-1" eventType="touchUpInside" id="zLV-wj-2uj"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="QfV-Vg-uJ2" secondAttribute="bottom" constant="20" id="3jK-ZV-nPC"/>
+                        <constraint firstItem="zwO-vR-93Z" firstAttribute="leading" secondItem="QfV-Vg-uJ2" secondAttribute="trailing" constant="12" id="4SS-YW-AOH"/>
+                        <constraint firstAttribute="bottom" secondItem="zwO-vR-93Z" secondAttribute="bottom" constant="16" id="Esd-lM-zR7"/>
+                        <constraint firstAttribute="bottom" secondItem="r07-hf-VeY" secondAttribute="bottom" id="I1F-RK-lY6"/>
+                        <constraint firstItem="My1-gj-zbf" firstAttribute="leading" secondItem="QfV-Vg-uJ2" secondAttribute="trailing" constant="12" id="IEM-tt-pF0"/>
+                        <constraint firstItem="r07-hf-VeY" firstAttribute="leading" secondItem="0uO-vC-D7Y" secondAttribute="leading" id="Ien-MC-bET"/>
+                        <constraint firstItem="r07-hf-VeY" firstAttribute="top" secondItem="0uO-vC-D7Y" secondAttribute="top" id="KVJ-XG-FFe"/>
+                        <constraint firstAttribute="trailing" secondItem="zwO-vR-93Z" secondAttribute="trailing" constant="12" id="Kaf-Vm-5bw"/>
+                        <constraint firstItem="QfV-Vg-uJ2" firstAttribute="top" secondItem="0uO-vC-D7Y" secondAttribute="top" constant="20" id="QgX-Sb-AUc"/>
+                        <constraint firstItem="zwO-vR-93Z" firstAttribute="top" secondItem="My1-gj-zbf" secondAttribute="bottom" id="TKF-fc-Xmi"/>
+                        <constraint firstItem="QfV-Vg-uJ2" firstAttribute="leading" secondItem="0uO-vC-D7Y" secondAttribute="leading" constant="12" id="cFe-ZY-TO1"/>
+                        <constraint firstAttribute="trailing" secondItem="My1-gj-zbf" secondAttribute="trailing" constant="12" id="s07-2k-LXe"/>
+                        <constraint firstItem="My1-gj-zbf" firstAttribute="top" secondItem="0uO-vC-D7Y" secondAttribute="top" constant="16" id="ugg-40-gA3"/>
+                        <constraint firstAttribute="trailing" secondItem="r07-hf-VeY" secondAttribute="trailing" id="vyZ-PK-UBO"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1D-rd-EsW">
+                    <rect key="frame" x="284" y="250" width="226" height="46"/>
+                    <color key="backgroundColor" name="Black"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="KLd-Ri-bSb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                    <state key="normal" title="Terms &amp; conditions">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="termsAndConditionsButtonTapped:" destination="-1" eventType="touchUpInside" id="0ne-QR-nwC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7Y-nV-q6P">
+                    <rect key="frame" x="58" y="250" width="226" height="46"/>
+                    <color key="backgroundColor" name="Black"/>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                    <state key="normal" title="Privacy policy">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="privacyPolicyButtonTapped:" destination="-1" eventType="touchUpInside" id="SaL-nU-ikR"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vae-V2-ww6" firstAttribute="top" secondItem="4xZ-7I-BBn" secondAttribute="bottom" constant="-4" id="1bx-jK-enY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="D1D-rd-EsW" secondAttribute="bottom" constant="24" id="36a-B0-Ysr"/>
+                <constraint firstItem="4xZ-7I-BBn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9b9-16-Gki"/>
+                <constraint firstItem="D1D-rd-EsW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BY7-t7-Agi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0uO-vC-D7Y" secondAttribute="trailing" constant="58" id="Dkj-w5-HrB"/>
+                <constraint firstItem="0uO-vC-D7Y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Fu8-RO-HBw"/>
+                <constraint firstItem="vae-V2-ww6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="MZg-4A-VdU"/>
+                <constraint firstAttribute="trailing" secondItem="4xZ-7I-BBn" secondAttribute="trailing" id="NFf-fs-MhM"/>
+                <constraint firstItem="D1D-rd-EsW" firstAttribute="width" secondItem="d7Y-nV-q6P" secondAttribute="width" id="Nke-1F-vDf"/>
+                <constraint firstItem="o7N-Zt-zzD" firstAttribute="top" secondItem="jum-qF-XhD" secondAttribute="bottom" constant="4" id="Prq-2e-F7a"/>
+                <constraint firstItem="jum-qF-XhD" firstAttribute="top" secondItem="vae-V2-ww6" secondAttribute="bottom" constant="14" id="VMZ-DE-PeA"/>
+                <constraint firstItem="0uO-vC-D7Y" firstAttribute="top" secondItem="o7N-Zt-zzD" secondAttribute="bottom" constant="14" id="Vi7-vu-FGd"/>
+                <constraint firstItem="jum-qF-XhD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aIS-sL-nfq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="D1D-rd-EsW" secondAttribute="trailing" constant="58" id="aUe-Ye-A9n"/>
+                <constraint firstItem="0uO-vC-D7Y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="58" id="iHZ-NM-KBT"/>
+                <constraint firstItem="D1D-rd-EsW" firstAttribute="leading" secondItem="d7Y-nV-q6P" secondAttribute="trailing" id="pwM-kK-xQY"/>
+                <constraint firstItem="D1D-rd-EsW" firstAttribute="height" secondItem="d7Y-nV-q6P" secondAttribute="height" id="tyb-Ve-gOD"/>
+                <constraint firstItem="o7N-Zt-zzD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wgM-Ay-pT3"/>
+                <constraint firstItem="4xZ-7I-BBn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xQD-3X-fab"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="d7Y-nV-q6P" secondAttribute="bottom" constant="24" id="yJ8-6s-fV1"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="FacebookIcon" width="20" height="20"/>
+        <image name="InstagramIcon" width="20" height="20"/>
+        <image name="PermissionIcon" width="25" height="25"/>
+        <image name="WebIcon" width="20" height="20"/>
+        <namedColor name="Black">
+            <color red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

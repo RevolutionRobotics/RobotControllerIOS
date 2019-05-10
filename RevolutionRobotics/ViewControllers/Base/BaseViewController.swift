@@ -66,13 +66,21 @@ extension BaseViewController {
         present(modalViewController, animated: animated)
     }
 
-    func presentCommunityModal(presentationFinished: Callback?, url: URL? = nil) {
-        dismiss(animated: true, completion: { [weak self] in
-            let communityViewController = CommunityViewController(url: url ?? Constants.communityURL)
-            communityViewController.presentationFinished = presentationFinished
-            communityViewController.modalPresentationStyle = .overFullScreen
-            self?.present(communityViewController, animated: true, completion: nil)
-        })
+    func presentSafariModal(presentationFinished: Callback?, url: URL? = nil) {
+        if self.presentedViewController != nil {
+            dismiss(animated: true, completion: { [weak self] in
+                self?.presentSafari(presentationFinished: presentationFinished, url: url)
+            })
+        } else {
+            presentSafari(presentationFinished: presentationFinished, url: url)
+        }
+    }
+
+    private func presentSafari(presentationFinished: Callback?, url: URL?) {
+        let communityViewController = CommunityViewController(url: url ?? Constants.communityURL)
+        communityViewController.presentationFinished = presentationFinished
+        communityViewController.modalPresentationStyle = .overFullScreen
+        present(communityViewController, animated: true, completion: nil)
     }
 }
 

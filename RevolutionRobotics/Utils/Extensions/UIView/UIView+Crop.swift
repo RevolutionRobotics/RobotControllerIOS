@@ -90,6 +90,7 @@ extension UIView {
 
         if let superView = self.superview {
             for view in superView.subviews where view.tag == 1 {
+                superView.layoutIfNeeded()
                 labelFrame = view.frame
             }
         }

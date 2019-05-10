@@ -25,6 +25,7 @@ final class ScreenAssembly: Assembly {
         registerSensorConfigViewController(to: container)
         registerDriveMeViewController(to: container)
         registerFirmwareUpdateViewController(to: container)
+        registerAboutViewController(to: container)
     }
 }
 
@@ -124,6 +125,12 @@ extension ScreenAssembly {
     private func registerFirmwareUpdateViewController(to container: Container) {
         container
             .register(FirmwareUpdateViewController.self, factory: { _ in return FirmwareUpdateViewController() })
+            .inObjectScope(.weak)
+    }
+
+    private func registerAboutViewController(to container: Container) {
+        container
+            .register(AboutViewController.self, factory: { _ in return AboutViewController() })
             .inObjectScope(.weak)
     }
 }

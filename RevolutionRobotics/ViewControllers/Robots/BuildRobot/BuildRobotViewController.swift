@@ -160,7 +160,7 @@ extension BuildRobotViewController {
         tips.tryAgainTitle = ModalKeys.Tips.tryAgin.translate()
 
         tips.communityCallback = { [weak self] in
-            self?.presentCommunityModal(presentationFinished: { [weak self] in
+            self?.presentSafariModal(presentationFinished: { [weak self] in
                 guard let milestone = self?.currentStep?.milestone else {
                     return
                 }

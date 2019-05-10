@@ -75,7 +75,13 @@
 "settings_screen_title" = "Settings";
 "settings_reset_turorial" = "Reset tutorial";
 "settings_firmware_update" = "Firmware update";
-"settings_about_application " = "About application";
+"settings_about_application" = "About application";
+"about_screen_title" = "About application";
+"about_permissions_title" = "Permissions";
+"about_permissions_instruction" = "To modify them, please open the main Settings app on your device";
+"about_privacy_policy_button_title" = "Privacy policy";
+"about_terms_conditions_button_title" = "Terms & conditions";
+"about_version" = "Version %@";
 
 "firmware_screen_title" = "Firmware update";
 "firmware_new_connection_button" = "connect to new brain";
