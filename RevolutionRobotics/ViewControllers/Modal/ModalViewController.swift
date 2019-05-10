@@ -15,12 +15,14 @@ protocol ModalViewControllerDelegate: class {
 final class ModalViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet private weak var modalContainer: UIView!
+    @IBOutlet private weak var closeButton: UIButton!
 
     // MARK: - Delegate
     weak var delegate: ModalViewControllerDelegate?
 
     // MARK: - Content
     var contentView: UIView?
+    var isCloseHidden: Bool = false
 }
 
 // MARK: - View lifecycle
@@ -32,6 +34,7 @@ extension ModalViewController {
         guard let content = contentView else { return }
         modalContainer.addSubview(content)
         content.anchorToSuperview()
+        closeButton.isHidden = isCloseHidden
     }
 }
 

@@ -39,6 +39,11 @@ extension SettingsViewController {
 // MARK: - Event handlers
 extension SettingsViewController {
     @IBAction private func resetButtonTapped(_ sender: Any) {
+        presentModal(with: ResetTutorialModal.instatiate(), closeHidden: true)
+
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
+            self?.dismissViewController()
+        }
     }
 
     @IBAction private func firmwareButtonTapped(_ sender: Any) {

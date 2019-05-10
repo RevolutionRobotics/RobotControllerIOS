@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ModalViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
+                <outlet property="closeButton" destination="m0s-xa-7Fp" id="3jR-wA-ZH6"/>
                 <outlet property="modalContainer" destination="tL4-XZ-zRj" id="MuU-Mc-Ghx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
