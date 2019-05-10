@@ -72,6 +72,9 @@
 
 // MARK: - Settings
 "settings_screen_title" = "Settings";
+"settings_reset_turorial" = "Reset tutorial";
+"settings_firmware_update" = "Firmware update";
+"settings_about_application " = "About application";
 
 // MARK: - Challenges
 "challenges_screen_title" = "Challenges";
