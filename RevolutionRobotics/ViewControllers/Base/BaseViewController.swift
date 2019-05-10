@@ -104,8 +104,9 @@ extension BaseViewController {
         SideMenuManager.default.menuWidth = Constants.menuWidth
     }
 
-    func present(viewController: UIViewController, onSide side: MenuSide) {
+    func present(viewController: (UIViewController & UISideMenuNavigationControllerDelegate), onSide side: MenuSide) {
         let menuNavigationController = UISideMenuNavigationController(rootViewController: viewController)
+        menuNavigationController.sideMenuDelegate = viewController
         menuNavigationController.isNavigationBarHidden = true
 
         switch side {
@@ -116,9 +117,5 @@ extension BaseViewController {
             SideMenuManager.default.menuRightNavigationController = menuNavigationController
             present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
         }
-    }
-
-    func dismissSideViewController() {
-        dismiss(animated: true, completion: nil)
     }
 }

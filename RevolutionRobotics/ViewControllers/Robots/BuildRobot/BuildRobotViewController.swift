@@ -202,13 +202,14 @@ extension BuildRobotViewController {
     private func updateStoredRobot(step: Int) {
         guard let robot = storedRobotDataModel else {
             storedRobotDataModel = UserRobot(
-                id: remoteRobotDataModel!.id,
+                id: UUID().uuidString,
+                remoteId: remoteRobotDataModel!.id,
                 buildStatus: .inProgress,
                 actualBuildStep: step,
                 lastModified: Date(),
                 configId: remoteRobotDataModel!.configurationId,
                 customName: remoteRobotDataModel?.name,
-                customImage: nil,
+                customImage: remoteRobotDataModel?.coverImageGSURL,
                 customDescription: nil)
             realmService.saveRobot(storedRobotDataModel!, shouldUpdate: true)
             return

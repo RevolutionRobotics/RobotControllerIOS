@@ -58,13 +58,13 @@ final class ControllerCollectionViewCell: ResizableCell {
         if isControllerSelected {
             selectedLabel.text = RobotsKeys.Controllers.controllerSelected.translate()
             backgroundImageView.image =
-                isCentered ? Image.Configuration.cellRedBorderSelected :
-                Image.Configuration.cellWhiteBorderSelected
+                isCentered ? Image.Configuration.Controllers.cellRedBorderSelected :
+                Image.Configuration.Controllers.cellWhiteBorderSelected
         } else {
             selectedLabel.text = RobotsKeys.Controllers.controllerChooseThis.translate()
             backgroundImageView.image =
-                isCentered ? Image.Configuration.cellRedBorderNonSelected :
-                Image.Configuration.cellWhiteBorderNonSelected
+                isCentered ? Image.Configuration.Controllers.cellRedBorderNonSelected :
+                Image.Configuration.Controllers.cellWhiteBorderNonSelected
         }
     }
 

@@ -33,11 +33,8 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YourRobotsEditableWhiteCell" translatesAutoresizingMaskIntoConstraints="NO" id="u76-hq-HP7">
                         <rect key="frame" x="0.0" y="0.0" width="213" height="224"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="RobotPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="TCB-zL-eiC">
-                        <rect key="frame" x="87.5" y="54" width="38" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="TCB-zL-eiC" secondAttribute="height" multiplier="35:46" id="v45-br-UFI"/>
-                        </constraints>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="RobotPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="TCB-zL-eiC" userLabel="robotImageView">
+                        <rect key="frame" x="16" y="54" width="181" height="50"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="revvy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3O-CF-ILH">
                         <rect key="frame" x="16" y="24" width="181" height="19"/>
@@ -117,12 +114,14 @@
                 <constraint firstItem="XhF-Su-8hc" firstAttribute="leading" secondItem="u76-hq-HP7" secondAttribute="leading" constant="18" id="gFq-Iu-Wbx"/>
                 <constraint firstItem="DOZ-1A-0H7" firstAttribute="leading" secondItem="u76-hq-HP7" secondAttribute="leading" constant="3" id="grb-H4-s9j"/>
                 <constraint firstItem="2pC-Rl-Fr1" firstAttribute="leading" secondItem="baB-yQ-wnU" secondAttribute="trailing" constant="8" id="h3H-Mc-35J"/>
+                <constraint firstItem="TCB-zL-eiC" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="16" id="hB1-lb-Iht"/>
                 <constraint firstItem="u76-hq-HP7" firstAttribute="trailing" secondItem="XhF-Su-8hc" secondAttribute="trailing" constant="18" id="kca-tw-Jx8"/>
                 <constraint firstItem="u76-hq-HP7" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="l6A-IT-JxC"/>
                 <constraint firstItem="u76-hq-HP7" firstAttribute="bottom" secondItem="DOZ-1A-0H7" secondAttribute="bottom" constant="3" id="lOU-Yf-3Jc"/>
                 <constraint firstAttribute="bottom" secondItem="EUD-tB-1Po" secondAttribute="bottom" constant="3" id="o4U-aa-TfV"/>
                 <constraint firstItem="XhF-Su-8hc" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="oJY-mn-djL"/>
                 <constraint firstItem="2pC-Rl-Fr1" firstAttribute="centerY" secondItem="baB-yQ-wnU" secondAttribute="centerY" id="rNc-oX-aGu"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="TCB-zL-eiC" secondAttribute="trailing" constant="16" id="rWP-sn-eP7"/>
                 <constraint firstItem="Z3O-CF-ILH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="sdo-nf-Ebb"/>
                 <constraint firstItem="XhF-Su-8hc" firstAttribute="top" secondItem="TCB-zL-eiC" secondAttribute="bottom" constant="12" id="t89-TB-H1e"/>
                 <constraint firstAttribute="bottom" secondItem="VEX-QD-KEF" secondAttribute="bottom" constant="3" id="wy4-ql-TvT"/>
@@ -140,6 +139,7 @@
                 <outlet property="editButton" destination="VEX-QD-KEF" id="m18-5r-CvJ"/>
                 <outlet property="lastModifiedLabel" destination="2pC-Rl-Fr1" id="RfC-1E-2bQ"/>
                 <outlet property="nameLabel" destination="Z3O-CF-ILH" id="ixW-UL-jh6"/>
+                <outlet property="robotImageView" destination="TCB-zL-eiC" id="LbV-tN-NQU"/>
                 <outlet property="statusImageView" destination="baB-yQ-wnU" id="6Wo-gQ-0sb"/>
             </connections>
             <point key="canvasLocation" x="136.95652173913044" y="110.49107142857143"/>

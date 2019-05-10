@@ -30,11 +30,10 @@
             <rect key="frame" x="0.0" y="0.0" width="215" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tSM-9g-s1O">
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tSM-9g-s1O">
                     <rect key="frame" x="36" y="72" width="158" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="158" id="3Nt-HI-ayR"/>
-                        <constraint firstAttribute="height" constant="60" placeholder="YES" id="aJJ-Ut-mF6"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="0wg-EW-g1L"/>
                 </stackView>

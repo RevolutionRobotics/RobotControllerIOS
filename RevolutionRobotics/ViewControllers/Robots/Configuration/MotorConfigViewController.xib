@@ -60,10 +60,10 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5tB-EJ-rnD">
-                    <rect key="frame" x="4" y="270" width="207" height="46"/>
+                    <rect key="frame" x="16" y="270" width="195" height="46"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuo-Ao-DrN" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="103.5" height="46"/>
+                            <rect key="frame" x="0.0" y="0.0" width="97.5" height="46"/>
                             <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
                             <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Test" image="TestIcon">
@@ -74,7 +74,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIn-It-Fgx" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="103.5" y="0.0" width="103.5" height="46"/>
+                            <rect key="frame" x="97.5" y="0.0" width="97.5" height="46"/>
                             <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
                             <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Done" image="CheckIcon">
@@ -100,7 +100,7 @@
                 <constraint firstItem="3fo-m6-t8G" firstAttribute="trailing" secondItem="dmv-4D-li2" secondAttribute="trailing" id="VWN-gV-bLk"/>
                 <constraint firstItem="dmv-4D-li2" firstAttribute="top" secondItem="i84-KW-cY8" secondAttribute="bottom" constant="12" id="Yjr-75-cgg"/>
                 <constraint firstItem="tcK-vW-Pn1" firstAttribute="leading" secondItem="UcN-xT-RK7" secondAttribute="leading" constant="16" id="hov-TW-CXG"/>
-                <constraint firstItem="5tB-EJ-rnD" firstAttribute="leading" secondItem="UcN-xT-RK7" secondAttribute="leading" constant="4" id="hsX-h6-wYQ"/>
+                <constraint firstItem="5tB-EJ-rnD" firstAttribute="leading" secondItem="UcN-xT-RK7" secondAttribute="leading" constant="16" id="hsX-h6-wYQ"/>
                 <constraint firstItem="dmv-4D-li2" firstAttribute="trailing" secondItem="i84-KW-cY8" secondAttribute="trailing" id="kpH-yB-Bj0"/>
                 <constraint firstItem="3fo-m6-t8G" firstAttribute="width" secondItem="dmv-4D-li2" secondAttribute="width" id="rPm-eC-u0x"/>
                 <constraint firstItem="UcN-xT-RK7" firstAttribute="trailing" secondItem="tcK-vW-Pn1" secondAttribute="trailing" constant="16" id="t5H-4K-hwc"/>

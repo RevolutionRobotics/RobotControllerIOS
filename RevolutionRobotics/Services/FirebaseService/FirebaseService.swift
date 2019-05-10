@@ -17,6 +17,10 @@ final class FirebaseService {
 
 // MARK: - FirebaseServiceInterface
 extension FirebaseService: FirebaseServiceInterface {
+    func getConfigurations(completion: CallbackType<Result<[Configuration], FirebaseError>>?) {
+        getDataArray(Configuration.self, completion: completion)
+    }
+
     func getBuildSteps(for robotId: Int?, completion: CallbackType<Result<[BuildStep], FirebaseError>>?) {
         guard robotId != nil else {
             completion?(.failure(FirebaseError.invalidRobotId))
