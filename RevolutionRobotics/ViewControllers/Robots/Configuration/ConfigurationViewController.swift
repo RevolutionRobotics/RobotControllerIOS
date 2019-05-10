@@ -105,6 +105,13 @@ extension ConfigurationViewController {
         connectMotorPorts()
         connectSensorPorts()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        controllers = realmService.getControllers()
+        collectionView.setupInset()
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -198,7 +205,6 @@ extension ConfigurationViewController {
         collectionView.dataSource = self
         collectionView.register(ControllerCollectionViewCell.self)
         collectionView.cellRatio = Constants.cellRatio
-        collectionView.setupInset()
     }
 }
 
