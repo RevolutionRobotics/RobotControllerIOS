@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GamerPadViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+            <connections>
+                <outlet property="actionBottomButton" destination="AYm-lY-I83" id="Rbv-PB-Hv6"/>
+                <outlet property="actionLeftButton" destination="rmJ-zW-uoN" id="CLM-w4-oyO"/>
+                <outlet property="actionRightButton" destination="Tt9-3n-smD" id="B6J-8N-NbV"/>
+                <outlet property="actionTopButton" destination="iRu-ao-Vot" id="JRa-sl-eEd"/>
+                <outlet property="centerLeftButton" destination="Lo9-4U-CEH" id="4YV-VY-UYD"/>
+                <outlet property="centerRightButton" destination="9K4-bs-HFp" id="CKD-EY-z03"/>
+                <outlet property="joystickContainer" destination="U34-7p-rMt" id="66G-fS-igW"/>
+                <outlet property="navigationBar" destination="eRU-zB-qgZ" id="DfF-Rd-MdU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlayControllerBackground" translatesAutoresizingMaskIntoConstraints="NO" id="gjD-QP-zfV">
+                    <rect key="frame" x="295.5" y="0.0" width="305" height="288"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRU-zB-qgZ" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="896" height="71"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bxw-DW-22P">
+                            <rect key="frame" x="840" y="2" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="DBL-G1-fRL"/>
+                                <constraint firstAttribute="width" constant="44" id="thF-i0-8Km"/>
+                            </constraints>
+                            <state key="normal" image="BluetoothIcon"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REr-Ld-kb0">
+                            <rect key="frame" x="788" y="2" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="MfC-Mi-4SA"/>
+                                <constraint firstAttribute="height" constant="44" id="wMM-d4-67Z"/>
+                            </constraints>
+                            <state key="normal" image="EditIcon"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Bxw-DW-22P" secondAttribute="trailing" constant="12" id="2dL-qU-qxG"/>
+                        <constraint firstItem="REr-Ld-kb0" firstAttribute="centerY" secondItem="Bxw-DW-22P" secondAttribute="centerY" id="3jT-9O-bmX"/>
+                        <constraint firstAttribute="height" constant="71" id="Rip-Ru-03F"/>
+                        <constraint firstItem="Bxw-DW-22P" firstAttribute="top" secondItem="eRU-zB-qgZ" secondAttribute="top" constant="2" id="r4S-wN-vgc"/>
+                        <constraint firstItem="Bxw-DW-22P" firstAttribute="leading" secondItem="REr-Ld-kb0" secondAttribute="trailing" constant="8" id="xRC-zt-kNb"/>
+                    </constraints>
+                </view>
+                <skView contentMode="scaleToFill" shouldCullNonVisibleNodes="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U34-7p-rMt">
+                    <rect key="frame" x="44" y="146" width="207" height="207"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="207" id="3pt-6I-ygg"/>
+                        <constraint firstAttribute="width" constant="207" id="xMU-ec-wJv"/>
+                    </constraints>
+                </skView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7I-Rc-bMJ" userLabel="Center Buttons">
+                    <rect key="frame" x="375.5" y="285" width="145" height="84"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9K4-bs-HFp" customClass="GamerPadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="87" y="0.0" width="58" height="84"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="84" id="hcQ-bj-x6Y"/>
+                                <constraint firstAttribute="width" constant="58" id="tKi-KY-z8G"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lo9-4U-CEH" customClass="GamerPadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="58" height="84"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="58" id="1ND-M3-5xK"/>
+                                <constraint firstAttribute="height" constant="84" id="BnT-I0-1qt"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Lo9-4U-CEH" firstAttribute="top" secondItem="U7I-Rc-bMJ" secondAttribute="top" id="BrA-BX-kTZ"/>
+                        <constraint firstAttribute="bottom" secondItem="9K4-bs-HFp" secondAttribute="bottom" id="MPP-84-oK8"/>
+                        <constraint firstAttribute="bottom" secondItem="Lo9-4U-CEH" secondAttribute="bottom" id="T4o-yL-gYw"/>
+                        <constraint firstAttribute="trailing" secondItem="9K4-bs-HFp" secondAttribute="trailing" id="XgI-Xl-Vkv"/>
+                        <constraint firstItem="9K4-bs-HFp" firstAttribute="top" secondItem="U7I-Rc-bMJ" secondAttribute="top" id="Ylj-Jn-q42"/>
+                        <constraint firstItem="Lo9-4U-CEH" firstAttribute="leading" secondItem="U7I-Rc-bMJ" secondAttribute="leading" id="qOL-TB-CvA"/>
+                        <constraint firstItem="9K4-bs-HFp" firstAttribute="leading" secondItem="Lo9-4U-CEH" secondAttribute="trailing" constant="29" id="sdb-qZ-7xW"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="is9-zc-SVc" userLabel="Action Buttons">
+                    <rect key="frame" x="683" y="150" width="147" height="199"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmJ-zW-uoN" customClass="GamerPadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="66" width="41" height="67"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="67" id="NdZ-RQ-7Xz"/>
+                                <constraint firstAttribute="width" constant="41" id="fms-ZO-ytz"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYm-lY-I83" customClass="GamerPadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="53" y="132" width="41" height="67"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="41" id="3nH-Tz-2Lh"/>
+                                <constraint firstAttribute="height" constant="67" id="aI3-bZ-yUD"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tt9-3n-smD" customClass="GamerPadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="106" y="66" width="41" height="67"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="41" id="Xsy-5t-DaQ"/>
+                                <constraint firstAttribute="height" constant="67" id="Yvi-kE-RNJ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRu-ao-Vot" customClass="GamerPadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="53" y="0.0" width="41" height="67"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="67" id="Ib7-we-UeE"/>
+                                <constraint firstAttribute="width" constant="41" id="rTa-rN-osa"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Tt9-3n-smD" firstAttribute="leading" secondItem="rmJ-zW-uoN" secondAttribute="trailing" constant="65" id="47D-dY-31y"/>
+                        <constraint firstItem="rmJ-zW-uoN" firstAttribute="leading" secondItem="is9-zc-SVc" secondAttribute="leading" id="CGu-u4-ThC"/>
+                        <constraint firstItem="AYm-lY-I83" firstAttribute="centerX" secondItem="is9-zc-SVc" secondAttribute="centerX" id="Iyf-PH-j6b"/>
+                        <constraint firstItem="AYm-lY-I83" firstAttribute="top" secondItem="iRu-ao-Vot" secondAttribute="bottom" constant="65" id="KJC-QY-66t"/>
+                        <constraint firstItem="Tt9-3n-smD" firstAttribute="centerY" secondItem="is9-zc-SVc" secondAttribute="centerY" id="blI-cb-dbm"/>
+                        <constraint firstItem="iRu-ao-Vot" firstAttribute="top" secondItem="is9-zc-SVc" secondAttribute="top" id="e4B-21-xXR"/>
+                        <constraint firstItem="iRu-ao-Vot" firstAttribute="centerX" secondItem="is9-zc-SVc" secondAttribute="centerX" id="f80-oP-V2t"/>
+                        <constraint firstAttribute="bottom" secondItem="AYm-lY-I83" secondAttribute="bottom" id="hvs-os-z8Z"/>
+                        <constraint firstItem="rmJ-zW-uoN" firstAttribute="centerY" secondItem="is9-zc-SVc" secondAttribute="centerY" id="jDe-C6-sPs"/>
+                        <constraint firstAttribute="trailing" secondItem="Tt9-3n-smD" secondAttribute="trailing" id="xdy-OP-sn9"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="U7I-Rc-bMJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2QU-bx-4dl"/>
+                <constraint firstItem="eRU-zB-qgZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5zv-lx-Z52"/>
+                <constraint firstItem="gjD-QP-zfV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FuH-Eh-4FG"/>
+                <constraint firstItem="eRU-zB-qgZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HSK-m0-j1h"/>
+                <constraint firstItem="U34-7p-rMt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PWu-vx-k0C"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="U7I-Rc-bMJ" secondAttribute="bottom" constant="24" id="StK-ss-moI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="is9-zc-SVc" secondAttribute="trailing" constant="22" id="Tpy-Hq-aYn"/>
+                <constraint firstAttribute="trailing" secondItem="eRU-zB-qgZ" secondAttribute="trailing" id="XWr-u7-mXL"/>
+                <constraint firstItem="gjD-QP-zfV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cYU-LC-U8P"/>
+                <constraint firstItem="is9-zc-SVc" firstAttribute="centerY" secondItem="U34-7p-rMt" secondAttribute="centerY" id="jhm-sd-cKb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="U34-7p-rMt" secondAttribute="bottom" constant="40" id="jsk-WT-mI6"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="22.767857142857142" y="76.811594202898561"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="BluetoothIcon" width="40" height="40"/>
+        <image name="EditIcon" width="20" height="20"/>
+        <image name="PlayControllerBackground" width="305" height="288"/>
+    </resources>
+</document>

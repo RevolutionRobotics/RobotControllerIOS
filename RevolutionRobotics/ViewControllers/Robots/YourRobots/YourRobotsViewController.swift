@@ -133,15 +133,15 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
             let status = BuildStatus(rawValue: robots[indexPath.item].buildStatus)else { return }
         switch status {
         case .completed:
-            navigateToDriveMeViewController(with: robots[indexPath.item])
+            navigateToGamerPadViewController(with: robots[indexPath.item])
         case .initial, .inProgress:
             navigateToBuildYourRobotViewController(with: robots[indexPath.item])
         }
     }
 
-    private func navigateToDriveMeViewController(with robot: UserRobot) {
-        let driveMeViewController = AppContainer.shared.container.unwrappedResolve(DriveMeViewController.self)
-        navigationController?.pushViewController(driveMeViewController, animated: true)
+    private func navigateToGamerPadViewController(with robot: UserRobot) {
+        let gamerPadViewController = AppContainer.shared.container.unwrappedResolve(GamerPadViewController.self)
+        navigationController?.pushViewController(gamerPadViewController, animated: true)
     }
 
     private func navigateToBuildYourRobotViewController(with robot: UserRobot) {

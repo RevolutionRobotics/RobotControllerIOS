@@ -65,6 +65,10 @@ enum Image {
         static let ultrasoundUnselected = UIImage(named: "UltrasoundUnselected")
     }
 
+    enum Controller {
+        static let gamerPadJoystick = UIImage(named: "GamerPadJoystick")
+    }
+
     static let downloadIcon = UIImage(named: "DownloadIcon")
     static let retryIcon = UIImage(named: "RetryIcon")
     static let tickIcon = UIImage(named: "TickWhiteIcon")

@@ -41,8 +41,6 @@ enum RobotsKeys {
         static let buildFinishedDrive = "build_robot_finished_drive"
         static let buildFinishedAllSet = "build_robot_finished_all_set"
         static let buildFinishedMessage = "build_robot_finished_message"
-
-        static let driveMeScreenTitle = "drive_me_screen_title"
     }
 
     enum Configure {
@@ -72,5 +70,9 @@ enum RobotsKeys {
     enum Controllers {
         static let controllerChooseThis = "controller_choose_this"
         static let controllerSelected = "controller_selected"
+
+        enum Play {
+            static let screenTitle = "play_controller_screen_title"
+        }
     }
 }

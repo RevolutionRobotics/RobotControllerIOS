@@ -99,8 +99,8 @@ extension BuildRobotViewController {
                     self?.updateStoredRobot(step: currentStep.stepNumber)
                 }
                 self?.dismissViewController()
-                let driveMeScreen = AppContainer.shared.container.unwrappedResolve(DriveMeViewController.self)
-                self?.navigationController?.pushViewController(driveMeScreen, animated: true)
+                let gamerPadViewController = AppContainer.shared.container.unwrappedResolve(GamerPadViewController.self)
+                self?.navigationController?.pushViewController(gamerPadViewController, animated: true)
             }
             self?.presentModal(with: buildFinishedModal)
         }
