@@ -62,9 +62,8 @@ final class MotorConfigViewController: BaseViewController {
         validateActionButtons()
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
         setupActionButtons()
     }
 }
@@ -212,7 +211,7 @@ extension MotorConfigViewController {
 extension MotorConfigViewController {
     private func handleRotationChange(to rotation: Rotation) {
         switch state {
-        case .motor(_), .motorWithoutRotation:
+        case .motor, .motorWithoutRotation:
             state = .motor(rotation)
         case .drivetrain(let side, _):
             state = .drivetrain(side, rotation)

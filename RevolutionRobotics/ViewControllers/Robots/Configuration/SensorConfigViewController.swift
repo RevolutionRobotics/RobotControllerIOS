@@ -52,8 +52,8 @@ final class SensorConfigViewController: BaseViewController {
         validateActionButtons()
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
         setupActionButtons()
     }
 }
