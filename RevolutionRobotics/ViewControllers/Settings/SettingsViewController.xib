@@ -6,13 +6,22 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
+                <outlet property="aboutButton" destination="o1C-89-2Zz" id="xxa-So-qgm"/>
+                <outlet property="firmwareButton" destination="oNR-5c-6Tc" id="ok8-zS-R3V"/>
                 <outlet property="navigationBar" destination="1bL-oA-zJf" id="VHR-wp-iw4"/>
+                <outlet property="resetButton" destination="tSM-wl-8Xi" id="4Va-Sn-H1C"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,14 +37,79 @@
                         <constraint firstAttribute="height" constant="71" id="IQR-0l-pyd"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64N-RU-QcB">
+                    <rect key="frame" x="58" y="111" width="780" height="263"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSM-wl-8Xi" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="780" height="79.5"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Reset tutorial" image="ResetIcon"/>
+                            <connections>
+                                <action selector="resetButtonTapped:" destination="-1" eventType="touchUpInside" id="WH9-Dw-4rI"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNR-5c-6Tc" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="91.5" width="780" height="80"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Firmware update" image="RetryIcon"/>
+                            <connections>
+                                <action selector="firmwareButtonTapped:" destination="-1" eventType="touchUpInside" id="GBg-5J-8wU"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1C-89-2Zz" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="183.5" width="780" height="79.5"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="About application" image="AboutIcon"/>
+                            <connections>
+                                <action selector="aboutButtonTapped:" destination="-1" eventType="touchUpInside" id="PgW-i5-9if"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="o1C-89-2Zz" firstAttribute="top" secondItem="oNR-5c-6Tc" secondAttribute="bottom" constant="12" id="0el-tB-QkA"/>
+                        <constraint firstItem="oNR-5c-6Tc" firstAttribute="top" secondItem="tSM-wl-8Xi" secondAttribute="bottom" constant="12" id="1kz-SK-Axj"/>
+                        <constraint firstAttribute="trailing" secondItem="oNR-5c-6Tc" secondAttribute="trailing" id="9MU-od-1NI"/>
+                        <constraint firstAttribute="trailing" secondItem="tSM-wl-8Xi" secondAttribute="trailing" id="A1N-4y-AN7"/>
+                        <constraint firstAttribute="bottom" secondItem="o1C-89-2Zz" secondAttribute="bottom" id="AVH-Ik-7Gm"/>
+                        <constraint firstItem="tSM-wl-8Xi" firstAttribute="leading" secondItem="64N-RU-QcB" secondAttribute="leading" id="TP2-W1-7du"/>
+                        <constraint firstItem="tSM-wl-8Xi" firstAttribute="top" secondItem="64N-RU-QcB" secondAttribute="top" id="YMB-gB-80B"/>
+                        <constraint firstItem="o1C-89-2Zz" firstAttribute="height" secondItem="tSM-wl-8Xi" secondAttribute="height" id="ZUp-3G-Qja"/>
+                        <constraint firstItem="o1C-89-2Zz" firstAttribute="leading" secondItem="64N-RU-QcB" secondAttribute="leading" id="blg-Dy-4Sc"/>
+                        <constraint firstAttribute="trailing" secondItem="o1C-89-2Zz" secondAttribute="trailing" id="d4v-Wm-H34"/>
+                        <constraint firstItem="o1C-89-2Zz" firstAttribute="height" secondItem="oNR-5c-6Tc" secondAttribute="height" id="fIC-xY-8aq"/>
+                        <constraint firstItem="oNR-5c-6Tc" firstAttribute="leading" secondItem="64N-RU-QcB" secondAttribute="leading" id="tUI-Ef-xkF"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="1bL-oA-zJf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2zt-fi-vV5"/>
+                <constraint firstAttribute="bottom" secondItem="64N-RU-QcB" secondAttribute="bottom" constant="40" id="AnY-E3-A9V"/>
+                <constraint firstAttribute="trailing" secondItem="64N-RU-QcB" secondAttribute="trailing" constant="58" id="JVF-3a-bE9"/>
                 <constraint firstAttribute="trailing" secondItem="1bL-oA-zJf" secondAttribute="trailing" id="LTB-rz-LJ4"/>
+                <constraint firstItem="64N-RU-QcB" firstAttribute="top" secondItem="1bL-oA-zJf" secondAttribute="bottom" constant="40" id="SbJ-Kj-hHA"/>
                 <constraint firstItem="1bL-oA-zJf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iYk-GS-6z0"/>
+                <constraint firstItem="64N-RU-QcB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="58" id="tjt-Kn-lgB"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="AboutIcon" width="16" height="16"/>
+        <image name="ResetIcon" width="16" height="16"/>
+        <image name="RetryIcon" width="16" height="16"/>
+        <namedColor name="Black">
+            <color red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

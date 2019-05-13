@@ -9,5 +9,8 @@
 enum SettingsKeys {
     enum Main {
         static let title = "settings_screen_title"
+        static let resetTutorial = "settings_reset_turorial"
+        static let firmwareUpdate = "settings_firmware_update"
+        static let aboutApplication = "settings_about_application"
     }
 }
