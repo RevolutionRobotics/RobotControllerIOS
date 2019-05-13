@@ -41,10 +41,16 @@ enum ModalKeys {
         static let failedConnectionTryAgainButton = "connection_failed_try_again_button_title"
     }
 
-    enum Settings {
-        static let firmwareDownloading = "firmware_download_info"
-        static let firmwarePleaseWait = "firmware_please_wait"
-        static let firmwareSuccessfulUpdate = "firmware_successful_update"
-        static let firmwareDoneButton = "firmware_done_button"
+    enum FirmwareUpdate {
+        static let checkForUpdates = "firmware_update_check_for_updates"
+        static let braindID = "firmware_brain_id"
+        static let currentVersion = "firmware_current_version"
+        static let downloadUpdate = "firmware_update_download"
+        static let downloadReady = "firmware_update_download_ready"
+        static let upToDate = "firmware_up_to_date"
+        static let done = "firmware_done_button"
+        static let downloading = "firmware_download_info"
+        static let pleaseWait = "firmware_please_wait"
+        static let successfulUpdate = "firmware_successful_update"
     }
 }
