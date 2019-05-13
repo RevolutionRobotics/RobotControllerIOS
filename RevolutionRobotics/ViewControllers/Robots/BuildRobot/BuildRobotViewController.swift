@@ -151,8 +151,15 @@ extension BuildRobotViewController {
 
     private func showTipsModal(with milestone: Milestone) {
         dismissViewController()
-        let tipsModal = FailedConnectionTipsModal.instatiate()
-        tipsModal.communityCallback = { [weak self] in
+        let tips = TipsModalView.instatiate()
+        tips.title = ModalKeys.Tips.title.translate()
+        tips.subtitle = ModalKeys.Tips.subtitle.translate()
+        tips.tips = "Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat."
+        tips.skipTitle = ModalKeys.Tips.skipTesting.translate()
+        tips.communityTitle = ModalKeys.Tips.community.translate()
+        tips.tryAgainTitle = ModalKeys.Tips.tryAgin.translate()
+
+        tips.communityCallback = { [weak self] in
             self?.presentCommunityModal(presentationFinished: { [weak self] in
                 guard let milestone = self?.currentStep?.milestone else {
                     return
@@ -160,14 +167,14 @@ extension BuildRobotViewController {
                 self?.setupChapterFinishedModal(with: milestone)
             })
         }
-        tipsModal.skipCallback = { [weak self] in
+        tips.skipCallback = { [weak self] in
             self?.dismissViewController()
             self?.buildProgressBar.milestoneFinished()
         }
-        tipsModal.tryAgainCallback = { [weak self] in
+        tips.tryAgainCallback = { [weak self] in
             self?.showTestingModal(with: milestone)
         }
-        presentModal(with: tipsModal)
+        presentModal(with: tips)
     }
 }
 
