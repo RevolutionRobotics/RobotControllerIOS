@@ -18,7 +18,6 @@ final class WhoToBuildCollectionViewCell: ResizableCell {
     // MARK: - Outlets
     @IBOutlet private weak var baseHeight: NSLayoutConstraint!
     @IBOutlet private weak var baseWidth: NSLayoutConstraint!
-    @IBOutlet private weak var baseImageWidth: NSLayoutConstraint!
     @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var buildTimeLabel: UILabel!
     @IBOutlet private weak var robotImageView: UIImageView!
@@ -51,7 +50,6 @@ extension WhoToBuildCollectionViewCell {
     override func set(multiplier: CGFloat) {
         baseWidth = baseWidth.setMultiplier(multiplier: multiplier * baseWidthMultiplier)
         baseHeight = baseHeight.setMultiplier(multiplier: multiplier * baseHeightMultiplier)
-        baseImageWidth = baseImageWidth.setMultiplier(multiplier: multiplier * baseImageWidthMultiplier)
         robotNameLabel.font = robotNameLabel.font.withSize(baseNameFontSize * multiplier * multiplier)
         buildTimeLabel.font = buildTimeLabel.font.withSize(baseBuildTimeFontSize * multiplier * multiplier)
     }
@@ -64,7 +62,6 @@ extension WhoToBuildCollectionViewCell {
 
         baseHeightMultiplier = baseHeight.multiplier
         baseWidthMultiplier = baseWidth.multiplier
-        baseImageWidthMultiplier = baseImageWidth.multiplier
         baseNameFontSize = robotNameLabel.font.pointSize
         baseBuildTimeFontSize = buildTimeLabel.font.pointSize
     }
