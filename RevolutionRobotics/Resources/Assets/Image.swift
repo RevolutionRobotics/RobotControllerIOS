@@ -14,6 +14,7 @@ enum Image {
         static let connectionFailed = UIImage(named: "FailedConnectionIcon")
         static let connectionSuccessful = UIImage(named: "SuccessfulConnectionIcon")
         static let calendar = UIImage(named: "CalendarIcon")
+        static let bluetoothWhiteIcon = UIImage(named: "BluetoothWhiteIcon")
         static let underConstruction = UIImage(named: "UnderConstructionIcon")
     }
 

@@ -77,6 +77,9 @@
 "settings_firmware_update" = "Firmware update";
 "settings_about_application " = "About application";
 
+"firmware_screen_title" = "Firmware update";
+"firmware_new_connection_button" = "connect to new brain";
+
 // MARK: - Challenges
 "challenges_screen_title" = "Challenges";
 
