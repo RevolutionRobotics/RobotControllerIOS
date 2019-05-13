@@ -12,6 +12,11 @@ final class FirmwareUpdateViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var newConnectionButton: SideButton!
+    @IBOutlet private weak var connectedBrainView: UIView!
+    @IBOutlet private weak var brainIDTitleLabel: UILabel!
+    @IBOutlet private weak var brainIDLabel: UILabel!
+    @IBOutlet private weak var brainImageView: UIImageView!
+    @IBOutlet private weak var checkForUpdatesLabel: UILabel!
 }
 
 // MARK: - View lifecycle
@@ -24,5 +29,11 @@ extension FirmwareUpdateViewController {
         newConnectionButton.image = Image.Common.bluetoothWhiteIcon
         newConnectionButton.selectionHandler = {
         }
+    }
+}
+
+// MARK: - Event handlers
+extension FirmwareUpdateViewController {
+    @IBAction private func checkForUpdatesButtonTapped(_ sender: Any) {
     }
 }

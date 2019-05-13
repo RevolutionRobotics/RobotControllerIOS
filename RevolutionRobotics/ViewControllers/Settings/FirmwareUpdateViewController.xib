@@ -9,9 +9,25 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirmwareUpdateViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
+                <outlet property="brainIDLabel" destination="Kfj-XF-EVs" id="AmY-vm-GZw"/>
+                <outlet property="brainIDTitleLabel" destination="JUr-Cr-oOD" id="jnS-1b-z5s"/>
+                <outlet property="brainImageView" destination="rTG-Zi-k90" id="bBE-it-PBI"/>
+                <outlet property="checkForUpdatesLabel" destination="ckd-Uc-xcQ" id="B5o-Z5-fme"/>
+                <outlet property="connectedBrainView" destination="UJd-gU-HY0" id="Wtt-GK-KZw"/>
                 <outlet property="navigationBar" destination="9aH-S3-hff" id="DBo-BX-OfH"/>
                 <outlet property="newConnectionButton" destination="EbQ-zZ-TWB" id="k2h-ex-ZOX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -40,6 +56,80 @@
                         <constraint firstAttribute="height" constant="54" id="Lq6-VN-hxb"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJd-gU-HY0">
+                    <rect key="frame" x="307" y="74" width="282" height="297"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FirmwareCardRedBorder" translatesAutoresizingMaskIntoConstraints="NO" id="DTo-L5-mvE">
+                            <rect key="frame" x="0.0" y="0.0" width="282" height="297"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="DTo-L5-mvE" secondAttribute="height" multiplier="213:224" id="dl9-I8-iYf"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="brain id" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUr-Cr-oOD">
+                            <rect key="frame" x="110" y="24" width="62.5" height="19"/>
+                            <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1231242345345" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfj-XF-EVs">
+                            <rect key="frame" x="89" y="50" width="104.5" height="20"/>
+                            <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="BrainPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="rTG-Zi-k90">
+                            <rect key="frame" x="40" y="86" width="202" height="143"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDo-yx-W5B">
+                            <rect key="frame" x="0.0" y="245" width="282" height="52"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check for updates" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckd-Uc-xcQ">
+                                    <rect key="frame" x="16" y="17.5" width="250" height="17"/>
+                                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="ckd-Uc-xcQ" firstAttribute="centerX" secondItem="JDo-yx-W5B" secondAttribute="centerX" id="3cb-Ad-ZXn"/>
+                                <constraint firstItem="ckd-Uc-xcQ" firstAttribute="centerY" secondItem="JDo-yx-W5B" secondAttribute="centerY" id="H0x-ap-Ln6"/>
+                                <constraint firstAttribute="width" secondItem="JDo-yx-W5B" secondAttribute="height" multiplier="141:26" id="Jfe-AD-u0A"/>
+                                <constraint firstItem="ckd-Uc-xcQ" firstAttribute="leading" secondItem="JDo-yx-W5B" secondAttribute="leading" constant="16" id="SMP-x3-JYL"/>
+                                <constraint firstAttribute="trailing" secondItem="ckd-Uc-xcQ" secondAttribute="trailing" constant="16" id="YKD-Sk-rXK"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtT-P8-jEo">
+                            <rect key="frame" x="0.0" y="0.0" width="282" height="297"/>
+                            <connections>
+                                <action selector="checkForUpdatesButtonTapped:" destination="-1" eventType="touchUpInside" id="Zfx-T5-XJS"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="rTG-Zi-k90" firstAttribute="top" secondItem="Kfj-XF-EVs" secondAttribute="bottom" constant="16" id="4fs-hv-gMH"/>
+                        <constraint firstAttribute="bottom" secondItem="DTo-L5-mvE" secondAttribute="bottom" id="Ehu-uL-MI9"/>
+                        <constraint firstItem="rTG-Zi-k90" firstAttribute="leading" secondItem="UJd-gU-HY0" secondAttribute="leading" constant="40" id="Gt9-dY-7dQ"/>
+                        <constraint firstItem="JUr-Cr-oOD" firstAttribute="top" secondItem="UJd-gU-HY0" secondAttribute="top" constant="24" id="H0X-Jf-JAN"/>
+                        <constraint firstItem="Kfj-XF-EVs" firstAttribute="centerX" secondItem="UJd-gU-HY0" secondAttribute="centerX" id="JcD-YP-m6p"/>
+                        <constraint firstItem="JDo-yx-W5B" firstAttribute="top" secondItem="rTG-Zi-k90" secondAttribute="bottom" constant="16" id="OiG-aF-Has"/>
+                        <constraint firstItem="JDo-yx-W5B" firstAttribute="leading" secondItem="UJd-gU-HY0" secondAttribute="leading" id="WXa-37-x8r"/>
+                        <constraint firstAttribute="trailing" secondItem="JDo-yx-W5B" secondAttribute="trailing" id="Z2R-lz-cFu"/>
+                        <constraint firstItem="JDo-yx-W5B" firstAttribute="width" secondItem="UJd-gU-HY0" secondAttribute="width" id="ZM7-76-nek"/>
+                        <constraint firstAttribute="bottom" secondItem="gtT-P8-jEo" secondAttribute="bottom" id="e67-8L-o9o"/>
+                        <constraint firstAttribute="trailing" secondItem="gtT-P8-jEo" secondAttribute="trailing" id="gfp-r6-Rpp"/>
+                        <constraint firstItem="Kfj-XF-EVs" firstAttribute="top" secondItem="JUr-Cr-oOD" secondAttribute="bottom" constant="7" id="jtj-ny-EIW"/>
+                        <constraint firstAttribute="trailing" secondItem="rTG-Zi-k90" secondAttribute="trailing" constant="40" id="kpb-EO-dzE"/>
+                        <constraint firstItem="gtT-P8-jEo" firstAttribute="top" secondItem="UJd-gU-HY0" secondAttribute="top" id="lwj-lP-KpP"/>
+                        <constraint firstAttribute="bottom" secondItem="JDo-yx-W5B" secondAttribute="bottom" id="oaz-Xk-jQI"/>
+                        <constraint firstAttribute="trailing" secondItem="DTo-L5-mvE" secondAttribute="trailing" id="qjg-yn-SB3"/>
+                        <constraint firstItem="DTo-L5-mvE" firstAttribute="leading" secondItem="UJd-gU-HY0" secondAttribute="leading" id="r9f-kV-3oB"/>
+                        <constraint firstItem="JUr-Cr-oOD" firstAttribute="centerX" secondItem="UJd-gU-HY0" secondAttribute="centerX" id="t1u-F1-vFn"/>
+                        <constraint firstItem="DTo-L5-mvE" firstAttribute="top" secondItem="UJd-gU-HY0" secondAttribute="top" id="tAo-9b-1tT"/>
+                        <constraint firstItem="gtT-P8-jEo" firstAttribute="leading" secondItem="UJd-gU-HY0" secondAttribute="leading" id="xtw-E1-mgQ"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -48,15 +138,21 @@
                 <constraint firstAttribute="trailing" secondItem="EbQ-zZ-TWB" secondAttribute="trailing" id="4ke-P2-gKA"/>
                 <constraint firstAttribute="trailing" secondItem="QSa-6f-ZCU" secondAttribute="trailing" id="9Fo-Mi-IgP"/>
                 <constraint firstAttribute="trailing" secondItem="9aH-S3-hff" secondAttribute="trailing" id="F7e-zl-kqZ"/>
+                <constraint firstItem="UJd-gU-HY0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Gxc-Zy-3Za"/>
                 <constraint firstAttribute="bottom" secondItem="QSa-6f-ZCU" secondAttribute="bottom" id="Xzh-aV-kGZ"/>
                 <constraint firstAttribute="bottom" secondItem="EbQ-zZ-TWB" secondAttribute="bottom" constant="6" id="byj-jg-VVr"/>
                 <constraint firstItem="QSa-6f-ZCU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="okj-Fe-Z0L"/>
                 <constraint firstItem="9aH-S3-hff" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="r6C-v4-iX6"/>
+                <constraint firstItem="UJd-gU-HY0" firstAttribute="top" secondItem="9aH-S3-hff" secondAttribute="bottom" constant="3" id="saf-XL-Jq9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UJd-gU-HY0" secondAttribute="bottom" constant="22" id="u10-Fs-aaq"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="22.767857142857142" y="76.811594202898561"/>
         </view>
     </objects>
     <resources>
+        <image name="BrainPlaceholder" width="94" height="62"/>
+        <image name="FirmwareCardRedBorder" width="213" height="224"/>
         <image name="GlowBackground" width="568" height="320"/>
     </resources>
 </document>
