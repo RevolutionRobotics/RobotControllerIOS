@@ -73,11 +73,12 @@ extension WhoToBuildViewController {
 
         navigationBar.setup(title: RobotsKeys.WhoToBuild.title.translate(), delegate: self)
         buildYourOwnButton.setTitle(RobotsKeys.WhoToBuild.buildNewButtonTitle.translate(), for: .normal)
+        setupCollectionView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupCollectionView()
+        collectionView.setupInset()
         fetchRobots()
     }
 
@@ -85,7 +86,6 @@ extension WhoToBuildViewController {
         collectionView.rrDelegate = self
         collectionView.dataSource = self
         collectionView.register(WhoToBuildCollectionViewCell.self)
-        collectionView.setupInset()
     }
 }
 
