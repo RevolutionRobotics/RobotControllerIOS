@@ -108,3 +108,5 @@
 
 "firmware_download_info" = "Downloading & updating";
 "firmware_please_wait" = "Please wait";
+"firmware_successful_update" = "Successful update";
+"firmware_done_button" = "Done";

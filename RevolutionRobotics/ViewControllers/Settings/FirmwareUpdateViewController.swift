@@ -69,7 +69,7 @@ extension FirmwareUpdateViewController {
                 })
             }
             tips.communityCallback = { [weak self] in
-                self?.presentCommunityModal(presentationFinished: { [weak self] in
+                self?.presentSafariModal(presentationFinished: { [weak self] in
                     self?.showTurnOnTheBrain()
                 })
             }
@@ -140,7 +140,7 @@ extension FirmwareUpdateViewController {
             failedConnectionTipsModal.isSkipButtonHidden = true
             failedConnectionTipsModal.tryAgainCallback = self?.dismissAndTryAgain
             failedConnectionTipsModal.communityCallback = { [weak self] in
-                self?.presentCommunityModal(presentationFinished: { [weak self] in
+                self?.presentSafariModal(presentationFinished: { [weak self] in
                     self?.dismissAndTryAgain()
                 })
             }
