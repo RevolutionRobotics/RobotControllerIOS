@@ -69,6 +69,29 @@ final class TipsModalView: UIView {
             tryAgainButton.setTitle(newValue, for: .normal)
         }
     }
+
+    var isSkipButtonHidden: Bool = false {
+        didSet {
+            if isSkipButtonHidden {
+                skipConnectionButton.removeFromSuperview()
+                setupBorders()
+            }
+        }
+    }
+}
+
+// MARK: - Functions
+extension TipsModalView {
+    private func setupBorders() {
+        layoutIfNeeded()
+        if isSkipButtonHidden {
+            communityButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
+        } else {
+            skipConnectionButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
+            communityButton.setBorder(fillColor: Color.black26, croppedCorners: [])
+        }
+        tryAgainButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
+    }
 }
 
 // MARK: - View lifecycle
@@ -76,9 +99,7 @@ extension TipsModalView {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        skipConnectionButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
-        communityButton.setBorder(fillColor: Color.black26, croppedCorners: [])
-        tryAgainButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
+        self.setupBorders()
     }
 }
 

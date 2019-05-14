@@ -55,9 +55,6 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sY-RM-jjr" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="4" y="190" width="150.5" height="46"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="46" id="TVt-QM-IaK"/>
-                    </constraints>
                     <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
                     <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -82,6 +79,9 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcT-kH-xuq" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="154.5" y="190" width="151" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="7j9-iK-ZGj"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
                     <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -117,16 +117,17 @@
                 <constraint firstItem="pcT-kH-xuq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8b4-4V-Cfc" secondAttribute="bottom" constant="29" id="GEe-dv-W2S"/>
                 <constraint firstItem="pcT-kH-xuq" firstAttribute="leading" secondItem="4sY-RM-jjr" secondAttribute="trailing" id="HrW-O6-E1B"/>
                 <constraint firstAttribute="trailing" secondItem="SB3-XG-Kyg" secondAttribute="trailing" constant="4" id="IWF-U4-BYF"/>
-                <constraint firstItem="4sY-RM-jjr" firstAttribute="height" secondItem="SB3-XG-Kyg" secondAttribute="height" id="KBI-sd-HTv"/>
+                <constraint firstItem="pcT-kH-xuq" firstAttribute="width" secondItem="4sY-RM-jjr" secondAttribute="width" id="JeH-Cq-uox"/>
                 <constraint firstItem="8b4-4V-Cfc" firstAttribute="top" secondItem="UFn-68-CPg" secondAttribute="bottom" constant="8" id="Li7-YH-mge"/>
                 <constraint firstItem="9rg-az-RWd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Lip-oV-hTZ"/>
-                <constraint firstItem="4sY-RM-jjr" firstAttribute="width" secondItem="pcT-kH-xuq" secondAttribute="width" id="OzD-Ek-uFK"/>
+                <constraint firstItem="pcT-kH-xuq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" priority="750" constant="4" id="N7Q-qp-ZBd"/>
                 <constraint firstItem="4sY-RM-jjr" firstAttribute="height" secondItem="pcT-kH-xuq" secondAttribute="height" id="QzE-Te-aoh"/>
                 <constraint firstAttribute="bottom" secondItem="SB3-XG-Kyg" secondAttribute="bottom" constant="4" id="Squ-tf-Q3d"/>
                 <constraint firstAttribute="bottom" secondItem="4sY-RM-jjr" secondAttribute="bottom" constant="4" id="U6H-Cc-sX1"/>
-                <constraint firstItem="4sY-RM-jjr" firstAttribute="width" secondItem="SB3-XG-Kyg" secondAttribute="width" id="ZP8-KI-Aqu"/>
+                <constraint firstItem="pcT-kH-xuq" firstAttribute="width" secondItem="SB3-XG-Kyg" secondAttribute="width" id="XQW-fS-1DI"/>
                 <constraint firstItem="UFn-68-CPg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="cPG-TF-o0h"/>
                 <constraint firstItem="SB3-XG-Kyg" firstAttribute="leading" secondItem="pcT-kH-xuq" secondAttribute="trailing" id="dAM-of-caR"/>
+                <constraint firstItem="SB3-XG-Kyg" firstAttribute="height" secondItem="pcT-kH-xuq" secondAttribute="height" id="fxD-7M-6QE"/>
                 <constraint firstAttribute="trailing" secondItem="UFn-68-CPg" secondAttribute="trailing" constant="32" id="hTF-sA-XKI"/>
                 <constraint firstItem="4sY-RM-jjr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="l8L-gi-GXk"/>
                 <constraint firstAttribute="trailing" secondItem="8b4-4V-Cfc" secondAttribute="trailing" constant="32" id="omE-iL-W4N"/>
