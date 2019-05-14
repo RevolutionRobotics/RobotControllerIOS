@@ -124,6 +124,7 @@ extension WhoToBuildViewController: RRCollectionViewDelegate {
 extension WhoToBuildViewController {
     private func showTurnOnTheBrain() {
         let turnOnModal = TurnOnBrainView.instatiate()
+        turnOnModal.setup()
         setupHandlers(on: turnOnModal)
         presentModal(with: turnOnModal)
     }

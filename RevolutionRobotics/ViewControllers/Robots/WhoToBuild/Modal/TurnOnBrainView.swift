@@ -27,18 +27,30 @@ final class TurnOnBrainView: UIView {
 extension TurnOnBrainView {
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        laterButton.setBorder(fillColor: Color.black26,
-                              strokeColor: Color.blackTwo,
-                              croppedCorners: [.bottomLeft])
-        tipsButton.setBorder(fillColor: Color.black26,
-                             strokeColor: Color.blackTwo,
-                             croppedCorners: [])
-        startButton.setBorder(fillColor: Color.blackTwo,
-                              strokeColor: UIColor.white,
-                              croppedCorners: [.topRight])
         instructionLabel.text = RobotsKeys.BuildRobot.turnOnTheBrainInstruction.translate().uppercased()
         nextStepLabel.text = RobotsKeys.BuildRobot.turnOnTheBrainTip.translate().uppercased()
+    }
+}
+
+// MARK: - Setup
+extension TurnOnBrainView {
+    func setup(laterHidden: Bool = false) {
+        if laterHidden {
+            laterButton.removeFromSuperview()
+            tipsButton.setBorder(fillColor: Color.black26,
+                                 strokeColor: Color.blackTwo,
+                                 croppedCorners: [.bottomLeft])
+        } else {
+            laterButton.setBorder(fillColor: Color.black26,
+                                  strokeColor: Color.blackTwo,
+                                  croppedCorners: [.bottomLeft])
+            tipsButton.setBorder(fillColor: Color.black26,
+                                 strokeColor: Color.blackTwo,
+                                 croppedCorners: [])
+        }
+        startButton.setBorder(fillColor: .clear,
+                              strokeColor: UIColor.white,
+                              croppedCorners: [.topRight])
     }
 }
 
