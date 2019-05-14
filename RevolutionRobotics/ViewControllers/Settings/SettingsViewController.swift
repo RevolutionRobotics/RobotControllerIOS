@@ -52,5 +52,7 @@ extension SettingsViewController {
     }
 
     @IBAction private func aboutButtonTapped(_ sender: Any) {
+        let aboutViewController = AppContainer.shared.container.unwrappedResolve(AboutViewController.self)
+        navigationController?.pushViewController(aboutViewController, animated: true)
     }
 }

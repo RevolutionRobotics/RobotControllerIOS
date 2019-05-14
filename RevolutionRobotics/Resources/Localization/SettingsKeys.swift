@@ -18,4 +18,13 @@ enum SettingsKeys {
         static let title = "firmware_screen_title"
         static let newConnectionButton = "firmware_new_connection_button"
     }
+
+    enum About {
+        static let title = "about_screen_title"
+        static let permissionsTitle = "about_permissions_title"
+        static let permissionsInstruction = "about_permissions_instruction"
+        static let privacyPolicyButton = "about_privacy_policy_button_title"
+        static let termsAndConditionsButton = "about_terms_conditions_button_title"
+        static let version = "about_version"
+    }
 }
