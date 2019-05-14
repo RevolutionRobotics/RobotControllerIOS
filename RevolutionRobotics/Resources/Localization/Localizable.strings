@@ -105,3 +105,6 @@
 "tips_dialog_button_skip_testing" = "Skip testing";
 "tips_dialog_button_community" = "Community";
 "tips_dialog_button_try_again" = "Try again";
+
+"firmware_download_info" = "Downloading & updating";
+"firmware_please_wait" = "Please wait";
