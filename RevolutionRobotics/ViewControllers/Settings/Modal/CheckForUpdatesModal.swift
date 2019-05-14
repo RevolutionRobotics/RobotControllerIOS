@@ -16,19 +16,62 @@ final class CheckForUpdatesModal: UIView {
     @IBOutlet private weak var updateView: UIView!
     @IBOutlet private weak var updateLabel: UILabel!
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
-
-    // MARK: - DevInfo
     @IBOutlet private weak var devInfoView: UIView!
-    @IBOutlet private weak var label1: UILabel!
-    @IBOutlet private weak var label2: UILabel!
-    @IBOutlet private weak var label3: UILabel!
-    @IBOutlet private weak var label4: UILabel!
-    @IBOutlet private weak var label5: UILabel!
-    @IBOutlet private weak var label6: UILabel!
-    @IBOutlet private weak var label7: UILabel!
-    @IBOutlet private weak var label8: UILabel!
-    @IBOutlet private weak var label9: UILabel!
-    @IBOutlet private weak var label10: UILabel!
+
+    @IBOutlet private weak var hardwareVersionLabel: UILabel!
+    @IBOutlet private weak var modelNumberLabel: UILabel!
+    @IBOutlet private weak var softwareVersionLabel: UILabel!
+    @IBOutlet private weak var serialNumberLabel: UILabel!
+    @IBOutlet private weak var manufacturerNameLabel: UILabel!
+    @IBOutlet private weak var mainBatteryLabel: UILabel!
+    @IBOutlet private weak var motorBatteryLabel: UILabel!
+
+    // MARK: - Properties
+    var brainId: String = "" {
+        didSet {
+            brainIDLabel.text = brainId
+        }
+    }
+    var firmwareVersion: String = "" {
+        didSet {
+            versionLabel.text = ModalKeys.FirmwareUpdate.currentVersion.translate(args: firmwareVersion)
+        }
+    }
+    var hardwareVersion: String = "" {
+        didSet {
+            hardwareVersionLabel.text = ModalKeys.FirmwareUpdate.hardwareVersion.translate(args: hardwareVersion)
+        }
+    }
+    var modelNumber: String = "" {
+        didSet {
+            modelNumberLabel.text = ModalKeys.FirmwareUpdate.modelNumber.translate(args: modelNumber)
+        }
+    }
+    var softwareVersion: String = "" {
+        didSet {
+            softwareVersionLabel.text = ModalKeys.FirmwareUpdate.softwareVersion.translate(args: softwareVersion)
+        }
+    }
+    var serialNumber: String = "" {
+        didSet {
+            serialNumberLabel.text = ModalKeys.FirmwareUpdate.serialNumber.translate(args: serialNumber)
+        }
+    }
+    var manufacturerName: String = "" {
+        didSet {
+            manufacturerNameLabel.text = ModalKeys.FirmwareUpdate.manufacturerName.translate(args: manufacturerName)
+        }
+    }
+    var mainBattery: Int = 0 {
+        didSet {
+            mainBatteryLabel.text = ModalKeys.FirmwareUpdate.mainBattery.translate(args: "\(mainBattery)")
+        }
+    }
+    var motorBattery: Int = 0 {
+        didSet {
+            motorBatteryLabel.text = ModalKeys.FirmwareUpdate.motorBattery.translate(args: "\(motorBattery)")
+        }
+    }
 }
 
 // MARK: - View lifecycle
@@ -36,18 +79,14 @@ extension CheckForUpdatesModal {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        if let environment = Bundle.main.infoDictionary?["Environment"] as? String, environment.contains("Dev") {
-            devInfoView.isHidden = false
-        }
         checkForUpdatesButton.setBorder(fillColor: .clear, strokeColor: .white)
         checkForUpdatesButton.setTitle(ModalKeys.FirmwareUpdate.checkForUpdates.translate(), for: .normal)
         checkForUpdatesButton.setImage(Image.retryIcon, for: .normal)
-        brainIDLabel.text = ModalKeys.FirmwareUpdate.braindID.translate(args: "1231231231231")
-        versionLabel.text = ModalKeys.FirmwareUpdate.currentVersion.translate(args: "3.1.6.7")
+        brainIDLabel.text = ModalKeys.FirmwareUpdate.loading.translate()
     }
 }
 
-// MARK: - Functions
+// MARK: - Public methods
 extension CheckForUpdatesModal {
     func updateFound() {
         loadingIndicator.isHidden = true

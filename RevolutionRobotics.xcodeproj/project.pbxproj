@@ -134,11 +134,11 @@
 		D05C64E9225F683800B7BF4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D05C64E8225F683800B7BF4F /* GoogleService-Info.plist */; };
 		D06C3267228570FF005534C0 /* ResetTutorialModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C3266228570FF005534C0 /* ResetTutorialModal.swift */; };
 		D06C326922857107005534C0 /* ResetTutorialModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C326822857107005534C0 /* ResetTutorialModal.xib */; };
-		D06C327322899F60005534C0 /* FirmwareUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C327122899F60005534C0 /* FirmwareUpdateViewController.swift */; };
-		D06C327422899F60005534C0 /* FirmwareUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C327222899F60005534C0 /* FirmwareUpdateViewController.xib */; };
 		D06C326C22857A80005534C0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C326A22857A80005534C0 /* AboutViewController.swift */; };
 		D06C326D22857A80005534C0 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C326B22857A80005534C0 /* AboutViewController.xib */; };
 		D06C327022899574005534C0 /* Bundle+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C326F22899574005534C0 /* Bundle+Version.swift */; };
+		D06C327322899F60005534C0 /* FirmwareUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C327122899F60005534C0 /* FirmwareUpdateViewController.swift */; };
+		D06C327422899F60005534C0 /* FirmwareUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C327222899F60005534C0 /* FirmwareUpdateViewController.xib */; };
 		D06F01D0228AFF8F00AF73E5 /* FirmwareDownloadModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06F01CF228AFF8F00AF73E5 /* FirmwareDownloadModal.swift */; };
 		D06F01D2228AFFA600AF73E5 /* FirmwareDownloadModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModal.xib */; };
 		D06F01D7228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift */; };
@@ -307,11 +307,11 @@
 		D05C64E8225F683800B7BF4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D06C3266228570FF005534C0 /* ResetTutorialModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetTutorialModal.swift; sourceTree = "<group>"; };
 		D06C326822857107005534C0 /* ResetTutorialModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetTutorialModal.xib; sourceTree = "<group>"; };
-		D06C327122899F60005534C0 /* FirmwareUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateViewController.swift; sourceTree = "<group>"; };
-		D06C327222899F60005534C0 /* FirmwareUpdateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareUpdateViewController.xib; sourceTree = "<group>"; };
 		D06C326A22857A80005534C0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		D06C326B22857A80005534C0 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		D06C326F22899574005534C0 /* Bundle+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Version.swift"; sourceTree = "<group>"; };
+		D06C327122899F60005534C0 /* FirmwareUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateViewController.swift; sourceTree = "<group>"; };
+		D06C327222899F60005534C0 /* FirmwareUpdateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareUpdateViewController.xib; sourceTree = "<group>"; };
 		D06F01CF228AFF8F00AF73E5 /* FirmwareDownloadModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareDownloadModal.swift; sourceTree = "<group>"; };
 		D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareDownloadModal.xib; sourceTree = "<group>"; };
 		D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulUpdateModal.swift; sourceTree = "<group>"; };
@@ -1007,8 +1007,8 @@
 				D06C32782289BAF1005534C0 /* CheckForUpdatesModal.xib */,
 			);
 			path = Modal;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		D06C326E2289955F005534C0 /* Bundle */ = {
 			isa = PBXGroup;
 			children = (

@@ -13,9 +13,6 @@
         <array key="Barlow-Medium.ttf">
             <string>Barlow-Medium</string>
         </array>
-        <array key="Barlow-Regular.ttf">
-            <string>Barlow-Regular</string>
-        </array>
         <array key="Jura-Bold.ttf">
             <string>Jura-Bold</string>
         </array>
@@ -23,7 +20,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirmwareUpdateViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
-                <outlet property="brainIDLabel" destination="Kfj-XF-EVs" id="AmY-vm-GZw"/>
                 <outlet property="brainIDTitleLabel" destination="JUr-Cr-oOD" id="jnS-1b-z5s"/>
                 <outlet property="brainImageView" destination="rTG-Zi-k90" id="bBE-it-PBI"/>
                 <outlet property="checkForUpdatesLabel" destination="ckd-Uc-xcQ" id="B5o-Z5-fme"/>
@@ -65,20 +61,14 @@
                                 <constraint firstAttribute="width" secondItem="DTo-L5-mvE" secondAttribute="height" multiplier="213:224" id="dl9-I8-iYf"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="brain id" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUr-Cr-oOD">
-                            <rect key="frame" x="110" y="24" width="62.5" height="19"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="brain id" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUr-Cr-oOD" userLabel="brainIdLabel">
+                            <rect key="frame" x="110" y="32" width="62.5" height="19"/>
                             <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1231242345345" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfj-XF-EVs">
-                            <rect key="frame" x="89" y="50" width="104.5" height="20"/>
-                            <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="16"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="BrainPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="rTG-Zi-k90">
-                            <rect key="frame" x="40" y="86" width="202" height="143"/>
+                            <rect key="frame" x="40" y="67" width="202" height="162"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDo-yx-W5B">
                             <rect key="frame" x="0.0" y="245" width="282" height="52"/>
@@ -108,18 +98,16 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="rTG-Zi-k90" firstAttribute="top" secondItem="Kfj-XF-EVs" secondAttribute="bottom" constant="16" id="4fs-hv-gMH"/>
                         <constraint firstAttribute="bottom" secondItem="DTo-L5-mvE" secondAttribute="bottom" id="Ehu-uL-MI9"/>
                         <constraint firstItem="rTG-Zi-k90" firstAttribute="leading" secondItem="UJd-gU-HY0" secondAttribute="leading" constant="40" id="Gt9-dY-7dQ"/>
-                        <constraint firstItem="JUr-Cr-oOD" firstAttribute="top" secondItem="UJd-gU-HY0" secondAttribute="top" constant="24" id="H0X-Jf-JAN"/>
-                        <constraint firstItem="Kfj-XF-EVs" firstAttribute="centerX" secondItem="UJd-gU-HY0" secondAttribute="centerX" id="JcD-YP-m6p"/>
+                        <constraint firstItem="JUr-Cr-oOD" firstAttribute="top" secondItem="UJd-gU-HY0" secondAttribute="top" constant="32" id="H0X-Jf-JAN"/>
                         <constraint firstItem="JDo-yx-W5B" firstAttribute="top" secondItem="rTG-Zi-k90" secondAttribute="bottom" constant="16" id="OiG-aF-Has"/>
                         <constraint firstItem="JDo-yx-W5B" firstAttribute="leading" secondItem="UJd-gU-HY0" secondAttribute="leading" id="WXa-37-x8r"/>
                         <constraint firstAttribute="trailing" secondItem="JDo-yx-W5B" secondAttribute="trailing" id="Z2R-lz-cFu"/>
                         <constraint firstItem="JDo-yx-W5B" firstAttribute="width" secondItem="UJd-gU-HY0" secondAttribute="width" id="ZM7-76-nek"/>
+                        <constraint firstItem="rTG-Zi-k90" firstAttribute="top" secondItem="JUr-Cr-oOD" secondAttribute="bottom" constant="16" id="a6I-n5-jak"/>
                         <constraint firstAttribute="bottom" secondItem="gtT-P8-jEo" secondAttribute="bottom" id="e67-8L-o9o"/>
                         <constraint firstAttribute="trailing" secondItem="gtT-P8-jEo" secondAttribute="trailing" id="gfp-r6-Rpp"/>
-                        <constraint firstItem="Kfj-XF-EVs" firstAttribute="top" secondItem="JUr-Cr-oOD" secondAttribute="bottom" constant="7" id="jtj-ny-EIW"/>
                         <constraint firstAttribute="trailing" secondItem="rTG-Zi-k90" secondAttribute="trailing" constant="40" id="kpb-EO-dzE"/>
                         <constraint firstItem="gtT-P8-jEo" firstAttribute="top" secondItem="UJd-gU-HY0" secondAttribute="top" id="lwj-lP-KpP"/>
                         <constraint firstAttribute="bottom" secondItem="JDo-yx-W5B" secondAttribute="bottom" id="oaz-Xk-jQI"/>

@@ -43,7 +43,6 @@ enum ModalKeys {
 
     enum FirmwareUpdate {
         static let checkForUpdates = "firmware_update_check_for_updates"
-        static let braindID = "firmware_brain_id"
         static let currentVersion = "firmware_current_version"
         static let downloadUpdate = "firmware_update_download"
         static let downloadReady = "firmware_update_download_ready"
@@ -52,5 +51,13 @@ enum ModalKeys {
         static let downloading = "firmware_download_info"
         static let pleaseWait = "firmware_please_wait"
         static let successfulUpdate = "firmware_successful_update"
+        static let hardwareVersion = "firmware_hardware_version"
+        static let modelNumber = "firmware_model_number"
+        static let softwareVersion = "firmware_software_version"
+        static let serialNumber = "firmware_serial_number"
+        static let manufacturerName = "firmware_manufacturer_name"
+        static let mainBattery = "firmware_main_battery"
+        static let motorBattery = "firmware_motor_battery"
+        static let loading = "firmware_loading"
     }
 }
