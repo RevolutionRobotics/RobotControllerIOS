@@ -136,6 +136,8 @@
 		D06C326922857107005534C0 /* ResetTutorialModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C326822857107005534C0 /* ResetTutorialModal.xib */; };
 		D06C327322899F60005534C0 /* FirmwareUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C327122899F60005534C0 /* FirmwareUpdateViewController.swift */; };
 		D06C327422899F60005534C0 /* FirmwareUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C327222899F60005534C0 /* FirmwareUpdateViewController.xib */; };
+		D06F01D0228AFF8F00AF73E5 /* FirmwareDownloadModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06F01CF228AFF8F00AF73E5 /* FirmwareDownloadModal.swift */; };
+		D06F01D2228AFFA600AF73E5 /* FirmwareDownloadModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModal.xib */; };
 		D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CE1226478200052EE1F /* FirebaseService.swift */; };
 		D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CEF22648F990052EE1F /* UIView+Crop.swift */; };
 		D0A1107D227870040064FBB6 /* YourRobotsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */; };
@@ -300,6 +302,8 @@
 		D06C326822857107005534C0 /* ResetTutorialModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetTutorialModal.xib; sourceTree = "<group>"; };
 		D06C327122899F60005534C0 /* FirmwareUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateViewController.swift; sourceTree = "<group>"; };
 		D06C327222899F60005534C0 /* FirmwareUpdateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareUpdateViewController.xib; sourceTree = "<group>"; };
+		D06F01CF228AFF8F00AF73E5 /* FirmwareDownloadModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareDownloadModal.swift; sourceTree = "<group>"; };
+		D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareDownloadModal.xib; sourceTree = "<group>"; };
 		D08C1CE1226478200052EE1F /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D08C1CEF22648F990052EE1F /* UIView+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Crop.swift"; sourceTree = "<group>"; };
 		D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRobotsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -841,7 +845,6 @@
 				2AA926D322773D82000FAA98 /* SideButton */,
 				FE4B161A2277207C00CAA083 /* DashedView */,
 				FE4B16192277207400CAA083 /* PortButton */,
-				D03BA87222783A90005B3E33 /* CollectionViewCell */,
 				2AA926D02271CAF4000FAA98 /* Slider */,
 				2ADE8C422271A67800ECEC72 /* BuildProgressBar */,
 				09FB0D7222677BF500735B74 /* Button */,
@@ -926,13 +929,6 @@
 			path = Modal;
 			sourceTree = "<group>";
 		};
-		D03BA87222783A90005B3E33 /* CollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CollectionViewCell;
-			sourceTree = "<group>";
-		};
 		D05C64C6225F56C400B7BF4F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -985,6 +981,8 @@
 			children = (
 				D06C3266228570FF005534C0 /* ResetTutorialModal.swift */,
 				D06C326822857107005534C0 /* ResetTutorialModal.xib */,
+				D06F01CF228AFF8F00AF73E5 /* FirmwareDownloadModal.swift */,
+				D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModal.xib */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -1159,6 +1157,7 @@
 				09C38755226F3ABC0097619D /* Barlow-Medium.ttf in Resources */,
 				FE4B16182277202600CAA083 /* ConfigurationViewController.xib in Resources */,
 				097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */,
+				D06F01D2228AFFA600AF73E5 /* FirmwareDownloadModal.xib in Resources */,
 				D0BF256F2282C6E000F08C9C /* DriveMeViewController.xib in Resources */,
 				D0A1108E227B18510064FBB6 /* ControllerInfoModal.xib in Resources */,
 				2ADE8C462271A6B900ECEC72 /* BuildProgressBar.xib in Resources */,
@@ -1389,6 +1388,7 @@
 				094F9DDE2264CA5600BE118B /* RRNavigationBar.swift in Sources */,
 				2AA926D22271CB07000FAA98 /* RRSlider.swift in Sources */,
 				D0BF25732283101000F08C9C /* CommunityViewController.swift in Sources */,
+				D06F01D0228AFF8F00AF73E5 /* FirmwareDownloadModal.swift in Sources */,
 				D05C64DB225F590100B7BF4F /* Port.swift in Sources */,
 				D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */,
 				2AA926D522773D95000FAA98 /* SideButton.swift in Sources */,

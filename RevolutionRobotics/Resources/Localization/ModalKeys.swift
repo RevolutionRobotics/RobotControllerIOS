@@ -40,4 +40,9 @@ enum ModalKeys {
         static let failedConnectionTipsButton = "connection_failed_tips_button_title"
         static let failedConnectionTryAgainButton = "connection_failed_try_again_button_title"
     }
+
+    enum Settings {
+        static let firmwareDownloading = "firmware_download_info"
+        static let firmwarePleaseWait = "firmware_please_wait"
+    }
 }
