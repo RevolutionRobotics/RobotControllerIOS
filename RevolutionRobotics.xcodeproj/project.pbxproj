@@ -141,6 +141,8 @@
 		D06C327022899574005534C0 /* Bundle+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C326F22899574005534C0 /* Bundle+Version.swift */; };
 		D06F01D0228AFF8F00AF73E5 /* FirmwareDownloadModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06F01CF228AFF8F00AF73E5 /* FirmwareDownloadModal.swift */; };
 		D06F01D2228AFFA600AF73E5 /* FirmwareDownloadModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModal.xib */; };
+		D06F01D7228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift */; };
+		D06F01D9228B0B6300AF73E5 /* SuccessfulUpdateModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModal.xib */; };
 		D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CE1226478200052EE1F /* FirebaseService.swift */; };
 		D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CEF22648F990052EE1F /* UIView+Crop.swift */; };
 		D0A1107D227870040064FBB6 /* YourRobotsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */; };
@@ -310,6 +312,8 @@
 		D06C326F22899574005534C0 /* Bundle+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Version.swift"; sourceTree = "<group>"; };
 		D06F01CF228AFF8F00AF73E5 /* FirmwareDownloadModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareDownloadModal.swift; sourceTree = "<group>"; };
 		D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareDownloadModal.xib; sourceTree = "<group>"; };
+		D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulUpdateModal.swift; sourceTree = "<group>"; };
+		D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessfulUpdateModal.xib; sourceTree = "<group>"; };
 		D08C1CE1226478200052EE1F /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D08C1CEF22648F990052EE1F /* UIView+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Crop.swift"; sourceTree = "<group>"; };
 		D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRobotsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -992,6 +996,8 @@
 				D06C326822857107005534C0 /* ResetTutorialModal.xib */,
 				D06F01CF228AFF8F00AF73E5 /* FirmwareDownloadModal.swift */,
 				D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModal.xib */,
+				D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift */,
+				D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModal.xib */,
 			);
 			path = Modal;
             sourceTree = "<group>";
@@ -1185,6 +1191,7 @@
 				09105AA12280581F00AB7B72 /* PortConfigurationItemView.xib in Resources */,
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
 				D0049A432270ABA1007FA256 /* AvailableRobotsTableViewCell.xib in Resources */,
+				D06F01D9228B0B6300AF73E5 /* SuccessfulUpdateModal.xib in Resources */,
 				D03BA8652277385E005B3E33 /* TipsModalView.xib in Resources */,
 				D0A11096227B23F20064FBB6 /* RRInputField.xib in Resources */,
 				196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */,
@@ -1390,6 +1397,7 @@
 				D0BF256B2282C6C100F08C9C /* BuildFinishedModal.swift in Sources */,
 				D0049A28226F30AA007FA256 /* WhoToBuildCollectionViewCell.swift in Sources */,
 				D05BAA7F22676A0C00624438 /* UIView+Reusable.swift in Sources */,
+				D06F01D7228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift in Sources */,
 				2A9F52182265EC0500F9F651 /* Container+Unwrapped.swift in Sources */,
 				D05C64E5225F5DEE00B7BF4F /* PortMapping.swift in Sources */,
 				2A9F52152265E97700F9F651 /* SettingsViewController.swift in Sources */,

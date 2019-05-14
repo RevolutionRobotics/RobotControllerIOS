@@ -44,5 +44,7 @@ enum ModalKeys {
     enum Settings {
         static let firmwareDownloading = "firmware_download_info"
         static let firmwarePleaseWait = "firmware_please_wait"
+        static let firmwareSuccessfulUpdate = "firmware_successful_update"
+        static let firmwareDoneButton = "firmware_done_button"
     }
 }
