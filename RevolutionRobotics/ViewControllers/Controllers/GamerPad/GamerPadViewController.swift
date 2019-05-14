@@ -8,19 +8,27 @@
 
 import UIKit
 import SpriteKit
+import RevolutionRoboticsBluetooth
 
 final class GamerPadViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var joystickContainer: SKView!
+    @IBOutlet private var buttons: [GamerPadButton]!
 
-    @IBOutlet private weak var centerLeftButton: GamerPadButton!
-    @IBOutlet private weak var centerRightButton: GamerPadButton!
+    // MARK: - Properties
+    private let liveService: RoboticsLiveControllerServiceInterface = RoboticsLiveControllerService()
 
-    @IBOutlet private weak var actionLeftButton: GamerPadButton!
-    @IBOutlet private weak var actionRightButton: GamerPadButton!
-    @IBOutlet private weak var actionTopButton: GamerPadButton!
-    @IBOutlet private weak var actionBottomButton: GamerPadButton!
+    // TODO: Change to array of ProgramBinding to integrate
+    typealias ProgramBinding = (name: String, xml: String)
+    var demoProgramBindings: [ProgramBinding] = [
+        (name: "Button 1", xml: ""),
+        (name: "Button 2", xml: ""),
+        (name: "Button 3", xml: ""),
+        (name: "Button 4", xml: ""),
+        (name: "Button 5", xml: ""),
+        (name: "Button 6", xml: "")
+    ]
 }
 
 // MARK: View lifecycle
@@ -35,6 +43,12 @@ extension GamerPadViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupButtons()
+        liveService.start()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        liveService.stop()
     }
 }
 
@@ -42,36 +56,27 @@ extension GamerPadViewController {
 extension GamerPadViewController {
     private func setupJoystickScene() {
         let joystickScene = JoystickScene()
-        joystickScene.positionChanged = { position in
-            print("Position = \(position)")
-        }
-
+        joystickScene.positionChanged = handlePositionChange
+        joystickScene.returnedToDefaultPosition = handlePositionChange
         joystickContainer.presentScene(joystickScene)
     }
 
     private func setupButtons() {
-        centerLeftButton.setup(title: "Center Left") {
-            print("Center Left button tapped")
-        }
+        demoProgramBindings.enumerated().forEach(setupButtonHandling)
+    }
 
-        centerRightButton.setup(title: "Center Right") {
-            print("Center Right button tapped")
+    private func setupButtonHandling(arguments: (Int, ProgramBinding)) {
+        let (index, programBinding) = arguments
+        buttons[index].setup(title: programBinding.name) { [weak self] pressed in
+            self?.liveService.changeButtonState(index: index, pressed: pressed)
         }
+    }
+}
 
-        actionLeftButton.setup(title: "Action Left") {
-            print("Action Left button tapped")
-        }
-
-        actionRightButton.setup(title: "Action Right") {
-            print("Action Right button tapped")
-        }
-
-        actionTopButton.setup(title: "Action Top") {
-            print("Action Top button tapped")
-        }
-
-        actionBottomButton.setup(title: "Action Bottom") {
-            print("Action Bottom button tapped")
-        }
+// MARK: - Event handling
+extension GamerPadViewController {
+    private func handlePositionChange(position: CGPoint) {
+        liveService.updateXDirection(x: Int(position.x.rounded(.toNearestOrAwayFromZero)))
+        liveService.updateYDirection(y: Int(position.y.rounded(.toNearestOrAwayFromZero)))
     }
 }

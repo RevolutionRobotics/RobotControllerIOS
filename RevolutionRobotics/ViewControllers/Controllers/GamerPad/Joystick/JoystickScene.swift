@@ -12,6 +12,7 @@ final class JoystickScene: SKScene {
     // MARK: - Constants
     private enum Constants {
         static let centerPoint = CGPoint(x: 0.5, y: 0.5)
+        static let normalizedCenterPoint = CGPoint(x: Constants.byteSize / 2, y: Constants.byteSize / 2)
         static let baseDiamater: CGFloat = 147.0
         static let baseRadius: CGFloat = Constants.baseDiamater / 2
         static let handleDiameter: CGFloat = 58.0
@@ -25,6 +26,7 @@ final class JoystickScene: SKScene {
     )
 
     var positionChanged: CallbackType<CGPoint>?
+    var returnedToDefaultPosition: CallbackType<CGPoint>?
 
     // MARK: - Lifecycle
     override func sceneDidLoad() {
@@ -37,6 +39,7 @@ final class JoystickScene: SKScene {
 extension JoystickScene {
     private func setupJoystick() {
         joystick.on(.move, handleMoveAndNormalizePosition)
+        joystick.on(.end, handleEnd)
     }
 
     private func setupScene() {
@@ -52,6 +55,10 @@ extension JoystickScene {
     private func handleMoveAndNormalizePosition(for joystick: TLAnalogJoystick) {
         let position = normalizePoint(joystick.handle.position)
         positionChanged?(position)
+    }
+
+    private func handleEnd(for joystick: TLAnalogJoystick) {
+        returnedToDefaultPosition?(Constants.normalizedCenterPoint)
     }
 
     private func normalizePoint(_ point: CGPoint) -> CGPoint {

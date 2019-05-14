@@ -14,12 +14,17 @@ final class GamerPadButton: RRCustomView {
     @IBOutlet private weak var button: UIButton!
 
     // MARK: - Callback
-    private var buttonTapped: Callback?
+    private var buttonTapped: CallbackType<Bool>?
+    private var pressed = false {
+        didSet {
+            buttonTapped?(pressed)
+        }
+    }
 }
 
 // MARK: - Setup
 extension GamerPadButton {
-    func setup(title: String, callback: Callback?) {
+    func setup(title: String, callback: CallbackType<Bool>?) {
         buttonTapped = callback
         label.text = title
         button.setBackgroundColor(Color.brightRed, for: .normal)
@@ -31,6 +36,6 @@ extension GamerPadButton {
 // MARK: - Actions
 extension GamerPadButton {
     @IBAction private func buttonTapped(_ sender: Any) {
-        buttonTapped?()
+        pressed.toggle()
     }
 }
