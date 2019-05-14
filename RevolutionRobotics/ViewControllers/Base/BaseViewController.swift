@@ -56,12 +56,13 @@ extension BaseViewController: RRNavigationBarDelegate {
 
 // MARK: - Modal
 extension BaseViewController {
-    func presentModal(with contentView: UIView, animated: Bool = true) {
+    func presentModal(with contentView: UIView, animated: Bool = true, closeHidden: Bool = false) {
         let modalViewController = AppContainer.shared.container.unwrappedResolve(ModalViewController.self)
         modalViewController.modalPresentationStyle = .overFullScreen
         modalViewController.modalTransitionStyle = .crossDissolve
         modalViewController.delegate = self
         modalViewController.contentView = contentView
+        modalViewController.isCloseHidden = closeHidden
         present(modalViewController, animated: animated)
     }
 
