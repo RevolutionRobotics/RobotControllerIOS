@@ -20,7 +20,7 @@ extension FirmwareDownloadModal {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        downloadingLabel.text = ModalKeys.Settings.firmwareDownloading.translate().uppercased()
-        pleaseWaitLabel.text = ModalKeys.Settings.firmwarePleaseWait.translate().uppercased()
+        downloadingLabel.text = ModalKeys.FirmwareUpdate.downloading.translate().uppercased()
+        pleaseWaitLabel.text = ModalKeys.FirmwareUpdate.pleaseWait.translate().uppercased()
     }
 }

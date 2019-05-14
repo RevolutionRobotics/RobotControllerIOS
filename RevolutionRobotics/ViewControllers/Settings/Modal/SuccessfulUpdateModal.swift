@@ -22,8 +22,8 @@ extension SuccessfulUpdateModal {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        successfulUpdateLabel.text = ModalKeys.Settings.firmwareSuccessfulUpdate.translate().uppercased()
-        doneButton.setTitle(ModalKeys.Settings.firmwareDoneButton.translate(), for: .normal)
+        successfulUpdateLabel.text = ModalKeys.FirmwareUpdate.successfulUpdate.translate().uppercased()
+        doneButton.setTitle(ModalKeys.FirmwareUpdate.done.translate(), for: .normal)
         doneButton.setBorder(fillColor: .clear, strokeColor: .white)
     }
 }

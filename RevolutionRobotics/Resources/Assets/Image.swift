@@ -64,4 +64,8 @@ enum Image {
         static let ultrasoundSelected = UIImage(named: "UltrasoundSelected")
         static let ultrasoundUnselected = UIImage(named: "UltrasoundUnselected")
     }
+
+    static let downloadIcon = UIImage(named: "DownloadIcon")
+    static let retryIcon = UIImage(named: "RetryIcon")
+    static let tickIcon = UIImage(named: "TickWhiteIcon")
 }

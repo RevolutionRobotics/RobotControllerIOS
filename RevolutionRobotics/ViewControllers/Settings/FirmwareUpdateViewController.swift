@@ -157,5 +157,6 @@ extension FirmwareUpdateViewController {
 // MARK: - Event handlers
 extension FirmwareUpdateViewController {
     @IBAction private func checkForUpdatesButtonTapped(_ sender: Any) {
+        presentModal(with: CheckForUpdatesModal.instatiate())
     }
 }
