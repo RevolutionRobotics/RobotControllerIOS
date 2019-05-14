@@ -13,4 +13,9 @@ enum SettingsKeys {
         static let firmwareUpdate = "settings_firmware_update"
         static let aboutApplication = "settings_about_application"
     }
+
+    enum Firmware {
+        static let title = "firmware_screen_title"
+        static let newConnectionButton = "firmware_new_connection_button"
+    }
 }

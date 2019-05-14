@@ -47,6 +47,8 @@ extension SettingsViewController {
     }
 
     @IBAction private func firmwareButtonTapped(_ sender: Any) {
+        let firmwareViewController = AppContainer.shared.container.unwrappedResolve(FirmwareUpdateViewController.self)
+        navigationController?.pushViewController(firmwareViewController, animated: true)
     }
 
     @IBAction private func aboutButtonTapped(_ sender: Any) {
