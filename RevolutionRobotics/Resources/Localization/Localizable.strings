@@ -110,9 +110,16 @@
 "firmware_please_wait" = "Please wait";
 "firmware_successful_update" = "Successful update";
 "firmware_update_check_for_updates" = "Check for update!";
-"firmware_brain_id" = "Brain id %@";
 "firmware_current_version" = "Current firmware version %@";
 "firmware_update_download" = "Download and update";
 "firmware_update_download_ready" = "New update (%@) is available to download";
 "firmware_up_to_date" = "Up to date";
 "firmware_done_button" = "Done";
+"firmware_hardware_version" = "Hardware version: %@";
+"firmware_model_number" = "Model number: %@";
+"firmware_software_version" = "Software version: %@";
+"firmware_serial_number" = "Serial number: %@";
+"firmware_manufacturer_name" = "Manufacturer name: %@";
+"firmware_main_battery" = "Main battery: %@ %%";
+"firmware_motor_battery" = "Motor battery: %@ %%";
+"firmware_loading" = "Loading...";

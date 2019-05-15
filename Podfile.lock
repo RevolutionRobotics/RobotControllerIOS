@@ -136,7 +136,7 @@ CHECKOUT OPTIONS:
     :git: "git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git"
     :submodules: true
   RevolutionRoboticsBluetooth:
-    :commit: 20c57d573e94b8ebd566b1864c235998c7ce8120
+    :commit: 408d39fadba2a486e758a74c7f73b581c7dad604
     :git: "git@gitlab.supercharge.io:revolutionrobotics/bluetooth-ios.git"
 
 SPEC CHECKSUMS:
