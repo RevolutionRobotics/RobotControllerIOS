@@ -26,10 +26,11 @@ final class ConfigurationViewController: BaseViewController {
 
     // MARK: - Properties
     var realmService: RealmServiceInterface!
+    var firebaseService: FirebaseServiceInterface!
     private let photoModal = PhotoModal.instatiate()
     private var robotImage: UIImage?
     private var shouldPrefillConfiguration = false
-    private var controllers: [Int] = [] {
+    private var controllers: [Controller] = [] {
         didSet {
             collectionView.reloadData()
             if !controllers.isEmpty {
@@ -37,6 +38,7 @@ final class ConfigurationViewController: BaseViewController {
             }
         }
     }
+    private var lastSelectedIndexPath: IndexPath?
 
     var selectedRobot: UserRobot? {
         didSet {
@@ -66,7 +68,14 @@ extension ConfigurationViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        controllers = realmService.getControllers()
+        firebaseService.getControllers { [weak self] result in
+            switch result {
+            case .success(let controllers):
+                self?.controllers = controllers
+            case .failure(let error):
+                print(error)
+            }
+        }
         collectionView.setupInset()
     }
 }
@@ -81,6 +90,10 @@ extension ConfigurationViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ControllerCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.indexPath = indexPath
+        cell.setup(with: controllers[indexPath.row])
+        if let lastIndexPath = lastSelectedIndexPath {
+            cell.isSelected = lastIndexPath == indexPath
+        }
         return cell
     }
 }
@@ -88,11 +101,29 @@ extension ConfigurationViewController: UICollectionViewDataSource {
 // MARK: - RRCollectionViewDelegate
 extension ConfigurationViewController: RRCollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard !collectionView.isDecelerating,
+            let cell = collectionView.cellForItem(at: indexPath) as? ControllerCollectionViewCell,
+            cell.isCentered,
+            lastSelectedIndexPath != indexPath else {
+                return
+        }
+
+        cell.isSelected = true
+        if lastSelectedIndexPath != nil {
+            if let cell = collectionView.cellForItem(at: lastSelectedIndexPath!) as? ControllerCollectionViewCell {
+                cell.isSelected = false
+            } else {
+                collectionView.deselectItem(at: lastSelectedIndexPath!, animated: false)
+            }
+        }
+        lastSelectedIndexPath = indexPath
     }
 
     func setButtons(rightHidden: Bool, leftHidden: Bool) {
-        leftButton.isHidden = leftHidden
-        rightButton.isHidden = rightHidden
+        if segmentedControl.selectedSegment == .controllers {
+            leftButton.isHidden = leftHidden
+            rightButton.isHidden = rightHidden
+        }
     }
 }
 
@@ -160,10 +191,10 @@ extension ConfigurationViewController {
     private func setupSegmentedControl() {
         segmentedControl.setup(with: [RobotsKeys.Configure.connectionTabTitle.translate(),
                                       RobotsKeys.Configure.controllerTabTitle.translate()])
-        segmentedControl.setSelectedIndex(0)
         segmentedControl.selectionCallback = { [weak self] selectedSegment in
             self?.segmentSelected(selectedSegment)
         }
+        segmentedControl.setSelectedIndex(0)
     }
 
     private func segmentSelected(_ segment: ConfigurationSegment) {
@@ -171,7 +202,12 @@ extension ConfigurationViewController {
         controllerCollectionView.isHidden = segment == .connections
         leftButton.isHidden = segment == .connections
         rightButton.isHidden = segment == .connections
-        controllers = realmService.getControllers()
+        if segment == .controllers {
+            collectionView.reloadData()
+            if !controllers.isEmpty {
+                collectionView.refreshCollectionView()
+            }
+        }
     }
 
     private func setupRobotImageView() {

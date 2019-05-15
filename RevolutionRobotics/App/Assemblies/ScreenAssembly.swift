@@ -101,6 +101,7 @@ extension ScreenAssembly {
             .register(ConfigurationViewController.self, factory: { _ in return ConfigurationViewController() })
             .initCompleted({ (resolver, configurationViewController) in
                 configurationViewController.realmService = resolver.resolve(RealmServiceInterface.self)!
+                configurationViewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
             })
             .inObjectScope(.weak)
     }

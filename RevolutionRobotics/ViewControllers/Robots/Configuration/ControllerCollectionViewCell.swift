@@ -9,6 +9,11 @@
 import UIKit
 
 final class ControllerCollectionViewCell: ResizableCell {
+    // MARK: - Constants
+    private enum Constants {
+        static let dateFormat = "YYYY/MM/dd"
+    }
+
     // MARK: - Outlets
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var controllerImageView: UIImageView!
@@ -44,7 +49,7 @@ final class ControllerCollectionViewCell: ResizableCell {
         }
     }
 
-    var isControllerSelected: Bool = false {
+    override var isSelected: Bool {
         didSet {
             setState()
         }
@@ -55,7 +60,7 @@ final class ControllerCollectionViewCell: ResizableCell {
         infoButton.isUserInteractionEnabled = isCentered
         deleteButton.isUserInteractionEnabled = isCentered
         modifyButton.isUserInteractionEnabled = isCentered
-        if isControllerSelected {
+        if isSelected {
             selectedLabel.text = RobotsKeys.Controllers.controllerSelected.translate()
             backgroundImageView.image =
                 isCentered ? Image.Configuration.Controllers.cellRedBorderSelected :
@@ -86,6 +91,15 @@ extension ControllerCollectionViewCell {
         baseNameFontSize = nameLabel.font.pointSize
         baseLastModifiedFontSize = lastModifiedLabel.font.pointSize
         baseSelectedFontSize = selectedLabel.font.pointSize
+    }
+}
+
+// MARK: - Setup
+extension ControllerCollectionViewCell {
+    func setup(with controller: Controller) {
+        nameLabel.text = controller.name
+        controllerImageView.image = controller.type.image
+        lastModifiedLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: controller.lastModified))
     }
 }
 

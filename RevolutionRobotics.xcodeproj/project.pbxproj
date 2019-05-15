@@ -115,6 +115,15 @@
 		D0049A542271CC52007FA256 /* TurnOnBrainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0049A522271CC52007FA256 /* TurnOnBrainView.xib */; };
 		D008E0392260979400089DC7 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E0382260979300089DC7 /* FirebaseData.swift */; };
 		D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E03B2260AAF500089DC7 /* UIViewController+NibLoadable.swift */; };
+		D031332F228D5CBA00704989 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313326228D5CB900704989 /* Controller.swift */; };
+		D0313330228D5CBA00704989 /* ChallengeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313327228D5CB900704989 /* ChallengeCategory.swift */; };
+		D0313331228D5CBA00704989 /* ControllerButtonMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313328228D5CBA00704989 /* ControllerButtonMapping.swift */; };
+		D0313332228D5CBA00704989 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313329228D5CBA00704989 /* Challenge.swift */; };
+		D0313333228D5CBA00704989 /* ProgramBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332A228D5CBA00704989 /* ProgramBinding.swift */; };
+		D0313334228D5CBA00704989 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332B228D5CBA00704989 /* Program.swift */; };
+		D0313335228D5CBA00704989 /* ControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332C228D5CBA00704989 /* ControllerType.swift */; };
+		D0313336228D5CBA00704989 /* ChallengeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332D228D5CBA00704989 /* ChallengeStep.swift */; };
+		D0313337228D5CBA00704989 /* Part.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332E228D5CBA00704989 /* Part.swift */; };
 		D03BA8532276F323005B3E33 /* PartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8512276F323005B3E33 /* PartView.swift */; };
 		D03BA8542276F323005B3E33 /* PartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8522276F323005B3E33 /* PartView.xib */; };
 		D03BA85C2277384A005B3E33 /* ConnectionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8562277384A005B3E33 /* ConnectionModal.swift */; };
@@ -304,6 +313,15 @@
 		D0049A522271CC52007FA256 /* TurnOnBrainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TurnOnBrainView.xib; sourceTree = "<group>"; };
 		D008E0382260979300089DC7 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
 		D008E03B2260AAF500089DC7 /* UIViewController+NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NibLoadable.swift"; sourceTree = "<group>"; };
+		D0313326228D5CB900704989 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		D0313327228D5CB900704989 /* ChallengeCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCategory.swift; sourceTree = "<group>"; };
+		D0313328228D5CBA00704989 /* ControllerButtonMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerButtonMapping.swift; sourceTree = "<group>"; };
+		D0313329228D5CBA00704989 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		D031332A228D5CBA00704989 /* ProgramBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramBinding.swift; sourceTree = "<group>"; };
+		D031332B228D5CBA00704989 /* Program.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		D031332C228D5CBA00704989 /* ControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerType.swift; sourceTree = "<group>"; };
+		D031332D228D5CBA00704989 /* ChallengeStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeStep.swift; sourceTree = "<group>"; };
+		D031332E228D5CBA00704989 /* Part.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Part.swift; sourceTree = "<group>"; };
 		D03BA8512276F323005B3E33 /* PartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartView.swift; sourceTree = "<group>"; };
 		D03BA8522276F323005B3E33 /* PartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartView.xib; sourceTree = "<group>"; };
 		D03BA8562277384A005B3E33 /* ConnectionModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionModal.swift; sourceTree = "<group>"; };
@@ -706,6 +724,15 @@
 		2A7DDB1522856FE100891DA6 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				D0313329228D5CBA00704989 /* Challenge.swift */,
+				D0313327228D5CB900704989 /* ChallengeCategory.swift */,
+				D031332D228D5CBA00704989 /* ChallengeStep.swift */,
+				D0313326228D5CB900704989 /* Controller.swift */,
+				D0313328228D5CBA00704989 /* ControllerButtonMapping.swift */,
+				D031332C228D5CBA00704989 /* ControllerType.swift */,
+				D031332E228D5CBA00704989 /* Part.swift */,
+				D031332B228D5CBA00704989 /* Program.swift */,
+				D031332A228D5CBA00704989 /* ProgramBinding.swift */,
 				D05C64D3225F585500B7BF4F /* BuildStatus.swift */,
 				D05C64CD225F578A00B7BF4F /* BuildStep.swift */,
 				D05C64E6225F5E3600B7BF4F /* Configuration.swift */,
@@ -1450,12 +1477,15 @@
 				D06C326C22857A80005534C0 /* AboutViewController.swift in Sources */,
 				D05C64D4225F585500B7BF4F /* BuildStatus.swift in Sources */,
 				09C38758226F58260097619D /* RRCustomView.swift in Sources */,
+				D031332F228D5CBA00704989 /* Controller.swift in Sources */,
 				D05C64DD225F592400B7BF4F /* Sensor.swift in Sources */,
 				D0049A492270BBD2007FA256 /* UITableView+CellReuse.swift in Sources */,
 				096479862268776200F68456 /* BuildRobotViewController.swift in Sources */,
 				2AF8C757228026EE00CE1ACB /* UIStackView+RemoveAll.swift in Sources */,
+				D0313337228D5CBA00704989 /* Part.swift in Sources */,
 				D03BA8532276F323005B3E33 /* PartView.swift in Sources */,
 				096333FA2289BBA40029D87B /* UIView+Rounded.swift in Sources */,
+				D0313333228D5CBA00704989 /* ProgramBinding.swift in Sources */,
 				2A9F52062265E31C00F9F651 /* BaseViewController.swift in Sources */,
 				2AC7AB72228D4FB900D96457 /* URLSession+ImageDownload.swift in Sources */,
 				D05C64CE225F578A00B7BF4F /* BuildStep.swift in Sources */,
@@ -1476,9 +1506,11 @@
 				D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */,
 				2AF8C75A22805EEC00CE1ACB /* RealmService.swift in Sources */,
 				2A91937A225F7C6F00E927FD /* BluetoothReachability.swift in Sources */,
+				D0313331228D5CBA00704989 /* ControllerButtonMapping.swift in Sources */,
 				2ADE8C292270A61000ECEC72 /* String+Translate.swift in Sources */,
 				D0A1108C227B18480064FBB6 /* ControllerInfoModal.swift in Sources */,
 				094F9DDC2264BEE600BE118B /* Font.swift in Sources */,
+				D0313330228D5CBA00704989 /* ChallengeCategory.swift in Sources */,
 				D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */,
 				D05C64CC225F575A00B7BF4F /* Milestone.swift in Sources */,
 				09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */,
@@ -1528,6 +1560,7 @@
 				2ADE8C382270A79E00ECEC72 /* SettingsKeys.swift in Sources */,
 				D0BF25702282C6E000F08C9C /* GamerPadViewController.swift in Sources */,
 				FE4B161E227721C700CAA083 /* PortButton.swift in Sources */,
+				D0313335228D5CBA00704989 /* ControllerType.swift in Sources */,
 				D05C64D0225F57BC00B7BF4F /* Robot.swift in Sources */,
 				0964798D22689DEC00F68456 /* ModalViewController.swift in Sources */,
 				094F9DDE2264CA5600BE118B /* RRNavigationBar.swift in Sources */,
@@ -1560,6 +1593,9 @@
 				D008E0392260979400089DC7 /* FirebaseData.swift in Sources */,
 				2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */,
 				D06C32772289BAE9005534C0 /* CheckForUpdatesModal.swift in Sources */,
+				D0313332228D5CBA00704989 /* Challenge.swift in Sources */,
+				D0313334228D5CBA00704989 /* Program.swift in Sources */,
+				D0313336228D5CBA00704989 /* ChallengeStep.swift in Sources */,
 				094F9DDA2264BE9600BE118B /* Image.swift in Sources */,
 				0939A38E2278440A005EE307 /* SensorConfigViewController.swift in Sources */,
 			);

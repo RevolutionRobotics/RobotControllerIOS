@@ -9,11 +9,6 @@
 import UIKit
 
 final class YourRobotsCollectionViewCell: ResizableCell {
-    // MARK: - Constants
-    private enum Constants {
-        static let dateFormat = "YYYY/MM/dd"
-    }
-
     // MARK: - Outlets
     @IBOutlet private weak var baseHeight: NSLayoutConstraint!
     @IBOutlet private weak var baseWidth: NSLayoutConstraint!
@@ -47,12 +42,6 @@ final class YourRobotsCollectionViewCell: ResizableCell {
                     Image.YourRobots.cellWhiteBorderNonEditable
             }
         }
-    }
-
-    private var dateFormatter: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Constants.dateFormat
-        return dateFormatter
     }
 
     var isFinished: Bool = false
