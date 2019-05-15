@@ -1,5 +1,5 @@
 //
-//  GamerPadButton.swift
+//  PadButton.swift
 //  RevolutionRobotics
 //
 //  Created by Mate Papp on 2019. 05. 13..
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GamerPadButton: RRCustomView {
+final class PadButton: RRCustomView {
     // MARK: - Outlets
     @IBOutlet private weak var label: UILabel!
     @IBOutlet private weak var button: UIButton!
@@ -23,18 +23,17 @@ final class GamerPadButton: RRCustomView {
 }
 
 // MARK: - Setup
-extension GamerPadButton {
+extension PadButton {
     func setup(title: String, callback: CallbackType<Bool>?) {
         buttonTapped = callback
         label.text = title
-        button.setBackgroundColor(Color.brightRed, for: .normal)
         button.setBackgroundColor(Color.brightRed.withAlphaComponent(0.9), for: .highlighted)
         button.roundToCircle()
     }
 }
 
 // MARK: - Actions
-extension GamerPadButton {
+extension PadButton {
     @IBAction private func buttonTapped(_ sender: Any) {
         pressed.toggle()
     }

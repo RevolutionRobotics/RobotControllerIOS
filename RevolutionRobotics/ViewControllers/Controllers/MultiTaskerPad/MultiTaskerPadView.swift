@@ -1,0 +1,36 @@
+//
+//  MultiTaskerPadView.swift
+//  RevolutionRobotics
+//
+//  Created by Mate Papp on 2019. 05. 15..
+//  Copyright © 2019. Revolution Robotics. All rights reserved.
+//
+
+import UIKit
+import SpriteKit
+
+final class MultiTaskerPadView: UIView, PlayablePadView {
+    // MARK: - Outlets
+    @IBOutlet private weak var joystickContainer: SKView!
+    @IBOutlet private var buttons: [PadButton]!
+
+    // MARK: - Playable
+    var horizontalPositionChanged: CallbackType<CGFloat>?
+    var verticalPositionChanged: CallbackType<CGFloat>?
+    var buttonTapped: CallbackType<PressedPadButton>?
+
+    func configure(programs: [Program]) {
+        programs.enumerated().forEach { [weak self] in
+            let (index, program) = $0
+            self?.connectButtonHandling(at: index, program: program, to: buttons[index])
+        }
+    }
+}
+
+// MARK: View lifecycle
+extension MultiTaskerPadView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupJoystickScene(in: joystickContainer)
+    }
+}

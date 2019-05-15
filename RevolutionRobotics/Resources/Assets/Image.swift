@@ -78,6 +78,8 @@ enum Image {
         static let gamer = UIImage(named: "Controller3")
         static let multiTasker = UIImage(named: "Controller2")
         static let driver = UIImage(named: "Controller1")
+        static let padButtonBackground = UIImage(named: "PadButtonCircle")
+        static let directionSlider = UIImage(named: "DirectionSlider")
     }
 
     static let downloadIcon = UIImage(named: "DownloadIcon")
