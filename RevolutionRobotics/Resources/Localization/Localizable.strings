@@ -44,7 +44,6 @@
 "build_robot_finished_drive" = "Let's drive!";
 "build_robot_finished_all_set" = "All set!";
 "build_robot_finished_message" = "Your robot is ready to drive!";
-"drive_me_screen_title" = "Drive me";
 
 // MARK: - Connection modal
 "connection_successful_message" = "Connection has been established";
@@ -67,6 +66,9 @@
 "configure_motor_done_button_title" = "Done";
 "configure_sensor_bumper_button_title" = "Bumper";
 "configure_sensor_ultrasound_button_title" = "Ultrasound";
+
+// MARK: - Controller
+"play_controller_screen_title" = "Play!";
 
 // MARK: - Programs
 "programs_screen_title" = "Programs";

@@ -23,7 +23,7 @@ final class ScreenAssembly: Assembly {
         registerConfigurationViewController(to: container)
         registerMotorConfigViewController(to: container)
         registerSensorConfigViewController(to: container)
-        registerDriveMeViewController(to: container)
+        registerGamerPadViewController(to: container)
         registerFirmwareUpdateViewController(to: container)
         registerAboutViewController(to: container)
     }
@@ -116,9 +116,9 @@ extension ScreenAssembly {
             .inObjectScope(.transient)
     }
 
-    private func registerDriveMeViewController(to container: Container) {
+    private func registerGamerPadViewController(to container: Container) {
         container
-            .register(DriveMeViewController.self, factory: { _ in return DriveMeViewController() })
+            .register(GamerPadViewController.self, factory: { _ in return GamerPadViewController() })
             .inObjectScope(.weak)
     }
 
