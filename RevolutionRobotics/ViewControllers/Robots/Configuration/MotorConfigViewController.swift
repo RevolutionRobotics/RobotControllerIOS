@@ -7,20 +7,9 @@
 //
 
 import UIKit
+import SideMenu
 
 final class MotorConfigViewController: BaseViewController {
-    // MARK: - MotorConfig
-    typealias MotorConfig = (State, String?)
-
-    // MARK: - State
-    enum State: Equatable {
-        case empty
-        case drivetrainWithoutSide
-        case drivetrain(Side, Rotation)
-        case motorWithoutRotation
-        case motor(Rotation)
-    }
-
     // MARK: - Outlets
     @IBOutlet private weak var topButtonContainer: UIStackView!
     @IBOutlet private weak var middleButtonContainer: UIStackView!
@@ -39,16 +28,21 @@ final class MotorConfigViewController: BaseViewController {
     private let rightButton = PortConfigurationItemView.instatiate()
 
     // MARK: - Variables
-    var state: State = .empty {
+    var selectedMotorState: MotorConfigViewModelState = .empty {
         didSet {
-            switchTo(state: state)
-            validateActionButtons()
+            if isViewLoaded {
+                switchTo(state: selectedMotorState)
+                validateActionButtons()
+            }
         }
     }
 
     var portNumber = 0
-    var doneButtonTapped: CallbackType<MotorConfig>?
-    var testButtonTapped: CallbackType<MotorConfig>?
+    var doneButtonTapped: CallbackType<MotorConfigViewModel>?
+    var testButtonTapped: CallbackType<MotorConfigViewModel>?
+    var screenDismissed: Callback?
+
+    private var shouldCallDismiss = true
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -58,7 +52,7 @@ final class MotorConfigViewController: BaseViewController {
         setupRotationButtons()
         setupSideButtons()
         setupNameInputField()
-        switchTo(state: state)
+        switchTo(state: selectedMotorState)
         validateActionButtons()
     }
 
@@ -70,7 +64,7 @@ final class MotorConfigViewController: BaseViewController {
 
 // MARK: - State change
 extension MotorConfigViewController {
-    private func switchTo(state: State) {
+    private func switchTo(state: MotorConfigViewModelState) {
         switch state {
         case .empty:
             switchToEmptyState()
@@ -103,6 +97,12 @@ extension MotorConfigViewController {
     }
 
     private func switchToDrivetrainState(side: Side, rotation: Rotation) {
+        drivetrainButton.set(selected: true)
+        middleButtonContainer.isHidden = false
+        if !middleButtonContainer.arrangedSubviews.contains(leftButton) {
+            middleButtonContainer.addArrangedSubview(leftButton)
+            middleButtonContainer.addArrangedSubview(rightButton)
+        }
         bottomButtonContainer.addArrangedSubview(counterclockwiseButton)
         bottomButtonContainer.addArrangedSubview(clockwiseButton)
         bottomButtonContainer.isHidden = false
@@ -123,6 +123,12 @@ extension MotorConfigViewController {
     }
 
     private func switchToMotorState(rotation: Rotation) {
+        motorButton.set(selected: true)
+        middleButtonContainer.isHidden = false
+        if !middleButtonContainer.arrangedSubviews.contains(clockwiseButton) {
+            middleButtonContainer.addArrangedSubview(counterclockwiseButton)
+            middleButtonContainer.addArrangedSubview(clockwiseButton)
+        }
         clockwiseButton.set(selected: rotation == .clockwise)
         counterclockwiseButton.set(selected: rotation == .counterclockwise)
     }
@@ -139,7 +145,7 @@ extension MotorConfigViewController {
             title: RobotsKeys.Configure.Motor.emptyButton.translate(),
             selectedImage: Image.Configure.emptySelected,
             unselectedImage: Image.Configure.emptyUnselected) { [weak self] in
-                self?.state = .empty
+                self?.selectedMotorState = .empty
             }
         )
         topButtonContainer.addArrangedSubview(emptyButton)
@@ -148,7 +154,7 @@ extension MotorConfigViewController {
             title: RobotsKeys.Configure.Motor.drivetrainButton.translate(),
             selectedImage: Image.Configure.drivetrainSelected,
             unselectedImage: Image.Configure.drivetrainUnselected) { [weak self] in
-                self?.state = .drivetrainWithoutSide
+                self?.selectedMotorState = .drivetrainWithoutSide
             }
         )
         topButtonContainer.addArrangedSubview(drivetrainButton)
@@ -157,7 +163,7 @@ extension MotorConfigViewController {
             title: RobotsKeys.Configure.Motor.motorButton.translate(),
             selectedImage: Image.Configure.motorSelected,
             unselectedImage: Image.Configure.motorUnselected) { [weak self] in
-                self?.state = .motorWithoutRotation
+                self?.selectedMotorState = .motorWithoutRotation
             }
         )
         topButtonContainer.addArrangedSubview(motorButton)
@@ -210,21 +216,21 @@ extension MotorConfigViewController {
 // MARK: - Event handling
 extension MotorConfigViewController {
     private func handleRotationChange(to rotation: Rotation) {
-        switch state {
+        switch selectedMotorState {
         case .motor, .motorWithoutRotation:
-            state = .motor(rotation)
+            selectedMotorState = .motor(rotation)
         case .drivetrain(let side, _):
-            state = .drivetrain(side, rotation)
+            selectedMotorState = .drivetrain(side, rotation)
         default: return
         }
     }
 
     private func handleSideChange(to side: Side) {
-        switch state {
+        switch selectedMotorState {
         case .drivetrainWithoutSide:
-            state = .drivetrain(side, side == .left ? .counterclockwise : .clockwise)
+            selectedMotorState = .drivetrain(side, side == .left ? .counterclockwise : .clockwise)
         case .drivetrain(_, let rotation):
-            state = .drivetrain(side, rotation)
+            selectedMotorState = .drivetrain(side, rotation)
         default: return
         }
     }
@@ -243,18 +249,31 @@ extension MotorConfigViewController {
 // MARK: - Button validation
 extension MotorConfigViewController {
     private func validateActionButtons() {
-        testButton.isEnabled = state != .empty && state != .drivetrainWithoutSide && state != .motorWithoutRotation
-        doneButton.isEnabled = state != .drivetrainWithoutSide && state != .motorWithoutRotation
+        testButton.isEnabled = selectedMotorState != .empty &&
+            selectedMotorState != .drivetrainWithoutSide &&
+            selectedMotorState != .motorWithoutRotation
+        doneButton.isEnabled = selectedMotorState != .drivetrainWithoutSide &&
+            selectedMotorState != .motorWithoutRotation
     }
 }
 
 // MARK: - Actions
 extension MotorConfigViewController {
     @IBAction private func testButtonTapped(_ sender: Any) {
-        testButtonTapped?((state, nameInputField.text))
+        testButtonTapped?(MotorConfigViewModel(portName: nameInputField.text, state: selectedMotorState))
     }
 
     @IBAction private func doneButtonTapped(_ sender: Any) {
-        doneButtonTapped?((state, nameInputField.text))
+        shouldCallDismiss = false
+        doneButtonTapped?(MotorConfigViewModel(portName: nameInputField.text, state: selectedMotorState))
+    }
+}
+
+// MARK: - UISideMenuNavigationControllerDelegate
+extension MotorConfigViewController: UISideMenuNavigationControllerDelegate {
+    func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
+        if shouldCallDismiss {
+            screenDismissed?()
+        }
     }
 }

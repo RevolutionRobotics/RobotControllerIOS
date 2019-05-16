@@ -14,6 +14,10 @@ final class RealmService {
 
 // MARK: - RealmServiceInterface
 extension RealmService: RealmServiceInterface {
+    func saveConfigurations(_ configurations: [ConfigurationDataModel]) {
+        realmConnector.save(objects: configurations, shouldUpdate: true)
+    }
+
     func getRobots() -> [UserRobot] {
         guard let robots = realmConnector.findAll(type: UserRobot.self) as? [UserRobot] else { return [] }
         return robots
@@ -40,5 +44,12 @@ extension RealmService: RealmServiceInterface {
 
     func getControllers() -> [Int] {
         return []
+    }
+
+    func getConfiguration(id: Int?) -> ConfigurationDataModel? {
+        guard let id = id,
+            let configurations = realmConnector.findAll(type: ConfigurationDataModel.self) as? [ConfigurationDataModel],
+            let configuration = configurations.first(where: { $0.id == id }) else { return nil }
+        return configuration
     }
 }

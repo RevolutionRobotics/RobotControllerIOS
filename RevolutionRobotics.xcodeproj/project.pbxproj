@@ -49,11 +49,17 @@
 		196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43BC08A3B14DC91EF1DFAB7E /* Pods-RevolutionRobotics-metadata.plist */; };
 		2A18002D227AE5800082E801 /* ModalKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A18002C227AE5800082E801 /* ModalKeys.swift */; };
 		2A458E27227C89AF000C03D2 /* RRProgressLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */; };
+		2A4C930C228ABA9E0029AE07 /* MotorConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C930B228ABA9E0029AE07 /* MotorConfigViewModel.swift */; };
+		2A4C930E228C15890029AE07 /* SensorConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C930D228C15890029AE07 /* SensorConfigViewModel.swift */; };
 		2A77320322648FB000D7F38D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A77320222648FB000D7F38D /* Settings.bundle */; };
 		2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732042264A15600D7F38D /* AssemblyRegister.swift */; };
 		2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732072264A32200D7F38D /* ScreenAssembly.swift */; };
 		2A77320A2264A32D00D7F38D /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732092264A32D00D7F38D /* ServiceAssembly.swift */; };
 		2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77320E2264A79900D7F38D /* FirebaseServiceInterface.swift */; };
+		2A7DDB0E22856BC500891DA6 /* ConfigurationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DDB0D22856BC500891DA6 /* ConfigurationDataModel.swift */; };
+		2A7DDB1022856DC200891DA6 /* PortMappingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DDB0F22856DC200891DA6 /* PortMappingDataModel.swift */; };
+		2A7DDB1222856FC800891DA6 /* MotorDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DDB1122856FC800891DA6 /* MotorDataModel.swift */; };
+		2A7DDB1422856FD000891DA6 /* SensorDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DDB1322856FD000891DA6 /* SensorDataModel.swift */; };
 		2A7DDB1A22859B2900891DA6 /* CommonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DDB1922859B2900891DA6 /* CommonKeys.swift */; };
 		2A91937A225F7C6F00E927FD /* BluetoothReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A919379225F7C6F00E927FD /* BluetoothReachability.swift */; };
 		2A9F52022265DAC900F9F651 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9F52012265DAC900F9F651 /* AppContainer.swift */; };
@@ -70,7 +76,11 @@
 		2AA926D722773DC1000FAA98 /* SideButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AA926D622773DC1000FAA98 /* SideButton.xib */; };
 		2AB7785F2282F6CA004442E2 /* DeleteRobotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7785E2282F6CA004442E2 /* DeleteRobotView.swift */; };
 		2AB778612282F6D4004442E2 /* DeleteRobotView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB778602282F6D4004442E2 /* DeleteRobotView.xib */; };
+		2AB8F95122888AD300D7D93C /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB8F95022888AD300D7D93C /* ConfigurationView.swift */; };
+		2AB8F95322888AF300D7D93C /* ConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB8F95222888AF300D7D93C /* ConfigurationView.xib */; };
+		2AB8F9562288933100D7D93C /* UIImagePickerController+Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB8F9552288933100D7D93C /* UIImagePickerController+Show.swift */; };
 		2ABD618422500F7C00587F1C /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABD618322500F7C00587F1C /* AppDependencies.swift */; };
+		2AC7AB72228D4FB900D96457 /* URLSession+ImageDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7AB71228D4FB900D96457 /* URLSession+ImageDownload.swift */; };
 		2ADE8C292270A61000ECEC72 /* String+Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C282270A61000ECEC72 /* String+Translate.swift */; };
 		2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C312270A77200ECEC72 /* ChallengesKeys.swift */; };
 		2ADE8C342270A78600ECEC72 /* RobotsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C332270A78600ECEC72 /* RobotsKeys.swift */; };
@@ -145,12 +155,12 @@
 		D06C327022899574005534C0 /* Bundle+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C326F22899574005534C0 /* Bundle+Version.swift */; };
 		D06C327322899F60005534C0 /* FirmwareUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C327122899F60005534C0 /* FirmwareUpdateViewController.swift */; };
 		D06C327422899F60005534C0 /* FirmwareUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C327222899F60005534C0 /* FirmwareUpdateViewController.xib */; };
+		D06C32772289BAE9005534C0 /* CheckForUpdatesModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C32762289BAE9005534C0 /* CheckForUpdatesModal.swift */; };
+		D06C32792289BAF1005534C0 /* CheckForUpdatesModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C32782289BAF1005534C0 /* CheckForUpdatesModal.xib */; };
 		D06F01D0228AFF8F00AF73E5 /* FirmwareDownloadModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06F01CF228AFF8F00AF73E5 /* FirmwareDownloadModal.swift */; };
 		D06F01D2228AFFA600AF73E5 /* FirmwareDownloadModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModal.xib */; };
 		D06F01D7228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift */; };
 		D06F01D9228B0B6300AF73E5 /* SuccessfulUpdateModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModal.xib */; };
-		D06C32772289BAE9005534C0 /* CheckForUpdatesModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C32762289BAE9005534C0 /* CheckForUpdatesModal.swift */; };
-		D06C32792289BAF1005534C0 /* CheckForUpdatesModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C32782289BAF1005534C0 /* CheckForUpdatesModal.xib */; };
 		D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CE1226478200052EE1F /* FirebaseService.swift */; };
 		D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CEF22648F990052EE1F /* UIView+Crop.swift */; };
 		D0A1107D227870040064FBB6 /* YourRobotsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */; };
@@ -222,11 +232,17 @@
 		2703FDDD1F3944173CF58883 /* Pods_RevolutionRobotics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutionRobotics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A18002C227AE5800082E801 /* ModalKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalKeys.swift; sourceTree = "<group>"; };
 		2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRProgressLabel.swift; sourceTree = "<group>"; };
+		2A4C930B228ABA9E0029AE07 /* MotorConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorConfigViewModel.swift; sourceTree = "<group>"; };
+		2A4C930D228C15890029AE07 /* SensorConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorConfigViewModel.swift; sourceTree = "<group>"; };
 		2A77320222648FB000D7F38D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2A7732042264A15600D7F38D /* AssemblyRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyRegister.swift; sourceTree = "<group>"; };
 		2A7732072264A32200D7F38D /* ScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenAssembly.swift; sourceTree = "<group>"; };
 		2A7732092264A32D00D7F38D /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		2A77320E2264A79900D7F38D /* FirebaseServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceInterface.swift; sourceTree = "<group>"; };
+		2A7DDB0D22856BC500891DA6 /* ConfigurationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationDataModel.swift; sourceTree = "<group>"; };
+		2A7DDB0F22856DC200891DA6 /* PortMappingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortMappingDataModel.swift; sourceTree = "<group>"; };
+		2A7DDB1122856FC800891DA6 /* MotorDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorDataModel.swift; sourceTree = "<group>"; };
+		2A7DDB1322856FD000891DA6 /* SensorDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataModel.swift; sourceTree = "<group>"; };
 		2A7DDB1922859B2900891DA6 /* CommonKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonKeys.swift; sourceTree = "<group>"; };
 		2A919379225F7C6F00E927FD /* BluetoothReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothReachability.swift; sourceTree = "<group>"; };
 		2A9F52012265DAC900F9F651 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
@@ -243,7 +259,11 @@
 		2AA926D622773DC1000FAA98 /* SideButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideButton.xib; sourceTree = "<group>"; };
 		2AB7785E2282F6CA004442E2 /* DeleteRobotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRobotView.swift; sourceTree = "<group>"; };
 		2AB778602282F6D4004442E2 /* DeleteRobotView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteRobotView.xib; sourceTree = "<group>"; };
+		2AB8F95022888AD300D7D93C /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
+		2AB8F95222888AF300D7D93C /* ConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationView.xib; sourceTree = "<group>"; };
+		2AB8F9552288933100D7D93C /* UIImagePickerController+Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Show.swift"; sourceTree = "<group>"; };
 		2ABD618322500F7C00587F1C /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		2AC7AB71228D4FB900D96457 /* URLSession+ImageDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+ImageDownload.swift"; sourceTree = "<group>"; };
 		2ADE8C282270A61000ECEC72 /* String+Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Translate.swift"; sourceTree = "<group>"; };
 		2ADE8C312270A77200ECEC72 /* ChallengesKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesKeys.swift; sourceTree = "<group>"; };
 		2ADE8C332270A78600ECEC72 /* RobotsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotsKeys.swift; sourceTree = "<group>"; };
@@ -324,12 +344,12 @@
 		D06C326F22899574005534C0 /* Bundle+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Version.swift"; sourceTree = "<group>"; };
 		D06C327122899F60005534C0 /* FirmwareUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateViewController.swift; sourceTree = "<group>"; };
 		D06C327222899F60005534C0 /* FirmwareUpdateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareUpdateViewController.xib; sourceTree = "<group>"; };
+		D06C32762289BAE9005534C0 /* CheckForUpdatesModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForUpdatesModal.swift; sourceTree = "<group>"; };
+		D06C32782289BAF1005534C0 /* CheckForUpdatesModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckForUpdatesModal.xib; sourceTree = "<group>"; };
 		D06F01CF228AFF8F00AF73E5 /* FirmwareDownloadModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareDownloadModal.swift; sourceTree = "<group>"; };
 		D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareDownloadModal.xib; sourceTree = "<group>"; };
 		D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulUpdateModal.swift; sourceTree = "<group>"; };
 		D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessfulUpdateModal.xib; sourceTree = "<group>"; };
-		D06C32762289BAE9005534C0 /* CheckForUpdatesModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForUpdatesModal.swift; sourceTree = "<group>"; };
-		D06C32782289BAF1005534C0 /* CheckForUpdatesModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckForUpdatesModal.xib; sourceTree = "<group>"; };
 		D08C1CE1226478200052EE1F /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D08C1CEF22648F990052EE1F /* UIView+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Crop.swift"; sourceTree = "<group>"; };
 		D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRobotsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -391,6 +411,8 @@
 			children = (
 				09105A9C2280581F00AB7B72 /* PortConfigurationItemView.swift */,
 				09105A9D2280581F00AB7B72 /* PortConfigurationItemView.xib */,
+				2AB8F95022888AD300D7D93C /* ConfigurationView.swift */,
+				2AB8F95222888AF300D7D93C /* ConfigurationView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -616,6 +638,15 @@
 			path = Label;
 			sourceTree = "<group>";
 		};
+		2A4C930A228ABA8F0029AE07 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2A4C930B228ABA9E0029AE07 /* MotorConfigViewModel.swift */,
+				2A4C930D228C15890029AE07 /* SensorConfigViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		2A77320122648F9A00D7F38D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -672,6 +703,39 @@
 			path = Connectivity;
 			sourceTree = "<group>";
 		};
+		2A7DDB1522856FE100891DA6 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				D05C64D3225F585500B7BF4F /* BuildStatus.swift */,
+				D05C64CD225F578A00B7BF4F /* BuildStep.swift */,
+				D05C64E6225F5E3600B7BF4F /* Configuration.swift */,
+				D05C64E0225F5C9900B7BF4F /* Drivetrain.swift */,
+				D05C64CB225F575A00B7BF4F /* Milestone.swift */,
+				D05C64C9225F572F00B7BF4F /* MilestoneType.swift */,
+				D05C64E2225F5DBC00B7BF4F /* Motor.swift */,
+				D05C64DA225F590100B7BF4F /* Port.swift */,
+				D05C64E4225F5DEE00B7BF4F /* PortMapping.swift */,
+				D05C64CF225F57BC00B7BF4F /* Robot.swift */,
+				D05C64DE225F5C4E00B7BF4F /* Rotation.swift */,
+				D05C64DC225F592400B7BF4F /* Sensor.swift */,
+				D05C64D8225F58E200B7BF4F /* Side.swift */,
+				D05C64C7225F570000B7BF4F /* TestCode.swift */,
+				D05C64D5225F587700B7BF4F /* UserRobot.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		2A7DDB1622856FE700891DA6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2A7DDB0D22856BC500891DA6 /* ConfigurationDataModel.swift */,
+				2A7DDB1122856FC800891DA6 /* MotorDataModel.swift */,
+				2A7DDB0F22856DC200891DA6 /* PortMappingDataModel.swift */,
+				2A7DDB1322856FD000891DA6 /* SensorDataModel.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		2A9F52042265E1D500F9F651 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -684,7 +748,6 @@
 			isa = PBXGroup;
 			children = (
 				D06C3265228570E3005534C0 /* Modal */,
-				D06C32752289BAD2005534C0 /* Modal */,
 				2A9F52132265E97700F9F651 /* SettingsViewController.swift */,
 				2A9F52142265E97700F9F651 /* SettingsViewController.xib */,
 				D06C327122899F60005534C0 /* FirmwareUpdateViewController.swift */,
@@ -737,6 +800,22 @@
 				2AB778602282F6D4004442E2 /* DeleteRobotView.xib */,
 			);
 			path = Modal;
+			sourceTree = "<group>";
+		};
+		2AB8F9542288931800D7D93C /* UIImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				2AB8F9552288933100D7D93C /* UIImagePickerController+Show.swift */,
+			);
+			path = UIImagePickerController;
+			sourceTree = "<group>";
+		};
+		2AC7AB70228D4FA400D96457 /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				2AC7AB71228D4FB900D96457 /* URLSession+ImageDownload.swift */,
+			);
+			path = URLSession;
 			sourceTree = "<group>";
 		};
 		2ADE8C272270A58600ECEC72 /* Localization */ = {
@@ -961,8 +1040,10 @@
 		D008E03A2260AAF500089DC7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2AC7AB70228D4FA400D96457 /* URLSession */,
 				D06C326E2289955F005534C0 /* Bundle */,
 				096333FB2289C28C0029D87B /* UIButton */,
+				2AB8F9542288931800D7D93C /* UIImagePickerController */,
 				2AF8C755228026DE00CE1ACB /* UIStackView */,
 				09105A9622801E1900AB7B72 /* UIStackView */,
 				2AF8C75D2280658500CE1ACB /* FileManager */,
@@ -999,48 +1080,12 @@
 		D05C64C6225F56C400B7BF4F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2A4C930A228ABA8F0029AE07 /* ViewModel */,
+				2A7DDB1622856FE700891DA6 /* Data */,
+				2A7DDB1522856FE100891DA6 /* Domain */,
 				D008E0382260979300089DC7 /* FirebaseData.swift */,
-				D05C64D2225F581500B7BF4F /* LocalObjects */,
-				D05C64D7225F58CD00B7BF4F /* MixedObjects */,
-				D05C64D1225F580800B7BF4F /* RemoteObjects */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		D05C64D1225F580800B7BF4F /* RemoteObjects */ = {
-			isa = PBXGroup;
-			children = (
-				D05C64CD225F578A00B7BF4F /* BuildStep.swift */,
-				D05C64CB225F575A00B7BF4F /* Milestone.swift */,
-				D05C64C9225F572F00B7BF4F /* MilestoneType.swift */,
-				D05C64CF225F57BC00B7BF4F /* Robot.swift */,
-				D05C64C7225F570000B7BF4F /* TestCode.swift */,
-			);
-			path = RemoteObjects;
-			sourceTree = "<group>";
-		};
-		D05C64D2225F581500B7BF4F /* LocalObjects */ = {
-			isa = PBXGroup;
-			children = (
-				D05C64D3225F585500B7BF4F /* BuildStatus.swift */,
-				D05C64D5225F587700B7BF4F /* UserRobot.swift */,
-			);
-			path = LocalObjects;
-			sourceTree = "<group>";
-		};
-		D05C64D7225F58CD00B7BF4F /* MixedObjects */ = {
-			isa = PBXGroup;
-			children = (
-				D05C64E6225F5E3600B7BF4F /* Configuration.swift */,
-				D05C64E0225F5C9900B7BF4F /* Drivetrain.swift */,
-				D05C64E2225F5DBC00B7BF4F /* Motor.swift */,
-				D05C64DA225F590100B7BF4F /* Port.swift */,
-				D05C64E4225F5DEE00B7BF4F /* PortMapping.swift */,
-				D05C64DE225F5C4E00B7BF4F /* Rotation.swift */,
-				D05C64DC225F592400B7BF4F /* Sensor.swift */,
-				D05C64D8225F58E200B7BF4F /* Side.swift */,
-			);
-			path = MixedObjects;
 			sourceTree = "<group>";
 		};
 		D06C3265228570E3005534C0 /* Modal */ = {
@@ -1239,9 +1284,10 @@
 				FE4B16182277202600CAA083 /* ConfigurationViewController.xib in Resources */,
 				097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */,
 				D06F01D2228AFFA600AF73E5 /* FirmwareDownloadModal.xib in Resources */,
-				D0BF256F2282C6E000F08C9C /* DriveMeViewController.xib in Resources */,
+				D0BF256F2282C6E000F08C9C /* GamerPadViewController.xib in Resources */,
 				D0BF256F2282C6E000F08C9C /* GamerPadViewController.xib in Resources */,
 				D0A1108E227B18510064FBB6 /* ControllerInfoModal.xib in Resources */,
+				2AB8F95322888AF300D7D93C /* ConfigurationView.xib in Resources */,
 				2ADE8C462271A6B900ECEC72 /* BuildProgressBar.xib in Resources */,
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
 				09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */,
@@ -1393,6 +1439,7 @@
 				2A7DDB1A22859B2900891DA6 /* CommonKeys.swift in Sources */,
 				2A77320A2264A32D00D7F38D /* ServiceAssembly.swift in Sources */,
 				09105AA02280581F00AB7B72 /* PortConfigurationItemView.swift in Sources */,
+				2A7DDB1022856DC200891DA6 /* PortMappingDataModel.swift in Sources */,
 				2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */,
 				096333FD2289C2A60029D87B /* UIButton+BackgroundColor.swift in Sources */,
 				D0A11090227B1DAD0064FBB6 /* ControllerKeys.swift in Sources */,
@@ -1410,6 +1457,7 @@
 				D03BA8532276F323005B3E33 /* PartView.swift in Sources */,
 				096333FA2289BBA40029D87B /* UIView+Rounded.swift in Sources */,
 				2A9F52062265E31C00F9F651 /* BaseViewController.swift in Sources */,
+				2AC7AB72228D4FB900D96457 /* URLSession+ImageDownload.swift in Sources */,
 				D05C64CE225F578A00B7BF4F /* BuildStep.swift in Sources */,
 				D05C64D9225F58E200B7BF4F /* Side.swift in Sources */,
 				09C3875A2270A7100097619D /* FirebaseError.swift in Sources */,
@@ -1422,7 +1470,9 @@
 				D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */,
 				D03BA8602277384A005B3E33 /* ChapterFinishedModal.swift in Sources */,
 				D03BA8642277385E005B3E33 /* TipsModalView.swift in Sources */,
+				D03BA8642277385E005B3E33 /* TipsModalView.swift in Sources */,
 				09ED1BA9225247B1009CF262 /* MenuViewController.swift in Sources */,
+				2A7DDB0E22856BC500891DA6 /* ConfigurationDataModel.swift in Sources */,
 				D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */,
 				2AF8C75A22805EEC00CE1ACB /* RealmService.swift in Sources */,
 				2A91937A225F7C6F00E927FD /* BluetoothReachability.swift in Sources */,
@@ -1433,6 +1483,7 @@
 				D05C64CC225F575A00B7BF4F /* Milestone.swift in Sources */,
 				09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */,
 				09C3874D226F32F70097619D /* UIView+Anchor.swift in Sources */,
+				2A7DDB1222856FC800891DA6 /* MotorDataModel.swift in Sources */,
 				2ADE8C3A2270A7A700ECEC72 /* CommunityKeys.swift in Sources */,
 				2AFAA11222663111002BE0A2 /* UIImage+Color.swift in Sources */,
 				2ADE8C362270A79300ECEC72 /* ProgramsKeys.swift in Sources */,
@@ -1441,6 +1492,8 @@
 				D06C3267228570FF005534C0 /* ResetTutorialModal.swift in Sources */,
 				0985495C2271D44500A7C2DC /* UIImageView+GoogleStorage.swift in Sources */,
 				2ADE8C3C2270A80F00ECEC72 /* MenuKeys.swift in Sources */,
+				2A7DDB1422856FD000891DA6 /* SensorDataModel.swift in Sources */,
+				2AB8F95122888AD300D7D93C /* ConfigurationView.swift in Sources */,
 				2AF8C75422801D9D00CE1ACB /* RRZoomableImageView.swift in Sources */,
 				2A9F52112265E96B00F9F651 /* ProgramsViewController.swift in Sources */,
 				D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */,
@@ -1451,6 +1504,7 @@
 				FE4B16202277406D00CAA083 /* SegmentedControl.swift in Sources */,
 				D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */,
 				2A9F52022265DAC900F9F651 /* AppContainer.swift in Sources */,
+				2AB8F9562288933100D7D93C /* UIImagePickerController+Show.swift in Sources */,
 				FE4B162322786A5300CAA083 /* PhotoModal.swift in Sources */,
 				0964798222686DE000F68456 /* WhoToBuildViewController.swift in Sources */,
 				09105A9F2280581F00AB7B72 /* MotorConfigViewController.swift in Sources */,
@@ -1488,7 +1542,9 @@
 				D03BA86B22773DCA005B3E33 /* RRCollectionView.swift in Sources */,
 				2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */,
 				2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */,
+				2A4C930E228C15890029AE07 /* SensorConfigViewModel.swift in Sources */,
 				2AF8C75C22805EFA00CE1ACB /* RealmServiceInterface.swift in Sources */,
+				2A4C930C228ABA9E0029AE07 /* MotorConfigViewModel.swift in Sources */,
 				09FB0D69226761E900735B74 /* YourRobotsViewController.swift in Sources */,
 				D0A11094227B23E90064FBB6 /* RRInputField.swift in Sources */,
 				D0049A3D2270A8CF007FA256 /* AvailableRobotsView.swift in Sources */,

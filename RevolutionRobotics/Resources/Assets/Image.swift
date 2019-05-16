@@ -27,14 +27,22 @@ enum Image {
     }
 
     enum Configuration {
-        static let doneIcon = UIImage(named: "configDone")
-        static let addIconDark = UIImage(named: "addIconDark")
-        static let addIconLight = UIImage(named: "addIconLight")
-        static let defaultRobotImage = UIImage(named: "defaultRobotImage")
-        static let cellRedBorderSelected = UIImage(named: "ControllerCellBorderSelectedRed")
-        static let cellWhiteBorderSelected = UIImage(named: "ControllerCellBorderSelectedWhite")
-        static let cellRedBorderNonSelected = UIImage(named: "ControllerCellBorderNonSelectedRed")
-        static let cellWhiteBorderNonSelected = UIImage(named: "ControllerCellBorderNonSelectedWhite")
+        enum Connections {
+            static let doneIcon = UIImage(named: "configDone")
+            static let addIconDark = UIImage(named: "addIconDark")
+            static let addIconLight = UIImage(named: "addIconLight")
+            static let defaultRobotImage = UIImage(named: "defaultRobotImage")
+            static let drivetrainIcon = UIImage(named: "drivetrainIcon")
+            static let motorIcon = UIImage(named: "motorIcon")
+            static let bumperIcon = UIImage(named: "bumperIcon")
+            static let ultrasonicIcon = UIImage(named: "ultrasonicIcon")
+        }
+        enum Controllers {
+            static let cellRedBorderSelected = UIImage(named: "ControllerCellBorderSelectedRed")
+            static let cellWhiteBorderSelected = UIImage(named: "ControllerCellBorderSelectedWhite")
+            static let cellRedBorderNonSelected = UIImage(named: "ControllerCellBorderNonSelectedRed")
+            static let cellWhiteBorderNonSelected = UIImage(named: "ControllerCellBorderNonSelectedWhite")
+        }
     }
 
     enum YourRobots {

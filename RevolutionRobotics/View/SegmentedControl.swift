@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum SelectedSegment: Int {
+enum ConfigurationSegment: Int {
     case connections
     case controllers
 }
@@ -18,7 +18,7 @@ final class SegmentedControl: UIView {
     private var buttons: [SegmentedControlButton] = []
 
     // MARK: - Selected callback
-    var itemSelectedAt: ((SelectedSegment) -> Void)?
+    var selectionCallback: CallbackType<ConfigurationSegment>?
 
     // MARK: - Inits
     override init(frame: CGRect) {
@@ -46,7 +46,7 @@ extension SegmentedControl {
 
             let button = SegmentedControlButton()
             button.index = offset
-            button.selectedSegment = SelectedSegment(rawValue: offset) ?? SelectedSegment.connections
+            button.selectedSegment = ConfigurationSegment(rawValue: offset) ?? ConfigurationSegment.connections
             button.croppedCorners = croppedCorners
             button.setTitle(element, for: .normal)
             button.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
@@ -76,7 +76,7 @@ extension SegmentedControl {
     @objc private func buttonTapped(sender: SegmentedControlButton) {
         resetButtons()
         sender.isSelected = true
-        itemSelectedAt?(sender.selectedSegment)
+        selectionCallback?(sender.selectedSegment)
     }
 
     private func resetButtons() {
@@ -90,7 +90,7 @@ extension SegmentedControl {
 private class SegmentedControlButton: UIButton {
     public var index: Int!
     var croppedCorners: [UIView.Corner] = []
-    var selectedSegment: SelectedSegment = .connections
+    var selectedSegment: ConfigurationSegment = .connections
 
     override init(frame: CGRect) {
         super.init(frame: frame)

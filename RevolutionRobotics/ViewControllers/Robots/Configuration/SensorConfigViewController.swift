@@ -7,18 +7,9 @@
 //
 
 import UIKit
+import SideMenu
 
 final class SensorConfigViewController: BaseViewController {
-    // MARK: - SensorConfig
-    typealias SensorConfig = (SensorType, String?)
-
-    // MARK: - SensorType
-    enum SensorType {
-        case empty
-        case bumper
-        case ultrasound
-    }
-
     // MARK: - Outlets
     @IBOutlet private weak var buttonContainer: UIStackView!
     @IBOutlet private weak var nameInputField: RRInputField!
@@ -31,16 +22,21 @@ final class SensorConfigViewController: BaseViewController {
     private let ultrasoundButton = PortConfigurationItemView.instatiate()
 
     // MARK: - Variables
-    var selectedSensorType: SensorType = .empty {
+    var selectedSensorType: SensorConfigViewModelType = .empty {
         didSet {
-            handleSelectionChange()
-            validateActionButtons()
+            if isViewLoaded {
+                handleSelectionChange()
+                validateActionButtons()
+            }
         }
     }
 
     var portNumber = 0
-    var doneButtonTapped: CallbackType<SensorConfig>?
-    var testButtonTapped: CallbackType<SensorConfig>?
+    var doneButtonTapped: CallbackType<SensorConfigViewModel>?
+    var testButtonTapped: CallbackType<SensorConfigViewModel>?
+    var screenDismissed: Callback?
+
+    private var shouldCallDismiss = true
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -87,7 +83,7 @@ extension SensorConfigViewController {
             title: RobotsKeys.Configure.Sensor.ultrasoundButton.translate(),
             selectedImage: Image.Configure.ultrasoundSelected,
             unselectedImage: Image.Configure.ultrasoundUnselected) { [weak self] in
-                self?.selectedSensorType = .ultrasound
+                self?.selectedSensorType = .ultrasonic
             }
         )
         buttonContainer.addArrangedSubview(ultrasoundButton)
@@ -104,7 +100,7 @@ extension SensorConfigViewController {
     private func handleSelectionChange() {
         emptyButton.set(selected: selectedSensorType == .empty)
         bumperButton.set(selected: selectedSensorType == .bumper)
-        ultrasoundButton.set(selected: selectedSensorType == .ultrasound)
+        ultrasoundButton.set(selected: selectedSensorType == .ultrasonic)
     }
 
     private func validateActionButtons() {
@@ -115,10 +111,20 @@ extension SensorConfigViewController {
 // MARK: - Actions
 extension SensorConfigViewController {
     @IBAction private func testButtonTapped(_ sender: Any) {
-        testButtonTapped?((selectedSensorType, nameInputField.text))
+        testButtonTapped?(SensorConfigViewModel(portName: nameInputField.text, type: selectedSensorType))
     }
 
     @IBAction private func doneButtonTapped(_ sender: Any) {
-        testButtonTapped?((selectedSensorType, nameInputField.text))
+        shouldCallDismiss = false
+        doneButtonTapped?(SensorConfigViewModel(portName: nameInputField.text, type: selectedSensorType))
+    }
+}
+
+// MARK: - UISideMenuNavigationControllerDelegate
+extension SensorConfigViewController: UISideMenuNavigationControllerDelegate {
+    func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
+        if shouldCallDismiss {
+            screenDismissed?()
+        }
     }
 }

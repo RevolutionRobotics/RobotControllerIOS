@@ -20,6 +20,7 @@ final class WhoToBuildViewController: BaseViewController {
 
     // MARK: - Variables
     var firebaseService: FirebaseServiceInterface!
+    var realmService: RealmServiceInterface!
     private let discoverer: RoboticsDeviceDiscovererInterface = RoboticsDeviceDiscoverer()
     private let connector: RoboticsDeviceConnectorInterface = RoboticsDeviceConnector()
     private var selectedRobot: Robot?
@@ -45,6 +46,18 @@ extension WhoToBuildViewController {
                 self?.collectionView.isHidden = false
             case .failure(let error):
                 print(error)
+            }
+        }
+    }
+
+    private func fetchConfigurations() {
+        firebaseService.getConfigurations { [weak self] result in
+            switch result {
+            case .success(let configurations):
+                let localConfigurations = configurations.map({ ConfigurationDataModel(remoteConfiguration: $0) })
+                self?.realmService.saveConfigurations(localConfigurations)
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
@@ -80,6 +93,7 @@ extension WhoToBuildViewController {
         super.viewWillAppear(animated)
         collectionView.setupInset()
         fetchRobots()
+        fetchConfigurations()
     }
 
     private func setupCollectionView() {

@@ -25,6 +25,7 @@ final class YourRobotsCollectionViewCell: ResizableCell {
     @IBOutlet private weak var actionLabel: UILabel!
     @IBOutlet private weak var editButton: UIButton!
     @IBOutlet private weak var deleteButton: UIButton!
+    @IBOutlet private weak var robotImageView: UIImageView!
 
     // MARK: - Properties
     private var baseHeightMultiplier: CGFloat = 0
@@ -86,6 +87,7 @@ extension YourRobotsCollectionViewCell {
         statusImageView.image = isCompleted ? Image.Common.calendar : Image.Common.underConstruction
         lastModifiedLabel.text = isCompleted ?
             dateFormatter.string(from: robot.lastModified) : RobotsKeys.YourRobots.underConstruction.translate()
+        robotImageView.downloadImage(googleStorageURL: robot.customImage)
     }
 
     override func set(multiplier: CGFloat) {

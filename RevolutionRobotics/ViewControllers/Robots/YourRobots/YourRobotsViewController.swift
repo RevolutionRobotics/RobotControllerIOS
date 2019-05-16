@@ -94,6 +94,7 @@ extension YourRobotsViewController: UICollectionViewDataSource {
     private func navigateToConfiguration(with robot: UserRobot?) {
         guard let robot = robot else { return }
         let configuration = AppContainer.shared.container.unwrappedResolve(ConfigurationViewController.self)
+        configuration.selectedRobot = robot
         navigationController?.pushViewController(configuration, animated: true)
     }
 
@@ -149,7 +150,7 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
             switch result {
             case .success(let robots):
                 let buildViewController = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
-                buildViewController.remoteRobotDataModel = robots.first(where: { $0.id == robot.id })
+                buildViewController.remoteRobotDataModel = robots.first(where: { $0.id == robot.remoteId })
                 buildViewController.storedRobotDataModel = robot
                 self?.navigationController?.pushViewController(buildViewController, animated: true)
             case .failure(let error):

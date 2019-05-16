@@ -23,21 +23,46 @@ final class PortButton: UIButton {
 
     // MARK: - Port Type
     enum PortType {
+        init?(string: String?) {
+            guard let string = string else { return nil }
+            switch string {
+            case "motor":
+                self = .motor
+            case "drivetrain":
+                self = .drivetrain
+            case "bumper":
+                self = .bumper
+            case "ultrasonic":
+                self = .ultrasonic
+            default:
+                return nil
+            }
+        }
+
         case motor
-        case sensor
+        case drivetrain
+        case bumper
+        case ultrasonic
+    }
+
+    // MARK: - State
+    enum PortState {
+        case normal
+        case highlighted
+        case selected
     }
 
     var portType: PortType = .motor
-    @IBInspectable var isMotor: Bool = true {
-        didSet {
-            portType = isMotor ? .motor : .sensor
-        }
-    }
 
     // MARK: - Port Number
     @IBInspectable var portNumber: Int = 0
 
     // MARK: - References
+    var portState: PortState = .normal {
+        didSet {
+            setState(to: portState)
+        }
+    }
     var lines: [DashedView] = []
     var dotImageView: UIImageView! {
         didSet {
@@ -77,12 +102,11 @@ extension PortButton {
         adjustsImageWhenHighlighted = false
         backgroundColor = Color.brownGrey
         titleLabel?.font = Font.jura(size: Constants.fontSize, weight: .bold)
-        setImage(Image.Configuration.addIconLight, for: .normal)
+        setImage(Image.Configuration.Connections.addIconLight, for: .normal)
 
         layoutIfNeeded()
         setBorder(strokeColor: Color.brownishGrey, lineWidth: Constants.borderWidth, dashPatter: Constants.dashPattern)
         setupHighligherView()
-        setupToggle()
     }
 
     private func setupHighligherView() {
@@ -111,34 +135,48 @@ extension PortButton {
     }
 
     private func setupDotState(for selected: Bool) {
-        dotImageView.image = selected ? Image.Configuration.doneIcon : Image.Configuration.addIconDark
+        dotImageView.image =
+            selected ? Image.Configuration.Connections.doneIcon : Image.Configuration.Connections.addIconDark
         dotImageView.tintColor = selected ? borderColor : .lightGray
     }
 
-    private func setupHighlightedState() {
-        setBorder(strokeColor: .white, lineWidth: Constants.borderWidth)
-        setLineSelectedState(to: true, color: .white)
-        dotImageView.image = Image.Configuration.addIconLight
+    private func setState(to state: PortState) {
+        switch state {
+        case .normal:
+            setupNormalState()
+        case .highlighted:
+            setupHighlightedState()
+        case .selected:
+            setupSelectedState()
+        }
     }
 
-    private func setupSelectedState(with icon: UIImage?) {
-        setBorder(strokeColor: borderColor, lineWidth: Constants.borderWidth)
-        setLineSelectedState(to: true, color: borderColor)
-        setupDotState(for: true)
-        setImage(icon, for: .normal)
-    }
-
-    private func setupDeafultValues() {
+    private func setupNormalState() {
         setBorder(strokeColor: Color.brownishGrey, lineWidth: Constants.borderWidth, dashPatter: Constants.dashPattern)
         setLineSelectedState(to: false)
         setupDotState(for: false)
     }
 
-    private func setupToggle() {
-        self.addTarget(self, action: #selector(buttonTouch), for: .touchUpInside)
+    private func setupHighlightedState() {
+        setBorder(strokeColor: .white, lineWidth: Constants.borderWidth)
+        setLineSelectedState(to: true, color: .white)
+        dotImageView.image = Image.Configuration.Connections.addIconLight
+        setImage(Image.Configuration.Connections.addIconLight, for: .normal)
     }
 
-    @objc private func buttonTouch() {
-        setupHighlightedState()
+    private func setupSelectedState() {
+        setBorder(strokeColor: borderColor, lineWidth: Constants.borderWidth)
+        setLineSelectedState(to: true, color: borderColor)
+        setupDotState(for: true)
+        switch portType {
+        case .motor:
+            setImage(Image.Configuration.Connections.motorIcon, for: .normal)
+        case .drivetrain:
+            setImage(Image.Configuration.Connections.drivetrainIcon, for: .normal)
+        case .bumper:
+            setImage(Image.Configuration.Connections.bumperIcon, for: .normal)
+        case .ultrasonic:
+            setImage(Image.Configuration.Connections.ultrasonicIcon, for: .normal)
+        }
     }
 }
