@@ -131,7 +131,7 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
         guard !collectionView.isDecelerating,
             let cell = collectionView.cellForItem(at: indexPath) as? ResizableCell,
             cell.isCentered,
-            let status = BuildStatus(rawValue: robots[indexPath.item].buildStatus)else { return }
+            let status = BuildStatus(rawValue: robots[indexPath.item].buildStatus) else { return }
         switch status {
         case .completed:
             navigateToGamerPadViewController(with: robots[indexPath.item])

@@ -40,6 +40,18 @@ extension FirebaseService: FirebaseServiceInterface {
     func getRobots(completion: CallbackType<Result<[Robot], FirebaseError>>?) {
         getDataArray(Robot.self, completion: completion)
     }
+
+    func getControllers(completion: CallbackType<Result<[Controller], FirebaseError>>?) {
+        getDataArray(Controller.self, completion: completion)
+    }
+
+    func getPrograms(completion: CallbackType<Result<[Program], FirebaseError>>?) {
+        getDataArray(Program.self, completion: completion)
+    }
+
+    func getChallengeCategory(completion: CallbackType<Result<ChallengeCategory, FirebaseError>>?) {
+        getData(ChallengeCategory.self, completion: completion)
+    }
 }
 
 // MARK: - Private

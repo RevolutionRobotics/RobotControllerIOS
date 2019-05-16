@@ -16,6 +16,7 @@ enum ConfigurationSegment: Int {
 final class SegmentedControl: UIView {
     private let stackView = UIStackView()
     private var buttons: [SegmentedControlButton] = []
+    var selectedSegment: ConfigurationSegment = .connections
 
     // MARK: - Selected callback
     var selectionCallback: CallbackType<ConfigurationSegment>?
@@ -71,12 +72,16 @@ extension SegmentedControl {
     func setSelectedIndex(_ index: Int) {
         guard index >= 0, index <= buttons.count - 1 else { return }
         buttons[index].isSelected = true
+        guard let segment = ConfigurationSegment(rawValue: index) else { return }
+        selectionCallback?(segment)
+        selectedSegment = segment
     }
 
     @objc private func buttonTapped(sender: SegmentedControlButton) {
         resetButtons()
         sender.isSelected = true
         selectionCallback?(sender.selectedSegment)
+        selectedSegment = sender.selectedSegment
     }
 
     private func resetButtons() {
