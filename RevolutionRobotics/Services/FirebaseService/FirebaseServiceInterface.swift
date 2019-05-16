@@ -12,5 +12,5 @@ protocol FirebaseServiceInterface {
     func getConfigurations(completion: CallbackType<Result<[Configuration], FirebaseError>>?)
     func getControllers(completion: CallbackType<Result<[Controller], FirebaseError>>?)
     func getPrograms(completion: CallbackType<Result<[Program], FirebaseError>>?)
-    func getChallengeCategory(completion: CallbackType<Result<ChallengeCategory, FirebaseError>>?)
+    func getChallengeCategory(completion: CallbackType<Result<[ChallengeCategory], FirebaseError>>?)
 }

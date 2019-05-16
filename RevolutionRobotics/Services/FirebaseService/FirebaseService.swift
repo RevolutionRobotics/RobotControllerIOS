@@ -49,8 +49,8 @@ extension FirebaseService: FirebaseServiceInterface {
         getDataArray(Program.self, completion: completion)
     }
 
-    func getChallengeCategory(completion: CallbackType<Result<ChallengeCategory, FirebaseError>>?) {
-        getData(ChallengeCategory.self, completion: completion)
+    func getChallengeCategory(completion: CallbackType<Result<[ChallengeCategory], FirebaseError>>?) {
+        getDataArray(ChallengeCategory.self, completion: completion)
     }
 }
 
