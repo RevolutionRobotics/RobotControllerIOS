@@ -21,8 +21,13 @@ final class JoystickScene: SKScene {
 
     // MARK: - Properties
     private let joystick = TLAnalogJoystick(
-        withBase: TLAnalogJoystickComponent(diameter: Constants.baseDiamater, image: Image.Controller.gamerPadJoystick),
-        handle: TLAnalogJoystickComponent(diameter: Constants.handleDiameter, color: Color.brightRed)
+        withBase: TLAnalogJoystickComponent(
+            diameter: Constants.baseDiamater,
+            image: Image.Controller.gamerPadJoystick),
+        handle: TLAnalogJoystickComponent(
+            diameter: Constants.handleDiameter,
+            image: Image.Controller.padButtonBackground
+        )
     )
 
     var positionChanged: CallbackType<CGPoint>?

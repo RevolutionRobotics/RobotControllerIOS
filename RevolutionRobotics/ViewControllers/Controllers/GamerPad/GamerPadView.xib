@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GamerPadView" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="750" height="311"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <skView contentMode="scaleToFill" shouldCullNonVisibleNodes="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i63-lc-3dm">
+                    <rect key="frame" x="24" y="64" width="207" height="207"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="207" id="azM-tX-jqY"/>
+                        <constraint firstAttribute="width" constant="207" id="rme-bF-QgU"/>
+                    </constraints>
+                </skView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJr-C3-YMf" userLabel="Action Buttons">
+                    <rect key="frame" x="572" y="83" width="144" height="169"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oSf-t6-vxz" userLabel="Up" customClass="PadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="51" y="0.0" width="42" height="67"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="42" id="4Fb-58-o8J"/>
+                                <constraint firstAttribute="height" constant="67" placeholder="YES" id="H0J-TH-fON"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdj-S2-Spz" userLabel="Left" customClass="PadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="52" width="42" height="67"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="67" placeholder="YES" id="TVK-cq-3cP"/>
+                                <constraint firstAttribute="width" constant="42" id="grT-78-ZeL"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bq0-Fg-QhF" userLabel="Right" customClass="PadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="102" y="52" width="42" height="67"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="67" placeholder="YES" id="4da-U1-0M6"/>
+                                <constraint firstAttribute="width" constant="42" id="M8f-6i-gbt"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJq-Pc-POb" userLabel="Down" customClass="PadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="51" y="102" width="42" height="67"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="67" placeholder="YES" id="YTZ-gg-Cji"/>
+                                <constraint firstAttribute="width" constant="42" id="oZj-U6-ZOK"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="tJq-Pc-POb" firstAttribute="bottom" secondItem="oSf-t6-vxz" secondAttribute="bottom" constant="102" id="06s-Zd-ioo"/>
+                        <constraint firstItem="xdj-S2-Spz" firstAttribute="bottom" secondItem="oSf-t6-vxz" secondAttribute="bottom" constant="52" id="5dP-EO-XSw"/>
+                        <constraint firstItem="bq0-Fg-QhF" firstAttribute="bottom" secondItem="oSf-t6-vxz" secondAttribute="bottom" constant="52" id="HVF-kw-bfL"/>
+                        <constraint firstItem="oSf-t6-vxz" firstAttribute="centerX" secondItem="yJr-C3-YMf" secondAttribute="centerX" id="LwJ-IM-4jm"/>
+                        <constraint firstAttribute="trailing" secondItem="bq0-Fg-QhF" secondAttribute="trailing" id="UAd-Ye-V4W"/>
+                        <constraint firstItem="tJq-Pc-POb" firstAttribute="centerX" secondItem="yJr-C3-YMf" secondAttribute="centerX" id="Vkq-Lh-dsE"/>
+                        <constraint firstAttribute="bottom" secondItem="tJq-Pc-POb" secondAttribute="bottom" id="WP4-ng-faW"/>
+                        <constraint firstItem="oSf-t6-vxz" firstAttribute="top" secondItem="yJr-C3-YMf" secondAttribute="top" id="cx3-eV-Tjd"/>
+                        <constraint firstItem="xdj-S2-Spz" firstAttribute="leading" secondItem="yJr-C3-YMf" secondAttribute="leading" id="eqz-Zl-BCJ"/>
+                        <constraint firstItem="bq0-Fg-QhF" firstAttribute="leading" secondItem="xdj-S2-Spz" secondAttribute="trailing" constant="60" id="wNm-IQ-QA2"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWm-WD-k67" userLabel="Center Buttons">
+                    <rect key="frame" x="301" y="203" width="148" height="84"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBc-tB-H5o" customClass="PadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="58" height="84"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="84" placeholder="YES" id="6N3-fH-atV"/>
+                                <constraint firstAttribute="width" constant="58" id="QkX-qq-hL1"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OdN-XK-omp" customClass="PadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="90" y="0.0" width="58" height="84"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="84" placeholder="YES" id="MHp-tf-e3g"/>
+                                <constraint firstAttribute="width" constant="58" id="lhb-rP-6Ux"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="OdN-XK-omp" firstAttribute="leading" secondItem="QBc-tB-H5o" secondAttribute="trailing" constant="32" id="0Nd-GX-lek"/>
+                        <constraint firstItem="QBc-tB-H5o" firstAttribute="top" secondItem="jWm-WD-k67" secondAttribute="top" id="Pte-8j-Cbv"/>
+                        <constraint firstItem="OdN-XK-omp" firstAttribute="top" secondItem="jWm-WD-k67" secondAttribute="top" id="Ue4-Up-dfp"/>
+                        <constraint firstAttribute="trailing" secondItem="OdN-XK-omp" secondAttribute="trailing" id="ef5-0y-cfn"/>
+                        <constraint firstItem="QBc-tB-H5o" firstAttribute="leading" secondItem="jWm-WD-k67" secondAttribute="leading" id="gTN-RZ-KbI"/>
+                        <constraint firstAttribute="bottom" secondItem="OdN-XK-omp" secondAttribute="bottom" id="pqp-ak-lIC"/>
+                        <constraint firstAttribute="bottom" secondItem="QBc-tB-H5o" secondAttribute="bottom" id="qJm-p4-Qik"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="i63-lc-3dm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="0IX-8o-Fod"/>
+                <constraint firstAttribute="bottom" secondItem="jWm-WD-k67" secondAttribute="bottom" constant="24" id="Mq9-0H-kix"/>
+                <constraint firstItem="yJr-C3-YMf" firstAttribute="centerY" secondItem="i63-lc-3dm" secondAttribute="centerY" id="Uvh-HJ-rnp"/>
+                <constraint firstAttribute="trailing" secondItem="yJr-C3-YMf" secondAttribute="trailing" constant="34" id="aVs-5O-WGC"/>
+                <constraint firstAttribute="bottom" secondItem="i63-lc-3dm" secondAttribute="bottom" constant="40" id="dku-HF-d99"/>
+                <constraint firstItem="jWm-WD-k67" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eK3-OV-woK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="joystickContainer" destination="i63-lc-3dm" id="nNw-Rw-Jak"/>
+                <outletCollection property="buttons" destination="oSf-t6-vxz" collectionClass="NSMutableArray" id="IdP-b7-Q9c"/>
+                <outletCollection property="buttons" destination="xdj-S2-Spz" collectionClass="NSMutableArray" id="0tf-QY-7tv"/>
+                <outletCollection property="buttons" destination="bq0-Fg-QhF" collectionClass="NSMutableArray" id="TvH-hU-bBZ"/>
+                <outletCollection property="buttons" destination="tJq-Pc-POb" collectionClass="NSMutableArray" id="SP5-Xb-Gmm"/>
+                <outletCollection property="buttons" destination="QBc-tB-H5o" collectionClass="NSMutableArray" id="fKN-2o-exx"/>
+                <outletCollection property="buttons" destination="OdN-XK-omp" collectionClass="NSMutableArray" id="8gj-wC-LPq"/>
+            </connections>
+            <point key="canvasLocation" x="48.883928571428569" y="81.884057971014499"/>
+        </view>
+    </objects>
+</document>

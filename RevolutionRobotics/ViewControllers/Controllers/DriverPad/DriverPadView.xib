@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DriverPadView" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="592" height="318"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Shv-KB-z3L">
+                    <rect key="frame" x="203" y="86" width="186" height="146"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="d99-Za-9OX">
+                            <rect key="frame" x="0.0" y="0.0" width="186" height="73"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkh-sb-lZu" customClass="PadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="42" height="73"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="42" id="Qk1-Yk-UFH"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hp9-xd-9vg" customClass="PadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                                    <rect key="frame" x="72" y="0.0" width="42" height="73"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="42" id="1yF-ng-GGN"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMF-og-CZ3" customClass="PadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                                    <rect key="frame" x="144" y="0.0" width="42" height="73"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="42" id="Kxj-pZ-jt7"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Yby-3G-ihL">
+                            <rect key="frame" x="0.0" y="73" width="186" height="73"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvc-Et-tgV" customClass="PadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="42" height="73"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="42" id="iRC-a1-geD"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccn-iF-XUR" customClass="PadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                                    <rect key="frame" x="72" y="0.0" width="42" height="73"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="42" id="BIL-uO-Q3B"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrZ-co-V0F" customClass="PadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                                    <rect key="frame" x="144" y="0.0" width="42" height="73"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="42" id="lfY-Ka-1po"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Yby-3G-ihL" secondAttribute="trailing" id="LqR-bZ-zw7"/>
+                        <constraint firstAttribute="width" constant="186" id="Oct-2e-1MF"/>
+                        <constraint firstAttribute="bottom" secondItem="Yby-3G-ihL" secondAttribute="bottom" id="QiK-W8-2SD"/>
+                        <constraint firstItem="Yby-3G-ihL" firstAttribute="height" secondItem="d99-Za-9OX" secondAttribute="height" id="Z20-jl-B97"/>
+                        <constraint firstItem="Yby-3G-ihL" firstAttribute="leading" secondItem="Shv-KB-z3L" secondAttribute="leading" id="ckP-ft-y2B"/>
+                        <constraint firstItem="d99-Za-9OX" firstAttribute="top" secondItem="Shv-KB-z3L" secondAttribute="top" id="eEd-82-Vis"/>
+                        <constraint firstAttribute="height" constant="146" id="fKe-DL-yRh"/>
+                        <constraint firstAttribute="trailing" secondItem="d99-Za-9OX" secondAttribute="trailing" id="iIR-q2-ZbD"/>
+                        <constraint firstItem="Yby-3G-ihL" firstAttribute="top" secondItem="d99-Za-9OX" secondAttribute="bottom" id="n5s-H8-jcC"/>
+                        <constraint firstItem="d99-Za-9OX" firstAttribute="leading" secondItem="Shv-KB-z3L" secondAttribute="leading" id="wY6-5W-6XY"/>
+                    </constraints>
+                </view>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="128" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-E1-rM7">
+                    <rect key="frame" x="-2" y="144" width="192" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="188" id="Vza-gr-cjn"/>
+                    </constraints>
+                    <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <action selector="verticalReset:" destination="iN0-l3-epB" eventType="touchDragOutside" id="14S-J0-5ft"/>
+                        <action selector="verticalReset:" destination="iN0-l3-epB" eventType="touchUpOutside" id="L85-0B-8wr"/>
+                        <action selector="verticalReset:" destination="iN0-l3-epB" eventType="touchDragExit" id="NjN-hR-GbC"/>
+                        <action selector="verticalReset:" destination="iN0-l3-epB" eventType="touchUpInside" id="rPA-27-5yU"/>
+                        <action selector="verticalValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="urx-eE-Tk9"/>
+                    </connections>
+                </slider>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="128" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="qEQ-Zy-qJ4">
+                    <rect key="frame" x="402" y="144" width="192" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="188" id="Sdk-IJ-QKD"/>
+                    </constraints>
+                    <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <action selector="horizontalReset:" destination="iN0-l3-epB" eventType="touchDragExit" id="3bK-lY-Qw5"/>
+                        <action selector="horizontalReset:" destination="iN0-l3-epB" eventType="touchDragOutside" id="88Y-XT-fEJ"/>
+                        <action selector="horizontalReset:" destination="iN0-l3-epB" eventType="touchUpInside" id="Dg5-wg-to6"/>
+                        <action selector="horizontalReset:" destination="iN0-l3-epB" eventType="touchUpOutside" id="mbY-46-xDa"/>
+                        <action selector="horizontalValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="O3j-PH-e5C"/>
+                    </connections>
+                </slider>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="qEQ-Zy-qJ4" firstAttribute="centerY" secondItem="8eN-E1-rM7" secondAttribute="centerY" id="07A-9d-K4g"/>
+                <constraint firstItem="Shv-KB-z3L" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Cfh-12-VV3"/>
+                <constraint firstAttribute="trailing" secondItem="qEQ-Zy-qJ4" secondAttribute="trailing" id="Ku3-Vx-Ams"/>
+                <constraint firstItem="Shv-KB-z3L" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="WSd-K9-NuB"/>
+                <constraint firstItem="8eN-E1-rM7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="n9u-kz-edK"/>
+                <constraint firstItem="8eN-E1-rM7" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="uI1-Qe-k2O"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="horizontalDirectionSlider" destination="qEQ-Zy-qJ4" id="9br-wv-umN"/>
+                <outlet property="verticalDirectionSlider" destination="8eN-E1-rM7" id="ByR-6c-jHf"/>
+                <outletCollection property="buttons" destination="pkh-sb-lZu" collectionClass="NSMutableArray" id="Jfa-7W-Czv"/>
+                <outletCollection property="buttons" destination="Hp9-xd-9vg" collectionClass="NSMutableArray" id="JVC-U2-vQj"/>
+                <outletCollection property="buttons" destination="tMF-og-CZ3" collectionClass="NSMutableArray" id="niH-Vv-yd7"/>
+                <outletCollection property="buttons" destination="Hvc-Et-tgV" collectionClass="NSMutableArray" id="r9x-JE-AMt"/>
+                <outletCollection property="buttons" destination="Ccn-iF-XUR" collectionClass="NSMutableArray" id="6Sw-eW-2rT"/>
+                <outletCollection property="buttons" destination="CrZ-co-V0F" collectionClass="NSMutableArray" id="nK5-HR-WYx"/>
+            </connections>
+            <point key="canvasLocation" x="-66.666666666666671" y="12.228260869565219"/>
+        </view>
+    </objects>
+</document>
