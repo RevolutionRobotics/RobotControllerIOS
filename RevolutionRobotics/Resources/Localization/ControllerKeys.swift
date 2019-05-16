@@ -7,4 +7,6 @@
 //
 
 enum ControllerKeys {
+    static let selectorScreenTitle = "controller_selector_title"
+    static let createNew = "controller_create_new"
 }

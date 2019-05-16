@@ -23,6 +23,7 @@ final class ConfigurationViewController: BaseViewController {
     @IBOutlet private weak var rightButton: UIButton!
     @IBOutlet private weak var collectionView: RRCollectionView!
     @IBOutlet private weak var controllerCollectionView: UIView!
+    @IBOutlet private weak var createNewButton: SideButton!
 
     // MARK: - Properties
     var realmService: RealmServiceInterface!
@@ -62,6 +63,12 @@ extension ConfigurationViewController {
         setupConfigurationView()
         if shouldPrefillConfiguration {
             refreshConfigurationData()
+        }
+        createNewButton.title = ControllerKeys.createNew.translate()
+        createNewButton.selectionHandler = { [weak self] in
+            let controllersViewController =
+                AppContainer.shared.container.unwrappedResolve(ControllerLayoutSelectorViewController.self)
+            self?.navigationController?.pushViewController(controllersViewController, animated: true)
         }
     }
 
