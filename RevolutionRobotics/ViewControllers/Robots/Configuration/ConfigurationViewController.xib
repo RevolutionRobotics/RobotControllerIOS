@@ -15,6 +15,7 @@
                 <outlet property="collectionView" destination="WVt-Oi-mfz" id="Byt-fz-mf6"/>
                 <outlet property="configurationView" destination="R0b-BO-qaQ" id="LHe-85-74R"/>
                 <outlet property="controllerCollectionView" destination="mYC-o0-2cD" id="zim-pb-SNy"/>
+                <outlet property="createNewButton" destination="Pr2-V4-VDh" id="o1Q-GI-O3e"/>
                 <outlet property="leftButton" destination="t8S-aZ-NOv" id="c1L-O5-XT0"/>
                 <outlet property="navigationBar" destination="oyj-RX-Rpw" id="CUl-UR-9sA"/>
                 <outlet property="rightButton" destination="aIp-Ql-FYR" id="lVi-VW-Z7A"/>

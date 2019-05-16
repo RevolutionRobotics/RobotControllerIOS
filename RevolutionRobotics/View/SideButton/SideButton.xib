@@ -49,7 +49,7 @@
                                 <constraint firstItem="OYM-tQ-MTd" firstAttribute="centerY" secondItem="4vr-6O-nHA" secondAttribute="centerY" id="gCZ-Xw-zfv"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="build new" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atd-45-5fb" userLabel="titleLabel">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="build new" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="atd-45-5fb" userLabel="titleLabel">
                             <rect key="frame" x="38" y="8" width="62" height="42"/>
                             <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

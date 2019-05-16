@@ -124,6 +124,8 @@
 		D0313335228D5CBA00704989 /* ControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332C228D5CBA00704989 /* ControllerType.swift */; };
 		D0313336228D5CBA00704989 /* ChallengeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332D228D5CBA00704989 /* ChallengeStep.swift */; };
 		D0313337228D5CBA00704989 /* Part.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332E228D5CBA00704989 /* Part.swift */; };
+		D0313322228C602100704989 /* ControllerLayoutSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */; };
+		D0313323228C602100704989 /* ControllerLayoutSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */; };
 		D03BA8532276F323005B3E33 /* PartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8512276F323005B3E33 /* PartView.swift */; };
 		D03BA8542276F323005B3E33 /* PartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8522276F323005B3E33 /* PartView.xib */; };
 		D03BA85C2277384A005B3E33 /* ConnectionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8562277384A005B3E33 /* ConnectionModal.swift */; };
@@ -322,6 +324,8 @@
 		D031332C228D5CBA00704989 /* ControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerType.swift; sourceTree = "<group>"; };
 		D031332D228D5CBA00704989 /* ChallengeStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeStep.swift; sourceTree = "<group>"; };
 		D031332E228D5CBA00704989 /* Part.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Part.swift; sourceTree = "<group>"; };
+		D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerLayoutSelectorViewController.swift; sourceTree = "<group>"; };
+		D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControllerLayoutSelectorViewController.xib; sourceTree = "<group>"; };
 		D03BA8512276F323005B3E33 /* PartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartView.swift; sourceTree = "<group>"; };
 		D03BA8522276F323005B3E33 /* PartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartView.xib; sourceTree = "<group>"; };
 		D03BA8562277384A005B3E33 /* ConnectionModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionModal.swift; sourceTree = "<group>"; };
@@ -1143,6 +1147,8 @@
 			children = (
 				096333EC22898D860029D87B /* GamerPad */,
 				D0A1108A227B18310064FBB6 /* Modal */,
+				D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */,
+				D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1325,6 +1331,7 @@
 				D0049A432270ABA1007FA256 /* AvailableRobotsTableViewCell.xib in Resources */,
 				D06F01D9228B0B6300AF73E5 /* SuccessfulUpdateModal.xib in Resources */,
 				D03BA8652277385E005B3E33 /* TipsModalView.xib in Resources */,
+				D0313323228C602100704989 /* ControllerLayoutSelectorViewController.xib in Resources */,
 				D0A11096227B23F20064FBB6 /* RRInputField.xib in Resources */,
 				196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */,
 				D06C326D22857A80005534C0 /* AboutViewController.xib in Resources */,
@@ -1481,6 +1488,7 @@
 				D05C64DD225F592400B7BF4F /* Sensor.swift in Sources */,
 				D0049A492270BBD2007FA256 /* UITableView+CellReuse.swift in Sources */,
 				096479862268776200F68456 /* BuildRobotViewController.swift in Sources */,
+				D0313322228C602100704989 /* ControllerLayoutSelectorViewController.swift in Sources */,
 				2AF8C757228026EE00CE1ACB /* UIStackView+RemoveAll.swift in Sources */,
 				D0313337228D5CBA00704989 /* Part.swift in Sources */,
 				D03BA8532276F323005B3E33 /* PartView.swift in Sources */,

@@ -26,6 +26,7 @@ final class ScreenAssembly: Assembly {
         registerGamerPadViewController(to: container)
         registerFirmwareUpdateViewController(to: container)
         registerAboutViewController(to: container)
+        registerControllerSelectorViewController(to: container)
     }
 }
 
@@ -133,6 +134,14 @@ extension ScreenAssembly {
     private func registerAboutViewController(to container: Container) {
         container
             .register(AboutViewController.self, factory: { _ in return AboutViewController() })
+            .inObjectScope(.weak)
+    }
+
+    private func registerControllerSelectorViewController(to container: Container) {
+        container
+            .register(ControllerLayoutSelectorViewController.self, factory: { _ in
+                return ControllerLayoutSelectorViewController()
+            })
             .inObjectScope(.weak)
     }
 }

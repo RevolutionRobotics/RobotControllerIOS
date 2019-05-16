@@ -125,3 +125,6 @@
 "firmware_main_battery" = "Main battery: %@ %%";
 "firmware_motor_battery" = "Motor battery: %@ %%";
 "firmware_loading" = "Loading...";
+
+"controller_create_new" = "Create new";
+"controller_selector_title" = "Choose your controller!";

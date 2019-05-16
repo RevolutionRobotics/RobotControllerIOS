@@ -65,6 +65,7 @@ extension RRInputField: UITextFieldDelegate {
         if let limit = characterLimit, range.location >= limit || string.count >= limit {
             return false
         }
+
         return true
     }
 }
