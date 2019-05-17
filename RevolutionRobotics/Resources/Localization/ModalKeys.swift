@@ -64,4 +64,11 @@ enum ModalKeys {
         static let motorBattery = "firmware_motor_battery"
         static let loading = "firmware_loading"
     }
+
+    enum Program {
+        static let addProgram = "program_modal_add"
+        static let removeProgram = "program_modal_remove"
+        static let edigProgram = "program_modal_edit"
+        static let gotIt = "program_modal_got_it"
+    }
 }

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -53,7 +54,8 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZx-F2-9Um" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="225" height="46"/>
                             <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
-                            <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Edit program" image="EditIcon">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -64,7 +66,8 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNu-6Q-w2d" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="225" y="0.0" width="225" height="46"/>
                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
-                            <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Add program" image="plus16">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -77,9 +80,17 @@
                         <constraint firstAttribute="height" constant="46" id="rQn-Qi-yxx"/>
                     </constraints>
                 </stackView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9w-Fi-dzK">
+                    <rect key="frame" x="32" y="143.5" width="396" height="32.5"/>
+                    <string key="text">Description of compatibility issue. Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat. Per graece denique.</string>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
+                    <color key="textColor" name="BrightRed"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="b9w-Fi-dzK" firstAttribute="top" secondItem="j97-R8-3PM" secondAttribute="bottom" constant="13" id="2NK-Qg-Kui"/>
                 <constraint firstAttribute="trailing" secondItem="ca2-RN-Jeh" secondAttribute="trailing" constant="32" id="5Og-kF-QPg"/>
                 <constraint firstItem="ca2-RN-Jeh" firstAttribute="top" secondItem="Gd0-89-fGP" secondAttribute="top" constant="32" id="A6k-hM-5LL"/>
                 <constraint firstAttribute="bottom" secondItem="seo-E9-tAm" secondAttribute="bottom" constant="5" id="Bql-aj-R6Y"/>
@@ -87,11 +98,14 @@
                 <constraint firstItem="R7f-en-kVc" firstAttribute="centerY" secondItem="j97-R8-3PM" secondAttribute="centerY" id="GXB-gE-FsD"/>
                 <constraint firstItem="R7f-en-kVc" firstAttribute="leading" secondItem="j97-R8-3PM" secondAttribute="trailing" constant="11" id="IaU-iw-9yS"/>
                 <constraint firstItem="ca2-RN-Jeh" firstAttribute="leading" secondItem="Gd0-89-fGP" secondAttribute="leading" constant="32" id="JQR-0y-clE"/>
+                <constraint firstItem="b9w-Fi-dzK" firstAttribute="leading" secondItem="Gd0-89-fGP" secondAttribute="leading" constant="32" id="Ofl-l4-hks"/>
                 <constraint firstItem="seo-E9-tAm" firstAttribute="leading" secondItem="Gd0-89-fGP" secondAttribute="leading" constant="5" id="V7J-Uo-sRc"/>
                 <constraint firstItem="nC1-28-jkB" firstAttribute="leading" secondItem="ca2-RN-Jeh" secondAttribute="leading" id="VKV-SR-ci7"/>
+                <constraint firstAttribute="trailing" secondItem="b9w-Fi-dzK" secondAttribute="trailing" constant="32" id="WCQ-qH-dVB"/>
                 <constraint firstItem="nC1-28-jkB" firstAttribute="trailing" secondItem="ca2-RN-Jeh" secondAttribute="trailing" id="du4-OR-qNj"/>
                 <constraint firstAttribute="trailing" secondItem="seo-E9-tAm" secondAttribute="trailing" constant="5" id="dzY-B5-Vdr"/>
                 <constraint firstItem="j97-R8-3PM" firstAttribute="top" secondItem="nC1-28-jkB" secondAttribute="bottom" constant="16" id="jyY-Do-lYP"/>
+                <constraint firstItem="seo-E9-tAm" firstAttribute="top" secondItem="b9w-Fi-dzK" secondAttribute="bottom" constant="13" id="mqT-Ds-oxN"/>
                 <constraint firstItem="j97-R8-3PM" firstAttribute="leading" secondItem="nC1-28-jkB" secondAttribute="leading" id="pgH-ma-h2W"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -100,6 +114,7 @@
                 <outlet property="dateLabel" destination="R7f-en-kVc" id="vh6-Vh-s2T"/>
                 <outlet property="descriptionLabel" destination="nC1-28-jkB" id="vz9-3g-Vx1"/>
                 <outlet property="editProgramButton" destination="pZx-F2-9Um" id="zxP-3V-qFX"/>
+                <outlet property="issueLabel" destination="b9w-Fi-dzK" id="6EY-Te-lFL"/>
                 <outlet property="titleLabel" destination="ca2-RN-Jeh" id="Gnt-Yc-SjL"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="239.0625"/>
@@ -109,5 +124,8 @@
         <image name="CalendarIcon" width="16" height="16"/>
         <image name="EditIcon" width="20" height="20"/>
         <image name="plus16" width="16" height="16"/>
+        <namedColor name="BrightRed">
+            <color red="0.90196078431372551" green="0.011764705882352941" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
