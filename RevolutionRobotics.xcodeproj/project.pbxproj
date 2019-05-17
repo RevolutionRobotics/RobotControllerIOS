@@ -133,6 +133,8 @@
 		D0313337228D5CBA00704989 /* Part.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332E228D5CBA00704989 /* Part.swift */; };
 		D0313322228C602100704989 /* ControllerLayoutSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */; };
 		D0313323228C602100704989 /* ControllerLayoutSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */; };
+		D0313339228DD3B100704989 /* SaveControllerModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313338228DD3B000704989 /* SaveControllerModal.swift */; };
+		D031333B228DD3C100704989 /* SaveControllerModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D031333A228DD3C100704989 /* SaveControllerModal.xib */; };
 		D03BA8532276F323005B3E33 /* PartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8512276F323005B3E33 /* PartView.swift */; };
 		D03BA8542276F323005B3E33 /* PartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8522276F323005B3E33 /* PartView.xib */; };
 		D03BA85C2277384A005B3E33 /* ConnectionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8562277384A005B3E33 /* ConnectionModal.swift */; };
@@ -340,6 +342,8 @@
 		D031332E228D5CBA00704989 /* Part.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Part.swift; sourceTree = "<group>"; };
 		D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerLayoutSelectorViewController.swift; sourceTree = "<group>"; };
 		D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControllerLayoutSelectorViewController.xib; sourceTree = "<group>"; };
+		D0313338228DD3B000704989 /* SaveControllerModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveControllerModal.swift; sourceTree = "<group>"; };
+		D031333A228DD3C100704989 /* SaveControllerModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SaveControllerModal.xib; sourceTree = "<group>"; };
 		D03BA8512276F323005B3E33 /* PartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartView.swift; sourceTree = "<group>"; };
 		D03BA8522276F323005B3E33 /* PartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartView.xib; sourceTree = "<group>"; };
 		D03BA8562277384A005B3E33 /* ConnectionModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionModal.swift; sourceTree = "<group>"; };
@@ -1195,6 +1199,8 @@
 			children = (
 				D0A1108B227B18480064FBB6 /* ControllerInfoModal.swift */,
 				D0A1108D227B18510064FBB6 /* ControllerInfoModal.xib */,
+				D0313338228DD3B000704989 /* SaveControllerModal.swift */,
+				D031333A228DD3C100704989 /* SaveControllerModal.xib */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -1387,6 +1393,7 @@
 				09105A9E2280581F00AB7B72 /* MotorConfigViewController.xib in Resources */,
 				2A9F520E2265E95600F9F651 /* ChallengesViewController.xib in Resources */,
 				FE4B162522786A6C00CAA083 /* PhotoModal.xib in Resources */,
+				D031333B228DD3C100704989 /* SaveControllerModal.xib in Resources */,
 				D0BF256C2282C6C100F08C9C /* BuildFinishedModal.xib in Resources */,
 				09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */,
 				0964798122686DE000F68456 /* WhoToBuildViewController.xib in Resources */,
@@ -1605,6 +1612,7 @@
 				2A9F52152265E97700F9F651 /* SettingsViewController.swift in Sources */,
 				2ABD618422500F7C00587F1C /* AppDependencies.swift in Sources */,
 				09ED1BAD22524B09009CF262 /* Callback.swift in Sources */,
+				D0313339228DD3B100704989 /* SaveControllerModal.swift in Sources */,
 				2AF8C762228069EC00CE1ACB /* RealmConnectorInterface.swift in Sources */,
 				2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */,
 				D05C64DF225F5C4E00B7BF4F /* Rotation.swift in Sources */,

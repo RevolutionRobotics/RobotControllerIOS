@@ -12,6 +12,7 @@ final class RRButton: UIButton {
     override var isEnabled: Bool {
         didSet {
             alpha = isEnabled ? 1.0 : 0.5
+            self.setBorder(fillColor: .clear, strokeColor: isEnabled ? .white : Color.black)
         }
     }
 
