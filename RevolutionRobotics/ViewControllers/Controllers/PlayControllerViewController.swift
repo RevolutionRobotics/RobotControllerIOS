@@ -7,25 +7,24 @@
 //
 
 import UIKit
-import RevolutionRoboticsBluetooth
 
 final class PlayControllerViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var padViewContainer: UIView!
+    @IBOutlet private weak var bluetoothButton: UIButton!
+    @IBOutlet private weak var editButton: UIButton!
 
-    // MARK: - Private
-    private let liveService: RoboticsLiveControllerServiceInterface = RoboticsLiveControllerService()
+    // MARK: - Properties
+    var firebaseService: FirebaseServiceInterface!
+    var bluetoothService: BluetoothServiceInterface!
+    var controllerType: ControllerType = .gamer
     private var padView: PlayablePadView!
     private var programs: [Program] = [] {
         didSet {
             configurePadView()
         }
     }
-
-    // MARK: - Public
-    var firebaseService: FirebaseServiceInterface!
-    var controllerType: ControllerType = .gamer
 }
 
 // MARK: View lifecycle
@@ -40,12 +39,20 @@ extension PlayControllerViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        liveService.start()
+
+        subscribeForConnectionChange()
+
+        if bluetoothService.hasConnectedDevice {
+            bluetoothService.startKeepalive()
+        } else {
+            presentBluetoothModal()
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        liveService.stop()
+        bluetoothService.stopKeepalive()
+        unsubscribeFromConnectionChange()
     }
 }
 
@@ -69,15 +76,15 @@ extension PlayControllerViewController {
         padView.configure(programs: programs)
 
         padView.horizontalPositionChanged = { [weak self] xPosition in
-            self?.liveService.updateXDirection(x: Int(xPosition.rounded(.toNearestOrAwayFromZero)))
+            self?.bluetoothService.updateXDirection(Int(xPosition.rounded(.toNearestOrAwayFromZero)))
         }
 
         padView.verticalPositionChanged = { [weak self] yPosition in
-            self?.liveService.updateYDirection(y: Int(yPosition.rounded(.toNearestOrAwayFromZero)))
+            self?.bluetoothService.updateYDirection(Int(yPosition.rounded(.toNearestOrAwayFromZero)))
         }
 
         padView.buttonTapped = { [weak self] pressedPadButton in
-            self?.liveService.changeButtonState(index: pressedPadButton.index, pressed: pressedPadButton.pressed)
+            self?.bluetoothService.changeButtonState(index: pressedPadButton.index, pressed: pressedPadButton.pressed)
         }
     }
 }
@@ -93,5 +100,58 @@ extension PlayControllerViewController {
                 print("Error while fetching programs: \(error)")
             }
         }
+    }
+}
+
+// MARK: - Connections
+extension PlayControllerViewController {
+    private func presentBluetoothModal() {
+        let modalPresenter = BluetoothConnectionModalPresenter()
+        modalPresenter.present(
+            on: self,
+            startDiscoveryHandler: { [weak self] in
+                self?.bluetoothService.startDiscovery(onScanResult: { result in
+                    switch result {
+                    case .success(let devices):
+                        modalPresenter.discoveredDevices = devices
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                })
+
+            },
+            deviceSelectionHandler: { [weak self] device in
+                self?.bluetoothService.connect(to: device)
+            },
+            nextStep: nil)
+    }
+
+    override func connected() {
+        dismissViewController()
+        let connectionModal = ConnectionModal.instatiate()
+        presentModal(with: connectionModal.successful)
+
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
+            self?.dismissViewController()
+        }
+
+        bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
+        bluetoothService.startKeepalive()
+    }
+
+    override func disconnected() {
+        bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
+    }
+}
+
+// MARK: - Actions
+extension PlayControllerViewController {
+    @IBAction private func bluetoothButtonTapped(_ sender: Any) {
+        guard !bluetoothService.hasConnectedDevice else { return }
+
+        presentBluetoothModal()
+    }
+
+    @IBAction private func editButtonTapped(_ sender: Any) {
     }
 }

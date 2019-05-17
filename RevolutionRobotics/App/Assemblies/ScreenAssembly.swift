@@ -68,6 +68,7 @@ extension ScreenAssembly {
             .initCompleted { (resolver, viewController) in
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
                 viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
+                viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)
             }
             .inObjectScope(.weak)
     }
@@ -88,6 +89,7 @@ extension ScreenAssembly {
             .initCompleted { (resolver, buildRobotViewController) in
                 buildRobotViewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
                 buildRobotViewController.realmService = resolver.resolve(RealmServiceInterface.self)!
+                buildRobotViewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
             }
             .inObjectScope(.weak)
     }
@@ -104,6 +106,7 @@ extension ScreenAssembly {
             .initCompleted({ (resolver, configurationViewController) in
                 configurationViewController.realmService = resolver.resolve(RealmServiceInterface.self)!
                 configurationViewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
+                configurationViewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
             })
             .inObjectScope(.weak)
     }
@@ -125,6 +128,7 @@ extension ScreenAssembly {
             .register(PlayControllerViewController.self, factory: { _ in return PlayControllerViewController() })
             .initCompleted { (resolver, playControllerViewController) in
                 playControllerViewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)
+                playControllerViewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)
             }
             .inObjectScope(.weak)
     }
@@ -132,6 +136,9 @@ extension ScreenAssembly {
     private func registerFirmwareUpdateViewController(to container: Container) {
         container
             .register(FirmwareUpdateViewController.self, factory: { _ in return FirmwareUpdateViewController() })
+            .initCompleted({ (resolver, viewController) in
+                viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)
+            })
             .inObjectScope(.weak)
     }
 

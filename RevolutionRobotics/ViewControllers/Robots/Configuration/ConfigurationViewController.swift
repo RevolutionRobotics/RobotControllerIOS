@@ -24,10 +24,12 @@ final class ConfigurationViewController: BaseViewController {
     @IBOutlet private weak var collectionView: RRCollectionView!
     @IBOutlet private weak var controllerCollectionView: UIView!
     @IBOutlet private weak var createNewButton: SideButton!
+    @IBOutlet private weak var bluetoothButton: RRButton!
 
     // MARK: - Properties
     var realmService: RealmServiceInterface!
     var firebaseService: FirebaseServiceInterface!
+    var bluetoothService: BluetoothServiceInterface!
     private let photoModal = PhotoModal.instatiate()
     private var robotImage: UIImage?
     private var shouldPrefillConfiguration = false
@@ -61,6 +63,7 @@ extension ConfigurationViewController {
         setupRobotImageView()
         setupCollectionView()
         setupConfigurationView()
+        setupBluetoothButton()
         if shouldPrefillConfiguration {
             refreshConfigurationData()
         }
@@ -84,6 +87,12 @@ extension ConfigurationViewController {
             }
         }
         collectionView.setupInset()
+        subscribeForConnectionChange()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromConnectionChange()
     }
 }
 
@@ -136,6 +145,12 @@ extension ConfigurationViewController: RRCollectionViewDelegate {
 
 // MARK: - Setups
 extension ConfigurationViewController {
+    private func setupBluetoothButton() {
+        let image =
+            bluetoothService.hasConnectedDevice ? Image.Common.bluetoothIcon : Image.Common.bluetoothInactiveIcon
+        bluetoothButton.setImage(image, for: .normal)
+    }
+
     private func setupConfigurationView() {
         configurationView.portSelectionHandler = { [weak self] port in
             self?.configurationView.set(state: .highlighted, on: port.number)
@@ -251,6 +266,26 @@ extension ConfigurationViewController {
     }
 
     @IBAction private func bluetoothTapped(_ sender: Any) {
+        guard !bluetoothService.hasConnectedDevice else { return }
+
+        let modalPresenter = BluetoothConnectionModalPresenter()
+        modalPresenter.present(
+            on: self,
+            startDiscoveryHandler: { [weak self] in
+                self?.bluetoothService.startDiscovery(onScanResult: { result in
+                    switch result {
+                    case .success(let devices):
+                        modalPresenter.discoveredDevices = devices
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                })
+
+            },
+            deviceSelectionHandler: { [weak self] device in
+                self?.bluetoothService.connect(to: device)
+            },
+            nextStep: nil)
     }
 
     @IBAction private func leftButtonTapped(_ sender: Any) {
@@ -325,5 +360,45 @@ extension ConfigurationViewController: UIImagePickerControllerDelegate, UINaviga
         let s4State = mapping.s4 != nil ? PortButton.PortState.selected : PortButton.PortState.normal
         let s4Type = PortButton.PortType(string: mapping.s4?.type)
         configurationView.set(state: s4State, on: ConfigurationView.Constants.s4PortNumber, type: s4Type)
+    }
+}
+
+// MARK: - Connections
+extension ConfigurationViewController {
+    private func presentBluetoothModal() {
+        let modalPresenter = BluetoothConnectionModalPresenter()
+        modalPresenter.present(
+            on: self,
+            startDiscoveryHandler: { [weak self] in
+                self?.bluetoothService.startDiscovery(onScanResult: { result in
+                    switch result {
+                    case .success(let devices):
+                        modalPresenter.discoveredDevices = devices
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                })
+
+            },
+            deviceSelectionHandler: { [weak self] device in
+                self?.bluetoothService.connect(to: device)
+            },
+            nextStep: nil)
+    }
+
+    override func connected() {
+        dismissViewController()
+        let connectionModal = ConnectionModal.instatiate()
+        presentModal(with: connectionModal.successful)
+
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
+            self?.dismissViewController()
+        }
+
+        bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
+    }
+
+    override func disconnected() {
+        bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
     }
 }

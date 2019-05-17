@@ -20,6 +20,7 @@ class BuildRobotViewController: BaseViewController {
     // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
+    var bluetoothService: BluetoothServiceInterface!
     var remoteRobotDataModel: Robot? {
         didSet {
             fetchBuildSteps()
@@ -29,6 +30,28 @@ class BuildRobotViewController: BaseViewController {
     private var steps: [BuildStep] = []
     private var currentStep: BuildStep?
     private let partView = PartView.instatiate()
+    @IBAction private func bluetoothButtonTapped(_ sender: RRButton) {
+        guard !bluetoothService.hasConnectedDevice else { return }
+
+        let modalPresenter = BluetoothConnectionModalPresenter()
+        modalPresenter.present(
+            on: self,
+            startDiscoveryHandler: { [weak self] in
+                self?.bluetoothService.startDiscovery(onScanResult: { result in
+                    switch result {
+                    case .success(let devices):
+                        modalPresenter.discoveredDevices = devices
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                })
+
+            },
+            deviceSelectionHandler: { [weak self] device in
+                self?.bluetoothService.connect(to: device)
+            },
+            nextStep: nil)
+    }
 }
 
 // MARK: - View lifecycle
@@ -37,11 +60,13 @@ extension BuildRobotViewController {
         super.viewDidLoad()
 
         setupStackView()
+        setupBluetoothButton()
         navigationBar.setup(title: remoteRobotDataModel?.name, delegate: self)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        subscribeForConnectionChange()
 
         guard !steps.isEmpty else { return }
         refreshViews()
@@ -53,10 +78,22 @@ extension BuildRobotViewController {
         guard !steps.isEmpty else { return }
         setupProgressBar()
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        unsubscribeFromConnectionChange()
+    }
 }
 
 // MARK: - Setup
 extension BuildRobotViewController {
+    private func setupBluetoothButton() {
+        let image =
+            bluetoothService.hasConnectedDevice ? Image.Common.bluetoothIcon : Image.Common.bluetoothInactiveIcon
+        bluetoothButton.setImage(image, for: .normal)
+    }
+
     private func setupComponents() {
         setupPartsView()
         setupProgressLabel()
@@ -227,5 +264,23 @@ extension BuildRobotViewController {
         setupComponents()
         let imagePath = steps[storedRobotDataModel?.actualBuildStep ?? 0].image
         zoomableImageView.imageView.downloadImage(googleStorageURL: imagePath)
+    }
+}
+
+// MARK: - Bluetooth connection
+extension BuildRobotViewController {
+    override func connected() {
+        dismissViewController()
+        let connectionModal = ConnectionModal.instatiate()
+        presentModal(with: connectionModal.successful)
+
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
+            self?.dismissViewController()
+        }
+        bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
+    }
+
+    override func disconnected() {
+        bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
     }
 }

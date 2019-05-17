@@ -10,6 +10,11 @@ import UIKit
 import struct RevolutionRoboticsBluetooth.Device
 
 final class AvailableRobotsView: UIView {
+    // MARK: - Constants
+    private enum Constants {
+        static let cellHeight: CGFloat = 50.0
+    }
+
     // MARK: - Outlets
     @IBOutlet private weak var availableRobotsTableView: UITableView!
     @IBOutlet private weak var infoLabel: UILabel!
@@ -64,5 +69,9 @@ extension AvailableRobotsView: UITableViewDataSource {
         let cell: AvailableRobotsTableViewCell = availableRobotsTableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.setup(with: discoveredDevices[indexPath.row].name)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.cellHeight
     }
 }

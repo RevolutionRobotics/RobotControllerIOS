@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RevolutionRoboticsBluetooth
+import struct RevolutionRoboticsBluetooth.Device
 
 final class WhoToBuildViewController: BaseViewController {
     // MARK: - Outlets
@@ -18,13 +18,12 @@ final class WhoToBuildViewController: BaseViewController {
     @IBOutlet private weak var buildYourOwnButton: RRButton!
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
 
-    // MARK: - Variables
+    // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
-    private let discoverer: RoboticsDeviceDiscovererInterface = RoboticsDeviceDiscoverer()
-    private let connector: RoboticsDeviceConnectorInterface = RoboticsDeviceConnector()
-    private var selectedRobot: Robot?
+    var bluetoothService: BluetoothServiceInterface!
 
+    private var selectedRobot: Robot?
     private var robots: [Robot] = [] {
         didSet {
             collectionView.reloadData()
@@ -94,6 +93,12 @@ extension WhoToBuildViewController {
         collectionView.setupInset()
         fetchRobots()
         fetchConfigurations()
+        subscribeForConnectionChange()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromConnectionChange()
     }
 
     private func setupCollectionView() {
@@ -125,7 +130,11 @@ extension WhoToBuildViewController: RRCollectionViewDelegate {
             let cell = collectionView.cellForItem(at: indexPath) as? WhoToBuildCollectionViewCell,
             cell.isCentered else { return }
         selectedRobot = robots[indexPath.row]
-        showTurnOnTheBrain()
+        if !bluetoothService.hasConnectedDevice {
+            showTurnOnTheBrain()
+        } else {
+            navigateToBuildScreen()
+        }
     }
 
     func setButtons(rightHidden: Bool, leftHidden: Bool) {
@@ -134,95 +143,40 @@ extension WhoToBuildViewController: RRCollectionViewDelegate {
     }
 }
 
-// MARK: - Modals
+// MARK: - Modal
 extension WhoToBuildViewController {
     private func showTurnOnTheBrain() {
-        let turnOnModal = TurnOnBrainView.instatiate()
-        turnOnModal.setup()
-        setupHandlers(on: turnOnModal)
-        presentModal(with: turnOnModal)
-    }
-
-    private func setupHandlers(on modal: TurnOnBrainView) {
-        setupLaterHandler(on: modal)
-        setupTipsHandler(on: modal)
-        setupStartDiscoveryHandler(on: modal)
-    }
-
-    private func setupLaterHandler(on modal: TurnOnBrainView) {
-        modal.laterHandler = { [weak self] in
-            self?.dismiss(animated: true, completion: nil)
-            let buildScreen = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
-            buildScreen.remoteRobotDataModel = self?.selectedRobot
-            self?.navigationController?.pushViewController(buildScreen, animated: true)
-        }
-    }
-
-    private func setupTipsHandler(on modal: TurnOnBrainView) {
-        modal.tipsHandler = { [weak self] in
-            self?.showTipsModal()
-        }
-    }
-
-    private func showTipsModal() {
-        self.dismiss(animated: true, completion: {
-            let tips = TipsModalView.instatiate()
-            tips.title = ModalKeys.Tips.title.translate()
-            tips.subtitle = ModalKeys.Tips.subtitle.translate()
-            tips.tips = "Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat."
-            tips.skipTitle = ModalKeys.Connection.failedConnectionSkipButton.translate()
-            tips.communityTitle = ModalKeys.Tips.community.translate()
-            tips.tryAgainTitle = ModalKeys.Tips.tryAgin.translate()
-            tips.skipCallback = { [weak self] in
-                self?.dismiss(animated: true, completion: {
-                    let buildScreen = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
-                    self?.navigationController?.pushViewController(buildScreen, animated: true)
+        let modalPresenter = BluetoothConnectionModalPresenter()
+        modalPresenter.present(
+            on: self,
+            startDiscoveryHandler: { [weak self] in
+                self?.bluetoothService.startDiscovery(onScanResult: { result in
+                    switch result {
+                    case .success(let devices):
+                        modalPresenter.discoveredDevices = devices
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
                 })
-            }
-            tips.tryAgainCallback = { [weak self] in
-                self?.dismiss(animated: true, completion: {
-                    self?.showTurnOnTheBrain()
-                })
-            }
-            self.presentModal(with: tips)
-        })
-    }
-
-    private func setupStartDiscoveryHandler(on modal: TurnOnBrainView) {
-        modal.startHandler = { [weak self] in
-            self?.dismiss(animated: true, completion: {
-                self?.showBluetoothDiscovery()
-            })
-        }
-    }
-
-    private func showBluetoothDiscovery() {
-        let bluetoothDiscovery = AvailableRobotsView.instatiate()
-        bluetoothDiscovery.selectionHandler = onDeviceSelected
-        presentModal(with: bluetoothDiscovery)
-
-        discoverer.discoverRobots(
-            onScanResult: { devices in
-                bluetoothDiscovery.discoveredDevices = devices
             },
-            onError: { error in
-                print(error.localizedDescription)
+            deviceSelectionHandler: { [weak self] device in
+                self?.bluetoothService.connect(to: device)
+            },
+            nextStep: { [weak self] in
+                self?.navigateToBuildScreen()
         })
+    }
+
+    private func navigateToBuildScreen() {
+        let buildScreen = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
+        buildScreen.remoteRobotDataModel = selectedRobot
+        navigationController?.pushViewController(buildScreen, animated: true)
     }
 }
 
 // MARK: - Connection
 extension WhoToBuildViewController {
-    private func onDeviceSelected(_ device: Device) {
-        connector.connect(
-            to: device,
-            onConnected: onSelectedDeviceConnected,
-            onDisconnected: onSelectedDeviceDisconnected,
-            onError: onSelectedDeviceConnectionError
-        )
-    }
-
-    private func onSelectedDeviceConnected() {
+    override func connected() {
         dismissViewController()
         let connectionModal = ConnectionModal.instatiate()
         presentModal(with: connectionModal.successful)
@@ -232,11 +186,11 @@ extension WhoToBuildViewController {
         }
     }
 
-    private func onSelectedDeviceDisconnected() {
-        print("Disconnected")
+    override func disconnected() {
+        print("Device disconnected")
     }
 
-    private func onSelectedDeviceConnectionError(_ error: Error) {
+    override func connectionError() {
         let connectionModal = ConnectionModal.instatiate()
         dismissViewController()
         presentModal(with: connectionModal.failed)
@@ -258,7 +212,7 @@ extension WhoToBuildViewController {
 
     private func dismissAndTryAgain() {
         dismissViewController()
-        showBluetoothDiscovery()
+        showTurnOnTheBrain()
     }
 
     private func dismissAndNavigateToBuildRobot() {
