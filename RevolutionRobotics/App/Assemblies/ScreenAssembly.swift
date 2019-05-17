@@ -27,6 +27,7 @@ final class ScreenAssembly: Assembly {
         registerFirmwareUpdateViewController(to: container)
         registerAboutViewController(to: container)
         registerControllerSelectorViewController(to: container)
+        registerProgramsBottomViewController(to: container)
     }
 }
 
@@ -146,5 +147,11 @@ extension ScreenAssembly {
                 return ControllerLayoutSelectorViewController()
             })
             .inObjectScope(.weak)
+    }
+
+    private func registerProgramsBottomViewController(to container: Container) {
+        container
+            .register(ProgramBottomBarViewController.self, factory: { _ in return ProgramBottomBarViewController() })
+            .inObjectScope(.transient)
     }
 }
