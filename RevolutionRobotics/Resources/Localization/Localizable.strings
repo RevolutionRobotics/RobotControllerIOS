@@ -133,3 +133,8 @@
 "save_modal_name_placeholder" = "Click here and name the controller!";
 "save_modal_description_title" = "Description";
 "save_modal_description_placeholder" = "Add a hint to remember when to use this controller!";
+
+"program_modal_add" = "Add program";
+"program_modal_remove" = "Remove program";
+"program_modal_got_it" = "Got it";
+"program_modal_edit" = "Edit program";

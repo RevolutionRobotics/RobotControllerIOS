@@ -13,6 +13,7 @@ final class ProgramInfoModal: UIView {
     enum InfoType {
         case add
         case remove
+        case incompatible
     }
 
     // MARK: - Outlets
@@ -21,6 +22,7 @@ final class ProgramInfoModal: UIView {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var editProgramButton: RRButton!
     @IBOutlet private weak var actionButton: RRButton!
+    @IBOutlet private weak var issueLabel: UILabel!
 
     // MARK: - Private
     private var editButtonTapped: Callback?
@@ -46,6 +48,7 @@ extension ProgramInfoModal {
     func configure(
         program: Program,
         infoType: InfoType,
+        issue: String?,
         editButtonHandler: Callback?,
         actionButtonHandler: CallbackType<InfoType>?
     ) {
@@ -55,16 +58,21 @@ extension ProgramInfoModal {
         titleLabel.text = program.name
         descriptionLabel.text = program.description
         dateLabel.text = "\(program.lastModified)"
+        issueLabel.text = issue
     }
 
     private func updateActionButton() {
         switch type {
         case .add:
             actionButton.setImage(Image.Common.plusIcon, for: .normal)
-            actionButton.setTitle("Add Program", for: .normal)
+            actionButton.setTitle(ModalKeys.Program.addProgram.translate(), for: .normal)
         case .remove:
             actionButton.setImage(Image.Common.closeIcon, for: .normal)
-            actionButton.setTitle("Remove Program", for: .normal)
+            actionButton.setTitle(ModalKeys.Program.removeProgram.translate(), for: .normal)
+        case .incompatible:
+            actionButton.setImage(Image.tickIcon, for: .normal)
+            actionButton.setTitle(ModalKeys.Program.gotIt.translate(), for: .normal)
+            issueLabel.isHidden = false
         }
     }
 }
