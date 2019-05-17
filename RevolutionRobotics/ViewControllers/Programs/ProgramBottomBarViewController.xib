@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgramBottomBarViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+            <connections>
+                <outlet property="showMoreButton" destination="Dxa-4C-h76" id="UBg-BO-sJd"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="buttons" destination="gt5-hq-edD" collectionClass="NSMutableArray" id="YPi-q7-DZC"/>
+                <outletCollection property="buttons" destination="Xb7-Om-Dyc" collectionClass="NSMutableArray" id="SYS-wO-Nyb"/>
+                <outletCollection property="buttons" destination="Cld-Sv-vK0" collectionClass="NSMutableArray" id="lOW-dA-FpT"/>
+                <outletCollection property="buttons" destination="Vd0-aK-zEy" collectionClass="NSMutableArray" id="t05-CO-5zt"/>
+                <outletCollection property="buttons" destination="0mt-rr-PBp" collectionClass="NSMutableArray" id="q9t-fF-YYB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zRV-Od-gLo">
+                    <rect key="frame" x="0.0" y="250" width="568" height="70"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GradientBackground" translatesAutoresizingMaskIntoConstraints="NO" id="z1e-RD-M93">
+                            <rect key="frame" x="0.0" y="0.0" width="568" height="70"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gt5-hq-edD" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="4" y="4" width="90" height="62"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
+                            <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                            <state key="normal" title="crane lift">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="button1Tapped:" destination="-1" eventType="touchUpInside" id="izS-qT-klf"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Xb7-Om-Dyc" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="98" y="4" width="90" height="62"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
+                            <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                            <state key="normal" title="bumper">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="button2Tapped:" destination="-1" eventType="touchUpInside" id="IKq-mg-e4e"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Cld-Sv-vK0" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="192" y="4" width="90" height="62"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
+                            <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                            <state key="normal" title="program name">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="button3Tapped:" destination="-1" eventType="touchUpInside" id="9Mb-KI-h6C"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Vd0-aK-zEy" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="286" y="4" width="90" height="62"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
+                            <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                            <state key="normal" title="program name">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="button4Tapped:" destination="-1" eventType="touchUpInside" id="IKo-eM-uvv"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="0mt-rr-PBp" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="380" y="4" width="90" height="62"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
+                            <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                            <state key="normal" title="program long name">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="button5Tapped:" destination="-1" eventType="touchUpInside" id="GR9-Zv-TKW"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Dxa-4C-h76" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="474" y="4" width="90" height="62"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
+                            <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="12"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="8" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                            <state key="normal" title="Show more" image="plus16">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="showMoreTapped:" destination="-1" eventType="touchUpInside" id="qqM-JV-UUQ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="0mt-rr-PBp" firstAttribute="leading" secondItem="Vd0-aK-zEy" secondAttribute="trailing" constant="4" id="4oD-Q6-Gdv"/>
+                        <constraint firstAttribute="bottom" secondItem="Vd0-aK-zEy" secondAttribute="bottom" constant="4" id="5qp-93-lc9"/>
+                        <constraint firstItem="Dxa-4C-h76" firstAttribute="top" secondItem="zRV-Od-gLo" secondAttribute="top" constant="4" id="6N1-o7-8Rd"/>
+                        <constraint firstAttribute="bottom" secondItem="Cld-Sv-vK0" secondAttribute="bottom" constant="4" id="9bW-Dj-w6I"/>
+                        <constraint firstItem="Cld-Sv-vK0" firstAttribute="leading" secondItem="Xb7-Om-Dyc" secondAttribute="trailing" constant="4" id="D2Z-ua-L6B"/>
+                        <constraint firstAttribute="bottom" secondItem="Dxa-4C-h76" secondAttribute="bottom" constant="4" id="HlW-2p-7nn"/>
+                        <constraint firstItem="z1e-RD-M93" firstAttribute="top" secondItem="zRV-Od-gLo" secondAttribute="top" id="LgQ-7U-xP3"/>
+                        <constraint firstItem="Dxa-4C-h76" firstAttribute="leading" secondItem="0mt-rr-PBp" secondAttribute="trailing" constant="4" id="MEb-ps-rk7"/>
+                        <constraint firstItem="gt5-hq-edD" firstAttribute="width" secondItem="Xb7-Om-Dyc" secondAttribute="width" id="MqC-br-llC"/>
+                        <constraint firstItem="0mt-rr-PBp" firstAttribute="top" secondItem="zRV-Od-gLo" secondAttribute="top" constant="4" id="NqP-7N-aI5"/>
+                        <constraint firstItem="Xb7-Om-Dyc" firstAttribute="leading" secondItem="gt5-hq-edD" secondAttribute="trailing" constant="4" id="OEB-dk-DYU"/>
+                        <constraint firstItem="z1e-RD-M93" firstAttribute="leading" secondItem="zRV-Od-gLo" secondAttribute="leading" id="OpC-aX-U3J"/>
+                        <constraint firstAttribute="bottom" secondItem="z1e-RD-M93" secondAttribute="bottom" id="Pg9-VB-vuL"/>
+                        <constraint firstItem="gt5-hq-edD" firstAttribute="width" secondItem="Dxa-4C-h76" secondAttribute="width" id="Tan-z0-cN3"/>
+                        <constraint firstAttribute="bottom" secondItem="0mt-rr-PBp" secondAttribute="bottom" constant="4" id="UnK-aQ-uru"/>
+                        <constraint firstAttribute="bottom" secondItem="gt5-hq-edD" secondAttribute="bottom" constant="4" id="VIg-jn-F5b"/>
+                        <constraint firstItem="gt5-hq-edD" firstAttribute="width" secondItem="0mt-rr-PBp" secondAttribute="width" id="W4d-Qo-Wlh"/>
+                        <constraint firstAttribute="trailing" secondItem="z1e-RD-M93" secondAttribute="trailing" id="W6Z-jg-mkk"/>
+                        <constraint firstAttribute="bottom" secondItem="Xb7-Om-Dyc" secondAttribute="bottom" constant="4" id="ZIR-Lb-LLr"/>
+                        <constraint firstAttribute="trailing" secondItem="Dxa-4C-h76" secondAttribute="trailing" constant="4" id="b6i-LG-JLU"/>
+                        <constraint firstItem="gt5-hq-edD" firstAttribute="width" secondItem="Vd0-aK-zEy" secondAttribute="width" id="cYI-eu-IDv"/>
+                        <constraint firstItem="Xb7-Om-Dyc" firstAttribute="top" secondItem="zRV-Od-gLo" secondAttribute="top" constant="4" id="dhr-kw-hJ2"/>
+                        <constraint firstItem="Xb7-Om-Dyc" firstAttribute="width" secondItem="Cld-Sv-vK0" secondAttribute="width" id="oKd-lU-YSZ"/>
+                        <constraint firstItem="gt5-hq-edD" firstAttribute="top" secondItem="zRV-Od-gLo" secondAttribute="top" constant="4" id="oV2-Ui-rru"/>
+                        <constraint firstItem="Vd0-aK-zEy" firstAttribute="top" secondItem="zRV-Od-gLo" secondAttribute="top" constant="4" id="oa7-Gb-L8h"/>
+                        <constraint firstItem="gt5-hq-edD" firstAttribute="leading" secondItem="zRV-Od-gLo" secondAttribute="leading" constant="4" id="t6S-Ub-lt2"/>
+                        <constraint firstItem="Cld-Sv-vK0" firstAttribute="top" secondItem="zRV-Od-gLo" secondAttribute="top" constant="4" id="uaP-fq-Y73"/>
+                        <constraint firstItem="Vd0-aK-zEy" firstAttribute="leading" secondItem="Cld-Sv-vK0" secondAttribute="trailing" constant="4" id="wFV-TF-RJw"/>
+                        <constraint firstAttribute="height" constant="70" id="wSs-AK-FRY"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZ4-hL-owz">
+                    <rect key="frame" x="0.0" y="249" width="568" height="1"/>
+                    <color key="backgroundColor" name="BrownishGrey"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="iMP-qv-KuR"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6i-B9-ehi">
+                    <rect key="frame" x="0.0" y="0.0" width="568" height="249"/>
+                    <connections>
+                        <action selector="backgroundTapped:" destination="-1" eventType="touchUpInside" id="dgN-26-a6z"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" name="Black70"/>
+            <constraints>
+                <constraint firstItem="zRV-Od-gLo" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="7tR-zH-klc"/>
+                <constraint firstItem="zRV-Od-gLo" firstAttribute="top" secondItem="JZ4-hL-owz" secondAttribute="bottom" id="AZs-bA-7An"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="q6i-B9-ehi" secondAttribute="trailing" id="Kje-Fo-lPb"/>
+                <constraint firstItem="q6i-B9-ehi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="QTD-gd-cP0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JZ4-hL-owz" secondAttribute="trailing" id="Tpo-WO-S80"/>
+                <constraint firstItem="JZ4-hL-owz" firstAttribute="top" secondItem="q6i-B9-ehi" secondAttribute="bottom" id="eJ0-Jm-6b8"/>
+                <constraint firstItem="q6i-B9-ehi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hHe-gc-S7b"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zRV-Od-gLo" secondAttribute="trailing" id="noL-jY-cUX"/>
+                <constraint firstItem="JZ4-hL-owz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rPS-kZ-CKr"/>
+                <constraint firstItem="zRV-Od-gLo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xA0-x4-L1n"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="GradientBackground" width="568" height="70"/>
+        <image name="plus16" width="16" height="16"/>
+        <namedColor name="Black70">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BlackTwo">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrownishGrey">
+            <color red="0.42745098039215684" green="0.42745098039215684" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

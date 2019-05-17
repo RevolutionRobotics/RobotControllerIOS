@@ -139,6 +139,8 @@
 		D0313323228C602100704989 /* ControllerLayoutSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */; };
 		D0313339228DD3B100704989 /* SaveControllerModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313338228DD3B000704989 /* SaveControllerModal.swift */; };
 		D031333B228DD3C100704989 /* SaveControllerModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D031333A228DD3C100704989 /* SaveControllerModal.xib */; };
+		D031333E228EA66100704989 /* ProgramBottomBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031333C228EA66100704989 /* ProgramBottomBarViewController.swift */; };
+		D031333F228EA66100704989 /* ProgramBottomBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D031333D228EA66100704989 /* ProgramBottomBarViewController.xib */; };
 		D03BA8532276F323005B3E33 /* PartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8512276F323005B3E33 /* PartView.swift */; };
 		D03BA8542276F323005B3E33 /* PartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8522276F323005B3E33 /* PartView.xib */; };
 		D03BA85C2277384A005B3E33 /* ConnectionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8562277384A005B3E33 /* ConnectionModal.swift */; };
@@ -352,6 +354,8 @@
 		D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControllerLayoutSelectorViewController.xib; sourceTree = "<group>"; };
 		D0313338228DD3B000704989 /* SaveControllerModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveControllerModal.swift; sourceTree = "<group>"; };
 		D031333A228DD3C100704989 /* SaveControllerModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SaveControllerModal.xib; sourceTree = "<group>"; };
+		D031333C228EA66100704989 /* ProgramBottomBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramBottomBarViewController.swift; sourceTree = "<group>"; };
+		D031333D228EA66100704989 /* ProgramBottomBarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramBottomBarViewController.xib; sourceTree = "<group>"; };
 		D03BA8512276F323005B3E33 /* PartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartView.swift; sourceTree = "<group>"; };
 		D03BA8522276F323005B3E33 /* PartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartView.xib; sourceTree = "<group>"; };
 		D03BA8562277384A005B3E33 /* ConnectionModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionModal.swift; sourceTree = "<group>"; };
@@ -846,6 +850,8 @@
 				09994316228DBA6500D87385 /* Modal */,
 				2A9F520F2265E96B00F9F651 /* ProgramsViewController.swift */,
 				2A9F52102265E96B00F9F651 /* ProgramsViewController.xib */,
+				D031333C228EA66100704989 /* ProgramBottomBarViewController.swift */,
+				D031333D228EA66100704989 /* ProgramBottomBarViewController.xib */,
 			);
 			path = Programs;
 			sourceTree = "<group>";
@@ -1406,6 +1412,7 @@
 				2AB778612282F6D4004442E2 /* DeleteRobotView.xib in Resources */,
 				D05BAA9E22676BCA00624438 /* WhoToBuildCollectionViewCell.xib in Resources */,
 				D06C32792289BAF1005534C0 /* CheckForUpdatesModal.xib in Resources */,
+				D031333F228EA66100704989 /* ProgramBottomBarViewController.xib in Resources */,
 				2A77320322648FB000D7F38D /* Settings.bundle in Resources */,
 				09C38753226F38F40097619D /* Jura-Regular.ttf in Resources */,
 				D0049A542271CC52007FA256 /* TurnOnBrainView.xib in Resources */,
@@ -1539,6 +1546,7 @@
 			files = (
 				D0B2A735227C7CF1004473EC /* ControllerCollectionViewCell.swift in Sources */,
 				2A7DDB1A22859B2900891DA6 /* CommonKeys.swift in Sources */,
+				D031333E228EA66100704989 /* ProgramBottomBarViewController.swift in Sources */,
 				2A77320A2264A32D00D7F38D /* ServiceAssembly.swift in Sources */,
 				09105AA02280581F00AB7B72 /* PortConfigurationItemView.swift in Sources */,
 				2A7DDB1022856DC200891DA6 /* PortMappingDataModel.swift in Sources */,
