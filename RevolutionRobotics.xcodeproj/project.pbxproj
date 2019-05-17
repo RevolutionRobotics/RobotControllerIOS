@@ -40,6 +40,8 @@
 		0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0964798C22689DEC00F68456 /* ModalViewController.xib */; };
 		097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097F8432225BA37800DD32BF /* Jura-Bold.ttf */; };
 		0985495C2271D44500A7C2DC /* UIImageView+GoogleStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985495B2271D44500A7C2DC /* UIImageView+GoogleStorage.swift */; };
+		09994319228DBA6500D87385 /* ProgramInfoModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09994317228DBA6500D87385 /* ProgramInfoModal.xib */; };
+		0999431A228DBA6500D87385 /* ProgramInfoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09994318228DBA6500D87385 /* ProgramInfoModal.swift */; };
 		09C3874D226F32F70097619D /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C3874C226F32F70097619D /* UIView+Anchor.swift */; };
 		09C38753226F38F40097619D /* Jura-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09C38752226F38F40097619D /* Jura-Regular.ttf */; };
 		09C38755226F3ABC0097619D /* Barlow-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09C38754226F3ABC0097619D /* Barlow-Medium.ttf */; };
@@ -122,6 +124,8 @@
 		D0049A542271CC52007FA256 /* TurnOnBrainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0049A522271CC52007FA256 /* TurnOnBrainView.xib */; };
 		D008E0392260979400089DC7 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E0382260979300089DC7 /* FirebaseData.swift */; };
 		D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E03B2260AAF500089DC7 /* UIViewController+NibLoadable.swift */; };
+		D0313322228C602100704989 /* ControllerLayoutSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */; };
+		D0313323228C602100704989 /* ControllerLayoutSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */; };
 		D031332F228D5CBA00704989 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313326228D5CB900704989 /* Controller.swift */; };
 		D0313330228D5CBA00704989 /* ChallengeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313327228D5CB900704989 /* ChallengeCategory.swift */; };
 		D0313331228D5CBA00704989 /* ControllerButtonMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313328228D5CBA00704989 /* ControllerButtonMapping.swift */; };
@@ -131,8 +135,6 @@
 		D0313335228D5CBA00704989 /* ControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332C228D5CBA00704989 /* ControllerType.swift */; };
 		D0313336228D5CBA00704989 /* ChallengeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332D228D5CBA00704989 /* ChallengeStep.swift */; };
 		D0313337228D5CBA00704989 /* Part.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332E228D5CBA00704989 /* Part.swift */; };
-		D0313322228C602100704989 /* ControllerLayoutSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */; };
-		D0313323228C602100704989 /* ControllerLayoutSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */; };
 		D03BA8532276F323005B3E33 /* PartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8512276F323005B3E33 /* PartView.swift */; };
 		D03BA8542276F323005B3E33 /* PartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8522276F323005B3E33 /* PartView.xib */; };
 		D03BA85C2277384A005B3E33 /* ConnectionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8562277384A005B3E33 /* ConnectionModal.swift */; };
@@ -241,6 +243,8 @@
 		0964798C22689DEC00F68456 /* ModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
 		097F8432225BA37800DD32BF /* Jura-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Bold.ttf"; sourceTree = "<group>"; };
 		0985495B2271D44500A7C2DC /* UIImageView+GoogleStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+GoogleStorage.swift"; sourceTree = "<group>"; };
+		09994317228DBA6500D87385 /* ProgramInfoModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgramInfoModal.xib; sourceTree = "<group>"; };
+		09994318228DBA6500D87385 /* ProgramInfoModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramInfoModal.swift; sourceTree = "<group>"; };
 		09C3874C226F32F70097619D /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
 		09C38752226F38F40097619D /* Jura-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Regular.ttf"; sourceTree = "<group>"; };
 		09C38754226F3ABC0097619D /* Barlow-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Medium.ttf"; sourceTree = "<group>"; };
@@ -329,6 +333,8 @@
 		D0049A522271CC52007FA256 /* TurnOnBrainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TurnOnBrainView.xib; sourceTree = "<group>"; };
 		D008E0382260979300089DC7 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
 		D008E03B2260AAF500089DC7 /* UIViewController+NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NibLoadable.swift"; sourceTree = "<group>"; };
+		D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerLayoutSelectorViewController.swift; sourceTree = "<group>"; };
+		D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControllerLayoutSelectorViewController.xib; sourceTree = "<group>"; };
 		D0313326228D5CB900704989 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		D0313327228D5CB900704989 /* ChallengeCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCategory.swift; sourceTree = "<group>"; };
 		D0313328228D5CBA00704989 /* ControllerButtonMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerButtonMapping.swift; sourceTree = "<group>"; };
@@ -338,8 +344,6 @@
 		D031332C228D5CBA00704989 /* ControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerType.swift; sourceTree = "<group>"; };
 		D031332D228D5CBA00704989 /* ChallengeStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeStep.swift; sourceTree = "<group>"; };
 		D031332E228D5CBA00704989 /* Part.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Part.swift; sourceTree = "<group>"; };
-		D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerLayoutSelectorViewController.swift; sourceTree = "<group>"; };
-		D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControllerLayoutSelectorViewController.xib; sourceTree = "<group>"; };
 		D03BA8512276F323005B3E33 /* PartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartView.swift; sourceTree = "<group>"; };
 		D03BA8522276F323005B3E33 /* PartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartView.xib; sourceTree = "<group>"; };
 		D03BA8562277384A005B3E33 /* ConnectionModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionModal.swift; sourceTree = "<group>"; };
@@ -553,6 +557,15 @@
 				0985495B2271D44500A7C2DC /* UIImageView+GoogleStorage.swift */,
 			);
 			path = UIImageView;
+			sourceTree = "<group>";
+		};
+		09994316228DBA6500D87385 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				09994317228DBA6500D87385 /* ProgramInfoModal.xib */,
+				09994318228DBA6500D87385 /* ProgramInfoModal.swift */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 		09C38756226F58180097619D /* CustomView */ = {
@@ -822,6 +835,7 @@
 		2A9F52092265E92400F9F651 /* Programs */ = {
 			isa = PBXGroup;
 			children = (
+				09994316228DBA6500D87385 /* Modal */,
 				2A9F520F2265E96B00F9F651 /* ProgramsViewController.swift */,
 				2A9F52102265E96B00F9F651 /* ProgramsViewController.xib */,
 			);
@@ -1371,6 +1385,7 @@
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
 				D0049A432270ABA1007FA256 /* AvailableRobotsTableViewCell.xib in Resources */,
 				094FC5DB228C3CC40085B407 /* MultiTaskerPadView.xib in Resources */,
+				09994319228DBA6500D87385 /* ProgramInfoModal.xib in Resources */,
 				D06F01D9228B0B6300AF73E5 /* SuccessfulUpdateModal.xib in Resources */,
 				D03BA8652277385E005B3E33 /* TipsModalView.xib in Resources */,
 				D0313323228C602100704989 /* ControllerLayoutSelectorViewController.xib in Resources */,
@@ -1551,6 +1566,7 @@
 				D05C64C8225F570000B7BF4F /* TestCode.swift in Sources */,
 				D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */,
 				D03BA8602277384A005B3E33 /* ChapterFinishedModal.swift in Sources */,
+				0999431A228DBA6500D87385 /* ProgramInfoModal.swift in Sources */,
 				D03BA8642277385E005B3E33 /* TipsModalView.swift in Sources */,
 				D03BA8642277385E005B3E33 /* TipsModalView.swift in Sources */,
 				09ED1BA9225247B1009CF262 /* MenuViewController.swift in Sources */,

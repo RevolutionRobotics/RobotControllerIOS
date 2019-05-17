@@ -16,6 +16,8 @@ enum Image {
         static let calendar = UIImage(named: "CalendarIcon")
         static let bluetoothWhiteIcon = UIImage(named: "BluetoothWhiteIcon")
         static let underConstruction = UIImage(named: "UnderConstructionIcon")
+        static let plusIcon = UIImage(named: "plus16")
+        static let closeIcon = UIImage(named: "CloseIcon")
     }
 
     enum BuildRobot {
