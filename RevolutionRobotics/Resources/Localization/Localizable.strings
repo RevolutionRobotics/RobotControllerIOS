@@ -128,3 +128,8 @@
 
 "controller_create_new" = "Create new";
 "controller_selector_title" = "Choose your controller!";
+
+"save_modal_name_title" = "Controller name";
+"save_modal_name_placeholder" = "Click here and name the controller!";
+"save_modal_description_title" = "Description";
+"save_modal_description_placeholder" = "Add a hint to remember when to use this controller!";
