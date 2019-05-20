@@ -31,13 +31,20 @@ extension ControllerLayoutSelectorViewController {
 // MARK: - Event handlers
 extension ControllerLayoutSelectorViewController {
     @IBAction private func gamerButtonTapped(_ sender: Any) {
-        let vc = AppContainer.shared.container.unwrappedResolve(GamerConfigurationViewController.self)
+        let vc = AppContainer.shared.container.unwrappedResolve(PadConfigurationViewController.self)
+        vc.controllerType = .gamer
         navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction private func multiTaskerButtonTapped(_ sender: Any) {
+        let vc = AppContainer.shared.container.unwrappedResolve(PadConfigurationViewController.self)
+        vc.controllerType = .multiTasker
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction private func driverButtonTapped(_ sender: Any) {
+        let vc = AppContainer.shared.container.unwrappedResolve(PadConfigurationViewController.self)
+        vc.controllerType = .driver
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -1,15 +1,14 @@
 //
-//  GamerConfigurationView.swift
+//  MultiTaskerConfigurationView.swift
 //  RevolutionRobotics
 //
 //  Created by Gabor Nagy Farkas on 2019. 05. 20..
 //  Copyright © 2019. Revolution Robotics. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-final class GamerConfigurationView: RRCustomView {
+final class MultiTaskerConfigurationView: UIView, ConfigurableControllerView {
     // MARK: - Outlets
     @IBOutlet private weak var drivetrainButton: ControllerButton!
     @IBOutlet private weak var button1: ControllerButton!
@@ -39,7 +38,7 @@ final class GamerConfigurationView: RRCustomView {
 }
 
 // MARK: - View lifecycle
-extension GamerConfigurationView {
+extension MultiTaskerConfigurationView {
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -48,7 +47,7 @@ extension GamerConfigurationView {
 }
 
 // MARK: - Setup
-extension GamerConfigurationView {
+extension MultiTaskerConfigurationView {
     private func setup() {
         setupDrivetrainButton()
         setupB1()
@@ -102,16 +101,17 @@ extension GamerConfigurationView {
     }
 }
 
-// MARK: - Actions
-extension GamerConfigurationView {
+// MARK: - ConfigurableControllerView
+extension MultiTaskerConfigurationView {
     @IBAction private func controllerButtonTapped(_ sender: ControllerButton) {
         selectionCallback?(sender.buttonNumber)
-
-        sender.portState = .highlighted
     }
 
-    func set(state: ControllerButton.ControllerButtonState, on buttonNumber: Int) {
+    func set(state: ControllerButton.ControllerButtonState, on buttonNumber: Int, title: String?) {
         let button = buttons.first(where: { $0.buttonNumber == buttonNumber })
         button?.portState = state
+        if let title = title {
+            button?.setTitle(title, for: .normal)
+        }
     }
 }

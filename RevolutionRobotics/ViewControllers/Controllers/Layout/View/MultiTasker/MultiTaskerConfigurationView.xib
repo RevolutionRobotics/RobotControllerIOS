@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MultiTaskerConfigurationView" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D1r-NW-WDj" userLabel="padBackgroundView">
+                    <rect key="frame" x="0.0" y="284" width="313" height="130"/>
+                    <color key="backgroundColor" name="BlackTwo"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="130" id="2ne-so-RAJ"/>
+                        <constraint firstAttribute="width" constant="313" id="EKi-GF-98q"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="Pl3-Kz-yDp"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GamerDrivetrainIcon" translatesAutoresizingMaskIntoConstraints="NO" id="t7S-Yu-saz" userLabel="drivetrainImageView">
+                    <rect key="frame" x="20" y="313" width="72" height="72"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="72" id="h61-06-rSJ"/>
+                        <constraint firstAttribute="width" constant="72" id="q9i-kY-7px"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nee-0y-iRZ" userLabel="drivetrainButton" customClass="ControllerButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="70" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="9kj-7m-plU"/>
+                        <constraint firstAttribute="width" constant="70" id="XeX-WJ-5Rv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="BrownGrey"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZU-uv-6ub" userLabel="drivetrainDashedView" customClass="DashedView" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="55.5" y="38" width="1" height="275"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="xdh-dO-S50"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="utX-G0-9pK" userLabel="B1Imageview">
+                    <rect key="frame" x="191" y="351" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="ay4-mh-dIU"/>
+                        <constraint firstAttribute="height" constant="20" id="pYR-n6-K0J"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFB-8u-7Cn" userLabel="B1Button" customClass="ControllerButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="78" y="0.0" width="70" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="L5l-Xw-Jre"/>
+                        <constraint firstAttribute="height" constant="38" id="caI-kl-pit"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="BrownGrey"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="buttonNumber">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="controllerButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="jYH-6I-kAH"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rr5-J1-hre" userLabel="b1DashedView1" customClass="DashedView" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="112.5" y="38" width="1" height="323.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="tiJ-4I-zfS"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9so-9a-61O" userLabel="b1DashedView2" customClass="DashedView" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="112.5" y="360.5" width="78.5" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="izb-wT-aSf"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="6Jl-yV-zxL" userLabel="B2Imageview">
+                    <rect key="frame" x="215" y="327" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="Dlu-Rn-Gyd"/>
+                        <constraint firstAttribute="height" constant="20" id="KbZ-I5-4GM"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5e-rY-gX4" userLabel="B2Button" customClass="ControllerButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="156" y="0.0" width="70" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="ACt-Ia-Iw1"/>
+                        <constraint firstAttribute="width" constant="70" id="tE7-Vp-jKV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="BrownGrey"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="buttonNumber">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="controllerButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="brG-A5-ud0"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vrE-WQ-6L8" userLabel="b2DashedView1" customClass="DashedView" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="190.5" y="38" width="1" height="299.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="n7p-29-lVD"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLp-EL-rDH" userLabel="b2DashedView2" customClass="DashedView" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="190.5" y="336.5" width="24.5" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="UiM-FF-ma2"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Ekv-5Q-kZp" userLabel="B3Imageview">
+                    <rect key="frame" x="239" y="303" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="1kJ-vt-P5L"/>
+                        <constraint firstAttribute="width" constant="20" id="cO3-Pm-st8"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="671-CP-R3k" userLabel="B3Button" customClass="ControllerButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="234" y="0.0" width="70" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="Rl5-XU-waG"/>
+                        <constraint firstAttribute="width" constant="70" id="xHv-nE-Er9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="BrownGrey"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="buttonNumber">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="controllerButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="MmP-ss-OYq"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsB-MP-EVB" userLabel="b3DashedView" customClass="DashedView" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="248.5" y="38" width="1" height="265"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="Wrn-Ke-cXk"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="U8E-uZ-VEj" userLabel="B4Imageview">
+                    <rect key="frame" x="215" y="375" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Nr4-cm-HqD"/>
+                        <constraint firstAttribute="width" constant="20" id="n3T-U5-68M"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZL-dB-AGh" userLabel="B4Button" customClass="ControllerButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="826" y="139" width="70" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="7Uo-as-mE5"/>
+                        <constraint firstAttribute="width" constant="70" id="Jc4-fh-MBe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="BrownGrey"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="buttonNumber">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="controllerButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Zii-PR-7Yw"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="toA-gA-dPD" userLabel="b4DashedView1" customClass="DashedView" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="256" y="172" width="1" height="11.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="8" id="c1S-Y1-jgw"/>
+                        <constraint firstAttribute="width" constant="1" id="fsl-Rt-TU7"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s0z-46-TTZ" userLabel="b4DashedView2" customClass="DashedView" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="224.5" y="402" width="601.5" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="hRe-PU-ZCL"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="qD7-Ts-EE1" userLabel="B5Imageview">
+                    <rect key="frame" x="239" y="351" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Kxm-7N-opn"/>
+                        <constraint firstAttribute="width" constant="20" id="Se9-JI-pyx"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3i-LH-gDN" userLabel="B5Button" customClass="ControllerButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="826" y="93" width="70" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="GDW-6R-23x"/>
+                        <constraint firstAttribute="height" constant="38" id="NlO-Bw-em9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="BrownGrey"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="buttonNumber">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="controllerButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="OMe-tT-Zvt"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBE-ON-nK6" userLabel="B5DashedView" customClass="DashedView" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="259" y="360.5" width="567" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="ctm-u8-V1n"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="hat-1a-Dze" userLabel="B6Imageview">
+                    <rect key="frame" x="263" y="327" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="OPP-GV-gOf"/>
+                        <constraint firstAttribute="width" constant="20" id="YqB-z2-Jfa"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnb-uo-Gpk" userLabel="B6Button" customClass="ControllerButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="826" y="47" width="70" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="WaO-cu-Le6"/>
+                        <constraint firstAttribute="height" constant="38" id="qYr-yI-A1D"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="BrownGrey"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="buttonNumber">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="controllerButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="4yM-MP-PRZ"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkT-NT-UQy" userLabel="B6DashedView1" customClass="DashedView" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="283" y="336.5" width="16" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="5ON-U9-Oiq"/>
+                        <constraint firstAttribute="width" constant="16" id="A3n-aV-ZDw"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eut-Vg-NV0" userLabel="B6DashedView2" customClass="DashedView" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="298" y="303.5" width="1" height="34"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="GhL-2J-B45"/>
+                        <constraint firstAttribute="width" constant="1" id="aS4-oo-G9V"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0r-OT-ueV" userLabel="B6DashedView3" customClass="DashedView" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="298" y="302.5" width="528" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="fIs-kG-H9z"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="z3i-LH-gDN" firstAttribute="bottom" secondItem="nZL-dB-AGh" secondAttribute="top" constant="-8" id="0eP-xc-lyw"/>
+                <constraint firstItem="vrE-WQ-6L8" firstAttribute="top" secondItem="k5e-rY-gX4" secondAttribute="bottom" id="0oT-Bk-N29"/>
+                <constraint firstItem="xBE-ON-nK6" firstAttribute="trailing" secondItem="z3i-LH-gDN" secondAttribute="leading" id="1KD-cR-n2F"/>
+                <constraint firstItem="QFB-8u-7Cn" firstAttribute="top" secondItem="Nee-0y-iRZ" secondAttribute="top" id="2iD-Fi-qoR"/>
+                <constraint firstItem="bZU-uv-6ub" firstAttribute="bottom" secondItem="t7S-Yu-saz" secondAttribute="top" id="2tS-U7-EIy"/>
+                <constraint firstItem="k5e-rY-gX4" firstAttribute="leading" secondItem="QFB-8u-7Cn" secondAttribute="trailing" constant="8" id="4Up-KA-IiJ"/>
+                <constraint firstItem="toA-gA-dPD" firstAttribute="top" secondItem="U8E-uZ-VEj" secondAttribute="bottom" id="4aW-U4-WQu"/>
+                <constraint firstItem="XsB-MP-EVB" firstAttribute="centerX" secondItem="Ekv-5Q-kZp" secondAttribute="centerX" id="4yG-dk-Oq1"/>
+                <constraint firstItem="hat-1a-Dze" firstAttribute="centerY" secondItem="6Jl-yV-zxL" secondAttribute="centerY" id="88o-D0-h76"/>
+                <constraint firstItem="Rr5-J1-hre" firstAttribute="top" secondItem="QFB-8u-7Cn" secondAttribute="bottom" id="8Cc-mG-fWx"/>
+                <constraint firstAttribute="bottom" secondItem="utX-G0-9pK" secondAttribute="bottom" constant="43" id="99T-QU-pkh"/>
+                <constraint firstItem="t7S-Yu-saz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="9hL-LV-vWg"/>
+                <constraint firstItem="xBE-ON-nK6" firstAttribute="centerY" secondItem="qD7-Ts-EE1" secondAttribute="centerY" id="C4b-om-g3Z"/>
+                <constraint firstItem="Nee-0y-iRZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Dll-vp-ekv"/>
+                <constraint firstItem="U8E-uZ-VEj" firstAttribute="trailing" secondItem="qD7-Ts-EE1" secondAttribute="leading" constant="-4" id="FtO-oV-ogK"/>
+                <constraint firstItem="U8E-uZ-VEj" firstAttribute="top" secondItem="utX-G0-9pK" secondAttribute="bottom" constant="4" id="HcA-r5-QDL"/>
+                <constraint firstItem="Ekv-5Q-kZp" firstAttribute="bottom" secondItem="6Jl-yV-zxL" secondAttribute="top" constant="-4" id="ImB-G7-GYd"/>
+                <constraint firstItem="QFB-8u-7Cn" firstAttribute="leading" secondItem="Nee-0y-iRZ" secondAttribute="trailing" constant="8" id="JgE-em-cAj"/>
+                <constraint firstAttribute="bottom" secondItem="D1r-NW-WDj" secondAttribute="bottom" id="LkZ-LM-tch"/>
+                <constraint firstItem="s0z-46-TTZ" firstAttribute="bottom" secondItem="toA-gA-dPD" secondAttribute="bottom" id="NeF-ka-mZy"/>
+                <constraint firstItem="vrE-WQ-6L8" firstAttribute="centerX" secondItem="k5e-rY-gX4" secondAttribute="centerX" id="PmH-l4-awj"/>
+                <constraint firstAttribute="bottom" secondItem="t7S-Yu-saz" secondAttribute="bottom" constant="29" id="PoX-dK-wSK"/>
+                <constraint firstItem="toA-gA-dPD" firstAttribute="centerX" secondItem="U8E-uZ-VEj" secondAttribute="centerX" id="Tel-8o-qZa"/>
+                <constraint firstAttribute="trailing" secondItem="z3i-LH-gDN" secondAttribute="trailing" id="XNj-fv-iS9"/>
+                <constraint firstItem="6Jl-yV-zxL" firstAttribute="bottom" secondItem="utX-G0-9pK" secondAttribute="top" constant="-4" id="ZAI-Rl-ZaJ"/>
+                <constraint firstItem="s0z-46-TTZ" firstAttribute="leading" secondItem="toA-gA-dPD" secondAttribute="leading" id="azT-SG-GSv"/>
+                <constraint firstItem="qD7-Ts-EE1" firstAttribute="centerY" secondItem="utX-G0-9pK" secondAttribute="centerY" id="azY-u2-ap2"/>
+                <constraint firstItem="nnb-uo-Gpk" firstAttribute="top" secondItem="671-CP-R3k" secondAttribute="bottom" constant="9" id="cgU-vo-dB9"/>
+                <constraint firstItem="o0r-OT-ueV" firstAttribute="bottom" secondItem="Eut-Vg-NV0" secondAttribute="top" id="cgr-QK-lnw"/>
+                <constraint firstItem="o0r-OT-ueV" firstAttribute="leading" secondItem="Eut-Vg-NV0" secondAttribute="leading" id="cyw-6Y-HFa"/>
+                <constraint firstItem="k5e-rY-gX4" firstAttribute="top" secondItem="QFB-8u-7Cn" secondAttribute="top" id="d3Z-B9-EKh"/>
+                <constraint firstAttribute="trailing" secondItem="nZL-dB-AGh" secondAttribute="trailing" id="dBB-5g-JG0"/>
+                <constraint firstItem="bZU-uv-6ub" firstAttribute="centerX" secondItem="t7S-Yu-saz" secondAttribute="centerX" id="e6q-vD-k9t"/>
+                <constraint firstItem="XsB-MP-EVB" firstAttribute="bottom" secondItem="Ekv-5Q-kZp" secondAttribute="top" id="etR-RD-V5l"/>
+                <constraint firstItem="Rr5-J1-hre" firstAttribute="centerX" secondItem="QFB-8u-7Cn" secondAttribute="centerX" id="fgn-AD-b57"/>
+                <constraint firstItem="pkT-NT-UQy" firstAttribute="centerY" secondItem="hat-1a-Dze" secondAttribute="centerY" id="gK0-qs-Ggf"/>
+                <constraint firstItem="Rr5-J1-hre" firstAttribute="bottom" secondItem="9so-9a-61O" secondAttribute="bottom" id="geX-3c-8vK"/>
+                <constraint firstItem="9so-9a-61O" firstAttribute="centerY" secondItem="utX-G0-9pK" secondAttribute="centerY" id="gpV-Iv-iCO"/>
+                <constraint firstItem="pkT-NT-UQy" firstAttribute="leading" secondItem="hat-1a-Dze" secondAttribute="trailing" id="hC6-sQ-EUE"/>
+                <constraint firstItem="Eut-Vg-NV0" firstAttribute="bottom" secondItem="pkT-NT-UQy" secondAttribute="bottom" id="hb3-tr-k9D"/>
+                <constraint firstItem="XsB-MP-EVB" firstAttribute="top" secondItem="671-CP-R3k" secondAttribute="bottom" id="iDb-1E-May"/>
+                <constraint firstItem="9so-9a-61O" firstAttribute="trailing" secondItem="utX-G0-9pK" secondAttribute="leading" id="jJ8-45-4Zb"/>
+                <constraint firstItem="s0z-46-TTZ" firstAttribute="trailing" secondItem="nZL-dB-AGh" secondAttribute="leading" id="jrc-Zs-N0n"/>
+                <constraint firstItem="bZU-uv-6ub" firstAttribute="top" secondItem="Nee-0y-iRZ" secondAttribute="bottom" id="k0h-3i-YuZ"/>
+                <constraint firstItem="JLp-EL-rDH" firstAttribute="trailing" secondItem="6Jl-yV-zxL" secondAttribute="leading" id="lGN-8e-OTj"/>
+                <constraint firstItem="U8E-uZ-VEj" firstAttribute="leading" secondItem="utX-G0-9pK" secondAttribute="trailing" constant="4" id="lMr-Qp-ap7"/>
+                <constraint firstItem="671-CP-R3k" firstAttribute="leading" secondItem="k5e-rY-gX4" secondAttribute="trailing" constant="8" id="o0D-S4-JL3"/>
+                <constraint firstItem="Nee-0y-iRZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="oDa-fP-bEi"/>
+                <constraint firstItem="JLp-EL-rDH" firstAttribute="centerY" secondItem="6Jl-yV-zxL" secondAttribute="centerY" id="pUF-ys-6Kd"/>
+                <constraint firstItem="nnb-uo-Gpk" firstAttribute="bottom" secondItem="z3i-LH-gDN" secondAttribute="top" constant="-8" id="ptX-7J-3ez"/>
+                <constraint firstItem="hat-1a-Dze" firstAttribute="leading" secondItem="qD7-Ts-EE1" secondAttribute="trailing" constant="4" id="pzT-fS-er4"/>
+                <constraint firstItem="vrE-WQ-6L8" firstAttribute="bottom" secondItem="JLp-EL-rDH" secondAttribute="bottom" id="qYC-Z7-zQA"/>
+                <constraint firstItem="D1r-NW-WDj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rBh-kf-FrY"/>
+                <constraint firstItem="Eut-Vg-NV0" firstAttribute="trailing" secondItem="pkT-NT-UQy" secondAttribute="trailing" id="rnE-8U-nyt"/>
+                <constraint firstAttribute="trailing" secondItem="nnb-uo-Gpk" secondAttribute="trailing" id="rph-w6-gmr"/>
+                <constraint firstItem="671-CP-R3k" firstAttribute="top" secondItem="k5e-rY-gX4" secondAttribute="top" id="sC8-MF-kPX"/>
+                <constraint firstItem="Ekv-5Q-kZp" firstAttribute="leading" secondItem="6Jl-yV-zxL" secondAttribute="trailing" constant="4" id="uUl-aq-j6q"/>
+                <constraint firstItem="o0r-OT-ueV" firstAttribute="trailing" secondItem="nnb-uo-Gpk" secondAttribute="leading" id="uV2-aP-OvR"/>
+                <constraint firstItem="utX-G0-9pK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="191" id="vR5-7g-FOa"/>
+                <constraint firstItem="utX-G0-9pK" firstAttribute="trailing" secondItem="6Jl-yV-zxL" secondAttribute="leading" constant="-4" id="vgw-v9-Hhh"/>
+                <constraint firstItem="xBE-ON-nK6" firstAttribute="leading" secondItem="qD7-Ts-EE1" secondAttribute="trailing" id="yMn-Fw-eqY"/>
+                <constraint firstItem="9so-9a-61O" firstAttribute="leading" secondItem="Rr5-J1-hre" secondAttribute="leading" id="ycN-8I-Maq"/>
+                <constraint firstItem="vrE-WQ-6L8" firstAttribute="leading" secondItem="JLp-EL-rDH" secondAttribute="leading" id="ykH-Mb-pSl"/>
+            </constraints>
+            <connections>
+                <outlet property="button1" destination="QFB-8u-7Cn" id="hlA-at-6wE"/>
+                <outlet property="button2" destination="k5e-rY-gX4" id="3z0-up-yfm"/>
+                <outlet property="button3" destination="671-CP-R3k" id="ky9-eb-8nT"/>
+                <outlet property="button4" destination="nZL-dB-AGh" id="XRj-AF-pB6"/>
+                <outlet property="button5" destination="z3i-LH-gDN" id="Khu-Kc-JUx"/>
+                <outlet property="button6" destination="nnb-uo-Gpk" id="9iZ-rW-SZb"/>
+                <outlet property="drivetrainButton" destination="Nee-0y-iRZ" id="OrK-2h-p0r"/>
+                <outlet property="imageView1" destination="utX-G0-9pK" id="b1q-0W-1if"/>
+                <outlet property="imageView2" destination="6Jl-yV-zxL" id="ELZ-Ef-cDa"/>
+                <outlet property="imageView3" destination="Ekv-5Q-kZp" id="hSB-qp-DXz"/>
+                <outlet property="imageView4" destination="U8E-uZ-VEj" id="Z7b-qL-JmZ"/>
+                <outlet property="imageView5" destination="qD7-Ts-EE1" id="Rt4-QS-ilD"/>
+                <outlet property="imageView6" destination="hat-1a-Dze" id="EV7-kK-8Ot"/>
+                <outletCollection property="buttons" destination="QFB-8u-7Cn" collectionClass="NSMutableArray" id="Buy-J8-zMa"/>
+                <outletCollection property="buttons" destination="k5e-rY-gX4" collectionClass="NSMutableArray" id="5mi-19-fOe"/>
+                <outletCollection property="buttons" destination="671-CP-R3k" collectionClass="NSMutableArray" id="OcS-vU-j9D"/>
+                <outletCollection property="buttons" destination="nZL-dB-AGh" collectionClass="NSMutableArray" id="Iau-zP-0jU"/>
+                <outletCollection property="buttons" destination="z3i-LH-gDN" collectionClass="NSMutableArray" id="e4n-tA-HHe"/>
+                <outletCollection property="buttons" destination="nnb-uo-Gpk" collectionClass="NSMutableArray" id="gwg-vs-tx4"/>
+                <outletCollection property="dashedView1" destination="Rr5-J1-hre" collectionClass="NSMutableArray" id="Esy-i6-JNQ"/>
+                <outletCollection property="dashedView1" destination="9so-9a-61O" collectionClass="NSMutableArray" id="0kB-Qj-kPN"/>
+                <outletCollection property="dashedView2" destination="vrE-WQ-6L8" collectionClass="NSMutableArray" id="gTl-oQ-te8"/>
+                <outletCollection property="dashedView2" destination="JLp-EL-rDH" collectionClass="NSMutableArray" id="sMT-Ti-cfu"/>
+                <outletCollection property="dashedView3" destination="XsB-MP-EVB" collectionClass="NSMutableArray" id="59r-Zb-2tE"/>
+                <outletCollection property="dashedView4" destination="toA-gA-dPD" collectionClass="NSMutableArray" id="Q6G-7z-6aA"/>
+                <outletCollection property="dashedView4" destination="s0z-46-TTZ" collectionClass="NSMutableArray" id="ZsB-hF-X1i"/>
+                <outletCollection property="dashedView5" destination="xBE-ON-nK6" collectionClass="NSMutableArray" id="zS3-u9-uQ3"/>
+                <outletCollection property="dashedView6" destination="pkT-NT-UQy" collectionClass="NSMutableArray" id="7cF-WP-CVu"/>
+                <outletCollection property="dashedView6" destination="Eut-Vg-NV0" collectionClass="NSMutableArray" id="dMZ-2G-B8e"/>
+                <outletCollection property="dashedView6" destination="o0r-OT-ueV" collectionClass="NSMutableArray" id="0Qg-FW-r8z"/>
+                <outletCollection property="drivetrainDashedView" destination="bZU-uv-6ub" collectionClass="NSMutableArray" id="NRC-u7-XQ0"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="ControllerButtonUnassignedIcon" width="25" height="25"/>
+        <image name="GamerDrivetrainIcon" width="72" height="72"/>
+        <namedColor name="BlackTwo">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrownGrey">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

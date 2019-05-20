@@ -57,13 +57,17 @@
 		09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09FB0D6B2267735800735B74 /* Barlow-Regular.ttf */; };
 		0DB50C788CDC759B39ADDE27 /* Pods_RevolutionRobotics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26EF7436A9D98B5E2710B894 /* Pods_RevolutionRobotics.framework */; };
 		196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43BC08A3B14DC91EF1DFAB7E /* Pods-RevolutionRobotics-metadata.plist */; };
+		2A0789E9229321FD00CFFDD6 /* ConfigurableControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0789E8229321FD00CFFDD6 /* ConfigurableControllerView.swift */; };
+		2A0789EB2293245400CFFDD6 /* MultiTaskerConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0789EA2293245400CFFDD6 /* MultiTaskerConfigurationView.swift */; };
+		2A0789ED2293393600CFFDD6 /* MultiTaskerConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0789EC2293393600CFFDD6 /* MultiTaskerConfigurationView.xib */; };
+		2A0789F2229339A400CFFDD6 /* DriverConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0789F1229339A400CFFDD6 /* DriverConfigurationView.swift */; };
 		2A18002D227AE5800082E801 /* ModalKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A18002C227AE5800082E801 /* ModalKeys.swift */; };
 		2A3A75922292DD3A00ED9A1D /* ControllerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A75912292DD3A00ED9A1D /* ControllerButton.swift */; };
 		2A458E27227C89AF000C03D2 /* RRProgressLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */; };
 		2A4C930C228ABA9E0029AE07 /* MotorConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C930B228ABA9E0029AE07 /* MotorConfigViewModel.swift */; };
 		2A4C930E228C15890029AE07 /* SensorConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C930D228C15890029AE07 /* SensorConfigViewModel.swift */; };
-		2A50DA272292CF5F00B3D74C /* GamerConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A50DA262292CF5F00B3D74C /* GamerConfigurationViewController.swift */; };
-		2A50DA292292CF7900B3D74C /* GamerConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A50DA282292CF7900B3D74C /* GamerConfigurationViewController.xib */; };
+		2A50DA272292CF5F00B3D74C /* PadConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A50DA262292CF5F00B3D74C /* PadConfigurationViewController.swift */; };
+		2A50DA292292CF7900B3D74C /* PadConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A50DA282292CF7900B3D74C /* PadConfigurationViewController.xib */; };
 		2A50DA2C2292CF9A00B3D74C /* GamerConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A50DA2B2292CF9A00B3D74C /* GamerConfigurationView.swift */; };
 		2A50DA2E2292CFB000B3D74C /* GamerConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A50DA2D2292CFB000B3D74C /* GamerConfigurationView.xib */; };
 		2A77320322648FB000D7F38D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A77320222648FB000D7F38D /* Settings.bundle */; };
@@ -270,13 +274,17 @@
 		09FB0D68226761E900735B74 /* YourRobotsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YourRobotsViewController.xib; sourceTree = "<group>"; };
 		09FB0D6B2267735800735B74 /* Barlow-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Regular.ttf"; sourceTree = "<group>"; };
 		26EF7436A9D98B5E2710B894 /* Pods_RevolutionRobotics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutionRobotics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A0789E8229321FD00CFFDD6 /* ConfigurableControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableControllerView.swift; sourceTree = "<group>"; };
+		2A0789EA2293245400CFFDD6 /* MultiTaskerConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiTaskerConfigurationView.swift; sourceTree = "<group>"; };
+		2A0789EC2293393600CFFDD6 /* MultiTaskerConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultiTaskerConfigurationView.xib; sourceTree = "<group>"; };
+		2A0789F1229339A400CFFDD6 /* DriverConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverConfigurationView.swift; sourceTree = "<group>"; };
 		2A18002C227AE5800082E801 /* ModalKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalKeys.swift; sourceTree = "<group>"; };
 		2A3A75912292DD3A00ED9A1D /* ControllerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerButton.swift; sourceTree = "<group>"; };
 		2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRProgressLabel.swift; sourceTree = "<group>"; };
 		2A4C930B228ABA9E0029AE07 /* MotorConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorConfigViewModel.swift; sourceTree = "<group>"; };
 		2A4C930D228C15890029AE07 /* SensorConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorConfigViewModel.swift; sourceTree = "<group>"; };
-		2A50DA262292CF5F00B3D74C /* GamerConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamerConfigurationViewController.swift; sourceTree = "<group>"; };
-		2A50DA282292CF7900B3D74C /* GamerConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamerConfigurationViewController.xib; sourceTree = "<group>"; };
+		2A50DA262292CF5F00B3D74C /* PadConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadConfigurationViewController.swift; sourceTree = "<group>"; };
+		2A50DA282292CF7900B3D74C /* PadConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PadConfigurationViewController.xib; sourceTree = "<group>"; };
 		2A50DA2B2292CF9A00B3D74C /* GamerConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamerConfigurationView.swift; sourceTree = "<group>"; };
 		2A50DA2D2292CFB000B3D74C /* GamerConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamerConfigurationView.xib; sourceTree = "<group>"; };
 		2A77320222648FB000D7F38D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -717,6 +725,32 @@
 			path = YourRobots;
 			sourceTree = "<group>";
 		};
+		2A0789EE2293397200CFFDD6 /* Gamer */ = {
+			isa = PBXGroup;
+			children = (
+				2A50DA2B2292CF9A00B3D74C /* GamerConfigurationView.swift */,
+				2A50DA2D2292CFB000B3D74C /* GamerConfigurationView.xib */,
+			);
+			path = Gamer;
+			sourceTree = "<group>";
+		};
+		2A0789EF2293397B00CFFDD6 /* MultiTasker */ = {
+			isa = PBXGroup;
+			children = (
+				2A0789EA2293245400CFFDD6 /* MultiTaskerConfigurationView.swift */,
+				2A0789EC2293393600CFFDD6 /* MultiTaskerConfigurationView.xib */,
+			);
+			path = MultiTasker;
+			sourceTree = "<group>";
+		};
+		2A0789F02293398700CFFDD6 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				2A0789F1229339A400CFFDD6 /* DriverConfigurationView.swift */,
+			);
+			path = Driver;
+			sourceTree = "<group>";
+		};
 		2A458E25227C89A2000C03D2 /* Label */ = {
 			isa = PBXGroup;
 			children = (
@@ -763,8 +797,8 @@
 				2A50DA2A2292CF8800B3D74C /* View */,
 				D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */,
 				D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */,
-				2A50DA262292CF5F00B3D74C /* GamerConfigurationViewController.swift */,
-				2A50DA282292CF7900B3D74C /* GamerConfigurationViewController.xib */,
+				2A50DA262292CF5F00B3D74C /* PadConfigurationViewController.swift */,
+				2A50DA282292CF7900B3D74C /* PadConfigurationViewController.xib */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -772,8 +806,10 @@
 		2A50DA2A2292CF8800B3D74C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2A50DA2B2292CF9A00B3D74C /* GamerConfigurationView.swift */,
-				2A50DA2D2292CFB000B3D74C /* GamerConfigurationView.xib */,
+				2A0789E8229321FD00CFFDD6 /* ConfigurableControllerView.swift */,
+				2A0789F02293398700CFFDD6 /* Driver */,
+				2A0789EE2293397200CFFDD6 /* Gamer */,
+				2A0789EF2293397B00CFFDD6 /* MultiTasker */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1452,8 +1488,9 @@
 				094FC5D0228C35F70085B407 /* GamerPadView.xib in Resources */,
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
 				09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */,
+				2A0789ED2293393600CFFDD6 /* MultiTaskerConfigurationView.xib in Resources */,
 				D03BA8542276F323005B3E33 /* PartView.xib in Resources */,
-				2A50DA292292CF7900B3D74C /* GamerConfigurationViewController.xib in Resources */,
+				2A50DA292292CF7900B3D74C /* PadConfigurationViewController.xib in Resources */,
 				2ADF1F7C224AB3B600CC721F /* Images.xcassets in Resources */,
 				09105AA12280581F00AB7B72 /* PortConfigurationItemView.xib in Resources */,
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
@@ -1621,6 +1658,7 @@
 				D05C64D4225F585500B7BF4F /* BuildStatus.swift in Sources */,
 				09C38758226F58260097619D /* RRCustomView.swift in Sources */,
 				D031332F228D5CBA00704989 /* Controller.swift in Sources */,
+				2A0789EB2293245400CFFDD6 /* MultiTaskerConfigurationView.swift in Sources */,
 				094FC5D7228C3C600085B407 /* PlayablePadView.swift in Sources */,
 				D05C64DD225F592400B7BF4F /* Sensor.swift in Sources */,
 				D0049A492270BBD2007FA256 /* UITableView+CellReuse.swift in Sources */,
@@ -1631,7 +1669,9 @@
 				D03BA8532276F323005B3E33 /* PartView.swift in Sources */,
 				096333FA2289BBA40029D87B /* UIView+Rounded.swift in Sources */,
 				D0313333228D5CBA00704989 /* ProgramBinding.swift in Sources */,
+				2A0789E9229321FD00CFFDD6 /* ConfigurableControllerView.swift in Sources */,
 				2A9F52062265E31C00F9F651 /* BaseViewController.swift in Sources */,
+				2A0789F2229339A400CFFDD6 /* DriverConfigurationView.swift in Sources */,
 				2AC7AB72228D4FB900D96457 /* URLSession+ImageDownload.swift in Sources */,
 				D05C64CE225F578A00B7BF4F /* BuildStep.swift in Sources */,
 				D05C64D9225F58E200B7BF4F /* Side.swift in Sources */,
@@ -1696,7 +1736,7 @@
 				D0BF256B2282C6C100F08C9C /* BuildFinishedModal.swift in Sources */,
 				D0049A28226F30AA007FA256 /* WhoToBuildCollectionViewCell.swift in Sources */,
 				D05BAA7F22676A0C00624438 /* UIView+Reusable.swift in Sources */,
-				2A50DA272292CF5F00B3D74C /* GamerConfigurationViewController.swift in Sources */,
+				2A50DA272292CF5F00B3D74C /* PadConfigurationViewController.swift in Sources */,
 				D06F01D7228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift in Sources */,
 				2A9F52182265EC0500F9F651 /* Container+Unwrapped.swift in Sources */,
 				D05C64E5225F5DEE00B7BF4F /* PortMapping.swift in Sources */,
