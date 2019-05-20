@@ -6,6 +6,9 @@
   Copyright © 2019. Revolution Robotics. All rights reserved.
 */
 
+// MARK: - Common
+"next" = "Next";
+
 // MARK: - Menu
 "menu_robots_title" = "robots";
 "menu_programs_title" = "programs";
@@ -69,6 +72,9 @@
 
 // MARK: - Controller
 "play_controller_screen_title" = "Play!";
+"controller_setup_screen_title" = "Assign programs to buttons!";
+"controller_setup_empty" = "empty";
+"controller_setup_drivetrain" = "drivetrain";
 
 // MARK: - Programs
 "programs_screen_title" = "Programs";

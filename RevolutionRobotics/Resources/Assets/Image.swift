@@ -84,6 +84,10 @@ enum Image {
         static let driver = UIImage(named: "Controller1")
         static let padButtonBackground = UIImage(named: "PadButtonCircle")
         static let directionSlider = UIImage(named: "DirectionSlider")
+        static let nextIcon = UIImage(named: "NextIcon")
+        static let unassignedButtonIcon = UIImage(named: "ControllerButtonUnassignedIcon")
+        static let assignedButtonIcon = UIImage(named: "ControllerButtonAssigned")
+        static let highlightedButtonIcon = UIImage(named: "ControllerButtonHighlighted")
     }
 
     static let downloadIcon = UIImage(named: "DownloadIcon")

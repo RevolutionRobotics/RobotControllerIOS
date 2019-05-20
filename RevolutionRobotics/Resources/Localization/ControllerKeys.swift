@@ -9,4 +9,7 @@
 enum ControllerKeys {
     static let selectorScreenTitle = "controller_selector_title"
     static let createNew = "controller_create_new"
+    static let configureTitle = "controller_setup_screen_title"
+    static let configureEmpty = "controller_setup_empty"
+    static let drivetrain = "controller_setup_drivetrain"
 }

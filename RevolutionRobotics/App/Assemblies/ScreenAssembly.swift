@@ -28,6 +28,7 @@ final class ScreenAssembly: Assembly {
         registerAboutViewController(to: container)
         registerControllerSelectorViewController(to: container)
         registerProgramsBottomViewController(to: container)
+        registerGamerConfigurationViewController(to: container)
     }
 }
 
@@ -160,5 +161,13 @@ extension ScreenAssembly {
         container
             .register(ProgramBottomBarViewController.self, factory: { _ in return ProgramBottomBarViewController() })
             .inObjectScope(.transient)
+    }
+
+    private func registerGamerConfigurationViewController(to container: Container) {
+        container
+            .register(GamerConfigurationViewController.self, factory: { _ in
+                return GamerConfigurationViewController()
+            })
+            .inObjectScope(.weak)
     }
 }

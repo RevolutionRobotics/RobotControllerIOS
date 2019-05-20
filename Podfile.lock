@@ -62,7 +62,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.1.0):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (1.2.1)
+  - GTMSessionFetcher/Core (1.2.2)
   - Kingfisher (5.3.1)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
@@ -136,7 +136,7 @@ CHECKOUT OPTIONS:
     :git: "git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git"
     :submodules: true
   RevolutionRoboticsBluetooth:
-    :commit: 8873afeda5841bc126d4154c9fa8586990249d96
+    :commit: 6f9846a6e955570781b6f58363fbef0efa6e8048
     :git: "git@gitlab.supercharge.io:revolutionrobotics/bluetooth-ios.git"
 
 SPEC CHECKSUMS:
@@ -151,7 +151,7 @@ SPEC CHECKSUMS:
   FirebaseStorage: ff1e8f1f6cf1557a8694b0ef39d3e72cb60c42ac
   GoogleAppMeasurement: 7f028ea162b72c8f326daec74afc95d94f7a47d6
   GoogleUtilities: 84df567c76ca84f67b7bb40e769fdd4acc746a10
-  GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48

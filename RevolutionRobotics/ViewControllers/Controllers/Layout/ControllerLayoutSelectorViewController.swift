@@ -17,11 +17,6 @@ final class ControllerLayoutSelectorViewController: BaseViewController {
     @IBOutlet private weak var multiTaskerControllerButton: UIButton!
     @IBOutlet private weak var driverControllerLabel: UILabel!
     @IBOutlet private weak var driverControllerButton: UIButton!
-
-    // MARK: - Callbacks
-    var gamerCallback: Callback?
-    var multiTaskerCallback: Callback?
-    var driverCallback: Callback?
 }
 
 // MARK: - View lifecycle
@@ -36,14 +31,13 @@ extension ControllerLayoutSelectorViewController {
 // MARK: - Event handlers
 extension ControllerLayoutSelectorViewController {
     @IBAction private func gamerButtonTapped(_ sender: Any) {
-        gamerCallback?()
+        let vc = AppContainer.shared.container.unwrappedResolve(GamerConfigurationViewController.self)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction private func multiTaskerButtonTapped(_ sender: Any) {
-        multiTaskerCallback?()
     }
 
     @IBAction private func driverButtonTapped(_ sender: Any) {
-        driverCallback?()
     }
 }
