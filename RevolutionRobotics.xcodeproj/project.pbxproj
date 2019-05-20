@@ -58,9 +58,14 @@
 		0DB50C788CDC759B39ADDE27 /* Pods_RevolutionRobotics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26EF7436A9D98B5E2710B894 /* Pods_RevolutionRobotics.framework */; };
 		196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43BC08A3B14DC91EF1DFAB7E /* Pods-RevolutionRobotics-metadata.plist */; };
 		2A18002D227AE5800082E801 /* ModalKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A18002C227AE5800082E801 /* ModalKeys.swift */; };
+		2A3A75922292DD3A00ED9A1D /* ControllerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A75912292DD3A00ED9A1D /* ControllerButton.swift */; };
 		2A458E27227C89AF000C03D2 /* RRProgressLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */; };
 		2A4C930C228ABA9E0029AE07 /* MotorConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C930B228ABA9E0029AE07 /* MotorConfigViewModel.swift */; };
 		2A4C930E228C15890029AE07 /* SensorConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C930D228C15890029AE07 /* SensorConfigViewModel.swift */; };
+		2A50DA272292CF5F00B3D74C /* GamerConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A50DA262292CF5F00B3D74C /* GamerConfigurationViewController.swift */; };
+		2A50DA292292CF7900B3D74C /* GamerConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A50DA282292CF7900B3D74C /* GamerConfigurationViewController.xib */; };
+		2A50DA2C2292CF9A00B3D74C /* GamerConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A50DA2B2292CF9A00B3D74C /* GamerConfigurationView.swift */; };
+		2A50DA2E2292CFB000B3D74C /* GamerConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A50DA2D2292CFB000B3D74C /* GamerConfigurationView.xib */; };
 		2A77320322648FB000D7F38D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A77320222648FB000D7F38D /* Settings.bundle */; };
 		2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732042264A15600D7F38D /* AssemblyRegister.swift */; };
 		2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732072264A32200D7F38D /* ScreenAssembly.swift */; };
@@ -137,8 +142,6 @@
 		D0313335228D5CBA00704989 /* ControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332C228D5CBA00704989 /* ControllerType.swift */; };
 		D0313336228D5CBA00704989 /* ChallengeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332D228D5CBA00704989 /* ChallengeStep.swift */; };
 		D0313337228D5CBA00704989 /* Part.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332E228D5CBA00704989 /* Part.swift */; };
-		D0313322228C602100704989 /* ControllerLayoutSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */; };
-		D0313323228C602100704989 /* ControllerLayoutSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */; };
 		D0313339228DD3B100704989 /* SaveControllerModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313338228DD3B000704989 /* SaveControllerModal.swift */; };
 		D031333B228DD3C100704989 /* SaveControllerModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D031333A228DD3C100704989 /* SaveControllerModal.xib */; };
 		D031333E228EA66100704989 /* ProgramBottomBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031333C228EA66100704989 /* ProgramBottomBarViewController.swift */; };
@@ -268,9 +271,14 @@
 		09FB0D6B2267735800735B74 /* Barlow-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Regular.ttf"; sourceTree = "<group>"; };
 		26EF7436A9D98B5E2710B894 /* Pods_RevolutionRobotics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutionRobotics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A18002C227AE5800082E801 /* ModalKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalKeys.swift; sourceTree = "<group>"; };
+		2A3A75912292DD3A00ED9A1D /* ControllerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerButton.swift; sourceTree = "<group>"; };
 		2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRProgressLabel.swift; sourceTree = "<group>"; };
 		2A4C930B228ABA9E0029AE07 /* MotorConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorConfigViewModel.swift; sourceTree = "<group>"; };
 		2A4C930D228C15890029AE07 /* SensorConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorConfigViewModel.swift; sourceTree = "<group>"; };
+		2A50DA262292CF5F00B3D74C /* GamerConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamerConfigurationViewController.swift; sourceTree = "<group>"; };
+		2A50DA282292CF7900B3D74C /* GamerConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamerConfigurationViewController.xib; sourceTree = "<group>"; };
+		2A50DA2B2292CF9A00B3D74C /* GamerConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamerConfigurationView.swift; sourceTree = "<group>"; };
+		2A50DA2D2292CFB000B3D74C /* GamerConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamerConfigurationView.xib; sourceTree = "<group>"; };
 		2A77320222648FB000D7F38D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2A7732042264A15600D7F38D /* AssemblyRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyRegister.swift; sourceTree = "<group>"; };
 		2A7732072264A32200D7F38D /* ScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenAssembly.swift; sourceTree = "<group>"; };
@@ -354,8 +362,6 @@
 		D031332C228D5CBA00704989 /* ControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerType.swift; sourceTree = "<group>"; };
 		D031332D228D5CBA00704989 /* ChallengeStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeStep.swift; sourceTree = "<group>"; };
 		D031332E228D5CBA00704989 /* Part.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Part.swift; sourceTree = "<group>"; };
-		D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerLayoutSelectorViewController.swift; sourceTree = "<group>"; };
-		D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControllerLayoutSelectorViewController.xib; sourceTree = "<group>"; };
 		D0313338228DD3B000704989 /* SaveControllerModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveControllerModal.swift; sourceTree = "<group>"; };
 		D031333A228DD3C100704989 /* SaveControllerModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SaveControllerModal.xib; sourceTree = "<group>"; };
 		D031333C228EA66100704989 /* ProgramBottomBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramBottomBarViewController.swift; sourceTree = "<group>"; };
@@ -726,6 +732,50 @@
 				2A4C930D228C15890029AE07 /* SensorConfigViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2A50DA232292CEC800B3D74C /* LiveControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0BF256E2282C6E000F08C9C /* PlayControllerViewController.swift */,
+				D0BF256D2282C6E000F08C9C /* PlayControllerViewController.xib */,
+				2A50DA242292CED800B3D74C /* Views */,
+			);
+			path = LiveControllers;
+			sourceTree = "<group>";
+		};
+		2A50DA242292CED800B3D74C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				096333F42289B9260029D87B /* PadButton */,
+				094FC5D6228C3C600085B407 /* PlayablePadView.swift */,
+				096333EF2289A39D0029D87B /* Joystick */,
+				094FC5DD228C3CEB0085B407 /* DriverPad */,
+				096333EC22898D860029D87B /* GamerPad */,
+				094FC5D5228C3C1B0085B407 /* MultiTaskerPad */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2A50DA252292CF1000B3D74C /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				2A50DA2A2292CF8800B3D74C /* View */,
+				D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */,
+				D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */,
+				2A50DA262292CF5F00B3D74C /* GamerConfigurationViewController.swift */,
+				2A50DA282292CF7900B3D74C /* GamerConfigurationViewController.xib */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		2A50DA2A2292CF8800B3D74C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2A50DA2B2292CF9A00B3D74C /* GamerConfigurationView.swift */,
+				2A50DA2D2292CFB000B3D74C /* GamerConfigurationView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2A77320122648F9A00D7F38D /* Settings */ = {
@@ -1217,17 +1267,9 @@
 		D0A11089227B18110064FBB6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				094FC5DD228C3CEB0085B407 /* DriverPad */,
-				096333EC22898D860029D87B /* GamerPad */,
-				094FC5D5228C3C1B0085B407 /* MultiTaskerPad */,
-				096333EF2289A39D0029D87B /* Joystick */,
+				2A50DA252292CF1000B3D74C /* Layout */,
+				2A50DA232292CEC800B3D74C /* LiveControllers */,
 				D0A1108A227B18310064FBB6 /* Modal */,
-				D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */,
-				D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */,
-				096333F42289B9260029D87B /* PadButton */,
-				D0BF256E2282C6E000F08C9C /* PlayControllerViewController.swift */,
-				D0BF256D2282C6E000F08C9C /* PlayControllerViewController.xib */,
-				094FC5D6228C3C600085B407 /* PlayablePadView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1290,6 +1332,7 @@
 			isa = PBXGroup;
 			children = (
 				FE4B161D227721C700CAA083 /* PortButton.swift */,
+				2A3A75912292DD3A00ED9A1D /* ControllerButton.swift */,
 			);
 			path = PortButton;
 			sourceTree = "<group>";
@@ -1410,6 +1453,7 @@
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
 				09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */,
 				D03BA8542276F323005B3E33 /* PartView.xib in Resources */,
+				2A50DA292292CF7900B3D74C /* GamerConfigurationViewController.xib in Resources */,
 				2ADF1F7C224AB3B600CC721F /* Images.xcassets in Resources */,
 				09105AA12280581F00AB7B72 /* PortConfigurationItemView.xib in Resources */,
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
@@ -1422,6 +1466,7 @@
 				D0A11096227B23F20064FBB6 /* RRInputField.xib in Resources */,
 				196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */,
 				D06C326D22857A80005534C0 /* AboutViewController.xib in Resources */,
+				2A50DA2E2292CFB000B3D74C /* GamerConfigurationView.xib in Resources */,
 				096479872268776200F68456 /* BuildRobotViewController.xib in Resources */,
 				2AB778612282F6D4004442E2 /* DeleteRobotView.xib in Resources */,
 				D05BAA9E22676BCA00624438 /* WhoToBuildCollectionViewCell.xib in Resources */,
@@ -1621,6 +1666,7 @@
 				2A7DDB1222856FC800891DA6 /* MotorDataModel.swift in Sources */,
 				2ADE8C3A2270A7A700ECEC72 /* CommunityKeys.swift in Sources */,
 				2AFAA11222663111002BE0A2 /* UIImage+Color.swift in Sources */,
+				2A3A75922292DD3A00ED9A1D /* ControllerButton.swift in Sources */,
 				2ADE8C362270A79300ECEC72 /* ProgramsKeys.swift in Sources */,
 				D0049A532271CC52007FA256 /* TurnOnBrainView.swift in Sources */,
 				2A9F520D2265E95600F9F651 /* ChallengesViewController.swift in Sources */,
@@ -1650,6 +1696,7 @@
 				D0BF256B2282C6C100F08C9C /* BuildFinishedModal.swift in Sources */,
 				D0049A28226F30AA007FA256 /* WhoToBuildCollectionViewCell.swift in Sources */,
 				D05BAA7F22676A0C00624438 /* UIView+Reusable.swift in Sources */,
+				2A50DA272292CF5F00B3D74C /* GamerConfigurationViewController.swift in Sources */,
 				D06F01D7228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift in Sources */,
 				2A9F52182265EC0500F9F651 /* Container+Unwrapped.swift in Sources */,
 				D05C64E5225F5DEE00B7BF4F /* PortMapping.swift in Sources */,
@@ -1679,6 +1726,7 @@
 				D05BAA7B226769F300624438 /* UICollectionView+CellReuse.swift in Sources */,
 				D0A1107D227870040064FBB6 /* YourRobotsCollectionViewCell.swift in Sources */,
 				D03BA86B22773DCA005B3E33 /* RRCollectionView.swift in Sources */,
+				2A50DA2C2292CF9A00B3D74C /* GamerConfigurationView.swift in Sources */,
 				2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */,
 				2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */,
 				2A4C930E228C15890029AE07 /* SensorConfigViewModel.swift in Sources */,

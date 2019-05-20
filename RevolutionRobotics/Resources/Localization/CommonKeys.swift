@@ -7,4 +7,5 @@
 //
 
 enum CommonKeys {
+    static let next = "next"
 }

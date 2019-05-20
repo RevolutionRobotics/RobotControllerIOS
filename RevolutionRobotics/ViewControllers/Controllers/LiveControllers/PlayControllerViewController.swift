@@ -44,7 +44,9 @@ extension PlayControllerViewController {
 
         if bluetoothService.hasConnectedDevice {
             bluetoothService.startKeepalive()
+            bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
         } else {
+            bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
             presentBluetoothModal()
         }
     }
