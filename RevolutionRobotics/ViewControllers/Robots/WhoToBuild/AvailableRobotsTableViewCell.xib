@@ -32,12 +32,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="6" height="37.5"/>
                                 <color key="backgroundColor" name="BrownGrey"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37.5" id="NQq-HN-c7X"/>
                                     <constraint firstAttribute="width" constant="6" id="oav-oY-9DZ"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzo-d7-QSD">
-                                <rect key="frame" x="20" y="10" width="36" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzo-d7-QSD">
+                                <rect key="frame" x="20" y="10" width="256" height="18"/>
                                 <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -48,7 +47,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9vM-pH-nb4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bzo-d7-QSD" secondAttribute="trailing" constant="12" id="9Ce-Ug-jZE"/>
+                            <constraint firstItem="9vM-pH-nb4" firstAttribute="leading" secondItem="bzo-d7-QSD" secondAttribute="trailing" constant="12" id="9Ce-Ug-jZE"/>
                             <constraint firstAttribute="trailing" secondItem="9vM-pH-nb4" secondAttribute="trailing" constant="12" id="C5q-4W-85r"/>
                             <constraint firstItem="aAx-0O-fc9" firstAttribute="leading" secondItem="x1g-ye-UPf" secondAttribute="leading" id="SKb-PN-IGR"/>
                             <constraint firstItem="bzo-d7-QSD" firstAttribute="leading" secondItem="aAx-0O-fc9" secondAttribute="trailing" constant="14" id="fG6-Xa-Wtd"/>

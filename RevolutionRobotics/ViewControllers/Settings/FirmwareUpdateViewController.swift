@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RevolutionRoboticsBluetooth
+import struct RevolutionRoboticsBluetooth.Device
 
 final class FirmwareUpdateViewController: BaseViewController {
     // MARK: - Outlets
@@ -19,11 +19,8 @@ final class FirmwareUpdateViewController: BaseViewController {
     @IBOutlet private weak var checkForUpdatesLabel: UILabel!
 
     // MARK: - Properties
+    var bluetoothService: BluetoothServiceInterface!
     private let checkForUpdatesModal = CheckForUpdatesModal.instatiate()
-    private let discoverer: RoboticsDeviceDiscovererInterface = RoboticsDeviceDiscoverer()
-    private let connector: RoboticsDeviceConnectorInterface = RoboticsDeviceConnector()
-    private let deviceService: RoboticsDeviceServiceInterface = RoboticsDeviceService()
-    private let batteryService: RoboticsBatteryServiceInterface = RoboticsBatteryService()
 }
 
 // MARK: - View lifecycle
@@ -38,113 +35,85 @@ extension FirmwareUpdateViewController {
         newConnectionButton.selectionHandler = { [weak self] in
             self?.showTurnOnTheBrain()
         }
+
+        if bluetoothService.hasConnectedDevice {
+            bluetoothService.getSystemId(onCompleted: { [weak self] result in
+                switch result {
+                case .success(let systemId):
+                    self?.brainIDTitleLabel.text = systemId
+                    self?.checkForUpdatesModal.brainId = systemId
+                    self?.connectedBrainView.isHidden = false
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            })
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        subscribeForConnectionChange()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        unsubscribeFromConnectionChange()
     }
 }
 
 // MARK: - Functions
 extension FirmwareUpdateViewController {
     private func showTurnOnTheBrain() {
-        let turnOnModal = TurnOnBrainView.instatiate()
-        turnOnModal.setup(laterHidden: true)
-        setupTipsHandler(on: turnOnModal)
-        setupStartDiscoveryHandler(on: turnOnModal)
-        presentModal(with: turnOnModal)
-    }
-
-    private func setupTipsHandler(on modal: TurnOnBrainView) {
-        modal.tipsHandler = { [weak self] in
-            self?.showTipsModal()
-        }
-    }
-
-    private func showTipsModal() {
-        self.dismiss(animated: true, completion: {
-            let tips = TipsModalView.instatiate()
-            tips.isSkipButtonHidden = true
-            tips.title = ModalKeys.Tips.title.translate()
-            tips.subtitle = ModalKeys.Tips.subtitle.translate()
-            tips.tips = "Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat."
-            tips.communityTitle = ModalKeys.Tips.community.translate()
-            tips.tryAgainTitle = ModalKeys.Tips.tryAgin.translate()
-            tips.tryAgainCallback = { [weak self] in
-                self?.dismiss(animated: true, completion: {
-                    self?.showTurnOnTheBrain()
+        let modalPresenter = BluetoothConnectionModalPresenter()
+        modalPresenter.present(
+            on: self,
+            startDiscoveryHandler: { [weak self] in
+                self?.bluetoothService.startDiscovery(onScanResult: { result in
+                    switch result {
+                    case .success(let devices):
+                        modalPresenter.discoveredDevices = devices
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
                 })
-            }
-            tips.communityCallback = { [weak self] in
-                self?.presentSafariModal(presentationFinished: { [weak self] in
-                    self?.showTurnOnTheBrain()
-                })
-            }
-            self.presentModal(with: tips)
-        })
-    }
 
-    private func setupStartDiscoveryHandler(on modal: TurnOnBrainView) {
-        modal.startHandler = { [weak self] in
-            self?.dismiss(animated: true, completion: {
-                self?.showBluetoothDiscovery()
-            })
-        }
-    }
-
-    private func showBluetoothDiscovery() {
-        let bluetoothDiscovery = AvailableRobotsView.instatiate()
-        bluetoothDiscovery.selectionHandler = { [weak self] device in
-            self?.onDeviceSelected(device)
-        }
-        presentModal(with: bluetoothDiscovery)
-
-        discoverer.discoverRobots(
-            onScanResult: { devices in
-                bluetoothDiscovery.discoveredDevices = devices
-        },
-            onError: { error in
-                print(error.localizedDescription)
-        })
+            },
+            deviceSelectionHandler: { [weak self] device in
+                self?.connectedBrainView.isHidden = false
+                self?.bluetoothService.connect(to: device)
+            },
+            nextStep: nil)
     }
 }
 
 // MARK: - Connection
 extension FirmwareUpdateViewController {
-    private func onDeviceSelected(_ device: Device) {
-        connectedBrainView.isHidden = false
-        connector.connect(
-            to: device,
-            onConnected: { [weak self] in
-                self?.onSelectedDeviceConnected()
-            },
-            onDisconnected: { [weak self] in
-                self?.onSelectedDeviceDisconnected()
-            },
-            onError: { [weak self] error in
-                self?.onSelectedDeviceConnectionError(error)
-        })
-    }
-
-    private func onSelectedDeviceConnected() {
+    override func connected() {
         dismissViewController()
         let connectionModal = ConnectionModal.instatiate()
         presentModal(with: connectionModal.successful)
 
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
             self?.dismissViewController()
-            self?.deviceService.getSystemId(
-                onCompleted: { [weak self] systemId in
+            self?.bluetoothService.getSystemId(onCompleted: { [weak self] result in
+                switch result {
+                case .success(let systemId):
                     self?.brainIDTitleLabel.text = systemId
                     self?.checkForUpdatesModal.brainId = systemId
-                },
-                onError: { error in
+                case .failure(let error):
                     print(error.localizedDescription)
+                }
             })
         }
     }
 
-    private func onSelectedDeviceDisconnected() {
+    override func disconnected() {
         print("Disconnected")
     }
 
-    private func onSelectedDeviceConnectionError(_ error: Error) {
+    override func connectionError() {
         let connectionModal = ConnectionModal.instatiate()
         dismissViewController()
         presentModal(with: connectionModal.failed)
@@ -167,75 +136,103 @@ extension FirmwareUpdateViewController {
 
     private func dismissAndTryAgain() {
         dismissViewController()
-        showBluetoothDiscovery()
+        showTurnOnTheBrain()
     }
 }
 
 // MARK: - Event handlers
 extension FirmwareUpdateViewController {
     @IBAction private func checkForUpdatesButtonTapped(_ sender: Any) {
-        getInfos()
+        getDeviceInfo()
         presentModal(with: checkForUpdatesModal)
     }
 }
 
 extension FirmwareUpdateViewController {
-    private func getInfos() {
-        deviceService.getSerialNumber(
-            onCompleted: { [weak self] serialNumber in
+    private func getDeviceInfo() {
+        getSerialNumber()
+        getManufacturerName()
+        getHardwareRevision()
+        getSoftwareRevision()
+        getModelNumber()
+        getPrimaryBatteryPercentage()
+        getMotorBatteryPercentage()
+    }
+
+    private func getSerialNumber() {
+        bluetoothService.getSerialNumber(onCompleted: { [weak self] result in
+            switch result {
+            case .success(let serialNumber):
                 self?.checkForUpdatesModal.serialNumber = serialNumber
-            },
-            onError: { error in
+            case .failure(let error):
                 print(error.localizedDescription)
+            }
         })
-        deviceService.getManufacturerName(
-            onCompleted: { [weak self] manufacturerName in
+    }
+
+    private func getManufacturerName() {
+        bluetoothService.getManufacturerName(onCompleted: { [weak self] result in
+            switch result {
+            case .success(let manufacturerName):
                 self?.checkForUpdatesModal.manufacturerName = manufacturerName
-            },
-            onError: { error in
+            case .failure(let error):
                 print(error.localizedDescription)
+            }
         })
-        deviceService.getHardwareRevision(
-            onCompleted: { [weak self] hardwareRevision in
+    }
+
+    private func getHardwareRevision() {
+        bluetoothService.getHardwareRevision(onCompleted: { [weak self] result in
+            switch result {
+            case .success(let hardwareRevision):
                 self?.checkForUpdatesModal.hardwareVersion = hardwareRevision
-            },
-            onError: { error in
+            case .failure(let error):
                 print(error.localizedDescription)
+            }
         })
-        deviceService.getSoftwareRevision(
-            onCompleted: { [weak self] softwareRevision in
+    }
+
+    private func getSoftwareRevision() {
+        bluetoothService.getSoftwareRevision(onCompleted: { [weak self] result in
+            switch result {
+            case .success(let softwareRevision):
                 self?.checkForUpdatesModal.softwareVersion = softwareRevision
-            },
-            onError: { error in
+            case .failure(let error):
                 print(error.localizedDescription)
+            }
         })
-        deviceService.getFirmwareRevision(
-            onCompleted: { [weak self] version in
-                self?.checkForUpdatesModal.firmwareVersion = version
-            },
-            onError: { error in
-                print(error.localizedDescription)
-        })
-        deviceService.getModelNumber(
-            onCompleted: { [weak self] modelNumber in
+    }
+
+    private func getModelNumber() {
+        bluetoothService.getModelNumber(onCompleted: { [weak self] result in
+            switch result {
+            case .success(let modelNumber):
                 self?.checkForUpdatesModal.modelNumber = modelNumber
-            },
-            onError: { error in
+            case .failure(let error):
                 print(error.localizedDescription)
+            }
         })
-        batteryService.getPrimaryBatteryPercentage(
-            onComplete: { [weak self] percentage in
+    }
+
+    private func getPrimaryBatteryPercentage() {
+        bluetoothService.getPrimaryBatteryPercentage(onCompleted: { [weak self] result in
+            switch result {
+            case .success(let percentage):
                 self?.checkForUpdatesModal.mainBattery = percentage
-            },
-            onError: { error in
+            case .failure(let error):
                 print(error.localizedDescription)
+            }
         })
-        batteryService.getMotorBatteryPercentage(
-            onComplete: { [weak self] percentage in
+    }
+
+    private func getMotorBatteryPercentage() {
+        bluetoothService.getMotorBatteryPercentage(onCompleted: { [weak self] result in
+            switch result {
+            case .success(let percentage):
                 self?.checkForUpdatesModal.motorBattery = percentage
-            },
-            onError: { error in
+            case .failure(let error):
                 print(error.localizedDescription)
+            }
         })
     }
 }

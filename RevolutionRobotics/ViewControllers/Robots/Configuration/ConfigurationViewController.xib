@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfigurationViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
+                <outlet property="bluetoothButton" destination="Wql-NU-OTH" id="m6K-G0-ZCJ"/>
                 <outlet property="collectionView" destination="WVt-Oi-mfz" id="Byt-fz-mf6"/>
                 <outlet property="configurationView" destination="R0b-BO-qaQ" id="LHe-85-74R"/>
                 <outlet property="controllerCollectionView" destination="mYC-o0-2cD" id="zim-pb-SNy"/>
@@ -54,18 +55,18 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyj-RX-Rpw" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="896" height="71"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wql-NU-OTH" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wql-NU-OTH" userLabel="bluetoothButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="846" y="2" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="0Pk-sk-q2u"/>
                                 <constraint firstAttribute="width" constant="40" id="e87-5C-byC"/>
                             </constraints>
-                            <state key="normal" image="BluetoothIcon"/>
+                            <state key="normal" image="BluetoothInactiveIcon"/>
                             <connections>
                                 <action selector="bluetoothTapped:" destination="-1" eventType="touchUpInside" id="pFi-ro-gyI"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zW7-n8-Bql" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zW7-n8-Bql" userLabel="saveButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="794" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="BgN-Wi-FXb"/>
@@ -76,7 +77,7 @@
                                 <action selector="saveTapped:" destination="-1" eventType="touchUpInside" id="ftI-dq-vFw"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmE-pX-ILZ" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmE-pX-ILZ" userLabel="cameraButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="742" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="Gnn-AN-iIu"/>
@@ -176,7 +177,7 @@
         </view>
     </objects>
     <resources>
-        <image name="BluetoothIcon" width="40" height="40"/>
+        <image name="BluetoothInactiveIcon" width="24" height="24"/>
         <image name="GlowBackground" width="568" height="320"/>
         <image name="LeftButton" width="25" height="50"/>
         <image name="RightButton" width="25" height="50"/>

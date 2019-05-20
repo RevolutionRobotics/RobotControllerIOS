@@ -119,3 +119,29 @@ extension BaseViewController {
         }
     }
 }
+
+// MARK: - Bluetooth connection
+extension BaseViewController {
+    func subscribeForConnectionChange() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(connected),
+                                               name: .robotConnected,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(disconnected),
+                                               name: .robotDisconnected,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(connectionError),
+                                               name: .robotConnectionError,
+                                               object: nil)
+    }
+
+    func unsubscribeFromConnectionChange() {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func connected() { }
+    @objc func disconnected() { }
+    @objc func connectionError() { }
+}

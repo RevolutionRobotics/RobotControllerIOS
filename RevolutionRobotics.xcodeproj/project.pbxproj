@@ -71,7 +71,6 @@
 		2A7DDB1222856FC800891DA6 /* MotorDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DDB1122856FC800891DA6 /* MotorDataModel.swift */; };
 		2A7DDB1422856FD000891DA6 /* SensorDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DDB1322856FD000891DA6 /* SensorDataModel.swift */; };
 		2A7DDB1A22859B2900891DA6 /* CommonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DDB1922859B2900891DA6 /* CommonKeys.swift */; };
-		2A91937A225F7C6F00E927FD /* BluetoothReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A919379225F7C6F00E927FD /* BluetoothReachability.swift */; };
 		2A9F52022265DAC900F9F651 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9F52012265DAC900F9F651 /* AppContainer.swift */; };
 		2A9F52062265E31C00F9F651 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9F52052265E31C00F9F651 /* BaseViewController.swift */; };
 		2A9F520D2265E95600F9F651 /* ChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9F520B2265E95600F9F651 /* ChallengesViewController.swift */; };
@@ -90,6 +89,9 @@
 		2AB8F95322888AF300D7D93C /* ConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB8F95222888AF300D7D93C /* ConfigurationView.xib */; };
 		2AB8F9562288933100D7D93C /* UIImagePickerController+Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB8F9552288933100D7D93C /* UIImagePickerController+Show.swift */; };
 		2ABD618422500F7C00587F1C /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABD618322500F7C00587F1C /* AppDependencies.swift */; };
+		2ABEF0DD228EA0FA00AF87AC /* BluetoothServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0DC228EA0FA00AF87AC /* BluetoothServiceInterface.swift */; };
+		2ABEF0DF228EA19E00AF87AC /* BlutoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0DE228EA19E00AF87AC /* BlutoothService.swift */; };
+		2ABEF0E4228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0E3228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift */; };
 		2AC7AB72228D4FB900D96457 /* URLSession+ImageDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7AB71228D4FB900D96457 /* URLSession+ImageDownload.swift */; };
 		2ADE8C292270A61000ECEC72 /* String+Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C282270A61000ECEC72 /* String+Translate.swift */; };
 		2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C312270A77200ECEC72 /* ChallengesKeys.swift */; };
@@ -279,7 +281,6 @@
 		2A7DDB1122856FC800891DA6 /* MotorDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorDataModel.swift; sourceTree = "<group>"; };
 		2A7DDB1322856FD000891DA6 /* SensorDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataModel.swift; sourceTree = "<group>"; };
 		2A7DDB1922859B2900891DA6 /* CommonKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonKeys.swift; sourceTree = "<group>"; };
-		2A919379225F7C6F00E927FD /* BluetoothReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothReachability.swift; sourceTree = "<group>"; };
 		2A9F52012265DAC900F9F651 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		2A9F52052265E31C00F9F651 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2A9F520B2265E95600F9F651 /* ChallengesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesViewController.swift; sourceTree = "<group>"; };
@@ -298,6 +299,9 @@
 		2AB8F95222888AF300D7D93C /* ConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationView.xib; sourceTree = "<group>"; };
 		2AB8F9552288933100D7D93C /* UIImagePickerController+Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Show.swift"; sourceTree = "<group>"; };
 		2ABD618322500F7C00587F1C /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		2ABEF0DC228EA0FA00AF87AC /* BluetoothServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothServiceInterface.swift; sourceTree = "<group>"; };
+		2ABEF0DE228EA19E00AF87AC /* BlutoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlutoothService.swift; sourceTree = "<group>"; };
+		2ABEF0E3228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothConnectionModalPresenter.swift; sourceTree = "<group>"; };
 		2AC7AB71228D4FB900D96457 /* URLSession+ImageDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+ImageDownload.swift"; sourceTree = "<group>"; };
 		2ADE8C282270A61000ECEC72 /* String+Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Translate.swift"; sourceTree = "<group>"; };
 		2ADE8C312270A77200ECEC72 /* ChallengesKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesKeys.swift; sourceTree = "<group>"; };
@@ -612,9 +616,9 @@
 		09ED1B98225241A7009CF262 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2ABEF0E0228EF4CB00AF87AC /* BluetoothConnectionModalPresenter */,
 				09ED1BAC22524B09009CF262 /* Callback.swift */,
 				FE8243582278966F00DFDF67 /* NavigationController */,
-				2A7732112264A96800D7F38D /* Connectivity */,
 				D008E03A2260AAF500089DC7 /* Extensions */,
 				2A7732102264A95900D7F38D /* Protocols */,
 			);
@@ -745,6 +749,7 @@
 		2A77320B2264A73A00D7F38D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2ABEF0DB228EA0E600AF87AC /* BluetoothService */,
 				2AF8C760228069D800CE1ACB /* RealmConnectorService */,
 				2AF8C75822805EA800CE1ACB /* RealmService */,
 				2A77320C2264A78400D7F38D /* FirebaseService */,
@@ -770,14 +775,6 @@
 				D03BA87522783D17005B3E33 /* RRCollectionViewDelegate.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		2A7732112264A96800D7F38D /* Connectivity */ = {
-			isa = PBXGroup;
-			children = (
-				2A919379225F7C6F00E927FD /* BluetoothReachability.swift */,
-			);
-			path = Connectivity;
 			sourceTree = "<group>";
 		};
 		2A7DDB1522856FE100891DA6 /* Domain */ = {
@@ -897,6 +894,23 @@
 				2AB8F9552288933100D7D93C /* UIImagePickerController+Show.swift */,
 			);
 			path = UIImagePickerController;
+			sourceTree = "<group>";
+		};
+		2ABEF0DB228EA0E600AF87AC /* BluetoothService */ = {
+			isa = PBXGroup;
+			children = (
+				2ABEF0DC228EA0FA00AF87AC /* BluetoothServiceInterface.swift */,
+				2ABEF0DE228EA19E00AF87AC /* BlutoothService.swift */,
+			);
+			path = BluetoothService;
+			sourceTree = "<group>";
+		};
+		2ABEF0E0228EF4CB00AF87AC /* BluetoothConnectionModalPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				2ABEF0E3228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift */,
+			);
+			path = BluetoothConnectionModalPresenter;
 			sourceTree = "<group>";
 		};
 		2AC7AB70228D4FA400D96457 /* URLSession */ = {
@@ -1587,13 +1601,14 @@
 				D03BA8602277384A005B3E33 /* ChapterFinishedModal.swift in Sources */,
 				0999431A228DBA6500D87385 /* ProgramInfoModal.swift in Sources */,
 				D03BA8642277385E005B3E33 /* TipsModalView.swift in Sources */,
+				2ABEF0DF228EA19E00AF87AC /* BlutoothService.swift in Sources */,
 				D03BA8642277385E005B3E33 /* TipsModalView.swift in Sources */,
 				09ED1BA9225247B1009CF262 /* MenuViewController.swift in Sources */,
 				2A7DDB0E22856BC500891DA6 /* ConfigurationDataModel.swift in Sources */,
 				D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */,
 				2AF8C75A22805EEC00CE1ACB /* RealmService.swift in Sources */,
-				2A91937A225F7C6F00E927FD /* BluetoothReachability.swift in Sources */,
 				D0313331228D5CBA00704989 /* ControllerButtonMapping.swift in Sources */,
+				2ABEF0DD228EA0FA00AF87AC /* BluetoothServiceInterface.swift in Sources */,
 				2ADE8C292270A61000ECEC72 /* String+Translate.swift in Sources */,
 				D0A1108C227B18480064FBB6 /* ControllerInfoModal.swift in Sources */,
 				094FC5DF228C3CF60085B407 /* DriverPadView.swift in Sources */,
@@ -1609,6 +1624,7 @@
 				2ADE8C362270A79300ECEC72 /* ProgramsKeys.swift in Sources */,
 				D0049A532271CC52007FA256 /* TurnOnBrainView.swift in Sources */,
 				2A9F520D2265E95600F9F651 /* ChallengesViewController.swift in Sources */,
+				2ABEF0E4228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift in Sources */,
 				D06C3267228570FF005534C0 /* ResetTutorialModal.swift in Sources */,
 				0985495C2271D44500A7C2DC /* UIImageView+GoogleStorage.swift in Sources */,
 				2ADE8C3C2270A80F00ECEC72 /* MenuKeys.swift in Sources */,

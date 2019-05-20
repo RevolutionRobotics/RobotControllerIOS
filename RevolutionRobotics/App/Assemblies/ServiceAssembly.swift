@@ -13,6 +13,7 @@ final class ServiceAssembly: Assembly {
         registerFirebaseService(to: container)
         registerRealmConnector(to: container)
         registerRealmService(to: container)
+        registerBluetoothService(to: container)
     }
 }
 
@@ -35,6 +36,12 @@ extension ServiceAssembly {
             .initCompleted({ (resolver, service) in
                 service.realmConnector = resolver.resolve(RealmConnectorInterface.self)!
             })
+            .inObjectScope(.container)
+    }
+
+    private func registerBluetoothService(to container: Container) {
+        container
+            .register(BluetoothServiceInterface.self, factory: { _ in return BluetoothService() })
             .inObjectScope(.container)
     }
 }
