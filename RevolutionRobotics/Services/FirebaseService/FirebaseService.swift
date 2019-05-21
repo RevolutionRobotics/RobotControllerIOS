@@ -17,6 +17,17 @@ final class FirebaseService {
 
 // MARK: - FirebaseServiceInterface
 extension FirebaseService: FirebaseServiceInterface {
+    func getConfiguration(id: String, completion: CallbackType<Result<Configuration?, FirebaseError>>?) {
+        getDataArray(Configuration.self, completion: { (result: Result<[Configuration], FirebaseError>) in
+            switch result {
+            case .success(let configurations):
+                completion?(.success(configurations.first(where: { "\($0.id)" == id })))
+            case .failure(let error):
+                completion?(.failure(error))
+            }
+        })
+    }
+
     func getConfigurations(completion: CallbackType<Result<[Configuration], FirebaseError>>?) {
         getDataArray(Configuration.self, completion: completion)
     }
@@ -41,12 +52,60 @@ extension FirebaseService: FirebaseServiceInterface {
         getDataArray(Robot.self, completion: completion)
     }
 
+    func getController(for configurationId: String, completion: CallbackType<Result<Controller, FirebaseError>>?) {
+        getConfiguration(id: configurationId, completion: { [weak self] result in
+            switch result {
+            case .success(let configuration):
+                guard let configuration = configuration else {
+                    completion?(.failure(FirebaseError.invalidRobotId))
+                    return
+                }
+
+                self?.getControllers(completion: { [weak self] result in
+                    switch result {
+                    case .success(let controllers):
+                        completion?(.success(controllers.first(where: { $0.id == configuration.controller })!))
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                })
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
+    }
+
     func getControllers(completion: CallbackType<Result<[Controller], FirebaseError>>?) {
         getDataArray(Controller.self, completion: completion)
     }
 
     func getPrograms(completion: CallbackType<Result<[Program], FirebaseError>>?) {
         getDataArray(Program.self, completion: completion)
+    }
+
+    func getPrograms(for controllerId: String, completion: CallbackType<Result<[Program?], FirebaseError>>?) {
+        getDataArray(Controller.self, completion: { [weak self] (result: Result<[Controller], FirebaseError>) in
+            switch result {
+            case .success(let controllers):
+                let selectedController = controllers.first(where: { $0.id == controllerId })!
+
+                self?.getDataArray(Program.self, completion: { [weak self] (result: Result<[Program], FirebaseError>) in
+                    switch result {
+                    case .success(let programs):
+                        let programs = selectedController.mapping.programIds.map({ id -> Program? in
+                            guard let id = id else { return nil }
+                            return programs.first(where: { $0.id == id })
+                        })
+                        completion?(.success(programs))
+                    case .failure(let error):
+                        completion?(.failure(error))
+                    }
+                })
+            case .failure(let error):
+                completion?(.failure(error))
+            }
+        })
+
     }
 
     func getChallengeCategory(completion: CallbackType<Result<[ChallengeCategory], FirebaseError>>?) {

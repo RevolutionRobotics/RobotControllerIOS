@@ -142,8 +142,17 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
 
     private func navigateToPlayControllerViewController(with robot: UserRobot) {
         let playController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
-        playController.controllerType = .multiTasker
-        navigationController?.pushViewController(playController, animated: true)
+        firebaseService.getController(
+            for: "1",
+            completion: { [weak self] result in
+                switch result {
+                case .success(let controller):
+                    playController.controllerType = controller.type
+                    self?.navigationController?.pushViewController(playController, animated: true)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+        })
     }
 
     private func navigateToBuildYourRobotViewController(with robot: UserRobot) {

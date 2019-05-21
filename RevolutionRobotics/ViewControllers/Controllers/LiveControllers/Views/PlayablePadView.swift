@@ -16,7 +16,7 @@ protocol PlayablePadView: UIView {
     var verticalPositionChanged: CallbackType<CGFloat>? { get set }
     var buttonTapped: CallbackType<PressedPadButton>? { get set }
 
-    func configure(programs: [Program])
+    func configure(programs: [Program?])
 }
 
 extension PlayablePadView {
@@ -36,5 +36,6 @@ extension PlayablePadView {
         joystickScene.positionChanged = handlePositionChange
         joystickScene.returnedToDefaultPosition = handlePositionChange
         container.presentScene(joystickScene)
+        container.allowsTransparency = true
     }
 }
