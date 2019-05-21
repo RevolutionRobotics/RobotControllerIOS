@@ -10,8 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GamerConfigurationViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PadConfigurationViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
+                <outlet property="containerView" destination="Jl6-PZ-f5S" id="Zxe-3G-ft0"/>
                 <outlet property="navigationBar" destination="IVc-Ep-nZJ" id="Mnb-1O-GoK"/>
                 <outlet property="nextButton" destination="NTj-mz-ehY" id="ieI-M1-7SQ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="v3F-px-qfI"/>
@@ -34,21 +35,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jl6-PZ-f5S" userLabel="containerView">
                     <rect key="frame" x="0.0" y="75" width="568" height="174"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhu-D7-423" userLabel="gamerView" customClass="GamerConfigurationView" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="88" y="-1" width="392" height="176"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="176" id="FQ8-DN-n8p"/>
-                                <constraint firstAttribute="width" constant="392" id="f22-Y3-QAs"/>
-                            </constraints>
-                        </view>
-                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="uhu-D7-423" firstAttribute="centerY" secondItem="Jl6-PZ-f5S" secondAttribute="centerY" id="Qer-wb-CSc"/>
-                        <constraint firstItem="uhu-D7-423" firstAttribute="centerX" secondItem="Jl6-PZ-f5S" secondAttribute="centerX" id="gQZ-Ug-2Wg"/>
-                    </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTj-mz-ehY" userLabel="nextButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="461" y="270" width="103" height="46"/>

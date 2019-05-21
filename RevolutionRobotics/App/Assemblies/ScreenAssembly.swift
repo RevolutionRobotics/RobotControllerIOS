@@ -165,8 +165,8 @@ extension ScreenAssembly {
 
     private func registerGamerConfigurationViewController(to container: Container) {
         container
-            .register(GamerConfigurationViewController.self, factory: { _ in
-                return GamerConfigurationViewController()
+            .register(PadConfigurationViewController.self, factory: { _ in
+                return PadConfigurationViewController()
             })
             .inObjectScope(.weak)
     }

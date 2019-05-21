@@ -11,41 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GamerConfigurationView" customModule="RevolutionRobotics" customModuleProvider="target">
-            <connections>
-                <outlet property="button1" destination="a8D-0a-TH0" id="E0d-eo-3oO"/>
-                <outlet property="button2" destination="3Zv-7o-mqI" id="kY3-XA-UDx"/>
-                <outlet property="button3" destination="1fL-eE-k3b" id="eCA-jd-yHJ"/>
-                <outlet property="button4" destination="eD0-7f-cFv" id="3RX-0O-6wK"/>
-                <outlet property="button5" destination="647-Mv-YUa" id="Iby-q2-7sM"/>
-                <outlet property="button6" destination="1Rj-Fg-A5G" id="Md4-6c-PvV"/>
-                <outlet property="drivetrainButton" destination="Cdp-qK-XBD" id="4Xc-EK-mRX"/>
-                <outlet property="imageView1" destination="rD5-sV-cnP" id="NXP-Uk-lpg"/>
-                <outlet property="imageView2" destination="w1E-jh-GoH" id="hog-ww-iFB"/>
-                <outlet property="imageView3" destination="fXg-Vs-Qtd" id="iFt-sG-Idf"/>
-                <outlet property="imageView4" destination="H0V-pn-4Xr" id="WYc-2g-LXF"/>
-                <outlet property="imageView5" destination="619-ex-F3I" id="NNu-Oc-v2g"/>
-                <outlet property="imageView6" destination="e3J-Mh-v3d" id="MJr-oq-ct6"/>
-                <outletCollection property="drivetrainDashedView" destination="xEL-ij-U7v" collectionClass="NSMutableArray" id="rNe-xk-5af"/>
-                <outletCollection property="dashedView5" destination="8gA-Y4-KW7" collectionClass="NSMutableArray" id="DYg-5D-G6P"/>
-                <outletCollection property="dashedView6" destination="0WR-qv-qXC" collectionClass="NSMutableArray" id="ZmX-Qx-7aB"/>
-                <outletCollection property="dashedView1" destination="7Qp-3r-Y1a" collectionClass="NSMutableArray" id="YcL-HS-ZbS"/>
-                <outletCollection property="dashedView1" destination="rdM-Wl-Eyz" collectionClass="NSMutableArray" id="WBy-rv-iMd"/>
-                <outletCollection property="dashedView2" destination="CpM-dm-zjY" collectionClass="NSMutableArray" id="0Yl-J5-Mbl"/>
-                <outletCollection property="dashedView2" destination="iqC-yY-ikd" collectionClass="NSMutableArray" id="XMa-dD-oZ5"/>
-                <outletCollection property="dashedView3" destination="naq-qk-sF2" collectionClass="NSMutableArray" id="pfi-mp-vSj"/>
-                <outletCollection property="dashedView4" destination="WgX-aT-Fcg" collectionClass="NSMutableArray" id="Xmd-KY-1Nr"/>
-                <outletCollection property="dashedView4" destination="Y7X-C5-Rx9" collectionClass="NSMutableArray" id="VoX-60-riH"/>
-                <outletCollection property="buttons" destination="a8D-0a-TH0" collectionClass="NSMutableArray" id="IOC-Vb-KDc"/>
-                <outletCollection property="buttons" destination="3Zv-7o-mqI" collectionClass="NSMutableArray" id="xXT-zc-FNG"/>
-                <outletCollection property="buttons" destination="1fL-eE-k3b" collectionClass="NSMutableArray" id="Qjh-SQ-qeg"/>
-                <outletCollection property="buttons" destination="eD0-7f-cFv" collectionClass="NSMutableArray" id="gsu-Zr-aHu"/>
-                <outletCollection property="buttons" destination="647-Mv-YUa" collectionClass="NSMutableArray" id="ROP-7L-JSR"/>
-                <outletCollection property="buttons" destination="1Rj-Fg-A5G" collectionClass="NSMutableArray" id="phO-jY-Nie"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GamerConfigurationView" customModule="RevolutionRobotics" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="392" height="176"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -119,7 +87,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="controllerButtonTapped:" destination="-1" eventType="touchUpInside" id="EdS-NE-Hru"/>
+                        <action selector="controllerButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Cbw-Qs-VxQ"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Qp-3r-Y1a" userLabel="b1DashedView1" customClass="DashedView" customModule="RevolutionRobotics" customModuleProvider="target">
@@ -162,7 +130,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="controllerButtonTapped:" destination="-1" eventType="touchUpInside" id="6X7-Yk-kMN"/>
+                        <action selector="controllerButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="urY-DI-28p"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpM-dm-zjY" userLabel="b2DashedView1" customClass="DashedView" customModule="RevolutionRobotics" customModuleProvider="target">
@@ -213,7 +181,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="controllerButtonTapped:" destination="-1" eventType="touchUpInside" id="SLK-ux-6Rb"/>
+                        <action selector="controllerButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="7DX-qj-GYf"/>
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="H0V-pn-4Xr" userLabel="B4Imageview">
@@ -256,7 +224,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="controllerButtonTapped:" destination="-1" eventType="touchUpInside" id="b8g-1B-ZL7"/>
+                        <action selector="controllerButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="DZK-hp-VAL"/>
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="619-ex-F3I" userLabel="B5Imageview">
@@ -292,7 +260,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="controllerButtonTapped:" destination="-1" eventType="touchUpInside" id="NJU-8L-qcz"/>
+                        <action selector="controllerButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="fxD-Ot-3CB"/>
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="e3J-Mh-v3d" userLabel="B6Imageview">
@@ -328,7 +296,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="controllerButtonTapped:" destination="-1" eventType="touchUpInside" id="MlW-Nl-2HO"/>
+                        <action selector="controllerButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="HHQ-dd-jeM"/>
                     </connections>
                 </button>
             </subviews>
@@ -395,6 +363,37 @@
                 <constraint firstAttribute="bottom" secondItem="H0V-pn-4Xr" secondAttribute="bottom" constant="31" id="zG0-Km-dUb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="button1" destination="a8D-0a-TH0" id="RpX-MQ-lRj"/>
+                <outlet property="button2" destination="3Zv-7o-mqI" id="SjC-iv-2RB"/>
+                <outlet property="button3" destination="1fL-eE-k3b" id="FE5-cO-gID"/>
+                <outlet property="button4" destination="eD0-7f-cFv" id="Q2r-wt-ge7"/>
+                <outlet property="button5" destination="647-Mv-YUa" id="P2Z-2l-Kiv"/>
+                <outlet property="button6" destination="1Rj-Fg-A5G" id="sie-1e-Jh2"/>
+                <outlet property="drivetrainButton" destination="Cdp-qK-XBD" id="oPP-18-teD"/>
+                <outlet property="imageView1" destination="rD5-sV-cnP" id="xol-7Z-rcv"/>
+                <outlet property="imageView2" destination="w1E-jh-GoH" id="nud-5a-Aav"/>
+                <outlet property="imageView3" destination="fXg-Vs-Qtd" id="Bei-6r-bSE"/>
+                <outlet property="imageView4" destination="H0V-pn-4Xr" id="ODH-M0-sdL"/>
+                <outlet property="imageView5" destination="619-ex-F3I" id="8l2-Xl-jBt"/>
+                <outlet property="imageView6" destination="e3J-Mh-v3d" id="Gtg-YV-Shf"/>
+                <outletCollection property="buttons" destination="a8D-0a-TH0" collectionClass="NSMutableArray" id="OO2-Mi-QNu"/>
+                <outletCollection property="buttons" destination="3Zv-7o-mqI" collectionClass="NSMutableArray" id="lxk-Rn-pye"/>
+                <outletCollection property="buttons" destination="1fL-eE-k3b" collectionClass="NSMutableArray" id="zCA-xH-GXz"/>
+                <outletCollection property="buttons" destination="eD0-7f-cFv" collectionClass="NSMutableArray" id="YAf-bb-nfZ"/>
+                <outletCollection property="buttons" destination="647-Mv-YUa" collectionClass="NSMutableArray" id="LHY-Hf-tVs"/>
+                <outletCollection property="buttons" destination="1Rj-Fg-A5G" collectionClass="NSMutableArray" id="5yi-Xp-qaB"/>
+                <outletCollection property="dashedView1" destination="7Qp-3r-Y1a" collectionClass="NSMutableArray" id="99n-Fu-WJh"/>
+                <outletCollection property="dashedView1" destination="rdM-Wl-Eyz" collectionClass="NSMutableArray" id="uCr-ev-YJZ"/>
+                <outletCollection property="dashedView2" destination="CpM-dm-zjY" collectionClass="NSMutableArray" id="P6R-Gk-men"/>
+                <outletCollection property="dashedView2" destination="iqC-yY-ikd" collectionClass="NSMutableArray" id="9kk-Uc-bKP"/>
+                <outletCollection property="dashedView3" destination="naq-qk-sF2" collectionClass="NSMutableArray" id="zba-67-Ghi"/>
+                <outletCollection property="dashedView4" destination="WgX-aT-Fcg" collectionClass="NSMutableArray" id="tBn-9B-vb4"/>
+                <outletCollection property="dashedView4" destination="Y7X-C5-Rx9" collectionClass="NSMutableArray" id="BRZ-T9-mm9"/>
+                <outletCollection property="dashedView5" destination="8gA-Y4-KW7" collectionClass="NSMutableArray" id="7Qc-YQ-V3k"/>
+                <outletCollection property="dashedView6" destination="0WR-qv-qXC" collectionClass="NSMutableArray" id="Tvw-Ds-006"/>
+                <outletCollection property="drivetrainDashedView" destination="xEL-ij-U7v" collectionClass="NSMutableArray" id="6BK-96-a1X"/>
+            </connections>
         </view>
     </objects>
     <resources>
