@@ -30,9 +30,9 @@ final class ControllerButton: UIButton {
     @IBInspectable var buttonNumber: Int = 0
 
     // MARK: - References
-    var portState: ControllerButtonState = .normal {
+    var buttonState: ControllerButtonState = .normal {
         didSet {
-            setState(to: portState)
+            setState(to: buttonState)
         }
     }
     var lines: [DashedView] = []
@@ -116,19 +116,27 @@ extension ControllerButton {
     }
 
     private func setupNormalState() {
-        setBorder(strokeColor: Color.brownishGrey, lineWidth: Constants.borderWidth, dashPatter: Constants.dashPattern)
+        setBorder(fillColor: Color.blackTwo,
+                  strokeColor: Color.brownishGrey,
+                  lineWidth: Constants.borderWidth,
+                  dashPatter: Constants.dashPattern)
+        setTitleColor(.white, for: .normal)
         setLineSelectedState(to: false)
+        backgroundColor = Color.blackTwo
+        titleLabel?.textColor = .white
         setupDotState(for: false)
     }
 
     private func setupHighlightedState() {
-        setBorder(strokeColor: .white, lineWidth: Constants.borderWidth)
+        setBorder(fillColor: .white, strokeColor: .white, lineWidth: Constants.borderWidth)
+        setTitleColor(Color.blackTwo, for: .normal)
         setLineSelectedState(to: true, color: .white)
         dotImageView.image = Image.Controller.highlightedButtonIcon
     }
 
     private func setupSelectedState() {
-        setBorder(strokeColor: Color.brightRed, lineWidth: Constants.borderWidth)
+        setBorder(fillColor: Color.blackTwo, strokeColor: Color.brightRed, lineWidth: Constants.borderWidth)
+        setTitleColor(.white, for: .normal)
         setLineSelectedState(to: true, color: Color.brightRed)
         setupDotState(for: true)
     }

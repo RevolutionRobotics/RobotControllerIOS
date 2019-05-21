@@ -110,7 +110,7 @@ extension GamerConfigurationView {
 
     func set(state: ControllerButton.ControllerButtonState, on buttonNumber: Int, title: String?) {
         let button = buttons.first(where: { $0.buttonNumber == buttonNumber })
-        button?.portState = state
+        button?.buttonState = state
         if let title = title {
             button?.setTitle(title, for: .normal)
         }
