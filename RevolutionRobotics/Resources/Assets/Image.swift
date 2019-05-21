@@ -34,6 +34,7 @@ enum Image {
         enum Connections {
             static let doneIcon = UIImage(named: "configDone")
             static let addIconDark = UIImage(named: "addIconDark")
+            static let addIconDark20 = UIImage(named: "addIconDark20")
             static let addIconLight = UIImage(named: "addIconLight")
             static let defaultRobotImage = UIImage(named: "defaultRobotImage")
             static let drivetrainIcon = UIImage(named: "drivetrainIcon")

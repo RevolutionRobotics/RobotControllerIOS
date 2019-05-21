@@ -152,20 +152,27 @@ extension PortButton {
     }
 
     private func setupNormalState() {
-        setBorder(strokeColor: Color.brownishGrey, lineWidth: Constants.borderWidth, dashPatter: Constants.dashPattern)
+        setBorder(fillColor: Color.blackTwo,
+                  strokeColor: Color.brownishGrey,
+                  lineWidth: Constants.borderWidth,
+                  dashPatter: Constants.dashPattern)
+        setTitleColor(.white, for: .normal)
         setLineSelectedState(to: false)
         setupDotState(for: false)
-    }
-
-    private func setupHighlightedState() {
-        setBorder(strokeColor: .white, lineWidth: Constants.borderWidth)
-        setLineSelectedState(to: true, color: .white)
-        dotImageView.image = Image.Configuration.Connections.addIconLight
         setImage(Image.Configuration.Connections.addIconLight, for: .normal)
     }
 
+    private func setupHighlightedState() {
+        setBorder(fillColor: .white, strokeColor: .white, lineWidth: Constants.borderWidth)
+        setTitleColor(Color.blackTwo, for: .normal)
+        setLineSelectedState(to: true, color: .white)
+        dotImageView.image = Image.Configuration.Connections.addIconLight
+        setImage(Image.Configuration.Connections.addIconDark20, for: .normal)
+    }
+
     private func setupSelectedState() {
-        setBorder(strokeColor: borderColor, lineWidth: Constants.borderWidth)
+        setBorder(fillColor: Color.blackTwo, strokeColor: borderColor, lineWidth: Constants.borderWidth)
+        setTitleColor(.white, for: .normal)
         setLineSelectedState(to: true, color: borderColor)
         setupDotState(for: true)
         switch portType {

@@ -57,7 +57,7 @@ extension PadConfigurationViewController {
         case .gamer:
             configurationView = GamerConfigurationView.instatiate()
         case .driver:
-            print("driver")
+            configurationView = DriverConfigurationView.instatiate()
         case .multiTasker:
             configurationView = MultiTaskerConfigurationView.instatiate()
         }

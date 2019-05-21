@@ -63,6 +63,7 @@
 		2A0789F2229339A400CFFDD6 /* DriverConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0789F1229339A400CFFDD6 /* DriverConfigurationView.swift */; };
 		2A18002D227AE5800082E801 /* ModalKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A18002C227AE5800082E801 /* ModalKeys.swift */; };
 		2A3A75922292DD3A00ED9A1D /* ControllerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A75912292DD3A00ED9A1D /* ControllerButton.swift */; };
+		2A3A75942293FB7B00ED9A1D /* DriverConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A3A75932293FB7B00ED9A1D /* DriverConfigurationView.xib */; };
 		2A458E27227C89AF000C03D2 /* RRProgressLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */; };
 		2A4C930C228ABA9E0029AE07 /* MotorConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C930B228ABA9E0029AE07 /* MotorConfigViewModel.swift */; };
 		2A4C930E228C15890029AE07 /* SensorConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C930D228C15890029AE07 /* SensorConfigViewModel.swift */; };
@@ -280,6 +281,7 @@
 		2A0789F1229339A400CFFDD6 /* DriverConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverConfigurationView.swift; sourceTree = "<group>"; };
 		2A18002C227AE5800082E801 /* ModalKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalKeys.swift; sourceTree = "<group>"; };
 		2A3A75912292DD3A00ED9A1D /* ControllerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerButton.swift; sourceTree = "<group>"; };
+		2A3A75932293FB7B00ED9A1D /* DriverConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverConfigurationView.xib; sourceTree = "<group>"; };
 		2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRProgressLabel.swift; sourceTree = "<group>"; };
 		2A4C930B228ABA9E0029AE07 /* MotorConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorConfigViewModel.swift; sourceTree = "<group>"; };
 		2A4C930D228C15890029AE07 /* SensorConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorConfigViewModel.swift; sourceTree = "<group>"; };
@@ -747,6 +749,7 @@
 			isa = PBXGroup;
 			children = (
 				2A0789F1229339A400CFFDD6 /* DriverConfigurationView.swift */,
+				2A3A75932293FB7B00ED9A1D /* DriverConfigurationView.xib */,
 			);
 			path = Driver;
 			sourceTree = "<group>";
@@ -1499,6 +1502,7 @@
 				09994319228DBA6500D87385 /* ProgramInfoModal.xib in Resources */,
 				D06F01D9228B0B6300AF73E5 /* SuccessfulUpdateModal.xib in Resources */,
 				D03BA8652277385E005B3E33 /* TipsModalView.xib in Resources */,
+				2A3A75942293FB7B00ED9A1D /* DriverConfigurationView.xib in Resources */,
 				D0313323228C602100704989 /* ControllerLayoutSelectorViewController.xib in Resources */,
 				D0A11096227B23F20064FBB6 /* RRInputField.xib in Resources */,
 				196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */,
