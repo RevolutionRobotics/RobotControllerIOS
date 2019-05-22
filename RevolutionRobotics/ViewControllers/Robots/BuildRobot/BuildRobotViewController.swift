@@ -137,8 +137,17 @@ extension BuildRobotViewController {
                 }
                 self?.dismissViewController()
                 let playController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
-                playController.controllerType = .driver
-                self?.navigationController?.pushViewController(playController, animated: true)
+                self?.firebaseService.getController(
+                    for: "0",
+                    completion: { [weak self] result in
+                        switch result {
+                        case .success(let controller):
+                            playController.controllerType = controller.type
+                            self?.navigationController?.pushViewController(playController, animated: true)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                })
             }
             self?.presentModal(with: buildFinishedModal)
         }

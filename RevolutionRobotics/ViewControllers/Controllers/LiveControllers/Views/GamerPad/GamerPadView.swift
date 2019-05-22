@@ -19,10 +19,11 @@ final class GamerPadView: UIView, PlayablePadView {
     var verticalPositionChanged: CallbackType<CGFloat>?
     var buttonTapped: CallbackType<PressedPadButton>?
 
-    func configure(programs: [Program]) {
+    func configure(programs: [Program?]) {
         programs.enumerated().forEach { [weak self] in
             let (index, program) = $0
-            self?.connectButtonHandling(at: index, program: program, to: buttons[index])
+            guard let unwrappedProgram = program else { return }
+            self?.connectButtonHandling(at: index, program: unwrappedProgram, to: buttons[index])
         }
     }
 }

@@ -19,6 +19,10 @@ struct ControllerButtonMapping {
     var b5: ProgramBinding?
     var b6: ProgramBinding?
 
+    var programIds: [String?] {
+        return [b1?.programId, b2?.programId, b3?.programId, b4?.programId, b5?.programId, b6?.programId]
+    }
+
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
         b1 = ProgramBinding(snapshot: snapshot.childSnapshot(forPath: "b1"))

@@ -144,7 +144,7 @@ open class TLAnalogJoystickComponent: SKSpriteNode {
 
     //MARK: - DESIGNATED
     init(diameter: CGFloat, color: UIColor? = nil, image: UIImage? = nil) {
-        let pureColor = color ?? UIColor.black
+        let pureColor = color ?? UIColor.clear
         let size = CGSize(width: diameter, height: diameter)
         super.init(texture: nil, color: pureColor, size: size)
 
@@ -348,7 +348,7 @@ open class TLAnalogJoystick: SKNode {
     convenience init(withDiameter diameter: CGFloat, handleRatio: CGFloat = 0.6) {
         let base = TLAnalogJoystickComponent(diameter: diameter, color: .gray)
         let handleDiameter = getDiameter(fromDiameter: diameter, withRatio: handleRatio)
-        let handle = TLAnalogJoystickComponent(diameter: handleDiameter, color: .black)
+        let handle = TLAnalogJoystickComponent(diameter: handleDiameter, color: .clear)
         self.init(withBase: base, handle: handle)
     }
 

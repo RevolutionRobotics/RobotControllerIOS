@@ -19,8 +19,9 @@ final class PlayControllerViewController: BaseViewController {
     var firebaseService: FirebaseServiceInterface!
     var bluetoothService: BluetoothServiceInterface!
     var controllerType: ControllerType = .gamer
+    var controllerId: String?
     private var padView: PlayablePadView!
-    private var programs: [Program] = [] {
+    private var programs: [Program?] = [] {
         didSet {
             configurePadView()
         }
@@ -94,14 +95,18 @@ extension PlayControllerViewController {
 // MARK: - Data fetching
 extension PlayControllerViewController {
     private func fetchPrograms() {
-        firebaseService.getPrograms { [weak self] result in
+//        guard let controllerId = controllerId else {
+//            programs = []
+//            return
+//        }
+        firebaseService.getPrograms(for: "0", completion: { [weak self] result in
             switch result {
             case .success(let programs):
                 self?.programs = programs
             case .failure(let error):
                 print("Error while fetching programs: \(error)")
             }
-        }
+        })
     }
 }
 

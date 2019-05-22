@@ -15,10 +15,10 @@ enum ModalKeys {
 
     enum Controller {
         static let infoButtonTitle = "controller_got_it_button_title"
-        static let nameTitle = "save_modal_name_title"
-        static let namePlaceholder = "save_modal_name_placeholder"
-        static let descriptionTitle = "save_modal_description_title"
-        static let descriptionPlaceholder = "save_modal_description_placeholder"
+        static let nameTitle = "save_controller_dialog_title"
+        static let namePlaceholder = "save_controller_dialog_name_title"
+        static let descriptionTitle = "save_controller_dialog_description_hint"
+        static let descriptionPlaceholder = "save_controller_dialog_name_hint"
     }
 
     enum DeleteRobot {
