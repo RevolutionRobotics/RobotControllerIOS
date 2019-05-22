@@ -8,4 +8,6 @@
 
 enum CommonKeys {
     static let next = "next"
+    static let errorTitle = "error_title"
+    static let errorOk = "error_ok_button"
 }

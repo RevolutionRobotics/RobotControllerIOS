@@ -13,7 +13,7 @@ protocol RealmServiceInterface: class {
     func saveRobot(_ robot: UserRobot, shouldUpdate: Bool)
     func deleteRobot(_ robot: UserRobot)
     func updateObject(closure: (() -> Void)?)
-    func getConfiguration(id: Int?) -> ConfigurationDataModel?
+    func getConfiguration(id: String?) -> ConfigurationDataModel?
     func getControllers() -> [Controller]
     func saveConfigurations(_ configurations: [ConfigurationDataModel])
 }

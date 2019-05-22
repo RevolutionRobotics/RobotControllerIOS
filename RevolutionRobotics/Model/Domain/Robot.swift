@@ -25,12 +25,12 @@ struct Robot: FirebaseData {
     static var firebasePath: String = "robot"
 
     // MARK: - Properties
-    var id: Int
+    var id: String
     var name: String
     var description: String
     var coverImageGSURL: String
     var buildTime: String
-    var configurationId: Int
+    var configurationId: String
     var defaultProgram: String
 
     // MARK: - Initialization
@@ -49,12 +49,12 @@ struct Robot: FirebaseData {
                 return nil
         }
 
-        self.id = id
+        self.id = "\(id)"
         self.name = name
         self.description = description
         self.coverImageGSURL = coverImage
         self.buildTime = buildTime
-        self.configurationId = configurationId
+        self.configurationId = "\(configurationId)"
         self.defaultProgram = defaultProgram
     }
 }

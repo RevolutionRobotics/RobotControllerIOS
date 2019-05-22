@@ -8,11 +8,36 @@
 
 import UIKit
 
-final class ConfigurationViewController: BaseViewController {
+final class RobotConfigurationViewController: BaseViewController {
     // MARK: - Constants
     private enum Constants {
         static let defaultRobotImage = "defaultRobotImage"
         static let cellRatio: CGFloat = 213 / 190
+    }
+
+    // MARK: - ViewModel
+    struct ViewModel {
+        let id: String
+        let remoteId: String
+        let buildStatus: BuildStatus
+        let actualBuildStep: Int
+        let lastModified: Date
+        let configId: String
+        let customName: String?
+        let customImage: String?
+        let customDescription: String?
+
+        init(userRobot: UserRobot) {
+            self.id = userRobot.id
+            self.remoteId = "\(userRobot.remoteId)"
+            self.buildStatus = BuildStatus(rawValue: userRobot.buildStatus)!
+            self.actualBuildStep = userRobot.actualBuildStep
+            self.lastModified = userRobot.lastModified
+            self.configId = "\(userRobot.configId)"
+            self.customName = userRobot.customName
+            self.customImage = userRobot.customImage
+            self.customDescription = userRobot.customDescription
+        }
     }
 
     // MARK: - Outlets
@@ -30,6 +55,7 @@ final class ConfigurationViewController: BaseViewController {
     var realmService: RealmServiceInterface!
     var firebaseService: FirebaseServiceInterface!
     var bluetoothService: BluetoothServiceInterface!
+    var viewModel: ViewModel!
     private let photoModal = PhotoModal.instatiate()
     private var robotImage: UIImage?
     private var shouldPrefillConfiguration = false
@@ -45,15 +71,17 @@ final class ConfigurationViewController: BaseViewController {
 
     var selectedRobot: UserRobot? {
         didSet {
-            configuration = realmService.getConfiguration(id: selectedRobot?.configId)
+            let localConfig = realmService.getConfiguration(id: selectedRobot?.configId)
+            configuration = InMemoryConfigurationDataModel(configuration: localConfig)
             shouldPrefillConfiguration = true
+            robotImage = FileManager.default.image(for: selectedRobot?.id)
         }
     }
-    var configuration: ConfigurationDataModel?
+    var configuration: InMemoryConfigurationDataModel?
 }
 
 // MARK: - View lifecycle
-extension ConfigurationViewController {
+extension RobotConfigurationViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -64,6 +92,7 @@ extension ConfigurationViewController {
         setupCollectionView()
         setupConfigurationView()
         setupBluetoothButton()
+        setupPhotoModal()
         if shouldPrefillConfiguration {
             refreshConfigurationData()
         }
@@ -88,6 +117,9 @@ extension ConfigurationViewController {
         }
         collectionView.setupInset()
         subscribeForConnectionChange()
+        if selectedRobot == nil {
+            createNewConfiguration()
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,7 +129,7 @@ extension ConfigurationViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension ConfigurationViewController: UICollectionViewDataSource {
+extension RobotConfigurationViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return controllers.count
     }
@@ -115,7 +147,7 @@ extension ConfigurationViewController: UICollectionViewDataSource {
 }
 
 // MARK: - RRCollectionViewDelegate
-extension ConfigurationViewController: RRCollectionViewDelegate {
+extension RobotConfigurationViewController: RRCollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard !collectionView.isDecelerating,
             let cell = collectionView.cellForItem(at: indexPath) as? ControllerCollectionViewCell,
@@ -144,7 +176,18 @@ extension ConfigurationViewController: RRCollectionViewDelegate {
 }
 
 // MARK: - Setups
-extension ConfigurationViewController {
+extension RobotConfigurationViewController {
+    private func setupPhotoModal() {
+        photoModal.showImagePicker = { [weak self] in
+            UIImagePickerController.show(with: self!, on: (self?.presentedViewController)!)
+        }
+        photoModal.deleteHandler = { [weak self] in
+            FileManager.default.delete(name: self?.selectedRobot?.id)
+            self?.robotImage = nil
+            self?.dismiss(animated: true)
+        }
+    }
+
     private func setupBluetoothButton() {
         let image =
             bluetoothService.hasConnectedDevice ? Image.Common.bluetoothIcon : Image.Common.bluetoothInactiveIcon
@@ -169,6 +212,8 @@ extension ConfigurationViewController {
         motorConfig.portNumber = portNumber
         motorConfig.selectedMotorState =
             MotorConfigViewModelState(dataModel: configuration?.mapping?.motor(for: portNumber))
+        motorConfig.name = configuration?.mapping?.motor(for: portNumber)?.variableName
+        motorConfig.prohibitedNames = configuration?.mapping?.variableNames.filter({ $0 != motorConfig.name }) ?? []
         motorConfig.doneButtonTapped = { [weak self] config in
             self?.dismissViewController()
             self?.updateMotorPort(config, on: motorConfig.portNumber)
@@ -181,18 +226,26 @@ extension ConfigurationViewController {
 
     private func updateMotorPort(_ motor: MotorConfigViewModel?, on port: Int) {
         guard let motor = motor else { return }
-        realmService.updateObject { [weak self] in
-            self?.configuration?.mapping?.updateMotor(portNumber: port, config: motor)
-            self?.refreshConfigurationData()
+        if motor.state == .empty {
+            configuration?.mapping?.set(motor: nil, to: port)
+        } else {
+            let config = InMemoryMotorDataModel(viewModel: motor)
+            configuration?.mapping?.set(motor: config, to: port)
         }
+
+        refreshConfigurationData()
     }
 
     private func updateSensorPort(_ sensor: SensorConfigViewModel?, on port: Int) {
         guard let sensor = sensor else { return }
-        realmService.updateObject { [weak self] in
-            self?.configuration?.mapping?.updateSensor(portNumber: port, config: sensor)
-            self?.refreshConfigurationData()
+        if sensor.type == .empty {
+            configuration?.mapping?.set(sensor: nil, to: port)
+        } else {
+            let config = InMemorySensorDataModel(viewModel: sensor)
+            configuration?.mapping?.set(sensor: config, to: port)
         }
+
+        refreshConfigurationData()
     }
 
     private func showSensorConfiguration(portNumber: Int) {
@@ -200,6 +253,8 @@ extension ConfigurationViewController {
         sensorConfig.portNumber = portNumber
         sensorConfig.selectedSensorType =
             SensorConfigViewModelType(dataModel: configuration?.mapping?.sensor(for: portNumber))
+        sensorConfig.name = configuration?.mapping?.sensor(for: portNumber)?.variableName
+        sensorConfig.prohibitedNames = configuration?.mapping?.variableNames.filter({ $0 != sensorConfig.name }) ?? []
         sensorConfig.doneButtonTapped = { [weak self] config in
             self?.dismissViewController()
             self?.updateSensorPort(config, on: sensorConfig.portNumber)
@@ -234,7 +289,6 @@ extension ConfigurationViewController {
 
     private func setupRobotImageView() {
         if robotImage != nil {
-            configurationView.image = robotImage
             photoModal.setImage(robotImage)
         }
     }
@@ -248,21 +302,57 @@ extension ConfigurationViewController {
 }
 
 // MARK: - Actions
-extension ConfigurationViewController {
+extension RobotConfigurationViewController {
     @IBAction private func saveTapped(_ sender: Any) {
-        guard let robot = selectedRobot else {
-            createNewConfiguration()
-            return
-        }
+        guard let robot = selectedRobot else { return }
 
-        updateConfiguration(on: robot)
+        let modal = SaveModal.instatiate()
+        modal.type = .configuration
+        modal.name = robot.customName
+        modal.descriptionTitle = robot.customDescription
+        modal.saveCallback = { [weak self] data in
+            self?.updateConfiguration(on: robot, name: data.name, description: data.description)
+            FileManager.default.save(self?.robotImage, as: robot.id)
+            self?.dismissViewController()
+            self?.navigationController?.popViewController(animated: true)
+        }
+        presentModal(with: modal)
     }
 
     private func createNewConfiguration() {
-
+        let configId = UUID().uuidString
+        let robot = UserRobot(
+            id: UUID().uuidString,
+            remoteId: "",
+            buildStatus: .inProgress,
+            actualBuildStep: -1,
+            lastModified: Date(),
+            configId: configId,
+            customName: nil,
+            customImage: nil,
+            customDescription: nil)
+        let configuration = ConfigurationDataModel(id: configId, controller: "", mapping: PortMappingDataModel())
+        realmService.saveRobot(robot, shouldUpdate: true)
+        realmService.saveConfigurations([configuration])
+        selectedRobot = robot
     }
 
-    private func updateConfiguration(on robot: UserRobot) {
+    private func updateConfiguration(on robot: UserRobot, name: String, description: String?) {
+        let realmConfig = realmService.getConfiguration(id: robot.configId)
+        realmService.updateObject(closure: { [weak self] in
+            self?.selectedRobot?.customName = name
+            self?.selectedRobot?.customDescription = description
+            realmConfig?.mapping?.m1 = MotorDataModel(inMemoryMotor: self?.configuration?.mapping?.m1)
+            realmConfig?.mapping?.m2 = MotorDataModel(inMemoryMotor: self?.configuration?.mapping?.m2)
+            realmConfig?.mapping?.m3 = MotorDataModel(inMemoryMotor: self?.configuration?.mapping?.m3)
+            realmConfig?.mapping?.m4 = MotorDataModel(inMemoryMotor: self?.configuration?.mapping?.m4)
+            realmConfig?.mapping?.m5 = MotorDataModel(inMemoryMotor: self?.configuration?.mapping?.m5)
+            realmConfig?.mapping?.m6 = MotorDataModel(inMemoryMotor: self?.configuration?.mapping?.m6)
+            realmConfig?.mapping?.s1 = SensorDataModel(inMemorySensor: self?.configuration?.mapping?.s1)
+            realmConfig?.mapping?.s2 = SensorDataModel(inMemorySensor: self?.configuration?.mapping?.s2)
+            realmConfig?.mapping?.s3 = SensorDataModel(inMemorySensor: self?.configuration?.mapping?.s3)
+            realmConfig?.mapping?.s4 = SensorDataModel(inMemorySensor: self?.configuration?.mapping?.s4)
+        })
     }
 
     @IBAction private func bluetoothTapped(_ sender: Any) {
@@ -298,9 +388,13 @@ extension ConfigurationViewController {
 }
 
 // MARK: - Image picker
-extension ConfigurationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension RobotConfigurationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBAction private func takePhotoTapped(_ sender: Any) {
-        UIImagePickerController.show(with: self, on: self)
+        if robotImage == nil {
+            UIImagePickerController.show(with: self, on: self)
+        } else {
+            presentModal(with: photoModal)
+        }
     }
 
     func imagePickerController(_ picker: UIImagePickerController,
@@ -315,16 +409,8 @@ extension ConfigurationViewController: UIImagePickerControllerDelegate, UINaviga
         }
 
         photoModal.setImage(newImage)
-        configurationView.image = newImage
-
+        robotImage = newImage
         dismiss(animated: true)
-        photoModal.showImagePicker = { [weak self] in
-            UIImagePickerController.show(with: self!, on: (self?.presentedViewController)!)
-        }
-        photoModal.deleteHandler = { [weak self] in
-            self?.configurationView.image = Image.Configuration.Connections.defaultRobotImage
-            self?.dismiss(animated: true)
-        }
         presentModal(with: photoModal, animated: true)
     }
 
@@ -364,7 +450,7 @@ extension ConfigurationViewController: UIImagePickerControllerDelegate, UINaviga
 }
 
 // MARK: - Connections
-extension ConfigurationViewController {
+extension RobotConfigurationViewController {
     private func presentBluetoothModal() {
         let modalPresenter = BluetoothConnectionModalPresenter()
         modalPresenter.present(

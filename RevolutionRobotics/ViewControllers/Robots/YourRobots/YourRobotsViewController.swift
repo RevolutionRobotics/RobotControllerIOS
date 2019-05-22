@@ -46,8 +46,8 @@ extension YourRobotsViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.setupInset()
         robots = realmService.getRobots()
+        collectionView.setupInset()
     }
 
     private func setupCollectionView() {
@@ -93,7 +93,7 @@ extension YourRobotsViewController: UICollectionViewDataSource {
 
     private func navigateToConfiguration(with robot: UserRobot?) {
         guard let robot = robot else { return }
-        let configuration = AppContainer.shared.container.unwrappedResolve(ConfigurationViewController.self)
+        let configuration = AppContainer.shared.container.unwrappedResolve(RobotConfigurationViewController.self)
         configuration.selectedRobot = robot
         navigationController?.pushViewController(configuration, animated: true)
     }
@@ -116,6 +116,7 @@ extension YourRobotsViewController: UICollectionViewDataSource {
     }
 
     private func deleteRobot(_ robot: UserRobot) {
+        FileManager.default.delete(name: robot.id)
         realmService.deleteRobot(robot)
         robots = realmService.getRobots()
         collectionView.clearIndexPath()
@@ -136,7 +137,11 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
         case .completed:
             navigateToPlayControllerViewController(with: robots[indexPath.item])
         case .initial, .inProgress:
-            navigateToBuildYourRobotViewController(with: robots[indexPath.item])
+            if robots[indexPath.item].remoteId.isEmpty {
+                navigateToConfiguration(with: robots[indexPath.item])
+            } else {
+                navigateToBuildYourRobotViewController(with: robots[indexPath.item])
+            }
         }
     }
 

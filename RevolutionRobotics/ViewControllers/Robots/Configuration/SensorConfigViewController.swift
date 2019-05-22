@@ -35,6 +35,8 @@ final class SensorConfigViewController: BaseViewController {
     var doneButtonTapped: CallbackType<SensorConfigViewModel>?
     var testButtonTapped: CallbackType<SensorConfigViewModel>?
     var screenDismissed: Callback?
+    var name: String?
+    var prohibitedNames: [String] = []
 
     private var shouldCallDismiss = true
 
@@ -46,10 +48,11 @@ final class SensorConfigViewController: BaseViewController {
         setupNameInputField()
         handleSelectionChange()
         validateActionButtons()
+        nameInputField.text = name
     }
 
-    override func viewSafeAreaInsetsDidChange() {
-        super.viewSafeAreaInsetsDidChange()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setupActionButtons()
     }
 }
@@ -111,10 +114,23 @@ extension SensorConfigViewController {
 // MARK: - Actions
 extension SensorConfigViewController {
     @IBAction private func testButtonTapped(_ sender: Any) {
-        testButtonTapped?(SensorConfigViewModel(portName: nameInputField.text, type: selectedSensorType))
+        let modal = TestingModal.instatiate()
+        modal.positiveButtonTapped = { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
+        modal.negativeButtonTapped = { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
+        presentModal(with: modal)
     }
 
     @IBAction private func doneButtonTapped(_ sender: Any) {
+        guard let name = nameInputField.text, !name.isEmpty, !prohibitedNames.contains(name) else {
+            present(UIAlertController.errorAlert(message: RobotsKeys.Configure.variableError.translate()),
+                    animated: true,
+                    completion: nil)
+            return
+        }
         shouldCallDismiss = false
         doneButtonTapped?(SensorConfigViewModel(portName: nameInputField.text, type: selectedSensorType))
     }

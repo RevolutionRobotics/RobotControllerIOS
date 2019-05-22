@@ -41,6 +41,8 @@ final class MotorConfigViewController: BaseViewController {
     var doneButtonTapped: CallbackType<MotorConfigViewModel>?
     var testButtonTapped: CallbackType<MotorConfigViewModel>?
     var screenDismissed: Callback?
+    var name: String?
+    var prohibitedNames: [String] = []
 
     private var shouldCallDismiss = true
 
@@ -52,12 +54,14 @@ final class MotorConfigViewController: BaseViewController {
         setupRotationButtons()
         setupSideButtons()
         setupNameInputField()
-        switchTo(state: selectedMotorState)
         validateActionButtons()
+        switchTo(state: selectedMotorState)
+
+        nameInputField.text = name
     }
 
-    override func viewSafeAreaInsetsDidChange() {
-        super.viewSafeAreaInsetsDidChange()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setupActionButtons()
     }
 }
@@ -260,10 +264,25 @@ extension MotorConfigViewController {
 // MARK: - Actions
 extension MotorConfigViewController {
     @IBAction private func testButtonTapped(_ sender: Any) {
-        testButtonTapped?(MotorConfigViewModel(portName: nameInputField.text, state: selectedMotorState))
+        let modal = TestingModal.instatiate()
+        modal.positiveButtonTapped = { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
+        modal.negativeButtonTapped = { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
+        presentModal(with: modal)
     }
 
     @IBAction private func doneButtonTapped(_ sender: Any) {
+        guard let name = nameInputField.text,
+            !name.isEmpty,
+            !prohibitedNames.contains(name) else {
+                present(UIAlertController.errorAlert(message: RobotsKeys.Configure.variableError.translate()),
+                        animated: true,
+                        completion: nil)
+                return
+        }
         shouldCallDismiss = false
         doneButtonTapped?(MotorConfigViewModel(portName: nameInputField.text, state: selectedMotorState))
     }

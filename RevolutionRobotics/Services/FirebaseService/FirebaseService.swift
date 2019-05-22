@@ -32,7 +32,7 @@ extension FirebaseService: FirebaseServiceInterface {
         getDataArray(Configuration.self, completion: completion)
     }
 
-    func getBuildSteps(for robotId: Int?, completion: CallbackType<Result<[BuildStep], FirebaseError>>?) {
+    func getBuildSteps(for robotId: String?, completion: CallbackType<Result<[BuildStep], FirebaseError>>?) {
         guard robotId != nil else {
             completion?(.failure(FirebaseError.invalidRobotId))
             return
@@ -61,7 +61,7 @@ extension FirebaseService: FirebaseServiceInterface {
                     return
                 }
 
-                self?.getControllers(completion: { [weak self] result in
+                self?.getControllers(completion: { result in
                     switch result {
                     case .success(let controllers):
                         completion?(.success(controllers.first(where: { $0.id == configuration.controller })!))
@@ -89,7 +89,7 @@ extension FirebaseService: FirebaseServiceInterface {
             case .success(let controllers):
                 let selectedController = controllers.first(where: { $0.id == controllerId })!
 
-                self?.getDataArray(Program.self, completion: { [weak self] (result: Result<[Program], FirebaseError>) in
+                self?.getDataArray(Program.self, completion: { (result: Result<[Program], FirebaseError>) in
                     switch result {
                     case .success(let programs):
                         let programs = selectedController.mapping.programIds.map({ id -> Program? in

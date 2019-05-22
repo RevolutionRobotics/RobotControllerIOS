@@ -43,5 +43,16 @@ final class MotorDataModel: Object {
         self.type = remoteMotor.type
         self.testCodeId = remoteMotor.testCodeId
         self.rotation = remoteMotor.rotation.rawValue
+        self.side = remoteMotor.side?.rawValue
+    }
+
+    convenience init?(inMemoryMotor: InMemoryMotorDataModel?) {
+        guard let inMemoryMotor = inMemoryMotor else { return nil }
+        self.init()
+        self.variableName = inMemoryMotor.variableName
+        self.type = inMemoryMotor.type
+        self.testCodeId = inMemoryMotor.testCodeId
+        self.rotation = inMemoryMotor.rotation?.rawValue
+        self.side = inMemoryMotor.side?.rawValue
     }
 }

@@ -73,7 +73,7 @@ extension WhoToBuildViewController {
     }
 
     @IBAction private func builYourOwnButtonTapped(_ sender: Any) {
-        let configureScreen = AppContainer.shared.container.unwrappedResolve(ConfigurationViewController.self)
+        let configureScreen = AppContainer.shared.container.unwrappedResolve(RobotConfigurationViewController.self)
         navigationController?.pushViewController(configureScreen, animated: true)
     }
 }

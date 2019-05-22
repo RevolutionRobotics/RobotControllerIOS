@@ -22,7 +22,12 @@ final class RRInputField: RRCustomView {
 
     // MARK: - Public
     var text: String? {
-        return textField.text
+        get {
+            return textField.text
+        }
+        set {
+            textField.text = newValue
+        }
     }
 }
 
