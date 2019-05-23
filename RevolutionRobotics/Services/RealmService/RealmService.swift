@@ -42,8 +42,11 @@ extension RealmService: RealmServiceInterface {
         }
     }
 
-    func getControllers() -> [Controller] {
-        return []
+    func getControllers() -> [ControllerDataModel] {
+        guard let controllers = realmConnector.findAll(type: ControllerDataModel.self) as? [ControllerDataModel] else {
+            return []
+        }
+        return controllers
     }
 
     func getConfiguration(id: String?) -> ConfigurationDataModel? {
@@ -51,5 +54,9 @@ extension RealmService: RealmServiceInterface {
             let configurations = realmConnector.findAll(type: ConfigurationDataModel.self) as? [ConfigurationDataModel],
             let configuration = configurations.first(where: { $0.id == id }) else { return nil }
         return configuration
+    }
+
+    func saveControllers(_ controllers: [ControllerDataModel]) {
+        realmConnector.save(objects: controllers, shouldUpdate: true)
     }
 }

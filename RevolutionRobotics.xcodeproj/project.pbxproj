@@ -111,6 +111,7 @@
 		2ABEF0E4228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0E3228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift */; };
 		2AC7AB72228D4FB900D96457 /* URLSession+ImageDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7AB71228D4FB900D96457 /* URLSession+ImageDownload.swift */; };
 		2AD858DE2295AE940082CDC0 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD858DD2295AE940082CDC0 /* UIAlertController+Error.swift */; };
+		2AD858E02296B9EB0082CDC0 /* ControllerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD858DF2296B9EB0082CDC0 /* ControllerDataModel.swift */; };
 		2ADE8C292270A61000ECEC72 /* String+Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C282270A61000ECEC72 /* String+Translate.swift */; };
 		2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C312270A77200ECEC72 /* ChallengesKeys.swift */; };
 		2ADE8C342270A78600ECEC72 /* RobotsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C332270A78600ECEC72 /* RobotsKeys.swift */; };
@@ -331,6 +332,7 @@
 		2ABEF0E3228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothConnectionModalPresenter.swift; sourceTree = "<group>"; };
 		2AC7AB71228D4FB900D96457 /* URLSession+ImageDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+ImageDownload.swift"; sourceTree = "<group>"; };
 		2AD858DD2295AE940082CDC0 /* UIAlertController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Error.swift"; sourceTree = "<group>"; };
+		2AD858DF2296B9EB0082CDC0 /* ControllerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerDataModel.swift; sourceTree = "<group>"; };
 		2ADE8C282270A61000ECEC72 /* String+Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Translate.swift"; sourceTree = "<group>"; };
 		2ADE8C312270A77200ECEC72 /* ChallengesKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesKeys.swift; sourceTree = "<group>"; };
 		2ADE8C332270A78600ECEC72 /* RobotsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotsKeys.swift; sourceTree = "<group>"; };
@@ -923,6 +925,7 @@
 				2A7DDB1122856FC800891DA6 /* MotorDataModel.swift */,
 				2A7DDB0F22856DC200891DA6 /* PortMappingDataModel.swift */,
 				2A7DDB1322856FD000891DA6 /* SensorDataModel.swift */,
+				2AD858DF2296B9EB0082CDC0 /* ControllerDataModel.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1752,6 +1755,7 @@
 				2A9F52112265E96B00F9F651 /* ProgramsViewController.swift in Sources */,
 				D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */,
 				D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */,
+				2AD858E02296B9EB0082CDC0 /* ControllerDataModel.swift in Sources */,
 				2AF8C75F2280659000CE1ACB /* FileManager+Documents.swift in Sources */,
 				D05C64E1225F5C9900B7BF4F /* Motor.swift in Sources */,
 				FE4B16202277406D00CAA083 /* SegmentedControl.swift in Sources */,

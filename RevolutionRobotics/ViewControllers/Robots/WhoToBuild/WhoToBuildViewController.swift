@@ -59,6 +59,17 @@ extension WhoToBuildViewController {
             }
         }
     }
+
+    private func fetchControllers() {
+        firebaseService.getControllers { [weak self] result in
+            switch result {
+            case .success(let controllers):
+                self?.realmService.saveControllers(controllers.map({ ControllerDataModel(controller: $0) }))
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 // MARK: - Event handlers
@@ -92,6 +103,7 @@ extension WhoToBuildViewController {
         collectionView.setupInset()
         fetchRobots()
         fetchConfigurations()
+        fetchControllers()
         subscribeForConnectionChange()
     }
 
