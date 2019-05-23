@@ -21,7 +21,6 @@ final class WhoToBuildViewController: BaseViewController {
     // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
-    var bluetoothService: BluetoothServiceInterface!
 
     private var selectedRobot: Robot?
     private var robots: [Robot] = [] {
@@ -130,11 +129,7 @@ extension WhoToBuildViewController: RRCollectionViewDelegate {
             let cell = collectionView.cellForItem(at: indexPath) as? WhoToBuildCollectionViewCell,
             cell.isCentered else { return }
         selectedRobot = robots[indexPath.row]
-        if !bluetoothService.hasConnectedDevice {
-            showTurnOnTheBrain()
-        } else {
-            navigateToBuildScreen()
-        }
+        navigateToBuildScreen()
     }
 
     func setButtons(rightHidden: Bool, leftHidden: Bool) {
@@ -143,82 +138,11 @@ extension WhoToBuildViewController: RRCollectionViewDelegate {
     }
 }
 
-// MARK: - Modal
+// MARK: - Navigation
 extension WhoToBuildViewController {
-    private func showTurnOnTheBrain() {
-        let modalPresenter = BluetoothConnectionModalPresenter()
-        modalPresenter.present(
-            on: self,
-            startDiscoveryHandler: { [weak self] in
-                self?.bluetoothService.startDiscovery(onScanResult: { result in
-                    switch result {
-                    case .success(let devices):
-                        modalPresenter.discoveredDevices = devices
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                    }
-                })
-            },
-            deviceSelectionHandler: { [weak self] device in
-                self?.bluetoothService.connect(to: device)
-            },
-            nextStep: { [weak self] in
-                self?.navigateToBuildScreen()
-        })
-    }
-
     private func navigateToBuildScreen() {
         let buildScreen = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
         buildScreen.remoteRobotDataModel = selectedRobot
         navigationController?.pushViewController(buildScreen, animated: true)
-    }
-}
-
-// MARK: - Connection
-extension WhoToBuildViewController {
-    override func connected() {
-        dismissViewController()
-        let connectionModal = ConnectionModal.instatiate()
-        presentModal(with: connectionModal.successful)
-
-        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
-            self?.dismissAndNavigateToBuildRobot()
-        }
-    }
-
-    override func disconnected() {
-        print("Device disconnected")
-    }
-
-    override func connectionError() {
-        let connectionModal = ConnectionModal.instatiate()
-        dismissViewController()
-        presentModal(with: connectionModal.failed)
-
-        connectionModal.skipConnectionButtonTapped = dismissAndNavigateToBuildRobot
-        connectionModal.tryAgainButtonTapped = dismissAndTryAgain
-
-        connectionModal.tipsButtonTapped = { [weak self] in
-            self?.dismissViewController()
-            let failedConnectionTipsModal = TipsModalView.instatiate()
-            self?.presentModal(with: failedConnectionTipsModal)
-            failedConnectionTipsModal.skipCallback = self?.dismissAndNavigateToBuildRobot
-            failedConnectionTipsModal.tryAgainCallback = self?.dismissAndTryAgain
-            failedConnectionTipsModal.communityCallback = {
-                // TODO: Use BaseViewController showCommunityViewControoler when it's implemented
-            }
-        }
-    }
-
-    private func dismissAndTryAgain() {
-        dismissViewController()
-        showTurnOnTheBrain()
-    }
-
-    private func dismissAndNavigateToBuildRobot() {
-        dismissViewController()
-        let buildRobotViewController = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
-        buildRobotViewController.remoteRobotDataModel = selectedRobot
-        navigationController?.pushViewController(buildRobotViewController, animated: true)
     }
 }

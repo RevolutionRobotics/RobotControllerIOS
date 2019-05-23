@@ -30,28 +30,6 @@ class BuildRobotViewController: BaseViewController {
     private var steps: [BuildStep] = []
     private var currentStep: BuildStep?
     private let partView = PartView.instatiate()
-    @IBAction private func bluetoothButtonTapped(_ sender: RRButton) {
-        guard !bluetoothService.hasConnectedDevice else { return }
-
-        let modalPresenter = BluetoothConnectionModalPresenter()
-        modalPresenter.present(
-            on: self,
-            startDiscoveryHandler: { [weak self] in
-                self?.bluetoothService.startDiscovery(onScanResult: { result in
-                    switch result {
-                    case .success(let devices):
-                        modalPresenter.discoveredDevices = devices
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                    }
-                })
-
-            },
-            deviceSelectionHandler: { [weak self] device in
-                self?.bluetoothService.connect(to: device)
-            },
-            nextStep: nil)
-    }
 }
 
 // MARK: - View lifecycle
@@ -67,6 +45,7 @@ extension BuildRobotViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         subscribeForConnectionChange()
+        presentBluetoothConnectionModal()
 
         guard !steps.isEmpty else { return }
         refreshViews()
@@ -76,6 +55,7 @@ extension BuildRobotViewController {
         super.viewDidAppear(animated)
 
         guard !steps.isEmpty else { return }
+        if storedRobotDataModel == nil { updateStoredRobot(step: 0) }
         setupProgressBar()
     }
 
@@ -227,6 +207,29 @@ extension BuildRobotViewController {
 
 // MARK: - Private methods
 extension BuildRobotViewController {
+    private func presentBluetoothConnectionModal() {
+        guard !bluetoothService.hasConnectedDevice else { return }
+
+        let modalPresenter = BluetoothConnectionModalPresenter()
+        modalPresenter.present(
+            on: self,
+            startDiscoveryHandler: { [weak self] in
+                self?.bluetoothService.startDiscovery(onScanResult: { result in
+                    switch result {
+                    case .success(let devices):
+                        modalPresenter.discoveredDevices = devices
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                })
+
+            },
+            deviceSelectionHandler: { [weak self] device in
+                self?.bluetoothService.connect(to: device)
+            },
+            nextStep: nil)
+    }
+
     private func fetchBuildSteps() {
         firebaseService.getBuildSteps(for: remoteRobotDataModel?.id, completion: { [weak self] result in
             switch result {
@@ -276,20 +279,50 @@ extension BuildRobotViewController {
     }
 }
 
+// MARK: - Action
+extension BuildRobotViewController {
+    @IBAction private func bluetoothButtonTapped(_ sender: RRButton) {
+        presentBluetoothConnectionModal()
+    }
+}
+
 // MARK: - Bluetooth connection
 extension BuildRobotViewController {
     override func connected() {
-        dismissViewController()
-        let connectionModal = ConnectionModal.instatiate()
-        presentModal(with: connectionModal.successful)
-
-        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
-            self?.dismissViewController()
-        }
+        super.connected()
         bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
     }
 
     override func disconnected() {
         bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
+    }
+
+    override func connectionError() {
+        let connectionModal = ConnectionModal.instatiate()
+        dismissViewController()
+        presentModal(with: connectionModal.failed)
+
+        connectionModal.skipConnectionButtonTapped = { [weak self] in
+            self?.dismissViewController()
+        }
+        connectionModal.tryAgainButtonTapped = { [weak self] in
+            self?.dismissAndTryAgain()
+        }
+
+        connectionModal.tipsButtonTapped = { [weak self] in
+            self?.dismissViewController()
+            let failedConnectionTipsModal = TipsModalView.instatiate()
+            self?.presentModal(with: failedConnectionTipsModal)
+            failedConnectionTipsModal.skipCallback = self?.dismissViewController
+            failedConnectionTipsModal.tryAgainCallback = self?.dismissAndTryAgain
+            failedConnectionTipsModal.communityCallback = {
+                // TODO: Use BaseViewController showCommunityViewControoler when it's implemented
+            }
+        }
+    }
+
+    private func dismissAndTryAgain() {
+        dismissViewController()
+        presentBluetoothConnectionModal()
     }
 }
