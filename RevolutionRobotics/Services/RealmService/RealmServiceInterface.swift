@@ -14,6 +14,7 @@ protocol RealmServiceInterface: class {
     func deleteRobot(_ robot: UserRobot)
     func updateObject(closure: (() -> Void)?)
     func getConfiguration(id: String?) -> ConfigurationDataModel?
-    func getControllers() -> [Controller]
+    func saveControllers(_ controllers: [ControllerDataModel])
+    func getControllers() -> [ControllerDataModel]
     func saveConfigurations(_ configurations: [ConfigurationDataModel])
 }

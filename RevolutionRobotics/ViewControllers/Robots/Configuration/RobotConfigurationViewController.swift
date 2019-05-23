@@ -59,7 +59,7 @@ final class RobotConfigurationViewController: BaseViewController {
     private let photoModal = PhotoModal.instatiate()
     private var robotImage: UIImage?
     private var shouldPrefillConfiguration = false
-    private var controllers: [Controller] = [] {
+    private var controllers: [ControllerDataModel] = [] {
         didSet {
             collectionView.reloadData()
             if !controllers.isEmpty {
@@ -107,19 +107,13 @@ extension RobotConfigurationViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        firebaseService.getControllers { [weak self] result in
-            switch result {
-            case .success(let controllers):
-                self?.controllers = controllers
-            case .failure(let error):
-                print(error)
-            }
-        }
-        collectionView.setupInset()
         subscribeForConnectionChange()
         if selectedRobot == nil {
             createNewConfiguration()
         }
+
+        controllers = realmService.getControllers().filter({ $0.configurationId == configuration!.id })
+        collectionView.setupInset()
     }
 
     override func viewWillDisappear(_ animated: Bool) {

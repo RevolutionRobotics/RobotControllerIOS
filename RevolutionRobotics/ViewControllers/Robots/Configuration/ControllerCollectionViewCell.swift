@@ -96,10 +96,10 @@ extension ControllerCollectionViewCell {
 
 // MARK: - Setup
 extension ControllerCollectionViewCell {
-    func setup(with controller: Controller) {
+    func setup(with controller: ControllerDataModel) {
         nameLabel.text = controller.name
-        controllerImageView.image = controller.type.image
-        lastModifiedLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: controller.lastModified))
+        controllerImageView.image = ControllerType(rawValue: controller.type)?.image
+        lastModifiedLabel.text = dateFormatter.string(from: controller.lastModified)
     }
 }
 
