@@ -16,7 +16,7 @@ final class BluetoothConnectionModalPresenter {
             availableRobotsView.discoveredDevices = discoveredDevices
         }
     }
-    private var presenter: BaseViewController!
+    private weak var presenter: BaseViewController!
     private var startDiscoveryHandler: Callback?
     private var nextStep: Callback?
     private var deviceSelectionHandler: CallbackType<Device>?

@@ -387,14 +387,7 @@ extension ConfigurationViewController {
     }
 
     override func connected() {
-        dismissViewController()
-        let connectionModal = ConnectionModal.instatiate()
-        presentModal(with: connectionModal.successful)
-
-        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
-            self?.dismissViewController()
-        }
-
+        super.connected()
         bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
     }
 

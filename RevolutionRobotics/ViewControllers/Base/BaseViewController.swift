@@ -141,7 +141,16 @@ extension BaseViewController {
         NotificationCenter.default.removeObserver(self)
     }
 
-    @objc func connected() { }
+    @objc func connected() {
+        dismissViewController()
+        let connectionModal = ConnectionModal.instatiate()
+        presentModal(with: connectionModal.successful)
+
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
+            self?.dismissViewController()
+        }
+    }
+
     @objc func disconnected() { }
     @objc func connectionError() { }
 }
