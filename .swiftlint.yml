@@ -39,6 +39,10 @@ opt_in_rules:
   - strict_fileprivate
     #- unneeded_parentheses_in_closure_argument
 
+disabled_rules:
+  - nesting
+  - todo
+
 excluded:
   - Pods
 attributes:
@@ -67,8 +71,8 @@ empty_parameters:
 explicit_init:
   severity: error
 file_length:
-  - 300 #warning
-  - 500 #error
+  - 500 #warning
+  - 750 #error
 force_cast:
   severity: error
 force_try:
@@ -79,8 +83,8 @@ function_body_length:
   - 50 #warning
   - 70 #error
 function_parameter_count:
-  - 5 #warning
-  - 6 #error
+  - 6 #warning
+  - 7 #error
 implicit_getter:
   severity: error
 large_tuple:
@@ -100,8 +104,6 @@ line_length:
   - 120 #warning
   - 120 #error
 mark:
-  severity: error
-nesting:
   severity: error
 nimble_operator:
   severity: error
@@ -127,8 +129,6 @@ switch_case_on_newline:
   severity: error
 syntactic_sugar:
   severity: error
-todo:
-  severity: warning
 trailing_comma:
   severity: error
 trailing_newline:

@@ -47,6 +47,7 @@ enum RobotsKeys {
         static let title = "configuration_new_screen_title"
         static let connectionTabTitle = "configure_connection_tab_title"
         static let controllerTabTitle = "configure_controller_tab_title"
+        static let variableError = "error_variable_already_in_use"
 
         enum Motor {
             static let emptyButton = "configure_motor_empty_button_title"

@@ -76,7 +76,15 @@ extension YourRobotsCollectionViewCell {
         statusImageView.image = isCompleted ? Image.Common.calendar : Image.Common.underConstruction
         lastModifiedLabel.text = isCompleted ?
             dateFormatter.string(from: robot.lastModified) : RobotsKeys.YourRobots.underConstruction.translate()
-        robotImageView.downloadImage(googleStorageURL: robot.customImage)
+        if let image = FileManager.default.image(for: robot.id) {
+            robotImageView.image = image
+        } else {
+            if !robot.remoteId.isEmpty {
+                robotImageView.downloadImage(googleStorageURL: robot.customImage)
+            } else {
+                robotImageView.image = Image.YourRobots.robotPlaceholder
+            }
+        }
     }
 
     override func set(multiplier: CGFloat) {

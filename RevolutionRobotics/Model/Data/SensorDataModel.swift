@@ -37,4 +37,12 @@ final class SensorDataModel: Object {
         self.type = remoteSensor.type
         self.testCodeId = remoteSensor.testCodeId
     }
+
+    convenience init?(inMemorySensor: InMemorySensorDataModel?) {
+        guard let inMemorySensor = inMemorySensor else { return nil }
+        self.init()
+        self.variableName = inMemorySensor.variableName
+        self.type = inMemorySensor.type
+        self.testCodeId = inMemorySensor.testCodeId
+    }
 }

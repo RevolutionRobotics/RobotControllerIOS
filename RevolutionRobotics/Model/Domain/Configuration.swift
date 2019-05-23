@@ -21,7 +21,7 @@ struct Configuration: FirebaseData {
     static var firebasePath: String = "configuration"
 
     // MARK: - Properties
-    var id: Int
+    var id: String
     var controller: String
     var mapping: PortMapping
 
@@ -36,7 +36,7 @@ struct Configuration: FirebaseData {
                 return nil
         }
 
-        self.id = id
+        self.id = "\(id)"
         self.controller = controller
         self.mapping = mapping
     }

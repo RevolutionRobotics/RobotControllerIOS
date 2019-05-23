@@ -71,4 +71,16 @@ enum ModalKeys {
         static let edigProgram = "program_modal_edit"
         static let gotIt = "program_modal_got_it"
     }
+
+    enum Save {
+        static let done = "save_dialog_done"
+
+        enum Configuration {
+            static let title = "save_robot_dialog_title"
+            static let nameTitle = "save_robot_dialog_name_title"
+            static let nameHint = "save_robot_dialog_name_hint"
+            static let descriptionTitle = "save_dialog_description_title"
+            static let descriptionHint = "save_robot_dialog_description_hint"
+        }
+    }
 }

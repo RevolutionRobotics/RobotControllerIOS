@@ -9,7 +9,6 @@
 import Foundation
 import Firebase
 
-// swiftlint:disable identifier_name
 struct ControllerButtonMapping {
     // MARK: - Properties
     var b1: ProgramBinding?
@@ -33,4 +32,3 @@ struct ControllerButtonMapping {
         b6 = ProgramBinding(snapshot: snapshot.childSnapshot(forPath: "b6"))
     }
 }
-// swiftlint:enable identifier_name

@@ -23,7 +23,7 @@ struct BuildStep: FirebaseData, Equatable {
     static var firebasePath: String = "buildStep"
 
     // MARK: - Properties
-    var robotId: Int
+    var robotId: String
     var image: String
     var partImage: String
     var stepNumber: Int
@@ -41,7 +41,7 @@ struct BuildStep: FirebaseData, Equatable {
                 return nil
         }
 
-        self.robotId = robotId
+        self.robotId = "\(robotId)"
         self.image = image
         self.partImage = partImage
         self.stepNumber = stepNumber

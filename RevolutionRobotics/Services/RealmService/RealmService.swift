@@ -46,7 +46,7 @@ extension RealmService: RealmServiceInterface {
         return []
     }
 
-    func getConfiguration(id: Int?) -> ConfigurationDataModel? {
+    func getConfiguration(id: String?) -> ConfigurationDataModel? {
         guard let id = id,
             let configurations = realmConnector.findAll(type: ConfigurationDataModel.self) as? [ConfigurationDataModel],
             let configuration = configurations.first(where: { $0.id == id }) else { return nil }

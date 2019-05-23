@@ -8,6 +8,8 @@
 
 // MARK: - Common
 "next" = "Next";
+"error_title" = "Error";
+"error_ok_button" = "Ok";
 
 // MARK: - Menu
 "menu_robots_title" = "robots";
@@ -30,6 +32,7 @@
 "configure_controller_tab_title" = "Controllers";
 "controller_choose_this" = "Choose this!";
 "controller_selected" = "Selected";
+"error_variable_already_in_use" = "Variable name is already in use";
 
 // MARK: - Build robot
 "build_robot_turn_on_the_brain_instruction" = "To take control, switch the brain on";
@@ -144,3 +147,10 @@
 "program_modal_remove" = "Remove program";
 "program_modal_got_it" = "Got it";
 "program_modal_edit" = "Edit program";
+
+"save_robot_dialog_title" = "The robot is ready, name it!";
+"save_robot_dialog_name_title" = "Robot name";
+"save_robot_dialog_description_hint" = "Click and add a hint to remember when to use the robot!";
+"save_robot_dialog_name_hint" = "Click here and name the robot!";
+"save_dialog_description_title" = "Description";
+"save_dialog_done" = "Done";

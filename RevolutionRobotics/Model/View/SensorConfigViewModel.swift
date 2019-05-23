@@ -28,4 +28,16 @@ enum SensorConfigViewModelType: String {
             self = .empty
         }
     }
+
+    init(dataModel: InMemorySensorDataModel?) {
+        guard let dataModel = dataModel else { self = .empty; return }
+        switch dataModel.type {
+        case SensorDataModel.Constants.bumper:
+            self = .bumper
+        case SensorDataModel.Constants.ultrasonic:
+            self = .ultrasonic
+        default:
+            self = .empty
+        }
+    }
 }

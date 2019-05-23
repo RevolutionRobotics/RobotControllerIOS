@@ -8,7 +8,7 @@
 
 protocol FirebaseServiceInterface {
     func getRobots(completion: CallbackType<Result<[Robot], FirebaseError>>?)
-    func getBuildSteps(for robotId: Int?, completion: CallbackType<Result<[BuildStep], FirebaseError>>?)
+    func getBuildSteps(for robotId: String?, completion: CallbackType<Result<[BuildStep], FirebaseError>>?)
     func getConfigurations(completion: CallbackType<Result<[Configuration], FirebaseError>>?)
     func getConfiguration(id: String, completion: CallbackType<Result<Configuration?, FirebaseError>>?)
     func getController(for configurationId: String, completion: CallbackType<Result<Controller, FirebaseError>>?)

@@ -15,6 +15,7 @@ struct Motor: Port {
         static let variableName = "variableName"
         static let type = "type"
         static let testCodeId = "testCodeId"
+        static let side = "side"
         static let rotation = "rotation"
     }
 
@@ -22,6 +23,7 @@ struct Motor: Port {
     var variableName: String
     var type: String
     var testCodeId: Int
+    var side: Side?
     var rotation: Rotation
 
     // MARK: - Initialization
@@ -41,5 +43,9 @@ struct Motor: Port {
         self.type = type
         self.testCodeId = testCodeId
         self.rotation = rotation
+
+        if let tempSide = dic[Constants.side] as? String, let side = Side(rawValue: tempSide) {
+            self.side = side
+        }
     }
 }
