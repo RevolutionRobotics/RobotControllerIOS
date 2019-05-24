@@ -11,8 +11,12 @@
 		09105A9F2280581F00AB7B72 /* MotorConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09105A9A2280581F00AB7B72 /* MotorConfigViewController.swift */; };
 		09105AA02280581F00AB7B72 /* PortConfigurationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09105A9C2280581F00AB7B72 /* PortConfigurationItemView.swift */; };
 		09105AA12280581F00AB7B72 /* PortConfigurationItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09105A9D2280581F00AB7B72 /* PortConfigurationItemView.xib */; };
+		091B98A8229830B500DCEEF4 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B98A7229830B500DCEEF4 /* DateFormatter.swift */; };
+		091B98AB229835DA00DCEEF4 /* ProgramSorterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B98AA229835DA00DCEEF4 /* ProgramSorterController.swift */; };
 		0939A38E2278440A005EE307 /* SensorConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0939A38C2278440A005EE307 /* SensorConfigViewController.swift */; };
 		0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0939A38D2278440A005EE307 /* SensorConfigViewController.xib */; };
+		0941075E2297E889000A658A /* ProgramSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941075C2297E889000A658A /* ProgramSelectorViewController.swift */; };
+		0941075F2297E889000A658A /* ProgramSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0941075D2297E889000A658A /* ProgramSelectorViewController.xib */; };
 		094F9DD82264BE1900BE118B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F9DD72264BE1900BE118B /* Color.swift */; };
 		094F9DDA2264BE9600BE118B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F9DD92264BE9600BE118B /* Image.swift */; };
 		094F9DDC2264BEE600BE118B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F9DDB2264BEE600BE118B /* Font.swift */; };
@@ -38,6 +42,8 @@
 		096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 096479882268797F00F68456 /* Barlow-Bold.ttf */; };
 		0964798D22689DEC00F68456 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0964798B22689DEC00F68456 /* ModalViewController.swift */; };
 		0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0964798C22689DEC00F68456 /* ModalViewController.xib */; };
+		0977990822981C0300D571B0 /* ProgramSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0977990622981C0300D571B0 /* ProgramSelectorTableViewCell.swift */; };
+		0977990922981C0300D571B0 /* ProgramSelectorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0977990722981C0300D571B0 /* ProgramSelectorTableViewCell.xib */; };
 		097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097F8432225BA37800DD32BF /* Jura-Bold.ttf */; };
 		0985495C2271D44500A7C2DC /* UIImageView+GoogleStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985495B2271D44500A7C2DC /* UIImageView+GoogleStorage.swift */; };
 		09994319228DBA6500D87385 /* ProgramInfoModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09994317228DBA6500D87385 /* ProgramInfoModal.xib */; };
@@ -236,8 +242,12 @@
 		09105A9A2280581F00AB7B72 /* MotorConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotorConfigViewController.swift; sourceTree = "<group>"; };
 		09105A9C2280581F00AB7B72 /* PortConfigurationItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortConfigurationItemView.swift; sourceTree = "<group>"; };
 		09105A9D2280581F00AB7B72 /* PortConfigurationItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortConfigurationItemView.xib; sourceTree = "<group>"; };
+		091B98A7229830B500DCEEF4 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		091B98AA229835DA00DCEEF4 /* ProgramSorterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSorterController.swift; sourceTree = "<group>"; };
 		0939A38C2278440A005EE307 /* SensorConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorConfigViewController.swift; sourceTree = "<group>"; };
 		0939A38D2278440A005EE307 /* SensorConfigViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SensorConfigViewController.xib; sourceTree = "<group>"; };
+		0941075C2297E889000A658A /* ProgramSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSelectorViewController.swift; sourceTree = "<group>"; };
+		0941075D2297E889000A658A /* ProgramSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramSelectorViewController.xib; sourceTree = "<group>"; };
 		094F9DD72264BE1900BE118B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		094F9DD92264BE9600BE118B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		094F9DDB2264BEE600BE118B /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -263,6 +273,8 @@
 		096479882268797F00F68456 /* Barlow-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Bold.ttf"; sourceTree = "<group>"; };
 		0964798B22689DEC00F68456 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		0964798C22689DEC00F68456 /* ModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
+		0977990622981C0300D571B0 /* ProgramSelectorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSelectorTableViewCell.swift; sourceTree = "<group>"; };
+		0977990722981C0300D571B0 /* ProgramSelectorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramSelectorTableViewCell.xib; sourceTree = "<group>"; };
 		097F8432225BA37800DD32BF /* Jura-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Bold.ttf"; sourceTree = "<group>"; };
 		0985495B2271D44500A7C2DC /* UIImageView+GoogleStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+GoogleStorage.swift"; sourceTree = "<group>"; };
 		09994317228DBA6500D87385 /* ProgramInfoModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgramInfoModal.xib; sourceTree = "<group>"; };
@@ -501,6 +513,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		091B98A9229830BC00DCEEF4 /* DateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				091B98A7229830B500DCEEF4 /* DateFormatter.swift */,
+			);
+			path = DateFormatter;
+			sourceTree = "<group>";
+		};
 		0939A37C2276E6EF005EE307 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +528,17 @@
 				D03BA8522276F323005B3E33 /* PartView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0941076022981811000A658A /* ProgramSelector */ = {
+			isa = PBXGroup;
+			children = (
+				0941075C2297E889000A658A /* ProgramSelectorViewController.swift */,
+				0941075D2297E889000A658A /* ProgramSelectorViewController.xib */,
+				0977990622981C0300D571B0 /* ProgramSelectorTableViewCell.swift */,
+				0977990722981C0300D571B0 /* ProgramSelectorTableViewCell.xib */,
+			);
+			path = ProgramSelector;
 			sourceTree = "<group>";
 		};
 		094FC5D5228C3C1B0085B407 /* MultiTaskerPad */ = {
@@ -957,11 +988,13 @@
 		2A9F52092265E92400F9F651 /* Programs */ = {
 			isa = PBXGroup;
 			children = (
+				0941076022981811000A658A /* ProgramSelector */,
 				09994316228DBA6500D87385 /* Modal */,
 				2A9F520F2265E96B00F9F651 /* ProgramsViewController.swift */,
 				2A9F52102265E96B00F9F651 /* ProgramsViewController.xib */,
 				D031333C228EA66100704989 /* ProgramBottomBarViewController.swift */,
 				D031333D228EA66100704989 /* ProgramBottomBarViewController.xib */,
+				091B98AA229835DA00DCEEF4 /* ProgramSorterController.swift */,
 			);
 			path = Programs;
 			sourceTree = "<group>";
@@ -1265,6 +1298,7 @@
 			isa = PBXGroup;
 			children = (
 				2A473774229F0F7300641B07 /* UserDefaults */,
+				091B98A9229830BC00DCEEF4 /* DateFormatter */,
 				2AD858DC2295AE840082CDC0 /* UIAlertController */,
 				2AC7AB70228D4FA400D96457 /* URLSession */,
 				D06C326E2289955F005534C0 /* Bundle */,
@@ -1498,6 +1532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A3A759522953EC500ED9A1D /* PlayControllerViewController.xib in Resources */,
+				0977990922981C0300D571B0 /* ProgramSelectorTableViewCell.xib in Resources */,
 				2AA926D722773DC1000FAA98 /* SideButton.xib in Resources */,
 				D0B2A736227C7CF1004473EC /* ControllerCollectionViewCell.xib in Resources */,
 				D03BA8612277384A005B3E33 /* ConnectionModal.xib in Resources */,
@@ -1556,6 +1591,7 @@
 				2ABCB648229E912D0081B51B /* MenuTutorialViewController.xib in Resources */,
 				09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */,
 				0964798122686DE000F68456 /* WhoToBuildViewController.xib in Resources */,
+				0941075F2297E889000A658A /* ProgramSelectorViewController.xib in Resources */,
 				0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */,
 				0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */,
 				D0A1107E227870040064FBB6 /* YourRobotsCollectionViewCell.xib in Resources */,
@@ -1704,6 +1740,7 @@
 				096479862268776200F68456 /* BuildRobotViewController.swift in Sources */,
 				D0313322228C602100704989 /* ControllerLayoutSelectorViewController.swift in Sources */,
 				2AF8C757228026EE00CE1ACB /* UIStackView+RemoveAll.swift in Sources */,
+				0977990822981C0300D571B0 /* ProgramSelectorTableViewCell.swift in Sources */,
 				D0313337228D5CBA00704989 /* Part.swift in Sources */,
 				D03BA8532276F323005B3E33 /* PartView.swift in Sources */,
 				096333FA2289BBA40029D87B /* UIView+Rounded.swift in Sources */,
@@ -1784,12 +1821,14 @@
 				09ED1BAD22524B09009CF262 /* Callback.swift in Sources */,
 				D0313339228DD3B100704989 /* SaveModal.swift in Sources */,
 				2AF8C762228069EC00CE1ACB /* RealmConnectorInterface.swift in Sources */,
+				091B98A8229830B500DCEEF4 /* DateFormatter.swift in Sources */,
 				2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */,
 				D05C64DF225F5C4E00B7BF4F /* Rotation.swift in Sources */,
 				D03BA85C2277384A005B3E33 /* ConnectionModal.swift in Sources */,
 				D0A11084227B0BEB0064FBB6 /* ResizableCell.swift in Sources */,
 				2ADE8C382270A79E00ECEC72 /* SettingsKeys.swift in Sources */,
 				094FC5CE228C35E90085B407 /* GamerPadView.swift in Sources */,
+				0941075E2297E889000A658A /* ProgramSelectorViewController.swift in Sources */,
 				D0BF25702282C6E000F08C9C /* PlayControllerViewController.swift in Sources */,
 				FE4B161E227721C700CAA083 /* PortButton.swift in Sources */,
 				D0313335228D5CBA00704989 /* ControllerType.swift in Sources */,
@@ -1820,6 +1859,7 @@
 				D0049A1E226F0929007FA256 /* RRButton.swift in Sources */,
 				D06C327322899F60005534C0 /* FirmwareUpdateViewController.swift in Sources */,
 				2ADE8C442271A6B000ECEC72 /* BuildProgressBar.swift in Sources */,
+				091B98AB229835DA00DCEEF4 /* ProgramSorterController.swift in Sources */,
 				096333F62289B9710029D87B /* PadButton.swift in Sources */,
 				096333EE228993CF0029D87B /* TLAnalogJoystick.swift in Sources */,
 				2ADE8C342270A78600ECEC72 /* RobotsKeys.swift in Sources */,

@@ -30,6 +30,7 @@ final class ScreenAssembly: Assembly {
         registerControllerSelectorViewController(to: container)
         registerProgramsBottomViewController(to: container)
         registerGamerConfigurationViewController(to: container)
+        registerProgramSelectorViewController(to: container)
     }
 }
 
@@ -176,6 +177,17 @@ extension ScreenAssembly {
             .register(PadConfigurationViewController.self, factory: { _ in
                 return PadConfigurationViewController()
             })
+            .inObjectScope(.weak)
+    }
+
+    private func registerProgramSelectorViewController(to container: Container) {
+        container
+            .register(ProgramSelectorViewController.self, factory: { _ in
+                return ProgramSelectorViewController()
+            })
+            .initCompleted { (resolver, viewController) in
+                viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)
+            }
             .inObjectScope(.weak)
     }
 }

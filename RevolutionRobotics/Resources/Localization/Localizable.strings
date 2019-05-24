@@ -104,6 +104,11 @@
 
 // MARK: - Programs
 "programs_screen_title" = "Programs";
+"program_selector_title" = "Choose a program!";
+"program_selector_order_by_name" = "Name";
+"program_selector_order_by_date" = "Modified";
+"program_selector_show_compatible_programs" = "show compatible programs only";
+"program_selector_show_all_programs" = "show all programs";
 
 // MARK: - Settings
 "settings_screen_title" = "Settings";
