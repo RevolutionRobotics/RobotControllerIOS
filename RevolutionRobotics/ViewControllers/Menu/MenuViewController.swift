@@ -13,15 +13,11 @@ import SafariServices
 final class MenuViewController: BaseViewController {
     // MARK: - Constants
     private enum Constants {
-        static let titleLabelRatio: CGFloat = 16 / 162
-        static let communityURL: URL = URL(string: "https://www.google.com")!
+        static let communityURL: URL = URL(string: "https://www.google.com")! // TODO: Change to the real community URL
     }
 
     // MARK: - Outlets
     @IBOutlet private weak var menuItemContainer: UIView!
-    @IBOutlet private weak var robotsTitleLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var programsTitleLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var challengesTitleLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var robotsTitleLabel: UILabel!
     @IBOutlet private weak var programsTitleLabel: UILabel!
     @IBOutlet private weak var challengesTitleLabel: UILabel!
@@ -35,21 +31,6 @@ extension MenuViewController {
         robotsTitleLabel.text = MenuKeys.robotCellTitle.translate()
         programsTitleLabel.text = MenuKeys.programsCellTitle.translate()
         challengesTitleLabel.text = MenuKeys.challengesCellTitle.translate()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        setupConstraints()
-    }
-}
-
-// MARK: - Setups
-extension MenuViewController {
-    private func setupConstraints() {
-        robotsTitleLabelTopConstraint.constant = menuItemContainer.frame.height * Constants.titleLabelRatio
-        programsTitleLabelTopConstraint.constant = menuItemContainer.frame.height * Constants.titleLabelRatio
-        challengesTitleLabelTopConstraint.constant = menuItemContainer.frame.height * Constants.titleLabelRatio
     }
 }
 
