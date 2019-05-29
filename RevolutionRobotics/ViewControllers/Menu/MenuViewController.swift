@@ -21,6 +21,8 @@ final class MenuViewController: BaseViewController {
     @IBOutlet private weak var robotsTitleLabel: UILabel!
     @IBOutlet private weak var programsTitleLabel: UILabel!
     @IBOutlet private weak var challengesTitleLabel: UILabel!
+
+    private let shouldShowTutorial = true
 }
 
 // MARK: - View lifecycle
@@ -31,6 +33,12 @@ extension MenuViewController {
         robotsTitleLabel.text = MenuKeys.robotCellTitle.translate()
         programsTitleLabel.text = MenuKeys.programsCellTitle.translate()
         challengesTitleLabel.text = MenuKeys.challengesCellTitle.translate()
+
+        if shouldShowTutorial {
+            let vc = AppContainer.shared.container.unwrappedResolve(MenuTutorialViewController.self)
+            vc.modalPresentationStyle = .overFullScreen
+            present(vc, animated: false, completion: nil)
+        }
     }
 }
 

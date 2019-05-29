@@ -105,6 +105,8 @@
 		2AB8F95122888AD300D7D93C /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB8F95022888AD300D7D93C /* ConfigurationView.swift */; };
 		2AB8F95322888AF300D7D93C /* ConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB8F95222888AF300D7D93C /* ConfigurationView.xib */; };
 		2AB8F9562288933100D7D93C /* UIImagePickerController+Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB8F9552288933100D7D93C /* UIImagePickerController+Show.swift */; };
+		2ABCB646229E91000081B51B /* MenuTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCB645229E91000081B51B /* MenuTutorialViewController.swift */; };
+		2ABCB648229E912D0081B51B /* MenuTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABCB647229E912D0081B51B /* MenuTutorialViewController.xib */; };
 		2ABD618422500F7C00587F1C /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABD618322500F7C00587F1C /* AppDependencies.swift */; };
 		2ABEF0DD228EA0FA00AF87AC /* BluetoothServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0DC228EA0FA00AF87AC /* BluetoothServiceInterface.swift */; };
 		2ABEF0DF228EA19E00AF87AC /* BlutoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0DE228EA19E00AF87AC /* BlutoothService.swift */; };
@@ -326,6 +328,8 @@
 		2AB8F95022888AD300D7D93C /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
 		2AB8F95222888AF300D7D93C /* ConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationView.xib; sourceTree = "<group>"; };
 		2AB8F9552288933100D7D93C /* UIImagePickerController+Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Show.swift"; sourceTree = "<group>"; };
+		2ABCB645229E91000081B51B /* MenuTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTutorialViewController.swift; sourceTree = "<group>"; };
+		2ABCB647229E912D0081B51B /* MenuTutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTutorialViewController.xib; sourceTree = "<group>"; };
 		2ABD618322500F7C00587F1C /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		2ABEF0DC228EA0FA00AF87AC /* BluetoothServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothServiceInterface.swift; sourceTree = "<group>"; };
 		2ABEF0DE228EA19E00AF87AC /* BlutoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlutoothService.swift; sourceTree = "<group>"; };
@@ -623,6 +627,8 @@
 			children = (
 				09ED1BA8225247B1009CF262 /* MenuViewController.swift */,
 				09ED1BAA225247E2009CF262 /* MenuViewController.xib */,
+				2ABCB645229E91000081B51B /* MenuTutorialViewController.swift */,
+				2ABCB647229E912D0081B51B /* MenuTutorialViewController.xib */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -1549,6 +1555,7 @@
 				FE4B162522786A6C00CAA083 /* PhotoModal.xib in Resources */,
 				D031333B228DD3C100704989 /* SaveModal.xib in Resources */,
 				D0BF256C2282C6C100F08C9C /* BuildFinishedModal.xib in Resources */,
+				2ABCB648229E912D0081B51B /* MenuTutorialViewController.xib in Resources */,
 				09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */,
 				0964798122686DE000F68456 /* WhoToBuildViewController.xib in Resources */,
 				0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */,
@@ -1748,6 +1755,7 @@
 				2ABEF0E4228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift in Sources */,
 				D06C3267228570FF005534C0 /* ResetTutorialModal.swift in Sources */,
 				0985495C2271D44500A7C2DC /* UIImageView+GoogleStorage.swift in Sources */,
+				2ABCB646229E91000081B51B /* MenuTutorialViewController.swift in Sources */,
 				2ADE8C3C2270A80F00ECEC72 /* MenuKeys.swift in Sources */,
 				2A7DDB1422856FD000891DA6 /* SensorDataModel.swift in Sources */,
 				2AB8F95122888AD300D7D93C /* ConfigurationView.swift in Sources */,
