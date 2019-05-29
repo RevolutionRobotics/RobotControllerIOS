@@ -16,6 +16,29 @@
 "menu_programs_title" = "programs";
 "menu_challenges_title" = "challenges";
 
+"tutorial_robots_title" = "Under robots, you can…";
+"tutorial_robots_description" = "- Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
+- Per graece denique invidunt ei. Case ullum euripidis duo e
+- Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.";
+"tutorial_programs_title" = "Under programs, you can…";
+"tutorial_programs_description" = "- Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
+- Per graece denique invidunt ei. Case ullum euripidis duo e
+- Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.";
+"tutorial_challenges_title" = "Under challanges, you can…";
+"tutorial_challenges_description" = "- Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
+- Per graece denique invidunt ei. Case ullum euripidis duo e
+- Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.";
+"tutorial_settings_title" = "Under settings…";
+"tutorial_settings_description" = "- Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
+- Per graece denique invidunt ei. Case ullum euripidis duo e
+- Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.";
+"tutorial_community_title" = "Under community...";
+"tutorial_community_description" = "- Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
+- Per graece denique invidunt ei. Case ullum euripidis duo e
+- Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.";
+"tutorial_button_skip" = "Skip";
+"tutorial_button_finish" = "Finish";
+
 // MARK: - Your robots
 "your_robots_screen_title" = "Your robots";
 "your_robots_build_new_button_title" = "build new";

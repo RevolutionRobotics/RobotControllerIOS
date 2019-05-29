@@ -67,10 +67,10 @@ final class MenuTutorialViewController: BaseViewController {
 // MARK: - Actions
 extension MenuTutorialViewController {
     @IBAction private func finishButtonTapped(_ sender: RRButton) {
-        dismiss(animated: false, completion: nil)
+        dismiss()
     }
     @IBAction private func skipButtonTapped(_ sender: RRButton) {
-        dismiss(animated: false, completion: nil)
+        dismiss()
     }
 }
 
@@ -87,7 +87,13 @@ extension MenuTutorialViewController {
 
         show(step: .robot)
         setupCorners()
+        setupTutorialProgressView()
+    }
+}
 
+// MARK: - Setups
+extension MenuTutorialViewController {
+    private func setupTutorialProgressView() {
         tutorialProgressView.nextButtonTapped = { [weak self] step in
             self?.show(step: step)
         }
@@ -104,8 +110,8 @@ extension MenuTutorialViewController {
         setBorder(on: communityDescriptionContentView)
         setBorder(on: settingsDescriptionContentView)
         skipButton.setBorder(fillColor: .clear, strokeColor: .white)
-        skipButton.setTitle("Skip", for: .normal)
-        finishButton.setTitle("Finish", for: .normal)
+        skipButton.setTitle(MenuKeys.Tutorial.skipButton.translate(), for: .normal)
+        finishButton.setTitle(MenuKeys.Tutorial.finishButton.translate(), for: .normal)
         finishButton.setBorder(fillColor: .clear, strokeColor: .white)
         skipButton.titleLabel?.font = Constants.buttonFont
         finishButton.titleLabel?.font = Constants.buttonFont
@@ -115,55 +121,32 @@ extension MenuTutorialViewController {
     private func setBorder(on view: UIView) {
         view.setBorder(fillColor: Color.blackTwo, lineWidth: 0.0, croppedCorners: [.bottomLeft, .topRight])
     }
-}
 
-// MARK: - Setups
-extension MenuTutorialViewController {
     private func setupLabels() {
         robotDescriptionTitleLabel.font = Constants.titleFont
-        robotDescriptionTitleLabel.text = "Under robots, you can…"
+        robotDescriptionTitleLabel.text = MenuKeys.Tutorial.robotsTitle.translate()
         robotDescriptionLabel.font = Constants.descriptionFont
-        robotDescriptionLabel.text = """
-        - Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
-        - Per graece denique invidunt ei. Case ullum euripidis duo eu.
-        - Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.
-        """
+        robotDescriptionLabel.text = MenuKeys.Tutorial.robotsDescription.translate()
 
         programsDescriptionTitleLabel.font = Constants.titleFont
-        programsDescriptionTitleLabel.text = "Under programs, you can…"
+        programsDescriptionTitleLabel.text = MenuKeys.Tutorial.programsTitle.translate()
         programsDescriptionLabel.font = Constants.descriptionFont
-        programsDescriptionLabel.text = """
-        - Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
-        - Per graece denique invidunt ei. Case ullum euripidis duo eu.
-        - Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.
-        """
+        programsDescriptionLabel.text = MenuKeys.Tutorial.programsDescription.translate()
 
         challengesDescriptionTitleLabel.font = Constants.titleFont
-        challengesDescriptionTitleLabel.text = "Under challanges, you can…"
+        challengesDescriptionTitleLabel.text = MenuKeys.Tutorial.challengesTitle.translate()
         challengesDescriptionLabel.font = Constants.descriptionFont
-        challengesDescriptionLabel.text = """
-        - Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
-        - Per graece denique invidunt ei. Case ullum euripidis duo eu.
-        - Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.
-        """
+        challengesDescriptionLabel.text = MenuKeys.Tutorial.challengesDescription.translate()
 
         communityDescriptionTitleLabel.font = Constants.titleFont
-        communityDescriptionTitleLabel.text = "Under community..."
+        communityDescriptionTitleLabel.text = MenuKeys.Tutorial.communityTitle.translate()
         communityDescriptionLabel.font = Constants.descriptionFont
-        communityDescriptionLabel.text = """
-        - Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
-        - Per graece denique invidunt ei. Case ullum euripidis duo eu.
-        - Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.
-        """
+        communityDescriptionLabel.text = MenuKeys.Tutorial.communityDescription.translate()
 
         settingsDescriptionTitleLabel.font = Constants.titleFont
-        settingsDescriptionTitleLabel.text = "Under community..."
+        settingsDescriptionTitleLabel.text = MenuKeys.Tutorial.settingsTitle.translate()
         settingsDescriptionLabel.font = Constants.descriptionFont
-        settingsDescriptionLabel.text = """
-        - Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
-        - Per graece denique invidunt ei. Case ullum euripidis duo eu.
-        - Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.
-        """
+        settingsDescriptionLabel.text = MenuKeys.Tutorial.settingsDescription.translate()
     }
 }
 
@@ -239,5 +222,10 @@ extension MenuTutorialViewController {
     private func hideAllButtons() {
         skipButton.isHidden = true
         finishButton.isHidden = true
+    }
+
+    private func dismiss() {
+        UserDefaults.standard.set(false, forKey: UserDefaults.Keys.shouldShowTutorial)
+        dismiss(animated: false, completion: nil)
     }
 }

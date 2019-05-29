@@ -72,6 +72,7 @@
 		2A3A759F22956BE700ED9A1D /* InMemoryPortMappingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A759E22956BE700ED9A1D /* InMemoryPortMappingDataModel.swift */; };
 		2A3A75A122956BF600ED9A1D /* InMemorySensorDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A75A022956BF600ED9A1D /* InMemorySensorDataModel.swift */; };
 		2A458E27227C89AF000C03D2 /* RRProgressLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */; };
+		2A473776229F0F8500641B07 /* UserDefaults+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A473775229F0F8500641B07 /* UserDefaults+Constants.swift */; };
 		2A4C930C228ABA9E0029AE07 /* MotorConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C930B228ABA9E0029AE07 /* MotorConfigViewModel.swift */; };
 		2A4C930E228C15890029AE07 /* SensorConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C930D228C15890029AE07 /* SensorConfigViewModel.swift */; };
 		2A50DA272292CF5F00B3D74C /* PadConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A50DA262292CF5F00B3D74C /* PadConfigurationViewController.swift */; };
@@ -297,6 +298,7 @@
 		2A3A759E22956BE700ED9A1D /* InMemoryPortMappingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryPortMappingDataModel.swift; sourceTree = "<group>"; };
 		2A3A75A022956BF600ED9A1D /* InMemorySensorDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemorySensorDataModel.swift; sourceTree = "<group>"; };
 		2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRProgressLabel.swift; sourceTree = "<group>"; };
+		2A473775229F0F8500641B07 /* UserDefaults+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Constants.swift"; sourceTree = "<group>"; };
 		2A4C930B228ABA9E0029AE07 /* MotorConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorConfigViewModel.swift; sourceTree = "<group>"; };
 		2A4C930D228C15890029AE07 /* SensorConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorConfigViewModel.swift; sourceTree = "<group>"; };
 		2A50DA262292CF5F00B3D74C /* PadConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadConfigurationViewController.swift; sourceTree = "<group>"; };
@@ -795,6 +797,14 @@
 			path = Label;
 			sourceTree = "<group>";
 		};
+		2A473774229F0F7300641B07 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				2A473775229F0F8500641B07 /* UserDefaults+Constants.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		2A4C930A228ABA8F0029AE07 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1274,6 +1284,7 @@
 		D008E03A2260AAF500089DC7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2A473774229F0F7300641B07 /* UserDefaults */,
 				2AD858DC2295AE840082CDC0 /* UIAlertController */,
 				2AC7AB70228D4FA400D96457 /* URLSession */,
 				D06C326E2289955F005534C0 /* Bundle */,
@@ -1736,6 +1747,7 @@
 				0999431A228DBA6500D87385 /* ProgramInfoModal.swift in Sources */,
 				2ABEF0DF228EA19E00AF87AC /* BlutoothService.swift in Sources */,
 				09ED1BA9225247B1009CF262 /* MenuViewController.swift in Sources */,
+				2A473776229F0F8500641B07 /* UserDefaults+Constants.swift in Sources */,
 				2A7DDB0E22856BC500891DA6 /* ConfigurationDataModel.swift in Sources */,
 				D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */,
 				2AF8C75A22805EEC00CE1ACB /* RealmService.swift in Sources */,

@@ -22,7 +22,7 @@ final class MenuViewController: BaseViewController {
     @IBOutlet private weak var programsTitleLabel: UILabel!
     @IBOutlet private weak var challengesTitleLabel: UILabel!
 
-    private let shouldShowTutorial = true
+    private let shouldShowTutorial = UserDefaults.standard.bool(forKey: UserDefaults.Keys.shouldShowTutorial)
 }
 
 // MARK: - View lifecycle

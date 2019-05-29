@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         assemblyRegister.registerAssemblies()
         dependencies.setup()
+        setupUserDefaults()
         setupWindowAndRootViewController()
         return true
     }
@@ -38,5 +39,11 @@ extension AppDelegate {
         navigationController = RRNavigationController(rootViewController: rootViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+    }
+
+    private func setupUserDefaults() {
+        if UserDefaults.standard.value(forKey: UserDefaults.Keys.shouldShowTutorial) == nil {
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.shouldShowTutorial)
+        }
     }
 }
