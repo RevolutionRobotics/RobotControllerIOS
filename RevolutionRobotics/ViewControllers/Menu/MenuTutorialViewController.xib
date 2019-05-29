@@ -28,6 +28,7 @@
                 <outlet property="communityDescriptionContentView" destination="Bdq-ND-6zw" id="Jki-gf-Ncv"/>
                 <outlet property="communityDescriptionLabel" destination="Igz-OT-gJL" id="pcb-ve-AhE"/>
                 <outlet property="communityDescriptionTitleLabel" destination="Z6j-iw-KM6" id="07c-Zw-8FE"/>
+                <outlet property="finishButton" destination="bxR-M7-tFe" id="Ztn-pe-ZnA"/>
                 <outlet property="menuDimView" destination="LNN-mC-4Pq" id="EsK-7v-YYy"/>
                 <outlet property="menuItemContainer" destination="tLI-po-cnB" id="iqG-TL-57s"/>
                 <outlet property="navigationBar" destination="wCU-Rj-rLS" id="YZA-jD-Tuu"/>
@@ -46,6 +47,8 @@
                 <outlet property="settingsDescriptionContentView" destination="sK9-fM-oTD" id="fMR-rQ-Mdu"/>
                 <outlet property="settingsDescriptionLabel" destination="Fn7-Md-a8I" id="hye-Km-UhJ"/>
                 <outlet property="settingsDescriptionTitleLabel" destination="uFo-fu-vfq" id="gD2-mH-rjZ"/>
+                <outlet property="skipButton" destination="ma0-hZ-XMo" id="VOe-jE-Exh"/>
+                <outlet property="tutorialProgressView" destination="rhy-lx-FuR" id="7Ed-CE-oLb"/>
                 <outlet property="view" destination="qib-6H-b5c" id="X1u-7A-uPe"/>
             </connections>
         </placeholder>
@@ -463,7 +466,7 @@
                         <constraint firstAttribute="height" constant="191" id="k6r-tH-ZOc"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mN-Ii-Laj" userLabel="settingsDescriptionContainerView">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mN-Ii-Laj" userLabel="settingsDescriptionContainerView">
                     <rect key="frame" x="591" y="45" width="212" height="191"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sK9-fM-oTD" userLabel="contentView">
@@ -513,11 +516,50 @@
                         <constraint firstAttribute="bottom" secondItem="sK9-fM-oTD" secondAttribute="bottom" id="gh3-Ew-y9b"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxR-M7-tFe" userLabel="finishButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="665" y="308" width="103" height="46"/>
+                    <color key="backgroundColor" name="BlackTwo"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="103" id="EXo-Tx-6qw"/>
+                        <constraint firstAttribute="height" constant="46" id="QE2-jh-NmG"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                    <state key="normal" title="Button" image="CheckIcon">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="finishButtonTapped:" destination="-1" eventType="touchUpInside" id="C3G-rv-D4O"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma0-hZ-XMo" userLabel="skipButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="665" y="308" width="103" height="46"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="103" id="481-iP-vP0"/>
+                        <constraint firstAttribute="height" constant="46" id="MHK-4L-j8Z"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                    <state key="normal" title="Button" image="SkipIcon">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="skipButtonTapped:" destination="-1" eventType="touchUpInside" id="95J-hi-03p"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhy-lx-FuR" customClass="TutorialProgressView" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="317" y="302" width="178" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="emv-8w-F2c"/>
+                        <constraint firstAttribute="width" constant="178" id="xfT-1F-L1T"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Tn4-vw-MBh" firstAttribute="leading" secondItem="NaX-YQ-t9C" secondAttribute="trailing" constant="-12" id="4R0-Pu-d06"/>
                 <constraint firstItem="LNN-mC-4Pq" firstAttribute="top" secondItem="bcb-n4-Ic4" secondAttribute="top" id="7Li-tw-4r0"/>
+                <constraint firstItem="bcb-n4-Ic4" firstAttribute="trailing" secondItem="ma0-hZ-XMo" secondAttribute="trailing" id="9ue-kx-ccz"/>
                 <constraint firstItem="KGJ-UH-HkV" firstAttribute="leading" secondItem="TeK-pG-oug" secondAttribute="trailing" constant="-12" id="GCo-I4-jka"/>
                 <constraint firstAttribute="trailing" secondItem="7Na-bl-7Us" secondAttribute="trailing" constant="13" id="Gnk-25-DGD"/>
                 <constraint firstAttribute="trailing" secondItem="wCU-Rj-rLS" secondAttribute="trailing" id="KkG-eF-4wo"/>
@@ -526,12 +568,16 @@
                 <constraint firstItem="tLI-po-cnB" firstAttribute="centerY" secondItem="qib-6H-b5c" secondAttribute="centerY" id="QHB-nA-Jjc"/>
                 <constraint firstItem="Ufs-ja-jal" firstAttribute="centerY" secondItem="afy-Ag-Xyl" secondAttribute="centerY" id="Rda-qX-ZbT"/>
                 <constraint firstItem="bcb-n4-Ic4" firstAttribute="leading" secondItem="LNN-mC-4Pq" secondAttribute="leading" constant="44" id="Rrw-uD-fgr"/>
+                <constraint firstItem="rhy-lx-FuR" firstAttribute="centerX" secondItem="qib-6H-b5c" secondAttribute="centerX" id="SsE-Hw-7Ai"/>
                 <constraint firstItem="tLI-po-cnB" firstAttribute="leading" relation="lessThanOrEqual" secondItem="bcb-n4-Ic4" secondAttribute="leading" constant="60" id="SwT-tu-Gll"/>
                 <constraint firstItem="wCU-Rj-rLS" firstAttribute="leading" secondItem="qib-6H-b5c" secondAttribute="leading" id="TeU-Dc-dSV"/>
+                <constraint firstItem="bcb-n4-Ic4" firstAttribute="bottom" secondItem="ma0-hZ-XMo" secondAttribute="bottom" id="UaQ-ZO-WhY"/>
                 <constraint firstItem="LNN-mC-4Pq" firstAttribute="bottom" secondItem="bcb-n4-Ic4" secondAttribute="bottom" constant="21" id="UzA-Ob-qgE"/>
                 <constraint firstAttribute="trailing" secondItem="o2p-Xq-X84" secondAttribute="trailing" id="Vn3-sI-Nmc"/>
                 <constraint firstItem="o2p-Xq-X84" firstAttribute="top" relation="greaterThanOrEqual" secondItem="tLI-po-cnB" secondAttribute="bottom" constant="16" id="VyL-lC-qJs"/>
                 <constraint firstItem="7Na-bl-7Us" firstAttribute="top" secondItem="qib-6H-b5c" secondAttribute="top" constant="1" id="X2Q-1n-xjM"/>
+                <constraint firstItem="bcb-n4-Ic4" firstAttribute="bottom" secondItem="rhy-lx-FuR" secondAttribute="bottom" constant="8" id="Xy2-Wg-UIC"/>
+                <constraint firstItem="bcb-n4-Ic4" firstAttribute="bottom" secondItem="bxR-M7-tFe" secondAttribute="bottom" id="ZPl-Bb-QqW"/>
                 <constraint firstItem="cQr-vd-giG" firstAttribute="top" secondItem="OT3-dM-8fq" secondAttribute="bottom" id="Zq8-fH-fFy"/>
                 <constraint firstItem="0FQ-is-mGe" firstAttribute="centerY" secondItem="T0b-dc-HmJ" secondAttribute="centerY" id="b37-UW-7Y6"/>
                 <constraint firstItem="3mN-Ii-Laj" firstAttribute="top" secondItem="7Na-bl-7Us" secondAttribute="bottom" id="cVQ-Pt-9fj"/>
@@ -543,6 +589,7 @@
                 <constraint firstItem="BY2-fx-n3o" firstAttribute="leading" secondItem="iQz-OV-6jA" secondAttribute="trailing" constant="-12" id="msm-N0-xiT"/>
                 <constraint firstItem="kUA-G4-FdK" firstAttribute="leading" secondItem="qib-6H-b5c" secondAttribute="leading" id="niw-Qi-6UT"/>
                 <constraint firstItem="tLI-po-cnB" firstAttribute="centerX" secondItem="qib-6H-b5c" secondAttribute="centerX" id="oAQ-Fy-ago"/>
+                <constraint firstItem="bcb-n4-Ic4" firstAttribute="trailing" secondItem="bxR-M7-tFe" secondAttribute="trailing" id="pca-b8-92c"/>
                 <constraint firstItem="OT3-dM-8fq" firstAttribute="top" secondItem="7Na-bl-7Us" secondAttribute="top" id="uKL-iT-yk7"/>
                 <constraint firstItem="dGm-KA-y7v" firstAttribute="centerX" secondItem="7Na-bl-7Us" secondAttribute="centerX" id="vd4-pt-rig"/>
                 <constraint firstItem="kUA-G4-FdK" firstAttribute="top" secondItem="o2p-Xq-X84" secondAttribute="bottom" id="xRp-HA-Qx7"/>
@@ -559,6 +606,7 @@
         <image name="BlueBorderHighlighted" width="124" height="162"/>
         <image name="BottomHeader" width="361" height="33"/>
         <image name="ChallengeModel" width="120" height="158"/>
+        <image name="CheckIcon" width="16" height="16"/>
         <image name="CommunityIcon" width="22" height="22"/>
         <image name="Logo" width="37" height="37"/>
         <image name="ProgramModel" width="120" height="102"/>
@@ -566,6 +614,7 @@
         <image name="RedBorderHighlighted" width="124" height="162"/>
         <image name="RobotModel" width="120" height="150"/>
         <image name="SettingsIcon" width="22" height="22"/>
+        <image name="SkipIcon" width="16" height="16"/>
         <image name="TutorialLeftArrow" width="12" height="24"/>
         <image name="TutorialRightArrow" width="12" height="24"/>
         <image name="TutorialTopArrow" width="24" height="12"/>

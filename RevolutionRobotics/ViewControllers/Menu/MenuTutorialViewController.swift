@@ -8,20 +8,21 @@
 
 import UIKit
 
-final class MenuTutorialViewController: BaseViewController {
-    // MARK: - TutorialStep
-    private enum TutorialStep: Int {
-        case robot
-        case programs
-        case challenges
-        case community
-        case settings
-    }
+// MARK: - TutorialStep
+enum TutorialStep: Int {
+    case robot
+    case programs
+    case challenges
+    case community
+    case settings
+}
 
+final class MenuTutorialViewController: BaseViewController {
     // MARK: - Constants
     private enum Constants {
         static let titleFont = Font.barlow(size: 14.0, weight: .bold)
         static let descriptionFont = Font.barlow(size: 12.0, weight: .regular)
+        static let buttonFont = Font.barlow(size: 14.0, weight: .medium)
     }
 
     // MARK: - Outlets
@@ -33,6 +34,9 @@ final class MenuTutorialViewController: BaseViewController {
     @IBOutlet private weak var communityButton: RRButton!
     @IBOutlet private weak var settingsButton: RRButton!
     @IBOutlet private weak var menuDimView: UIView!
+    @IBOutlet private weak var finishButton: RRButton!
+    @IBOutlet private weak var skipButton: RRButton!
+    @IBOutlet private weak var tutorialProgressView: TutorialProgressView!
 
     @IBOutlet private weak var robotDescriptionContainerView: UIView!
     @IBOutlet private weak var robotDescriptionContentView: UIView!
@@ -60,6 +64,16 @@ final class MenuTutorialViewController: BaseViewController {
     @IBOutlet private weak var settingsDescriptionLabel: UILabel!
 }
 
+// MARK: - Actions
+extension MenuTutorialViewController {
+    @IBAction private func finishButtonTapped(_ sender: RRButton) {
+        dismiss(animated: false, completion: nil)
+    }
+    @IBAction private func skipButtonTapped(_ sender: RRButton) {
+        dismiss(animated: false, completion: nil)
+    }
+}
+
 // MARK: - View lifecycle
 extension MenuTutorialViewController {
     override func viewDidLoad() {
@@ -73,6 +87,14 @@ extension MenuTutorialViewController {
 
         show(step: .robot)
         setupCorners()
+
+        tutorialProgressView.nextButtonTapped = { [weak self] step in
+            self?.show(step: step)
+        }
+
+        tutorialProgressView.previousButtonTapped = { [weak self] step in
+            self?.show(step: step)
+        }
     }
 
     private func setupCorners() {
@@ -81,6 +103,13 @@ extension MenuTutorialViewController {
         setBorder(on: challengesDescriptionContentView)
         setBorder(on: communityDescriptionContentView)
         setBorder(on: settingsDescriptionContentView)
+        skipButton.setBorder(fillColor: .clear, strokeColor: .white)
+        skipButton.setTitle("Skip", for: .normal)
+        finishButton.setTitle("Finish", for: .normal)
+        finishButton.setBorder(fillColor: .clear, strokeColor: .white)
+        skipButton.titleLabel?.font = Constants.buttonFont
+        finishButton.titleLabel?.font = Constants.buttonFont
+        finishButton.setBorder(fillColor: Color.blackTwo, strokeColor: .white)
     }
 
     private func setBorder(on view: UIView) {
@@ -141,8 +170,7 @@ extension MenuTutorialViewController {
 // MARK: - Private methods
 extension MenuTutorialViewController {
     private func show(step: TutorialStep) {
-        hideAllDescriptionViews()
-        sendAllViewsToBack()
+        prepareViews()
         switch step {
         case .robot:
             showRobotTutorial()
@@ -157,28 +185,39 @@ extension MenuTutorialViewController {
         }
     }
 
+    private func prepareViews() {
+        hideAllDescriptionViews()
+        sendAllViewsToBack()
+        hideAllButtons()
+    }
+
     private func showRobotTutorial() {
         menuItemContainer.bringSubviewToFront(robotContainer)
         robotDescriptionContainerView.isHidden = false
+        skipButton.isHidden = false
     }
     private func showProgramsTutorial() {
         menuItemContainer.bringSubviewToFront(programsContainer)
         programsDescriptionContainerView.isHidden = false
+        skipButton.isHidden = false
     }
 
     private func showChallengesTutorial() {
         menuItemContainer.bringSubviewToFront(challengesContainer)
         challengesDescriptionContainerView.isHidden = false
+        skipButton.isHidden = false
     }
 
     private func showCommunityTutorial() {
         view.bringSubviewToFront(communityButton)
         communityDescriptionContainerView.isHidden = false
+        skipButton.isHidden = false
     }
 
     private func showSettingsTutorial() {
         view.bringSubviewToFront(settingsButton)
         settingsDescriptionContainerView.isHidden = false
+        finishButton.isHidden = false
     }
 
     private func sendAllViewsToBack() {
@@ -195,5 +234,10 @@ extension MenuTutorialViewController {
         challengesDescriptionContainerView.isHidden = true
         communityDescriptionContainerView.isHidden = true
         settingsDescriptionContainerView.isHidden = true
+    }
+
+    private func hideAllButtons() {
+        skipButton.isHidden = true
+        finishButton.isHidden = true
     }
 }
