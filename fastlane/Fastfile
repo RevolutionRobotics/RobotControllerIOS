@@ -79,9 +79,9 @@ end
   		keychain_password: ENV["MATCH_PASSWORD"]
   		)
 
-      sh "security unlock-keychain -p #{ENV["LOGIN_PASSWORD"]} ~/Library/Keychains/login.keychain-db"
-      sh "security set-key-partition-list -S apple-tool:,apple: -s -k #{ENV["LOGIN_PASSWORD"]} ~/Library/Keychains/login.keychain-db"
-      sh "security set-key-partition-list -S apple-tool:,apple: -s -k #{ENV["MATCH_PASSWORD"]} ~/Library/Keychains/#{ENV["KEYCHAIN_NAME"]}-db"
+    sh "security unlock-keychain -p #{ENV["LOGIN_PASSWORD"]} ~/Library/Keychains/login.keychain-db"
+    sh "security set-key-partition-list -S apple-tool:,apple: -s -k #{ENV["LOGIN_PASSWORD"]} ~/Library/Keychains/login.keychain-db"
+    sh "security set-key-partition-list -S apple-tool:,apple: -s -k #{ENV["MATCH_PASSWORD"]} ~/Library/Keychains/#{KEYCHAIN_NAME}-db"
 
   	xcodebuild(
   		workspace: "RevolutionRobotics.xcworkspace",
