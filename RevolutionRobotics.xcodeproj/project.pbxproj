@@ -67,10 +67,6 @@
 		2A3A759522953EC500ED9A1D /* PlayControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BF256D2282C6E000F08C9C /* PlayControllerViewController.xib */; };
 		2A3A759622953F2900ED9A1D /* TipsModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8622277385E005B3E33 /* TipsModalView.swift */; };
 		2A3A759822954A6700ED9A1D /* RobotConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A759722954A6700ED9A1D /* RobotConfigurationViewController.swift */; };
-		2A3A759B22956BC800ED9A1D /* InMemoryConfigurationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A759A22956BC800ED9A1D /* InMemoryConfigurationDataModel.swift */; };
-		2A3A759D22956BD300ED9A1D /* InMemoryMotorDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A759C22956BD300ED9A1D /* InMemoryMotorDataModel.swift */; };
-		2A3A759F22956BE700ED9A1D /* InMemoryPortMappingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A759E22956BE700ED9A1D /* InMemoryPortMappingDataModel.swift */; };
-		2A3A75A122956BF600ED9A1D /* InMemorySensorDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A75A022956BF600ED9A1D /* InMemorySensorDataModel.swift */; };
 		2A458E27227C89AF000C03D2 /* RRProgressLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */; };
 		2A473776229F0F8500641B07 /* UserDefaults+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A473775229F0F8500641B07 /* UserDefaults+Constants.swift */; };
 		2A4C930C228ABA9E0029AE07 /* MotorConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C930B228ABA9E0029AE07 /* MotorConfigViewModel.swift */; };
@@ -293,10 +289,6 @@
 		2A3A75912292DD3A00ED9A1D /* ControllerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerButton.swift; sourceTree = "<group>"; };
 		2A3A75932293FB7B00ED9A1D /* DriverConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverConfigurationView.xib; sourceTree = "<group>"; };
 		2A3A759722954A6700ED9A1D /* RobotConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotConfigurationViewController.swift; sourceTree = "<group>"; };
-		2A3A759A22956BC800ED9A1D /* InMemoryConfigurationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryConfigurationDataModel.swift; sourceTree = "<group>"; };
-		2A3A759C22956BD300ED9A1D /* InMemoryMotorDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryMotorDataModel.swift; sourceTree = "<group>"; };
-		2A3A759E22956BE700ED9A1D /* InMemoryPortMappingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryPortMappingDataModel.swift; sourceTree = "<group>"; };
-		2A3A75A022956BF600ED9A1D /* InMemorySensorDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemorySensorDataModel.swift; sourceTree = "<group>"; };
 		2A458E26227C89AF000C03D2 /* RRProgressLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRProgressLabel.swift; sourceTree = "<group>"; };
 		2A473775229F0F8500641B07 /* UserDefaults+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Constants.swift"; sourceTree = "<group>"; };
 		2A4C930B228ABA9E0029AE07 /* MotorConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorConfigViewModel.swift; sourceTree = "<group>"; };
@@ -778,17 +770,6 @@
 			path = Driver;
 			sourceTree = "<group>";
 		};
-		2A3A759922956BB500ED9A1D /* InMemory */ = {
-			isa = PBXGroup;
-			children = (
-				2A3A759A22956BC800ED9A1D /* InMemoryConfigurationDataModel.swift */,
-				2A3A759C22956BD300ED9A1D /* InMemoryMotorDataModel.swift */,
-				2A3A759E22956BE700ED9A1D /* InMemoryPortMappingDataModel.swift */,
-				2A3A75A022956BF600ED9A1D /* InMemorySensorDataModel.swift */,
-			);
-			path = InMemory;
-			sourceTree = "<group>";
-		};
 		2A458E25227C89A2000C03D2 /* Label */ = {
 			isa = PBXGroup;
 			children = (
@@ -942,7 +923,6 @@
 		2A7DDB1622856FE700891DA6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				2A3A759922956BB500ED9A1D /* InMemory */,
 				2A7DDB0D22856BC500891DA6 /* ConfigurationDataModel.swift */,
 				2A7DDB1122856FC800891DA6 /* MotorDataModel.swift */,
 				2A7DDB0F22856DC200891DA6 /* PortMappingDataModel.swift */,
@@ -1732,7 +1712,6 @@
 				2A9F52062265E31C00F9F651 /* BaseViewController.swift in Sources */,
 				2A0789F2229339A400CFFDD6 /* DriverConfigurationView.swift in Sources */,
 				2AC7AB72228D4FB900D96457 /* URLSession+ImageDownload.swift in Sources */,
-				2A3A759D22956BD300ED9A1D /* InMemoryMotorDataModel.swift in Sources */,
 				D05C64CE225F578A00B7BF4F /* BuildStep.swift in Sources */,
 				D05C64D9225F58E200B7BF4F /* Side.swift in Sources */,
 				09C3875A2270A7100097619D /* FirebaseError.swift in Sources */,
@@ -1761,9 +1740,7 @@
 				D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */,
 				D05C64CC225F575A00B7BF4F /* Milestone.swift in Sources */,
 				09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */,
-				2A3A759B22956BC800ED9A1D /* InMemoryConfigurationDataModel.swift in Sources */,
 				09C3874D226F32F70097619D /* UIView+Anchor.swift in Sources */,
-				2A3A75A122956BF600ED9A1D /* InMemorySensorDataModel.swift in Sources */,
 				2A7DDB1222856FC800891DA6 /* MotorDataModel.swift in Sources */,
 				2ADE8C3A2270A7A700ECEC72 /* CommunityKeys.swift in Sources */,
 				2AFAA11222663111002BE0A2 /* UIImage+Color.swift in Sources */,
@@ -1831,7 +1808,6 @@
 				2A50DA2C2292CF9A00B3D74C /* GamerConfigurationView.swift in Sources */,
 				2AD858DE2295AE940082CDC0 /* UIAlertController+Error.swift in Sources */,
 				2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */,
-				2A3A759F22956BE700ED9A1D /* InMemoryPortMappingDataModel.swift in Sources */,
 				2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */,
 				2A4C930E228C15890029AE07 /* SensorConfigViewModel.swift in Sources */,
 				2AF8C75C22805EFA00CE1ACB /* RealmServiceInterface.swift in Sources */,

@@ -35,16 +35,4 @@ enum MotorConfigViewModelState: Equatable {
             self = .empty
         }
     }
-
-    init(dataModel: InMemoryMotorDataModel?) {
-        guard let dataModel = dataModel else { self = .empty; return }
-        switch dataModel.type {
-        case MotorDataModel.Constants.motor:
-            self = .motor(dataModel.rotation!)
-        case MotorDataModel.Constants.drivetrain:
-            self = .drivetrain(dataModel.side!, dataModel.rotation!)
-        default:
-            self = .empty
-        }
-    }
 }
