@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TutorialProgressView" customModule="RevolutionRobotics" customModuleProvider="target">
+            <connections>
+                <outlet property="nextButton" destination="YW1-f6-365" id="82h-zd-VEv"/>
+                <outlet property="previousButton" destination="zmC-II-FyU" id="iEi-6M-WLW"/>
+                <outlet property="progressView1" destination="LIv-xk-GRV" id="BTr-QB-OJg"/>
+                <outlet property="progressView2" destination="dPe-iD-bIf" id="Ppf-p1-NJO"/>
+                <outlet property="progressView3" destination="VKP-DA-q41" id="9e4-fV-anr"/>
+                <outlet property="progressView4" destination="r69-Xj-fux" id="tsv-sb-aD7"/>
+                <outlet property="progressView5" destination="Vjj-w1-hK1" id="lZ5-PV-aAk"/>
+                <outletCollection property="progressViews" destination="LIv-xk-GRV" collectionClass="NSMutableArray" id="1ZW-kx-Rfk"/>
+                <outletCollection property="progressViews" destination="dPe-iD-bIf" collectionClass="NSMutableArray" id="IOm-jc-Q7V"/>
+                <outletCollection property="progressViews" destination="VKP-DA-q41" collectionClass="NSMutableArray" id="Epg-KB-QFY"/>
+                <outletCollection property="progressViews" destination="r69-Xj-fux" collectionClass="NSMutableArray" id="XSs-bp-yqJ"/>
+                <outletCollection property="progressViews" destination="Vjj-w1-hK1" collectionClass="NSMutableArray" id="hNT-5J-C3T"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="178" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YW1-f6-365" userLabel="nextButton">
+                    <rect key="frame" x="134" y="426" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="5ct-bS-t1v"/>
+                        <constraint firstAttribute="height" constant="44" id="ZUb-tB-Kog"/>
+                    </constraints>
+                    <state key="normal" image="nextStep"/>
+                    <connections>
+                        <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="Avw-jE-Qwt"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIv-xk-GRV" userLabel="progressView1">
+                    <rect key="frame" x="44" y="443" width="10" height="10"/>
+                    <color key="backgroundColor" name="BrightRed"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="10" id="tXU-Qd-zf2"/>
+                        <constraint firstAttribute="height" constant="10" id="yhk-zZ-YNL"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPe-iD-bIf" userLabel="progressView2">
+                    <rect key="frame" x="64" y="443" width="10" height="10"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="bGj-XX-s3m"/>
+                        <constraint firstAttribute="width" constant="10" id="diO-qq-uvB"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKP-DA-q41" userLabel="progressView3">
+                    <rect key="frame" x="84" y="443" width="10" height="10"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="10" id="7VT-cl-2it"/>
+                        <constraint firstAttribute="height" constant="10" id="JiS-zz-P8I"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r69-Xj-fux" userLabel="progressView4">
+                    <rect key="frame" x="104" y="443" width="10" height="10"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="CEI-yn-w19"/>
+                        <constraint firstAttribute="width" constant="10" id="g9R-9e-RwF"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vjj-w1-hK1" userLabel="progressView5">
+                    <rect key="frame" x="124" y="443" width="10" height="10"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="10" id="aLC-4I-aqX"/>
+                        <constraint firstAttribute="height" constant="10" id="yzD-m4-7kt"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmC-II-FyU" userLabel="previousButton">
+                    <rect key="frame" x="0.0" y="426" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="2S2-IU-CJq"/>
+                        <constraint firstAttribute="width" constant="44" id="5T0-qo-Q5U"/>
+                    </constraints>
+                    <state key="normal" image="previousStep"/>
+                    <connections>
+                        <action selector="previousButtonTapped:" destination="-1" eventType="touchUpInside" id="7C0-Rj-rm6"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="YW1-f6-365" secondAttribute="trailing" id="4UP-5w-62i"/>
+                <constraint firstItem="VKP-DA-q41" firstAttribute="leading" secondItem="dPe-iD-bIf" secondAttribute="trailing" constant="10" id="7vn-PP-DXN"/>
+                <constraint firstItem="r69-Xj-fux" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="KFf-dH-pY0"/>
+                <constraint firstItem="YW1-f6-365" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="NIG-4G-Frd"/>
+                <constraint firstItem="zmC-II-FyU" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="OyZ-Pp-dX1"/>
+                <constraint firstItem="VKP-DA-q41" firstAttribute="trailing" secondItem="r69-Xj-fux" secondAttribute="leading" constant="-10" id="Ru8-Kv-6sV"/>
+                <constraint firstItem="dPe-iD-bIf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="TFi-kE-b1L"/>
+                <constraint firstItem="zmC-II-FyU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WK3-Jb-xeQ"/>
+                <constraint firstItem="LIv-xk-GRV" firstAttribute="leading" secondItem="zmC-II-FyU" secondAttribute="trailing" id="gmZ-lu-1fw"/>
+                <constraint firstItem="dPe-iD-bIf" firstAttribute="leading" secondItem="LIv-xk-GRV" secondAttribute="trailing" constant="10" id="h4q-Ay-Wnn"/>
+                <constraint firstItem="Vjj-w1-hK1" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="i1J-3J-m6K"/>
+                <constraint firstItem="VKP-DA-q41" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ktf-dc-aOd"/>
+                <constraint firstItem="YW1-f6-365" firstAttribute="leading" secondItem="Vjj-w1-hK1" secondAttribute="trailing" id="lSX-WA-3uX"/>
+                <constraint firstItem="LIv-xk-GRV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="yLK-fT-Hpa"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="nextStep" width="9" height="14"/>
+        <image name="previousStep" width="9" height="14"/>
+        <namedColor name="BrightRed">
+            <color red="0.90196078431372551" green="0.011764705882352941" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

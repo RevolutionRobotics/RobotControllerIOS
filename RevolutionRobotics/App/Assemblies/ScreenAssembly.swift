@@ -12,6 +12,7 @@ import RevolutionRoboticsBlockly
 final class ScreenAssembly: Assembly {
     func assemble(container: Container) {
         registerMenuViewController(to: container)
+        registerMenuTutorialViewController(to: container)
         registerBlocklyViewController(to: container)
         registerChallengesViewController(to: container)
         registerProgramsViewController(to: container)
@@ -36,6 +37,12 @@ extension ScreenAssembly {
     private func registerMenuViewController(to container: Container) {
         container
             .register(MenuViewController.self, factory: { _ in return MenuViewController() })
+            .inObjectScope(.weak)
+    }
+
+    private func registerMenuTutorialViewController(to container: Container) {
+        container
+            .register(MenuTutorialViewController.self, factory: { _ in return MenuTutorialViewController() })
             .inObjectScope(.weak)
     }
 

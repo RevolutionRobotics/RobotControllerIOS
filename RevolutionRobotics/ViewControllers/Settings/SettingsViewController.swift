@@ -40,6 +40,7 @@ extension SettingsViewController {
 extension SettingsViewController {
     @IBAction private func resetButtonTapped(_ sender: Any) {
         presentModal(with: ResetTutorialModal.instatiate(), closeHidden: true)
+        UserDefaults.standard.set(true, forKey: UserDefaults.Keys.shouldShowTutorial)
 
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
             self?.dismissViewController()
