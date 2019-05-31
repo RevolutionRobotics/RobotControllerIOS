@@ -46,13 +46,21 @@ final class MotorDataModel: Object {
         self.side = remoteMotor.side?.rawValue
     }
 
-    convenience init?(inMemoryMotor: InMemoryMotorDataModel?) {
-        guard let inMemoryMotor = inMemoryMotor else { return nil }
+    convenience init(viewModel: MotorConfigViewModel) {
         self.init()
-        self.variableName = inMemoryMotor.variableName
-        self.type = inMemoryMotor.type
-        self.testCodeId = inMemoryMotor.testCodeId
-        self.rotation = inMemoryMotor.rotation?.rawValue
-        self.side = inMemoryMotor.side?.rawValue
+        self.variableName = viewModel.portName ?? ""
+        self.testCodeId = -1
+        switch viewModel.state {
+        case .drivetrain(let side, let rotation):
+            self.type = Constants.drivetrain
+            self.side = side.rawValue
+            self.rotation = rotation.rawValue
+        case .motor(let rotation):
+            self.rotation = rotation.rawValue
+            self.type = Constants.motor
+            self.side = nil
+        default:
+            fatalError("Invalid motor configuration view model!")
+        }
     }
 }

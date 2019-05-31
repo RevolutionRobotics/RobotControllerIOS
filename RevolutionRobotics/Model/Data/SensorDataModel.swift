@@ -38,11 +38,17 @@ final class SensorDataModel: Object {
         self.testCodeId = remoteSensor.testCodeId
     }
 
-    convenience init?(inMemorySensor: InMemorySensorDataModel?) {
-        guard let inMemorySensor = inMemorySensor else { return nil }
+    convenience init(viewModel: SensorConfigViewModel) {
         self.init()
-        self.variableName = inMemorySensor.variableName
-        self.type = inMemorySensor.type
-        self.testCodeId = inMemorySensor.testCodeId
+        self.variableName = viewModel.portName ?? ""
+        self.testCodeId = -1
+        switch viewModel.type {
+        case .bumper:
+            self.type = Constants.bumper
+        case .ultrasonic:
+            self.type = Constants.ultrasonic
+        default:
+            fatalError("Invalid motor configuration view model!")
+        }
     }
 }

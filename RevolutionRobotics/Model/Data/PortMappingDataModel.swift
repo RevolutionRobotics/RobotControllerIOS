@@ -30,6 +30,19 @@ final class PortMappingDataModel: Object {
     @objc dynamic var m5: MotorDataModel?
     @objc dynamic var m6: MotorDataModel?
 
+    var variableNames: [String] {
+        return [s1?.variableName,
+                s2?.variableName,
+                s3?.variableName,
+                s4?.variableName,
+                m1?.variableName,
+                m2?.variableName,
+                m3?.variableName,
+                m4?.variableName,
+                m5?.variableName,
+                m6?.variableName].compactMap({ $0 })
+    }
+
     // MARK: - Initialization
     convenience init(s1: SensorDataModel?,
                      s2: SensorDataModel?,
@@ -86,7 +99,7 @@ final class PortMappingDataModel: Object {
         set(motor: dataModel, to: portNumber)
     }
 
-    private func set(motor: MotorDataModel?, to portNumber: Int) {
+    func set(motor: MotorDataModel?, to portNumber: Int) {
         switch portNumber {
         case ConfigurationView.Constants.m1PortNumber:
             self.m1 = motor
@@ -119,7 +132,7 @@ final class PortMappingDataModel: Object {
         set(sensor: dataModel, to: portNumber)
     }
 
-    private func set(sensor: SensorDataModel?, to portNumber: Int) {
+    func set(sensor: SensorDataModel?, to portNumber: Int) {
         switch portNumber {
         case ConfigurationView.Constants.s1PortNumber:
             self.s1 = sensor

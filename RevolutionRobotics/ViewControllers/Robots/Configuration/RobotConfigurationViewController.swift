@@ -71,13 +71,12 @@ final class RobotConfigurationViewController: BaseViewController {
 
     var selectedRobot: UserRobot? {
         didSet {
-            let localConfig = realmService.getConfiguration(id: selectedRobot?.configId)
-            configuration = InMemoryConfigurationDataModel(configuration: localConfig)
+            configuration = realmService.getConfiguration(id: selectedRobot?.configId)
             shouldPrefillConfiguration = true
             robotImage = FileManager.default.image(for: selectedRobot?.id)
         }
     }
-    var configuration: InMemoryConfigurationDataModel?
+    var configuration: ConfigurationDataModel?
 }
 
 // MARK: - View lifecycle
@@ -221,10 +220,14 @@ extension RobotConfigurationViewController {
     private func updateMotorPort(_ motor: MotorConfigViewModel?, on port: Int) {
         guard let motor = motor else { return }
         if motor.state == .empty {
-            configuration?.mapping?.set(motor: nil, to: port)
+            realmService.updateObject(closure: { [weak self] in
+                self?.configuration?.mapping?.set(motor: nil, to: port)
+            })
         } else {
-            let config = InMemoryMotorDataModel(viewModel: motor)
-            configuration?.mapping?.set(motor: config, to: port)
+            let config = MotorDataModel(viewModel: motor)
+            realmService.updateObject(closure: { [weak self] in
+                self?.configuration?.mapping?.set(motor: config, to: port)
+            })
         }
 
         refreshConfigurationData()
@@ -233,10 +236,14 @@ extension RobotConfigurationViewController {
     private func updateSensorPort(_ sensor: SensorConfigViewModel?, on port: Int) {
         guard let sensor = sensor else { return }
         if sensor.type == .empty {
-            configuration?.mapping?.set(sensor: nil, to: port)
+            realmService.updateObject(closure: { [weak self] in
+                self?.configuration?.mapping?.set(sensor: nil, to: port)
+            })
         } else {
-            let config = InMemorySensorDataModel(viewModel: sensor)
-            configuration?.mapping?.set(sensor: config, to: port)
+            let config = SensorDataModel(viewModel: sensor)
+            realmService.updateObject(closure: { [weak self] in
+                self?.configuration?.mapping?.set(sensor: config, to: port)
+            })
         }
 
         refreshConfigurationData()
@@ -332,20 +339,9 @@ extension RobotConfigurationViewController {
     }
 
     private func updateConfiguration(on robot: UserRobot, name: String, description: String?) {
-        let realmConfig = realmService.getConfiguration(id: robot.configId)
         realmService.updateObject(closure: { [weak self] in
             self?.selectedRobot?.customName = name
             self?.selectedRobot?.customDescription = description
-            realmConfig?.mapping?.m1 = MotorDataModel(inMemoryMotor: self?.configuration?.mapping?.m1)
-            realmConfig?.mapping?.m2 = MotorDataModel(inMemoryMotor: self?.configuration?.mapping?.m2)
-            realmConfig?.mapping?.m3 = MotorDataModel(inMemoryMotor: self?.configuration?.mapping?.m3)
-            realmConfig?.mapping?.m4 = MotorDataModel(inMemoryMotor: self?.configuration?.mapping?.m4)
-            realmConfig?.mapping?.m5 = MotorDataModel(inMemoryMotor: self?.configuration?.mapping?.m5)
-            realmConfig?.mapping?.m6 = MotorDataModel(inMemoryMotor: self?.configuration?.mapping?.m6)
-            realmConfig?.mapping?.s1 = SensorDataModel(inMemorySensor: self?.configuration?.mapping?.s1)
-            realmConfig?.mapping?.s2 = SensorDataModel(inMemorySensor: self?.configuration?.mapping?.s2)
-            realmConfig?.mapping?.s3 = SensorDataModel(inMemorySensor: self?.configuration?.mapping?.s3)
-            realmConfig?.mapping?.s4 = SensorDataModel(inMemorySensor: self?.configuration?.mapping?.s4)
         })
     }
 
