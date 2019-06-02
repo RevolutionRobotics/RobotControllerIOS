@@ -182,3 +182,9 @@
 "save_robot_dialog_name_hint" = "Click here and name the robot!";
 "save_dialog_description_title" = "Description";
 "save_dialog_done" = "Done";
+
+"info_robot_delete" = "Delete";
+"info_robot_duplicate" = "Duplicate";
+"info_robot_edit" = "Edit";
+"dialog_robot_info_edit" = "Let’s edit the configuration to play with this robot!";
+"duplicated_robot_name_suffix" = "copy";

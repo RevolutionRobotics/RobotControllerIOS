@@ -260,7 +260,7 @@ extension BuildRobotViewController {
                 configId: remoteRobotDataModel!.configurationId,
                 customName: remoteRobotDataModel?.name,
                 customImage: remoteRobotDataModel?.coverImageGSURL,
-                customDescription: nil)
+                customDescription: remoteRobotDataModel?.customDescription)
             realmService.saveRobot(storedRobotDataModel!, shouldUpdate: true)
             return
         }

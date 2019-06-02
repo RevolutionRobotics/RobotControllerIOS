@@ -83,4 +83,12 @@ enum ModalKeys {
             static let descriptionHint = "save_robot_dialog_description_hint"
         }
     }
+
+    enum RobotInfo {
+        static let delete = "info_robot_delete"
+        static let duplicate = "info_robot_duplicate"
+        static let edit = "info_robot_edit"
+        static let error = "dialog_robot_info_edit"
+        static let copyPostfix = "duplicated_robot_name_suffix"
+    }
 }

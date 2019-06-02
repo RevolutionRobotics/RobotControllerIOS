@@ -34,16 +34,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="213" height="224"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="RobotPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="TCB-zL-eiC" userLabel="robotImageView">
-                        <rect key="frame" x="16" y="54" width="181" height="50"/>
+                        <rect key="frame" x="16" y="35" width="181" height="98"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="revvy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3O-CF-ILH">
-                        <rect key="frame" x="16" y="24" width="181" height="19"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3O-CF-ILH">
+                        <rect key="frame" x="16" y="24" width="181" height="0.0"/>
                         <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Natum temporibus cu cum, erat dolor corrumpit at vis." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhF-Su-8hc">
-                        <rect key="frame" x="18" y="116" width="177" height="29"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhF-Su-8hc">
+                        <rect key="frame" x="18" y="145" width="177" height="0.0"/>
                         <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -52,21 +52,12 @@
                         <rect key="frame" x="18" y="155" width="16" height="16"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019/02/15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pC-Rl-Fr1">
-                        <rect key="frame" x="42" y="156" width="58" height="14.5"/>
+                        <rect key="frame" x="42" y="156" width="58" height="14"/>
                         <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEX-QD-KEF" userLabel="editButton">
-                        <rect key="frame" x="139" y="186" width="35" height="35"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="VEX-QD-KEF" secondAttribute="height" multiplier="1:1" id="gVa-8A-dYi"/>
-                        </constraints>
-                        <connections>
-                            <action selector="editButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="D3Q-Jd-OQH"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUD-tB-1Po" userLabel="deleteButton">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUD-tB-1Po" userLabel="popupButton">
                         <rect key="frame" x="175" y="186" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="EUD-tB-1Po" secondAttribute="height" multiplier="1:1" id="ZdP-FX-YDK"/>
@@ -76,10 +67,10 @@
                         </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DOZ-1A-0H7">
-                        <rect key="frame" x="3" y="186" width="133" height="35"/>
+                        <rect key="frame" x="3" y="186" width="164" height="35"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wV9-9Q-FAd">
-                                <rect key="frame" x="2" y="9" width="129" height="17"/>
+                                <rect key="frame" x="2" y="9" width="160" height="17"/>
                                 <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -100,16 +91,14 @@
                 <constraint firstItem="u76-hq-HP7" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="2LJ-Gi-spT"/>
                 <constraint firstItem="TCB-zL-eiC" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="3at-jc-2xG"/>
                 <constraint firstItem="Z3O-CF-ILH" firstAttribute="top" secondItem="u76-hq-HP7" secondAttribute="top" constant="24" id="5RD-Ab-PKs"/>
-                <constraint firstItem="VEX-QD-KEF" firstAttribute="leading" secondItem="DOZ-1A-0H7" secondAttribute="trailing" constant="3" id="CCb-wb-MOI"/>
                 <constraint firstItem="u76-hq-HP7" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="IdY-1C-a6P"/>
-                <constraint firstItem="VEX-QD-KEF" firstAttribute="height" secondItem="u76-hq-HP7" secondAttribute="height" multiplier="0.15625" id="JtB-80-AP4"/>
                 <constraint firstItem="DOZ-1A-0H7" firstAttribute="top" secondItem="baB-yQ-wnU" secondAttribute="bottom" constant="15" id="PK3-K8-sPZ"/>
                 <constraint firstAttribute="trailing" secondItem="EUD-tB-1Po" secondAttribute="trailing" constant="3" id="QTc-Ev-ya6"/>
+                <constraint firstItem="EUD-tB-1Po" firstAttribute="leading" secondItem="DOZ-1A-0H7" secondAttribute="trailing" constant="8" id="R3a-sa-jTS"/>
                 <constraint firstItem="Z3O-CF-ILH" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Tni-Vg-ddF"/>
                 <constraint firstItem="baB-yQ-wnU" firstAttribute="top" secondItem="XhF-Su-8hc" secondAttribute="bottom" constant="10" id="UrK-9b-1R9"/>
                 <constraint firstItem="EUD-tB-1Po" firstAttribute="height" secondItem="u76-hq-HP7" secondAttribute="height" multiplier="0.15625" id="VSG-oG-kwl"/>
                 <constraint firstItem="TCB-zL-eiC" firstAttribute="top" secondItem="Z3O-CF-ILH" secondAttribute="bottom" constant="11" id="WHe-Dc-3Fv"/>
-                <constraint firstItem="EUD-tB-1Po" firstAttribute="leading" secondItem="VEX-QD-KEF" secondAttribute="trailing" constant="1" id="WSy-3J-JKN"/>
                 <constraint firstItem="DOZ-1A-0H7" firstAttribute="height" secondItem="EUD-tB-1Po" secondAttribute="height" id="Y4c-91-3f4"/>
                 <constraint firstItem="XhF-Su-8hc" firstAttribute="leading" secondItem="u76-hq-HP7" secondAttribute="leading" constant="18" id="gFq-Iu-Wbx"/>
                 <constraint firstItem="DOZ-1A-0H7" firstAttribute="leading" secondItem="u76-hq-HP7" secondAttribute="leading" constant="3" id="grb-H4-s9j"/>
@@ -124,7 +113,6 @@
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="TCB-zL-eiC" secondAttribute="trailing" constant="16" id="rWP-sn-eP7"/>
                 <constraint firstItem="Z3O-CF-ILH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="sdo-nf-Ebb"/>
                 <constraint firstItem="XhF-Su-8hc" firstAttribute="top" secondItem="TCB-zL-eiC" secondAttribute="bottom" constant="12" id="t89-TB-H1e"/>
-                <constraint firstAttribute="bottom" secondItem="VEX-QD-KEF" secondAttribute="bottom" constant="3" id="wy4-ql-TvT"/>
                 <constraint firstItem="u76-hq-HP7" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="xGN-b9-7U5"/>
                 <constraint firstAttribute="trailing" secondItem="Z3O-CF-ILH" secondAttribute="trailing" constant="16" id="xnK-aq-S1Z"/>
             </constraints>
@@ -134,11 +122,10 @@
                 <outlet property="backgroundImageView" destination="u76-hq-HP7" id="2j4-ru-bUN"/>
                 <outlet property="baseHeight" destination="2LJ-Gi-spT" id="2Rr-BU-oh6"/>
                 <outlet property="baseWidth" destination="IdY-1C-a6P" id="Zcw-NF-fnU"/>
-                <outlet property="deleteButton" destination="EUD-tB-1Po" id="73E-pi-PTs"/>
                 <outlet property="descriptionLabel" destination="XhF-Su-8hc" id="G0f-4O-0cn"/>
-                <outlet property="editButton" destination="VEX-QD-KEF" id="m18-5r-CvJ"/>
                 <outlet property="lastModifiedLabel" destination="2pC-Rl-Fr1" id="RfC-1E-2bQ"/>
                 <outlet property="nameLabel" destination="Z3O-CF-ILH" id="ixW-UL-jh6"/>
+                <outlet property="optionsButton" destination="EUD-tB-1Po" id="Wxr-rj-gzg"/>
                 <outlet property="robotImageView" destination="TCB-zL-eiC" id="LbV-tN-NQU"/>
                 <outlet property="statusImageView" destination="baB-yQ-wnU" id="6Wo-gQ-0sb"/>
             </connections>
@@ -148,6 +135,6 @@
     <resources>
         <image name="CalendarIcon" width="16" height="16"/>
         <image name="RobotPlaceholder" width="70" height="92"/>
-        <image name="YourRobotsEditableWhiteCell" width="213" height="224"/>
+        <image name="YourRobotsEditableWhiteCell" width="159" height="168"/>
     </resources>
 </document>
