@@ -20,6 +20,7 @@ enum Image {
         static let underConstruction = UIImage(named: "UnderConstructionIcon")
         static let plusIcon = UIImage(named: "plus16")
         static let closeIcon = UIImage(named: "CloseIcon")
+        static let arrowUp = UIImage(named: "ArrowUp")
     }
 
     enum BuildRobot {
@@ -90,6 +91,10 @@ enum Image {
         static let unassignedButtonIcon = UIImage(named: "ControllerButtonUnassignedIcon")
         static let assignedButtonIcon = UIImage(named: "ControllerButtonAssigned")
         static let highlightedButtonIcon = UIImage(named: "ControllerButtonHighlighted")
+    }
+
+    enum Programs {
+        static let compatibleIcon = UIImage(named: "CompatibleIcon")
     }
 
     static let downloadIcon = UIImage(named: "DownloadIcon")

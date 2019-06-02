@@ -76,6 +76,16 @@ extension BaseViewController {
         }
     }
 
+    func presentViewControllerModally(
+        _ viewController: UIViewController,
+        transitionStyle: UIModalTransitionStyle = .coverVertical,
+        presentationStyle: UIModalPresentationStyle = .overFullScreen
+    ) {
+        viewController.modalTransitionStyle = transitionStyle
+        viewController.modalPresentationStyle = presentationStyle
+        present(viewController, animated: true, completion: nil)
+    }
+
     private func presentSafari(presentationFinished: Callback?, url: URL?) {
         let communityViewController = CommunityViewController(url: url ?? Constants.communityURL)
         communityViewController.presentationFinished = presentationFinished
