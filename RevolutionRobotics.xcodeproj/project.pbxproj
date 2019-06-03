@@ -213,8 +213,9 @@
 		D06F01D2228AFFA600AF73E5 /* FirmwareDownloadModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModal.xib */; };
 		D06F01D7228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift */; };
 		D06F01D9228B0B6300AF73E5 /* SuccessfulUpdateModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModal.xib */; };
-		D0899C4D22A50D3B00DB6F97 /* ChallengeCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0899C4B22A50D3B00DB6F97 /* ChallengeCategoryCollectionViewCell.swift */; };
-		D0899C4E22A50D3B00DB6F97 /* ChallengeCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0899C4C22A50D3B00DB6F97 /* ChallengeCategoryCollectionViewCell.xib */; };
+		D0899C5022A5458300DB6F97 /* ChallengeCategoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0899C4F22A5458300DB6F97 /* ChallengeCategoryDataModel.swift */; };
+		D0899C7322A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0899C7122A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.swift */; };
+		D0899C7422A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0899C7222A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.xib */; };
 		D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CE1226478200052EE1F /* FirebaseService.swift */; };
 		D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CEF22648F990052EE1F /* UIView+Crop.swift */; };
 		D0A1107D227870040064FBB6 /* YourRobotsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */; };
@@ -453,8 +454,9 @@
 		D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareDownloadModal.xib; sourceTree = "<group>"; };
 		D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulUpdateModal.swift; sourceTree = "<group>"; };
 		D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessfulUpdateModal.xib; sourceTree = "<group>"; };
-		D0899C4B22A50D3B00DB6F97 /* ChallengeCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		D0899C4C22A50D3B00DB6F97 /* ChallengeCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		D0899C4F22A5458300DB6F97 /* ChallengeCategoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCategoryDataModel.swift; sourceTree = "<group>"; };
+		D0899C7122A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0899C7222A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChallengeCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		D08C1CE1226478200052EE1F /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D08C1CEF22648F990052EE1F /* UIView+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Crop.swift"; sourceTree = "<group>"; };
 		D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRobotsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -954,7 +956,6 @@
 				D05C64DC225F592400B7BF4F /* Sensor.swift */,
 				D05C64D8225F58E200B7BF4F /* Side.swift */,
 				D05C64C7225F570000B7BF4F /* TestCode.swift */,
-				D05C64D5225F587700B7BF4F /* UserRobot.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -967,6 +968,8 @@
 				2A7DDB0F22856DC200891DA6 /* PortMappingDataModel.swift */,
 				2A7DDB1322856FD000891DA6 /* SensorDataModel.swift */,
 				2AD858DF2296B9EB0082CDC0 /* ControllerDataModel.swift */,
+				D05C64D5225F587700B7BF4F /* UserRobot.swift */,
+				D0899C4F22A5458300DB6F97 /* ChallengeCategoryDataModel.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1012,8 +1015,8 @@
 			children = (
 				2A9F520B2265E95600F9F651 /* ChallengesViewController.swift */,
 				2A9F520C2265E95600F9F651 /* ChallengesViewController.xib */,
-				D0899C4B22A50D3B00DB6F97 /* ChallengeCategoryCollectionViewCell.swift */,
-				D0899C4C22A50D3B00DB6F97 /* ChallengeCategoryCollectionViewCell.xib */,
+				D0899C7122A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.swift */,
+				D0899C7222A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.xib */,
 			);
 			path = Challenges;
 			sourceTree = "<group>";
@@ -1598,7 +1601,6 @@
 				D0049A542271CC52007FA256 /* TurnOnBrainView.xib in Resources */,
 				09105A9E2280581F00AB7B72 /* MotorConfigViewController.xib in Resources */,
 				2A9F520E2265E95600F9F651 /* ChallengesViewController.xib in Resources */,
-				D0899C4E22A50D3B00DB6F97 /* ChallengeCategoryCollectionViewCell.xib in Resources */,
 				FE4B162522786A6C00CAA083 /* PhotoModal.xib in Resources */,
 				D031333B228DD3C100704989 /* SaveModal.xib in Resources */,
 				D0BF256C2282C6C100F08C9C /* BuildFinishedModal.xib in Resources */,
@@ -1607,6 +1609,7 @@
 				0964798122686DE000F68456 /* WhoToBuildViewController.xib in Resources */,
 				0941075F2297E889000A658A /* ProgramSelectorViewController.xib in Resources */,
 				0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */,
+				D0899C7422A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.xib in Resources */,
 				0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */,
 				D0A1107E227870040064FBB6 /* YourRobotsCollectionViewCell.xib in Resources */,
 				D06C327422899F60005534C0 /* FirmwareUpdateViewController.xib in Resources */,
@@ -1769,6 +1772,7 @@
 				09C3875A2270A7100097619D /* FirebaseError.swift in Sources */,
 				094F9DD82264BE1900BE118B /* Color.swift in Sources */,
 				2AF8C76422806A1800CE1ACB /* RealmConnector.swift in Sources */,
+				D0899C7322A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.swift in Sources */,
 				D05C64CA225F572F00B7BF4F /* MilestoneType.swift in Sources */,
 				D03BA85E2277384A005B3E33 /* TestingModal.swift in Sources */,
 				D05C64D6225F587700B7BF4F /* UserRobot.swift in Sources */,
@@ -1782,10 +1786,10 @@
 				2A7DDB0E22856BC500891DA6 /* ConfigurationDataModel.swift in Sources */,
 				D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */,
 				2AF8C75A22805EEC00CE1ACB /* RealmService.swift in Sources */,
-				D0899C4D22A50D3B00DB6F97 /* ChallengeCategoryCollectionViewCell.swift in Sources */,
 				D0313331228D5CBA00704989 /* ControllerButtonMapping.swift in Sources */,
 				2ABEF0DD228EA0FA00AF87AC /* BluetoothServiceInterface.swift in Sources */,
 				2ADE8C292270A61000ECEC72 /* String+Translate.swift in Sources */,
+				D0899C5022A5458300DB6F97 /* ChallengeCategoryDataModel.swift in Sources */,
 				D0A1108C227B18480064FBB6 /* ControllerInfoModal.swift in Sources */,
 				094FC5DF228C3CF60085B407 /* DriverPadView.swift in Sources */,
 				094F9DDC2264BEE600BE118B /* Font.swift in Sources */,

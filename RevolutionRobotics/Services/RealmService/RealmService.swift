@@ -126,4 +126,15 @@ extension RealmService: RealmServiceInterface {
     func saveControllers(_ controllers: [ControllerDataModel]) {
         realmConnector.save(objects: controllers, shouldUpdate: true)
     }
+
+    func saveChallengeCategory(_ category: ChallengeCategoryDataModel) {
+        realmConnector.save(object: category, shouldUpdate: true)
+    }
+
+    func getChallengeCategory(id: String?) -> ChallengeCategoryDataModel? {
+        guard let categories = realmConnector.findAll(type: ChallengeCategoryDataModel.self)
+            as? [ChallengeCategoryDataModel],
+            let category = categories.first(where: { $0.id == id }) else { return nil }
+        return category
+    }
 }

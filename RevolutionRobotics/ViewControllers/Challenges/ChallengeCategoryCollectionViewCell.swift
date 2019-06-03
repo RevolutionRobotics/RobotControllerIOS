@@ -20,14 +20,37 @@ final class ChallengeCategoryCollectionViewCell: UICollectionViewCell {
 
 // MARK: - Setup
 extension ChallengeCategoryCollectionViewCell {
-    func setup(with challengeCategory: ChallengeCategory) {
+    func setup(with challengeCategory: ChallengeCategory, userCategory: ChallengeCategoryDataModel?) {
         categoryName.text = challengeCategory.name
         categoryImageView.downloadImage(googleStorageURL: challengeCategory.image)
+        guard let category = userCategory else {
+            progressView.progress = 0
+            categoryProgress.text = ChallengesKeys.Main.progress.translate(args: 0, challengeCategory.challenges.count)
+            return
+        }
+        if category.progress == challengeCategory.challenges.count {
+            backgroundImageView.image = Image.Challenges.ChallengeCardGold
+            cornerImageView.image = Image.Challenges.ChallengeCardGoldCorner
+            categoryProgress.textColor = .black
+        } else {
+            backgroundImageView.image = Image.Challenges.ChallengeCardGrey
+            cornerImageView.image = Image.Challenges.ChallengeCardGreyCorner
+            categoryProgress.textColor = .white
+        }
+        progressView.progress = Float(category.progress) / Float(challengeCategory.challenges.count)
+        categoryProgress.text =
+            ChallengesKeys.Main.progress.translate(args: category.progress, challengeCategory.challenges.count)
     }
 }
 
 // MARK: - View lifecycle
 extension ChallengeCategoryCollectionViewCell {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        layoutIfNeeded()
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
 
