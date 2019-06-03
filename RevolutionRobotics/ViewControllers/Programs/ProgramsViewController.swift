@@ -52,7 +52,14 @@ extension ProgramsViewController {
 // MARK: - BlocklyBridgeDelegate
 extension ProgramsViewController: BlocklyBridgeDelegate {
     public func singleOptionSelector(_ optionSelector: SingleOptionSelector, callback: ((String) -> Void)?) {
-        callback?(optionSelector.options.randomElement()!.key)
+        let optionSelectorView = OptionSelectorView.instatiate()
+
+        optionSelectorView.setup(optionSelector: optionSelector) { [weak self] option in
+            callback?(option.key)
+            self?.dismissViewController()
+        }
+
+        presentModal(with: optionSelectorView)
     }
 
     public func multiOptionSelector(_ optionSelector: MultiOptionSelector, callback: ((String) -> Void)?) {
