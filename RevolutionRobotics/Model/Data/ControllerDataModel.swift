@@ -63,6 +63,22 @@ final class ControllerButtonMappingDataModal: Object {
         self.b5 = ProgramBindingDataModel(binding: mapping.b5)
         self.b6 = ProgramBindingDataModel(binding: mapping.b6)
     }
+
+    convenience init(b1: ProgramBindingDataModel?,
+                     b2: ProgramBindingDataModel?,
+                     b3: ProgramBindingDataModel?,
+                     b4: ProgramBindingDataModel?,
+                     b5: ProgramBindingDataModel?,
+                     b6: ProgramBindingDataModel?) {
+        self.init()
+
+        self.b1 = b1
+        self.b2 = b2
+        self.b3 = b3
+        self.b4 = b4
+        self.b5 = b5
+        self.b6 = b6
+    }
 }
 
 final class ProgramBindingDataModel: Object {

@@ -82,37 +82,49 @@ extension YourRobotsViewController: UICollectionViewDataSource {
         let cell: YourRobotsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.indexPath = indexPath
         cell.configure(with: robots[indexPath.item])
-        cell.editButtonHandler = { [weak self] in
-            self?.navigateToConfiguration(with: self?.robots[indexPath.item])
-        }
-        cell.deleteButtonHandler = { [weak self] in
-            self?.presentDeleteModal(with: self?.robots[indexPath.item])
+        cell.optionsButtonHandler = { [weak self] in
+            self?.presentRobotOptionsModal(with: self?.robots[indexPath.item])
         }
         return cell
     }
 
-    private func navigateToConfiguration(with robot: UserRobot?) {
-        guard let robot = robot else { return }
-        let configuration = AppContainer.shared.container.unwrappedResolve(RobotConfigurationViewController.self)
-        configuration.selectedRobot = robot
-        navigationController?.pushViewController(configuration, animated: true)
+    private func presentRobotOptionsModal(with robot: UserRobot?) {
+        let modifyView = RobotOptionsView.instatiate()
+        setupHandlers(on: modifyView, with: robot)
+        modifyView.robot = robot
+        presentModal(with: modifyView)
     }
 
-    private func presentDeleteModal(with robot: UserRobot?) {
-        let deleteView = DeleteRobotView.instatiate()
-        setupDeleteHandlers(on: deleteView, with: robot)
-        presentModal(with: deleteView)
-    }
-
-    private func setupDeleteHandlers(on view: DeleteRobotView, with robot: UserRobot?) {
-        view.cancelButtonHandler = { [weak self] in
-            self?.dismissViewController()
-        }
-        view.deleteButtonHandler = { [weak self] in
+    private func setupHandlers(on view: RobotOptionsView, with robot: UserRobot?) {
+        view.deleteHandler = { [weak self] in
             guard let robot = robot else { return }
-            self?.deleteRobot(robot)
             self?.dismissViewController()
+            let deleteView = DeleteRobotView.instatiate()
+            deleteView.deleteButtonHandler = { [weak self] in
+                self?.deleteRobot(robot)
+                self?.dismissViewController()
+            }
+            deleteView.cancelButtonHandler = { [weak self] in
+                self?.dismissViewController()
+            }
+            self?.presentModal(with: deleteView)
         }
+        view.editHandler = { [weak self] in
+            guard let robot = robot else { return }
+            self?.dismissViewController()
+            self?.navigateToConfiguration(with: robot)
+        }
+        view.duplicateHandler = { [weak self] in
+            guard let robot = robot else { return }
+            self?.duplicate(robot)
+        }
+    }
+
+    private func duplicate(_ robot: UserRobot) {
+        realmService.deepCopyRobot(robot)
+        robots = realmService.getRobots()
+        collectionView.reloadData()
+        dismissViewController()
     }
 
     private func deleteRobot(_ robot: UserRobot) {
@@ -177,5 +189,12 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
     func setButtons(rightHidden: Bool, leftHidden: Bool) {
         rightButton.isHidden = rightHidden
         leftButton.isHidden = leftHidden
+    }
+
+    private func navigateToConfiguration(with robot: UserRobot?) {
+        guard let robot = robot else { return }
+        let configuration = AppContainer.shared.container.unwrappedResolve(RobotConfigurationViewController.self)
+        configuration.selectedRobot = robot
+        navigationController?.pushViewController(configuration, animated: true)
     }
 }

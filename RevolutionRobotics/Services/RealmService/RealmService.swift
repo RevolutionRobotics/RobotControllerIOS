@@ -14,6 +14,73 @@ final class RealmService {
 
 // MARK: - RealmServiceInterface
 extension RealmService: RealmServiceInterface {
+    func deepCopyRobot(_ robot: UserRobot) {
+        let newRobot = UserRobot(value: robot)
+        newRobot.id = UUID().uuidString
+        newRobot.configId = deepCopy(getConfiguration(id: robot.configId))
+        newRobot.customName = (newRobot.customName ?? "") + " " + ModalKeys.RobotInfo.copyPostfix.translate()
+        deepCopy(from: getConfiguration(id: robot.configId), newConfigurationId: newRobot.configId)
+        saveRobot(newRobot)
+    }
+
+    private func deepCopy(_ configuration: ConfigurationDataModel?) -> String {
+        guard let configuration = configuration else { return "" }
+        let newConfiguration = ConfigurationDataModel(value: configuration)
+        newConfiguration.id = UUID().uuidString
+        newConfiguration.mapping = deepCopy(configuration.mapping)
+        saveConfigurations([newConfiguration])
+        return newConfiguration.id
+    }
+
+    private func deepCopy(_ mapping: PortMappingDataModel?) -> PortMappingDataModel? {
+        guard let mapping = mapping else { return nil }
+        let s1: SensorDataModel? = (mapping.s1 != nil) ? SensorDataModel(value: mapping.s1!) : nil
+        let s2: SensorDataModel? = (mapping.s2 != nil) ? SensorDataModel(value: mapping.s2!) : nil
+        let s3: SensorDataModel? = (mapping.s3 != nil) ? SensorDataModel(value: mapping.s3!) : nil
+        let s4: SensorDataModel? = (mapping.s4 != nil) ? SensorDataModel(value: mapping.s4!) : nil
+        let m1: MotorDataModel? = (mapping.m1 != nil) ? MotorDataModel(value: mapping.m1!) : nil
+        let m2: MotorDataModel? = (mapping.m2 != nil) ? MotorDataModel(value: mapping.m2!) : nil
+        let m3: MotorDataModel? = (mapping.m3 != nil) ? MotorDataModel(value: mapping.m3!) : nil
+        let m4: MotorDataModel? = (mapping.m4 != nil) ? MotorDataModel(value: mapping.m4!) : nil
+        let m5: MotorDataModel? = (mapping.m5 != nil) ? MotorDataModel(value: mapping.m5!) : nil
+        let m6: MotorDataModel? = (mapping.m6 != nil) ? MotorDataModel(value: mapping.m6!) : nil
+        return PortMappingDataModel(s1: s1, s2: s2, s3: s3, s4: s4, m1: m1, m2: m2, m3: m3, m4: m4, m5: m5, m6: m6)
+    }
+
+    private func deepCopy(from configuration: ConfigurationDataModel?, newConfigurationId: String) {
+        let controllers = getControllers().filter({ $0.configurationId == configuration?.id })
+        var newControllers: [ControllerDataModel] = []
+        controllers.forEach { dataModel in
+            let newController = ControllerDataModel(value: dataModel)
+            newController.id = UUID().uuidString
+            newController.configurationId = newConfigurationId
+            newController.mapping = deepCopy(dataModel.mapping)
+            newController.backgroundProgramBindings = deepCopy(dataModel.backgroundProgramBindings)
+            newControllers.append(newController)
+        }
+        saveControllers(newControllers)
+    }
+
+    private func deepCopy(_ mapping: ControllerButtonMappingDataModal?) -> ControllerButtonMappingDataModal? {
+        guard let mapping = mapping else { return nil }
+
+        let b1: ProgramBindingDataModel? = (mapping.b1 != nil) ? ProgramBindingDataModel(value: mapping.b1!) : nil
+        let b2: ProgramBindingDataModel? = (mapping.b2 != nil) ? ProgramBindingDataModel(value: mapping.b2!) : nil
+        let b3: ProgramBindingDataModel? = (mapping.b3 != nil) ? ProgramBindingDataModel(value: mapping.b3!) : nil
+        let b4: ProgramBindingDataModel? = (mapping.b4 != nil) ? ProgramBindingDataModel(value: mapping.b4!) : nil
+        let b5: ProgramBindingDataModel? = (mapping.b5 != nil) ? ProgramBindingDataModel(value: mapping.b5!) : nil
+        let b6: ProgramBindingDataModel? = (mapping.b6 != nil) ? ProgramBindingDataModel(value: mapping.b6!) : nil
+        return ControllerButtonMappingDataModal(b1: b1, b2: b2, b3: b3, b4: b4, b5: b5, b6: b6)
+    }
+
+    private func deepCopy(_ list: List<ProgramBindingDataModel>) -> List<ProgramBindingDataModel> {
+        let newList = List<ProgramBindingDataModel>()
+        Array(list).forEach { dataModel in
+            newList.append(ProgramBindingDataModel(value: dataModel))
+        }
+        return newList
+    }
+
     func saveConfigurations(_ configurations: [ConfigurationDataModel]) {
         realmConnector.save(objects: configurations, shouldUpdate: true)
     }

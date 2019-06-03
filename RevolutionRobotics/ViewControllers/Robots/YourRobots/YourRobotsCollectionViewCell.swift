@@ -18,9 +18,8 @@ final class YourRobotsCollectionViewCell: ResizableCell {
     @IBOutlet private weak var lastModifiedLabel: UILabel!
     @IBOutlet private weak var statusImageView: UIImageView!
     @IBOutlet private weak var actionLabel: UILabel!
-    @IBOutlet private weak var editButton: UIButton!
-    @IBOutlet private weak var deleteButton: UIButton!
     @IBOutlet private weak var robotImageView: UIImageView!
+    @IBOutlet private weak var optionsButton: UIButton!
 
     // MARK: - Properties
     private var baseHeightMultiplier: CGFloat = 0
@@ -32,21 +31,14 @@ final class YourRobotsCollectionViewCell: ResizableCell {
 
     override var isCentered: Bool {
         didSet {
-            if isFinished {
-                backgroundImageView.image =
-                    isCentered ? Image.YourRobots.cellRedBorderEditable :
-                    Image.YourRobots.cellWhiteBorderEditable
-            } else {
-                backgroundImageView.image =
-                    isCentered ? Image.YourRobots.cellRedBorderNonEditable :
-                    Image.YourRobots.cellWhiteBorderNonEditable
-            }
+            backgroundImageView.image =
+                isCentered ? Image.YourRobots.cellRedBorderEditable :
+                Image.YourRobots.cellWhiteBorderEditable
         }
     }
 
     var isFinished: Bool = false
-    var editButtonHandler: Callback?
-    var deleteButtonHandler: Callback?
+    var optionsButtonHandler: Callback?
 }
 
 // MARK: - View lifecycle
@@ -72,7 +64,6 @@ extension YourRobotsCollectionViewCell {
             RobotsKeys.YourRobots.continueBuilding.translate()
         descriptionLabel.text = robot.customDescription
         let isCompleted = robot.buildStatus == BuildStatus.completed.rawValue
-        editButton.isEnabled = isCompleted
         statusImageView.image = isCompleted ? Image.Common.calendar : Image.Common.underConstruction
         lastModifiedLabel.text = isCompleted ?
             dateFormatter.string(from: robot.lastModified) : RobotsKeys.YourRobots.underConstruction.translate()
@@ -99,11 +90,7 @@ extension YourRobotsCollectionViewCell {
 
 // MARK: - Actions
 extension YourRobotsCollectionViewCell {
-    @IBAction private func editButtonTapped(_ sender: Any) {
-        editButtonHandler?()
-    }
-
     @IBAction private func deleteButtonTapped(_ sender: Any) {
-        deleteButtonHandler?()
+        optionsButtonHandler?()
     }
 }

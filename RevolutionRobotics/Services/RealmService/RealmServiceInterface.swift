@@ -9,6 +9,7 @@
 protocol RealmServiceInterface: class {
     var realmConnector: RealmConnectorInterface! { get set }
 
+    func deepCopyRobot(_ robot: UserRobot)
     func getRobots() -> [UserRobot]
     func saveRobot(_ robot: UserRobot, shouldUpdate: Bool)
     func deleteRobot(_ robot: UserRobot)

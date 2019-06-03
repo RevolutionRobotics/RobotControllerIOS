@@ -27,7 +27,7 @@ struct Robot: FirebaseData {
     // MARK: - Properties
     var id: String
     var name: String
-    var description: String
+    var customDescription: String
     var coverImageGSURL: String
     var buildTime: String
     var configurationId: String
@@ -41,7 +41,7 @@ struct Robot: FirebaseData {
 
         guard let id = dic[Constants.id] as? Int,
             let name = dic[Constants.name] as? String,
-            let description = dic[Constants.description] as? String,
+            let customDescription = dic[Constants.description] as? String,
             let coverImage = dic[Constants.coverImage] as? String,
             let buildTime = dic[Constants.buildTime] as? String,
             let configurationId = dic[Constants.configurationId] as? Int,
@@ -51,7 +51,7 @@ struct Robot: FirebaseData {
 
         self.id = "\(id)"
         self.name = name
-        self.description = description
+        self.customDescription = customDescription
         self.coverImageGSURL = coverImage
         self.buildTime = buildTime
         self.configurationId = "\(configurationId)"

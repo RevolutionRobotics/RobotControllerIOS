@@ -11,9 +11,11 @@ import Foundation
 extension DateFormatter {
     enum Format: String {
         case yearMonthDay = "yyyy.MM.dd."
+        case yearMonthDaySlashed = "yyyy/MM/dd"
     }
 
-    static func string(from date: Date, format: Format) -> String {
+    static func string(from date: Date?, format: Format) -> String {
+        guard let date = date else { return "" }
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format.rawValue
         return dateFormatter.string(from: date)
