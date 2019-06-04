@@ -27,7 +27,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="250" height="149"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeCardGrey" translatesAutoresizingMaskIntoConstraints="NO" id="XHB-rn-YGb">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeCategoryCardGrey" translatesAutoresizingMaskIntoConstraints="NO" id="XHB-rn-YGb">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="149.00000000000003"/>
                     </imageView>
                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="o5U-ih-htm">
@@ -51,7 +51,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeCardGreyCorner" translatesAutoresizingMaskIntoConstraints="NO" id="Jjv-9n-i0c">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeCategoryCardGreyCorner" translatesAutoresizingMaskIntoConstraints="NO" id="Jjv-9n-i0c">
                         <rect key="frame" x="136.5" y="99.5" width="112.5" height="49.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Jjv-9n-i0c" secondAttribute="height" multiplier="25:11" id="fOk-Mv-b6N"/>
@@ -97,8 +97,8 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="ChallengeCardGrey" width="162" height="98"/>
-        <image name="ChallengeCardGreyCorner" width="73" height="33"/>
+        <image name="ChallengeCategoryCardGrey" width="162" height="98"/>
+        <image name="ChallengeCategoryCardGreyCorner" width="73" height="33"/>
         <namedColor name="BlackTwo">
             <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

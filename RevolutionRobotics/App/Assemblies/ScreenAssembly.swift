@@ -14,6 +14,7 @@ final class ScreenAssembly: Assembly {
         registerMenuViewController(to: container)
         registerMenuTutorialViewController(to: container)
         registerBlocklyViewController(to: container)
+        registerChallengeCategoriesViewController(to: container)
         registerChallengesViewController(to: container)
         registerProgramsViewController(to: container)
         registerSettingsViewController(to: container)
@@ -53,12 +54,23 @@ extension ScreenAssembly {
             .inObjectScope(.weak)
     }
 
+    private func registerChallengeCategoriesViewController(to container: Container) {
+        container
+            .register(ChallengeCategoriesViewController.self, factory: { _ in
+                return ChallengeCategoriesViewController()
+            })
+            .initCompleted { (resolver, viewController) in
+                viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
+                viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
+            }
+            .inObjectScope(.weak)
+    }
+
     private func registerChallengesViewController(to container: Container) {
         container
             .register(ChallengesViewController.self, factory: { _ in return ChallengesViewController() })
             .initCompleted { (resolver, viewController) in
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
-                viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
             }
             .inObjectScope(.weak)
     }

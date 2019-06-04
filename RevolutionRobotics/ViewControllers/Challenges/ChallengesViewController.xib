@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="landscape">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -9,48 +9,73 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChallengesViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
-                <outlet property="challengesCollectionView" destination="XRH-V0-MpS" id="wqh-lS-MXQ"/>
-                <outlet property="navigationBar" destination="LeP-ld-0dv" id="rHY-1X-fWh"/>
+                <outlet property="challengeDescription" destination="8LI-zG-8E0" id="8G7-LT-AX6"/>
+                <outlet property="challengesCollectionView" destination="nIQ-T6-bBg" id="ODf-Oq-o8G"/>
+                <outlet property="navigationBar" destination="86x-5s-OGY" id="nhj-DM-lU7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LeP-ld-0dv" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="896" height="71"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GlowBackground" translatesAutoresizingMaskIntoConstraints="NO" id="8uN-yC-ctk">
+                    <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="86x-5s-OGY" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="568" height="71"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="71" id="kdn-OX-mqd"/>
+                        <constraint firstAttribute="height" constant="71" id="BdG-0Z-1JH"/>
                     </constraints>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XRH-V0-MpS">
-                    <rect key="frame" x="54" y="81" width="788" height="302"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gear ratios, gearing up &amp; down, gear combos, boxes &amp; compound gears, speed vs. torque (applied to driving &amp; arms)." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LI-zG-8E0">
+                    <rect key="frame" x="66" y="75" width="436" height="29"/>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="nIQ-T6-bBg">
+                    <rect key="frame" x="0.0" y="128" width="568" height="161"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="18" minimumInteritemSpacing="18" id="mkn-YK-ImK">
-                        <size key="itemSize" width="162" height="98"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Fyz-Kd-Vbi">
+                        <size key="itemSize" width="134" height="159"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="24" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="LeP-ld-0dv" secondAttribute="trailing" id="HuH-w9-4fC"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XRH-V0-MpS" secondAttribute="bottom" constant="10" id="KzS-b5-kwl"/>
-                <constraint firstItem="LeP-ld-0dv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZwO-5p-XXT"/>
-                <constraint firstItem="XRH-V0-MpS" firstAttribute="top" secondItem="LeP-ld-0dv" secondAttribute="bottom" constant="10" id="Zxe-Ox-6V6"/>
-                <constraint firstItem="LeP-ld-0dv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cN3-G4-W7R"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XRH-V0-MpS" secondAttribute="trailing" constant="10" id="crM-Vh-IhC"/>
-                <constraint firstItem="XRH-V0-MpS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="qd0-ZQ-cpT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8LI-zG-8E0" secondAttribute="trailing" constant="66" id="9bH-PB-G3T"/>
+                <constraint firstAttribute="trailing" secondItem="86x-5s-OGY" secondAttribute="trailing" id="9sa-Rh-JZ0"/>
+                <constraint firstAttribute="trailing" secondItem="nIQ-T6-bBg" secondAttribute="trailing" id="AMD-Oa-vbc"/>
+                <constraint firstItem="86x-5s-OGY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="B77-mY-C4B"/>
+                <constraint firstAttribute="trailing" secondItem="8uN-yC-ctk" secondAttribute="trailing" id="LL2-Lc-NrP"/>
+                <constraint firstItem="nIQ-T6-bBg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OEA-pT-0eb"/>
+                <constraint firstAttribute="bottom" secondItem="8uN-yC-ctk" secondAttribute="bottom" id="PT2-do-kRE"/>
+                <constraint firstItem="nIQ-T6-bBg" firstAttribute="top" secondItem="8LI-zG-8E0" secondAttribute="bottom" constant="24" id="QFj-l6-1KE"/>
+                <constraint firstItem="8uN-yC-ctk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="SRJ-4x-VsI"/>
+                <constraint firstItem="8uN-yC-ctk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YdM-va-yt9"/>
+                <constraint firstItem="86x-5s-OGY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="e9J-DX-O7N"/>
+                <constraint firstItem="8LI-zG-8E0" firstAttribute="top" secondItem="86x-5s-OGY" secondAttribute="bottom" constant="4" id="h68-jz-7xd"/>
+                <constraint firstItem="8LI-zG-8E0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="66" id="nQX-1k-zdq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="nIQ-T6-bBg" secondAttribute="bottom" constant="31" id="vU7-3A-m1W"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="GlowBackground" width="568" height="320"/>
+    </resources>
 </document>
