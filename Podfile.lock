@@ -44,23 +44,23 @@ PODS:
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (~> 0.3)
-  - GoogleUtilities/AppDelegateSwizzler (6.1.0):
+  - GoogleUtilities/AppDelegateSwizzler (6.2.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.1.0)
-  - GoogleUtilities/Logger (6.1.0):
+  - GoogleUtilities/Environment (6.2.0)
+  - GoogleUtilities/Logger (6.2.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.1.0):
+  - GoogleUtilities/MethodSwizzler (6.2.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.1.0):
+  - GoogleUtilities/Network (6.2.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.1.0)"
-  - GoogleUtilities/Reachability (6.1.0):
+  - "GoogleUtilities/NSData+zlib (6.2.0)"
+  - GoogleUtilities/Reachability (6.2.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.1.0):
+  - GoogleUtilities/UserDefaults (6.2.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.2)
   - Kingfisher (5.3.1)
@@ -80,7 +80,7 @@ PODS:
   - RevolutionRoboticsBluetooth (0.1.0)
   - SideMenu (5.0.3)
   - SwiftLint (0.31.0)
-  - Swinject (2.6.0)
+  - Swinject (2.6.1)
   - WKWebViewJavascriptBridge (1.2.0)
 
 DEPENDENCIES:
@@ -134,7 +134,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   RevolutionRoboticsBlockly:
-    :commit: ae022575ea16c0d733ab43158a2b82101047c88c
+    :commit: c2fff9007183c7bfb5f1a05791dfe171049c69f1
     :git: "git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git"
     :submodules: true
   RevolutionRoboticsBluetooth:
@@ -155,7 +155,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 27bed93a59b6685f5c3e0c028a878a764fd75c33
   FirebaseStorage: 926d41552072b9fee67aa645760f05f87b7ce604
   GoogleAppMeasurement: 51d8d9ea48f0ca44484d29cfbdef976fbd4fc336
-  GoogleUtilities: 84df567c76ca84f67b7bb40e769fdd4acc746a10
+  GoogleUtilities: 996e0db07153674fd1b54b220fda3a3dc3547cba
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
@@ -166,7 +166,7 @@ SPEC CHECKSUMS:
   RevolutionRoboticsBluetooth: 1af416fe3140aba90113bd7bd469b7279a09dd8b
   SideMenu: 92417cef5aa12b2784e82854406a0d3831ef7df3
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
-  Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
+  Swinject: b624462f47b635a64f89a60a247baa5fccec14e1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
 
 PODFILE CHECKSUM: 58fe07062ad0e2ddeca52d77e5f03fbf1223d568

@@ -1,47 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="landscape">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgramsViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
-                <outlet property="navigationBar" destination="bFY-e1-IA4" id="1Yq-rk-eND"/>
+                <outlet property="containerView" destination="1pp-7Y-TxJ" id="ndt-Wd-SLp"/>
+                <outlet property="openProgramButton" destination="l4f-g9-nir" id="7oF-cU-qIp"/>
+                <outlet property="programCodeButton" destination="flb-lY-xZT" id="aNL-7R-BnQ"/>
+                <outlet property="programNameButton" destination="1w9-Zy-8Ed" id="VWq-rP-e0n"/>
+                <outlet property="saveProgramButton" destination="4kc-sJ-21m" id="Ugf-nY-t5Z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFY-e1-IA4" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="896" height="71"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="stP-hD-fex">
+                    <rect key="frame" x="0.0" y="0.0" width="667" height="56"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQV-Kn-Ojg">
+                            <rect key="frame" x="24" y="8" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Iqy-Cw-oXP"/>
+                                <constraint firstAttribute="width" constant="40" id="Vtu-QU-ky6"/>
+                            </constraints>
+                            <state key="normal" image="BackIcon"/>
+                            <connections>
+                                <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="aO7-qe-laD"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4f-g9-nir" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="595" y="8" width="48" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Obh-oZ-JpY"/>
+                                <constraint firstAttribute="width" constant="48" id="nlK-kC-6rg"/>
+                            </constraints>
+                            <state key="normal" image="FolderIcon"/>
+                            <connections>
+                                <action selector="openProgramButtonTapped:" destination="-1" eventType="touchUpInside" id="Nxl-x4-DOl"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kc-sJ-21m" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="539" y="8" width="48" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Zeh-8C-lK8"/>
+                                <constraint firstAttribute="width" constant="48" id="r2K-AP-CFC"/>
+                            </constraints>
+                            <state key="normal" image="floppy"/>
+                            <connections>
+                                <action selector="saveProgramButtonTapped:" destination="-1" eventType="touchUpInside" id="98T-nT-kBk"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flb-lY-xZT" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="483" y="8" width="48" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="48" id="aZ0-1I-i8g"/>
+                                <constraint firstAttribute="height" constant="40" id="mtg-Ic-h5K"/>
+                            </constraints>
+                            <state key="normal" image="CodeIcon"/>
+                            <connections>
+                                <action selector="programCodeButtonTapped:" destination="-1" eventType="touchUpInside" id="14N-mu-a0M"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1w9-Zy-8Ed" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="310" y="8" width="165" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Xnx-Ry-hjR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="16"/>
+                            <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="12" maxY="0.0"/>
+                            <state key="normal" title="Untitled program"/>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="71" id="PxC-W4-lob"/>
+                        <constraint firstItem="1w9-Zy-8Ed" firstAttribute="centerY" secondItem="flb-lY-xZT" secondAttribute="centerY" id="1TH-zr-b62"/>
+                        <constraint firstItem="l4f-g9-nir" firstAttribute="leading" secondItem="4kc-sJ-21m" secondAttribute="trailing" constant="8" id="E5h-dl-qa6"/>
+                        <constraint firstItem="4kc-sJ-21m" firstAttribute="leading" secondItem="flb-lY-xZT" secondAttribute="trailing" constant="8" id="I1c-xa-ZBM"/>
+                        <constraint firstItem="l4f-g9-nir" firstAttribute="centerY" secondItem="stP-hD-fex" secondAttribute="centerY" id="U9K-Bn-Gut"/>
+                        <constraint firstItem="flb-lY-xZT" firstAttribute="leading" secondItem="1w9-Zy-8Ed" secondAttribute="trailing" constant="8" id="UOL-fV-iO5"/>
+                        <constraint firstItem="4kc-sJ-21m" firstAttribute="centerY" secondItem="l4f-g9-nir" secondAttribute="centerY" id="Upt-yi-u46"/>
+                        <constraint firstItem="KQV-Kn-Ojg" firstAttribute="leading" secondItem="stP-hD-fex" secondAttribute="leading" constant="24" id="VUj-T3-lEX"/>
+                        <constraint firstItem="KQV-Kn-Ojg" firstAttribute="centerY" secondItem="stP-hD-fex" secondAttribute="centerY" id="W2V-94-JEx"/>
+                        <constraint firstAttribute="trailing" secondItem="l4f-g9-nir" secondAttribute="trailing" constant="24" id="Xlc-Db-lKc"/>
+                        <constraint firstAttribute="height" constant="56" id="Ydz-A7-aHs"/>
+                        <constraint firstItem="flb-lY-xZT" firstAttribute="centerY" secondItem="4kc-sJ-21m" secondAttribute="centerY" id="gNu-TM-pQj"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pp-7Y-TxJ">
+                    <rect key="frame" x="0.0" y="56" width="667" height="319"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
-            <color key="backgroundColor" name="Black"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="bFY-e1-IA4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2g2-5V-tTi"/>
-                <constraint firstItem="bFY-e1-IA4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="90I-2t-VId"/>
-                <constraint firstAttribute="trailing" secondItem="bFY-e1-IA4" secondAttribute="trailing" id="BML-ff-1m9"/>
+                <constraint firstAttribute="trailing" secondItem="stP-hD-fex" secondAttribute="trailing" id="7hS-iB-iN7"/>
+                <constraint firstItem="stP-hD-fex" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9SG-jn-z69"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1pp-7Y-TxJ" secondAttribute="trailing" id="Nq4-vL-mV3"/>
+                <constraint firstItem="stP-hD-fex" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TFb-lX-b2H"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1pp-7Y-TxJ" secondAttribute="bottom" id="bKs-C1-See"/>
+                <constraint firstItem="1pp-7Y-TxJ" firstAttribute="top" secondItem="stP-hD-fex" secondAttribute="bottom" id="d4C-dI-WJ4"/>
+                <constraint firstItem="1pp-7Y-TxJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="iRl-Lb-RBu"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.18140929535232" y="154.40000000000001"/>
         </view>
     </objects>
     <resources>
-        <namedColor name="Black">
-            <color red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="BackIcon" width="13" height="22"/>
+        <image name="CodeIcon" width="24" height="24"/>
+        <image name="FolderIcon" width="24" height="24"/>
+        <image name="floppy" width="25" height="25"/>
     </resources>
 </document>
