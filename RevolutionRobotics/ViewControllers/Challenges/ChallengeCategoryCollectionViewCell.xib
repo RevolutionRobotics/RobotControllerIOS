@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Bold.ttf">
+            <string>Barlow-Bold</string>
+        </array>
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="ChallengeCategoryCollectionViewCell" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="149"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="250" height="149"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeCardGold" translatesAutoresizingMaskIntoConstraints="NO" id="XHB-rn-YGb">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="149"/>
+                    </imageView>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="o5U-ih-htm">
+                        <rect key="frame" x="14" y="119" width="154.5" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="Y9v-iW-p6i"/>
+                        </constraints>
+                        <color key="progressTintColor" name="Red"/>
+                        <color key="trackTintColor" name="BlackTwo"/>
+                    </progressView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="25" placeholderIntrinsicHeight="23" translatesAutoresizingMaskIntoConstraints="NO" id="kvT-hu-BBH">
+                        <rect key="frame" x="14" y="53" width="25" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="e4A-oL-IpB"/>
+                            <constraint firstAttribute="height" constant="23" id="tlB-dG-6tS"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZU-t5-zBc">
+                        <rect key="frame" x="47" y="57.5" width="191" height="14"/>
+                        <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeCardGoldCorner" translatesAutoresizingMaskIntoConstraints="NO" id="Jjv-9n-i0c">
+                        <rect key="frame" x="142.5" y="102.5" width="105.5" height="46.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Jjv-9n-i0c" secondAttribute="height" multiplier="25:11" id="fOk-Mv-b6N"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8e-Je-pif">
+                        <rect key="frame" x="190" y="119" width="31" height="14"/>
+                        <fontDescription key="fontDescription" name="Barlow-Bold" family="Barlow" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Jjv-9n-i0c" secondAttribute="bottom" id="7eE-xO-ej9"/>
+                <constraint firstAttribute="trailing" secondItem="Jjv-9n-i0c" secondAttribute="trailing" constant="2" id="Dnd-vK-jIy"/>
+                <constraint firstItem="o5U-ih-htm" firstAttribute="centerY" secondItem="Jjv-9n-i0c" secondAttribute="centerY" id="Fvq-b7-flE"/>
+                <constraint firstItem="XHB-rn-YGb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="J4s-UY-zBh"/>
+                <constraint firstItem="iZU-t5-zBc" firstAttribute="centerY" secondItem="kvT-hu-BBH" secondAttribute="centerY" id="L5q-dK-Kpb"/>
+                <constraint firstItem="o5U-ih-htm" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="100:162" id="ReV-mk-9Ic"/>
+                <constraint firstItem="kvT-hu-BBH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="T91-IP-NKa"/>
+                <constraint firstItem="Jjv-9n-i0c" firstAttribute="width" secondItem="XHB-rn-YGb" secondAttribute="width" multiplier="75:178" id="TgD-aE-ZZB"/>
+                <constraint firstItem="XHB-rn-YGb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="UZW-qI-JZc"/>
+                <constraint firstAttribute="trailing" secondItem="XHB-rn-YGb" secondAttribute="trailing" id="Yde-yE-GzT"/>
+                <constraint firstItem="iZU-t5-zBc" firstAttribute="leading" secondItem="kvT-hu-BBH" secondAttribute="trailing" constant="8" id="fcS-Cl-tDF"/>
+                <constraint firstItem="u8e-Je-pif" firstAttribute="centerY" secondItem="Jjv-9n-i0c" secondAttribute="centerY" id="mye-Cc-dnc"/>
+                <constraint firstAttribute="bottom" secondItem="XHB-rn-YGb" secondAttribute="bottom" id="oRw-dK-Ldz"/>
+                <constraint firstAttribute="trailing" secondItem="iZU-t5-zBc" secondAttribute="trailing" constant="12" id="uIw-ai-ES2"/>
+                <constraint firstItem="u8e-Je-pif" firstAttribute="centerX" secondItem="Jjv-9n-i0c" secondAttribute="centerX" constant="10" id="wWh-KH-kTW"/>
+                <constraint firstItem="o5U-ih-htm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="xLn-N2-xZn"/>
+                <constraint firstItem="XHB-rn-YGb" firstAttribute="centerY" secondItem="kvT-hu-BBH" secondAttribute="centerY" constant="10" id="zXS-D3-0UC"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="backgroundImageView" destination="XHB-rn-YGb" id="4tb-ko-ceO"/>
+                <outlet property="categoryImageView" destination="kvT-hu-BBH" id="GQO-Uo-M9Y"/>
+                <outlet property="categoryName" destination="iZU-t5-zBc" id="7yc-5T-4tY"/>
+                <outlet property="categoryProgress" destination="u8e-Je-pif" id="JeQ-Yv-99k"/>
+                <outlet property="cornerImageView" destination="Jjv-9n-i0c" id="mzh-0G-qkG"/>
+                <outlet property="progressView" destination="o5U-ih-htm" id="qVr-bY-wE8"/>
+            </connections>
+            <point key="canvasLocation" x="124.6376811594203" y="130.58035714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ChallengeCardGold" width="162" height="98"/>
+        <image name="ChallengeCardGoldCorner" width="66" height="29"/>
+        <namedColor name="BlackTwo">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Red">
+            <color red="0.90196078431372551" green="0.011764705882352941" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -56,6 +56,10 @@ extension ScreenAssembly {
     private func registerChallengesViewController(to container: Container) {
         container
             .register(ChallengesViewController.self, factory: { _ in return ChallengesViewController() })
+            .initCompleted { (resolver, viewController) in
+                viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
+                viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
+            }
             .inObjectScope(.weak)
     }
 

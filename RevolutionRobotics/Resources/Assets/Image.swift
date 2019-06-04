@@ -95,6 +95,13 @@ enum Image {
         static let compatibleIcon = UIImage(named: "CompatibleIcon")
     }
 
+    enum Challenges {
+        static let ChallengeCardGold = UIImage(named: "ChallengeCardGold")
+        static let ChallengeCardGoldCorner = UIImage(named: "ChallengeCardGoldCorner")
+        static let ChallengeCardGrey = UIImage(named: "ChallengeCardGrey")
+        static let ChallengeCardGreyCorner = UIImage(named: "ChallengeCardGreyCorner")
+    }
+
     static let downloadIcon = UIImage(named: "DownloadIcon")
     static let retryIcon = UIImage(named: "RetryIcon")
     static let tickIcon = UIImage(named: "TickWhiteIcon")
