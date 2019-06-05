@@ -18,4 +18,6 @@ protocol RealmServiceInterface: class {
     func saveControllers(_ controllers: [ControllerDataModel])
     func getControllers() -> [ControllerDataModel]
     func saveConfigurations(_ configurations: [ConfigurationDataModel])
+    func getChallengeCategory(id: String?) -> ChallengeCategoryDataModel?
+    func saveChallengeCategory(_ category: ChallengeCategoryDataModel)
 }
