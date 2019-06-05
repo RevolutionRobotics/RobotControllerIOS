@@ -26,7 +26,7 @@ final class ChallengeCategoriesViewController: BaseViewController {
 // MARK: - Private fucntions
 extension ChallengeCategoriesViewController {
     private func fetchChallenges() {
-        firebaseService.getChallengeCategory { [weak self] result in
+        firebaseService.getChallengeCategories { [weak self] result in
             switch result {
             case .success(let challengeCategories):
                 self?.challengeCategories = challengeCategories

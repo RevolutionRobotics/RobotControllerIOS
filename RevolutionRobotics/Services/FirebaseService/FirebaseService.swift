@@ -11,12 +11,37 @@ import Firebase
 
 final class FirebaseService {
     // MARK: - Properties
-    private let databaseRef = Database.database().reference()
-    private let storageRef = Storage.storage().reference()
+    private let databaseRef: DatabaseReference
+    private let storageRef: StorageReference
+
+    init() {
+        Database.database().isPersistenceEnabled = true
+        databaseRef = Database.database().reference()
+        databaseRef.keepSynced(true)
+        storageRef = Storage.storage().reference()
+    }
 }
 
 // MARK: - FirebaseServiceInterface
 extension FirebaseService: FirebaseServiceInterface {
+    func prefetchData() {
+        getRobots(completion: { [weak self] result in
+            switch result {
+            case .success(let robots):
+                robots.forEach({ robot in
+                    self?.getBuildSteps(for: robot.id, completion: nil)
+                })
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
+
+        getConfigurations(completion: nil)
+        getControllers(completion: nil)
+        getPrograms(completion: nil)
+        getChallengeCategories(completion: nil)
+    }
+
     func getConfiguration(id: String, completion: CallbackType<Result<Configuration?, FirebaseError>>?) {
         getDataArray(Configuration.self, completion: { (result: Result<[Configuration], FirebaseError>) in
             switch result {
@@ -108,7 +133,7 @@ extension FirebaseService: FirebaseServiceInterface {
 
     }
 
-    func getChallengeCategory(completion: CallbackType<Result<[ChallengeCategory], FirebaseError>>?) {
+    func getChallengeCategories(completion: CallbackType<Result<[ChallengeCategory], FirebaseError>>?) {
         getDataArray(ChallengeCategory.self, completion: completion)
     }
 }
