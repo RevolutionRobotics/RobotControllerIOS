@@ -20,10 +20,10 @@ final class ControllerButton: UIButton {
     }
 
     // MARK: - State
-    enum ControllerButtonState {
+    enum ControllerButtonState: Equatable {
         case normal
         case highlighted
-        case selected
+        case selected(Program)
     }
 
     // MARK: - Port Number
@@ -110,8 +110,8 @@ extension ControllerButton {
             setupNormalState()
         case .highlighted:
             setupHighlightedState()
-        case .selected:
-            setupSelectedState()
+        case .selected(let program):
+            setupSelectedState(programName: program.name)
         }
     }
 
@@ -120,6 +120,7 @@ extension ControllerButton {
                   strokeColor: Color.brownishGrey,
                   lineWidth: Constants.borderWidth,
                   dashPatter: Constants.dashPattern)
+        setTitle(ControllerKeys.configureEmpty.translate(), for: .normal)
         setTitleColor(.white, for: .normal)
         setLineSelectedState(to: false)
         backgroundColor = Color.blackTwo
@@ -134,7 +135,8 @@ extension ControllerButton {
         dotImageView.image = Image.Controller.highlightedButtonIcon
     }
 
-    private func setupSelectedState() {
+    private func setupSelectedState(programName: String) {
+        setTitle(programName, for: .normal)
         setBorder(fillColor: Color.blackTwo, strokeColor: Color.brightRed, lineWidth: Constants.borderWidth)
         setTitleColor(.white, for: .normal)
         setLineSelectedState(to: true, color: Color.brightRed)

@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct Program: FirebaseData {
+struct Program: FirebaseData, Equatable {
     // MARK: - Constants
     private enum Constants {
         static let id = "id"

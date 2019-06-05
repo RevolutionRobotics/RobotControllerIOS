@@ -86,8 +86,9 @@ enum Image {
         static let padButtonBackground = UIImage(named: "PadButtonCircle")
         static let directionSlider = UIImage(named: "DirectionSlider")
         static let nextIcon = UIImage(named: "NextIcon")
-        static let unassignedButtonIcon = UIImage(named: "ControllerButtonUnassignedIcon")
         static let assignedButtonIcon = UIImage(named: "ControllerButtonAssigned")
+        static let unassignedButtonIcon =
+            UIImage(named: "ControllerButtonUnassignedIcon")?.withRenderingMode(.alwaysOriginal)
         static let highlightedButtonIcon = UIImage(named: "ControllerButtonHighlighted")
     }
 

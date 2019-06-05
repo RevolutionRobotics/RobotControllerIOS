@@ -109,6 +109,7 @@
 "program_selector_order_by_date" = "Modified";
 "program_selector_show_compatible_programs" = "show compatible programs only";
 "program_selector_show_all_programs" = "show all programs";
+"most_recent_show_more" = "Show more";
 
 // MARK: - Settings
 "settings_screen_title" = "Settings";

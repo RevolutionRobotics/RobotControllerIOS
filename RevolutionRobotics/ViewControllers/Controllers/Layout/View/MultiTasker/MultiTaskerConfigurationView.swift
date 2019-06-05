@@ -107,11 +107,12 @@ extension MultiTaskerConfigurationView {
         selectionCallback?(sender.buttonNumber)
     }
 
-    func set(state: ControllerButton.ControllerButtonState, on buttonNumber: Int, title: String?) {
+    func set(state: ControllerButton.ControllerButtonState, on buttonNumber: Int) {
         let button = buttons.first(where: { $0.buttonNumber == buttonNumber })
         button?.buttonState = state
-        if let title = title {
-            button?.setTitle(title, for: .normal)
-        }
+    }
+
+    func buttonState(of buttonNumber: Int) -> ControllerButton.ControllerButtonState? {
+        return buttons.first(where: { $0.buttonNumber == buttonNumber })?.buttonState
     }
 }

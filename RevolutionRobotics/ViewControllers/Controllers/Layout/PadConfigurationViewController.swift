@@ -26,6 +26,10 @@ final class PadConfigurationViewController: BaseViewController {
     // MARK: - Properties
     var controllerType: ControllerType = .gamer
     var configurationView: ConfigurableControllerView!
+    var firebaseService: FirebaseServiceInterface!
+
+    // MARK: - Private
+    private var programs: [Program] = []
 }
 
 // MARK: - View lifecycle
@@ -35,6 +39,8 @@ extension PadConfigurationViewController {
 
         navigationBar.setup(title: ControllerKeys.configureTitle.translate(), delegate: self)
         setupConfigurationView()
+        fetchPrograms()
+        handleButtonTap()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -94,5 +100,107 @@ extension PadConfigurationViewController {
                                          constant: 0.0)
         containerView.addConstraints([centerY, centerX])
         configurationView.addConstraints(width + height)
+    }
+}
+
+// MARK: - Fetch
+extension PadConfigurationViewController {
+    // TODO: Fetch only configuration related programs
+    private func fetchPrograms() {
+        firebaseService.getPrograms { (result) in
+            switch result {
+            case .success(let programs):
+                self.programs = programs
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
+
+// MARK: - Handle
+extension PadConfigurationViewController {
+    private func handleButtonTap() {
+        configurationView.selectionCallback = { [weak self] buttonNumber in
+            guard let self = self else { return }
+            guard let buttonState = self.configurationView.buttonState(of: buttonNumber) else { return }
+
+            let programBottomBar = AppContainer.shared.container.unwrappedResolve(ProgramBottomBarViewController.self)
+            programBottomBar.setup(programs: self.programs, selectedProgram: self.selectedProgram(of: buttonState))
+
+            programBottomBar.programSelected = { program in
+                self.showProgramInfoModal(program: program, on: buttonNumber, with: buttonState)
+            }
+
+            programBottomBar.dismissed = {
+                self.handleBottomBarDismiss(on: buttonNumber, buttonState: buttonState)
+            }
+
+            programBottomBar.showMoreTapped = {
+                self.handleBottomBarDismiss(on: buttonNumber, buttonState: buttonState)
+                self.handleShowMore(on: buttonNumber)
+            }
+
+            self.configurationView.set(state: .highlighted, on: buttonNumber)
+            self.presentViewControllerModally(programBottomBar, transitionStyle: .crossDissolve)
+        }
+    }
+
+    private func showProgramInfoModal(
+        program: Program,
+        on buttonNumber: Int,
+        with buttonState: ControllerButton.ControllerButtonState
+    ) {
+        dismissViewController()
+        let programInfoModal = ProgramInfoModal.instatiate()
+
+        let infoType: ProgramInfoModal.InfoType =
+            selectedProgram(of: buttonState) != nil && selectedProgram(of: buttonState) == program
+                ? .remove
+                : .add
+
+        programInfoModal.configure(
+            program: program,
+            infoType: infoType,
+            issue: nil,
+            editButtonHandler: {
+                print("Edit button tapped")
+            },
+            actionButtonHandler: { [weak self] infoType in
+                self?.handleProgramSelection(
+                    program: program,
+                    on: buttonNumber,
+                    with: infoType == .add ? .selected(program) : .normal
+                )
+        })
+
+        presentModal(with: programInfoModal)
+    }
+
+    private func handleProgramSelection(
+        program: Program,
+        on buttonNumber: Int,
+        with buttonState: ControllerButton.ControllerButtonState
+    ) {
+        configurationView.set(state: buttonState, on: buttonNumber)
+        dismissViewController()
+    }
+
+    private func handleBottomBarDismiss(on buttonNumber: Int, buttonState: ControllerButton.ControllerButtonState) {
+        configurationView.set(state: buttonState, on: buttonNumber)
+        dismissViewController()
+    }
+
+    private func handleShowMore(on buttonNumber: Int) {
+        let programSelector = AppContainer.shared.container.unwrappedResolve(ProgramSelectorViewController.self)
+        programSelector.programSelected = { [weak self] program in
+            self?.handleProgramSelection(program: program, on: buttonNumber, with: .selected(program))
+        }
+        presentViewControllerModally(programSelector)
+    }
+
+    private func selectedProgram(of buttonState: ControllerButton.ControllerButtonState) -> Program? {
+        guard case .selected(let program) = buttonState else { return nil }
+        return program
     }
 }

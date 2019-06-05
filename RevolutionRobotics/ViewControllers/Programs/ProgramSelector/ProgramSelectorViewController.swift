@@ -38,6 +38,7 @@ final class ProgramSelectorViewController: BaseViewController {
     }
 
     var firebaseService: FirebaseServiceInterface!
+    var programSelected: CallbackType<Program>?
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -107,7 +108,7 @@ extension ProgramSelectorViewController {
 // MARK: - UITableViewDelegate
 extension ProgramSelectorViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected program = \(programs[indexPath.row].name)")
+        programSelected?(programs[indexPath.row])
     }
 }
 
