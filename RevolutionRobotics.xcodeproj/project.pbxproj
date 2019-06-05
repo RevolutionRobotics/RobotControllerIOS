@@ -29,6 +29,10 @@
 		094FC5DF228C3CF60085B407 /* DriverPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094FC5DE228C3CF60085B407 /* DriverPadView.swift */; };
 		094FC5E1228C3D1D0085B407 /* MultiTaskerPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094FC5E0228C3D1D0085B407 /* MultiTaskerPadView.swift */; };
 		094FC5E3228C3D5E0085B407 /* DriverPadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094FC5E2228C3D5E0085B407 /* DriverPadView.xib */; };
+		0952386F22A57045001C1CE1 /* OptionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0952386E22A57045001C1CE1 /* OptionSelectorView.swift */; };
+		0952387122A5704F001C1CE1 /* OptionSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0952387022A5704F001C1CE1 /* OptionSelectorView.xib */; };
+		0952387522A57159001C1CE1 /* OptionSelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0952387422A57159001C1CE1 /* OptionSelectorButton.swift */; };
+		0952387722A57161001C1CE1 /* OptionSelectorButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0952387622A57161001C1CE1 /* OptionSelectorButton.xib */; };
 		096333EE228993CF0029D87B /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096333ED228993CF0029D87B /* TLAnalogJoystick.swift */; };
 		096333F32289A3F20029D87B /* JoystickScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096333F22289A3F20029D87B /* JoystickScene.swift */; };
 		096333F62289B9710029D87B /* PadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096333F52289B9710029D87B /* PadButton.swift */; };
@@ -265,6 +269,10 @@
 		094FC5DE228C3CF60085B407 /* DriverPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPadView.swift; sourceTree = "<group>"; };
 		094FC5E0228C3D1D0085B407 /* MultiTaskerPadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiTaskerPadView.swift; sourceTree = "<group>"; };
 		094FC5E2228C3D5E0085B407 /* DriverPadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverPadView.xib; sourceTree = "<group>"; };
+		0952386E22A57045001C1CE1 /* OptionSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSelectorView.swift; sourceTree = "<group>"; };
+		0952387022A5704F001C1CE1 /* OptionSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionSelectorView.xib; sourceTree = "<group>"; };
+		0952387422A57159001C1CE1 /* OptionSelectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSelectorButton.swift; sourceTree = "<group>"; };
+		0952387622A57161001C1CE1 /* OptionSelectorButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionSelectorButton.xib; sourceTree = "<group>"; };
 		096333ED228993CF0029D87B /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
 		096333F22289A3F20029D87B /* JoystickScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickScene.swift; sourceTree = "<group>"; };
 		096333F52289B9710029D87B /* PadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadButton.swift; sourceTree = "<group>"; };
@@ -569,6 +577,26 @@
 			path = DriverPad;
 			sourceTree = "<group>";
 		};
+		0952387222A57131001C1CE1 /* OptionSelector */ = {
+			isa = PBXGroup;
+			children = (
+				0952386E22A57045001C1CE1 /* OptionSelectorView.swift */,
+				0952387022A5704F001C1CE1 /* OptionSelectorView.xib */,
+				0952387422A57159001C1CE1 /* OptionSelectorButton.swift */,
+				0952387622A57161001C1CE1 /* OptionSelectorButton.xib */,
+			);
+			path = OptionSelector;
+			sourceTree = "<group>";
+		};
+		0952387322A5713E001C1CE1 /* ProgramInfo */ = {
+			isa = PBXGroup;
+			children = (
+				09994317228DBA6500D87385 /* ProgramInfoModal.xib */,
+				09994318228DBA6500D87385 /* ProgramInfoModal.swift */,
+			);
+			path = ProgramInfo;
+			sourceTree = "<group>";
+		};
 		096333EC22898D860029D87B /* GamerPad */ = {
 			isa = PBXGroup;
 			children = (
@@ -647,8 +675,8 @@
 		09994316228DBA6500D87385 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				09994317228DBA6500D87385 /* ProgramInfoModal.xib */,
-				09994318228DBA6500D87385 /* ProgramInfoModal.swift */,
+				0952387322A5713E001C1CE1 /* ProgramInfo */,
+				0952387222A57131001C1CE1 /* OptionSelector */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -1555,6 +1583,7 @@
 				D03BA85F2277384A005B3E33 /* ChapterFinishedModal.xib in Resources */,
 				09ED1BAB225247E2009CF262 /* MenuViewController.xib in Resources */,
 				2A9F52122265E96B00F9F651 /* ProgramsViewController.xib in Resources */,
+				0952387722A57161001C1CE1 /* OptionSelectorButton.xib in Resources */,
 				D06C326922857107005534C0 /* ResetTutorialModal.xib in Resources */,
 				096333F82289B9B80029D87B /* PadButton.xib in Resources */,
 				2ADE8C412270AFFD00ECEC72 /* Localizable.strings in Resources */,
@@ -1602,6 +1631,7 @@
 				09105A9E2280581F00AB7B72 /* MotorConfigViewController.xib in Resources */,
 				2A9F520E2265E95600F9F651 /* ChallengesViewController.xib in Resources */,
 				FE4B162522786A6C00CAA083 /* PhotoModal.xib in Resources */,
+				0952387122A5704F001C1CE1 /* OptionSelectorView.xib in Resources */,
 				D031333B228DD3C100704989 /* SaveModal.xib in Resources */,
 				D0BF256C2282C6C100F08C9C /* BuildFinishedModal.xib in Resources */,
 				2ABCB648229E912D0081B51B /* MenuTutorialViewController.xib in Resources */,
@@ -1763,6 +1793,7 @@
 				D0313337228D5CBA00704989 /* Part.swift in Sources */,
 				D03BA8532276F323005B3E33 /* PartView.swift in Sources */,
 				2A90537122A3DA300047509D /* RobotOptionsView.swift in Sources */,
+				0952386F22A57045001C1CE1 /* OptionSelectorView.swift in Sources */,
 				096333FA2289BBA40029D87B /* UIView+Rounded.swift in Sources */,
 				D0313333228D5CBA00704989 /* ProgramBinding.swift in Sources */,
 				2A0789E9229321FD00CFFDD6 /* ConfigurableControllerView.swift in Sources */,
@@ -1798,6 +1829,7 @@
 				D0313330228D5CBA00704989 /* ChallengeCategory.swift in Sources */,
 				D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */,
 				D05C64CC225F575A00B7BF4F /* Milestone.swift in Sources */,
+				0952387522A57159001C1CE1 /* OptionSelectorButton.swift in Sources */,
 				09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */,
 				09C3874D226F32F70097619D /* UIView+Anchor.swift in Sources */,
 				2A7DDB1222856FC800891DA6 /* MotorDataModel.swift in Sources */,

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="OptionSelectorButton" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="124" height="58"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2n-ke-iSq" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="124" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="FSy-QN-o6E"/>
+                        <constraint firstAttribute="width" constant="124" id="oWV-wY-43d"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Fq2-kj-gLO"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTP-BI-F9P">
+                    <rect key="frame" x="0.0" y="48" width="124" height="10"/>
+                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="B2n-ke-iSq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8cp-ZJ-XiV"/>
+                <constraint firstItem="OTP-BI-F9P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HUv-8d-M8e"/>
+                <constraint firstItem="OTP-BI-F9P" firstAttribute="top" secondItem="B2n-ke-iSq" secondAttribute="bottom" constant="4" id="NQB-mY-Me9"/>
+                <constraint firstAttribute="trailing" secondItem="B2n-ke-iSq" secondAttribute="trailing" id="OWw-AV-XXv"/>
+                <constraint firstAttribute="trailing" secondItem="OTP-BI-F9P" secondAttribute="trailing" id="c3Q-mR-2BU"/>
+                <constraint firstItem="B2n-ke-iSq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hBF-cs-Wud"/>
+                <constraint firstAttribute="bottom" secondItem="OTP-BI-F9P" secondAttribute="bottom" id="phY-6G-M2e"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="button" destination="B2n-ke-iSq" id="Nd2-zY-Uvb"/>
+                <outlet property="label" destination="OTP-BI-F9P" id="Ugk-Jl-QB9"/>
+            </connections>
+            <point key="canvasLocation" x="137.59999999999999" y="355.32233883058473"/>
+        </view>
+    </objects>
+</document>
