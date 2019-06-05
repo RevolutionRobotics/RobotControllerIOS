@@ -17,6 +17,9 @@ class BaseViewController: UIViewController {
         static let communityURL: URL = URL(string: "https://www.google.com")!
     }
 
+    // MARK: - Properties
+    private var onModalDismissed: Callback?
+
     // MARK: - Initialization
     init() {
         super.init(nibName: type(of: self).nibName, bundle: Bundle(for: type(of: self)))
@@ -56,8 +59,14 @@ extension BaseViewController: RRNavigationBarDelegate {
 
 // MARK: - Modal
 extension BaseViewController {
-    func presentModal(with contentView: UIView, animated: Bool = true, closeHidden: Bool = false) {
+    func presentModal(
+        with contentView: UIView,
+        animated: Bool = true,
+        closeHidden: Bool = false,
+        onDismissed: Callback? = nil
+    ) {
         let modalViewController = AppContainer.shared.container.unwrappedResolve(ModalViewController.self)
+        onModalDismissed = onDismissed
         modalViewController.modalPresentationStyle = .overFullScreen
         modalViewController.modalTransitionStyle = .crossDissolve
         modalViewController.delegate = self
@@ -97,6 +106,8 @@ extension BaseViewController {
 // MARK: - ModalViewControllerDelegate
 extension BaseViewController: ModalViewControllerDelegate {
     func dismissViewController() {
+        onModalDismissed?()
+        onModalDismissed = nil
         dismiss(animated: true, completion: nil)
     }
 }
