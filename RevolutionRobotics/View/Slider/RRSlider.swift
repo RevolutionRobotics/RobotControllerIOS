@@ -14,7 +14,7 @@ final class RRSlider: UISlider {
         static let height: CGFloat = 14.0
         static let verticalOffset: CGFloat = 3.0
         static let zPosition: CGFloat = 1
-        static let maximumMarkerWidth: CGFloat = 8.0
+        static let maximumMarkerWidth: CGFloat = 4.0
     }
 
     // MARK: - Properties
