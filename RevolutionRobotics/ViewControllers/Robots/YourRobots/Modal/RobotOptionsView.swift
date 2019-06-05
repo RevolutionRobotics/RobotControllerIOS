@@ -82,7 +82,7 @@ extension RobotOptionsView {
     private func setupRobotDetails() {
         titleLabel.text = robot?.customName
         descriptionLabel.text = robot?.customDescription
-        dateLabel.text = DateFormatter.string(from: robot?.lastModified, format: .yearMonthDaySlashed)
+        dateLabel.text = DateFormatter.string(from: robot?.lastModified, format: .yearMonthDay)
     }
 
     private func removeEditButton() {

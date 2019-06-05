@@ -99,7 +99,7 @@ extension ControllerCollectionViewCell {
     func setup(with controller: ControllerDataModel) {
         nameLabel.text = controller.name
         controllerImageView.image = ControllerType(rawValue: controller.type)?.image
-        lastModifiedLabel.text = dateFormatter.string(from: controller.lastModified)
+        lastModifiedLabel.text = DateFormatter.string(from: controller.lastModified, format: .yearMonthDay)
     }
 }
 
