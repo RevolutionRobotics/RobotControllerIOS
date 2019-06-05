@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dependencies.setup()
         setupUserDefaults()
         setupWindowAndRootViewController()
+        fetchFirebaseData()
         return true
     }
 
@@ -45,5 +46,10 @@ extension AppDelegate {
         if UserDefaults.standard.value(forKey: UserDefaults.Keys.shouldShowTutorial) == nil {
             UserDefaults.standard.set(true, forKey: UserDefaults.Keys.shouldShowTutorial)
         }
+    }
+
+    private func fetchFirebaseData() {
+        let firebaseService = AppContainer.shared.container.unwrappedResolve(FirebaseServiceInterface.self)
+        firebaseService.prefetchData()
     }
 }
