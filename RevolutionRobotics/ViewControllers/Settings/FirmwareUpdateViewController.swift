@@ -36,7 +36,7 @@ extension FirmwareUpdateViewController {
             self?.showTurnOnTheBrain()
         }
 
-        if bluetoothService.hasConnectedDevice {
+        if bluetoothService.connectedDevice != nil {
             bluetoothService.getSystemId(onCompleted: { [weak self] result in
                 switch result {
                 case .success(let systemId):

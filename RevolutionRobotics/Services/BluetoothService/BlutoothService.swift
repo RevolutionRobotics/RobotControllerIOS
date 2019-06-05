@@ -11,7 +11,8 @@ import RevolutionRoboticsBluetooth
 
 final class BluetoothService: BluetoothServiceInterface {
     // MARK: - Properties
-    var hasConnectedDevice: Bool = false
+    var connectedDevice: Device?
+
     private let discoverer: RoboticsDeviceDiscovererInterface = RoboticsDeviceDiscoverer()
     private let connector: RoboticsDeviceConnectorInterface = RoboticsDeviceConnector()
     private let deviceInfo: RoboticsDeviceServiceInterface = RoboticsDeviceService()
@@ -34,15 +35,19 @@ final class BluetoothService: BluetoothServiceInterface {
             to: device,
             onConnected: { [weak self] in
                 NotificationCenter.default.post(name: .robotConnected, object: nil)
-                self?.hasConnectedDevice = true
+                self?.connectedDevice = device
             },
             onDisconnected: { [weak self] in
                 NotificationCenter.default.post(name: .robotDisconnected, object: nil)
-                self?.hasConnectedDevice = false
+                self?.connectedDevice = nil
             },
             onError: { error in
                 NotificationCenter.default.post(name: .robotConnectionError, object: error)
         })
+    }
+
+    func disconnect() {
+        connector.disconnect()
     }
 
     // MARK: - Device info
