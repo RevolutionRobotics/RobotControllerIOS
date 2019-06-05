@@ -1,6 +1,7 @@
 PODS:
   - Crashlytics (3.12.0):
     - Fabric (~> 1.9.0)
+  - CryptoSwift (1.0.0)
   - Fabric (1.9.0)
   - Firebase/Core (6.1.0):
     - Firebase/CoreOnly
@@ -77,7 +78,8 @@ PODS:
     - Realm (= 3.14.2)
   - RevolutionRoboticsBlockly (0.1.2):
     - WKWebViewJavascriptBridge (~> 1.2.0)
-  - RevolutionRoboticsBluetooth (0.1.0)
+  - RevolutionRoboticsBluetooth (0.1.0):
+    - CryptoSwift (~> 1.0)
   - SideMenu (5.0.3)
   - SwiftLint (0.31.0)
   - Swinject (2.6.1)
@@ -100,6 +102,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Crashlytics
+    - CryptoSwift
     - Fabric
     - Firebase
     - FirebaseAnalytics
@@ -138,7 +141,7 @@ CHECKOUT OPTIONS:
     :git: "git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git"
     :submodules: true
   RevolutionRoboticsBluetooth:
-    :commit: 6f9846a6e955570781b6f58363fbef0efa6e8048
+    :commit: 344743cc16f1280f8888021e304e188297c2b009
     :git: "git@gitlab.supercharge.io:revolutionrobotics/bluetooth-ios.git"
   SideMenu:
     :commit: ccd4b640063a721180b77a59d2a45039672ec95d
@@ -146,6 +149,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   Firebase: 8d77bb33624ae9b62d745d82ec023de5f70f7e4f
   FirebaseAnalytics: 629301c2b9925f3537d4093a17a72751ae5b7084
@@ -163,7 +167,7 @@ SPEC CHECKSUMS:
   Realm: 179c6706e3a49dbfe112e572fd3c03d3169bea35
   RealmSwift: 1797f272fb51c555b764fada32e82159a2c65247
   RevolutionRoboticsBlockly: d44590882291ff155337656deb4bd0574e506a82
-  RevolutionRoboticsBluetooth: 1af416fe3140aba90113bd7bd469b7279a09dd8b
+  RevolutionRoboticsBluetooth: 2909c6ac96b6b3b47a279edea08b0cbd4beb0574
   SideMenu: 92417cef5aa12b2784e82854406a0d3831ef7df3
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   Swinject: b624462f47b635a64f89a60a247baa5fccec14e1
