@@ -51,18 +51,18 @@ extension ProgramsViewController {
 
 // MARK: - BlocklyBridgeDelegate
 extension ProgramsViewController: BlocklyBridgeDelegate {
-    public func singleOptionSelector(_ optionSelector: SingleOptionSelector, callback: ((String) -> Void)?) {
+    public func singleOptionSelector(_ optionSelector: SingleOptionSelector, callback: ((String?) -> Void)?) {
         let optionSelectorView = OptionSelectorView.instatiate()
 
         optionSelectorView.setup(optionSelector: optionSelector) { [weak self] option in
             callback?(option.key)
-            self?.dismissViewController()
+            self?.dismiss(animated: true, completion: nil)
         }
 
-        presentModal(with: optionSelectorView)
+        presentModal(with: optionSelectorView, onDismissed: { callback?(nil) })
     }
 
-    public func multiOptionSelector(_ optionSelector: MultiOptionSelector, callback: ((String) -> Void)?) {
+    public func multiOptionSelector(_ optionSelector: MultiOptionSelector, callback: ((String?) -> Void)?) {
         callback?([
             optionSelector.options.randomElement()!.key,
             optionSelector.options.randomElement()!.key
@@ -70,23 +70,23 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
         )
     }
 
-    public func colorSelector(_ optionSelector: SingleOptionSelector, callback: ((String) -> Void)?) {
+    public func colorSelector(_ optionSelector: SingleOptionSelector, callback: ((String?) -> Void)?) {
         callback?(optionSelector.options.randomElement()!.key)
     }
 
-    public func audioSelector(_ optionSelector: SingleOptionSelector, callback: ((String) -> Void)?) {
+    public func audioSelector(_ optionSelector: SingleOptionSelector, callback: ((String?) -> Void)?) {
         callback?(optionSelector.options.randomElement()!.key)
     }
 
-    public func numberInput(_ inputHandler: InputHandler, callback: ((String) -> Void)?) {
+    public func numberInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
         callback?("12")
     }
 
-    public func textInput(_ inputHandler: InputHandler, callback: ((String) -> Void)?) {
+    public func textInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
         callback?("Text")
     }
 
-    public func blockContext(_ contextHandler: BlockContextHandler, callback: ((BlockContextAction) -> Void)?) {
+    public func blockContext(_ contextHandler: BlockContextHandler, callback: ((BlockContextAction?) -> Void)?) {
         callback?(AddCommentAction(payload: "New comment"))
     }
 }
