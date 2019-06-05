@@ -29,12 +29,12 @@ extension ChallengeCategoryCollectionViewCell {
             return
         }
         if category.progress == challengeCategory.challenges.count {
-            backgroundImageView.image = Image.Challenges.ChallengeCardGold
-            cornerImageView.image = Image.Challenges.ChallengeCardGoldCorner
+            backgroundImageView.image = Image.Challenges.ChallengeCategoryCardGold
+            cornerImageView.image = Image.Challenges.ChallengeCategoryCardGoldCorner
             categoryProgress.textColor = .black
         } else {
-            backgroundImageView.image = Image.Challenges.ChallengeCardGrey
-            cornerImageView.image = Image.Challenges.ChallengeCardGreyCorner
+            backgroundImageView.image = Image.Challenges.ChallengeCategoryCardGrey
+            cornerImageView.image = Image.Challenges.ChallengeCategoryCardGreyCorner
             categoryProgress.textColor = .white
         }
         progressView.progress = Float(category.progress) / Float(challengeCategory.challenges.count)

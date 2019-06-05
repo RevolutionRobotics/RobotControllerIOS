@@ -68,7 +68,8 @@ extension MenuViewController {
     }
 
     @IBAction private func challengesButtonTapped(_ sender: UIButton) {
-        let challengesViewController = AppContainer.shared.container.unwrappedResolve(ChallengesViewController.self)
+        let challengesViewController =
+            AppContainer.shared.container.unwrappedResolve(ChallengeCategoriesViewController.self)
         navigationController?.pushViewController(challengesViewController, animated: true)
     }
 }
