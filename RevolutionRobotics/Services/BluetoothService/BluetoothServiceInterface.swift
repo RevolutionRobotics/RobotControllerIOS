@@ -17,7 +17,7 @@ extension Notification.Name {
 
 protocol BluetoothServiceInterface {
     // MARK: - Properties
-    var hasConnectedDevice: Bool { get set }
+    var connectedDevice: Device? { get set }
 
     // MARK: - Discovery
     func startDiscovery(onScanResult: CallbackType<Result<[Device], Error>>?)
@@ -25,6 +25,7 @@ protocol BluetoothServiceInterface {
 
     // MARK: - Connection
     func connect(to device: Device)
+    func disconnect()
 
     // MARK: - Device info
     func getPrimaryBatteryPercentage(onCompleted: CallbackType<Result<Int, Error>>?)

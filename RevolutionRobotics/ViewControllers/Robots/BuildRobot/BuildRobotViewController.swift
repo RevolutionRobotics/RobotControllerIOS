@@ -70,7 +70,7 @@ extension BuildRobotViewController {
 extension BuildRobotViewController {
     private func setupBluetoothButton() {
         let image =
-            bluetoothService.hasConnectedDevice ? Image.Common.bluetoothIcon : Image.Common.bluetoothInactiveIcon
+            bluetoothService.connectedDevice != nil ? Image.Common.bluetoothIcon : Image.Common.bluetoothInactiveIcon
         bluetoothButton.setImage(image, for: .normal)
     }
 
@@ -207,9 +207,28 @@ extension BuildRobotViewController {
 
 // MARK: - Private methods
 extension BuildRobotViewController {
-    private func presentBluetoothConnectionModal() {
-        guard !bluetoothService.hasConnectedDevice else { return }
+    private func presentDisconnectModal() {
+        let view = DisconnectModal.instatiate()
+        view.disconnectHandler = { [weak self] in
+            self?.bluetoothService.disconnect()
+            self?.dismissViewController()
+        }
+        view.cancelHandler = { [weak self] in
+            self?.dismissViewController()
+        }
+        presentModal(with: view)
+    }
 
+    private func presentBluetoothConnectionModal() {
+        guard bluetoothService.connectedDevice != nil else {
+            presentConnectModal()
+            return
+        }
+
+        presentDisconnectModal()
+    }
+
+    private func presentConnectModal() {
         let modalPresenter = BluetoothConnectionModalPresenter()
         modalPresenter.present(
             on: self,

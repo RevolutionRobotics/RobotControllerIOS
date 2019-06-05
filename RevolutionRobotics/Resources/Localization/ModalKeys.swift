@@ -91,4 +91,10 @@ enum ModalKeys {
         static let error = "dialog_robot_info_edit"
         static let copyPostfix = "duplicated_robot_name_suffix"
     }
+
+    enum Disconnect {
+        static let description = "disconnect_modal_description"
+        static let cancel = "disconnect_modal_cancel"
+        static let disconnect = "disconnect_modal_disconnect"
+    }
 }

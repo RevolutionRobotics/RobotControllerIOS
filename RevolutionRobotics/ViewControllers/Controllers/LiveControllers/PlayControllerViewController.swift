@@ -43,7 +43,7 @@ extension PlayControllerViewController {
 
         subscribeForConnectionChange()
 
-        if bluetoothService.hasConnectedDevice {
+        if bluetoothService.connectedDevice != nil {
             bluetoothService.startKeepalive()
             bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
         } else {
@@ -133,6 +133,19 @@ extension PlayControllerViewController {
             nextStep: nil)
     }
 
+    private func presentDisconnectModal() {
+        let view = DisconnectModal.instatiate()
+        view.robotName = bluetoothService.connectedDevice?.name
+        view.disconnectHandler = { [weak self] in
+            self?.bluetoothService.disconnect()
+            self?.dismissViewController()
+        }
+        view.cancelHandler = { [weak self] in
+            self?.dismissViewController()
+        }
+        presentModal(with: view)
+    }
+
     override func connected() {
         super.connected()
         bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
@@ -140,6 +153,7 @@ extension PlayControllerViewController {
     }
 
     override func disconnected() {
+        bluetoothService.stopKeepalive()
         bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
     }
 }
@@ -147,9 +161,12 @@ extension PlayControllerViewController {
 // MARK: - Actions
 extension PlayControllerViewController {
     @IBAction private func bluetoothButtonTapped(_ sender: Any) {
-        guard !bluetoothService.hasConnectedDevice else { return }
+        guard bluetoothService.connectedDevice != nil else {
+            presentBluetoothModal()
+            return
+        }
 
-        presentBluetoothModal()
+        presentDisconnectModal()
     }
 
     @IBAction private func editButtonTapped(_ sender: Any) {

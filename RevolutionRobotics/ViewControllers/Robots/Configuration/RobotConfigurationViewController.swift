@@ -183,7 +183,7 @@ extension RobotConfigurationViewController {
 
     private func setupBluetoothButton() {
         let image =
-            bluetoothService.hasConnectedDevice ? Image.Common.bluetoothIcon : Image.Common.bluetoothInactiveIcon
+            bluetoothService.connectedDevice != nil ? Image.Common.bluetoothIcon : Image.Common.bluetoothInactiveIcon
         bluetoothButton.setImage(image, for: .normal)
     }
 
@@ -346,8 +346,15 @@ extension RobotConfigurationViewController {
     }
 
     @IBAction private func bluetoothTapped(_ sender: Any) {
-        guard !bluetoothService.hasConnectedDevice else { return }
+        guard bluetoothService.connectedDevice != nil else {
+            presentConnectModal()
+            return
+        }
 
+        presentDisconnectModal()
+    }
+
+    private func presentConnectModal() {
         let modalPresenter = BluetoothConnectionModalPresenter()
         modalPresenter.present(
             on: self,
@@ -366,6 +373,18 @@ extension RobotConfigurationViewController {
                 self?.bluetoothService.connect(to: device)
             },
             nextStep: nil)
+    }
+
+    private func presentDisconnectModal() {
+        let view = DisconnectModal.instatiate()
+        view.disconnectHandler = { [weak self] in
+            self?.bluetoothService.disconnect()
+            self?.dismissViewController()
+        }
+        view.cancelHandler = { [weak self] in
+            self?.dismissViewController()
+        }
+        presentModal(with: view)
     }
 
     @IBAction private func leftButtonTapped(_ sender: Any) {
