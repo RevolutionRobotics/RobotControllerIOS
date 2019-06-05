@@ -21,8 +21,6 @@ final class MenuViewController: BaseViewController {
     @IBOutlet private weak var robotsTitleLabel: UILabel!
     @IBOutlet private weak var programsTitleLabel: UILabel!
     @IBOutlet private weak var challengesTitleLabel: UILabel!
-
-    private let shouldShowTutorial = UserDefaults.standard.bool(forKey: UserDefaults.Keys.shouldShowTutorial)
 }
 
 // MARK: - View lifecycle
@@ -33,7 +31,11 @@ extension MenuViewController {
         robotsTitleLabel.text = MenuKeys.robotCellTitle.translate()
         programsTitleLabel.text = MenuKeys.programsCellTitle.translate()
         challengesTitleLabel.text = MenuKeys.challengesCellTitle.translate()
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let shouldShowTutorial = UserDefaults.standard.bool(forKey: UserDefaults.Keys.shouldShowTutorial)
         if shouldShowTutorial {
             let vc = AppContainer.shared.container.unwrappedResolve(MenuTutorialViewController.self)
             vc.modalPresentationStyle = .overFullScreen
