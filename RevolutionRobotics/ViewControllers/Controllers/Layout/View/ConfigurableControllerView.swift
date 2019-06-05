@@ -10,5 +10,7 @@ import UIKit
 
 protocol ConfigurableControllerView: UIView {
     var selectionCallback: CallbackType<Int>? { get set }
-    func set(state: ControllerButton.ControllerButtonState, on buttonNumber: Int, title: String?)
+
+    func set(state: ControllerButton.ControllerButtonState, on buttonNumber: Int)
+    func buttonState(of buttonNumber: Int) -> ControllerButton.ControllerButtonState?
 }
