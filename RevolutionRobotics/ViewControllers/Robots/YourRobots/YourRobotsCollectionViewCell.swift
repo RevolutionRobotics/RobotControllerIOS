@@ -66,7 +66,8 @@ extension YourRobotsCollectionViewCell {
         let isCompleted = robot.buildStatus == BuildStatus.completed.rawValue
         statusImageView.image = isCompleted ? Image.Common.calendar : Image.Common.underConstruction
         lastModifiedLabel.text = isCompleted ?
-            dateFormatter.string(from: robot.lastModified) : RobotsKeys.YourRobots.underConstruction.translate()
+            DateFormatter.string(from: robot.lastModified, format: .yearMonthDay) :
+            RobotsKeys.YourRobots.underConstruction.translate()
         if let image = FileManager.default.image(for: robot.id) {
             robotImageView.image = image
         } else {

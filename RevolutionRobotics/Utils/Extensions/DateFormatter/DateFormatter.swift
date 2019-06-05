@@ -10,8 +10,7 @@ import Foundation
 
 extension DateFormatter {
     enum Format: String {
-        case yearMonthDay = "yyyy.MM.dd."
-        case yearMonthDaySlashed = "yyyy/MM/dd"
+        case yearMonthDay = "yyyy-MMM-dd"
     }
 
     static func string(from date: Date?, format: Format) -> String {
