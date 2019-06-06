@@ -100,6 +100,7 @@ extension RobotConfigurationViewController {
         createNewButton.selectionHandler = { [weak self] in
             let controllersViewController =
                 AppContainer.shared.container.unwrappedResolve(ControllerLayoutSelectorViewController.self)
+            controllersViewController.configurationId = self?.configuration?.id
             self?.navigationController?.pushViewController(controllersViewController, animated: true)
         }
     }
@@ -145,10 +146,10 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
             deleteView.title = ModalKeys.ControllerDelete.description.translate()
             deleteView.deleteButtonHandler = { [weak self] in
                 self?.deleteController(self?.controllers[indexPath.row])
-                self?.dismissViewController()
+                self?.dismissModalViewController()
             }
             deleteView.cancelButtonHandler = { [weak self] in
-                self?.dismissViewController()
+                self?.dismissModalViewController()
             }
             self?.presentModal(with: deleteView)
         }
@@ -233,7 +234,7 @@ extension RobotConfigurationViewController {
         motorConfig.name = configuration?.mapping?.motor(for: portNumber)?.variableName
         motorConfig.prohibitedNames = configuration?.mapping?.variableNames.filter({ $0 != motorConfig.name }) ?? []
         motorConfig.doneButtonTapped = { [weak self] config in
-            self?.dismissViewController()
+            self?.dismissModalViewController()
             self?.updateMotorPort(config, on: motorConfig.portNumber)
         }
         motorConfig.screenDismissed = { [weak self] in
@@ -282,7 +283,7 @@ extension RobotConfigurationViewController {
         sensorConfig.name = configuration?.mapping?.sensor(for: portNumber)?.variableName
         sensorConfig.prohibitedNames = configuration?.mapping?.variableNames.filter({ $0 != sensorConfig.name }) ?? []
         sensorConfig.doneButtonTapped = { [weak self] config in
-            self?.dismissViewController()
+            self?.dismissModalViewController()
             self?.updateSensorPort(config, on: sensorConfig.portNumber)
         }
         sensorConfig.screenDismissed = { [weak self] in
@@ -337,7 +338,7 @@ extension RobotConfigurationViewController {
         modal.saveCallback = { [weak self] data in
             self?.updateConfiguration(on: robot, name: data.name, description: data.description)
             FileManager.default.save(self?.robotImage, as: robot.id)
-            self?.dismissViewController()
+            self?.dismissModalViewController()
             self?.navigationController?.popViewController(animated: true)
         }
         presentModal(with: modal)
@@ -402,10 +403,10 @@ extension RobotConfigurationViewController {
         let view = DisconnectModal.instatiate()
         view.disconnectHandler = { [weak self] in
             self?.bluetoothService.disconnect()
-            self?.dismissViewController()
+            self?.dismissModalViewController()
         }
         view.cancelHandler = { [weak self] in
-            self?.dismissViewController()
+            self?.dismissModalViewController()
         }
         presentModal(with: view)
     }

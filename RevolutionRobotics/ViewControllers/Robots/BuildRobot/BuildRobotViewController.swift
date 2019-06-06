@@ -116,7 +116,7 @@ extension BuildRobotViewController {
                 if let currentStep = self?.currentStep {
                     self?.updateStoredRobot(step: currentStep.stepNumber)
                 }
-                self?.dismissViewController()
+                self?.dismissModalViewController()
                 guard let configId = self?.storedRobotDataModel?.configId else { return }
                 self?.firebaseService.getController(
                     for: configId,
@@ -157,7 +157,7 @@ extension BuildRobotViewController {
             self?.popToRootViewController(animated: true)
         }
         chapterFinishedModal.testLaterButtonTapped = { [weak self] in
-            self?.dismissViewController()
+            self?.dismissModalViewController()
             self?.buildProgressBar.milestoneFinished()
         }
         chapterFinishedModal.testNowButtonTapped = { [weak self] in
@@ -167,10 +167,10 @@ extension BuildRobotViewController {
     }
 
     private func showTestingModal(with milestone: Milestone) {
-        dismissViewController()
+        dismissModalViewController()
         let testingModal = TestingModal.instatiate()
         testingModal.positiveButtonTapped = { [weak self] in
-            self?.dismissViewController()
+            self?.dismissModalViewController()
             self?.buildProgressBar.milestoneFinished()
         }
         testingModal.negativeButtonTapped = { [weak self] in
@@ -180,7 +180,7 @@ extension BuildRobotViewController {
     }
 
     private func showTipsModal(with milestone: Milestone) {
-        dismissViewController()
+        dismissModalViewController()
         let tips = TipsModalView.instatiate()
         tips.title = ModalKeys.Tips.title.translate()
         tips.subtitle = ModalKeys.Tips.subtitle.translate()
@@ -198,7 +198,7 @@ extension BuildRobotViewController {
             })
         }
         tips.skipCallback = { [weak self] in
-            self?.dismissViewController()
+            self?.dismissModalViewController()
             self?.buildProgressBar.milestoneFinished()
         }
         tips.tryAgainCallback = { [weak self] in
@@ -214,10 +214,10 @@ extension BuildRobotViewController {
         let view = DisconnectModal.instatiate()
         view.disconnectHandler = { [weak self] in
             self?.bluetoothService.disconnect()
-            self?.dismissViewController()
+            self?.dismissModalViewController()
         }
         view.cancelHandler = { [weak self] in
-            self?.dismissViewController()
+            self?.dismissModalViewController()
         }
         presentModal(with: view)
     }
@@ -321,21 +321,21 @@ extension BuildRobotViewController {
 
     override func connectionError() {
         let connectionModal = ConnectionModal.instatiate()
-        dismissViewController()
+        dismissModalViewController()
         presentModal(with: connectionModal.failed)
 
         connectionModal.skipConnectionButtonTapped = { [weak self] in
-            self?.dismissViewController()
+            self?.dismissModalViewController()
         }
         connectionModal.tryAgainButtonTapped = { [weak self] in
             self?.dismissAndTryAgain()
         }
 
         connectionModal.tipsButtonTapped = { [weak self] in
-            self?.dismissViewController()
+            self?.dismissModalViewController()
             let failedConnectionTipsModal = TipsModalView.instatiate()
             self?.presentModal(with: failedConnectionTipsModal)
-            failedConnectionTipsModal.skipCallback = self?.dismissViewController
+            failedConnectionTipsModal.skipCallback = self?.dismissModalViewController
             failedConnectionTipsModal.tryAgainCallback = self?.dismissAndTryAgain
             failedConnectionTipsModal.communityCallback = {
                 // TODO: Use BaseViewController showCommunityViewControoler when it's implemented
@@ -344,7 +344,7 @@ extension BuildRobotViewController {
     }
 
     private func dismissAndTryAgain() {
-        dismissViewController()
+        dismissModalViewController()
         presentBluetoothConnectionModal()
     }
 }

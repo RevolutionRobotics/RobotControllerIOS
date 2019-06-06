@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct Program: FirebaseData, Equatable {
+struct Program: FirebaseData, Equatable, Hashable {
     // MARK: - Constants
     private enum Constants {
         static let id = "id"
@@ -63,5 +63,9 @@ struct Program: FirebaseData, Equatable {
                 return result
         }
         self.variables = variables
+    }
+
+    var hashValue: Int {
+        return id.hashValue
     }
 }

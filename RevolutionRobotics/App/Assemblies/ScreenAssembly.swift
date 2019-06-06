@@ -191,7 +191,8 @@ extension ScreenAssembly {
 
     private func registerProgramsBottomViewController(to container: Container) {
         container
-            .register(ProgramBottomBarViewController.self, factory: { _ in return ProgramBottomBarViewController() })
+            .register(MostRecentProgramsViewController.self,
+                      factory: { _ in return MostRecentProgramsViewController() })
             .inObjectScope(.transient)
     }
 
@@ -200,6 +201,7 @@ extension ScreenAssembly {
             .register(PadConfigurationViewController.self, factory: { _ in return PadConfigurationViewController() })
             .initCompleted { (resolver, viewController) in
                 viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)
+                viewController.realmService = resolver.resolve(RealmServiceInterface.self)
             }
             .inObjectScope(.weak)
     }

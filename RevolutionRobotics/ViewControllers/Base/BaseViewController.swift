@@ -52,7 +52,7 @@ extension BaseViewController: RRNavigationBarDelegate {
     }
 
     func popToRootViewController(animated: Bool) {
-        self.dismissViewController()
+        self.dismissModalViewController()
         navigationController?.popToRootViewController(animated: animated)
     }
 }
@@ -105,7 +105,11 @@ extension BaseViewController {
 
 // MARK: - ModalViewControllerDelegate
 extension BaseViewController: ModalViewControllerDelegate {
-    func dismissViewController() {
+    func dismissModalViewController() {
+        dismiss(animated: true, completion: nil)
+    }
+
+    func backgroundTapped() {
         onModalDismissed?()
         onModalDismissed = nil
         dismiss(animated: true, completion: nil)
@@ -163,12 +167,12 @@ extension BaseViewController {
     }
 
     @objc func connected() {
-        dismissViewController()
+        dismissModalViewController()
         let connectionModal = ConnectionModal.instatiate()
         presentModal(with: connectionModal.successful)
 
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
-            self?.dismissViewController()
+            self?.dismissModalViewController()
         }
     }
 
