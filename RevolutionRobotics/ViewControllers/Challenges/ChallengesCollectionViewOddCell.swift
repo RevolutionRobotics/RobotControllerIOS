@@ -8,17 +8,11 @@
 
 import UIKit
 
-// MARK: - Progress
-enum Progress {
-    case unavailable
-    case available
-    case completed
-}
-
-final class ChallengesCollectionViewCell: UICollectionViewCell {
+final class ChallengesCollectionViewOddCell: UICollectionViewCell {
     // MARK: - Constants
     enum Constants {
         static let inactiveAlpha: CGFloat = 0.4
+        static let activeAlpha: CGFloat = 1
     }
 
     // MARK: - Outlets
@@ -26,7 +20,6 @@ final class ChallengesCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var lineImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var challengeNumberLabel: UILabel!
-    @IBOutlet private weak var cardImageTopConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
     var isFirstItem: Bool = false {
@@ -37,18 +30,21 @@ final class ChallengesCollectionViewCell: UICollectionViewCell {
     var progress: Progress = .unavailable
 }
 
+// MARK: - Reuse
+extension ChallengesCollectionViewOddCell {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        progress = .unavailable
+        isFirstItem = false
+    }
+}
+
 // MARK: - Setup
-extension ChallengesCollectionViewCell {
-    func setup(with challenge: Challenge, isEven: Bool, index: Int) {
+extension ChallengesCollectionViewOddCell {
+    func setup(with challenge: Challenge, index: Int) {
         nameLabel.text = challenge.name
         challengeNumberLabel.text = "\(index)."
-        if isEven {
-            guard cardImageTopConstraint != nil else {
-                return
-            }
-            cardImageTopConstraint.isActive = false
-            cardImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        }
 
         switch progress {
         case .unavailable:
@@ -63,6 +59,7 @@ extension ChallengesCollectionViewCell {
     private func setUnavailable() {
         cardImageView.image = Image.Challenges.ChallengeInactiveCard
         lineImageView.image = Image.Challenges.ChallengeGreyLine
+        challengeNumberLabel.textColor = .white
         lineImageView.alpha = Constants.inactiveAlpha
         nameLabel.alpha = Constants.inactiveAlpha
         challengeNumberLabel.alpha = Constants.inactiveAlpha
@@ -71,11 +68,18 @@ extension ChallengesCollectionViewCell {
     private func setAvailable() {
         cardImageView.image = Image.Challenges.ChallengeActiveCard
         lineImageView.image = Image.Challenges.ChallengeGreyLine
+        challengeNumberLabel.textColor = .white
+        lineImageView.alpha = Constants.activeAlpha
+        nameLabel.alpha = Constants.activeAlpha
+        challengeNumberLabel.alpha = Constants.activeAlpha
     }
 
     private func setCompleted() {
         cardImageView.image = Image.Challenges.ChallengeFinishedCard
         lineImageView.image = Image.Challenges.ChallengeGoldLine
         challengeNumberLabel.textColor = Color.blackTwo
+        lineImageView.alpha = Constants.activeAlpha
+        nameLabel.alpha = Constants.activeAlpha
+        challengeNumberLabel.alpha = Constants.activeAlpha
     }
 }
