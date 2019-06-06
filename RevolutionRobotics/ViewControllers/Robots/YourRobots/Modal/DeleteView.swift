@@ -1,5 +1,5 @@
 //
-//  DeleteRobotView.swift
+//  DeleteView.swift
 //  RevolutionRobotics
 //
 //  Created by Gabor Nagy Farkas on 2019. 05. 08..
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class DeleteRobotView: UIView {
+final class DeleteView: UIView {
     // MARK: - Outlets
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var deleteIconImageView: UIImageView!
@@ -18,10 +18,16 @@ final class DeleteRobotView: UIView {
     // MARK: - Properties
     var cancelButtonHandler: Callback?
     var deleteButtonHandler: Callback?
+
+    var title: String? {
+        didSet {
+            titleLabel.text = title?.uppercased()
+        }
+    }
 }
 
 // MARK: - View lifecycle
-extension DeleteRobotView {
+extension DeleteView {
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -31,14 +37,13 @@ extension DeleteRobotView {
         deleteButton.setBorder(fillColor: Color.blackTwo,
                                strokeColor: UIColor.white,
                                croppedCorners: [.topRight])
-        titleLabel.text = ModalKeys.DeleteRobot.description.translate().uppercased()
         cancelButton.setTitle(ModalKeys.DeleteRobot.cancel.translate(), for: .normal)
         deleteButton.setTitle(ModalKeys.DeleteRobot.confirm.translate(), for: .normal)
     }
 }
 
 // MARK: - Actions
-extension DeleteRobotView {
+extension DeleteView {
     @IBAction private func cancelButtonTapped(_ sender: Any) {
         cancelButtonHandler?()
     }

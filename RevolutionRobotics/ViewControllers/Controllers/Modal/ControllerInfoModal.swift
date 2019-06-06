@@ -15,7 +15,7 @@ final class ControllerInfoModal: UIView {
     @IBOutlet private weak var lastModifiedLabel: UILabel!
     @IBOutlet private weak var gotItButton: RRButton!
 
-    // MARK: - Callbacks
+    // MARK: - Properties
     var gotItCallback: Callback?
 }
 

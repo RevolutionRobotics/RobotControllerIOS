@@ -97,4 +97,10 @@ enum ModalKeys {
         static let cancel = "disconnect_modal_cancel"
         static let disconnect = "disconnect_modal_disconnect"
     }
+
+    enum ControllerDelete {
+        static let description = "delete_controller_description"
+        static let confirm = "delete_controller_confirm"
+        static let cancel = "delete_controller_cancel"
+    }
 }

@@ -110,6 +110,7 @@
 "program_selector_show_compatible_programs" = "show compatible programs only";
 "program_selector_show_all_programs" = "show all programs";
 "most_recent_show_more" = "Show more";
+"most_recent_empty" = "No additional compatible program to assign. Let’s build one under Programs!";
 
 // MARK: - Settings
 "settings_screen_title" = "Settings";
@@ -194,3 +195,7 @@
 "disconnect_modal_description" = "Would you like to disconnect from the robot?";
 "disconnect_modal_cancel" = "Cancel";
 "disconnect_modal_disconnect" = "Disconnect";
+
+"delete_controller_description" = "Are you sure you want to delete this controller?";
+"delete_controller_confirm" = "Delete";
+"delete_controller_cancel" = "Cancel";

@@ -1,5 +1,5 @@
 //
-//  GamerConfigurationViewController.swift
+//  PadConfigurationViewController.swift
 //  RevolutionRobotics
 //
 //  Created by Gabor Nagy Farkas on 2019. 05. 20..
@@ -149,8 +149,7 @@ extension PadConfigurationViewController {
     private func showProgramInfoModal(
         program: Program,
         on buttonNumber: Int,
-        with buttonState: ControllerButton.ControllerButtonState
-    ) {
+        with buttonState: ControllerButton.ControllerButtonState) {
         dismissViewController()
         let programInfoModal = ProgramInfoModal.instatiate()
 
@@ -165,7 +164,7 @@ extension PadConfigurationViewController {
             issue: nil,
             editButtonHandler: {
                 print("Edit button tapped")
-            },
+        },
             actionButtonHandler: { [weak self] infoType in
                 self?.handleProgramSelection(
                     program: program,

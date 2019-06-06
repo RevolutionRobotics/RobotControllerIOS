@@ -132,10 +132,34 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
         let cell: ControllerCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.indexPath = indexPath
         cell.setup(with: controllers[indexPath.row])
+        cell.isSelected = configuration?.controller == controllers[indexPath.row].id
+        cell.infoCallback = { [weak self] in
+            print(self)
+        }
+        cell.editCallback = { [weak self] in
+            print(self)
+        }
+        cell.deleteCallback = { [weak self] in
+            let deleteView = DeleteView.instatiate()
+            deleteView.title = ModalKeys.ControllerDelete.description.translate()
+            deleteView.deleteButtonHandler = { [weak self] in
+                self?.deleteController(self?.controllers[indexPath.row])
+                self?.dismissViewController()
+            }
+            deleteView.cancelButtonHandler = { [weak self] in
+                self?.dismissViewController()
+            }
+            self?.presentModal(with: deleteView)
+        }
         if let lastIndexPath = lastSelectedIndexPath {
             cell.isSelected = lastIndexPath == indexPath
         }
         return cell
+    }
+
+    private func deleteController(_ controller: ControllerDataModel?) {
+        guard let controller = controller else { return }
+        realmService.deleteController(controller)
     }
 }
 

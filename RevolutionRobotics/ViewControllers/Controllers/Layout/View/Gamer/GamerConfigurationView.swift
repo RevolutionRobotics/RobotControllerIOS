@@ -69,36 +69,48 @@ extension GamerConfigurationView {
         button1.setTitle(ControllerKeys.configureEmpty.translate(), for: .normal)
         button1.lines = dashedView1
         button1.dotImageView = imageView1
+        button1.titleLabel?.numberOfLines = 2
+        button1.titleLabel?.textAlignment = .center
     }
 
     private func setupB2() {
         button2.setTitle(ControllerKeys.configureEmpty.translate(), for: .normal)
         button2.lines = dashedView2
         button2.dotImageView = imageView2
+        button2.titleLabel?.numberOfLines = 2
+        button2.titleLabel?.textAlignment = .center
     }
 
     private func setupB3() {
         button3.setTitle(ControllerKeys.configureEmpty.translate(), for: .normal)
         button3.lines = dashedView3
         button3.dotImageView = imageView3
+        button3.titleLabel?.numberOfLines = 2
+        button3.titleLabel?.textAlignment = .center
     }
 
     private func setupB4() {
         button4.setTitle(ControllerKeys.configureEmpty.translate(), for: .normal)
         button4.lines = dashedView4
         button4.dotImageView = imageView4
+        button4.titleLabel?.numberOfLines = 2
+        button4.titleLabel?.textAlignment = .center
     }
 
     private func setupB5() {
         button5.setTitle(ControllerKeys.configureEmpty.translate(), for: .normal)
         button5.lines = dashedView5
         button5.dotImageView = imageView5
+        button5.titleLabel?.numberOfLines = 2
+        button5.titleLabel?.textAlignment = .center
     }
 
     private func setupB6() {
         button6.setTitle(ControllerKeys.configureEmpty.translate(), for: .normal)
         button6.lines = dashedView6
         button6.dotImageView = imageView6
+        button6.titleLabel?.numberOfLines = 2
+        button6.titleLabel?.textAlignment = .center
     }
 }
 

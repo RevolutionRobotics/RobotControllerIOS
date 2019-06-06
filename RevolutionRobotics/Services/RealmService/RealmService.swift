@@ -116,6 +116,10 @@ extension RealmService: RealmServiceInterface {
         return controllers
     }
 
+    func deleteController(_ controller: ControllerDataModel) {
+        return realmConnector.delete(object: controller)
+    }
+
     func getConfiguration(id: String?) -> ConfigurationDataModel? {
         guard let id = id,
             let configurations = realmConnector.findAll(type: ConfigurationDataModel.self) as? [ConfigurationDataModel],
