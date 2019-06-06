@@ -50,14 +50,14 @@ extension ProgramInfoModal {
         infoType: InfoType,
         issue: String?,
         editButtonHandler: Callback?,
-        actionButtonHandler: CallbackType<InfoType>?
-    ) {
+        actionButtonHandler: CallbackType<InfoType>?) {
         type = infoType
         editButtonTapped = editButtonHandler
         actionButtonTapped = actionButtonHandler
         titleLabel.text = program.name
         descriptionLabel.text = program.description
-        dateLabel.text = "\(program.lastModified)"
+        dateLabel.text = DateFormatter.string(from: Date(timeIntervalSince1970: program.lastModified),
+                                              format: .yearMonthDay)
         issueLabel.text = issue
     }
 

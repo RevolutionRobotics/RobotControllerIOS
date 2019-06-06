@@ -99,7 +99,8 @@ extension YourRobotsViewController: UICollectionViewDataSource {
         view.deleteHandler = { [weak self] in
             guard let robot = robot else { return }
             self?.dismissViewController()
-            let deleteView = DeleteRobotView.instatiate()
+            let deleteView = DeleteView.instatiate()
+            deleteView.title = ModalKeys.DeleteRobot.description.translate()
             deleteView.deleteButtonHandler = { [weak self] in
                 self?.deleteRobot(robot)
                 self?.dismissViewController()
@@ -160,7 +161,7 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
     private func navigateToPlayControllerViewController(with robot: UserRobot) {
         let playController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
         firebaseService.getController(
-            for: "1",
+            for: robot.configId,
             completion: { [weak self] result in
                 switch result {
                 case .success(let controller):

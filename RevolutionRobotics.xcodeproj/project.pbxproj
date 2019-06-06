@@ -109,8 +109,8 @@
 		2AA926D22271CB07000FAA98 /* RRSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA926D12271CB07000FAA98 /* RRSlider.swift */; };
 		2AA926D522773D95000FAA98 /* SideButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA926D422773D95000FAA98 /* SideButton.swift */; };
 		2AA926D722773DC1000FAA98 /* SideButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AA926D622773DC1000FAA98 /* SideButton.xib */; };
-		2AB7785F2282F6CA004442E2 /* DeleteRobotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7785E2282F6CA004442E2 /* DeleteRobotView.swift */; };
-		2AB778612282F6D4004442E2 /* DeleteRobotView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB778602282F6D4004442E2 /* DeleteRobotView.xib */; };
+		2AB7785F2282F6CA004442E2 /* DeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7785E2282F6CA004442E2 /* DeleteView.swift */; };
+		2AB778612282F6D4004442E2 /* DeleteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB778602282F6D4004442E2 /* DeleteView.xib */; };
 		2AB8F95122888AD300D7D93C /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB8F95022888AD300D7D93C /* ConfigurationView.swift */; };
 		2AB8F95322888AF300D7D93C /* ConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB8F95222888AF300D7D93C /* ConfigurationView.xib */; };
 		2AB8F9562288933100D7D93C /* UIImagePickerController+Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB8F9552288933100D7D93C /* UIImagePickerController+Show.swift */; };
@@ -354,8 +354,8 @@
 		2AA926D12271CB07000FAA98 /* RRSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRSlider.swift; sourceTree = "<group>"; };
 		2AA926D422773D95000FAA98 /* SideButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideButton.swift; sourceTree = "<group>"; };
 		2AA926D622773DC1000FAA98 /* SideButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideButton.xib; sourceTree = "<group>"; };
-		2AB7785E2282F6CA004442E2 /* DeleteRobotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRobotView.swift; sourceTree = "<group>"; };
-		2AB778602282F6D4004442E2 /* DeleteRobotView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteRobotView.xib; sourceTree = "<group>"; };
+		2AB7785E2282F6CA004442E2 /* DeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteView.swift; sourceTree = "<group>"; };
+		2AB778602282F6D4004442E2 /* DeleteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteView.xib; sourceTree = "<group>"; };
 		2AB8F95022888AD300D7D93C /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
 		2AB8F95222888AF300D7D93C /* ConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationView.xib; sourceTree = "<group>"; };
 		2AB8F9552288933100D7D93C /* UIImagePickerController+Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Show.swift"; sourceTree = "<group>"; };
@@ -1091,8 +1091,8 @@
 		2AB7785D2282F6B7004442E2 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				2AB7785E2282F6CA004442E2 /* DeleteRobotView.swift */,
-				2AB778602282F6D4004442E2 /* DeleteRobotView.xib */,
+				2AB7785E2282F6CA004442E2 /* DeleteView.swift */,
+				2AB778602282F6D4004442E2 /* DeleteView.xib */,
 				2A90537022A3DA300047509D /* RobotOptionsView.swift */,
 				2A90537222A3DA3A0047509D /* RobotOptionsView.xib */,
 			);
@@ -1650,7 +1650,7 @@
 				D0899C6D22A6BCB900DB6F97 /* ChallengeCategoryCollectionViewCell.xib in Resources */,
 				2A50DA2E2292CFB000B3D74C /* GamerConfigurationView.xib in Resources */,
 				096479872268776200F68456 /* BuildRobotViewController.xib in Resources */,
-				2AB778612282F6D4004442E2 /* DeleteRobotView.xib in Resources */,
+				2AB778612282F6D4004442E2 /* DeleteView.xib in Resources */,
 				D05BAA9E22676BCA00624438 /* WhoToBuildCollectionViewCell.xib in Resources */,
 				D06C32792289BAF1005534C0 /* CheckForUpdatesModal.xib in Resources */,
 				D031333F228EA66100704989 /* ProgramBottomBarViewController.xib in Resources */,
@@ -1948,7 +1948,7 @@
 				096333F62289B9710029D87B /* PadButton.swift in Sources */,
 				096333EE228993CF0029D87B /* TLAnalogJoystick.swift in Sources */,
 				2ADE8C342270A78600ECEC72 /* RobotsKeys.swift in Sources */,
-				2AB7785F2282F6CA004442E2 /* DeleteRobotView.swift in Sources */,
+				2AB7785F2282F6CA004442E2 /* DeleteView.swift in Sources */,
 				D008E0392260979400089DC7 /* FirebaseData.swift in Sources */,
 				2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */,
 				D06C32772289BAE9005534C0 /* CheckForUpdatesModal.swift in Sources */,

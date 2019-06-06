@@ -75,6 +75,7 @@
                         <constraint firstAttribute="height" constant="38" id="caI-kl-pit"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                     <state key="normal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -118,6 +119,7 @@
                         <constraint firstAttribute="width" constant="70" id="tE7-Vp-jKV"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                     <state key="normal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -161,6 +163,7 @@
                         <constraint firstAttribute="width" constant="70" id="xHv-nE-Er9"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                     <state key="normal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -197,6 +200,7 @@
                         <constraint firstAttribute="width" constant="70" id="Jc4-fh-MBe"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                     <state key="normal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -241,6 +245,7 @@
                         <constraint firstAttribute="height" constant="38" id="NlO-Bw-em9"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                     <state key="normal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -277,6 +282,7 @@
                         <constraint firstAttribute="height" constant="38" id="qYr-yI-A1D"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                     <state key="normal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>

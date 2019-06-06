@@ -31,7 +31,7 @@ final class ControllerCollectionViewCell: ResizableCell {
 
     // MARK: - Callbacks
     var deleteCallback: Callback?
-    var modifyCallback: Callback?
+    var editCallback: Callback?
     var infoCallback: Callback?
 
     // MARK: - Variables
@@ -110,7 +110,7 @@ extension ControllerCollectionViewCell {
     }
 
     @IBAction private func modifyButtonTapped(_ sender: Any) {
-        modifyCallback?()
+        editCallback?()
     }
 
     @IBAction private func infoButtonTapped(_ sender: Any) {

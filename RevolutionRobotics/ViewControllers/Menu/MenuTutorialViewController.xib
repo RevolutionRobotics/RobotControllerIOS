@@ -106,7 +106,7 @@
                         <constraint firstAttribute="height" constant="33" id="8f8-vG-byC"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLI-po-cnB" userLabel="menuItemContainer">
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLI-po-cnB" userLabel="menuItemContainer">
                     <rect key="frame" x="104" y="82" width="604" height="211"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQz-OV-6jA" userLabel="robotsContainer">

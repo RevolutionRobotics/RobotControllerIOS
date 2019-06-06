@@ -13,11 +13,16 @@ final class ProgramBottomBarViewController: BaseViewController {
     private enum Constants {
         static let buttonFont = Font.jura(size: 12.0, weight: .bold)
         static let firstFiveProgamRange = 0...4
+        static let animationDuration: TimeInterval = 0.25
     }
 
     // MARK: - Outlets
+    @IBOutlet private weak var emptyLabel: UILabel!
+    @IBOutlet private weak var bottomContainer: UIView!
     @IBOutlet private weak var buttonContainer: UIStackView!
     @IBOutlet private weak var showMoreButton: RRButton!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private var buttons: [RRButton]!
 
     // MARK: - Callbacks
     var programSelected: CallbackType<Program>?
@@ -35,12 +40,13 @@ extension ProgramBottomBarViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupShowMoreButton()
+
+        emptyLabel.text = ProgramsKeys.MostRecent.empty.translate()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupButtonsData()
-        setupButtonsLayout()
+        setupButtons()
     }
 }
 
@@ -63,47 +69,49 @@ extension ProgramBottomBarViewController {
         showMoreButton.setTitle(ProgramsKeys.MostRecent.showMore.translate(), for: .normal)
     }
 
-    private func setupButtonsLayout() {
-        buttonContainer.arrangedSubviews.forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.widthAnchor.constraint(equalTo: showMoreButton.widthAnchor).isActive = true
-            $0.setBorder(fillColor: .clear, croppedCorners: [.bottomLeft, .bottomRight, .topRight, .topLeft])
+    private func setupButtons() {
+        guard !programs.isEmpty else {
+            showMoreButton.setBorder(fillColor: .clear, strokeColor: .white)
+            activityIndicator.stopAnimating()
+            UIView.animate(withDuration: Constants.animationDuration) {
+                self.showMoreButton.alpha = 1.0
+                self.emptyLabel.alpha = 1.0
+            }
+            return
         }
+        programs.enumerated().forEach { (index, program) in
+            let button = buttons[index]
+            button.setBorder(fillColor: .clear, croppedCorners: [.bottomLeft, .bottomRight, .topRight, .topLeft])
+            button.setTitle(program.name, for: .normal)
+            button.titleLabel?.numberOfLines = 3
+            button.titleLabel?.textAlignment = .center
+        }
+
+        let startIndex = programs.count - 1
+        buttons[startIndex...].forEach({ $0.isHidden = true })
+
         showMoreButton.setBorder(fillColor: .clear, strokeColor: .white)
 
         if selectedProgram != nil {
-            buttonContainer.arrangedSubviews.first?.setBorder(
+            buttons.first?.setBorder(
                 fillColor: Color.black,
                 strokeColor: .red,
                 croppedCorners: [.bottomLeft, .bottomRight, .topRight, .topLeft]
             )
         }
-    }
 
-    private func setupButtonsData() {
-        programs.map(makeButton).forEach(buttonContainer.addArrangedSubview)
-        view.setNeedsLayout()
-        view.layoutIfNeeded()
-    }
-
-    private func makeButton(from program: Program) -> RRButton {
-        let button = RRButton()
-        button.backgroundColor = Color.blackTwo
-        button.titleLabel?.font = Constants.buttonFont
-        button.titleLabel?.textAlignment = .center
-        button.titleLabel?.textColor = .white
-        button.setTitle(program.name, for: .normal)
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-
-        return button
+        activityIndicator.stopAnimating()
+        UIView.animate(withDuration: Constants.animationDuration) {
+            self.showMoreButton.alpha = 1.0
+            self.buttonContainer.alpha = 1.0
+        }
     }
 }
 
 // MARK: - Event handlers
 extension ProgramBottomBarViewController {
-    @objc private func buttonTapped(_ sender: RRButton) {
-        guard let buttons = buttonContainer.arrangedSubviews as? [RRButton],
-            let buttonIndex = buttons.firstIndex(of: sender) else { return }
+    @IBAction private func buttonTapped(_ sender: RRButton) {
+        guard let buttonIndex = buttons.firstIndex(of: sender) else { return }
         programSelected?(programs[buttonIndex])
     }
 

@@ -13,6 +13,7 @@ enum ProgramsKeys {
 
     enum MostRecent {
         static let showMore = "most_recent_show_more"
+        static let empty = "most_recent_empty"
     }
 
     enum Selector {
