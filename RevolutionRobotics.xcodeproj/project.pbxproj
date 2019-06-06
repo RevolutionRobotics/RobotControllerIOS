@@ -147,6 +147,10 @@
 		2AF8C76422806A1800CE1ACB /* RealmConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8C76322806A1800CE1ACB /* RealmConnector.swift */; };
 		2AFAA11222663111002BE0A2 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAA11122663111002BE0A2 /* UIImage+Color.swift */; };
 		2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */; };
+		D001FCAA22A7DDE9004C49F3 /* ChallengeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D001FCA822A7DDE9004C49F3 /* ChallengeDetailViewController.swift */; };
+		D001FCAB22A7DDE9004C49F3 /* ChallengeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D001FCA922A7DDE9004C49F3 /* ChallengeDetailViewController.xib */; };
+		D001FCAE22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D001FCAC22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.swift */; };
+		D001FCAF22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D001FCAD22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.xib */; };
 		D0049A1E226F0929007FA256 /* RRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0049A1D226F0929007FA256 /* RRButton.swift */; };
 		D0049A28226F30AA007FA256 /* WhoToBuildCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0049A27226F30AA007FA256 /* WhoToBuildCollectionViewCell.swift */; };
 		D0049A3D2270A8CF007FA256 /* AvailableRobotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0049A3C2270A8CF007FA256 /* AvailableRobotsView.swift */; };
@@ -399,6 +403,10 @@
 		5E046D70402D059CCC0D1898 /* Pods-RevolutionRobotics.release prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.release prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.release prod.xcconfig"; sourceTree = "<group>"; };
 		6580994D81024CCF29BD1923 /* Pods-RevolutionRobotics.debug dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug dev.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug dev.xcconfig"; sourceTree = "<group>"; };
 		755D287203AB31DEF1C3C453 /* Pods-RevolutionRobotics.release dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.release dev.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.release dev.xcconfig"; sourceTree = "<group>"; };
+		D001FCA822A7DDE9004C49F3 /* ChallengeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewController.swift; sourceTree = "<group>"; };
+		D001FCA922A7DDE9004C49F3 /* ChallengeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailViewController.xib; sourceTree = "<group>"; };
+		D001FCAC22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		D001FCAD22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		D0049A1D226F0929007FA256 /* RRButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRButton.swift; sourceTree = "<group>"; };
 		D0049A27226F30AA007FA256 /* WhoToBuildCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhoToBuildCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0049A3C2270A8CF007FA256 /* AvailableRobotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableRobotsView.swift; sourceTree = "<group>"; };
@@ -1067,6 +1075,10 @@
 				D0899C6122A6BCB700DB6F97 /* ChallengesCollectionViewCell.xib */,
 				D0899C6322A6BCB800DB6F97 /* ChallengesViewController.swift */,
 				D0899C6822A6BCB900DB6F97 /* ChallengesViewController.xib */,
+				D001FCA822A7DDE9004C49F3 /* ChallengeDetailViewController.swift */,
+				D001FCA922A7DDE9004C49F3 /* ChallengeDetailViewController.xib */,
+				D001FCAC22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.swift */,
+				D001FCAD22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.xib */,
 			);
 			path = Challenges;
 			sourceTree = "<group>";
@@ -1617,6 +1629,7 @@
 				09C38755226F3ABC0097619D /* Barlow-Medium.ttf in Resources */,
 				D0899C6922A6BCB900DB6F97 /* ChallengesCollectionViewCell.xib in Resources */,
 				FE4B16182277202600CAA083 /* RobotConfigurationViewController.xib in Resources */,
+				D001FCAF22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.xib in Resources */,
 				097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */,
 				D06F01D2228AFFA600AF73E5 /* FirmwareDownloadModal.xib in Resources */,
 				094FC5E3228C3D5E0085B407 /* DriverPadView.xib in Resources */,
@@ -1657,6 +1670,7 @@
 				2A77320322648FB000D7F38D /* Settings.bundle in Resources */,
 				09C38753226F38F40097619D /* Jura-Regular.ttf in Resources */,
 				D0049A542271CC52007FA256 /* TurnOnBrainView.xib in Resources */,
+				D001FCAB22A7DDE9004C49F3 /* ChallengeDetailViewController.xib in Resources */,
 				09105A9E2280581F00AB7B72 /* MotorConfigViewController.xib in Resources */,
 				FE4B162522786A6C00CAA083 /* PhotoModal.xib in Resources */,
 				0952387122A5704F001C1CE1 /* OptionSelectorView.xib in Resources */,
@@ -1854,6 +1868,7 @@
 				D0899C5022A5458300DB6F97 /* ChallengeCategoryDataModel.swift in Sources */,
 				D0A1108C227B18480064FBB6 /* ControllerInfoModal.swift in Sources */,
 				094FC5DF228C3CF60085B407 /* DriverPadView.swift in Sources */,
+				D001FCAE22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.swift in Sources */,
 				094F9DDC2264BEE600BE118B /* Font.swift in Sources */,
 				D0313330228D5CBA00704989 /* ChallengeCategory.swift in Sources */,
 				D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */,
@@ -1890,6 +1905,7 @@
 				FE4B162322786A5300CAA083 /* PhotoModal.swift in Sources */,
 				0964798222686DE000F68456 /* WhoToBuildViewController.swift in Sources */,
 				09105A9F2280581F00AB7B72 /* MotorConfigViewController.swift in Sources */,
+				D001FCAA22A7DDE9004C49F3 /* ChallengeDetailViewController.swift in Sources */,
 				2A458E27227C89AF000C03D2 /* RRProgressLabel.swift in Sources */,
 				D0899C6C22A6BCB900DB6F97 /* ChallengeCategoriesViewController.swift in Sources */,
 				D06C327022899574005534C0 /* Bundle+Version.swift in Sources */,

@@ -16,6 +16,7 @@ final class ScreenAssembly: Assembly {
         registerBlocklyViewController(to: container)
         registerChallengeCategoriesViewController(to: container)
         registerChallengesViewController(to: container)
+        registerChallengeDetailsViewController(to: container)
         registerProgramsViewController(to: container)
         registerSettingsViewController(to: container)
         registerWhoToBuildViewController(to: container)
@@ -72,6 +73,12 @@ extension ScreenAssembly {
             .initCompleted { (resolver, viewController) in
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
             }
+            .inObjectScope(.weak)
+    }
+
+    private func registerChallengeDetailsViewController(to container: Container) {
+        container
+            .register(ChallengeDetailViewController.self, factory: { _ in return ChallengeDetailViewController() })
             .inObjectScope(.weak)
     }
 

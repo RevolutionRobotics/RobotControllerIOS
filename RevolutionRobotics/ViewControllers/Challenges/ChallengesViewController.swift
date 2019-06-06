@@ -27,6 +27,7 @@ extension ChallengesViewController {
 
         guard let category = challengeCategory else { return }
         navigationBar.setup(title: category.name, delegate: self)
+        challengeDescription.text = category.description
         challengesCollectionView.delegate = self
         challengesCollectionView.dataSource = self
         challengesCollectionView.register(ChallengesCollectionViewCell.self)
@@ -48,6 +49,15 @@ extension ChallengesViewController {
 
 // MARK: - UICollectionViewDelegate
 extension ChallengesViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let challenge = challengeCategory?.challenges[indexPath.row], progress >= indexPath.row else { return }
+        let challengeDetailViewController =
+            AppContainer.shared.container.unwrappedResolve(ChallengeDetailViewController.self)
+        navigationController?.pushViewController(challengeDetailViewController, animated: true)
+        challengeDetailViewController.setup(with: challenge)
+        challengeDetailViewController.challengeFinished = {
+        }
+    }
 }
 
 extension ChallengesViewController: UICollectionViewDataSource {
