@@ -29,14 +29,14 @@
             <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rg-az-RWd">
-                    <rect key="frame" x="200.5" y="32" width="59" height="17"/>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rg-az-RWd">
+                    <rect key="frame" x="210" y="32" width="40" height="17"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TipsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="dMU-aB-Ze5">
-                            <rect key="frame" x="0.0" y="0.0" width="16" height="17"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="TipsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="dMU-aB-Ze5">
+                            <rect key="frame" x="-19" y="0.0" width="16" height="17"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIPS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tX2-AX-heJ">
-                            <rect key="frame" x="19" y="0.0" width="40" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="TIPS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tX2-AX-heJ">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                             <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -48,6 +48,7 @@
                         <constraint firstAttribute="bottom" secondItem="tX2-AX-heJ" secondAttribute="bottom" id="JUD-Bc-79B"/>
                         <constraint firstItem="dMU-aB-Ze5" firstAttribute="top" secondItem="9rg-az-RWd" secondAttribute="top" id="Wyl-2c-D9h"/>
                         <constraint firstItem="dMU-aB-Ze5" firstAttribute="leading" secondItem="9rg-az-RWd" secondAttribute="leading" id="c1g-CV-lNq"/>
+                        <constraint firstItem="tX2-AX-heJ" firstAttribute="leading" secondItem="9rg-az-RWd" secondAttribute="leading" priority="750" id="cNv-Ut-0tw"/>
                         <constraint firstItem="tX2-AX-heJ" firstAttribute="top" secondItem="9rg-az-RWd" secondAttribute="top" id="dsH-3B-RUS"/>
                         <constraint firstItem="tX2-AX-heJ" firstAttribute="leading" secondItem="dMU-aB-Ze5" secondAttribute="trailing" constant="3" id="gxX-pV-5yZ"/>
                         <constraint firstAttribute="trailing" secondItem="tX2-AX-heJ" secondAttribute="trailing" id="k7C-P5-bwf"/>
@@ -124,6 +125,7 @@
                 <constraint firstItem="4sY-RM-jjr" firstAttribute="height" secondItem="pcT-kH-xuq" secondAttribute="height" id="QzE-Te-aoh"/>
                 <constraint firstAttribute="bottom" secondItem="SB3-XG-Kyg" secondAttribute="bottom" constant="4" id="Squ-tf-Q3d"/>
                 <constraint firstAttribute="bottom" secondItem="4sY-RM-jjr" secondAttribute="bottom" constant="4" id="U6H-Cc-sX1"/>
+                <constraint firstItem="pcT-kH-xuq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" priority="750" constant="4" id="V3L-ty-lCF"/>
                 <constraint firstItem="pcT-kH-xuq" firstAttribute="width" secondItem="SB3-XG-Kyg" secondAttribute="width" id="XQW-fS-1DI"/>
                 <constraint firstItem="UFn-68-CPg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="cPG-TF-o0h"/>
                 <constraint firstItem="SB3-XG-Kyg" firstAttribute="leading" secondItem="pcT-kH-xuq" secondAttribute="trailing" id="dAM-of-caR"/>
@@ -138,6 +140,7 @@
                 <outlet property="communityButton" destination="pcT-kH-xuq" id="A3o-mY-N0c"/>
                 <outlet property="instructionLabel" destination="UFn-68-CPg" id="aVF-cO-A3i"/>
                 <outlet property="skipConnectionButton" destination="4sY-RM-jjr" id="cle-S4-D2E"/>
+                <outlet property="tipsIcon" destination="dMU-aB-Ze5" id="5WL-fS-cTH"/>
                 <outlet property="tipsLabel" destination="8b4-4V-Cfc" id="wYm-zu-uFf"/>
                 <outlet property="tipsTitleLabel" destination="tX2-AX-heJ" id="2wN-KC-s5v"/>
                 <outlet property="tryAgainButton" destination="SB3-XG-Kyg" id="skf-aM-WxK"/>
