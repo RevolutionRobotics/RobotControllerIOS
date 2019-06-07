@@ -46,8 +46,8 @@ extension YourRobotsViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        collectionView.setupLayout()
         robots = realmService.getRobots()
-        collectionView.setupInset()
     }
 
     private func setupCollectionView() {
