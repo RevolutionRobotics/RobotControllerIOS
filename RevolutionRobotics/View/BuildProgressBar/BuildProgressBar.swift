@@ -35,9 +35,7 @@ final class BuildProgressBar: RRCustomView {
         set {
             previousStep = newValue
             slider.value = Float(newValue)
-            if newValue >= self.numberOfSteps {
-                self.setupNextButton(step: Float(newValue))
-            }
+            self.setupNextButton(step: Float(newValue))
         }
     }
     private var previousStep: Int = 0

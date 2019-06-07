@@ -48,6 +48,12 @@ extension ChallengeCategoriesViewController {
         challengesCollectionView.dataSource = self
         fetchChallenges()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        challengesCollectionView.reloadData()
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

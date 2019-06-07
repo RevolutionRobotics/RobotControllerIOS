@@ -24,15 +24,23 @@ final class ChallengeDetailViewController: BaseViewController {
 
 // MARK: - Setup
 extension ChallengeDetailViewController {
-    func setup(with challenge: Challenge) {
+    func setup(with challenge: Challenge, needsReload: Bool = false) {
         self.challenge = challenge
+        if needsReload {
+            navigationBar.setup(title: challenge.name, delegate: self)
+            setupContent(for: 0)
+            setupProgressBar()
+        }
     }
 
     private func setupProgressBar() {
         guard let challenge = challenge else { return }
         progressBar.numberOfSteps = challenge.challengeSteps.count - 1
+        progressBar.currentStep = 0
         if challenge.challengeSteps.count - 2 >= 1 {
             progressBar.markers = Array(1...challenge.challengeSteps.count - 2)
+        } else {
+            progressBar.markers = []
         }
         progressBar.showMilestone = { [weak self] in
             self?.progressBar.milestoneFinished()
@@ -67,6 +75,7 @@ extension ChallengeDetailViewController {
         partsCollectionView.delegate = self
         partsCollectionView.dataSource = self
         partsCollectionView.register(ChallengeDetailCollectionViewCell.self)
+
         guard let challenge = challenge else { return }
         navigationBar.setup(title: challenge.name, delegate: self)
         setupContent(for: 0)
