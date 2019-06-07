@@ -10,11 +10,13 @@ import Foundation
 import Fabric
 import Crashlytics
 import Firebase
+import Kingfisher
 
 struct AppDependencies {
     func setup() {
         setupFabric()
         setupFirebase()
+        setupKingfisher()
     }
 }
 
@@ -26,5 +28,10 @@ extension AppDependencies {
 
     private func setupFirebase() {
         FirebaseApp.configure()
+    }
+
+    private func setupKingfisher() {
+        ImageCache.default.memoryStorage.config.totalCostLimit = 1
+        ImageCache.default.diskStorage.config.sizeLimit = 0
     }
 }
