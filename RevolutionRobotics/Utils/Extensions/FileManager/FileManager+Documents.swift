@@ -12,6 +12,7 @@ import UIKit
 extension FileManager {
     private enum Constants {
         static let documentsDirectoryName = "Documents"
+        static let programsDirectoryName = "Programs"
         static let jpegExtension = ".jpeg"
         static let compressionQuality: CGFloat = 0.5
     }
@@ -46,6 +47,22 @@ extension FileManager {
 
 // MARK: - Image saving
 extension FileManager {
+    func save(_ data: Data?, as name: String) {
+        guard let data = data else { return }
+        let path = FileManager.documentsDirectory.appendingPathComponent(name)
+        do {
+            try data.write(to: path)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
+    func open(name: String?) -> Data? {
+        guard let name = name else { return nil }
+        let url = URL(string: FileManager.documentsDirectory.appendingPathComponent(name).absoluteString)!
+        return try? Data(contentsOf: url)
+    }
+
     func save(_ image: UIImage?, as name: String) {
         guard let image = image,
             let data = image.jpegData(compressionQuality: Constants.compressionQuality) else {

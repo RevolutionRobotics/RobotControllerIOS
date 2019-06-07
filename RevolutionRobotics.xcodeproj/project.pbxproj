@@ -125,6 +125,8 @@
 		2AC7AB72228D4FB900D96457 /* URLSession+ImageDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7AB71228D4FB900D96457 /* URLSession+ImageDownload.swift */; };
 		2AD858DE2295AE940082CDC0 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD858DD2295AE940082CDC0 /* UIAlertController+Error.swift */; };
 		2AD858E02296B9EB0082CDC0 /* ControllerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD858DF2296B9EB0082CDC0 /* ControllerDataModel.swift */; };
+		2ADE60B722AA65C000622C84 /* ProgramDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE60B622AA65C000622C84 /* ProgramDataModel.swift */; };
+		2ADE60BA22AA6A8100622C84 /* Storage+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE60B922AA6A8100622C84 /* Storage+Download.swift */; };
 		2ADE8C292270A61000ECEC72 /* String+Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C282270A61000ECEC72 /* String+Translate.swift */; };
 		2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C312270A77200ECEC72 /* ChallengesKeys.swift */; };
 		2ADE8C342270A78600ECEC72 /* RobotsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADE8C332270A78600ECEC72 /* RobotsKeys.swift */; };
@@ -378,6 +380,8 @@
 		2AC7AB71228D4FB900D96457 /* URLSession+ImageDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+ImageDownload.swift"; sourceTree = "<group>"; };
 		2AD858DD2295AE940082CDC0 /* UIAlertController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Error.swift"; sourceTree = "<group>"; };
 		2AD858DF2296B9EB0082CDC0 /* ControllerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerDataModel.swift; sourceTree = "<group>"; };
+		2ADE60B622AA65C000622C84 /* ProgramDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDataModel.swift; sourceTree = "<group>"; };
+		2ADE60B922AA6A8100622C84 /* Storage+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Download.swift"; sourceTree = "<group>"; };
 		2ADE8C282270A61000ECEC72 /* String+Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Translate.swift"; sourceTree = "<group>"; };
 		2ADE8C312270A77200ECEC72 /* ChallengesKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesKeys.swift; sourceTree = "<group>"; };
 		2ADE8C332270A78600ECEC72 /* RobotsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotsKeys.swift; sourceTree = "<group>"; };
@@ -1030,6 +1034,7 @@
 				2AD858DF2296B9EB0082CDC0 /* ControllerDataModel.swift */,
 				D05C64D5225F587700B7BF4F /* UserRobot.swift */,
 				D0899C4F22A5458300DB6F97 /* ChallengeCategoryDataModel.swift */,
+				2ADE60B622AA65C000622C84 /* ProgramDataModel.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1161,6 +1166,14 @@
 				2AD858DD2295AE940082CDC0 /* UIAlertController+Error.swift */,
 			);
 			path = UIAlertController;
+			sourceTree = "<group>";
+		};
+		2ADE60B822AA6A7500622C84 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				2ADE60B922AA6A8100622C84 /* Storage+Download.swift */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		2ADE8C272270A58600ECEC72 /* Localization */ = {
@@ -1394,6 +1407,7 @@
 		D008E03A2260AAF500089DC7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2ADE60B822AA6A7500622C84 /* Firebase */,
 				2A473774229F0F7300641B07 /* UserDefaults */,
 				091B98A9229830BC00DCEEF4 /* DateFormatter */,
 				2AD858DC2295AE840082CDC0 /* UIAlertController */,
@@ -1964,6 +1978,7 @@
 				D06F01D0228AFF8F00AF73E5 /* FirmwareDownloadModal.swift in Sources */,
 				D05C64DB225F590100B7BF4F /* Port.swift in Sources */,
 				D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */,
+				2ADE60B722AA65C000622C84 /* ProgramDataModel.swift in Sources */,
 				2AA926D522773D95000FAA98 /* SideButton.swift in Sources */,
 				D05BAA7B226769F300624438 /* UICollectionView+CellReuse.swift in Sources */,
 				D0A1107D227870040064FBB6 /* YourRobotsCollectionViewCell.swift in Sources */,
@@ -1988,8 +2003,9 @@
 				096333EE228993CF0029D87B /* TLAnalogJoystick.swift in Sources */,
 				2ADE8C342270A78600ECEC72 /* RobotsKeys.swift in Sources */,
 				2AB7785F2282F6CA004442E2 /* DeleteView.swift in Sources */,
-				2AB7785F2282F6CA004442E2 /* DeleteRobotView.swift in Sources */,
+				2AB7785F2282F6CA004442E2 /* DeleteView.swift in Sources */,
 				D001FCB722A951FC004C49F3 /* ChallengesCollectionViewOddCell.swift in Sources */,
+				2ADE60BA22AA6A8100622C84 /* Storage+Download.swift in Sources */,
 				D008E0392260979400089DC7 /* FirebaseData.swift in Sources */,
 				2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */,
 				D06C32772289BAE9005534C0 /* CheckForUpdatesModal.swift in Sources */,

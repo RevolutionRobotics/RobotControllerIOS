@@ -38,8 +38,25 @@ extension FirebaseService: FirebaseServiceInterface {
 
         getConfigurations(completion: nil)
         getControllers(completion: nil)
-        getPrograms(completion: nil)
         getChallengeCategories(completion: nil)
+        getPrograms(completion: { result in
+            switch result {
+            case .success(let programs):
+                let realmService = AppContainer.shared.container.unwrappedResolve(RealmServiceInterface.self)
+                if realmService.getPrograms().isEmpty {
+                    var dataModels: [ProgramDataModel] = []
+                    programs.forEach({ program in
+                        let dataModel = ProgramDataModel(program: program)
+                        dataModels.append(dataModel)
+                        Storage.storage().store(resourceName: program.xml, as: dataModel.xmlFileName)
+                        Storage.storage().store(resourceName: program.python, as: dataModel.pythonFileName)
+                    })
+                    realmService.savePrograms(programs: dataModels)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
     }
 
     func getConfiguration(id: String, completion: CallbackType<Result<Configuration?, FirebaseError>>?) {

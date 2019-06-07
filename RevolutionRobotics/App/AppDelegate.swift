@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupUserDefaults()
         setupWindowAndRootViewController()
         fetchFirebaseData()
+
         return true
     }
 

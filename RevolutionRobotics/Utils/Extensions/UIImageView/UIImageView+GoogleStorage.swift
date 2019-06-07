@@ -14,11 +14,23 @@ extension UIImageView {
     func downloadImage(googleStorageURL: String?) {
         guard let googleStorageURL = googleStorageURL else { return }
 
+        if ImageCache.default.isCached(forKey: googleStorageURL) {
+            retrieveImageFromCache(key: googleStorageURL)
+        } else {
+            fetchImageFromFirebase(googleStorageURL: googleStorageURL)
+        }
+    }
+}
+
+// MARK: - Private extensions
+extension UIImageView {
+    private func fetchImageFromFirebase(googleStorageURL: String) {
         getImageURL(of: googleStorageURL) { [weak self] result in
             switch result {
             case .success(let imageURL):
                 self?.kf.indicatorType = .activity
-                self?.kf.setImage(with: imageURL, placeholder: nil)
+                let resource = ImageResource(downloadURL: imageURL, cacheKey: googleStorageURL)
+                self?.kf.setImage(with: resource, placeholder: nil, options: [.targetCache(ImageCache.default)])
             case .failure(let failure):
                 print("Image Download failed with error: \(failure)")
                 self?.image = Image.Common.imagePlaceholder
@@ -40,5 +52,20 @@ extension UIImageView {
 
             completion?(.success(url))
         }
+    }
+
+    private func retrieveImageFromCache(key: String) {
+        ImageCache.default.retrieveImageInDiskCache(
+            forKey: key,
+            completionHandler: { [weak self] result in
+                switch result {
+                case .success(let image):
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+        })
     }
 }
