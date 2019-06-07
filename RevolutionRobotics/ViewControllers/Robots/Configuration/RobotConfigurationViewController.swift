@@ -111,8 +111,8 @@ extension RobotConfigurationViewController {
             createNewConfiguration()
         }
 
+        collectionView.setupLayout()
         controllers = realmService.getControllers().filter({ $0.configurationId == configuration!.id })
-        collectionView.setupInset()
     }
 
     override func viewWillDisappear(_ animated: Bool) {

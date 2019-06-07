@@ -63,6 +63,18 @@ extension RRCollectionView: UICollectionViewDelegate {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
+extension RRCollectionView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        let cellWidth: CGFloat = self.frame.size.height * cellRatio
+        let padding = (self.frame.width / 2) - (cellWidth / 2)
+        let notchSize = UIApplication.shared.keyWindow?.safeAreaInsets.left
+        return UIEdgeInsets(top: 0, left: padding - (notchSize ?? 0), bottom: 0, right: padding)
+    }
+}
+
 // MARK: - Design
 extension RRCollectionView {
     // MARK: - Private funtions
@@ -145,13 +157,10 @@ extension RRCollectionView {
         indexPathOfCentermostCell = IndexPath(row: 0, section: 0)
     }
 
-    func setupInset() {
+    func setupLayout() {
         let cellWidth: CGFloat = self.frame.size.height * cellRatio
         let cellheight: CGFloat = self.frame.size.height
         let cellSize = CGSize(width: cellWidth, height: cellheight)
-        let padding = (self.frame.width / 2) - (cellWidth / 2)
-        self.layoutIfNeeded()
-        self.contentInset = UIEdgeInsets(top: 0, left: padding, bottom: 0, right: padding)
 
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal

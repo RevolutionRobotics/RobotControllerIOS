@@ -100,7 +100,7 @@ extension WhoToBuildViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.setupInset()
+        collectionView.setupLayout()
         fetchRobots()
         fetchConfigurations()
         fetchControllers()
