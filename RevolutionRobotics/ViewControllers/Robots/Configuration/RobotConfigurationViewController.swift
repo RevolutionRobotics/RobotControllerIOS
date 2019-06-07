@@ -302,8 +302,6 @@ extension RobotConfigurationViewController {
     private func segmentSelected(_ segment: ConfigurationSegment) {
         configurationView.isHidden = segment == .controllers
         controllerCollectionView.isHidden = segment == .connections
-        leftButton.isHidden = segment == .connections
-        rightButton.isHidden = segment == .connections
         if segment == .controllers {
             collectionView.reloadData()
             if !controllers.isEmpty {
