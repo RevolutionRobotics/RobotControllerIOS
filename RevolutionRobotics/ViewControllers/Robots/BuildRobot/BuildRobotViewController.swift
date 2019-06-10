@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 
 class BuildRobotViewController: BaseViewController {
     // MARK: - Outlets
@@ -124,8 +125,8 @@ extension BuildRobotViewController {
                         case .success(let controller):
                             playController.controllerType = controller.type
                             self?.navigationController?.pushViewController(playController, animated: true)
-                        case .failure(let error):
-                            print(error.localizedDescription)
+                        case .failure(_):
+                            os_log("Error: Failed to fetch controllers from Firebase!")
                         }
                 })
             }
@@ -237,8 +238,8 @@ extension BuildRobotViewController {
                     switch result {
                     case .success(let devices):
                         modalPresenter.discoveredDevices = devices
-                    case .failure(let error):
-                        print(error.localizedDescription)
+                    case .failure(_):
+                        os_log("Error: Failed to discover peripherals!")
                     }
                 })
 
@@ -257,8 +258,8 @@ extension BuildRobotViewController {
                 self?.currentStep = steps[self?.storedRobotDataModel?.actualBuildStep ?? 0]
                 guard let loaded = self?.isViewLoaded, loaded == true else { return }
                 self?.refreshViews()
-            case .failure(let error):
-                print(error.localizedDescription)
+            case .failure(_):
+                os_log("Error: Failed to fetch build steps from Firebase!")
             }
         })
     }

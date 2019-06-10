@@ -7,6 +7,7 @@
 //
 
 import Firebase
+import os
 
 extension Storage {
     func store(resourceName: String, as name: String) {
@@ -15,7 +16,7 @@ extension Storage {
             do {
                 try FileManager.default.save(Data(contentsOf: url), as: name)
             } catch {
-                print(error.localizedDescription)
+                os_log("Error: Could not save data to disk from Firebase!")
             }
         }
     }

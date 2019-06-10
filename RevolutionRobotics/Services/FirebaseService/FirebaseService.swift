@@ -24,7 +24,7 @@ final class FirebaseService {
 
 // MARK: - FirebaseServiceInterface
 extension FirebaseService: FirebaseServiceInterface {
-    func prefetchData() {
+    func prefetchData(onError: CallbackType<Error>?) {
         getRobots(completion: { [weak self] result in
             switch result {
             case .success(let robots):
@@ -32,7 +32,7 @@ extension FirebaseService: FirebaseServiceInterface {
                     self?.getBuildSteps(for: robot.id, completion: nil)
                 })
             case .failure(let error):
-                print(error.localizedDescription)
+                onError?(error)
             }
         })
 
@@ -54,7 +54,7 @@ extension FirebaseService: FirebaseServiceInterface {
                     realmService.savePrograms(programs: dataModels)
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                onError?(error)
             }
         })
     }
@@ -108,11 +108,11 @@ extension FirebaseService: FirebaseServiceInterface {
                     case .success(let controllers):
                         completion?(.success(controllers.first(where: { $0.id == configuration.controller })!))
                     case .failure(let error):
-                        print(error.localizedDescription)
+                        completion?(.failure(error))
                     }
                 })
             case .failure(let error):
-                print(error.localizedDescription)
+                completion?(.failure(error))
             }
         })
     }

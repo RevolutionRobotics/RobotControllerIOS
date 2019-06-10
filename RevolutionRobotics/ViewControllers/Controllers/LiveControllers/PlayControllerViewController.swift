@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 
 final class PlayControllerViewController: BaseViewController {
     // MARK: - Outlets
@@ -103,8 +104,9 @@ extension PlayControllerViewController {
             switch result {
             case .success(let programs):
                 self?.programs = programs
-            case .failure(let error):
-                print("Error while fetching programs: \(error)")
+            case .failure(_):
+                let alert = UIAlertController.errorAlert(type: .network)
+                self?.present(alert, animated: true, completion: nil)
             }
         })
     }
@@ -121,8 +123,8 @@ extension PlayControllerViewController {
                     switch result {
                     case .success(let devices):
                         modalPresenter.discoveredDevices = devices
-                    case .failure(let error):
-                        print(error.localizedDescription)
+                    case .failure(_):
+                        os_log("Error: Failed to discover peripherals!")
                     }
                 })
 

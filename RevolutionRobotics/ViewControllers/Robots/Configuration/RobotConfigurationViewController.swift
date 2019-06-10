@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 
 final class RobotConfigurationViewController: BaseViewController {
     // MARK: - Constants
@@ -385,8 +386,8 @@ extension RobotConfigurationViewController {
                     switch result {
                     case .success(let devices):
                         modalPresenter.discoveredDevices = devices
-                    case .failure(let error):
-                        print(error.localizedDescription)
+                    case .failure(_):
+                        os_log("Error: Failed to discover peripherals!")
                     }
                 })
 
@@ -492,7 +493,7 @@ extension RobotConfigurationViewController {
                     case .success(let devices):
                         modalPresenter.discoveredDevices = devices
                     case .failure(let error):
-                        print(error.localizedDescription)
+                        os_log("Error: Failed to discover peripherals!")
                     }
                 })
 

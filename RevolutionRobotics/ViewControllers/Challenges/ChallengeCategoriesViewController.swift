@@ -30,8 +30,9 @@ extension ChallengeCategoriesViewController {
             switch result {
             case .success(let challengeCategories):
                 self?.challengeCategories = challengeCategories
-            case .failure(let error):
-                print(error)
+            case .failure(_):
+                let alert = UIAlertController.errorAlert(type: .network)
+                self?.present(alert, animated: true, completion: nil)
             }
         }
     }

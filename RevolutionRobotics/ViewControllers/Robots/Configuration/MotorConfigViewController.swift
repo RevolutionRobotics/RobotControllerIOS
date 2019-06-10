@@ -275,13 +275,20 @@ extension MotorConfigViewController {
     }
 
     @IBAction private func doneButtonTapped(_ sender: Any) {
-        guard let name = nameInputField.text,
-            !name.isEmpty,
-            !prohibitedNames.contains(name) else {
-                present(UIAlertController.errorAlert(message: RobotsKeys.Configure.variableError.translate()),
-                        animated: true,
-                        completion: nil)
-                return
+        guard selectedMotorState != .empty else {
+            shouldCallDismiss = false
+            doneButtonTapped?(MotorConfigViewModel(portName: nameInputField.text, state: selectedMotorState))
+            return
+        }
+        guard let name = nameInputField.text, !name.isEmpty else {
+            let alert = UIAlertController.errorAlert(type: .variableNameEmpty)
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        guard !prohibitedNames.contains(name) else {
+            let alert = UIAlertController.errorAlert(type: .variableNameAlreadyInUse)
+            present(alert, animated: true, completion: nil)
+            return
         }
         shouldCallDismiss = false
         doneButtonTapped?(MotorConfigViewModel(portName: nameInputField.text, state: selectedMotorState))

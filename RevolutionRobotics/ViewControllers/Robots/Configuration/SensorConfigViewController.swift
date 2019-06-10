@@ -125,10 +125,19 @@ extension SensorConfigViewController {
     }
 
     @IBAction private func doneButtonTapped(_ sender: Any) {
-        guard let name = nameInputField.text, !name.isEmpty, !prohibitedNames.contains(name) else {
-            present(UIAlertController.errorAlert(message: RobotsKeys.Configure.variableError.translate()),
-                    animated: true,
-                    completion: nil)
+        guard selectedSensorType != .empty else {
+            shouldCallDismiss = false
+            doneButtonTapped?(SensorConfigViewModel(portName: nameInputField.text, type: selectedSensorType))
+            return
+        }
+        guard let name = nameInputField.text, !name.isEmpty else {
+            let alert = UIAlertController.errorAlert(type: .variableNameEmpty)
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        guard !prohibitedNames.contains(name) else {
+            let alert = UIAlertController.errorAlert(type: .variableNameAlreadyInUse)
+            present(alert, animated: true, completion: nil)
             return
         }
         shouldCallDismiss = false

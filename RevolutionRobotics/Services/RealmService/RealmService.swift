@@ -7,6 +7,7 @@
 //
 
 import RealmSwift
+import os
 
 final class RealmService {
     var realmConnector: RealmConnectorInterface!
@@ -105,7 +106,7 @@ extension RealmService: RealmServiceInterface {
                 closure?()
             }
         } catch {
-            print(error)
+            os_log("Error: Could not update object in the local database!")
         }
     }
 

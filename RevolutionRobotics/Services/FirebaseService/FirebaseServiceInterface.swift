@@ -7,7 +7,7 @@
 //
 
 protocol FirebaseServiceInterface {
-    func prefetchData()
+    func prefetchData(onError: CallbackType<Error>?)
     func getRobots(completion: CallbackType<Result<[Robot], FirebaseError>>?)
     func getBuildSteps(for robotId: String?, completion: CallbackType<Result<[BuildStep], FirebaseError>>?)
     func getConfigurations(completion: CallbackType<Result<[Configuration], FirebaseError>>?)
