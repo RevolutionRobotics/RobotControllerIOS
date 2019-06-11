@@ -43,7 +43,7 @@ extension WhoToBuildViewController {
                 self?.robots = robots
                 self?.loadingIndicator.stopAnimating()
                 self?.collectionView.isHidden = false
-            case .failure(_):
+            case .failure:
                 os_log("Error: Failed to fetch robots from Firebase!")
             }
         }
@@ -55,7 +55,7 @@ extension WhoToBuildViewController {
             case .success(let configurations):
                 let localConfigurations = configurations.map({ ConfigurationDataModel(remoteConfiguration: $0) })
                 self?.realmService.saveConfigurations(localConfigurations)
-            case .failure(_):
+            case .failure:
                 os_log("Error: Failed to fetch configurations from Firebase!")
             }
         }
@@ -66,7 +66,7 @@ extension WhoToBuildViewController {
             switch result {
             case .success(let controllers):
                 self?.realmService.saveControllers(controllers.map({ ControllerDataModel(controller: $0) }))
-            case .failure(_):
+            case .failure:
                 os_log("Error: Failed to fetch controllers from Firebase!")
             }
         }

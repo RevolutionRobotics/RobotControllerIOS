@@ -111,7 +111,7 @@ extension PadConfigurationViewController {
             switch result {
             case .success(let programs):
                 self?.programs = programs
-            case .failure(_):
+            case .failure:
                 let alert = UIAlertController.errorAlert(type: .network)
                 self?.present(alert, animated: true, completion: nil)
             }
