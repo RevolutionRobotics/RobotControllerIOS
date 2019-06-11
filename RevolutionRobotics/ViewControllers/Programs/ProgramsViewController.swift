@@ -63,7 +63,14 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func driveDirectionSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
-        callback?("Motor.DIRECTION_LEFT")
+        let driveDirectionSelectorView = DriveDirectionSelectorView.instatiate()
+
+        driveDirectionSelectorView.setup(optionSelector: optionSelector) { [weak self] option in
+            callback?(option.key)
+            self?.dismiss(animated: true, completion: nil)
+        }
+
+        presentModal(with: driveDirectionSelectorView, onDismissed: { callback?(nil) })
     }
 
     func sliderHandler(_ sliderHandler: SliderHandler, callback: ((String?) -> Void)?) {

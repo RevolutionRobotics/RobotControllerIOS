@@ -17,7 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="OptionSelectorButton" customModule="RevolutionRobotics" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="124" height="58"/>
+            <rect key="frame" x="0.0" y="0.0" width="124" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2n-ke-iSq" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
@@ -35,7 +35,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTP-BI-F9P">
-                    <rect key="frame" x="0.0" y="48" width="124" height="10"/>
+                    <rect key="frame" x="0.0" y="48" width="124" height="12"/>
                     <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>

@@ -17,6 +17,8 @@
 		0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0939A38D2278440A005EE307 /* SensorConfigViewController.xib */; };
 		0941075E2297E889000A658A /* ProgramSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941075C2297E889000A658A /* ProgramSelectorViewController.swift */; };
 		0941075F2297E889000A658A /* ProgramSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0941075D2297E889000A658A /* ProgramSelectorViewController.xib */; };
+		094D0DD122AF9F6900B9B74E /* DriveDirectionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D0DD022AF9F6900B9B74E /* DriveDirectionSelectorView.swift */; };
+		094D0DD322AF9F7400B9B74E /* DriveDirectionSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094D0DD222AF9F7400B9B74E /* DriveDirectionSelectorView.xib */; };
 		094F9DD82264BE1900BE118B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F9DD72264BE1900BE118B /* Color.swift */; };
 		094F9DDA2264BE9600BE118B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F9DD92264BE9600BE118B /* Image.swift */; };
 		094F9DDC2264BEE600BE118B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F9DDB2264BEE600BE118B /* Font.swift */; };
@@ -275,6 +277,8 @@
 		0939A38D2278440A005EE307 /* SensorConfigViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SensorConfigViewController.xib; sourceTree = "<group>"; };
 		0941075C2297E889000A658A /* ProgramSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSelectorViewController.swift; sourceTree = "<group>"; };
 		0941075D2297E889000A658A /* ProgramSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramSelectorViewController.xib; sourceTree = "<group>"; };
+		094D0DD022AF9F6900B9B74E /* DriveDirectionSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveDirectionSelectorView.swift; sourceTree = "<group>"; };
+		094D0DD222AF9F7400B9B74E /* DriveDirectionSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriveDirectionSelectorView.xib; sourceTree = "<group>"; };
 		094F9DD72264BE1900BE118B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		094F9DD92264BE9600BE118B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		094F9DDB2264BEE600BE118B /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -595,6 +599,15 @@
 			path = ProgramSelector;
 			sourceTree = "<group>";
 		};
+		094D0DCF22AF9F5500B9B74E /* DriveDirectionSelector */ = {
+			isa = PBXGroup;
+			children = (
+				094D0DD022AF9F6900B9B74E /* DriveDirectionSelectorView.swift */,
+				094D0DD222AF9F7400B9B74E /* DriveDirectionSelectorView.xib */,
+			);
+			path = DriveDirectionSelector;
+			sourceTree = "<group>";
+		};
 		094FC5D5228C3C1B0085B407 /* MultiTaskerPad */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +724,7 @@
 		09994316228DBA6500D87385 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				094D0DCF22AF9F5500B9B74E /* DriveDirectionSelector */,
 				0952387322A5713E001C1CE1 /* ProgramInfo */,
 				0952387222A57131001C1CE1 /* OptionSelector */,
 			);
@@ -1715,6 +1729,7 @@
 				09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */,
 				0964798122686DE000F68456 /* WhoToBuildViewController.xib in Resources */,
 				D001FCB422A92F7D004C49F3 /* ChallengeFinishedModal.xib in Resources */,
+				094D0DD322AF9F7400B9B74E /* DriveDirectionSelectorView.xib in Resources */,
 				0941075F2297E889000A658A /* ProgramSelectorViewController.xib in Resources */,
 				0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */,
 				D0899C7422A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.xib in Resources */,
@@ -1939,6 +1954,7 @@
 				D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */,
 				2A9F52022265DAC900F9F651 /* AppContainer.swift in Sources */,
 				2AB8F9562288933100D7D93C /* UIImagePickerController+Show.swift in Sources */,
+				094D0DD122AF9F6900B9B74E /* DriveDirectionSelectorView.swift in Sources */,
 				FE4B162322786A5300CAA083 /* PhotoModal.swift in Sources */,
 				0964798222686DE000F68456 /* WhoToBuildViewController.swift in Sources */,
 				09105A9F2280581F00AB7B72 /* MotorConfigViewController.swift in Sources */,

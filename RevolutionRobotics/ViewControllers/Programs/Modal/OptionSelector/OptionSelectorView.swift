@@ -29,7 +29,7 @@ extension OptionSelectorView {
     func setup(optionSelector: OptionSelector, optionSelected: CallbackType<Option>?) {
         self.optionSelected = optionSelected
 
-        titleLabel.text = optionSelector.title
+        titleLabel.text = optionSelector.title?.uppercased()
         let containers = createButtonContainers(options: optionSelector.options, defaultKey: optionSelector.defaultKey)
         containers.forEach(stackViewContainer.addArrangedSubview)
     }
