@@ -51,7 +51,7 @@ extension ProgramsViewController {
 
 // MARK: - BlocklyBridgeDelegate
 extension ProgramsViewController: BlocklyBridgeDelegate {
-    public func singleOptionSelector(_ optionSelector: SingleOptionSelector, callback: ((String?) -> Void)?) {
+    func optionSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
         let optionSelectorView = OptionSelectorView.instatiate()
 
         optionSelectorView.setup(optionSelector: optionSelector) { [weak self] option in
@@ -62,32 +62,44 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
         presentModal(with: optionSelectorView, onDismissed: { callback?(nil) })
     }
 
-    public func multiOptionSelector(_ optionSelector: MultiOptionSelector, callback: ((String?) -> Void)?) {
-        callback?([
-            optionSelector.options.randomElement()!.key,
-            optionSelector.options.randomElement()!.key
-            ].joined(separator: ",")
-        )
+    func driveDirectionSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
+        callback?("Motor.DIRECTION_LEFT")
     }
 
-    public func colorSelector(_ optionSelector: SingleOptionSelector, callback: ((String?) -> Void)?) {
+    func sliderHandler(_ sliderHandler: SliderHandler, callback: ((String?) -> Void)?) {
+        callback?("50")
+    }
+
+    func singleLEDInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
+        callback?("2")
+    }
+
+    func multiLEDInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
+        callback?("2,5,6")
+    }
+
+    func colorSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
         callback?(optionSelector.options.randomElement()!.key)
     }
 
-    public func audioSelector(_ optionSelector: SingleOptionSelector, callback: ((String?) -> Void)?) {
+    func audioSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
         callback?(optionSelector.options.randomElement()!.key)
     }
 
-    public func numberInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
+    func numberInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
         callback?("12")
     }
 
-    public func textInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
+    func textInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
         callback?("Text")
     }
 
-    public func blockContext(_ contextHandler: BlockContextHandler, callback: ((BlockContextAction?) -> Void)?) {
-        callback?(AddCommentAction(payload: "New comment"))
+    func blockContext(_ contextHandler: BlockContextHandler, callback: ((String?) -> Void)?) {
+        callback?(AddCommentAction(payload: "New comment").jsonSerialized)
+    }
+
+    func variableContext(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
+        callback?(DeleteVariableAction(payload: optionSelector.defaultKey).jsonSerialized)
     }
 }
 
