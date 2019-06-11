@@ -107,12 +107,13 @@ extension PadConfigurationViewController {
 extension PadConfigurationViewController {
     // TODO: Fetch only configuration related programs
     private func fetchPrograms() {
-        firebaseService.getPrograms { (result) in
+        firebaseService.getPrograms { [weak self] (result) in
             switch result {
             case .success(let programs):
-                self.programs = programs
-            case .failure(let error):
-                print(error.localizedDescription)
+                self?.programs = programs
+            case .failure(_):
+                let alert = UIAlertController.errorAlert(type: .network)
+                self?.present(alert, animated: true, completion: nil)
             }
         }
     }

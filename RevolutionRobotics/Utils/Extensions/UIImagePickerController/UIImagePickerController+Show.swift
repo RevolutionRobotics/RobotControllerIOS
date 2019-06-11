@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import os
 
 extension UIImagePickerController {
     static func show(with delegate: (UIImagePickerControllerDelegate & UINavigationControllerDelegate),
                      on viewController: UIViewController) {
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            print("❌ Camera not available")
+            os_log("Error: Camera is not available!")
             return
         }
         let imagePicker = UIImagePickerController()

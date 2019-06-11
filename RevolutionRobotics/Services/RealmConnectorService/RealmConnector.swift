@@ -7,6 +7,7 @@
 //
 
 import RealmSwift
+import os
 
 final class RealmConnector {
     // MARK: - Constants
@@ -37,7 +38,7 @@ extension RealmConnector: RealmConnectorInterface {
         do {
             self.realm = try Realm(configuration: realmConfiguration())
         } catch {
-            print("❌ Could not connect to local database!")
+            os_log("Error: Failed to connect to the local database!")
         }
     }
 
@@ -46,7 +47,7 @@ extension RealmConnector: RealmConnectorInterface {
         do {
             try FileManager.default.removeItem(at: path)
         } catch {
-            print("❌ Could not delete local database!")
+            os_log("Error: Failed to delete the local database!")
         }
     }
 
@@ -65,7 +66,7 @@ extension RealmConnector: RealmConnectorInterface {
                 realm.add(object, update: shouldUpdate)
             }
         } catch {
-            print(error.localizedDescription)
+            os_log("Error: Could not save object to the local database!")
         }
     }
 
@@ -76,7 +77,7 @@ extension RealmConnector: RealmConnectorInterface {
                 realm.add(objects, update: shouldUpdate)
             }
         } catch {
-            print(error.localizedDescription)
+            os_log("Error: Could not save objects to the local database!")
         }
     }
 
@@ -87,7 +88,7 @@ extension RealmConnector: RealmConnectorInterface {
                 realm.delete(object)
             }
         } catch {
-            print(error.localizedDescription)
+            os_log("Error: Could not delete object from the local database!")
         }
     }
 
@@ -98,7 +99,7 @@ extension RealmConnector: RealmConnectorInterface {
                 realm.delete(objects)
             }
         } catch {
-            print(error.localizedDescription)
+            os_log("Error: Could not delete objects from the local database!")
         }
     }
 }
@@ -120,7 +121,7 @@ extension RealmConnector {
             var fileURL = path
             try fileURL.setResourceValues(resourceValues)
         } catch {
-            print("❌ Could not exclude local database from backup!")
+            os_log("Error: Could not exclude local database from backup!")
         }
     }
 }

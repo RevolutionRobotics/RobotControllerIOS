@@ -10,6 +10,8 @@
 "next" = "Next";
 "error_title" = "Error";
 "error_ok_button" = "Ok";
+"error_general" = "Something went wrong, please try again";
+"error_test_code_upload" = "Test code upload error";
 
 // MARK: - Menu
 "menu_robots_title" = "robots";
@@ -55,7 +57,8 @@
 "configure_controller_tab_title" = "Controllers";
 "controller_choose_this" = "Choose this!";
 "controller_selected" = "Selected";
-"error_variable_already_in_use" = "Variable name is already in use";
+"error_variable_already_in_use" = "Variable name is already in use.";
+"error_variable_empty" = "Variable name cannot be empty.";
 
 // MARK: - Build robot
 "build_robot_turn_on_the_brain_instruction" = "To take control, switch the brain on";

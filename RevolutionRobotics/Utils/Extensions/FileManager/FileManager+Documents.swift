@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import os
 
 extension FileManager {
     private enum Constants {
@@ -33,8 +34,8 @@ extension FileManager {
             try FileManager.default.createDirectory(atPath: documents.relativePath,
                                                     withIntermediateDirectories: true,
                                                     attributes: nil)
-        } catch let error as NSError {
-            print(error.localizedDescription)
+        } catch {
+            os_log("Error: Could not create documents directory!")
         }
     }
 
@@ -53,7 +54,7 @@ extension FileManager {
         do {
             try data.write(to: path)
         } catch {
-            print(error.localizedDescription)
+            os_log("Error: Could not save data in documents directory!")
         }
     }
 
@@ -72,7 +73,7 @@ extension FileManager {
         do {
             try data.write(to: path)
         } catch {
-            print(error.localizedDescription)
+            os_log("Error: Could not save image in documents directory!")
         }
     }
 
@@ -82,7 +83,7 @@ extension FileManager {
         do {
             try FileManager.default.removeItem(at: path)
         } catch {
-            print(error.localizedDescription)
+            os_log("Error: Could not delete data from documents directory!")
         }
     }
 

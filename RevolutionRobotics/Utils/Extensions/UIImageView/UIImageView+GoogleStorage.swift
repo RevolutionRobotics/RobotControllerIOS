@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Kingfisher
+import os
 
 extension UIImageView {
     func downloadImage(googleStorageURL: String?) {
@@ -32,7 +33,7 @@ extension UIImageView {
                 let resource = ImageResource(downloadURL: imageURL, cacheKey: googleStorageURL)
                 self?.kf.setImage(with: resource, placeholder: nil, options: [.targetCache(ImageCache.default)])
             case .failure(let failure):
-                print("Image Download failed with error: \(failure)")
+                os_log("Error: Could not fetch image from Firebase!")
                 self?.image = Image.Common.imagePlaceholder
             }
         }
@@ -64,7 +65,7 @@ extension UIImageView {
                         self?.image = image
                     }
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    os_log("Error: Could not fetch image from cache!")
                 }
         })
     }
