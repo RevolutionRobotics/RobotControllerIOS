@@ -25,10 +25,11 @@ extension UIImageView {
 // MARK: - Private extensions
 extension UIImageView {
     private func fetchImageFromFirebase(googleStorageURL: String) {
+        self.kf.indicatorType = .activity
+        (self.kf.indicator?.view as? UIActivityIndicatorView)?.color = .white
         getImageURL(of: googleStorageURL) { [weak self] result in
             switch result {
             case .success(let imageURL):
-                self?.kf.indicatorType = .activity
                 let resource = ImageResource(downloadURL: imageURL, cacheKey: googleStorageURL)
                 self?.kf.setImage(with: resource, placeholder: nil, options: [.targetCache(ImageCache.default)])
             case .failure(let failure):
