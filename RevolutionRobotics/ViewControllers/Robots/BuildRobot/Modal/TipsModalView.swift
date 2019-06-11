@@ -13,6 +13,7 @@ final class TipsModalView: UIView {
     @IBOutlet private weak var tipsTitleLabel: UILabel!
     @IBOutlet private weak var instructionLabel: UILabel!
     @IBOutlet private weak var tipsLabel: UILabel!
+    @IBOutlet private weak var tipsIcon: UIImageView!
     @IBOutlet private weak var skipConnectionButton: RRButton!
     @IBOutlet private weak var tryAgainButton: RRButton!
     @IBOutlet private weak var communityButton: RRButton!
@@ -26,7 +27,7 @@ final class TipsModalView: UIView {
             return tipsTitleLabel.text
         }
         set {
-            tipsTitleLabel.text = newValue
+            tipsTitleLabel.text = newValue?.uppercased()
         }
     }
     var subtitle: String? {
@@ -75,6 +76,14 @@ final class TipsModalView: UIView {
             if isSkipButtonHidden {
                 skipConnectionButton.removeFromSuperview()
                 setupBorders()
+            }
+        }
+    }
+
+    var isTipsIconHidden: Bool = false {
+        didSet {
+            if isTipsIconHidden {
+                tipsIcon.removeFromSuperview()
             }
         }
     }
