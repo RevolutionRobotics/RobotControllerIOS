@@ -12,7 +12,7 @@
 		09105AA02280581F00AB7B72 /* PortConfigurationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09105A9C2280581F00AB7B72 /* PortConfigurationItemView.swift */; };
 		09105AA12280581F00AB7B72 /* PortConfigurationItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09105A9D2280581F00AB7B72 /* PortConfigurationItemView.xib */; };
 		091B98A8229830B500DCEEF4 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B98A7229830B500DCEEF4 /* DateFormatter.swift */; };
-		091B98AB229835DA00DCEEF4 /* ProgramSorterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B98AA229835DA00DCEEF4 /* ProgramSorterController.swift */; };
+		091B98AB229835DA00DCEEF4 /* ProgramSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B98AA229835DA00DCEEF4 /* ProgramSorter.swift */; };
 		0939A38E2278440A005EE307 /* SensorConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0939A38C2278440A005EE307 /* SensorConfigViewController.swift */; };
 		0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0939A38D2278440A005EE307 /* SensorConfigViewController.xib */; };
 		0941075E2297E889000A658A /* ProgramSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941075C2297E889000A658A /* ProgramSelectorViewController.swift */; };
@@ -53,6 +53,8 @@
 		0965765222AFCCB500A50C8E /* ColorSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965765122AFCCB500A50C8E /* ColorSelectorView.swift */; };
 		0965765422AFCCBF00A50C8E /* ColorSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0965765322AFCCBF00A50C8E /* ColorSelectorView.xib */; };
 		0965765F22AFDD6200A50C8E /* UIColor+HEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965765E22AFDD6200A50C8E /* UIColor+HEX.swift */; };
+		0965766322AFEEA400A50C8E /* DialpadInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965766122AFEEA400A50C8E /* DialpadInputViewController.swift */; };
+		0965766422AFEEA400A50C8E /* DialpadInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0965766222AFEEA400A50C8E /* DialpadInputViewController.xib */; };
 		0977990822981C0300D571B0 /* ProgramSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0977990622981C0300D571B0 /* ProgramSelectorTableViewCell.swift */; };
 		0977990922981C0300D571B0 /* ProgramSelectorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0977990722981C0300D571B0 /* ProgramSelectorTableViewCell.xib */; };
 		097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097F8432225BA37800DD32BF /* Jura-Bold.ttf */; };
@@ -277,7 +279,7 @@
 		09105A9C2280581F00AB7B72 /* PortConfigurationItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortConfigurationItemView.swift; sourceTree = "<group>"; };
 		09105A9D2280581F00AB7B72 /* PortConfigurationItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortConfigurationItemView.xib; sourceTree = "<group>"; };
 		091B98A7229830B500DCEEF4 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
-		091B98AA229835DA00DCEEF4 /* ProgramSorterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSorterController.swift; sourceTree = "<group>"; };
+		091B98AA229835DA00DCEEF4 /* ProgramSorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSorter.swift; sourceTree = "<group>"; };
 		0939A38C2278440A005EE307 /* SensorConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorConfigViewController.swift; sourceTree = "<group>"; };
 		0939A38D2278440A005EE307 /* SensorConfigViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SensorConfigViewController.xib; sourceTree = "<group>"; };
 		0941075C2297E889000A658A /* ProgramSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSelectorViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +320,8 @@
 		0965765122AFCCB500A50C8E /* ColorSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorView.swift; sourceTree = "<group>"; };
 		0965765322AFCCBF00A50C8E /* ColorSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorSelectorView.xib; sourceTree = "<group>"; };
 		0965765E22AFDD6200A50C8E /* UIColor+HEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEX.swift"; sourceTree = "<group>"; };
+		0965766122AFEEA400A50C8E /* DialpadInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialpadInputViewController.swift; sourceTree = "<group>"; };
+		0965766222AFEEA400A50C8E /* DialpadInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialpadInputViewController.xib; sourceTree = "<group>"; };
 		0977990622981C0300D571B0 /* ProgramSelectorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSelectorTableViewCell.swift; sourceTree = "<group>"; };
 		0977990722981C0300D571B0 /* ProgramSelectorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramSelectorTableViewCell.xib; sourceTree = "<group>"; };
 		097F8432225BA37800DD32BF /* Jura-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Bold.ttf"; sourceTree = "<group>"; };
@@ -737,6 +741,15 @@
 			path = UIColor;
 			sourceTree = "<group>";
 		};
+		0965766022AFEE5D00A50C8E /* DialpadInput */ = {
+			isa = PBXGroup;
+			children = (
+				0965766122AFEEA400A50C8E /* DialpadInputViewController.swift */,
+				0965766222AFEEA400A50C8E /* DialpadInputViewController.xib */,
+			);
+			path = DialpadInput;
+			sourceTree = "<group>";
+		};
 		097F8431225BA33800DD32BF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -764,7 +777,12 @@
 				094D0DD422AFA93600B9B74E /* SliderInput */,
 				094D0DCF22AF9F5500B9B74E /* DriveDirectionSelector */,
 				0952387322A5713E001C1CE1 /* ProgramInfo */,
+				0965766022AFEE5D00A50C8E /* DialpadInput */,
+				0965765022AFCC9E00A50C8E /* ColorSelector */,
+				094D0DCF22AF9F5500B9B74E /* DriveDirectionSelector */,
 				0952387222A57131001C1CE1 /* OptionSelector */,
+				0952387322A5713E001C1CE1 /* ProgramInfo */,
+				094D0DD422AFA93600B9B74E /* SliderInput */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -1123,6 +1141,9 @@
 				D031333C228EA66100704989 /* MostRecentProgramsViewController.swift */,
 				D031333D228EA66100704989 /* MostRecentProgramsViewController.xib */,
 				091B98AA229835DA00DCEEF4 /* ProgramSorterController.swift */,
+				D031333C228EA66100704989 /* ProgramBottomBarViewController.swift */,
+				D031333D228EA66100704989 /* ProgramBottomBarViewController.xib */,
+				091B98AA229835DA00DCEEF4 /* ProgramSorter.swift */,
 			);
 			path = Programs;
 			sourceTree = "<group>";
@@ -1764,6 +1785,7 @@
 				09105A9E2280581F00AB7B72 /* MotorConfigViewController.xib in Resources */,
 				FE4B162522786A6C00CAA083 /* PhotoModal.xib in Resources */,
 				0952387122A5704F001C1CE1 /* OptionSelectorView.xib in Resources */,
+				0965766422AFEEA400A50C8E /* DialpadInputViewController.xib in Resources */,
 				D031333B228DD3C100704989 /* SaveModal.xib in Resources */,
 				D0BF256C2282C6C100F08C9C /* BuildFinishedModal.xib in Resources */,
 				2ABCB648229E912D0081B51B /* MenuTutorialViewController.xib in Resources */,
@@ -1918,6 +1940,7 @@
 				D06C326C22857A80005534C0 /* AboutViewController.swift in Sources */,
 				D05C64D4225F585500B7BF4F /* BuildStatus.swift in Sources */,
 				09C38758226F58260097619D /* RRCustomView.swift in Sources */,
+				0965766322AFEEA400A50C8E /* DialpadInputViewController.swift in Sources */,
 				D031332F228D5CBA00704989 /* Controller.swift in Sources */,
 				2A0789EB2293245400CFFDD6 /* MultiTaskerConfigurationView.swift in Sources */,
 				094FC5D7228C3C600085B407 /* PlayablePadView.swift in Sources */,
@@ -2058,7 +2081,7 @@
 				D0049A1E226F0929007FA256 /* RRButton.swift in Sources */,
 				D06C327322899F60005534C0 /* FirmwareUpdateViewController.swift in Sources */,
 				2ADE8C442271A6B000ECEC72 /* BuildProgressBar.swift in Sources */,
-				091B98AB229835DA00DCEEF4 /* ProgramSorterController.swift in Sources */,
+				091B98AB229835DA00DCEEF4 /* ProgramSorter.swift in Sources */,
 				096333F62289B9710029D87B /* PadButton.swift in Sources */,
 				096333EE228993CF0029D87B /* TLAnalogJoystick.swift in Sources */,
 				2ADE8C342270A78600ECEC72 /* RobotsKeys.swift in Sources */,

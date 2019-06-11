@@ -67,12 +67,14 @@ extension BaseViewController {
     ) {
         let modalViewController = AppContainer.shared.container.unwrappedResolve(ModalViewController.self)
         onModalDismissed = onDismissed
-        modalViewController.modalPresentationStyle = .overFullScreen
-        modalViewController.modalTransitionStyle = .crossDissolve
         modalViewController.delegate = self
         modalViewController.contentView = contentView
         modalViewController.isCloseHidden = closeHidden
-        present(modalViewController, animated: animated)
+        presentViewControllerModally(
+            modalViewController,
+            transitionStyle: .crossDissolve,
+            presentationStyle: .overFullScreen
+        )
     }
 
     func presentSafariModal(presentationFinished: Callback?, url: URL? = nil) {

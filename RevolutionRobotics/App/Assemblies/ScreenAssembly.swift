@@ -33,6 +33,7 @@ final class ScreenAssembly: Assembly {
         registerProgramsBottomViewController(to: container)
         registerPadConfigurationViewController(to: container)
         registerProgramSelectorViewController(to: container)
+        registerDialpadViewController(to: container)
     }
 }
 
@@ -214,6 +215,14 @@ extension ScreenAssembly {
             .initCompleted { (resolver, viewController) in
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)
             }
+            .inObjectScope(.weak)
+    }
+
+    private func registerDialpadViewController(to container: Container) {
+        container
+            .register(DialpadInputViewController.self, factory: { _ in
+                return DialpadInputViewController()
+            })
             .inObjectScope(.weak)
     }
 }

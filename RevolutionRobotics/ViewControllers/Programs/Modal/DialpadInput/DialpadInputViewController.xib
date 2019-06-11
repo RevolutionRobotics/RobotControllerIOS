@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DialpadInputViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="5ut-oI-bH0" id="saT-if-Vi8"/>
+                <outlet property="dotButton" destination="Raz-3q-Sje" id="XW1-nO-Hx0"/>
+                <outlet property="okButton" destination="dEW-c8-oVL" id="hoZ-xc-Ir7"/>
+                <outlet property="resultContainerView" destination="AW9-SI-LKy" id="fCG-Up-tSW"/>
+                <outlet property="resultLabel" destination="MXG-YI-9KZ" id="M7F-4L-KHN"/>
+                <outlet property="view" destination="uCW-0R-CnN" id="R6g-Rl-Yfq"/>
+                <outletCollection property="numberButtons" destination="0ZN-iH-5LO" collectionClass="NSMutableArray" id="aGl-AU-6YQ"/>
+                <outletCollection property="numberButtons" destination="hdU-Q2-IHL" collectionClass="NSMutableArray" id="soI-05-Bfk"/>
+                <outletCollection property="numberButtons" destination="eW9-Db-a7b" collectionClass="NSMutableArray" id="iO1-eD-XhB"/>
+                <outletCollection property="numberButtons" destination="VNx-MI-0eE" collectionClass="NSMutableArray" id="cHm-ev-QdV"/>
+                <outletCollection property="numberButtons" destination="qxV-NH-eFT" collectionClass="NSMutableArray" id="J8U-hu-Dw0"/>
+                <outletCollection property="numberButtons" destination="SBw-25-FUa" collectionClass="NSMutableArray" id="YLg-O8-54e"/>
+                <outletCollection property="numberButtons" destination="zhd-cL-RG2" collectionClass="NSMutableArray" id="UdH-Ab-mt7"/>
+                <outletCollection property="numberButtons" destination="Vrz-IY-VbS" collectionClass="NSMutableArray" id="hgO-AW-v8d"/>
+                <outletCollection property="numberButtons" destination="gIi-Di-4sr" collectionClass="NSMutableArray" id="QLk-2k-2ld"/>
+                <outletCollection property="numberButtons" destination="Vqd-s6-HaC" collectionClass="NSMutableArray" id="Ftp-jD-Pdt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="uCW-0R-CnN">
+            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vZR-Yu-q7F" userLabel="Background">
+                    <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                    <color key="backgroundColor" name="Black70"/>
+                    <gestureRecognizers/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ut-oI-bH0">
+                    <rect key="frame" x="360" y="87" width="176" height="240"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AW9-SI-LKy">
+                            <rect key="frame" x="12" y="12" width="152" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXN-Kr-fGD">
+                                    <rect key="frame" x="112" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="lXN-Kr-fGD" secondAttribute="height" multiplier="1:1" id="KHs-KO-Gfo"/>
+                                    </constraints>
+                                    <state key="normal" image="DeleteArrow"/>
+                                    <connections>
+                                        <action selector="clearButtonTapped:" destination="-1" eventType="touchUpInside" id="1YO-2h-fac"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="MXG-YI-9KZ">
+                                    <rect key="frame" x="12" y="8" width="88" height="24"/>
+                                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" name="BrownishGrey"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="lXN-Kr-fGD" secondAttribute="bottom" id="5KW-3U-mbE"/>
+                                <constraint firstAttribute="trailing" secondItem="lXN-Kr-fGD" secondAttribute="trailing" id="6Tx-RJ-yI2"/>
+                                <constraint firstItem="MXG-YI-9KZ" firstAttribute="leading" secondItem="AW9-SI-LKy" secondAttribute="leading" constant="12" id="ML7-aI-Lif"/>
+                                <constraint firstAttribute="height" constant="40" id="VG2-hd-efm"/>
+                                <constraint firstItem="MXG-YI-9KZ" firstAttribute="centerY" secondItem="AW9-SI-LKy" secondAttribute="centerY" id="f4S-cE-Mfg"/>
+                                <constraint firstItem="lXN-Kr-fGD" firstAttribute="leading" secondItem="MXG-YI-9KZ" secondAttribute="trailing" constant="12" id="khG-Ev-Ser"/>
+                                <constraint firstItem="lXN-Kr-fGD" firstAttribute="top" secondItem="AW9-SI-LKy" secondAttribute="top" id="lQR-Fk-Jix"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqd-s6-HaC" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="116" y="56" width="48" height="40"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="FXe-JW-oX5"/>
+                                <constraint firstAttribute="width" constant="48" id="XXd-bh-T8G"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <state key="normal" title="9">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="Eh4-Tn-bCC"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIi-Di-4sr" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="64" y="56" width="48" height="40"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="BTE-3O-h21"/>
+                                <constraint firstAttribute="width" constant="48" id="oeh-yV-rpB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <state key="normal" title="8">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="NUf-UU-BaU"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vrz-IY-VbS" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="12" y="56" width="48" height="40"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="48" id="BuP-vE-Syk"/>
+                                <constraint firstAttribute="height" constant="40" id="aNT-og-YDc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <state key="normal" title="7">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="LUE-Xt-ggJ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhd-cL-RG2" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="116" y="100" width="48" height="40"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="7Ar-dF-H18"/>
+                                <constraint firstAttribute="width" constant="48" id="h7D-WH-QHp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <state key="normal" title="6">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="K3S-iV-rWl"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBw-25-FUa" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="64" y="100" width="48" height="40"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="E59-M5-4t8"/>
+                                <constraint firstAttribute="width" constant="48" id="Yhg-0d-2Ms"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <state key="normal" title="5">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="6Oc-co-0yn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxV-NH-eFT" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="12" y="100" width="48" height="40"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="48" id="uTg-l4-sPZ"/>
+                                <constraint firstAttribute="height" constant="40" id="yJ0-sg-pzU"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <state key="normal" title="4">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="7sK-Ma-3mB"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNx-MI-0eE" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="116" y="144" width="48" height="40"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Mz2-L7-b53"/>
+                                <constraint firstAttribute="width" constant="48" id="SDF-ON-2g2"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <state key="normal" title="3">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="Pv6-nz-a34"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eW9-Db-a7b" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="64" y="144" width="48" height="40"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="oPP-02-r9T"/>
+                                <constraint firstAttribute="width" constant="48" id="w8s-Vh-Vqb"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <state key="normal" title="2">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="NMx-pB-Hph"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdU-Q2-IHL" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="12" y="144" width="48" height="40"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="48" id="Nh8-Vw-5ga"/>
+                                <constraint firstAttribute="height" constant="40" id="mXZ-1t-tcS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <state key="normal" title="1">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="Vhf-O5-zrM"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEW-c8-oVL" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="116" y="188" width="48" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="M1a-3w-nBW"/>
+                                <constraint firstAttribute="width" constant="48" id="aSA-qG-JoC"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <state key="normal" title="OK">
+                                <color key="titleColor" name="Black"/>
+                            </state>
+                            <connections>
+                                <action selector="okButtonTapped:" destination="-1" eventType="touchUpInside" id="XcC-Fo-1oo"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Raz-3q-Sje" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="64" y="188" width="48" height="40"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="h88-HN-40A"/>
+                                <constraint firstAttribute="width" constant="48" id="sxj-xl-auY"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <state key="normal" title=".">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="dotButtonTapped:" destination="-1" eventType="touchUpInside" id="KMo-Nc-7aH"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ZN-iH-5LO" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="12" y="188" width="48" height="40"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="ene-bU-66A"/>
+                                <constraint firstAttribute="width" constant="48" id="o1G-7G-ty5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <state key="normal" title="0">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="pAi-qw-7dA"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="dEW-c8-oVL" firstAttribute="top" secondItem="VNx-MI-0eE" secondAttribute="bottom" constant="4" id="2gk-wg-uUQ"/>
+                        <constraint firstItem="hdU-Q2-IHL" firstAttribute="centerY" secondItem="eW9-Db-a7b" secondAttribute="centerY" id="6CW-fw-Rmk"/>
+                        <constraint firstItem="Vqd-s6-HaC" firstAttribute="leading" secondItem="gIi-Di-4sr" secondAttribute="trailing" constant="4" id="AOt-B3-lfM"/>
+                        <constraint firstAttribute="trailing" secondItem="Vqd-s6-HaC" secondAttribute="trailing" constant="12" id="Bdc-Ns-CU9"/>
+                        <constraint firstItem="Vrz-IY-VbS" firstAttribute="centerY" secondItem="gIi-Di-4sr" secondAttribute="centerY" id="DnD-kK-A87"/>
+                        <constraint firstItem="eW9-Db-a7b" firstAttribute="centerY" secondItem="VNx-MI-0eE" secondAttribute="centerY" id="Edn-2X-fJr"/>
+                        <constraint firstAttribute="height" constant="240" id="EtA-Iu-NSD"/>
+                        <constraint firstItem="Raz-3q-Sje" firstAttribute="leading" secondItem="0ZN-iH-5LO" secondAttribute="trailing" constant="4" id="Fla-a2-cD8"/>
+                        <constraint firstItem="SBw-25-FUa" firstAttribute="leading" secondItem="qxV-NH-eFT" secondAttribute="trailing" constant="4" id="HTX-sM-UHH"/>
+                        <constraint firstItem="AW9-SI-LKy" firstAttribute="top" secondItem="5ut-oI-bH0" secondAttribute="top" constant="12" id="Ha9-NV-hXK"/>
+                        <constraint firstItem="zhd-cL-RG2" firstAttribute="leading" secondItem="SBw-25-FUa" secondAttribute="trailing" constant="4" id="Nli-UM-VmV"/>
+                        <constraint firstItem="qxV-NH-eFT" firstAttribute="centerY" secondItem="SBw-25-FUa" secondAttribute="centerY" id="Nx9-T6-vUM"/>
+                        <constraint firstItem="zhd-cL-RG2" firstAttribute="centerX" secondItem="Vqd-s6-HaC" secondAttribute="centerX" id="RhT-XE-H4A"/>
+                        <constraint firstItem="0ZN-iH-5LO" firstAttribute="centerY" secondItem="Raz-3q-Sje" secondAttribute="centerY" id="TGb-p4-fji"/>
+                        <constraint firstItem="VNx-MI-0eE" firstAttribute="leading" secondItem="eW9-Db-a7b" secondAttribute="trailing" constant="4" id="VC8-ml-HaD"/>
+                        <constraint firstItem="gIi-Di-4sr" firstAttribute="centerY" secondItem="Vqd-s6-HaC" secondAttribute="centerY" id="VPp-Cl-fqp"/>
+                        <constraint firstAttribute="trailing" secondItem="AW9-SI-LKy" secondAttribute="trailing" constant="12" id="b1R-u2-wHV"/>
+                        <constraint firstItem="AW9-SI-LKy" firstAttribute="leading" secondItem="5ut-oI-bH0" secondAttribute="leading" constant="12" id="bci-Do-RSA"/>
+                        <constraint firstItem="Vrz-IY-VbS" firstAttribute="leading" secondItem="5ut-oI-bH0" secondAttribute="leading" constant="12" id="efu-Hc-ran"/>
+                        <constraint firstItem="Vqd-s6-HaC" firstAttribute="top" secondItem="AW9-SI-LKy" secondAttribute="bottom" constant="4" id="fA4-Tl-VOr"/>
+                        <constraint firstItem="zhd-cL-RG2" firstAttribute="top" secondItem="Vqd-s6-HaC" secondAttribute="bottom" constant="4" id="k0o-oR-1qV"/>
+                        <constraint firstItem="eW9-Db-a7b" firstAttribute="leading" secondItem="hdU-Q2-IHL" secondAttribute="trailing" constant="4" id="kZY-gf-Eaf"/>
+                        <constraint firstItem="dEW-c8-oVL" firstAttribute="centerX" secondItem="VNx-MI-0eE" secondAttribute="centerX" id="mgY-yR-mbE"/>
+                        <constraint firstItem="gIi-Di-4sr" firstAttribute="leading" secondItem="Vrz-IY-VbS" secondAttribute="trailing" constant="4" id="qWc-Z2-yiE"/>
+                        <constraint firstItem="SBw-25-FUa" firstAttribute="centerY" secondItem="zhd-cL-RG2" secondAttribute="centerY" id="r5V-Gr-N2p"/>
+                        <constraint firstItem="VNx-MI-0eE" firstAttribute="centerX" secondItem="zhd-cL-RG2" secondAttribute="centerX" id="r85-8X-KGc"/>
+                        <constraint firstItem="dEW-c8-oVL" firstAttribute="leading" secondItem="Raz-3q-Sje" secondAttribute="trailing" constant="4" id="rei-gW-gId"/>
+                        <constraint firstItem="Raz-3q-Sje" firstAttribute="centerY" secondItem="dEW-c8-oVL" secondAttribute="centerY" id="ryt-tY-OBR"/>
+                        <constraint firstItem="VNx-MI-0eE" firstAttribute="top" secondItem="zhd-cL-RG2" secondAttribute="bottom" constant="4" id="udH-Ku-Itr"/>
+                        <constraint firstAttribute="width" constant="176" id="zBO-Y1-I0Q"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="5ut-oI-bH0" firstAttribute="centerY" secondItem="uCW-0R-CnN" secondAttribute="centerY" id="5fY-xF-ZSj"/>
+                <constraint firstItem="5ut-oI-bH0" firstAttribute="centerX" secondItem="uCW-0R-CnN" secondAttribute="centerX" id="H43-Ex-oNc"/>
+                <constraint firstAttribute="bottom" secondItem="vZR-Yu-q7F" secondAttribute="bottom" id="jfN-u3-72O"/>
+                <constraint firstItem="vZR-Yu-q7F" firstAttribute="leading" secondItem="uCW-0R-CnN" secondAttribute="leading" id="lDI-qe-w2I"/>
+                <constraint firstAttribute="trailing" secondItem="vZR-Yu-q7F" secondAttribute="trailing" id="mD0-bb-IJV"/>
+                <constraint firstItem="vZR-Yu-q7F" firstAttribute="top" secondItem="uCW-0R-CnN" secondAttribute="top" id="wId-Qi-0IQ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="32u-QS-s8k"/>
+            <point key="canvasLocation" x="22.767857142857142" y="76.811594202898561"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="DeleteArrow" width="20" height="20"/>
+        <namedColor name="Black">
+            <color red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Black70">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrownishGrey">
+            <color red="0.42745098039215684" green="0.42745098039215684" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
