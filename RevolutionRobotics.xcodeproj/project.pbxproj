@@ -13,6 +13,30 @@
 		09105AA12280581F00AB7B72 /* PortConfigurationItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09105A9D2280581F00AB7B72 /* PortConfigurationItemView.xib */; };
 		091B98A8229830B500DCEEF4 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B98A7229830B500DCEEF4 /* DateFormatter.swift */; };
 		091B98AB229835DA00DCEEF4 /* ProgramSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B98AA229835DA00DCEEF4 /* ProgramSorter.swift */; };
+		0938894A22B12C9000292B32 /* SoundPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0938894922B12C9000292B32 /* SoundPickerView.swift */; };
+		0938894C22B12CB200292B32 /* SoundPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0938894B22B12CB200292B32 /* SoundPickerView.xib */; };
+		0938894F22B1399500292B32 /* SoundPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0938894D22B1399400292B32 /* SoundPickerCell.swift */; };
+		0938895022B1399500292B32 /* SoundPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0938894E22B1399500292B32 /* SoundPickerCell.xib */; };
+		0938895322B23ABC00292B32 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0938895222B23ABC00292B32 /* AudioPlayer.swift */; };
+		0938897222B24DD900292B32 /* cat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938896222B24DD700292B32 /* cat.mp3 */; };
+		0938897322B24DD900292B32 /* engine_revving.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938896322B24DD700292B32 /* engine_revving.mp3 */; };
+		0938897422B24DD900292B32 /* ta_da.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938896422B24DD700292B32 /* ta_da.mp3 */; };
+		0938897522B24DD900292B32 /* siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938896522B24DD700292B32 /* siren.mp3 */; };
+		0938897622B24DD900292B32 /* lion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938896622B24DD700292B32 /* lion.mp3 */; };
+		0938897722B24DD900292B32 /* car_horn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938896722B24DD700292B32 /* car_horn.mp3 */; };
+		0938897822B24DD900292B32 /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938896822B24DD700292B32 /* bell.mp3 */; };
+		0938897922B24DD900292B32 /* uh_oh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938896922B24DD800292B32 /* uh_oh.mp3 */; };
+		0938897A22B24DD900292B32 /* yee_haw.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938896A22B24DD800292B32 /* yee_haw.mp3 */; };
+		0938897B22B24DD900292B32 /* buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938896B22B24DD800292B32 /* buzzer.mp3 */; };
+		0938897C22B24DD900292B32 /* robot2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938896C22B24DD800292B32 /* robot2.mp3 */; };
+		0938897D22B24DD900292B32 /* oh_no.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938896D22B24DD800292B32 /* oh_no.mp3 */; };
+		0938897E22B24DD900292B32 /* robot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938896E22B24DD800292B32 /* robot.mp3 */; };
+		0938897F22B24DD900292B32 /* duck.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938896F22B24DD800292B32 /* duck.mp3 */; };
+		0938898022B24DD900292B32 /* dog.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938897022B24DD900292B32 /* dog.mp3 */; };
+		0938898122B24DD900292B32 /* alarm_clock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0938897122B24DD900292B32 /* alarm_clock.mp3 */; };
+		0938898422B26E9300292B32 /* ColorSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0938898222B26E9300292B32 /* ColorSelectorView.swift */; };
+		0938898522B26E9300292B32 /* ColorSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0938898322B26E9300292B32 /* ColorSelectorView.xib */; };
+		0938898822B26ED400292B32 /* UIColor+HEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0938898722B26ED400292B32 /* UIColor+HEX.swift */; };
 		0939A38E2278440A005EE307 /* SensorConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0939A38C2278440A005EE307 /* SensorConfigViewController.swift */; };
 		0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0939A38D2278440A005EE307 /* SensorConfigViewController.xib */; };
 		0941075E2297E889000A658A /* ProgramSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941075C2297E889000A658A /* ProgramSelectorViewController.swift */; };
@@ -50,9 +74,6 @@
 		096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 096479882268797F00F68456 /* Barlow-Bold.ttf */; };
 		0964798D22689DEC00F68456 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0964798B22689DEC00F68456 /* ModalViewController.swift */; };
 		0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0964798C22689DEC00F68456 /* ModalViewController.xib */; };
-		0965765222AFCCB500A50C8E /* ColorSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965765122AFCCB500A50C8E /* ColorSelectorView.swift */; };
-		0965765422AFCCBF00A50C8E /* ColorSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0965765322AFCCBF00A50C8E /* ColorSelectorView.xib */; };
-		0965765F22AFDD6200A50C8E /* UIColor+HEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965765E22AFDD6200A50C8E /* UIColor+HEX.swift */; };
 		0965766322AFEEA400A50C8E /* DialpadInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965766122AFEEA400A50C8E /* DialpadInputViewController.swift */; };
 		0965766422AFEEA400A50C8E /* DialpadInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0965766222AFEEA400A50C8E /* DialpadInputViewController.xib */; };
 		0977990822981C0300D571B0 /* ProgramSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0977990622981C0300D571B0 /* ProgramSelectorTableViewCell.swift */; };
@@ -284,6 +305,30 @@
 		09105A9D2280581F00AB7B72 /* PortConfigurationItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortConfigurationItemView.xib; sourceTree = "<group>"; };
 		091B98A7229830B500DCEEF4 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		091B98AA229835DA00DCEEF4 /* ProgramSorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSorter.swift; sourceTree = "<group>"; };
+		0938894922B12C9000292B32 /* SoundPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPickerView.swift; sourceTree = "<group>"; };
+		0938894B22B12CB200292B32 /* SoundPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoundPickerView.xib; sourceTree = "<group>"; };
+		0938894D22B1399400292B32 /* SoundPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPickerCell.swift; sourceTree = "<group>"; };
+		0938894E22B1399500292B32 /* SoundPickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoundPickerCell.xib; sourceTree = "<group>"; };
+		0938895222B23ABC00292B32 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		0938896222B24DD700292B32 /* cat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cat.mp3; sourceTree = "<group>"; };
+		0938896322B24DD700292B32 /* engine_revving.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = engine_revving.mp3; sourceTree = "<group>"; };
+		0938896422B24DD700292B32 /* ta_da.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ta_da.mp3; sourceTree = "<group>"; };
+		0938896522B24DD700292B32 /* siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = siren.mp3; sourceTree = "<group>"; };
+		0938896622B24DD700292B32 /* lion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lion.mp3; sourceTree = "<group>"; };
+		0938896722B24DD700292B32 /* car_horn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = car_horn.mp3; sourceTree = "<group>"; };
+		0938896822B24DD700292B32 /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
+		0938896922B24DD800292B32 /* uh_oh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = uh_oh.mp3; sourceTree = "<group>"; };
+		0938896A22B24DD800292B32 /* yee_haw.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yee_haw.mp3; sourceTree = "<group>"; };
+		0938896B22B24DD800292B32 /* buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buzzer.mp3; sourceTree = "<group>"; };
+		0938896C22B24DD800292B32 /* robot2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = robot2.mp3; sourceTree = "<group>"; };
+		0938896D22B24DD800292B32 /* oh_no.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = oh_no.mp3; sourceTree = "<group>"; };
+		0938896E22B24DD800292B32 /* robot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = robot.mp3; sourceTree = "<group>"; };
+		0938896F22B24DD800292B32 /* duck.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = duck.mp3; sourceTree = "<group>"; };
+		0938897022B24DD900292B32 /* dog.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dog.mp3; sourceTree = "<group>"; };
+		0938897122B24DD900292B32 /* alarm_clock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm_clock.mp3; sourceTree = "<group>"; };
+		0938898222B26E9300292B32 /* ColorSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectorView.swift; sourceTree = "<group>"; };
+		0938898322B26E9300292B32 /* ColorSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorSelectorView.xib; sourceTree = "<group>"; };
+		0938898722B26ED400292B32 /* UIColor+HEX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HEX.swift"; sourceTree = "<group>"; };
 		0939A38C2278440A005EE307 /* SensorConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorConfigViewController.swift; sourceTree = "<group>"; };
 		0939A38D2278440A005EE307 /* SensorConfigViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SensorConfigViewController.xib; sourceTree = "<group>"; };
 		0941075C2297E889000A658A /* ProgramSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSelectorViewController.swift; sourceTree = "<group>"; };
@@ -321,9 +366,6 @@
 		096479882268797F00F68456 /* Barlow-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Bold.ttf"; sourceTree = "<group>"; };
 		0964798B22689DEC00F68456 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		0964798C22689DEC00F68456 /* ModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
-		0965765122AFCCB500A50C8E /* ColorSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorView.swift; sourceTree = "<group>"; };
-		0965765322AFCCBF00A50C8E /* ColorSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorSelectorView.xib; sourceTree = "<group>"; };
-		0965765E22AFDD6200A50C8E /* UIColor+HEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEX.swift"; sourceTree = "<group>"; };
 		0965766122AFEEA400A50C8E /* DialpadInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialpadInputViewController.swift; sourceTree = "<group>"; };
 		0965766222AFEEA400A50C8E /* DialpadInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialpadInputViewController.xib; sourceTree = "<group>"; };
 		0977990622981C0300D571B0 /* ProgramSelectorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSelectorTableViewCell.swift; sourceTree = "<group>"; };
@@ -601,6 +643,56 @@
 			path = DateFormatter;
 			sourceTree = "<group>";
 		};
+		0938894822B12C7F00292B32 /* SoundPicker */ = {
+			isa = PBXGroup;
+			children = (
+				0938894922B12C9000292B32 /* SoundPickerView.swift */,
+				0938894B22B12CB200292B32 /* SoundPickerView.xib */,
+				0938894D22B1399400292B32 /* SoundPickerCell.swift */,
+				0938894E22B1399500292B32 /* SoundPickerCell.xib */,
+			);
+			path = SoundPicker;
+			sourceTree = "<group>";
+		};
+		0938895122B23AAB00292B32 /* AudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				0938895222B23ABC00292B32 /* AudioPlayer.swift */,
+			);
+			path = AudioPlayer;
+			sourceTree = "<group>";
+		};
+		0938895422B23C9B00292B32 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				0938897122B24DD900292B32 /* alarm_clock.mp3 */,
+				0938896822B24DD700292B32 /* bell.mp3 */,
+				0938896B22B24DD800292B32 /* buzzer.mp3 */,
+				0938896722B24DD700292B32 /* car_horn.mp3 */,
+				0938896222B24DD700292B32 /* cat.mp3 */,
+				0938897022B24DD900292B32 /* dog.mp3 */,
+				0938896F22B24DD800292B32 /* duck.mp3 */,
+				0938896322B24DD700292B32 /* engine_revving.mp3 */,
+				0938896622B24DD700292B32 /* lion.mp3 */,
+				0938896D22B24DD800292B32 /* oh_no.mp3 */,
+				0938896E22B24DD800292B32 /* robot.mp3 */,
+				0938896C22B24DD800292B32 /* robot2.mp3 */,
+				0938896522B24DD700292B32 /* siren.mp3 */,
+				0938896422B24DD700292B32 /* ta_da.mp3 */,
+				0938896922B24DD800292B32 /* uh_oh.mp3 */,
+				0938896A22B24DD800292B32 /* yee_haw.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		0938898622B26ED400292B32 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				0938898722B26ED400292B32 /* UIColor+HEX.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
 		0939A37C2276E6EF005EE307 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -735,18 +827,10 @@
 		0965765022AFCC9E00A50C8E /* ColorSelector */ = {
 			isa = PBXGroup;
 			children = (
-				0965765122AFCCB500A50C8E /* ColorSelectorView.swift */,
-				0965765322AFCCBF00A50C8E /* ColorSelectorView.xib */,
+				0938898222B26E9300292B32 /* ColorSelectorView.swift */,
+				0938898322B26E9300292B32 /* ColorSelectorView.xib */,
 			);
 			path = ColorSelector;
-			sourceTree = "<group>";
-		};
-		0965765D22AFDD4C00A50C8E /* UIColor */ = {
-			isa = PBXGroup;
-			children = (
-				0965765E22AFDD6200A50C8E /* UIColor+HEX.swift */,
-			);
-			path = UIColor;
 			sourceTree = "<group>";
 		};
 		0965766022AFEE5D00A50C8E /* DialpadInput */ = {
@@ -781,16 +865,13 @@
 		09994316228DBA6500D87385 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				0965765022AFCC9E00A50C8E /* ColorSelector */,
 				094D0DD422AFA93600B9B74E /* SliderInput */,
 				094D0DCF22AF9F5500B9B74E /* DriveDirectionSelector */,
-				0952387322A5713E001C1CE1 /* ProgramInfo */,
+				0938894822B12C7F00292B32 /* SoundPicker */,
 				0965766022AFEE5D00A50C8E /* DialpadInput */,
 				0965765022AFCC9E00A50C8E /* ColorSelector */,
-				094D0DCF22AF9F5500B9B74E /* DriveDirectionSelector */,
 				0952387222A57131001C1CE1 /* OptionSelector */,
 				0952387322A5713E001C1CE1 /* ProgramInfo */,
-				094D0DD422AFA93600B9B74E /* SliderInput */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -819,6 +900,7 @@
 		09ED1B9022523C22009CF262 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0938895422B23C9B00292B32 /* Sounds */,
 				2ADF1F80224AB3B600CC721F /* Info.plist */,
 				09ED1BA4225242E8009CF262 /* Assets */,
 				097F8431225BA33800DD32BF /* Fonts */,
@@ -831,6 +913,7 @@
 		09ED1B98225241A7009CF262 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0938895122B23AAB00292B32 /* AudioPlayer */,
 				2ABEF0E0228EF4CB00AF87AC /* BluetoothConnectionModalPresenter */,
 				09ED1BAC22524B09009CF262 /* Callback.swift */,
 				FE8243582278966F00DFDF67 /* NavigationController */,
@@ -1148,11 +1231,7 @@
 				2A9F52102265E96B00F9F651 /* ProgramsViewController.xib */,
 				D031333C228EA66100704989 /* MostRecentProgramsViewController.swift */,
 				D031333D228EA66100704989 /* MostRecentProgramsViewController.xib */,
-				091B98AA229835DA00DCEEF4 /* ProgramSorterController.swift */,
-				D031333C228EA66100704989 /* ProgramBottomBarViewController.swift */,
-				D031333D228EA66100704989 /* ProgramBottomBarViewController.xib */,
 				091B98AA229835DA00DCEEF4 /* ProgramSorter.swift */,
-				091B98AA229835DA00DCEEF4 /* ProgramSorterController.swift */,
 				D0D00FE622AFA84C00274241 /* ButtonlessProgramsViewController.swift */,
 				D0D00FE722AFA84C00274241 /* ButtonlessProgramsViewController.xib */,
 				D0241A0022B1221B005E8DB2 /* ButtonlessProgramTableViewCell.swift */,
@@ -1493,7 +1572,7 @@
 		D008E03A2260AAF500089DC7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0965765D22AFDD4C00A50C8E /* UIColor */,
+				0938898622B26ED400292B32 /* UIColor */,
 				2ADE60B822AA6A7500622C84 /* Firebase */,
 				2A473774229F0F7300641B07 /* UserDefaults */,
 				091B98A9229830BC00DCEEF4 /* DateFormatter */,
@@ -1735,6 +1814,7 @@
 				0977990922981C0300D571B0 /* ProgramSelectorTableViewCell.xib in Resources */,
 				D0D00FE922AFA84C00274241 /* ButtonlessProgramsViewController.xib in Resources */,
 				2AA926D722773DC1000FAA98 /* SideButton.xib in Resources */,
+				0938897A22B24DD900292B32 /* yee_haw.mp3 in Resources */,
 				D0B2A736227C7CF1004473EC /* ControllerCollectionViewCell.xib in Resources */,
 				D03BA8612277384A005B3E33 /* ConnectionModal.xib in Resources */,
 				D03BA85D2277384A005B3E33 /* TestingModal.xib in Resources */,
@@ -1745,6 +1825,7 @@
 				D06C326922857107005534C0 /* ResetTutorialModal.xib in Resources */,
 				096333F82289B9B80029D87B /* PadButton.xib in Resources */,
 				2ADE8C412270AFFD00ECEC72 /* Localizable.strings in Resources */,
+				0938898022B24DD900292B32 /* dog.mp3 in Resources */,
 				2A9F52162265E97700F9F651 /* SettingsViewController.xib in Resources */,
 				D0049A3F2270A8D7007FA256 /* AvailableRobotsView.xib in Resources */,
 				D05C64E9225F683800B7BF4F /* GoogleService-Info.plist in Resources */,
@@ -1756,6 +1837,7 @@
 				097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */,
 				D06F01D2228AFFA600AF73E5 /* FirmwareDownloadModal.xib in Resources */,
 				094FC5E3228C3D5E0085B407 /* DriverPadView.xib in Resources */,
+				0938897622B24DD900292B32 /* lion.mp3 in Resources */,
 				D0899C6A22A6BCB900DB6F97 /* ChallengeCategoriesViewController.xib in Resources */,
 				D0A1108E227B18510064FBB6 /* ControllerInfoModal.xib in Resources */,
 				2ABCB650229EC6900081B51B /* TutorialProgressView.xib in Resources */,
@@ -1765,30 +1847,37 @@
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
 				09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */,
 				2A0789ED2293393600CFFDD6 /* MultiTaskerConfigurationView.xib in Resources */,
+				0938897B22B24DD900292B32 /* buzzer.mp3 in Resources */,
 				D0899C7022A6BCB900DB6F97 /* ChallengesViewController.xib in Resources */,
 				D03BA8542276F323005B3E33 /* PartView.xib in Resources */,
 				2A50DA292292CF7900B3D74C /* PadConfigurationViewController.xib in Resources */,
 				2A90537322A3DA3A0047509D /* RobotOptionsView.xib in Resources */,
 				094D0DD622AFA94A00B9B74E /* SliderInputView.xib in Resources */,
 				D001FCB822A951FC004C49F3 /* ChallengesCollectionViewOddCell.xib in Resources */,
+				0938897222B24DD900292B32 /* cat.mp3 in Resources */,
+				0938894C22B12CB200292B32 /* SoundPickerView.xib in Resources */,
 				2ADF1F7C224AB3B600CC721F /* Images.xcassets in Resources */,
 				2A1C8AF122A7E2A90023F08F /* DisconnectModal.xib in Resources */,
+				0938898122B24DD900292B32 /* alarm_clock.mp3 in Resources */,
 				09105AA12280581F00AB7B72 /* PortConfigurationItemView.xib in Resources */,
+				0938897822B24DD900292B32 /* bell.mp3 in Resources */,
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
 				D0049A432270ABA1007FA256 /* AvailableRobotsTableViewCell.xib in Resources */,
-				0965765422AFCCBF00A50C8E /* ColorSelectorView.xib in Resources */,
 				094FC5DB228C3CC40085B407 /* MultiTaskerPadView.xib in Resources */,
 				09994319228DBA6500D87385 /* ProgramInfoModal.xib in Resources */,
 				D06F01D9228B0B6300AF73E5 /* SuccessfulUpdateModal.xib in Resources */,
 				D03BA8652277385E005B3E33 /* TipsModalView.xib in Resources */,
+				0938897522B24DD900292B32 /* siren.mp3 in Resources */,
 				2A3A75942293FB7B00ED9A1D /* DriverConfigurationView.xib in Resources */,
 				D0313323228C602100704989 /* ControllerLayoutSelectorViewController.xib in Resources */,
 				D0A11096227B23F20064FBB6 /* RRInputField.xib in Resources */,
 				196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */,
+				0938897422B24DD900292B32 /* ta_da.mp3 in Resources */,
 				D06C326D22857A80005534C0 /* AboutViewController.xib in Resources */,
 				D0899C6D22A6BCB900DB6F97 /* ChallengeCategoryCollectionViewCell.xib in Resources */,
 				2A50DA2E2292CFB000B3D74C /* GamerConfigurationView.xib in Resources */,
 				096479872268776200F68456 /* BuildRobotViewController.xib in Resources */,
+				0938897922B24DD900292B32 /* uh_oh.mp3 in Resources */,
 				2AB778612282F6D4004442E2 /* DeleteView.xib in Resources */,
 				D05BAA9E22676BCA00624438 /* WhoToBuildCollectionViewCell.xib in Resources */,
 				D06C32792289BAF1005534C0 /* CheckForUpdatesModal.xib in Resources */,
@@ -1798,10 +1887,15 @@
 				D0049A542271CC52007FA256 /* TurnOnBrainView.xib in Resources */,
 				D001FCAB22A7DDE9004C49F3 /* ChallengeDetailViewController.xib in Resources */,
 				09105A9E2280581F00AB7B72 /* MotorConfigViewController.xib in Resources */,
+				0938897C22B24DD900292B32 /* robot2.mp3 in Resources */,
+				0938898522B26E9300292B32 /* ColorSelectorView.xib in Resources */,
 				FE4B162522786A6C00CAA083 /* PhotoModal.xib in Resources */,
+				0938895022B1399500292B32 /* SoundPickerCell.xib in Resources */,
 				0952387122A5704F001C1CE1 /* OptionSelectorView.xib in Resources */,
 				0965766422AFEEA400A50C8E /* DialpadInputViewController.xib in Resources */,
+				0938897F22B24DD900292B32 /* duck.mp3 in Resources */,
 				D031333B228DD3C100704989 /* SaveModal.xib in Resources */,
+				0938897322B24DD900292B32 /* engine_revving.mp3 in Resources */,
 				D0BF256C2282C6C100F08C9C /* BuildFinishedModal.xib in Resources */,
 				2ABCB648229E912D0081B51B /* MenuTutorialViewController.xib in Resources */,
 				09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */,
@@ -1809,12 +1903,15 @@
 				D001FCB422A92F7D004C49F3 /* ChallengeFinishedModal.xib in Resources */,
 				094D0DD322AF9F7400B9B74E /* DriveDirectionSelectorView.xib in Resources */,
 				0941075F2297E889000A658A /* ProgramSelectorViewController.xib in Resources */,
+				0938897E22B24DD900292B32 /* robot.mp3 in Resources */,
 				0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */,
 				D0899C7422A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.xib in Resources */,
 				0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */,
+				0938897D22B24DD900292B32 /* oh_no.mp3 in Resources */,
 				D0A1107E227870040064FBB6 /* YourRobotsCollectionViewCell.xib in Resources */,
 				D06C327422899F60005534C0 /* FirmwareUpdateViewController.xib in Resources */,
 				2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */,
+				0938897722B24DD900292B32 /* car_horn.mp3 in Resources */,
 				094F9DE02264CA7000BE118B /* RRNavigationBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1934,7 +2031,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A3A759622953F2900ED9A1D /* TipsModalView.swift in Sources */,
-				0965765F22AFDD6200A50C8E /* UIColor+HEX.swift in Sources */,
 				D0B2A735227C7CF1004473EC /* ControllerCollectionViewCell.swift in Sources */,
 				2A7DDB1A22859B2900891DA6 /* CommonKeys.swift in Sources */,
 				D031333E228EA66100704989 /* MostRecentProgramsViewController.swift in Sources */,
@@ -1945,7 +2041,6 @@
 				2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */,
 				096333FD2289C2A60029D87B /* UIButton+BackgroundColor.swift in Sources */,
 				D0A11090227B1DAD0064FBB6 /* ControllerKeys.swift in Sources */,
-				0965765222AFCCB500A50C8E /* ColorSelectorView.swift in Sources */,
 				D0049A422270ABA1007FA256 /* AvailableRobotsTableViewCell.swift in Sources */,
 				2A18002D227AE5800082E801 /* ModalKeys.swift in Sources */,
 				096333F32289A3F20029D87B /* JoystickScene.swift in Sources */,
@@ -2010,6 +2105,7 @@
 				0952387522A57159001C1CE1 /* OptionSelectorButton.swift in Sources */,
 				D0241A0222B1221B005E8DB2 /* ButtonlessProgramTableViewCell.swift in Sources */,
 				09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */,
+				0938894F22B1399500292B32 /* SoundPickerCell.swift in Sources */,
 				09C3874D226F32F70097619D /* UIView+Anchor.swift in Sources */,
 				2A1C8AEF22A7E28D0023F08F /* DisconnectModal.swift in Sources */,
 				2A7DDB1222856FC800891DA6 /* MotorDataModel.swift in Sources */,
@@ -2029,6 +2125,7 @@
 				2A9F52112265E96B00F9F651 /* ProgramsViewController.swift in Sources */,
 				D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */,
 				2ABCB64E229EC6760081B51B /* TutorialProgressView.swift in Sources */,
+				0938894A22B12C9000292B32 /* SoundPickerView.swift in Sources */,
 				D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */,
 				2AD858E02296B9EB0082CDC0 /* ControllerDataModel.swift in Sources */,
 				2AF8C75F2280659000CE1ACB /* FileManager+Documents.swift in Sources */,
@@ -2065,6 +2162,7 @@
 				D0A11084227B0BEB0064FBB6 /* ResizableCell.swift in Sources */,
 				D0899C6B22A6BCB900DB6F97 /* ChallengesViewController.swift in Sources */,
 				2ADE8C382270A79E00ECEC72 /* SettingsKeys.swift in Sources */,
+				0938898822B26ED400292B32 /* UIColor+HEX.swift in Sources */,
 				094FC5CE228C35E90085B407 /* GamerPadView.swift in Sources */,
 				0941075E2297E889000A658A /* ProgramSelectorViewController.swift in Sources */,
 				D0BF25702282C6E000F08C9C /* PlayControllerViewController.swift in Sources */,
@@ -2083,6 +2181,7 @@
 				D05BAA7B226769F300624438 /* UICollectionView+CellReuse.swift in Sources */,
 				D0A1107D227870040064FBB6 /* YourRobotsCollectionViewCell.swift in Sources */,
 				D03BA86B22773DCA005B3E33 /* RRCollectionView.swift in Sources */,
+				0938898422B26E9300292B32 /* ColorSelectorView.swift in Sources */,
 				2A50DA2C2292CF9A00B3D74C /* GamerConfigurationView.swift in Sources */,
 				2AD858DE2295AE940082CDC0 /* UIAlertController+Error.swift in Sources */,
 				2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */,
@@ -2101,6 +2200,7 @@
 				091B98AB229835DA00DCEEF4 /* ProgramSorter.swift in Sources */,
 				096333F62289B9710029D87B /* PadButton.swift in Sources */,
 				096333EE228993CF0029D87B /* TLAnalogJoystick.swift in Sources */,
+				0938895322B23ABC00292B32 /* AudioPlayer.swift in Sources */,
 				2ADE8C342270A78600ECEC72 /* RobotsKeys.swift in Sources */,
 				2AB7785F2282F6CA004442E2 /* DeleteView.swift in Sources */,
 				2AB7785F2282F6CA004442E2 /* DeleteView.swift in Sources */,
