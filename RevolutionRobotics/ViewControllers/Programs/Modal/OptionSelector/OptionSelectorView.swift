@@ -26,7 +26,7 @@ final class OptionSelectorView: UIView {
 
 // MARK: - Setup
 extension OptionSelectorView {
-    func setup(optionSelector: SingleOptionSelector, optionSelected: CallbackType<Option>?) {
+    func setup(optionSelector: OptionSelector, optionSelected: CallbackType<Option>?) {
         self.optionSelected = optionSelected
 
         titleLabel.text = optionSelector.title
