@@ -67,7 +67,14 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func sliderHandler(_ sliderHandler: SliderHandler, callback: ((String?) -> Void)?) {
-        callback?("50")
+        let sliderInputView = SliderInputView.instatiate()
+
+        sliderInputView.setup(sliderHandler: sliderHandler) { [weak self] value in
+            callback?(value)
+            self?.dismiss(animated: true, completion: nil)
+        }
+
+        presentModal(with: sliderInputView, onDismissed: { callback?(nil) })
     }
 
     func singleLEDInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {

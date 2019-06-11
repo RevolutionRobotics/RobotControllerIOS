@@ -17,6 +17,10 @@
 		0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0939A38D2278440A005EE307 /* SensorConfigViewController.xib */; };
 		0941075E2297E889000A658A /* ProgramSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941075C2297E889000A658A /* ProgramSelectorViewController.swift */; };
 		0941075F2297E889000A658A /* ProgramSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0941075D2297E889000A658A /* ProgramSelectorViewController.xib */; };
+		094D0DD122AF9F6900B9B74E /* DriveDirectionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D0DD022AF9F6900B9B74E /* DriveDirectionSelectorView.swift */; };
+		094D0DD322AF9F7400B9B74E /* DriveDirectionSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094D0DD222AF9F7400B9B74E /* DriveDirectionSelectorView.xib */; };
+		094D0DD622AFA94A00B9B74E /* SliderInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094D0DD522AFA94A00B9B74E /* SliderInputView.xib */; };
+		094D0DD822AFA95400B9B74E /* SliderInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D0DD722AFA95400B9B74E /* SliderInputView.swift */; };
 		094F9DD82264BE1900BE118B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F9DD72264BE1900BE118B /* Color.swift */; };
 		094F9DDA2264BE9600BE118B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F9DD92264BE9600BE118B /* Image.swift */; };
 		094F9DDC2264BEE600BE118B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F9DDB2264BEE600BE118B /* Font.swift */; };
@@ -275,6 +279,10 @@
 		0939A38D2278440A005EE307 /* SensorConfigViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SensorConfigViewController.xib; sourceTree = "<group>"; };
 		0941075C2297E889000A658A /* ProgramSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSelectorViewController.swift; sourceTree = "<group>"; };
 		0941075D2297E889000A658A /* ProgramSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramSelectorViewController.xib; sourceTree = "<group>"; };
+		094D0DD022AF9F6900B9B74E /* DriveDirectionSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveDirectionSelectorView.swift; sourceTree = "<group>"; };
+		094D0DD222AF9F7400B9B74E /* DriveDirectionSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriveDirectionSelectorView.xib; sourceTree = "<group>"; };
+		094D0DD522AFA94A00B9B74E /* SliderInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderInputView.xib; sourceTree = "<group>"; };
+		094D0DD722AFA95400B9B74E /* SliderInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderInputView.swift; sourceTree = "<group>"; };
 		094F9DD72264BE1900BE118B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		094F9DD92264BE9600BE118B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		094F9DDB2264BEE600BE118B /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -595,6 +603,24 @@
 			path = ProgramSelector;
 			sourceTree = "<group>";
 		};
+		094D0DCF22AF9F5500B9B74E /* DriveDirectionSelector */ = {
+			isa = PBXGroup;
+			children = (
+				094D0DD022AF9F6900B9B74E /* DriveDirectionSelectorView.swift */,
+				094D0DD222AF9F7400B9B74E /* DriveDirectionSelectorView.xib */,
+			);
+			path = DriveDirectionSelector;
+			sourceTree = "<group>";
+		};
+		094D0DD422AFA93600B9B74E /* SliderInput */ = {
+			isa = PBXGroup;
+			children = (
+				094D0DD522AFA94A00B9B74E /* SliderInputView.xib */,
+				094D0DD722AFA95400B9B74E /* SliderInputView.swift */,
+			);
+			path = SliderInput;
+			sourceTree = "<group>";
+		};
 		094FC5D5228C3C1B0085B407 /* MultiTaskerPad */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +737,8 @@
 		09994316228DBA6500D87385 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				094D0DD422AFA93600B9B74E /* SliderInput */,
+				094D0DCF22AF9F5500B9B74E /* DriveDirectionSelector */,
 				0952387322A5713E001C1CE1 /* ProgramInfo */,
 				0952387222A57131001C1CE1 /* OptionSelector */,
 			);
@@ -1680,6 +1708,7 @@
 				D03BA8542276F323005B3E33 /* PartView.xib in Resources */,
 				2A50DA292292CF7900B3D74C /* PadConfigurationViewController.xib in Resources */,
 				2A90537322A3DA3A0047509D /* RobotOptionsView.xib in Resources */,
+				094D0DD622AFA94A00B9B74E /* SliderInputView.xib in Resources */,
 				D001FCB822A951FC004C49F3 /* ChallengesCollectionViewOddCell.xib in Resources */,
 				2ADF1F7C224AB3B600CC721F /* Images.xcassets in Resources */,
 				2A1C8AF122A7E2A90023F08F /* DisconnectModal.xib in Resources */,
@@ -1899,6 +1928,7 @@
 				2A7DDB0E22856BC500891DA6 /* ConfigurationDataModel.swift in Sources */,
 				D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */,
 				2AF8C75A22805EEC00CE1ACB /* RealmService.swift in Sources */,
+				094D0DD822AFA95400B9B74E /* SliderInputView.swift in Sources */,
 				D0313331228D5CBA00704989 /* ControllerButtonMapping.swift in Sources */,
 				2ABEF0DD228EA0FA00AF87AC /* BluetoothServiceInterface.swift in Sources */,
 				2ADE8C292270A61000ECEC72 /* String+Translate.swift in Sources */,
