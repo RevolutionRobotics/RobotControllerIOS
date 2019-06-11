@@ -168,7 +168,7 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
                 case .success(let controller):
                     playController.controllerType = controller.type
                     self?.navigationController?.pushViewController(playController, animated: true)
-                case .failure(_):
+                case .failure:
                     os_log("Error: Failed to fetch controllers from Firebase!")
                 }
         })
@@ -182,7 +182,7 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
                 buildViewController.remoteRobotDataModel = robots.first(where: { $0.id == robot.remoteId })
                 buildViewController.storedRobotDataModel = robot
                 self?.navigationController?.pushViewController(buildViewController, animated: true)
-            case .failure(_):
+            case .failure:
                 os_log("Error: Failed to fetch robots from Firebase!")
             }
         }

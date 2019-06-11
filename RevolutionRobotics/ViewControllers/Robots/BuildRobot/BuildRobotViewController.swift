@@ -117,15 +117,17 @@ extension BuildRobotViewController {
                     self?.updateStoredRobot(step: currentStep.stepNumber)
                 }
                 self?.dismissViewController()
-                let playController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
+                guard let configId = self?.storedRobotDataModel?.configId else { return }
                 self?.firebaseService.getController(
-                    for: "0",
+                    for: configId,
                     completion: { [weak self] result in
                         switch result {
                         case .success(let controller):
+                            let playController =
+                                AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
                             playController.controllerType = controller.type
                             self?.navigationController?.pushViewController(playController, animated: true)
-                        case .failure(_):
+                        case .failure:
                             os_log("Error: Failed to fetch controllers from Firebase!")
                         }
                 })
@@ -238,7 +240,7 @@ extension BuildRobotViewController {
                     switch result {
                     case .success(let devices):
                         modalPresenter.discoveredDevices = devices
-                    case .failure(_):
+                    case .failure:
                         os_log("Error: Failed to discover peripherals!")
                     }
                 })
@@ -258,7 +260,7 @@ extension BuildRobotViewController {
                 self?.currentStep = steps[self?.storedRobotDataModel?.actualBuildStep ?? 0]
                 guard let loaded = self?.isViewLoaded, loaded == true else { return }
                 self?.refreshViews()
-            case .failure(_):
+            case .failure:
                 os_log("Error: Failed to fetch build steps from Firebase!")
             }
         })

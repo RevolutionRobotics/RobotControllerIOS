@@ -98,7 +98,7 @@ extension ProgramSelectorViewController {
             switch result {
             case .success(let programs):
                 self.programs = self.programSorter.sort(programs: programs, options: self.programSortingOptions)
-            case .failure(_):
+            case .failure:
                 let alert = UIAlertController.errorAlert(type: .network)
                 self.present(alert, animated: true, completion: nil)
             }

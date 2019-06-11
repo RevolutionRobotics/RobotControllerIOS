@@ -44,7 +44,7 @@ extension FirmwareUpdateViewController {
                     self?.brainIDTitleLabel.text = systemId
                     self?.checkForUpdatesModal.brainId = systemId
                     self?.connectedBrainView.isHidden = false
-                case .failure(_):
+                case .failure:
                     os_log("Error: Failed to fetch system ID from robot via bluetooth!")
                 }
             })
@@ -75,7 +75,7 @@ extension FirmwareUpdateViewController {
                     switch result {
                     case .success(let devices):
                         modalPresenter.discoveredDevices = devices
-                    case .failure(_):
+                    case .failure:
                         os_log("Error: Failed to discover peripherals!")
                     }
                 })
@@ -103,7 +103,7 @@ extension FirmwareUpdateViewController {
                 case .success(let systemId):
                     self?.brainIDTitleLabel.text = systemId
                     self?.checkForUpdatesModal.brainId = systemId
-                case .failure(_):
+                case .failure:
                     os_log("Error: Failed to fetch system ID from robot via bluetooth!")
                 }
             })
@@ -165,7 +165,7 @@ extension FirmwareUpdateViewController {
             switch result {
             case .success(let serialNumber):
                 self?.checkForUpdatesModal.serialNumber = serialNumber
-            case .failure(_):
+            case .failure:
                 os_log("Error: Failed to fetch serial number from robot via bluetooth!")
             }
         })
@@ -176,7 +176,7 @@ extension FirmwareUpdateViewController {
             switch result {
             case .success(let manufacturerName):
                 self?.checkForUpdatesModal.manufacturerName = manufacturerName
-            case .failure(_):
+            case .failure:
                 os_log("Error: Failed to fetch manufacturer name from robot via bluetooth!")
             }
         })
@@ -187,7 +187,7 @@ extension FirmwareUpdateViewController {
             switch result {
             case .success(let hardwareRevision):
                 self?.checkForUpdatesModal.hardwareVersion = hardwareRevision
-            case .failure(_):
+            case .failure:
                 os_log("Error: Failed to fetch hardware revision from robot via bluetooth!")
             }
         })
@@ -198,7 +198,7 @@ extension FirmwareUpdateViewController {
             switch result {
             case .success(let softwareRevision):
                 self?.checkForUpdatesModal.softwareVersion = softwareRevision
-            case .failure(_):
+            case .failure:
                 os_log("Error: Failed to fetch software revision from robot via bluetooth!")
             }
         })
@@ -209,7 +209,7 @@ extension FirmwareUpdateViewController {
             switch result {
             case .success(let modelNumber):
                 self?.checkForUpdatesModal.modelNumber = modelNumber
-            case .failure(_):
+            case .failure:
                 os_log("Error: Failed to fetch model number from robot via bluetooth!")
             }
         })
@@ -220,7 +220,7 @@ extension FirmwareUpdateViewController {
             switch result {
             case .success(let percentage):
                 self?.checkForUpdatesModal.mainBattery = percentage
-            case .failure(_):
+            case .failure:
                 os_log("Error: Failed to fetch primary battery percentage from robot via bluetooth!")
             }
         })
@@ -231,7 +231,7 @@ extension FirmwareUpdateViewController {
             switch result {
             case .success(let percentage):
                 self?.checkForUpdatesModal.motorBattery = percentage
-            case .failure(_):
+            case .failure:
                 os_log("Error: Failed to fetch motor battery percentage from robot via bluetooth!")
             }
         })

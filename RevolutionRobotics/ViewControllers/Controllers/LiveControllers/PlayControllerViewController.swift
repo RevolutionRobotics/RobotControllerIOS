@@ -104,7 +104,7 @@ extension PlayControllerViewController {
             switch result {
             case .success(let programs):
                 self?.programs = programs
-            case .failure(_):
+            case .failure:
                 let alert = UIAlertController.errorAlert(type: .network)
                 self?.present(alert, animated: true, completion: nil)
             }
@@ -123,7 +123,7 @@ extension PlayControllerViewController {
                     switch result {
                     case .success(let devices):
                         modalPresenter.discoveredDevices = devices
-                    case .failure(_):
+                    case .failure:
                         os_log("Error: Failed to discover peripherals!")
                     }
                 })
