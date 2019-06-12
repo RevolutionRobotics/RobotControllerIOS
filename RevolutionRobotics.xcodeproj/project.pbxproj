@@ -177,6 +177,8 @@
 		D0049A542271CC52007FA256 /* TurnOnBrainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0049A522271CC52007FA256 /* TurnOnBrainView.xib */; };
 		D008E0392260979400089DC7 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E0382260979300089DC7 /* FirebaseData.swift */; };
 		D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E03B2260AAF500089DC7 /* UIViewController+NibLoadable.swift */; };
+		D0241A0222B1221B005E8DB2 /* ButtonlessProgramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0241A0022B1221B005E8DB2 /* ButtonlessProgramTableViewCell.swift */; };
+		D0241A0322B1221B005E8DB2 /* ButtonlessProgramTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0241A0122B1221B005E8DB2 /* ButtonlessProgramTableViewCell.xib */; };
 		D0313322228C602100704989 /* ControllerLayoutSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */; };
 		D0313323228C602100704989 /* ControllerLayoutSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */; };
 		D031332F228D5CBA00704989 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313326228D5CB900704989 /* Controller.swift */; };
@@ -263,6 +265,8 @@
 		D0BF256C2282C6C100F08C9C /* BuildFinishedModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BF256A2282C6C100F08C9C /* BuildFinishedModal.xib */; };
 		D0BF25702282C6E000F08C9C /* PlayControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF256E2282C6E000F08C9C /* PlayControllerViewController.swift */; };
 		D0BF25732283101000F08C9C /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF25722283100F00F08C9C /* CommunityViewController.swift */; };
+		D0D00FE822AFA84C00274241 /* ButtonlessProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D00FE622AFA84C00274241 /* ButtonlessProgramsViewController.swift */; };
+		D0D00FE922AFA84C00274241 /* ButtonlessProgramsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D00FE722AFA84C00274241 /* ButtonlessProgramsViewController.xib */; };
 		FE4B16182277202600CAA083 /* RobotConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */; };
 		FE4B161C2277219C00CAA083 /* DashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161B2277219C00CAA083 /* DashedView.swift */; };
 		FE4B161E227721C700CAA083 /* PortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161D227721C700CAA083 /* PortButton.swift */; };
@@ -448,6 +452,8 @@
 		D0049A522271CC52007FA256 /* TurnOnBrainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TurnOnBrainView.xib; sourceTree = "<group>"; };
 		D008E0382260979300089DC7 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
 		D008E03B2260AAF500089DC7 /* UIViewController+NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NibLoadable.swift"; sourceTree = "<group>"; };
+		D0241A0022B1221B005E8DB2 /* ButtonlessProgramTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonlessProgramTableViewCell.swift; sourceTree = "<group>"; };
+		D0241A0122B1221B005E8DB2 /* ButtonlessProgramTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonlessProgramTableViewCell.xib; sourceTree = "<group>"; };
 		D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerLayoutSelectorViewController.swift; sourceTree = "<group>"; };
 		D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControllerLayoutSelectorViewController.xib; sourceTree = "<group>"; };
 		D0313326228D5CB900704989 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
@@ -536,6 +542,8 @@
 		D0BF256D2282C6E000F08C9C /* PlayControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayControllerViewController.xib; sourceTree = "<group>"; };
 		D0BF256E2282C6E000F08C9C /* PlayControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayControllerViewController.swift; sourceTree = "<group>"; };
 		D0BF25722283100F00F08C9C /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		D0D00FE622AFA84C00274241 /* ButtonlessProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonlessProgramsViewController.swift; sourceTree = "<group>"; };
+		D0D00FE722AFA84C00274241 /* ButtonlessProgramsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonlessProgramsViewController.xib; sourceTree = "<group>"; };
 		FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RobotConfigurationViewController.xib; sourceTree = "<group>"; };
 		FE4B161B2277219C00CAA083 /* DashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedView.swift; sourceTree = "<group>"; };
 		FE4B161D227721C700CAA083 /* PortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortButton.swift; sourceTree = "<group>"; };
@@ -1144,6 +1152,11 @@
 				D031333C228EA66100704989 /* ProgramBottomBarViewController.swift */,
 				D031333D228EA66100704989 /* ProgramBottomBarViewController.xib */,
 				091B98AA229835DA00DCEEF4 /* ProgramSorter.swift */,
+				091B98AA229835DA00DCEEF4 /* ProgramSorterController.swift */,
+				D0D00FE622AFA84C00274241 /* ButtonlessProgramsViewController.swift */,
+				D0D00FE722AFA84C00274241 /* ButtonlessProgramsViewController.xib */,
+				D0241A0022B1221B005E8DB2 /* ButtonlessProgramTableViewCell.swift */,
+				D0241A0122B1221B005E8DB2 /* ButtonlessProgramTableViewCell.xib */,
 			);
 			path = Programs;
 			sourceTree = "<group>";
@@ -1720,6 +1733,7 @@
 			files = (
 				2A3A759522953EC500ED9A1D /* PlayControllerViewController.xib in Resources */,
 				0977990922981C0300D571B0 /* ProgramSelectorTableViewCell.xib in Resources */,
+				D0D00FE922AFA84C00274241 /* ButtonlessProgramsViewController.xib in Resources */,
 				2AA926D722773DC1000FAA98 /* SideButton.xib in Resources */,
 				D0B2A736227C7CF1004473EC /* ControllerCollectionViewCell.xib in Resources */,
 				D03BA8612277384A005B3E33 /* ConnectionModal.xib in Resources */,
@@ -1736,6 +1750,7 @@
 				D05C64E9225F683800B7BF4F /* GoogleService-Info.plist in Resources */,
 				09C38755226F3ABC0097619D /* Barlow-Medium.ttf in Resources */,
 				D0899C6922A6BCB900DB6F97 /* ChallengesCollectionViewEvenCell.xib in Resources */,
+				D0241A0322B1221B005E8DB2 /* ButtonlessProgramTableViewCell.xib in Resources */,
 				FE4B16182277202600CAA083 /* RobotConfigurationViewController.xib in Resources */,
 				D001FCAF22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.xib in Resources */,
 				097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */,
@@ -1993,6 +2008,7 @@
 				D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */,
 				D05C64CC225F575A00B7BF4F /* Milestone.swift in Sources */,
 				0952387522A57159001C1CE1 /* OptionSelectorButton.swift in Sources */,
+				D0241A0222B1221B005E8DB2 /* ButtonlessProgramTableViewCell.swift in Sources */,
 				09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */,
 				09C3874D226F32F70097619D /* UIView+Anchor.swift in Sources */,
 				2A1C8AEF22A7E28D0023F08F /* DisconnectModal.swift in Sources */,
@@ -2016,6 +2032,7 @@
 				D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */,
 				2AD858E02296B9EB0082CDC0 /* ControllerDataModel.swift in Sources */,
 				2AF8C75F2280659000CE1ACB /* FileManager+Documents.swift in Sources */,
+				D0D00FE822AFA84C00274241 /* ButtonlessProgramsViewController.swift in Sources */,
 				D05C64E1225F5C9900B7BF4F /* Motor.swift in Sources */,
 				FE4B16202277406D00CAA083 /* SegmentedControl.swift in Sources */,
 				D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */,

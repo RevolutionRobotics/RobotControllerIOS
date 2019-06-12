@@ -94,6 +94,22 @@ enum Image {
 
     enum Programs {
         static let compatibleIcon = UIImage(named: "CompatibleIcon")
+
+        enum Buttonless {
+            static let checkboxNotChecked = UIImage(named: "CheckboxNotChecked")
+            static let checkboxIncompatible = UIImage(named: "CheckboxIncompatible")
+            static let checkboxChecked = UIImage(named: "CheckboxChecked")
+            static let CompatibleIcon = UIImage(named: "CompatibleIcon")
+            static let CompatibleIconAll = UIImage(named: "CompatibleIconAll")
+            static let SortDateDown = UIImage(named: "SortDateDown")
+            static let SortDateDownSelected = UIImage(named: "SortDateDownSelected")
+            static let SortDateUp = UIImage(named: "SortDateUp")
+            static let SortDateUpSelected = UIImage(named: "SortDateUpSelected")
+            static let SortNameDown = UIImage(named: "SortNameDown")
+            static let SortNameDownSelected = UIImage(named: "SortNameDownSelected")
+            static let SortNameUp = UIImage(named: "SortNameUp")
+            static let SortNameUpSelected = UIImage(named: "SortNameUpSelected")
+        }
     }
 
     enum Challenges {
