@@ -10,14 +10,20 @@ import UIKit
 import RevolutionRoboticsBlockly
 
 final class ProgramsViewController: BaseViewController {
-    // MARK: - Outlet
+    // MARK: - Outlets
     @IBOutlet private weak var programNameButton: RRButton!
     @IBOutlet private weak var programCodeButton: RRButton!
     @IBOutlet private weak var saveProgramButton: RRButton!
     @IBOutlet private weak var openProgramButton: RRButton!
     @IBOutlet private weak var containerView: UIView!
 
-    // MARK: - Lifecycle
+    // MARK: - Properties
+    var selectedProgram: ProgramDataModel?
+    private let blocklyViewController = BlocklyViewController()
+}
+
+// MARK: - View lifecycle
+extension ProgramsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBlocklyViewController()
@@ -25,6 +31,11 @@ final class ProgramsViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        if selectedProgram != nil {
+            prefillProgram()
+        }
+
         setupButtons()
     }
 }
@@ -32,7 +43,6 @@ final class ProgramsViewController: BaseViewController {
 // MARK: - Setup
 extension ProgramsViewController {
     private func setupBlocklyViewController() {
-        let blocklyViewController = BlocklyViewController()
         blocklyViewController.setup(blocklyBridgeDelegate: self)
 
         containerView.addSubview(blocklyViewController.view)
@@ -46,6 +56,10 @@ extension ProgramsViewController {
         programCodeButton.setBorder()
         saveProgramButton.setBorder()
         openProgramButton.setBorder()
+    }
+
+    private func prefillProgram() {
+        programNameButton.setTitle(selectedProgram?.name, for: .normal)
     }
 }
 

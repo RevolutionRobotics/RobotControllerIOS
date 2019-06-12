@@ -192,8 +192,11 @@ extension PadConfigurationViewController {
             program: program,
             infoType: infoType,
             issue: nil,
-            editButtonHandler: {
-                print("Edit button tapped")
+            editButtonHandler: { [weak self] in
+                self?.dismissModalViewController()
+                let vc = AppContainer.shared.container.unwrappedResolve(ProgramsViewController.self)
+                vc.selectedProgram = program
+                self?.navigationController?.pushViewController(vc, animated: true)
         },
             actionButtonHandler: { [weak self] _ in
                 self?.programSelected(shouldDisplayRemove ? nil: program, on: (self?.selectedButtonIndex)!)
