@@ -23,7 +23,7 @@ final class ControllerButton: UIButton {
     enum ControllerButtonState: Equatable {
         case normal
         case highlighted
-        case selected(Program)
+        case selected(ProgramDataModel)
     }
 
     // MARK: - Port Number

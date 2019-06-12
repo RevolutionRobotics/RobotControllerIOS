@@ -24,11 +24,8 @@ final class ProgramSelectorTableViewCell: UITableViewCell {
 
 // MARK: - Configure
 extension ProgramSelectorTableViewCell {
-    func configure(program: Program) {
+    func configure(program: ProgramDataModel) {
         nameLabel.text = program.name
-        dateLabel.text = DateFormatter.string(
-            from: Date(timeIntervalSince1970: program.lastModified),
-            format: .yearMonthDay
-        )
+        dateLabel.text = DateFormatter.string(from: program.lastModified, format: .yearMonthDay)
     }
 }

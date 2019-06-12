@@ -22,5 +22,6 @@ protocol RealmServiceInterface: class {
     func getChallengeCategory(id: String?) -> ChallengeCategoryDataModel?
     func saveChallengeCategory(_ category: ChallengeCategoryDataModel)
     func getPrograms() -> [ProgramDataModel]
+    func getProgram(id: String?) -> ProgramDataModel?
     func savePrograms(programs: [ProgramDataModel])
 }
