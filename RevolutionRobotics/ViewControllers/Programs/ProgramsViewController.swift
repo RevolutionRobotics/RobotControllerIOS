@@ -122,7 +122,18 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func numberInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
-        callback?("12")
+        let dialpadInputViewController = AppContainer.shared.container.unwrappedResolve(DialpadInputViewController.self)
+
+        presentViewControllerModally(
+            dialpadInputViewController,
+            transitionStyle: .crossDissolve,
+            presentationStyle: .overFullScreen
+        )
+
+        dialpadInputViewController.setup(inputHandler: inputHandler) { [weak self] text in
+            callback?(text)
+            self?.dismiss(animated: true, completion: nil)
+        }
     }
 
     func textInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
