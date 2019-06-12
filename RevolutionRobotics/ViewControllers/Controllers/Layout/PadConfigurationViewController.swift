@@ -20,14 +20,19 @@ final class PadConfigurationViewController: BaseViewController {
 
     // MARK: - ViewModel
     final class ViewModel {
-        var b1: Program?
-        var b2: Program?
-        var b3: Program?
-        var b4: Program?
-        var b5: Program?
-        var b6: Program?
+        var b1: ProgramDataModel?
+        var b2: ProgramDataModel?
+        var b3: ProgramDataModel?
+        var b4: ProgramDataModel?
+        var b5: ProgramDataModel?
+        var b6: ProgramDataModel?
 
-        init(b1: Program?, b2: Program?, b3: Program?, b4: Program?, b5: Program?, b6: Program?) {
+        init(b1: ProgramDataModel?,
+             b2: ProgramDataModel?,
+             b3: ProgramDataModel?,
+             b4: ProgramDataModel?,
+             b5: ProgramDataModel?,
+             b6: ProgramDataModel?) {
             self.b1 = b1
             self.b2 = b2
             self.b3 = b3
@@ -36,7 +41,7 @@ final class PadConfigurationViewController: BaseViewController {
             self.b6 = b6
         }
 
-        func programSelected(_ program: Program?, on buttonNumber: Int) {
+        func programSelected(_ program: ProgramDataModel?, on buttonNumber: Int) {
             switch buttonNumber {
             case 1: b1 = program
             case 2: b2 = program
@@ -48,7 +53,7 @@ final class PadConfigurationViewController: BaseViewController {
             }
         }
 
-        var programs: [Program] {
+        var programs: [ProgramDataModel] {
             return [b1, b2, b3, b4, b5, b6].compactMap({ $0 })
         }
     }
@@ -66,10 +71,10 @@ final class PadConfigurationViewController: BaseViewController {
     var configurationId: String?
 
     // MARK: - Private
-    private var programs: [Program] = []
+    private var programs: [ProgramDataModel] = []
     private var selectedButtonIndex: Int?
     private var selectedButtonState: ControllerButton.ControllerButtonState?
-    private var selectedButtonProgram: Program?
+    private var selectedButtonProgram: ProgramDataModel?
     private let viewModel = ViewModel(b1: nil, b2: nil, b3: nil, b4: nil, b5: nil, b6: nil)
 }
 
@@ -102,7 +107,7 @@ extension PadConfigurationViewController {
         showMostRecentProgramSelector()
     }
 
-    private func programSelected(_ program: Program?, on buttonNumber: Int) {
+    private func programSelected(_ program: ProgramDataModel?, on buttonNumber: Int) {
         if let program = program {
             configurationView.set(state: .selected(program), on: buttonNumber)
         } else {
@@ -144,7 +149,7 @@ extension PadConfigurationViewController {
 extension PadConfigurationViewController {
     private func showMostRecentProgramSelector() {
         let programBottomBar = AppContainer.shared.container.unwrappedResolve(MostRecentProgramsViewController.self)
-        var displayablePrograms: [Program] = []
+        var displayablePrograms: [ProgramDataModel] = []
         if let selectedProgram = selectedButtonProgram {
             let programSet = Set(programs)
             let prohibitedProgramSet = Set(viewModel.programs)
@@ -177,7 +182,7 @@ extension PadConfigurationViewController {
         self.presentViewControllerModally(programBottomBar, transitionStyle: .crossDissolve)
     }
 
-    private func showProgramInfoModal(program: Program, onDismissed: Callback?) {
+    private func showProgramInfoModal(program: ProgramDataModel, onDismissed: Callback?) {
         guard let buttonState = selectedButtonState else { return }
         let programInfoModal = ProgramInfoModal.instatiate()
         let shouldDisplayRemove = selectedProgram(of: buttonState) != nil && selectedProgram(of: buttonState) == program
@@ -260,23 +265,13 @@ extension PadConfigurationViewController {
 // MARK: - Fetch data
 extension PadConfigurationViewController {
     private func fetchPrograms() {
-        firebaseService.getPrograms { [weak self] (result) in
-            switch result {
-            case .success(let programs):
-                let configurationVariableNames =
-                    self?.realmService.getConfiguration(id: self?.configurationId)?.mapping?.variableNames
-                let variableNames = Set(configurationVariableNames ?? [])
-                self?.programs = programs.filter({ Set($0.variables).isSubset(of: variableNames) })
-            case .failure:
-                let alert = UIAlertController.errorAlert(type: .network)
-                self?.present(alert, animated: true, completion: nil)
-            }
-        }
+        let variableNames = realmService.getConfiguration(id: configurationId)?.mapping?.variableNames ?? []
+        programs = realmService.getPrograms().filter({ Set($0.variableNames).isSubset(of: variableNames) })
     }
 }
 
 extension PadConfigurationViewController {
-    private func selectedProgram(of buttonState: ControllerButton.ControllerButtonState) -> Program? {
+    private func selectedProgram(of buttonState: ControllerButton.ControllerButtonState) -> ProgramDataModel? {
         guard case .selected(let program) = buttonState else { return nil }
         return program
     }

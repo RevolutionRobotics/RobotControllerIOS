@@ -16,7 +16,7 @@ final class ControllerDataModel: Object {
     @objc dynamic var type: String = ""
     @objc dynamic var controllerDescription: String = ""
     @objc dynamic var lastModified: Date = Date()
-    @objc dynamic var mapping: ControllerButtonMappingDataModal?
+    @objc dynamic var mapping: ControllerButtonMappingDataModel?
     var backgroundProgramBindings: List<ProgramBindingDataModel> = List<ProgramBindingDataModel>()
 
     // MARK: - Initialization
@@ -29,7 +29,7 @@ final class ControllerDataModel: Object {
         self.type = controller.type.rawValue
         self.controllerDescription = controller.description
         self.lastModified = Date(timeIntervalSince1970: controller.lastModified)
-        self.mapping = ControllerButtonMappingDataModal(mapping: controller.mapping)
+        self.mapping = ControllerButtonMappingDataModel(mapping: controller.mapping)
         let list = List<ProgramBindingDataModel>()
         controller.backgroundProgramBindings.forEach { binding in
             guard let dataModel = ProgramBindingDataModel(binding: binding) else { return }
@@ -43,7 +43,7 @@ final class ControllerDataModel: Object {
     }
 }
 
-final class ControllerButtonMappingDataModal: Object {
+final class ControllerButtonMappingDataModel: Object {
     // MARK: - Properties
     @objc dynamic var b1: ProgramBindingDataModel?
     @objc dynamic var b2: ProgramBindingDataModel?

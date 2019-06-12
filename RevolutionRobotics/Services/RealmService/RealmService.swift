@@ -62,7 +62,7 @@ extension RealmService: RealmServiceInterface {
         saveControllers(newControllers)
     }
 
-    private func deepCopy(_ mapping: ControllerButtonMappingDataModal?) -> ControllerButtonMappingDataModal? {
+    private func deepCopy(_ mapping: ControllerButtonMappingDataModel?) -> ControllerButtonMappingDataModel? {
         guard let mapping = mapping else { return nil }
 
         let b1: ProgramBindingDataModel? = (mapping.b1 != nil) ? ProgramBindingDataModel(value: mapping.b1!) : nil
@@ -71,7 +71,7 @@ extension RealmService: RealmServiceInterface {
         let b4: ProgramBindingDataModel? = (mapping.b4 != nil) ? ProgramBindingDataModel(value: mapping.b4!) : nil
         let b5: ProgramBindingDataModel? = (mapping.b5 != nil) ? ProgramBindingDataModel(value: mapping.b5!) : nil
         let b6: ProgramBindingDataModel? = (mapping.b6 != nil) ? ProgramBindingDataModel(value: mapping.b6!) : nil
-        return ControllerButtonMappingDataModal(b1: b1, b2: b2, b3: b3, b4: b4, b5: b5, b6: b6)
+        return ControllerButtonMappingDataModel(b1: b1, b2: b2, b3: b3, b4: b4, b5: b5, b6: b6)
     }
 
     private func deepCopy(_ list: List<ProgramBindingDataModel>) -> List<ProgramBindingDataModel> {
@@ -148,6 +148,13 @@ extension RealmService: RealmServiceInterface {
             return []
         }
         return programs
+    }
+
+    func getProgram(id: String?) -> ProgramDataModel? {
+        guard let id = id,
+            let programs = realmConnector.findAll(type: ProgramDataModel.self) as? [ProgramDataModel],
+            let program = programs.first(where: { $0.id == id }) else { return nil }
+        return program
     }
 
     func savePrograms(programs: [ProgramDataModel]) {

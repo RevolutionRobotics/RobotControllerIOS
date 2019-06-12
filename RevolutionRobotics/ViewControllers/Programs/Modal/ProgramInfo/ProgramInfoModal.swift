@@ -46,7 +46,7 @@ extension ProgramInfoModal {
 // MARK: - Config
 extension ProgramInfoModal {
     func configure(
-        program: Program,
+        program: ProgramDataModel,
         infoType: InfoType,
         issue: String?,
         editButtonHandler: Callback?,
@@ -55,9 +55,8 @@ extension ProgramInfoModal {
         editButtonTapped = editButtonHandler
         actionButtonTapped = actionButtonHandler
         titleLabel.text = program.name
-        descriptionLabel.text = program.description
-        dateLabel.text = DateFormatter.string(from: Date(timeIntervalSince1970: program.lastModified),
-                                              format: .yearMonthDay)
+        descriptionLabel.text = program.customDesctipion
+        dateLabel.text = DateFormatter.string(from: program.lastModified, format: .yearMonthDay)
         issueLabel.text = issue
     }
 

@@ -212,7 +212,7 @@ extension ScreenAssembly {
                 return ProgramSelectorViewController()
             })
             .initCompleted { (resolver, viewController) in
-                viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)
+                viewController.realmService = resolver.resolve(RealmServiceInterface.self)
             }
             .inObjectScope(.weak)
     }

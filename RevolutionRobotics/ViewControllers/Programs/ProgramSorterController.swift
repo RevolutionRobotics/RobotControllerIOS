@@ -22,17 +22,17 @@ final class ProgramSorter {
         var order: Order
     }
 
-    func sort(programs: [Program], options: Options) -> [Program] {
+    func sort(programs: [ProgramDataModel], options: Options) -> [ProgramDataModel] {
         return sort(programs: programs, by: options.field, order: options.order)
     }
 
-    func sort(programs: [Program], by sortingField: Field, order: Order) -> [Program] {
+    func sort(programs: [ProgramDataModel], by sortingField: Field, order: Order) -> [ProgramDataModel] {
         return sortingField == .name
             ? sortProgramsByName(programs, order: order)
             : sortProgramsByDate(programs, order: order)
     }
 
-    private func sortProgramsByName(_ programs: [Program], order: Order) -> [Program] {
+    private func sortProgramsByName(_ programs: [ProgramDataModel], order: Order) -> [ProgramDataModel] {
         return programs.sorted(by: {
             switch order {
             case .ascending:
@@ -43,7 +43,7 @@ final class ProgramSorter {
         })
     }
 
-    private func sortProgramsByDate(_ programs: [Program], order: Order) -> [Program] {
+    private func sortProgramsByDate(_ programs: [ProgramDataModel], order: Order) -> [ProgramDataModel] {
         return programs.sorted(by: {
             switch order {
             case .ascending:

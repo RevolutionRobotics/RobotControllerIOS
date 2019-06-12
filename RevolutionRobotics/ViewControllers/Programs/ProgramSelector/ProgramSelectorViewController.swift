@@ -31,18 +31,18 @@ final class ProgramSelectorViewController: BaseViewController {
         }
     }
 
-    private var allPrograms: [Program] = []
-    private var filteredAndOrderedPrograms: [Program] = [] {
+    private var allPrograms: [ProgramDataModel] = []
+    private var filteredAndOrderedPrograms: [ProgramDataModel] = [] {
         didSet {
             tableView.reloadData()
         }
     }
 
-    var firebaseService: FirebaseServiceInterface!
-    var programSelected: CallbackType<Program>?
+    var realmService: RealmServiceInterface!
+    var programSelected: CallbackType<ProgramDataModel>?
     var dismissedCallback: Callback?
     var configurationVariableNames: [String] = []
-    var prohibitedPrograms: [Program] = []
+    var prohibitedPrograms: [ProgramDataModel] = []
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -98,24 +98,16 @@ extension ProgramSelectorViewController {
 // MARK: - Fetch
 extension ProgramSelectorViewController {
     private func fetchPrograms() {
-        firebaseService.getPrograms { [weak self] result in
-            switch result {
-            case .success(let programs):
-                let set = Set(programs)
-                let prohibited = Set((self?.prohibitedPrograms)!)
-                self?.updatePrograms(Array(set.subtracting(prohibited)))
-            case .failure:
-                let alert = UIAlertController.errorAlert(type: .network)
-                self?.present(alert, animated: true, completion: nil)
-            }
-        }
+        let programs = Set(realmService.getPrograms())
+        let prohibited = Set(prohibitedPrograms)
+        updatePrograms(Array(programs.subtracting(prohibited)))
     }
 
-    private func updatePrograms(_ programs: [Program]) {
+    private func updatePrograms(_ programs: [ProgramDataModel]) {
         allPrograms = programs
         if filterButton.isSelected {
             let variableNames = Set(configurationVariableNames)
-            let compatiblePrograms = allPrograms.filter({ Set($0.variables).isSubset(of: variableNames) })
+            let compatiblePrograms = allPrograms.filter({ Set($0.variableNames).isSubset(of: variableNames) })
             filteredAndOrderedPrograms =
                 programSorter.sort(programs: compatiblePrograms, options: programSortingOptions)
         } else {
@@ -155,7 +147,7 @@ extension ProgramSelectorViewController {
         filterButton.isSelected.toggle()
         if filterButton.isSelected {
             let variableNames = Set(configurationVariableNames)
-            let compatiblePrograms = allPrograms.filter({ Set($0.variables).isSubset(of: variableNames) })
+            let compatiblePrograms = allPrograms.filter({ Set($0.variableNames).isSubset(of: variableNames) })
             filteredAndOrderedPrograms =
                 programSorter.sort(programs: compatiblePrograms, options: programSortingOptions)
         } else {

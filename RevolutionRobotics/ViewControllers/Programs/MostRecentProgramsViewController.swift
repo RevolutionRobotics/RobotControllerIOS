@@ -25,13 +25,13 @@ final class MostRecentProgramsViewController: BaseViewController {
     @IBOutlet private var buttons: [RRButton]!
 
     // MARK: - Callbacks
-    var programSelected: CallbackType<Program>?
+    var programSelected: CallbackType<ProgramDataModel>?
     var dismissed: Callback?
     var showMoreTapped: Callback?
 
     // MARK: - Variables
-    private var programs: [Program] = []
-    private var selectedProgram: Program?
+    private var programs: [ProgramDataModel] = []
+    private var selectedProgram: ProgramDataModel?
     private let programSorter = ProgramSorter()
 }
 
@@ -52,7 +52,7 @@ extension MostRecentProgramsViewController {
 
 // MARK: - Setup
 extension MostRecentProgramsViewController {
-    func setup(programs: [Program], selectedProgram: Program?) {
+    func setup(programs: [ProgramDataModel], selectedProgram: ProgramDataModel?) {
         self.programs = programSorter.sort(programs: programs, by: .date, order: .descending)
         if self.programs.isEmpty {
             self.programs = []
