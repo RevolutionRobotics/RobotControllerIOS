@@ -69,7 +69,7 @@ extension ChallengesViewController {
 
     private func navigateBack() {
         updateProgress()
-        dismissViewController()
+        dismissModalViewController()
         navigationController?.popViewController(animated: false)
         challengesCollectionView.reloadData()
     }

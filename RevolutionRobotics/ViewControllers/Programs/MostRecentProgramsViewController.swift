@@ -1,5 +1,5 @@
 //
-//  ProgramBottomBarViewController.swift
+//  MostRecentProgramsViewController.swift
 //  RevolutionRobotics
 //
 //  Created by Robert Klacso on 2019. 05. 17..
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ProgramBottomBarViewController: BaseViewController {
+final class MostRecentProgramsViewController: BaseViewController {
     // MARK: - Constant
     private enum Constants {
         static let buttonFont = Font.jura(size: 12.0, weight: .bold)
@@ -36,7 +36,7 @@ final class ProgramBottomBarViewController: BaseViewController {
 }
 
 // MARK: - View lifecycle
-extension ProgramBottomBarViewController {
+extension MostRecentProgramsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupShowMoreButton()
@@ -51,10 +51,14 @@ extension ProgramBottomBarViewController {
 }
 
 // MARK: - Setup
-extension ProgramBottomBarViewController {
+extension MostRecentProgramsViewController {
     func setup(programs: [Program], selectedProgram: Program?) {
         self.programs = programSorter.sort(programs: programs, by: .date, order: .descending)
-        self.programs = Array(self.programs[Constants.firstFiveProgamRange])
+        if self.programs.isEmpty {
+            self.programs = []
+        } else {
+            self.programs = Array(self.programs[Constants.firstFiveProgamRange])
+        }
 
         if let selectedProgram = selectedProgram,
             let selectedIndex = self.programs.firstIndex(of: selectedProgram) {
@@ -87,8 +91,10 @@ extension ProgramBottomBarViewController {
             button.titleLabel?.textAlignment = .center
         }
 
-        let startIndex = programs.count - 1
-        buttons[startIndex...].forEach({ $0.isHidden = true })
+        if programs.count < buttons.count {
+            let startIndex = programs.count - 1
+            buttons[startIndex...].forEach({ $0.isHidden = true })
+        }
 
         showMoreButton.setBorder(fillColor: .clear, strokeColor: .white)
 
@@ -109,7 +115,7 @@ extension ProgramBottomBarViewController {
 }
 
 // MARK: - Event handlers
-extension ProgramBottomBarViewController {
+extension MostRecentProgramsViewController {
     @IBAction private func buttonTapped(_ sender: RRButton) {
         guard let buttonIndex = buttons.firstIndex(of: sender) else { return }
         programSelected?(programs[buttonIndex])

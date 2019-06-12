@@ -17,6 +17,9 @@ final class ControllerLayoutSelectorViewController: BaseViewController {
     @IBOutlet private weak var multiTaskerControllerButton: UIButton!
     @IBOutlet private weak var driverControllerLabel: UILabel!
     @IBOutlet private weak var driverControllerButton: UIButton!
+
+    // MARK: - Properties
+    var configurationId: String?
 }
 
 // MARK: - View lifecycle
@@ -32,18 +35,21 @@ extension ControllerLayoutSelectorViewController {
 extension ControllerLayoutSelectorViewController {
     @IBAction private func gamerButtonTapped(_ sender: Any) {
         let vc = AppContainer.shared.container.unwrappedResolve(PadConfigurationViewController.self)
+        vc.configurationId = configurationId
         vc.controllerType = .gamer
         navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction private func multiTaskerButtonTapped(_ sender: Any) {
         let vc = AppContainer.shared.container.unwrappedResolve(PadConfigurationViewController.self)
+        vc.configurationId = configurationId
         vc.controllerType = .multiTasker
         navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction private func driverButtonTapped(_ sender: Any) {
         let vc = AppContainer.shared.container.unwrappedResolve(PadConfigurationViewController.self)
+        vc.configurationId = configurationId
         vc.controllerType = .driver
         navigationController?.pushViewController(vc, animated: true)
     }

@@ -43,7 +43,7 @@ extension SettingsViewController {
         UserDefaults.standard.set(true, forKey: UserDefaults.Keys.shouldShowTutorial)
 
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
-            self?.dismissViewController()
+            self?.dismissModalViewController()
         }
     }
 

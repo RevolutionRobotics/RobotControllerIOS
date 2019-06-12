@@ -9,7 +9,8 @@
 import UIKit
 
 protocol ModalViewControllerDelegate: class {
-    func dismissViewController()
+    func backgroundTapped()
+    func dismissModalViewController()
 }
 
 final class ModalViewController: BaseViewController {
@@ -41,10 +42,10 @@ extension ModalViewController {
 // MARK: - Actions
 extension ModalViewController {
     @IBAction private func closeButtonTapped(_ sender: Any) {
-        delegate?.dismissViewController()
+        delegate?.backgroundTapped()
     }
 
     @IBAction private func backgroundTapped(_ sender: Any) {
-        delegate?.dismissViewController()
+        delegate?.backgroundTapped()
     }
 }

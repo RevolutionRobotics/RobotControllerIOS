@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -19,7 +18,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgramBottomBarViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MostRecentProgramsViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="2Rn-Ci-ydm" id="FpI-Xp-W06"/>
                 <outlet property="bottomContainer" destination="zRV-Od-gLo" id="jRA-MA-gEd"/>
@@ -49,13 +48,13 @@
                             <rect key="frame" x="274" y="25" width="20" height="20"/>
                         </activityIndicatorView>
                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUz-Rb-BCf" userLabel="emptyLabel">
-                            <rect key="frame" x="24" y="28" width="426.5" height="14.5"/>
+                            <rect key="frame" x="24" y="28" width="428.5" height="14.5"/>
                             <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Dxa-4C-h76" userLabel="showMoreButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="474.5" y="4" width="89.5" height="62"/>
+                            <rect key="frame" x="476.5" y="4" width="87.5" height="62"/>
                             <color key="backgroundColor" name="BlackTwo"/>
                             <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="12"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,11 +67,11 @@
                                 <action selector="showMoreTapped:" destination="-1" eventType="touchUpInside" id="qqM-JV-UUQ"/>
                             </connections>
                         </button>
-                        <stackView opaque="NO" alpha="0.0" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="h0F-nN-uQF">
-                            <rect key="frame" x="4" y="4" width="182" height="62"/>
+                        <stackView opaque="NO" alpha="0.0" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="h0F-nN-uQF">
+                            <rect key="frame" x="4" y="4" width="453.5" height="62"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hN5-Hh-6Un" userLabel="program1Button" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="30" height="62"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="87.5" height="62"/>
                                     <color key="backgroundColor" name="BlackTwo"/>
                                     <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="12"/>
                                     <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -84,7 +83,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wc7-9m-prl" userLabel="program2Button" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                                    <rect key="frame" x="38" y="0.0" width="30" height="62"/>
+                                    <rect key="frame" x="91.5" y="0.0" width="87.5" height="62"/>
                                     <color key="backgroundColor" name="BlackTwo"/>
                                     <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="12"/>
                                     <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -96,7 +95,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgP-VF-gKd" userLabel="program3Button" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                                    <rect key="frame" x="76" y="0.0" width="30" height="62"/>
+                                    <rect key="frame" x="183" y="0.0" width="87.5" height="62"/>
                                     <color key="backgroundColor" name="BlackTwo"/>
                                     <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="12"/>
                                     <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -108,7 +107,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09M-eK-L4Y" userLabel="program4Button" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                                    <rect key="frame" x="114" y="0.0" width="30" height="62"/>
+                                    <rect key="frame" x="274.5" y="0.0" width="87.5" height="62"/>
                                     <color key="backgroundColor" name="BlackTwo"/>
                                     <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="12"/>
                                     <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -120,7 +119,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RX-2a-Ted" userLabel="program5Button" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                                    <rect key="frame" x="152" y="0.0" width="30" height="62"/>
+                                    <rect key="frame" x="366" y="0.0" width="87.5" height="62"/>
                                     <color key="backgroundColor" name="BlackTwo"/>
                                     <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="12"/>
                                     <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -179,11 +178,11 @@
             <constraints>
                 <constraint firstItem="zRV-Od-gLo" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="7tR-zH-klc"/>
                 <constraint firstItem="zRV-Od-gLo" firstAttribute="top" secondItem="JZ4-hL-owz" secondAttribute="bottom" id="AZs-bA-7An"/>
-                <constraint firstItem="Dxa-4C-h76" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.158" id="CdE-lk-JIe"/>
                 <constraint firstAttribute="trailing" secondItem="q6i-B9-ehi" secondAttribute="trailing" id="Kje-Fo-lPb"/>
                 <constraint firstAttribute="trailing" secondItem="Dxa-4C-h76" secondAttribute="trailing" constant="4" id="Nj3-NT-9X9"/>
                 <constraint firstItem="q6i-B9-ehi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QTD-gd-cP0"/>
                 <constraint firstAttribute="trailing" secondItem="JZ4-hL-owz" secondAttribute="trailing" id="Tpo-WO-S80"/>
+                <constraint firstItem="Dxa-4C-h76" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.154049" id="b8n-pE-8Ia"/>
                 <constraint firstItem="JZ4-hL-owz" firstAttribute="top" secondItem="q6i-B9-ehi" secondAttribute="bottom" id="eJ0-Jm-6b8"/>
                 <constraint firstItem="q6i-B9-ehi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hHe-gc-S7b"/>
                 <constraint firstAttribute="trailing" secondItem="zRV-Od-gLo" secondAttribute="trailing" id="noL-jY-cUX"/>

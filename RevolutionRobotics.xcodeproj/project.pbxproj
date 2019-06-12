@@ -181,8 +181,8 @@
 		D0313337228D5CBA00704989 /* Part.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031332E228D5CBA00704989 /* Part.swift */; };
 		D0313339228DD3B100704989 /* SaveModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313338228DD3B000704989 /* SaveModal.swift */; };
 		D031333B228DD3C100704989 /* SaveModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D031333A228DD3C100704989 /* SaveModal.xib */; };
-		D031333E228EA66100704989 /* ProgramBottomBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031333C228EA66100704989 /* ProgramBottomBarViewController.swift */; };
-		D031333F228EA66100704989 /* ProgramBottomBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D031333D228EA66100704989 /* ProgramBottomBarViewController.xib */; };
+		D031333E228EA66100704989 /* MostRecentProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031333C228EA66100704989 /* MostRecentProgramsViewController.swift */; };
+		D031333F228EA66100704989 /* MostRecentProgramsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D031333D228EA66100704989 /* MostRecentProgramsViewController.xib */; };
 		D03BA8532276F323005B3E33 /* PartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8512276F323005B3E33 /* PartView.swift */; };
 		D03BA8542276F323005B3E33 /* PartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8522276F323005B3E33 /* PartView.xib */; };
 		D03BA85C2277384A005B3E33 /* ConnectionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8562277384A005B3E33 /* ConnectionModal.swift */; };
@@ -443,8 +443,8 @@
 		D031332E228D5CBA00704989 /* Part.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Part.swift; sourceTree = "<group>"; };
 		D0313338228DD3B000704989 /* SaveModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveModal.swift; sourceTree = "<group>"; };
 		D031333A228DD3C100704989 /* SaveModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SaveModal.xib; sourceTree = "<group>"; };
-		D031333C228EA66100704989 /* ProgramBottomBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramBottomBarViewController.swift; sourceTree = "<group>"; };
-		D031333D228EA66100704989 /* ProgramBottomBarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramBottomBarViewController.xib; sourceTree = "<group>"; };
+		D031333C228EA66100704989 /* MostRecentProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostRecentProgramsViewController.swift; sourceTree = "<group>"; };
+		D031333D228EA66100704989 /* MostRecentProgramsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MostRecentProgramsViewController.xib; sourceTree = "<group>"; };
 		D03BA8512276F323005B3E33 /* PartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartView.swift; sourceTree = "<group>"; };
 		D03BA8522276F323005B3E33 /* PartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartView.xib; sourceTree = "<group>"; };
 		D03BA8562277384A005B3E33 /* ConnectionModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionModal.swift; sourceTree = "<group>"; };
@@ -1068,8 +1068,8 @@
 				09994316228DBA6500D87385 /* Modal */,
 				2A9F520F2265E96B00F9F651 /* ProgramsViewController.swift */,
 				2A9F52102265E96B00F9F651 /* ProgramsViewController.xib */,
-				D031333C228EA66100704989 /* ProgramBottomBarViewController.swift */,
-				D031333D228EA66100704989 /* ProgramBottomBarViewController.xib */,
+				D031333C228EA66100704989 /* MostRecentProgramsViewController.swift */,
+				D031333D228EA66100704989 /* MostRecentProgramsViewController.xib */,
 				091B98AA229835DA00DCEEF4 /* ProgramSorterController.swift */,
 			);
 			path = Programs;
@@ -1701,7 +1701,7 @@
 				2AB778612282F6D4004442E2 /* DeleteView.xib in Resources */,
 				D05BAA9E22676BCA00624438 /* WhoToBuildCollectionViewCell.xib in Resources */,
 				D06C32792289BAF1005534C0 /* CheckForUpdatesModal.xib in Resources */,
-				D031333F228EA66100704989 /* ProgramBottomBarViewController.xib in Resources */,
+				D031333F228EA66100704989 /* MostRecentProgramsViewController.xib in Resources */,
 				2A77320322648FB000D7F38D /* Settings.bundle in Resources */,
 				09C38753226F38F40097619D /* Jura-Regular.ttf in Resources */,
 				D0049A542271CC52007FA256 /* TurnOnBrainView.xib in Resources */,
@@ -1843,7 +1843,7 @@
 				2A3A759622953F2900ED9A1D /* TipsModalView.swift in Sources */,
 				D0B2A735227C7CF1004473EC /* ControllerCollectionViewCell.swift in Sources */,
 				2A7DDB1A22859B2900891DA6 /* CommonKeys.swift in Sources */,
-				D031333E228EA66100704989 /* ProgramBottomBarViewController.swift in Sources */,
+				D031333E228EA66100704989 /* MostRecentProgramsViewController.swift in Sources */,
 				D0899C6F22A6BCB900DB6F97 /* ChallengeCategoryCollectionViewCell.swift in Sources */,
 				2A77320A2264A32D00D7F38D /* ServiceAssembly.swift in Sources */,
 				09105AA02280581F00AB7B72 /* PortConfigurationItemView.swift in Sources */,

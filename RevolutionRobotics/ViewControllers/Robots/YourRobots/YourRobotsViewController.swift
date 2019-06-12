@@ -99,21 +99,21 @@ extension YourRobotsViewController: UICollectionViewDataSource {
     private func setupHandlers(on view: RobotOptionsView, with robot: UserRobot?) {
         view.deleteHandler = { [weak self] in
             guard let robot = robot else { return }
-            self?.dismissViewController()
+            self?.dismissModalViewController()
             let deleteView = DeleteView.instatiate()
             deleteView.title = ModalKeys.DeleteRobot.description.translate()
             deleteView.deleteButtonHandler = { [weak self] in
                 self?.deleteRobot(robot)
-                self?.dismissViewController()
+                self?.dismissModalViewController()
             }
             deleteView.cancelButtonHandler = { [weak self] in
-                self?.dismissViewController()
+                self?.dismissModalViewController()
             }
             self?.presentModal(with: deleteView)
         }
         view.editHandler = { [weak self] in
             guard let robot = robot else { return }
-            self?.dismissViewController()
+            self?.dismissModalViewController()
             self?.navigateToConfiguration(with: robot)
         }
         view.duplicateHandler = { [weak self] in
@@ -126,7 +126,7 @@ extension YourRobotsViewController: UICollectionViewDataSource {
         realmService.deepCopyRobot(robot)
         robots = realmService.getRobots()
         collectionView.reloadData()
-        dismissViewController()
+        dismissModalViewController()
     }
 
     private func deleteRobot(_ robot: UserRobot) {

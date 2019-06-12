@@ -27,11 +27,12 @@ final class ProgramSelectorViewController: BaseViewController {
     private let programSorter = ProgramSorter()
     private var programSortingOptions = ProgramSorter.Options(field: .name, order: .ascending) {
         didSet {
-             programs = programSorter.sort(programs: programs, options: programSortingOptions)
+             filteredAndOrderedPrograms = programSorter.sort(programs: allPrograms, options: programSortingOptions)
         }
     }
 
-    private var programs: [Program] = [] {
+    private var allPrograms: [Program] = []
+    private var filteredAndOrderedPrograms: [Program] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -39,6 +40,9 @@ final class ProgramSelectorViewController: BaseViewController {
 
     var firebaseService: FirebaseServiceInterface!
     var programSelected: CallbackType<Program>?
+    var dismissedCallback: Callback?
+    var configurationVariableNames: [String] = []
+    var prohibitedPrograms: [Program] = []
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -94,14 +98,28 @@ extension ProgramSelectorViewController {
 // MARK: - Fetch
 extension ProgramSelectorViewController {
     private func fetchPrograms() {
-        firebaseService.getPrograms { [unowned self] result in
+        firebaseService.getPrograms { [weak self] result in
             switch result {
             case .success(let programs):
-                self.programs = self.programSorter.sort(programs: programs, options: self.programSortingOptions)
+                let set = Set(programs)
+                let prohibited = Set((self?.prohibitedPrograms)!)
+                self?.updatePrograms(Array(set.subtracting(prohibited)))
             case .failure:
                 let alert = UIAlertController.errorAlert(type: .network)
-                self.present(alert, animated: true, completion: nil)
+                self?.present(alert, animated: true, completion: nil)
             }
+        }
+    }
+
+    private func updatePrograms(_ programs: [Program]) {
+        allPrograms = programs
+        if filterButton.isSelected {
+            let variableNames = Set(configurationVariableNames)
+            let compatiblePrograms = allPrograms.filter({ Set($0.variables).isSubset(of: variableNames) })
+            filteredAndOrderedPrograms =
+                programSorter.sort(programs: compatiblePrograms, options: programSortingOptions)
+        } else {
+            filteredAndOrderedPrograms = programSorter.sort(programs: allPrograms, options: programSortingOptions)
         }
     }
 }
@@ -109,19 +127,19 @@ extension ProgramSelectorViewController {
 // MARK: - UITableViewDelegate
 extension ProgramSelectorViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        programSelected?(programs[indexPath.row])
+        programSelected?(filteredAndOrderedPrograms[indexPath.row])
     }
 }
 
 // MARK: - UITableViewDataSource
 extension ProgramSelectorViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return programs.count
+        return filteredAndOrderedPrograms.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ProgramSelectorTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.configure(program: programs[indexPath.row])
+        cell.configure(program: filteredAndOrderedPrograms[indexPath.row])
         return cell
     }
 }
@@ -129,12 +147,20 @@ extension ProgramSelectorViewController: UITableViewDataSource {
 // MARK: - Actions
 extension ProgramSelectorViewController {
     @IBAction private func backButtonTapped(_ sender: Any) {
-        dismissViewController()
+        dismissedCallback?()
+        navigationController?.popViewController(animated: true)
     }
 
     @IBAction private func filterButtonTapped(_ sender: Any) {
         filterButton.isSelected.toggle()
-        print("show only compatible programs? \(filterButton.isSelected)")
+        if filterButton.isSelected {
+            let variableNames = Set(configurationVariableNames)
+            let compatiblePrograms = allPrograms.filter({ Set($0.variables).isSubset(of: variableNames) })
+            filteredAndOrderedPrograms =
+                programSorter.sort(programs: compatiblePrograms, options: programSortingOptions)
+        } else {
+            filteredAndOrderedPrograms = programSorter.sort(programs: allPrograms, options: programSortingOptions)
+        }
     }
 
     @IBAction private func nameSorterButtonTapped(_ sender: Any) {

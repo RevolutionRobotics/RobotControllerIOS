@@ -92,12 +92,12 @@ extension FirmwareUpdateViewController {
 // MARK: - Connection
 extension FirmwareUpdateViewController {
     override func connected() {
-        dismissViewController()
+        dismissModalViewController()
         let connectionModal = ConnectionModal.instatiate()
         presentModal(with: connectionModal.successful)
 
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
-            self?.dismissViewController()
+            self?.dismissModalViewController()
             self?.bluetoothService.getSystemId(onCompleted: { [weak self] result in
                 switch result {
                 case .success(let systemId):
@@ -116,13 +116,13 @@ extension FirmwareUpdateViewController {
 
     override func connectionError() {
         let connectionModal = ConnectionModal.instatiate()
-        dismissViewController()
+        dismissModalViewController()
         presentModal(with: connectionModal.failed)
 
         connectionModal.tryAgainButtonTapped = dismissAndTryAgain
 
         connectionModal.tipsButtonTapped = { [weak self] in
-            self?.dismissViewController()
+            self?.dismissModalViewController()
             let failedConnectionTipsModal = TipsModalView.instatiate()
             failedConnectionTipsModal.isSkipButtonHidden = true
             failedConnectionTipsModal.tryAgainCallback = self?.dismissAndTryAgain
@@ -136,7 +136,7 @@ extension FirmwareUpdateViewController {
     }
 
     private func dismissAndTryAgain() {
-        dismissViewController()
+        dismissModalViewController()
         showTurnOnTheBrain()
     }
 }
