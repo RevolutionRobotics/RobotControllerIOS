@@ -93,7 +93,14 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func colorSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
-        callback?(optionSelector.options.randomElement()!.key)
+        let colorSelector = ColorSelectorView.instatiate()
+
+        colorSelector.setup(optionSelector: optionSelector) { [weak self] color in
+            callback?(color)
+            self?.dismiss(animated: true, completion: nil)
+        }
+
+        presentModal(with: colorSelector)
     }
 
     func audioSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {

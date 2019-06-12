@@ -50,6 +50,9 @@
 		096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 096479882268797F00F68456 /* Barlow-Bold.ttf */; };
 		0964798D22689DEC00F68456 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0964798B22689DEC00F68456 /* ModalViewController.swift */; };
 		0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0964798C22689DEC00F68456 /* ModalViewController.xib */; };
+		0965765222AFCCB500A50C8E /* ColorSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965765122AFCCB500A50C8E /* ColorSelectorView.swift */; };
+		0965765422AFCCBF00A50C8E /* ColorSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0965765322AFCCBF00A50C8E /* ColorSelectorView.xib */; };
+		0965765F22AFDD6200A50C8E /* UIColor+HEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965765E22AFDD6200A50C8E /* UIColor+HEX.swift */; };
 		0977990822981C0300D571B0 /* ProgramSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0977990622981C0300D571B0 /* ProgramSelectorTableViewCell.swift */; };
 		0977990922981C0300D571B0 /* ProgramSelectorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0977990722981C0300D571B0 /* ProgramSelectorTableViewCell.xib */; };
 		097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097F8432225BA37800DD32BF /* Jura-Bold.ttf */; };
@@ -312,6 +315,9 @@
 		096479882268797F00F68456 /* Barlow-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Bold.ttf"; sourceTree = "<group>"; };
 		0964798B22689DEC00F68456 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		0964798C22689DEC00F68456 /* ModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
+		0965765122AFCCB500A50C8E /* ColorSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorView.swift; sourceTree = "<group>"; };
+		0965765322AFCCBF00A50C8E /* ColorSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorSelectorView.xib; sourceTree = "<group>"; };
+		0965765E22AFDD6200A50C8E /* UIColor+HEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEX.swift"; sourceTree = "<group>"; };
 		0977990622981C0300D571B0 /* ProgramSelectorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSelectorTableViewCell.swift; sourceTree = "<group>"; };
 		0977990722981C0300D571B0 /* ProgramSelectorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramSelectorTableViewCell.xib; sourceTree = "<group>"; };
 		097F8432225BA37800DD32BF /* Jura-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Bold.ttf"; sourceTree = "<group>"; };
@@ -714,6 +720,23 @@
 			path = Modal;
 			sourceTree = "<group>";
 		};
+		0965765022AFCC9E00A50C8E /* ColorSelector */ = {
+			isa = PBXGroup;
+			children = (
+				0965765122AFCCB500A50C8E /* ColorSelectorView.swift */,
+				0965765322AFCCBF00A50C8E /* ColorSelectorView.xib */,
+			);
+			path = ColorSelector;
+			sourceTree = "<group>";
+		};
+		0965765D22AFDD4C00A50C8E /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				0965765E22AFDD6200A50C8E /* UIColor+HEX.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
 		097F8431225BA33800DD32BF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -737,6 +760,7 @@
 		09994316228DBA6500D87385 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				0965765022AFCC9E00A50C8E /* ColorSelector */,
 				094D0DD422AFA93600B9B74E /* SliderInput */,
 				094D0DCF22AF9F5500B9B74E /* DriveDirectionSelector */,
 				0952387322A5713E001C1CE1 /* ProgramInfo */,
@@ -1435,6 +1459,7 @@
 		D008E03A2260AAF500089DC7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0965765D22AFDD4C00A50C8E /* UIColor */,
 				2ADE60B822AA6A7500622C84 /* Firebase */,
 				2A473774229F0F7300641B07 /* UserDefaults */,
 				091B98A9229830BC00DCEEF4 /* DateFormatter */,
@@ -1715,6 +1740,7 @@
 				09105AA12280581F00AB7B72 /* PortConfigurationItemView.xib in Resources */,
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
 				D0049A432270ABA1007FA256 /* AvailableRobotsTableViewCell.xib in Resources */,
+				0965765422AFCCBF00A50C8E /* ColorSelectorView.xib in Resources */,
 				094FC5DB228C3CC40085B407 /* MultiTaskerPadView.xib in Resources */,
 				09994319228DBA6500D87385 /* ProgramInfoModal.xib in Resources */,
 				D06F01D9228B0B6300AF73E5 /* SuccessfulUpdateModal.xib in Resources */,
@@ -1871,6 +1897,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A3A759622953F2900ED9A1D /* TipsModalView.swift in Sources */,
+				0965765F22AFDD6200A50C8E /* UIColor+HEX.swift in Sources */,
 				D0B2A735227C7CF1004473EC /* ControllerCollectionViewCell.swift in Sources */,
 				2A7DDB1A22859B2900891DA6 /* CommonKeys.swift in Sources */,
 				D031333E228EA66100704989 /* MostRecentProgramsViewController.swift in Sources */,
@@ -1881,6 +1908,7 @@
 				2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */,
 				096333FD2289C2A60029D87B /* UIButton+BackgroundColor.swift in Sources */,
 				D0A11090227B1DAD0064FBB6 /* ControllerKeys.swift in Sources */,
+				0965765222AFCCB500A50C8E /* ColorSelectorView.swift in Sources */,
 				D0049A422270ABA1007FA256 /* AvailableRobotsTableViewCell.swift in Sources */,
 				2A18002D227AE5800082E801 /* ModalKeys.swift in Sources */,
 				096333F32289A3F20029D87B /* JoystickScene.swift in Sources */,
