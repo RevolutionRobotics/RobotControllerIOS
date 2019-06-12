@@ -136,7 +136,15 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
         cell.setup(with: controllers[indexPath.row])
         cell.isSelected = configuration?.controller == controllers[indexPath.row].id
         cell.infoCallback = { [weak self] in
-            print(self)
+            let controllerInfoView = ControllerInfoModal.instatiate()
+            controllerInfoView.setup(
+                name: self?.controllers[indexPath.row].name,
+                description: self?.controllers[indexPath.row].controllerDescription,
+                date: self?.controllers[indexPath.row].lastModified,
+                callback: { [weak self] in
+                    self?.dismissModalViewController()
+            })
+            self?.presentModal(with: controllerInfoView)
         }
         cell.editCallback = { [weak self] in
             print(self)

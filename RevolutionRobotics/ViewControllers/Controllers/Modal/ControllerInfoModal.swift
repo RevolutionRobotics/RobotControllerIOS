@@ -16,7 +16,7 @@ final class ControllerInfoModal: UIView {
     @IBOutlet private weak var gotItButton: RRButton!
 
     // MARK: - Properties
-    var gotItCallback: Callback?
+    private var callback: Callback?
 }
 
 // MARK: - View lifecycle
@@ -29,9 +29,19 @@ extension ControllerInfoModal {
     }
 }
 
+// MARK: - Setup
+extension ControllerInfoModal {
+    func setup(name: String?, description: String?, date: Date?, callback: Callback?) {
+        controllerNameLabel.text = name
+        descriptionLabel.text = description
+        lastModifiedLabel.text = DateFormatter.string(from: date, format: .yearMonthDay)
+        self.callback = callback
+    }
+}
+
 // MARK: - Event handlers
 extension ControllerInfoModal {
     @IBAction private func gotItButtonTapped(_ sender: Any) {
-        gotItCallback?()
+        callback?()
     }
 }
