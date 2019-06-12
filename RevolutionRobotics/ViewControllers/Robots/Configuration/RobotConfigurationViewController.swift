@@ -175,15 +175,18 @@ extension RobotConfigurationViewController: RRCollectionViewDelegate {
                 return
         }
 
-        cell.isSelected = true
-        if lastSelectedIndexPath != nil {
-            if let cell = collectionView.cellForItem(at: lastSelectedIndexPath!) as? ControllerCollectionViewCell {
-                cell.isSelected = false
-            } else {
-                collectionView.deselectItem(at: lastSelectedIndexPath!, animated: false)
-            }
+        for index in 0...collectionView.numberOfItems(inSection: 0) {
+            let cell =
+                collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? ControllerCollectionViewCell
+            cell?.isSelected = false
         }
-        lastSelectedIndexPath = indexPath
+
+        cell.isSelected = true
+
+        realmService.updateObject(closure: { [weak self] in
+            guard let id = self?.controllers[indexPath.item].id else { return }
+            self?.configuration?.controller = id
+        })
     }
 
     func setButtons(rightHidden: Bool, leftHidden: Bool) {
