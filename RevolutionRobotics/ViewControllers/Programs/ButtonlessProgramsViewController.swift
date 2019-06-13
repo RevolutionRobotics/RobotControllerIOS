@@ -17,17 +17,25 @@ final class ButtonlessProgramsViewController: BaseViewController {
     @IBOutlet private weak var dateButton: UIButton!
     @IBOutlet private weak var nameButton: UIButton!
     @IBOutlet private weak var compatibleButton: UIButton!
-    @IBOutlet private weak var compatibleLabel: UILabel!
     @IBOutlet private weak var selectAllButton: UIButton!
-    @IBOutlet private weak var selectAllLabel: UILabel!
 
     // MARK: - Variables
     var realmService: RealmServiceInterface!
-    private var programs: [ProgramDataModel] = [] {
+    var configurationId: String?
+    var alreadyAssignedPrograms: [ProgramDataModel] = []
+    private var allPrograms: [ProgramDataModel] = []
+    private var configurationVariableNames: [String] = []
+    private var selectedPrograms: [ProgramDataModel] = []
+    private var filteredAndOrderedPrograms: [ProgramDataModel] = [] {
         didSet {
-            programsTableView.isHidden = programs.isEmpty
-            noProgramsLabel.isHidden = !programs.isEmpty
             programsTableView.reloadData()
+        }
+    }
+    private let programSorter = ProgramSorter()
+    private var programSortingOptions = ProgramSorter.Options(field: .name, order: .ascending) {
+        didSet {
+            filteredAndOrderedPrograms = programSorter.sort(programs: filteredAndOrderedPrograms,
+                                                            options: programSortingOptions)
         }
     }
 }
@@ -38,55 +46,171 @@ extension ButtonlessProgramsViewController {
         super.viewDidLoad()
 
         navigationBar.setup(title: ProgramsKeys.Buttonless.title.translate(), delegate: self)
-        selectAllLabel.text = ProgramsKeys.Buttonless.selectAll.translate()
-        compatibleLabel.text = ProgramsKeys.Buttonless.showCompatible.translate()
+        selectAllButton.setTitle(ProgramsKeys.Buttonless.selectAll.translate(), for: .normal)
         nextButton.setTitle(CommonKeys.next.translate(), for: .normal)
+        nextButton.superview?.setNeedsLayout()
+        nextButton.superview?.layoutIfNeeded()
         programsTableView.dataSource = self
+        programsTableView.delegate = self
         programsTableView.register(ButtonlessProgramTableViewCell.self)
+        fetchPrograms()
+        configurationVariableNames = realmService.getConfiguration(id: configurationId)?.mapping?.variableNames ?? []
+    }
+
+    private func fetchPrograms() {
+        let programs = Set(realmService.getPrograms())
+        let prohibited = Set(alreadyAssignedPrograms)
+        updatePrograms(Array(programs.subtracting(prohibited)))
+        compatibleButton.setTitle(ProgramsKeys.Buttonless.showCompatible.translate(), for: .normal)
+        compatibleButton.setImage(Image.Programs.Buttonless.CompatibleIcon, for: .normal)
+        compatibleButton.isSelected = false
+    }
+
+    private func updatePrograms(_ programs: [ProgramDataModel]) {
+        allPrograms = programs
+        if compatibleButton.isSelected {
+            let variableNames = Set(configurationVariableNames)
+            let compatiblePrograms = allPrograms.filter({ Set($0.variableNames).isSubset(of: variableNames) })
+            filteredAndOrderedPrograms =
+                programSorter.sort(programs: compatiblePrograms, options: programSortingOptions)
+        } else {
+            filteredAndOrderedPrograms = programSorter.sort(programs: allPrograms, options: programSortingOptions)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         nextButton.setBorder(fillColor: .clear, strokeColor: .white)
-        programs = realmService.getPrograms()
+        programsTableView.isHidden = filteredAndOrderedPrograms.isEmpty
+        noProgramsLabel.isHidden = !filteredAndOrderedPrograms.isEmpty
+        programsTableView.reloadData()
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        programsTableView.reloadData()
+    private func isProgramCompatible(_ program: ProgramDataModel) -> Bool {
+        let variableNames = realmService.getConfiguration(id: configurationId)?.mapping?.variableNames ?? []
+        return Set(program.variableNames).isSubset(of: Set(variableNames))
     }
 }
 
 // MARK: - UITableViewDataSource
 extension ButtonlessProgramsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return programs.count
+        return filteredAndOrderedPrograms.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ButtonlessProgramTableViewCell =
             programsTableView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.setup(with: programs[indexPath.row])
+        let program = filteredAndOrderedPrograms[indexPath.row]
+        cell.setup(with: program)
+        cell.infoCallback = { [weak self] in
+            let modal = ProgramInfoModal.instatiate()
+            let isCompatible = (self?.isProgramCompatible(program))!
+            modal.configure(
+                program: program,
+                infoType: .incompatible,
+                issue: isCompatible ? nil : ModalKeys.Program.compatibilityIssue.translate(),
+                editButtonHandler: { [weak self] in
+                    self?.dismissModalViewController()
+                    let vc = AppContainer.shared.container.unwrappedResolve(ProgramsViewController.self)
+                    vc.selectedProgram = program
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }, actionButtonHandler: { [weak self] _ in
+                    self?.dismissModalViewController()
+            })
+            self?.presentModal(with: modal)
+        }
+        if !isProgramCompatible(program) {
+            cell.update(state: .incompatible)
+        } else {
+            if selectedPrograms.contains(program) {
+                cell.update(state: .selected)
+            } else {
+                cell.update(state: .available)
+            }
+        }
         return cell
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension ButtonlessProgramsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? ButtonlessProgramTableViewCell,
+            isProgramCompatible(filteredAndOrderedPrograms[indexPath.row]) else { return }
+
+        if cell.state == .available {
+            cell.update(state: .selected)
+            selectedPrograms.append(filteredAndOrderedPrograms[indexPath.row])
+        } else {
+            cell.update(state: .available)
+            selectedPrograms.removeAll(where: { $0 == filteredAndOrderedPrograms[indexPath.row] })
+        }
     }
 }
 
 // MARK: - Action handlers
 extension ButtonlessProgramsViewController {
-    @IBAction private func compatibleButtonTapped(_ sender: Any) {
+    @IBAction private func compatibleButtonTapped(_ sender: UIButton) {
+        compatibleButton.isSelected.toggle()
+        if compatibleButton.isSelected {
+            let variableNames = Set(configurationVariableNames)
+            let compatiblePrograms = allPrograms.filter({ Set($0.variableNames).isSubset(of: variableNames) })
+            filteredAndOrderedPrograms =
+                programSorter.sort(programs: compatiblePrograms, options: programSortingOptions)
+            compatibleButton.setTitle(ProgramsKeys.Buttonless.showAll.translate(), for: .normal)
+            compatibleButton.setImage(Image.Programs.Buttonless.CompatibleIconAll, for: .normal)
+        } else {
+            filteredAndOrderedPrograms = programSorter.sort(programs: allPrograms, options: programSortingOptions)
+            compatibleButton.setTitle(ProgramsKeys.Buttonless.showCompatible.translate(), for: .normal)
+            compatibleButton.setImage(Image.Programs.Buttonless.CompatibleIcon, for: .normal)
+        }
     }
 
-    @IBAction private func selectAllButtonTapped(_ sender: Any) {
+    @IBAction private func selectAllButtonTapped(_ sender: UIButton) {
+        sender.isSelected.toggle()
+
+        if sender.isSelected {
+            selectedPrograms = filteredAndOrderedPrograms
+            sender.setImage(Image.Programs.Buttonless.checkboxChecked, for: .normal)
+        } else {
+            selectedPrograms = []
+            sender.setImage(Image.Programs.Buttonless.checkboxNotChecked, for: .normal)
+        }
+        programsTableView.reloadData()
     }
 
-    @IBAction private func nameButtonTapped(_ sender: Any) {
+    @IBAction private func nameButtonTapped(_ sender: UIButton) {
+        nameButton.isSelected.toggle()
+        dateButton.isSelected = true
+        dateButton.setImage(Image.Programs.Buttonless.SortDateUp, for: .normal)
+        programSortingOptions = ProgramSorter.Options(
+            field: .name,
+            order: nameButton.isSelected ? .ascending : .descending
+        )
+        if programSortingOptions.order == .ascending {
+            nameButton.setImage(Image.Programs.Buttonless.SortNameUpSelected, for: .normal)
+        } else {
+            nameButton.setImage(Image.Programs.Buttonless.SortNameDownSelected, for: .normal)
+        }
     }
 
-    @IBAction private func dateButtonTapped(_ sender: Any) {
+    @IBAction private func dateButtonTapped(_ sender: UIButton) {
+        dateButton.isSelected.toggle()
+        nameButton.isSelected = false
+        nameButton.setImage(Image.Programs.Buttonless.SortNameUp, for: .normal)
+        programSortingOptions = ProgramSorter.Options(
+            field: .date,
+            order: dateButton.isSelected ? .ascending : .descending
+        )
+        if programSortingOptions.order == .ascending {
+            dateButton.setImage(Image.Programs.Buttonless.SortDateUpSelected, for: .normal)
+        } else {
+            dateButton.setImage(Image.Programs.Buttonless.SortDateDownSelected, for: .normal)
+        }
     }
 
-    @IBAction private func nextButtonTapped(_ sender: Any) {
+    @IBAction private func nextButtonTapped(_ sender: UIButton) {
     }
 }

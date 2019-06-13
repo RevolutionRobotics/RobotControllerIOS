@@ -147,7 +147,10 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
             self?.presentModal(with: controllerInfoView)
         }
         cell.editCallback = { [weak self] in
-            print(self)
+            let vc = AppContainer.shared.container.unwrappedResolve(PadConfigurationViewController.self)
+            vc.selectedController = self?.controllers[indexPath.row]
+            vc.configurationId = self?.configuration?.id
+            self?.navigationController?.pushViewController(vc, animated: true)
         }
         cell.deleteCallback = { [weak self] in
             let deleteView = DeleteView.instatiate()

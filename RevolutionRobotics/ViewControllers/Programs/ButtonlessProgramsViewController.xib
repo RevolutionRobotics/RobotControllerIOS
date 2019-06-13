@@ -22,7 +22,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ButtonlessProgramsViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="compatibleButton" destination="QoK-Ps-U9O" id="OBi-5R-9y9"/>
-                <outlet property="compatibleLabel" destination="iSm-Ak-y8c" id="SaP-LE-NEI"/>
                 <outlet property="dateButton" destination="VSg-8H-vKD" id="zuC-jI-zFT"/>
                 <outlet property="nameButton" destination="Q8z-sc-5oT" id="pfB-wd-kCH"/>
                 <outlet property="navigationBar" destination="5Gv-M5-tim" id="sVQ-D1-Is7"/>
@@ -30,7 +29,6 @@
                 <outlet property="noProgramsLabel" destination="i6M-rG-eyh" id="O1N-by-Cjj"/>
                 <outlet property="programsTableView" destination="IRQ-pz-Qx6" id="tdb-fH-lee"/>
                 <outlet property="selectAllButton" destination="3EZ-aU-cDR" id="fXJ-C3-xM9"/>
-                <outlet property="selectAllLabel" destination="8Pp-Ld-3fQ" id="rOQ-Kn-DbQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -64,66 +62,65 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSg-8H-vKD">
-                            <rect key="frame" x="425" y="16" width="20" height="22"/>
+                            <rect key="frame" x="405" y="7" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="WDq-Ku-hfU"/>
+                                <constraint firstAttribute="height" constant="40" id="yUB-OM-Jit"/>
+                            </constraints>
                             <state key="normal" image="SortDateDown"/>
                             <connections>
                                 <action selector="dateButtonTapped:" destination="-1" eventType="touchUpInside" id="FMo-3y-wKH"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8z-sc-5oT">
-                            <rect key="frame" x="389" y="16" width="20" height="22"/>
-                            <state key="normal" image="SortNameUp"/>
+                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8z-sc-5oT">
+                            <rect key="frame" x="365" y="7" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="EL1-oN-uOz"/>
+                                <constraint firstAttribute="width" constant="40" id="dQf-cG-aLU"/>
+                            </constraints>
+                            <state key="normal" image="SortNameUpSelected"/>
                             <connections>
                                 <action selector="nameButtonTapped:" destination="-1" eventType="touchUpInside" id="yzd-1y-yOP"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3EZ-aU-cDR">
-                            <rect key="frame" x="24" y="16" width="16" height="22"/>
-                            <state key="normal" image="CheckboxNotChecked"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3EZ-aU-cDR">
+                            <rect key="frame" x="24" y="7" width="88" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="A8u-EK-jr8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Select all" image="CheckboxNotChecked"/>
                             <connections>
                                 <action selector="selectAllButtonTapped:" destination="-1" eventType="touchUpInside" id="zAc-9N-bBl"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select all" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Pp-Ld-3fQ">
-                            <rect key="frame" x="52" y="20" width="47.5" height="14.5"/>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoK-Ps-U9O">
+                            <rect key="frame" x="152" y="19" width="183" height="16"/>
                             <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoK-Ps-U9O">
-                            <rect key="frame" x="152" y="16" width="16" height="22"/>
-                            <state key="normal" image="CompatibleIconAll"/>
+                            <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Show all compatible programs" image="CompatibleIcon"/>
                             <connections>
                                 <action selector="compatibleButtonTapped:" destination="-1" eventType="touchUpInside" id="D9k-MK-hmi"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show all programs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSm-Ak-y8c">
-                            <rect key="frame" x="176" y="20" width="95" height="14.5"/>
-                            <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" name="BlackTwo"/>
                     <constraints>
                         <constraint firstItem="3EZ-aU-cDR" firstAttribute="centerY" secondItem="iLr-c1-aNj" secondAttribute="centerY" id="6cP-ue-1RO"/>
-                        <constraint firstItem="8Pp-Ld-3fQ" firstAttribute="centerY" secondItem="iLr-c1-aNj" secondAttribute="centerY" id="AvH-Ul-ICl"/>
-                        <constraint firstItem="Q8z-sc-5oT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iSm-Ak-y8c" secondAttribute="trailing" constant="8" id="CFp-YK-tLU"/>
                         <constraint firstItem="QoK-Ps-U9O" firstAttribute="leading" secondItem="iLr-c1-aNj" secondAttribute="leading" constant="152" id="CSa-no-syc"/>
                         <constraint firstItem="VSg-8H-vKD" firstAttribute="centerY" secondItem="iLr-c1-aNj" secondAttribute="centerY" id="End-sE-uu0"/>
                         <constraint firstAttribute="trailing" secondItem="jcK-3x-tDG" secondAttribute="trailing" constant="4" id="Enk-m6-YpI"/>
                         <constraint firstItem="Q8z-sc-5oT" firstAttribute="centerY" secondItem="iLr-c1-aNj" secondAttribute="centerY" id="HYH-pA-9xw"/>
-                        <constraint firstItem="QoK-Ps-U9O" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8Pp-Ld-3fQ" secondAttribute="trailing" constant="8" id="Mme-8u-OGi"/>
-                        <constraint firstItem="8Pp-Ld-3fQ" firstAttribute="leading" secondItem="3EZ-aU-cDR" secondAttribute="trailing" constant="12" id="NWa-7q-Uml"/>
+                        <constraint firstItem="Q8z-sc-5oT" firstAttribute="leading" secondItem="QoK-Ps-U9O" secondAttribute="trailing" constant="30" id="N2S-dj-WZn"/>
+                        <constraint firstItem="QoK-Ps-U9O" firstAttribute="leading" secondItem="3EZ-aU-cDR" secondAttribute="trailing" constant="40" id="T9z-Gl-h3a"/>
                         <constraint firstItem="jcK-3x-tDG" firstAttribute="top" secondItem="iLr-c1-aNj" secondAttribute="top" constant="4" id="Tty-BC-bz7"/>
-                        <constraint firstItem="VSg-8H-vKD" firstAttribute="leading" secondItem="Q8z-sc-5oT" secondAttribute="trailing" constant="16" id="XnF-Xm-rhx"/>
+                        <constraint firstItem="VSg-8H-vKD" firstAttribute="leading" secondItem="Q8z-sc-5oT" secondAttribute="trailing" id="XnF-Xm-rhx"/>
                         <constraint firstAttribute="height" constant="54" id="cH8-T3-qVF"/>
                         <constraint firstItem="3EZ-aU-cDR" firstAttribute="leading" secondItem="iLr-c1-aNj" secondAttribute="leading" constant="24" id="cO5-xZ-tfj"/>
                         <constraint firstAttribute="bottom" secondItem="jcK-3x-tDG" secondAttribute="bottom" constant="4" id="drS-Ym-0GK"/>
-                        <constraint firstItem="iSm-Ak-y8c" firstAttribute="centerY" secondItem="iLr-c1-aNj" secondAttribute="centerY" id="faB-CH-Mgs"/>
                         <constraint firstItem="jcK-3x-tDG" firstAttribute="leading" secondItem="VSg-8H-vKD" secondAttribute="trailing" constant="16" id="lhh-hK-gCl"/>
                         <constraint firstItem="QoK-Ps-U9O" firstAttribute="centerY" secondItem="iLr-c1-aNj" secondAttribute="centerY" id="msF-cJ-JvJ"/>
-                        <constraint firstItem="iSm-Ak-y8c" firstAttribute="leading" secondItem="QoK-Ps-U9O" secondAttribute="trailing" constant="8" id="q6l-H9-mLf"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2y-p6-VBj">
@@ -172,10 +169,10 @@ Let's build one under Programs!</string>
     </objects>
     <resources>
         <image name="CheckboxNotChecked" width="16" height="16"/>
-        <image name="CompatibleIconAll" width="16" height="16"/>
+        <image name="CompatibleIcon" width="16" height="16"/>
         <image name="PlayIcon" width="16" height="16"/>
         <image name="SortDateDown" width="20" height="20"/>
-        <image name="SortNameUp" width="20" height="20"/>
+        <image name="SortNameUpSelected" width="20" height="20"/>
         <namedColor name="BlackTwo">
             <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

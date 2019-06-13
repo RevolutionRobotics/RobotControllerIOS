@@ -185,6 +185,7 @@
 "program_modal_remove" = "Remove program";
 "program_modal_got_it" = "Got it";
 "program_modal_edit" = "Edit program";
+"program_info_compatibility_issue" = "This program is not compatible with the current configuration.";
 
 "save_robot_dialog_title" = "The robot is ready, name it!";
 "save_robot_dialog_name_title" = "Robot name";

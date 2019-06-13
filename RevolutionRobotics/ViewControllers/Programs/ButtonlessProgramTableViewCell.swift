@@ -24,13 +24,14 @@ final class ButtonlessProgramTableViewCell: UITableViewCell {
     @IBOutlet private weak var dateLabel: UILabel!
 
     // MARK: - Callbacks
-    var selectedCallback: Callback?
     var infoCallback: Callback?
+    var state: State = .incompatible
 }
 
 // MARK: - Setup
 extension ButtonlessProgramTableViewCell {
     func update(state: State) {
+        self.state = state
         switch state {
         case .available:
             borderView.setBorder(fillColor: Color.black, strokeColor: Color.brownGrey)
@@ -68,10 +69,6 @@ extension ButtonlessProgramTableViewCell {
 
 // MARK: - Action handlers
 extension ButtonlessProgramTableViewCell {
-    @IBAction private func selectButtonTapped(_ sender: Any) {
-        selectedCallback?()
-    }
-
     @IBAction private func infoButtonTapped(_ sender: Any) {
         infoCallback?()
     }
