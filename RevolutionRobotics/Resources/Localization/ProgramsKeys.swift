@@ -23,4 +23,11 @@ enum ProgramsKeys {
         static let showCompatiblePrograms = "program_selector_show_compatible_programs"
         static let showAllPrograms = "program_selector_show_all_programs"
     }
+
+    enum Buttonless {
+        static let title = "buttonless_program_selector_title"
+        static let selectAll = "buttonless_program_select_all_checkbox"
+        static let showCompatible = "buttonless_program_show_compatible_programs"
+        static let showAll = "buttonless_program_show_all_programs"
+    }
 }

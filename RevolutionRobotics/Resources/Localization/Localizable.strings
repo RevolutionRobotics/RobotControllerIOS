@@ -114,6 +114,10 @@
 "program_selector_show_all_programs" = "show all programs";
 "most_recent_show_more" = "Show more";
 "most_recent_empty" = "No additional compatible program to assign. Let’s build one under Programs!";
+"buttonless_program_selector_title" = "Add buttonless programs running in the background";
+"buttonless_program_select_all_checkbox" = "Select all";
+"buttonless_program_show_compatible_programs" = "Show compatible programs only";
+"buttonless_program_show_all_programs" = "Show all programs";
 
 // MARK: - Settings
 "settings_screen_title" = "Settings";
