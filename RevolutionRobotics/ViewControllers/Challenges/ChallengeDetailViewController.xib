@@ -44,17 +44,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="RobotPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="5jC-05-t59">
-                    <rect key="frame" x="413" y="131.5" width="70" height="181.5"/>
+                    <rect key="frame" x="413" y="131.5" width="70" height="155.5"/>
                 </imageView>
                 <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="XAw-Vq-Qme" customClass="BuildProgressBar" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="68" y="363" width="760" height="14"/>
+                    <rect key="frame" x="68" y="337" width="760" height="40"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="14" id="057-Cz-mf5"/>
+                        <constraint firstAttribute="height" constant="40" id="057-Cz-mf5"/>
                     </constraints>
                 </view>
                 <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="aje-La-Vve">
-                    <rect key="frame" x="66" y="75" width="764" height="238"/>
+                    <rect key="frame" x="66" y="75" width="764" height="212"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="24" minimumInteritemSpacing="24" id="Z4i-rv-mQ8">
                         <size key="itemSize" width="85" height="85"/>
