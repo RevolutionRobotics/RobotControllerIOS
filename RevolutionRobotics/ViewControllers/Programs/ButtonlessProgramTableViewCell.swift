@@ -63,6 +63,7 @@ extension ButtonlessProgramTableViewCell {
         nameLabel.text = program.name
         dateLabel.text = DateFormatter.string(from: program.lastModified,
                                               format: .yearMonthDay)
+        update(state: .available)
     }
 }
 

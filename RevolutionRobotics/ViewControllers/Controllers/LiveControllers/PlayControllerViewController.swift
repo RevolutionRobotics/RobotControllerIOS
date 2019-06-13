@@ -172,7 +172,5 @@ extension PlayControllerViewController {
     }
 
     @IBAction private func editButtonTapped(_ sender: Any) {
-        let buttonlessProgramsVC = AppContainer.shared.container.unwrappedResolve(ButtonlessProgramsViewController.self)
-        navigationController?.pushViewController(buttonlessProgramsVC, animated: true)
     }
 }

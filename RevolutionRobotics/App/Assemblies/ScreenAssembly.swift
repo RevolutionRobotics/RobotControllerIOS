@@ -35,6 +35,7 @@ final class ScreenAssembly: Assembly {
         registerProgramSelectorViewController(to: container)
         registerDialpadViewController(to: container)
         registerButtonlessProgramsViewController(to: container)
+        registerProgramsOrderViewController(to: container)
     }
 }
 
@@ -232,6 +233,15 @@ extension ScreenAssembly {
             .register(ButtonlessProgramsViewController.self, factory: { _ in
                 return ButtonlessProgramsViewController()
             })
+            .initCompleted { (resolver, viewController) in
+            viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
+            }
+            .inObjectScope(.weak)
+    }
+
+    private func registerProgramsOrderViewController(to container: Container) {
+        container
+            .register(ProgramsOrderViewController.self, factory: { _ in return ProgramsOrderViewController() })
             .initCompleted { (resolver, viewController) in
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
             }

@@ -12,6 +12,7 @@
 "error_ok_button" = "Ok";
 "error_general" = "Something went wrong, please try again";
 "error_test_code_upload" = "Test code upload error";
+"done" = "Done";
 
 // MARK: - Menu
 "menu_robots_title" = "robots";
@@ -118,6 +119,7 @@
 "buttonless_program_select_all_checkbox" = "Select all";
 "buttonless_program_show_compatible_programs" = "Show compatible programs only";
 "buttonless_program_show_all_programs" = "Show all programs";
+"program_priority_screen_title" = "Create priority order for the programs";
 
 // MARK: - Settings
 "settings_screen_title" = "Settings";
