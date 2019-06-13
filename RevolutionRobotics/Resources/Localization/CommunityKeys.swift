@@ -7,4 +7,8 @@
 //
 
 enum CommunityKeys {
+    static let title = "screen_title"
+    static let contentTitle = "content_title"
+    static let contentDescription = "content_description"
+    static let beginButton = "begin_button"
 }

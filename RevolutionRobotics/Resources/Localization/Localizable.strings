@@ -140,6 +140,12 @@
 "challenges_screen_title" = "Challenges";
 "challenge_list_progress" = "%d/%d";
 
+// MARK: - Community
+"screen_title" = "Community";
+"content_title" = "Share or get help";
+"content_description" = "Description of the forum with benefits";
+"begin_button" = "Begin!";
+
 // MARK: - Modal
 "camera_dialog_title" = "ROBOTS PROFILE'S PICTURE";
 "camera_dialog_delete_title" = "Delete";
