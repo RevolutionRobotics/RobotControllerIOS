@@ -204,6 +204,8 @@
 		D0241A0722B14011005E8DB2 /* ProgramsOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0241A0522B14011005E8DB2 /* ProgramsOrderViewController.xib */; };
 		D0241A0A22B14337005E8DB2 /* ProgramsOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0241A0822B14337005E8DB2 /* ProgramsOrderTableViewCell.swift */; };
 		D0241A0B22B14337005E8DB2 /* ProgramsOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0241A0922B14337005E8DB2 /* ProgramsOrderTableViewCell.xib */; };
+		D0241A1422B3BDCD005E8DB2 /* ShowCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0241A1322B3BDCD005E8DB2 /* ShowCodeView.swift */; };
+		D0241A1622B3BDD6005E8DB2 /* ShowCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0241A1522B3BDD6005E8DB2 /* ShowCodeView.xib */; };
 		D0313322228C602100704989 /* ControllerLayoutSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */; };
 		D0313323228C602100704989 /* ControllerLayoutSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */; };
 		D031332F228D5CBA00704989 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313326228D5CB900704989 /* Controller.swift */; };
@@ -504,6 +506,8 @@
 		D0241A0522B14011005E8DB2 /* ProgramsOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramsOrderViewController.xib; sourceTree = "<group>"; };
 		D0241A0822B14337005E8DB2 /* ProgramsOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsOrderTableViewCell.swift; sourceTree = "<group>"; };
 		D0241A0922B14337005E8DB2 /* ProgramsOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramsOrderTableViewCell.xib; sourceTree = "<group>"; };
+		D0241A1322B3BDCD005E8DB2 /* ShowCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCodeView.swift; sourceTree = "<group>"; };
+		D0241A1522B3BDD6005E8DB2 /* ShowCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowCodeView.xib; sourceTree = "<group>"; };
 		D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerLayoutSelectorViewController.swift; sourceTree = "<group>"; };
 		D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControllerLayoutSelectorViewController.xib; sourceTree = "<group>"; };
 		D0313326228D5CB900704989 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
@@ -873,6 +877,7 @@
 		09994316228DBA6500D87385 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				D0241A1022B3BD82005E8DB2 /* ShowCode */,
 				094D0DD422AFA93600B9B74E /* SliderInput */,
 				094D0DCF22AF9F5500B9B74E /* DriveDirectionSelector */,
 				0938894822B12C7F00292B32 /* SoundPicker */,
@@ -1609,6 +1614,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D0241A1022B3BD82005E8DB2 /* ShowCode */ = {
+			isa = PBXGroup;
+			children = (
+				D0241A1322B3BDCD005E8DB2 /* ShowCodeView.swift */,
+				D0241A1522B3BDD6005E8DB2 /* ShowCodeView.xib */,
+			);
+			path = ShowCode;
+			sourceTree = "<group>";
+		};
 		D03BA8552277384A005B3E33 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
@@ -1920,6 +1934,7 @@
 				0938897E22B24DD900292B32 /* robot.mp3 in Resources */,
 				0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */,
 				D0899C7422A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.xib in Resources */,
+				D0241A1622B3BDD6005E8DB2 /* ShowCodeView.xib in Resources */,
 				0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */,
 				0938897D22B24DD900292B32 /* oh_no.mp3 in Resources */,
 				D0A1107E227870040064FBB6 /* YourRobotsCollectionViewCell.xib in Resources */,
@@ -2056,6 +2071,7 @@
 				096333FD2289C2A60029D87B /* UIButton+BackgroundColor.swift in Sources */,
 				D0A11090227B1DAD0064FBB6 /* ControllerKeys.swift in Sources */,
 				D0049A422270ABA1007FA256 /* AvailableRobotsTableViewCell.swift in Sources */,
+				D0241A1422B3BDCD005E8DB2 /* ShowCodeView.swift in Sources */,
 				2A18002D227AE5800082E801 /* ModalKeys.swift in Sources */,
 				096333F32289A3F20029D87B /* JoystickScene.swift in Sources */,
 				2A3A759822954A6700ED9A1D /* RobotConfigurationViewController.swift in Sources */,

@@ -209,3 +209,5 @@
 "delete_controller_description" = "Are you sure you want to delete this controller?";
 "delete_controller_confirm" = "Delete";
 "delete_controller_cancel" = "Cancel";
+
+"title_python_code" = "Generated python code";
