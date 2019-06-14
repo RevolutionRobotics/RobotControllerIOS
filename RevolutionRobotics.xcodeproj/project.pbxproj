@@ -204,6 +204,8 @@
 		D0241A0722B14011005E8DB2 /* ProgramsOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0241A0522B14011005E8DB2 /* ProgramsOrderViewController.xib */; };
 		D0241A0A22B14337005E8DB2 /* ProgramsOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0241A0822B14337005E8DB2 /* ProgramsOrderTableViewCell.swift */; };
 		D0241A0B22B14337005E8DB2 /* ProgramsOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0241A0922B14337005E8DB2 /* ProgramsOrderTableViewCell.xib */; };
+		D0241A0E22B29352005E8DB2 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0241A0C22B29352005E8DB2 /* CommunityViewController.swift */; };
+		D0241A0F22B29352005E8DB2 /* CommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0241A0D22B29352005E8DB2 /* CommunityViewController.xib */; };
 		D0313322228C602100704989 /* ControllerLayoutSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */; };
 		D0313323228C602100704989 /* ControllerLayoutSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */; };
 		D031332F228D5CBA00704989 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313326228D5CB900704989 /* Controller.swift */; };
@@ -289,7 +291,7 @@
 		D0BF256B2282C6C100F08C9C /* BuildFinishedModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF25692282C6BA00F08C9C /* BuildFinishedModal.swift */; };
 		D0BF256C2282C6C100F08C9C /* BuildFinishedModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BF256A2282C6C100F08C9C /* BuildFinishedModal.xib */; };
 		D0BF25702282C6E000F08C9C /* PlayControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF256E2282C6E000F08C9C /* PlayControllerViewController.swift */; };
-		D0BF25732283101000F08C9C /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF25722283100F00F08C9C /* CommunityViewController.swift */; };
+		D0BF25732283101000F08C9C /* CommunityModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF25722283100F00F08C9C /* CommunityModalViewController.swift */; };
 		D0D00FE822AFA84C00274241 /* ButtonlessProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D00FE622AFA84C00274241 /* ButtonlessProgramsViewController.swift */; };
 		D0D00FE922AFA84C00274241 /* ButtonlessProgramsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D00FE722AFA84C00274241 /* ButtonlessProgramsViewController.xib */; };
 		FE4B16182277202600CAA083 /* RobotConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */; };
@@ -504,6 +506,8 @@
 		D0241A0522B14011005E8DB2 /* ProgramsOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramsOrderViewController.xib; sourceTree = "<group>"; };
 		D0241A0822B14337005E8DB2 /* ProgramsOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsOrderTableViewCell.swift; sourceTree = "<group>"; };
 		D0241A0922B14337005E8DB2 /* ProgramsOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramsOrderTableViewCell.xib; sourceTree = "<group>"; };
+		D0241A0C22B29352005E8DB2 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		D0241A0D22B29352005E8DB2 /* CommunityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityViewController.xib; sourceTree = "<group>"; };
 		D0313320228C602100704989 /* ControllerLayoutSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerLayoutSelectorViewController.swift; sourceTree = "<group>"; };
 		D0313321228C602100704989 /* ControllerLayoutSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControllerLayoutSelectorViewController.xib; sourceTree = "<group>"; };
 		D0313326228D5CB900704989 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
@@ -591,7 +595,7 @@
 		D0BF256A2282C6C100F08C9C /* BuildFinishedModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuildFinishedModal.xib; sourceTree = "<group>"; };
 		D0BF256D2282C6E000F08C9C /* PlayControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayControllerViewController.xib; sourceTree = "<group>"; };
 		D0BF256E2282C6E000F08C9C /* PlayControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayControllerViewController.swift; sourceTree = "<group>"; };
-		D0BF25722283100F00F08C9C /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		D0BF25722283100F00F08C9C /* CommunityModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityModalViewController.swift; sourceTree = "<group>"; };
 		D0D00FE622AFA84C00274241 /* ButtonlessProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonlessProgramsViewController.swift; sourceTree = "<group>"; };
 		D0D00FE722AFA84C00274241 /* ButtonlessProgramsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonlessProgramsViewController.xib; sourceTree = "<group>"; };
 		FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RobotConfigurationViewController.xib; sourceTree = "<group>"; };
@@ -1704,7 +1708,9 @@
 		D0BF257122830F2F00F08C9C /* Community */ = {
 			isa = PBXGroup;
 			children = (
-				D0BF25722283100F00F08C9C /* CommunityViewController.swift */,
+				D0BF25722283100F00F08C9C /* CommunityModalViewController.swift */,
+				D0241A0C22B29352005E8DB2 /* CommunityViewController.swift */,
+				D0241A0D22B29352005E8DB2 /* CommunityViewController.xib */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -1877,6 +1883,8 @@
 				0938897822B24DD900292B32 /* bell.mp3 in Resources */,
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
 				D0049A432270ABA1007FA256 /* AvailableRobotsTableViewCell.xib in Resources */,
+				0965765422AFCCBF00A50C8E /* ColorSelectorView.xib in Resources */,
+				D0241A0F22B29352005E8DB2 /* CommunityViewController.xib in Resources */,
 				094FC5DB228C3CC40085B407 /* MultiTaskerPadView.xib in Resources */,
 				09994319228DBA6500D87385 /* ProgramInfoModal.xib in Resources */,
 				D06F01D9228B0B6300AF73E5 /* SuccessfulUpdateModal.xib in Resources */,
@@ -2065,6 +2073,7 @@
 				D05C64D4225F585500B7BF4F /* BuildStatus.swift in Sources */,
 				09C38758226F58260097619D /* RRCustomView.swift in Sources */,
 				0965766322AFEEA400A50C8E /* DialpadInputViewController.swift in Sources */,
+				D0241A0E22B29352005E8DB2 /* CommunityViewController.swift in Sources */,
 				D031332F228D5CBA00704989 /* Controller.swift in Sources */,
 				2A0789EB2293245400CFFDD6 /* MultiTaskerConfigurationView.swift in Sources */,
 				D0241A0A22B14337005E8DB2 /* ProgramsOrderTableViewCell.swift in Sources */,
@@ -2188,7 +2197,7 @@
 				0964798D22689DEC00F68456 /* ModalViewController.swift in Sources */,
 				094F9DDE2264CA5600BE118B /* RRNavigationBar.swift in Sources */,
 				2AA926D22271CB07000FAA98 /* RRSlider.swift in Sources */,
-				D0BF25732283101000F08C9C /* CommunityViewController.swift in Sources */,
+				D0BF25732283101000F08C9C /* CommunityModalViewController.swift in Sources */,
 				D06F01D0228AFF8F00AF73E5 /* FirmwareDownloadModal.swift in Sources */,
 				D05C64DB225F590100B7BF4F /* Port.swift in Sources */,
 				D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */,

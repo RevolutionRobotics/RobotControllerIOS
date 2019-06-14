@@ -98,10 +98,10 @@ extension BaseViewController {
     }
 
     private func presentSafari(presentationFinished: Callback?, url: URL?) {
-        let communityViewController = CommunityViewController(url: url ?? Constants.communityURL)
-        communityViewController.presentationFinished = presentationFinished
-        communityViewController.modalPresentationStyle = .overFullScreen
-        present(communityViewController, animated: true, completion: nil)
+        let communityModalViewController = CommunityModalViewController(url: url ?? Constants.communityURL)
+        communityModalViewController.presentationFinished = presentationFinished
+        communityModalViewController.modalPresentationStyle = .overFullScreen
+        present(communityModalViewController, animated: true, completion: nil)
     }
 }
 

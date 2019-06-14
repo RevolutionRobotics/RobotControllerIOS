@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommunityViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+            <connections>
+                <outlet property="beginButton" destination="cae-N2-ble" id="4IH-AB-kFr"/>
+                <outlet property="descriptionLabel" destination="vh4-1c-iED" id="OjW-fo-pTD"/>
+                <outlet property="navigationBar" destination="vpr-br-aoj" id="Wyg-My-TJ8"/>
+                <outlet property="titleLabel" destination="OFb-kz-OFD" id="2qq-YF-eDU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RzI-H7-Swa">
+                    <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cae-N2-ble" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="171" y="250" width="226" height="46"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="226" id="cbb-NP-rhb"/>
+                        <constraint firstAttribute="height" constant="46" id="rtW-Ar-ECs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                    <state key="normal" title="Begin!">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="beginButtonTapped:" destination="-1" eventType="touchUpInside" id="qYK-8Q-Ras"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHARE OR GET HELP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFb-kz-OFD">
+                    <rect key="frame" x="193" y="77" width="182.5" height="21.5"/>
+                    <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of the forum with benefits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vh4-1c-iED">
+                    <rect key="frame" x="185.5" y="115.5" width="197" height="14.5"/>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpr-br-aoj" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="568" height="71"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="71" id="dxE-TQ-4UA"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="RzI-H7-Swa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9Wi-P0-RQM"/>
+                <constraint firstItem="vpr-br-aoj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Iag-0f-6eM"/>
+                <constraint firstItem="RzI-H7-Swa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KLD-hm-Ms1"/>
+                <constraint firstItem="OFb-kz-OFD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ohl-sU-4t8"/>
+                <constraint firstItem="vpr-br-aoj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RGD-2j-WUd"/>
+                <constraint firstAttribute="trailing" secondItem="RzI-H7-Swa" secondAttribute="trailing" id="UJi-16-xNE"/>
+                <constraint firstItem="vh4-1c-iED" firstAttribute="top" secondItem="OFb-kz-OFD" secondAttribute="bottom" constant="17" id="YIr-Iu-gff"/>
+                <constraint firstItem="cae-N2-ble" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dCo-BN-UxN"/>
+                <constraint firstItem="OFb-kz-OFD" firstAttribute="top" secondItem="vpr-br-aoj" secondAttribute="bottom" constant="6" id="eLv-pD-8MB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cae-N2-ble" secondAttribute="bottom" constant="24" id="gmM-JC-bSd"/>
+                <constraint firstAttribute="trailing" secondItem="vpr-br-aoj" secondAttribute="trailing" id="nP8-lm-mxO"/>
+                <constraint firstItem="vh4-1c-iED" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="o3S-Zq-Veq"/>
+                <constraint firstAttribute="bottom" secondItem="RzI-H7-Swa" secondAttribute="bottom" id="shz-hB-MuV"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

@@ -47,9 +47,8 @@ extension MenuViewController {
 // MARK: - Event handlers
 extension MenuViewController {
     @IBAction private func communityButtonTapped(_ sender: UIButton) {
-        let communityViewController = SFSafariViewController(url: Constants.communityURL)
-        communityViewController.modalPresentationStyle = .overFullScreen
-        present(communityViewController, animated: true, completion: nil)
+        let communityViewController = AppContainer.shared.container.unwrappedResolve(CommunityViewController.self)
+        navigationController?.pushViewController(communityViewController, animated: true)
     }
 
     @IBAction private func settingsButtonTapped(_ sender: UIButton) {
