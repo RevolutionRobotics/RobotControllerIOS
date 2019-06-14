@@ -72,6 +72,7 @@ enum ModalKeys {
         static let gotIt = "program_modal_got_it"
         static let compatibilityIssue = "program_info_compatibility_issue"
         static let generatedCodeTitle = "title_python_code"
+        static let newVariableName = "new_variable_name"
     }
 
     enum Save {

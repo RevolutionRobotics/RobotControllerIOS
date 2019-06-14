@@ -145,7 +145,17 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func textInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
-        callback?("Text")
+        let textInput = TextInputView.instatiate()
+        textInput.setup(inputHandler: inputHandler)
+        textInput.doneCallback = { [weak self] name in
+            callback?(name)
+            self?.dismiss(animated: true, completion: nil)
+        }
+        textInput.cancelCallback = { [weak self] in
+            callback?(nil)
+            self?.dismiss(animated: true, completion: nil)
+        }
+        presentModal(with: textInput, onDismissed: { callback?(nil) })
     }
 
     func blockContext(_ contextHandler: BlockContextHandler, callback: ((String?) -> Void)?) {
