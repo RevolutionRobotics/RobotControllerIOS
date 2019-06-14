@@ -78,6 +78,7 @@ extension RRSlider {
         if itemWidth >= Constants.maximumMarkerWidth {
             xOrigin -= Constants.maximumMarkerWidth / 2
         }
+        xOrigin -= adjustOrigin(xOrigin: xOrigin, itemWidth: itemWidth)
         let rect = CGRect(x: xOrigin,
                           y: trackRect.origin.y,
                           width: min(itemWidth, Constants.maximumMarkerWidth),
@@ -85,5 +86,13 @@ extension RRSlider {
         let view = UIView(frame: rect)
         view.backgroundColor = .white
         return view
+    }
+
+    private func adjustOrigin(xOrigin: CGFloat, itemWidth: CGFloat) -> CGFloat {
+        let thumbWidth = self.currentThumbImage!.size.width
+        let mid = self.frame.width / 2
+        let distanceFromMid = xOrigin - mid
+        let percentageFromMid = (distanceFromMid / mid)
+        return ((thumbWidth - min(itemWidth, Constants.maximumMarkerWidth)) / 2) * percentageFromMid
     }
 }
