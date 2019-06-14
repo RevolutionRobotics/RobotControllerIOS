@@ -14,6 +14,6 @@ final class RRNavigationController: UINavigationController {
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
+        return .landscapeRight
     }
 }
