@@ -20,6 +20,7 @@ final class ProgramsViewController: BaseViewController {
     // MARK: - Properties
     var selectedProgram: ProgramDataModel?
     private let blocklyViewController = BlocklyViewController()
+    private var showCode: Bool = false
 }
 
 // MARK: - View lifecycle
@@ -70,7 +71,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         optionSelectorView.setup(optionSelector: optionSelector) { [weak self] option in
             callback?(option.key)
-            self?.dismiss(animated: true, completion: nil)
+            self?.dismissModalViewController()
         }
 
         presentModal(with: optionSelectorView, onDismissed: { callback?(nil) })
@@ -81,7 +82,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         driveDirectionSelectorView.setup(optionSelector: optionSelector) { [weak self] option in
             callback?(option.key)
-            self?.dismiss(animated: true, completion: nil)
+            self?.dismissModalViewController()
         }
 
         presentModal(with: driveDirectionSelectorView, onDismissed: { callback?(nil) })
@@ -92,7 +93,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         sliderInputView.setup(sliderHandler: sliderHandler) { [weak self] value in
             callback?(value)
-            self?.dismiss(animated: true, completion: nil)
+            self?.dismissModalViewController()
         }
 
         presentModal(with: sliderInputView, onDismissed: { callback?(nil) })
@@ -111,7 +112,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         colorSelector.setup(optionSelector: optionSelector) { [weak self] color in
             callback?(color)
-            self?.dismiss(animated: true, completion: nil)
+            self?.dismissModalViewController()
         }
 
         presentModal(with: colorSelector, onDismissed: { callback?(nil) })
@@ -122,7 +123,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         soundPicker.setup(optionSelector: optionSelector) { [weak self] sound in
             callback?(sound)
-            self?.dismiss(animated: true, completion: nil)
+            self?.dismissModalViewController()
         }
 
         presentModal(with: soundPicker, onDismissed: { callback?(nil) })
@@ -139,7 +140,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         dialpadInputViewController.setup(inputHandler: inputHandler) { [weak self] text in
             callback?(text)
-            self?.dismiss(animated: true, completion: nil)
+            self?.dismissModalViewController()
         }
     }
 
@@ -160,7 +161,15 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func onPythonProgramSaved(pythonCode: String) {
-        print("PythonCode = \(pythonCode)")
+        if showCode {
+            showCode = false
+            let modal = ShowCodeView.instatiate()
+            modal.setup(with: pythonCode)
+            modal.doneCallback = { [weak self] in
+                self?.dismissModalViewController()
+            }
+            presentModal(with: modal)
+        }
     }
 
     func onXMLProgramSaved(xmlCode: String) {
@@ -175,7 +184,8 @@ extension ProgramsViewController {
     }
 
     @IBAction private func programCodeButtonTapped(_ sender: UIButton) {
-        print("Program Code button tapped")
+        showCode = true
+        blocklyViewController.saveProgram()
     }
 
     @IBAction private func saveProgramButtonTapped(_ sender: UIButton) {
