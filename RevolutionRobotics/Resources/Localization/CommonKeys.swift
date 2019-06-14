@@ -12,4 +12,5 @@ enum CommonKeys {
     static let errorOk = "error_ok_button"
     static let general = "error_general"
     static let test = "error_test_code_upload"
+    static let done = "done"
 }

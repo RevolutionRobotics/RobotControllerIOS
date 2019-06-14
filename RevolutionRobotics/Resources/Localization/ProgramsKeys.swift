@@ -30,4 +30,6 @@ enum ProgramsKeys {
         static let showCompatible = "buttonless_program_show_compatible_programs"
         static let showAll = "buttonless_program_show_all_programs"
     }
+
+    static let programOrderTitle = "program_priority_screen_title"
 }
