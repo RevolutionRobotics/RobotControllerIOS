@@ -50,7 +50,9 @@ extension AppDelegate {
     }
 
     private func fetchFirebaseData() {
-        let firebaseService = AppContainer.shared.container.unwrappedResolve(FirebaseServiceInterface.self)
-        firebaseService.prefetchData(onError: nil)
+        DispatchQueue.global(qos: .userInteractive).async {
+            let firebaseService = AppContainer.shared.container.unwrappedResolve(FirebaseServiceInterface.self)
+            firebaseService.prefetchData(onError: nil)
+        }
     }
 }

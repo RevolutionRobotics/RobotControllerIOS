@@ -57,7 +57,11 @@ extension MostRecentProgramsViewController {
         if self.programs.isEmpty {
             self.programs = []
         } else {
-            self.programs = Array(self.programs[Constants.firstFiveProgamRange])
+            if self.programs.count >= 5 {
+                self.programs = Array(self.programs[Constants.firstFiveProgamRange])
+            } else {
+                self.programs = Array(self.programs[0...])
+            }
         }
 
         if let selectedProgram = selectedProgram,

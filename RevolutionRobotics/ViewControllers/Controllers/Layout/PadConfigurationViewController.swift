@@ -69,6 +69,7 @@ final class PadConfigurationViewController: BaseViewController {
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
     var configurationId: String?
+    var selectedController: ControllerDataModel?
 
     // MARK: - Private
     private var programs: [ProgramDataModel] = []
@@ -76,6 +77,12 @@ final class PadConfigurationViewController: BaseViewController {
     private var selectedButtonState: ControllerButton.ControllerButtonState?
     private var selectedButtonProgram: ProgramDataModel?
     private let viewModel = ViewModel(b1: nil, b2: nil, b3: nil, b4: nil, b5: nil, b6: nil)
+    @IBAction private func nextButtonTapped(_ sender: Any) {
+        let vc = AppContainer.shared.container.unwrappedResolve(ButtonlessProgramsViewController.self)
+        vc.configurationId = configurationId
+        vc.alreadyAssignedPrograms = viewModel.programs
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - View lifecycle
@@ -86,13 +93,62 @@ extension PadConfigurationViewController {
         navigationBar.setup(title: ControllerKeys.configureTitle.translate(), delegate: self)
         setupConfigurationView()
         fetchPrograms()
+
+        if selectedController != nil {
+            prefillData()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         setupNextButton()
+    }
 
+    //swiftlint:disable cyclomatic_complexity
+    private func prefillData() {
+        if let binding = selectedController?.mapping?.b1 {
+            if let program = realmService.getProgram(id: binding.programId) ??
+                realmService.getProgram(remoteId: binding.programId) {
+                viewModel.b1 = program
+                configurationView.set(state: .selected(program), on: 1)
+            }
+        }
+        if let binding = selectedController?.mapping?.b2 {
+            if let program = realmService.getProgram(id: binding.programId) ??
+                realmService.getProgram(remoteId: binding.programId) {
+                viewModel.b2 = program
+                configurationView.set(state: .selected(program), on: 2)
+            }
+        }
+        if let binding = selectedController?.mapping?.b3 {
+            if let program = realmService.getProgram(id: binding.programId) ??
+                realmService.getProgram(remoteId: binding.programId) {
+                viewModel.b3 = program
+                configurationView.set(state: .selected(program), on: 3)
+            }
+        }
+        if let binding = selectedController?.mapping?.b4 {
+            if let program = realmService.getProgram(id: binding.programId) ??
+                realmService.getProgram(remoteId: binding.programId) {
+                viewModel.b4 = program
+                configurationView.set(state: .selected(program), on: 4)
+            }
+        }
+        if let binding = selectedController?.mapping?.b5 {
+            if let program = realmService.getProgram(id: binding.programId) ??
+                realmService.getProgram(remoteId: binding.programId) {
+                viewModel.b5 = program
+                configurationView.set(state: .selected(program), on: 5)
+            }
+        }
+        if let binding = selectedController?.mapping?.b6 {
+            if let program = realmService.getProgram(id: binding.programId) ??
+                realmService.getProgram(remoteId: binding.programId) {
+                viewModel.b6 = program
+                configurationView.set(state: .selected(program), on: 6)
+            }
+        }
     }
 }
 

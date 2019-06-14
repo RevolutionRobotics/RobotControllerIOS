@@ -157,6 +157,13 @@ extension RealmService: RealmServiceInterface {
         return program
     }
 
+    func getProgram(remoteId: String?) -> ProgramDataModel? {
+        guard let id = remoteId,
+            let programs = realmConnector.findAll(type: ProgramDataModel.self) as? [ProgramDataModel],
+            let program = programs.first(where: { $0.remoteId == id }) else { return nil }
+        return program
+    }
+
     func savePrograms(programs: [ProgramDataModel]) {
         realmConnector.save(objects: programs, shouldUpdate: true)
     }
