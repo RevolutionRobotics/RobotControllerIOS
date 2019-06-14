@@ -180,7 +180,14 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func variableContext(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
-        callback?(DeleteVariableAction(payload: optionSelector.defaultKey).jsonSerialized)
+        let variableContextView = VariableContextView.instatiate()
+
+        variableContextView.setup(optionSelector: optionSelector) { [weak self] variableAction in
+            callback?(variableAction)
+            self?.dismiss(animated: true, completion: nil)
+        }
+
+        presentModal(with: variableContextView, onDismissed: { callback?(nil) })
     }
 
     func onVariablesExported(variables: String) {

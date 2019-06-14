@@ -76,6 +76,10 @@
 		0965766422AFEEA400A50C8E /* DialpadInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0965766222AFEEA400A50C8E /* DialpadInputViewController.xib */; };
 		0972844022B3950D007A7FE1 /* DriveDirectionSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0972843E22B3950D007A7FE1 /* DriveDirectionSelectorView.xib */; };
 		0972844122B3950D007A7FE1 /* DriveDirectionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0972843F22B3950D007A7FE1 /* DriveDirectionSelectorView.swift */; };
+		0972844422B3BDCB007A7FE1 /* VariableContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0972844322B3BDCB007A7FE1 /* VariableContextView.swift */; };
+		0972844622B3BDEF007A7FE1 /* VariableContextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0972844522B3BDEF007A7FE1 /* VariableContextView.xib */; };
+		0972844922B3C520007A7FE1 /* VariableContextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0972844722B3C520007A7FE1 /* VariableContextCell.swift */; };
+		0972844A22B3C520007A7FE1 /* VariableContextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0972844822B3C520007A7FE1 /* VariableContextCell.xib */; };
 		0977990822981C0300D571B0 /* ProgramSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0977990622981C0300D571B0 /* ProgramSelectorTableViewCell.swift */; };
 		0977990922981C0300D571B0 /* ProgramSelectorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0977990722981C0300D571B0 /* ProgramSelectorTableViewCell.xib */; };
 		097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097F8432225BA37800DD32BF /* Jura-Bold.ttf */; };
@@ -383,6 +387,10 @@
 		0965766222AFEEA400A50C8E /* DialpadInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialpadInputViewController.xib; sourceTree = "<group>"; };
 		0972843E22B3950D007A7FE1 /* DriveDirectionSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriveDirectionSelectorView.xib; sourceTree = "<group>"; };
 		0972843F22B3950D007A7FE1 /* DriveDirectionSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveDirectionSelectorView.swift; sourceTree = "<group>"; };
+		0972844322B3BDCB007A7FE1 /* VariableContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableContextView.swift; sourceTree = "<group>"; };
+		0972844522B3BDEF007A7FE1 /* VariableContextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VariableContextView.xib; sourceTree = "<group>"; };
+		0972844722B3C520007A7FE1 /* VariableContextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableContextCell.swift; sourceTree = "<group>"; };
+		0972844822B3C520007A7FE1 /* VariableContextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VariableContextCell.xib; sourceTree = "<group>"; };
 		0977990622981C0300D571B0 /* ProgramSelectorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSelectorTableViewCell.swift; sourceTree = "<group>"; };
 		0977990722981C0300D571B0 /* ProgramSelectorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramSelectorTableViewCell.xib; sourceTree = "<group>"; };
 		097F8432225BA37800DD32BF /* Jura-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Bold.ttf"; sourceTree = "<group>"; };
@@ -872,6 +880,17 @@
 			path = DriveDirectionSelector;
 			sourceTree = "<group>";
 		};
+		0972844222B3BDB8007A7FE1 /* VariableContext */ = {
+			isa = PBXGroup;
+			children = (
+				0972844322B3BDCB007A7FE1 /* VariableContextView.swift */,
+				0972844522B3BDEF007A7FE1 /* VariableContextView.xib */,
+				0972844722B3C520007A7FE1 /* VariableContextCell.swift */,
+				0972844822B3C520007A7FE1 /* VariableContextCell.xib */,
+			);
+			path = VariableContext;
+			sourceTree = "<group>";
+		};
 		097F8431225BA33800DD32BF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -911,6 +930,7 @@
 				0952387322A5713E001C1CE1 /* ProgramInfo */,
 				094D0DD422AFA93600B9B74E /* SliderInput */,
 				0938894822B12C7F00292B32 /* SoundPicker */,
+				0972844222B3BDB8007A7FE1 /* VariableContext */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -1768,6 +1788,8 @@
 				D0E3F88922B786BF00B4D9F2 /* ProgramsView.xib */,
 			);
 			path = ProgramsModal;
+			sourceTree = "<group>";
+		};
 		D0E3F88B22B7B09700B4D9F2 /* BlockContext */ = {
 			isa = PBXGroup;
 			children = (
@@ -1923,6 +1945,7 @@
 				D0241A0722B14011005E8DB2 /* ProgramPriorityViewController.xib in Resources */,
 				094FC5E3228C3D5E0085B407 /* DriverPadView.xib in Resources */,
 				0938897622B24DD900292B32 /* lion.mp3 in Resources */,
+				0972844622B3BDEF007A7FE1 /* VariableContextView.xib in Resources */,
 				D0899C6A22A6BCB900DB6F97 /* ChallengeCategoriesViewController.xib in Resources */,
 				D0A1108E227B18510064FBB6 /* ControllerInfoModal.xib in Resources */,
 				2ABCB650229EC6900081B51B /* TutorialProgressView.xib in Resources */,
@@ -1965,6 +1988,7 @@
 				2A50DA2E2292CFB000B3D74C /* GamerConfigurationView.xib in Resources */,
 				096479872268776200F68456 /* BuildRobotViewController.xib in Resources */,
 				0938897922B24DD900292B32 /* uh_oh.mp3 in Resources */,
+				0972844A22B3C520007A7FE1 /* VariableContextCell.xib in Resources */,
 				2AB778612282F6D4004442E2 /* DeleteView.xib in Resources */,
 				D05BAA9E22676BCA00624438 /* WhoToBuildCollectionViewCell.xib in Resources */,
 				D06C32792289BAF1005534C0 /* CheckForUpdatesModal.xib in Resources */,
@@ -2215,11 +2239,13 @@
 				2ADE8C3C2270A80F00ECEC72 /* MenuKeys.swift in Sources */,
 				2A7DDB1422856FD000891DA6 /* SensorDataModel.swift in Sources */,
 				2AB8F95122888AD300D7D93C /* ConfigurationView.swift in Sources */,
+				0972844922B3C520007A7FE1 /* VariableContextCell.swift in Sources */,
 				2AF8C75422801D9D00CE1ACB /* RRZoomableImageView.swift in Sources */,
 				2A9F52112265E96B00F9F651 /* ProgramsViewController.swift in Sources */,
 				D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */,
 				2ABCB64E229EC6760081B51B /* TutorialProgressView.swift in Sources */,
 				0938894A22B12C9000292B32 /* SoundPickerView.swift in Sources */,
+				0972844422B3BDCB007A7FE1 /* VariableContextView.swift in Sources */,
 				D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */,
 				2AD858E02296B9EB0082CDC0 /* ControllerDataModel.swift in Sources */,
 				D0E3F88822B786B800B4D9F2 /* ProgramsView.swift in Sources */,
