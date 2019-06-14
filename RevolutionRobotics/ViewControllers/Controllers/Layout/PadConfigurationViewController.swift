@@ -18,46 +18,6 @@ final class PadConfigurationViewController: BaseViewController {
         static let configurationView = "configurationView"
     }
 
-    // MARK: - ViewModel
-    final class ViewModel {
-        var b1: ProgramDataModel?
-        var b2: ProgramDataModel?
-        var b3: ProgramDataModel?
-        var b4: ProgramDataModel?
-        var b5: ProgramDataModel?
-        var b6: ProgramDataModel?
-
-        init(b1: ProgramDataModel?,
-             b2: ProgramDataModel?,
-             b3: ProgramDataModel?,
-             b4: ProgramDataModel?,
-             b5: ProgramDataModel?,
-             b6: ProgramDataModel?) {
-            self.b1 = b1
-            self.b2 = b2
-            self.b3 = b3
-            self.b4 = b4
-            self.b5 = b5
-            self.b6 = b6
-        }
-
-        func programSelected(_ program: ProgramDataModel?, on buttonNumber: Int) {
-            switch buttonNumber {
-            case 1: b1 = program
-            case 2: b2 = program
-            case 3: b3 = program
-            case 4: b4 = program
-            case 5: b5 = program
-            case 6: b6 = program
-            default: break
-            }
-        }
-
-        var programs: [ProgramDataModel] {
-            return [b1, b2, b3, b4, b5, b6].compactMap({ $0 })
-        }
-    }
-
     // MARK: - Outlets
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var nextButton: RRButton!
@@ -76,11 +36,15 @@ final class PadConfigurationViewController: BaseViewController {
     private var selectedButtonIndex: Int?
     private var selectedButtonState: ControllerButton.ControllerButtonState?
     private var selectedButtonProgram: ProgramDataModel?
-    private let viewModel = ViewModel(b1: nil, b2: nil, b3: nil, b4: nil, b5: nil, b6: nil)
+    private let viewModel = ControllerViewModel()
+}
+
+// MARK: - Actions
+extension PadConfigurationViewController {
     @IBAction private func nextButtonTapped(_ sender: Any) {
         let vc = AppContainer.shared.container.unwrappedResolve(ButtonlessProgramsViewController.self)
         vc.configurationId = configurationId
-        vc.alreadyAssignedPrograms = viewModel.programs
+        vc.controllerViewModel = viewModel
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -94,8 +58,15 @@ extension PadConfigurationViewController {
         setupConfigurationView()
         fetchPrograms()
 
+        viewModel.joystickPriority = selectedController?.joystickPriority ?? 0
+        viewModel.name = selectedController?.name ?? ""
+        viewModel.customDesctiprion = selectedController?.controllerDescription ?? ""
+        viewModel.id = selectedController?.id ?? UUID().uuidString
+
         if selectedController != nil {
             prefillData()
+        } else {
+            viewModel.isNewlyCreated = true
         }
     }
 
@@ -110,44 +81,60 @@ extension PadConfigurationViewController {
         if let binding = selectedController?.mapping?.b1 {
             if let program = realmService.getProgram(id: binding.programId) ??
                 realmService.getProgram(remoteId: binding.programId) {
-                viewModel.b1 = program
+                viewModel.b1Binding = binding
+                viewModel.b1Program = program
                 configurationView.set(state: .selected(program), on: 1)
             }
         }
         if let binding = selectedController?.mapping?.b2 {
             if let program = realmService.getProgram(id: binding.programId) ??
                 realmService.getProgram(remoteId: binding.programId) {
-                viewModel.b2 = program
+                viewModel.b2Binding = binding
+                viewModel.b2Program = program
                 configurationView.set(state: .selected(program), on: 2)
             }
         }
         if let binding = selectedController?.mapping?.b3 {
             if let program = realmService.getProgram(id: binding.programId) ??
                 realmService.getProgram(remoteId: binding.programId) {
-                viewModel.b3 = program
+                viewModel.b3Binding = binding
+                viewModel.b3Program = program
                 configurationView.set(state: .selected(program), on: 3)
             }
         }
         if let binding = selectedController?.mapping?.b4 {
             if let program = realmService.getProgram(id: binding.programId) ??
                 realmService.getProgram(remoteId: binding.programId) {
-                viewModel.b4 = program
+                viewModel.b4Binding = binding
+                viewModel.b4Program = program
                 configurationView.set(state: .selected(program), on: 4)
             }
         }
         if let binding = selectedController?.mapping?.b5 {
             if let program = realmService.getProgram(id: binding.programId) ??
                 realmService.getProgram(remoteId: binding.programId) {
-                viewModel.b5 = program
+                viewModel.b5Binding = binding
+                viewModel.b5Program = program
                 configurationView.set(state: .selected(program), on: 5)
             }
         }
         if let binding = selectedController?.mapping?.b6 {
             if let program = realmService.getProgram(id: binding.programId) ??
                 realmService.getProgram(remoteId: binding.programId) {
-                viewModel.b6 = program
+                viewModel.b6Binding = binding
+                viewModel.b6Program = program
                 configurationView.set(state: .selected(program), on: 6)
             }
+        }
+
+        if let backgroundPrograms = selectedController?.backgroundProgramBindings {
+            viewModel.backgroundPrograms = backgroundPrograms
+                .map({ [weak self] binding -> ProgramDataModel? in
+                    return self?.realmService.getProgram(id: binding.programId) ??
+                        self?.realmService.getProgram(remoteId: binding.programId)
+                })
+                .compactMap({ $0 })
+            viewModel.backgroundProgramBindings = Array(backgroundPrograms)
         }
     }
 }
@@ -203,6 +190,11 @@ extension PadConfigurationViewController {
 
 // MARK: - Presentation
 extension PadConfigurationViewController {
+    private func isProgramCompatible(_ program: ProgramDataModel) -> Bool {
+        let variableNames = realmService.getConfiguration(id: configurationId)?.mapping?.variableNames ?? []
+        return Set(program.variableNames).isSubset(of: Set(variableNames))
+    }
+
     private func showMostRecentProgramSelector() {
         let programBottomBar = AppContainer.shared.container.unwrappedResolve(MostRecentProgramsViewController.self)
         var displayablePrograms: [ProgramDataModel] = []
@@ -210,7 +202,7 @@ extension PadConfigurationViewController {
             let programSet = Set(programs)
             let prohibitedProgramSet = Set(viewModel.programs)
             let allowedPrograms = programSet.subtracting(prohibitedProgramSet)
-            displayablePrograms = Array(allowedPrograms)
+            displayablePrograms = Array(allowedPrograms).filter({ isProgramCompatible($0) })
             displayablePrograms.append(selectedProgram)
         } else {
             displayablePrograms = Array(Set(programs).subtracting(Set(viewModel.programs)))
@@ -242,12 +234,13 @@ extension PadConfigurationViewController {
         guard let buttonState = selectedButtonState else { return }
         let programInfoModal = ProgramInfoModal.instatiate()
         let shouldDisplayRemove = selectedProgram(of: buttonState) != nil && selectedProgram(of: buttonState) == program
-        let infoType: ProgramInfoModal.InfoType = shouldDisplayRemove ? .remove : .add
+        let isCompatible = isProgramCompatible(program)
+        let infoType: ProgramInfoModal.InfoType = isCompatible ? (shouldDisplayRemove ? .remove : .add) : .incompatible
 
         programInfoModal.configure(
             program: program,
             infoType: infoType,
-            issue: nil,
+            issue: isCompatible ? nil : ModalKeys.Program.compatibilityIssue.translate(),
             editButtonHandler: { [weak self] in
                 self?.dismissModalViewController()
                 let vc = AppContainer.shared.container.unwrappedResolve(ProgramsViewController.self)
@@ -255,7 +248,12 @@ extension PadConfigurationViewController {
                 self?.navigationController?.pushViewController(vc, animated: true)
         },
             actionButtonHandler: { [weak self] _ in
-                self?.programSelected(shouldDisplayRemove ? nil: program, on: (self?.selectedButtonIndex)!)
+                if isCompatible {
+                    self?.programSelected(shouldDisplayRemove ? nil: program, on: (self?.selectedButtonIndex)!)
+                } else {
+                    self?.dismissModalViewController()
+                    self?.configurationView.set(state: (self?.selectedButtonState)!, on: (self?.selectedButtonIndex)!)
+                }
         })
 
         presentModal(with: programInfoModal, onDismissed: onDismissed)

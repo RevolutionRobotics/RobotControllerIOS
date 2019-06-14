@@ -22,7 +22,14 @@ final class ButtonlessProgramsViewController: BaseViewController {
     // MARK: - Variables
     var realmService: RealmServiceInterface!
     var configurationId: String?
-    var alreadyAssignedPrograms: [ProgramDataModel] = []
+    var controllerViewModel: ControllerViewModel? {
+        didSet {
+            selectedPrograms = controllerViewModel?.backgroundPrograms ?? []
+            if isViewLoaded {
+                programsTableView.reloadData()
+            }
+        }
+    }
     private var allPrograms: [ProgramDataModel] = []
     private var configurationVariableNames: [String] = []
     private var selectedPrograms: [ProgramDataModel] = []
@@ -59,7 +66,7 @@ extension ButtonlessProgramsViewController {
 
     private func fetchPrograms() {
         let programs = Set(realmService.getPrograms())
-        let prohibited = Set(alreadyAssignedPrograms)
+        let prohibited = Set(controllerViewModel?.buttonPrograms ?? [])
         updatePrograms(Array(programs.subtracting(prohibited)))
         compatibleButton.setTitle(ProgramsKeys.Buttonless.showCompatible.translate(), for: .normal)
         compatibleButton.setImage(Image.Programs.Buttonless.CompatibleIcon, for: .normal)
@@ -212,5 +219,9 @@ extension ButtonlessProgramsViewController {
     }
 
     @IBAction private func nextButtonTapped(_ sender: UIButton) {
+        controllerViewModel?.backgroundPrograms = selectedPrograms
+        let vc = AppContainer.shared.container.unwrappedResolve(ProgramPriorityViewController.self)
+        vc.controllerViewModel = controllerViewModel
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

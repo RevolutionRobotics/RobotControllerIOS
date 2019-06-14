@@ -59,7 +59,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OrderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="p9o-4l-f1i">
                                 <rect key="frame" x="13" y="7.5" width="25" height="25"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="xaS-9B-P22">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="xaS-9B-P22" userLabel="programIcon">
                                 <rect key="frame" x="64" y="10" width="20" height="20"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UP-PQ-mwH">
@@ -133,6 +133,7 @@
                 <outlet property="dateLabel" destination="5lM-JW-TPu" id="Dpu-m5-NiS"/>
                 <outlet property="nameLabel" destination="6UP-PQ-mwH" id="Jd5-jE-acg"/>
                 <outlet property="orderLabel" destination="GpC-cX-JEf" id="61p-Wu-rVf"/>
+                <outlet property="programIcon" destination="xaS-9B-P22" id="f4f-bU-Qlu"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
         </tableViewCell>

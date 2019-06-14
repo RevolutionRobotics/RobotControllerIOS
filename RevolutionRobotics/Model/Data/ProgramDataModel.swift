@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 final class ProgramDataModel: Object {
-    enum Constants {
+    private enum Constants {
         static let xmlPostfix = ".xml"
         static let pythonPostfix = ".py"
     }

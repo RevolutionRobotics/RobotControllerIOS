@@ -96,7 +96,7 @@ extension MostRecentProgramsViewController {
         }
 
         if programs.count < buttons.count {
-            let startIndex = programs.count - 1
+            let startIndex = programs.count
             buttons[startIndex...].forEach({ $0.isHidden = true })
         }
 

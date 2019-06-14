@@ -110,6 +110,11 @@ enum Image {
             static let SortNameUp = UIImage(named: "SortNameUp")
             static let SortNameUpSelected = UIImage(named: "SortNameUpSelected")
         }
+
+        enum Priority {
+            static let button = UIImage(named: "ControllerIcon")
+            static let buttonless = UIImage(named: "ButtonlessIcon")
+        }
     }
 
     enum Challenges {

@@ -14,6 +14,7 @@ final class ProgramInfoModal: UIView {
         case add
         case remove
         case incompatible
+        case info
     }
 
     // MARK: - Outlets
@@ -31,15 +32,6 @@ final class ProgramInfoModal: UIView {
         didSet {
             updateActionButton()
         }
-    }
-}
-
-// MARK: - Lifecycle
-extension ProgramInfoModal {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        editProgramButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
-        actionButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
     }
 }
 
@@ -65,13 +57,26 @@ extension ProgramInfoModal {
         case .add:
             actionButton.setImage(Image.Common.plusIcon, for: .normal)
             actionButton.setTitle(ModalKeys.Program.addProgram.translate(), for: .normal)
+            editProgramButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
+            actionButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
         case .remove:
             actionButton.setImage(Image.Common.closeIcon, for: .normal)
             actionButton.setTitle(ModalKeys.Program.removeProgram.translate(), for: .normal)
+            editProgramButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
+            actionButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
         case .incompatible:
             actionButton.setImage(Image.tickIcon, for: .normal)
             actionButton.setTitle(ModalKeys.Program.gotIt.translate(), for: .normal)
             issueLabel.isHidden = false
+            editProgramButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
+            actionButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
+        case .info:
+            editProgramButton.removeFromSuperview()
+            setNeedsLayout()
+            layoutIfNeeded()
+            actionButton.setImage(Image.tickIcon, for: .normal)
+            actionButton.setTitle(ModalKeys.Program.gotIt.translate(), for: .normal)
+            actionButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight, .bottomLeft])
         }
     }
 }

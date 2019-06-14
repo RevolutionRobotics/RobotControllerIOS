@@ -93,9 +93,6 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFY-Uf-8n7">
                         <rect key="frame" x="24" y="15" width="16" height="22"/>
                         <state key="normal" image="CheckboxNotChecked"/>
-                        <connections>
-                            <action selector="selectButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="14w-LE-RwT"/>
-                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

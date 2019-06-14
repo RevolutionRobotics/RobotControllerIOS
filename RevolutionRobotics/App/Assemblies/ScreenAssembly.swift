@@ -242,7 +242,7 @@ extension ScreenAssembly {
 
     private func registerProgramsOrderViewController(to container: Container) {
         container
-            .register(ProgramsOrderViewController.self, factory: { _ in return ProgramsOrderViewController() })
+            .register(ProgramPriorityViewController.self, factory: { _ in return ProgramPriorityViewController() })
             .initCompleted { (resolver, viewController) in
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
             }
