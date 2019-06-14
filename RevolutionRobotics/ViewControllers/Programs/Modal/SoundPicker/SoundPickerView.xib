@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9uf-kV-t1A" customClass="SoundPickerView" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3YR-6j-LMr" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="4" y="190" width="452" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="sPT-p2-24N"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Button" image="CheckIcon">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="doneButtonTapped:" destination="9uf-kV-t1A" eventType="touchUpInside" id="kTW-Cc-loS"/>
+                    </connections>
+                </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="MZU-GK-KUA">
+                    <rect key="frame" x="32" y="45" width="396" height="133"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yBZ-Ck-TQq">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="3YR-6j-LMr" secondAttribute="trailing" constant="4" id="1Hh-1B-UyV"/>
+                <constraint firstAttribute="trailing" secondItem="MZU-GK-KUA" secondAttribute="trailing" constant="32" id="57B-oC-I1f"/>
+                <constraint firstItem="MZU-GK-KUA" firstAttribute="leading" secondItem="9uf-kV-t1A" secondAttribute="leading" constant="32" id="GQZ-H3-1LE"/>
+                <constraint firstItem="3YR-6j-LMr" firstAttribute="top" secondItem="MZU-GK-KUA" secondAttribute="bottom" constant="12" id="PJp-TX-0Tw"/>
+                <constraint firstAttribute="bottom" secondItem="3YR-6j-LMr" secondAttribute="bottom" constant="4" id="XEZ-xs-KIU"/>
+                <constraint firstItem="MZU-GK-KUA" firstAttribute="top" secondItem="9uf-kV-t1A" secondAttribute="top" constant="45" id="cPA-I7-bAQ"/>
+                <constraint firstItem="3YR-6j-LMr" firstAttribute="leading" secondItem="9uf-kV-t1A" secondAttribute="leading" constant="4" id="pG2-h5-Dac"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="collectionView" destination="MZU-GK-KUA" id="QuL-50-6dA"/>
+                <outlet property="doneButton" destination="3YR-6j-LMr" id="N4n-nk-Bcm"/>
+            </connections>
+            <point key="canvasLocation" x="24.637681159420293" y="84.375"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CheckIcon" width="16" height="16"/>
+    </resources>
+</document>

@@ -118,7 +118,14 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func audioSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
-        callback?(optionSelector.options.randomElement()!.key)
+        let soundPicker = SoundPickerView.instatiate()
+
+        soundPicker.setup(optionSelector: optionSelector) { [weak self] sound in
+            callback?(sound)
+            self?.dismiss(animated: true, completion: nil)
+        }
+
+        presentModal(with: soundPicker)
     }
 
     func numberInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
@@ -146,6 +153,18 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
     func variableContext(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
         callback?(DeleteVariableAction(payload: optionSelector.defaultKey).jsonSerialized)
+    }
+
+    func onVariablesExported(variables: String) {
+        print("Variables = \(variables)")
+    }
+
+    func onPythonProgramSaved(pythonCode: String) {
+        print("PythonCode = \(pythonCode)")
+    }
+
+    func onXMLProgramSaved(xmlCode: String) {
+        print("XML = \(xmlCode)")
     }
 }
 
