@@ -114,7 +114,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
             self?.dismiss(animated: true, completion: nil)
         }
 
-        presentModal(with: colorSelector)
+        presentModal(with: colorSelector, onDismissed: { callback?(nil) })
     }
 
     func audioSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
@@ -125,7 +125,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
             self?.dismiss(animated: true, completion: nil)
         }
 
-        presentModal(with: soundPicker)
+        presentModal(with: soundPicker, onDismissed: { callback?(nil) })
     }
 
     func numberInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {

@@ -32,7 +32,7 @@ final class SliderInputView: UIView {
 extension SliderInputView {
     func setup(sliderHandler: SliderHandler, valueSelected: CallbackType<String>?) {
         self.valueSelected = valueSelected
-        titleLabel.text = sliderHandler.title
+        titleLabel.text = sliderHandler.title.uppercased()
         sliderMaxValueLabel.text = "\(sliderHandler.maximum)"
         slider.maximumValue = Float(sliderHandler.maximum)
         slider.minimumValue = Float(sliderHandler.minimum)
