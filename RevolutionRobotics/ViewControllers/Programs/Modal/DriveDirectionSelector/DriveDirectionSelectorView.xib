@@ -76,10 +76,10 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="titleLabel" destination="Ref-Be-3CO" id="jEw-Sd-frA"/>
-                <outletCollection property="buttonsContaier" destination="55m-lR-OFW" collectionClass="NSMutableArray" id="wah-34-2M4"/>
-                <outletCollection property="buttonsContaier" destination="D8x-dS-R7s" collectionClass="NSMutableArray" id="6SB-ae-F33"/>
-                <outletCollection property="buttonsContaier" destination="RJm-Bl-Wim" collectionClass="NSMutableArray" id="nKs-qv-IZH"/>
-                <outletCollection property="buttonsContaier" destination="Tlw-ZH-UDd" collectionClass="NSMutableArray" id="fg2-Tt-fRL"/>
+                <outletCollection property="buttonsContainer" destination="55m-lR-OFW" collectionClass="NSMutableArray" id="vke-k6-YVh"/>
+                <outletCollection property="buttonsContainer" destination="D8x-dS-R7s" collectionClass="NSMutableArray" id="9rx-Xm-aq6"/>
+                <outletCollection property="buttonsContainer" destination="RJm-Bl-Wim" collectionClass="NSMutableArray" id="ujf-UN-CTi"/>
+                <outletCollection property="buttonsContainer" destination="Tlw-ZH-UDd" collectionClass="NSMutableArray" id="cJd-M7-HbY"/>
             </connections>
             <point key="canvasLocation" x="25.862068965517242" y="84.799999999999997"/>
         </view>

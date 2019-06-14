@@ -41,8 +41,6 @@
 		0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0939A38D2278440A005EE307 /* SensorConfigViewController.xib */; };
 		0941075E2297E889000A658A /* ProgramSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941075C2297E889000A658A /* ProgramSelectorViewController.swift */; };
 		0941075F2297E889000A658A /* ProgramSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0941075D2297E889000A658A /* ProgramSelectorViewController.xib */; };
-		094D0DD122AF9F6900B9B74E /* DriveDirectionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D0DD022AF9F6900B9B74E /* DriveDirectionSelectorView.swift */; };
-		094D0DD322AF9F7400B9B74E /* DriveDirectionSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094D0DD222AF9F7400B9B74E /* DriveDirectionSelectorView.xib */; };
 		094D0DD622AFA94A00B9B74E /* SliderInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094D0DD522AFA94A00B9B74E /* SliderInputView.xib */; };
 		094D0DD822AFA95400B9B74E /* SliderInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D0DD722AFA95400B9B74E /* SliderInputView.swift */; };
 		094F9DD82264BE1900BE118B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F9DD72264BE1900BE118B /* Color.swift */; };
@@ -76,6 +74,8 @@
 		0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0964798C22689DEC00F68456 /* ModalViewController.xib */; };
 		0965766322AFEEA400A50C8E /* DialpadInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965766122AFEEA400A50C8E /* DialpadInputViewController.swift */; };
 		0965766422AFEEA400A50C8E /* DialpadInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0965766222AFEEA400A50C8E /* DialpadInputViewController.xib */; };
+		0972844022B3950D007A7FE1 /* DriveDirectionSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0972843E22B3950D007A7FE1 /* DriveDirectionSelectorView.xib */; };
+		0972844122B3950D007A7FE1 /* DriveDirectionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0972843F22B3950D007A7FE1 /* DriveDirectionSelectorView.swift */; };
 		0977990822981C0300D571B0 /* ProgramSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0977990622981C0300D571B0 /* ProgramSelectorTableViewCell.swift */; };
 		0977990922981C0300D571B0 /* ProgramSelectorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0977990722981C0300D571B0 /* ProgramSelectorTableViewCell.xib */; };
 		097F8433225BA37800DD32BF /* Jura-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097F8432225BA37800DD32BF /* Jura-Bold.ttf */; };
@@ -337,8 +337,6 @@
 		0939A38D2278440A005EE307 /* SensorConfigViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SensorConfigViewController.xib; sourceTree = "<group>"; };
 		0941075C2297E889000A658A /* ProgramSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSelectorViewController.swift; sourceTree = "<group>"; };
 		0941075D2297E889000A658A /* ProgramSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramSelectorViewController.xib; sourceTree = "<group>"; };
-		094D0DD022AF9F6900B9B74E /* DriveDirectionSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveDirectionSelectorView.swift; sourceTree = "<group>"; };
-		094D0DD222AF9F7400B9B74E /* DriveDirectionSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriveDirectionSelectorView.xib; sourceTree = "<group>"; };
 		094D0DD522AFA94A00B9B74E /* SliderInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderInputView.xib; sourceTree = "<group>"; };
 		094D0DD722AFA95400B9B74E /* SliderInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderInputView.swift; sourceTree = "<group>"; };
 		094F9DD72264BE1900BE118B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -372,6 +370,8 @@
 		0964798C22689DEC00F68456 /* ModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
 		0965766122AFEEA400A50C8E /* DialpadInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialpadInputViewController.swift; sourceTree = "<group>"; };
 		0965766222AFEEA400A50C8E /* DialpadInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialpadInputViewController.xib; sourceTree = "<group>"; };
+		0972843E22B3950D007A7FE1 /* DriveDirectionSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriveDirectionSelectorView.xib; sourceTree = "<group>"; };
+		0972843F22B3950D007A7FE1 /* DriveDirectionSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveDirectionSelectorView.swift; sourceTree = "<group>"; };
 		0977990622981C0300D571B0 /* ProgramSelectorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSelectorTableViewCell.swift; sourceTree = "<group>"; };
 		0977990722981C0300D571B0 /* ProgramSelectorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramSelectorTableViewCell.xib; sourceTree = "<group>"; };
 		097F8432225BA37800DD32BF /* Jura-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Bold.ttf"; sourceTree = "<group>"; };
@@ -721,15 +721,6 @@
 			path = ProgramSelector;
 			sourceTree = "<group>";
 		};
-		094D0DCF22AF9F5500B9B74E /* DriveDirectionSelector */ = {
-			isa = PBXGroup;
-			children = (
-				094D0DD022AF9F6900B9B74E /* DriveDirectionSelectorView.swift */,
-				094D0DD222AF9F7400B9B74E /* DriveDirectionSelectorView.xib */,
-			);
-			path = DriveDirectionSelector;
-			sourceTree = "<group>";
-		};
 		094D0DD422AFA93600B9B74E /* SliderInput */ = {
 			isa = PBXGroup;
 			children = (
@@ -850,6 +841,15 @@
 			path = DialpadInput;
 			sourceTree = "<group>";
 		};
+		0972843D22B3950D007A7FE1 /* DriveDirectionSelector */ = {
+			isa = PBXGroup;
+			children = (
+				0972843E22B3950D007A7FE1 /* DriveDirectionSelectorView.xib */,
+				0972843F22B3950D007A7FE1 /* DriveDirectionSelectorView.swift */,
+			);
+			path = DriveDirectionSelector;
+			sourceTree = "<group>";
+		};
 		097F8431225BA33800DD32BF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -873,13 +873,13 @@
 		09994316228DBA6500D87385 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				094D0DD422AFA93600B9B74E /* SliderInput */,
-				094D0DCF22AF9F5500B9B74E /* DriveDirectionSelector */,
-				0938894822B12C7F00292B32 /* SoundPicker */,
-				0965766022AFEE5D00A50C8E /* DialpadInput */,
 				0965765022AFCC9E00A50C8E /* ColorSelector */,
+				0965766022AFEE5D00A50C8E /* DialpadInput */,
+				0972843D22B3950D007A7FE1 /* DriveDirectionSelector */,
 				0952387222A57131001C1CE1 /* OptionSelector */,
 				0952387322A5713E001C1CE1 /* ProgramInfo */,
+				094D0DD422AFA93600B9B74E /* SliderInput */,
+				0938894822B12C7F00292B32 /* SoundPicker */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -1826,6 +1826,7 @@
 				0977990922981C0300D571B0 /* ProgramSelectorTableViewCell.xib in Resources */,
 				D0D00FE922AFA84C00274241 /* ButtonlessProgramsViewController.xib in Resources */,
 				2AA926D722773DC1000FAA98 /* SideButton.xib in Resources */,
+				0972844022B3950D007A7FE1 /* DriveDirectionSelectorView.xib in Resources */,
 				0938897A22B24DD900292B32 /* yee_haw.mp3 in Resources */,
 				D0B2A736227C7CF1004473EC /* ControllerCollectionViewCell.xib in Resources */,
 				D03BA8612277384A005B3E33 /* ConnectionModal.xib in Resources */,
@@ -1915,7 +1916,6 @@
 				09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */,
 				0964798122686DE000F68456 /* WhoToBuildViewController.xib in Resources */,
 				D001FCB422A92F7D004C49F3 /* ChallengeFinishedModal.xib in Resources */,
-				094D0DD322AF9F7400B9B74E /* DriveDirectionSelectorView.xib in Resources */,
 				0941075F2297E889000A658A /* ProgramSelectorViewController.xib in Resources */,
 				0938897E22B24DD900292B32 /* robot.mp3 in Resources */,
 				0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */,
@@ -2094,6 +2094,7 @@
 				2AF8C76422806A1800CE1ACB /* RealmConnector.swift in Sources */,
 				D0899C7322A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.swift in Sources */,
 				D05C64CA225F572F00B7BF4F /* MilestoneType.swift in Sources */,
+				0972844122B3950D007A7FE1 /* DriveDirectionSelectorView.swift in Sources */,
 				D03BA85E2277384A005B3E33 /* TestingModal.swift in Sources */,
 				D05C64D6225F587700B7BF4F /* UserRobot.swift in Sources */,
 				D05C64C8225F570000B7BF4F /* TestCode.swift in Sources */,
@@ -2151,7 +2152,6 @@
 				D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */,
 				2A9F52022265DAC900F9F651 /* AppContainer.swift in Sources */,
 				2AB8F9562288933100D7D93C /* UIImagePickerController+Show.swift in Sources */,
-				094D0DD122AF9F6900B9B74E /* DriveDirectionSelectorView.swift in Sources */,
 				FE4B162322786A5300CAA083 /* PhotoModal.swift in Sources */,
 				0964798222686DE000F68456 /* WhoToBuildViewController.swift in Sources */,
 				09105A9F2280581F00AB7B72 /* MotorConfigViewController.swift in Sources */,
