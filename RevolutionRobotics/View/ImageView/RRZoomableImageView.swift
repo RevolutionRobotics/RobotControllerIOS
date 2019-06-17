@@ -12,6 +12,7 @@ final class RRZoomableImageView: UIScrollView {
     // MARK: - Constants
     private enum Constants {
         static let minimumZoomScale: CGFloat = 0.5
+        static let defaultZoomScale: CGFloat = 0.75
         static let maximumZoomScale: CGFloat = 3.0
     }
 
@@ -39,6 +40,7 @@ final class RRZoomableImageView: UIScrollView {
 
         imageView.frame = bounds
         imageView.contentMode = .scaleAspectFit
+        zoomScale = Constants.defaultZoomScale
         addSubview(imageView)
     }
 }

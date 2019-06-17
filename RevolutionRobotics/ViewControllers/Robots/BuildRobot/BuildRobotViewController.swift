@@ -31,6 +31,7 @@ class BuildRobotViewController: BaseViewController {
     private var steps: [BuildStep] = []
     private var currentStep: BuildStep?
     private let partView = PartView.instatiate()
+    private let partView2 = PartView.instatiate()
 }
 
 // MARK: - View lifecycle
@@ -145,9 +146,7 @@ extension BuildRobotViewController {
 
     private func setupStackView() {
         partStackView.addArrangedSubview(partView)
-        partStackView.setBorder(strokeColor: Color.brownishGrey,
-                                showTopArrow: true,
-                                croppedCorners: [.topRight, .bottomLeft])
+        partStackView.addArrangedSubview(partView2)
         view.bringSubviewToFront(partStackView)
     }
 
@@ -267,8 +266,30 @@ extension BuildRobotViewController {
     }
 
     private func setupPartsView() {
-        partView.setup(with: currentStep)
-        partView.isLast = true
+        if currentStep?.partImage == nil && currentStep?.partImage2 == nil {
+            partStackView.isHidden = true
+            return
+        }
+        partStackView.isHidden = false
+        partView.setup(with: currentStep?.partImage)
+        if let partImage2 = currentStep?.partImage2 {
+            partView2.isHidden = false
+            partView2.setup(with: partImage2)
+            partView2.isLast = true
+            partView.isLast = false
+        } else {
+            partView2.setup(with: nil)
+            partView2.isHidden = true
+            partView.isLast = true
+        }
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        partStackView.setBorder(strokeColor: Color.brownishGrey,
+                                showTopArrow: true,
+                                croppedCorners: [.topRight, .bottomLeft])
     }
 
     private func updateStoredRobot(step: Int) {

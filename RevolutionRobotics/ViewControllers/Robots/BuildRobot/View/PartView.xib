@@ -16,9 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="120" height="84"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ffR-Mw-dNK">
-                    <rect key="frame" x="50" y="32" width="20" height="20"/>
-                </activityIndicatorView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hoC-pD-Orc">
                     <rect key="frame" x="32" y="12" width="56" height="56"/>
                     <constraints>
@@ -38,11 +35,9 @@
             <constraints>
                 <constraint firstItem="hoC-pD-Orc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="3S6-29-u34"/>
                 <constraint firstAttribute="trailing" secondItem="hoC-pD-Orc" secondAttribute="trailing" constant="32" id="4ZV-3v-EWi"/>
-                <constraint firstItem="ffR-Mw-dNK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TGt-o2-1cQ"/>
                 <constraint firstItem="asA-yS-hOK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="bck-of-I9A"/>
                 <constraint firstItem="hoC-pD-Orc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="dUb-GS-nVH"/>
                 <constraint firstAttribute="trailing" secondItem="asA-yS-hOK" secondAttribute="trailing" constant="12" id="hRC-Rf-PoP"/>
-                <constraint firstItem="ffR-Mw-dNK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ieV-zt-5rR"/>
                 <constraint firstAttribute="bottom" secondItem="asA-yS-hOK" secondAttribute="bottom" id="u8j-r6-xzE"/>
                 <constraint firstAttribute="bottom" secondItem="hoC-pD-Orc" secondAttribute="bottom" constant="16" id="uAU-KZ-9h9"/>
             </constraints>
