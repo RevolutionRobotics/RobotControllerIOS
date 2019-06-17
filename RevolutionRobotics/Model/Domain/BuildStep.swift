@@ -15,6 +15,7 @@ struct BuildStep: FirebaseData, Equatable {
         static let robotId = "robotId"
         static let image = "image"
         static let partImage = "partImage"
+        static let partImage2 = "partImage2"
         static let stepNumber = "stepNumber"
         static let milestone = "milestone"
     }
@@ -25,7 +26,8 @@ struct BuildStep: FirebaseData, Equatable {
     // MARK: - Properties
     var robotId: String
     var image: String
-    var partImage: String
+    var partImage: String?
+    var partImage2: String?
     var stepNumber: Int
     var milestone: Milestone?
 
@@ -36,14 +38,14 @@ struct BuildStep: FirebaseData, Equatable {
         }
         guard let robotId = dic[Constants.robotId] as? Int,
             let image = dic[Constants.image] as? String,
-            let partImage = dic[Constants.partImage] as? String,
             let stepNumber = dic[Constants.stepNumber] as? Int else {
                 return nil
         }
 
         self.robotId = "\(robotId)"
         self.image = image
-        self.partImage = partImage
+        self.partImage = dic[Constants.partImage] as? String
+        self.partImage2 = dic[Constants.partImage2] as? String
         self.stepNumber = stepNumber
         self.milestone = Milestone(snapshot: snapshot.childSnapshot(forPath: Constants.milestone))
     }
