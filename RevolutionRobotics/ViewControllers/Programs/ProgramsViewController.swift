@@ -156,11 +156,27 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func singleLEDInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
-        callback?("2")
+        let ledSelectorView = LEDSelectorView.instatiate()
+        let defaultValues = Set([inputHandler.defaultInput])
+
+        ledSelectorView.setup(selectionType: .single, defaultValues: defaultValues) { [weak self] led in
+            callback?(led)
+            self?.dismissModalViewController()
+        }
+
+        presentModal(with: ledSelectorView, onDismissed: { callback?(nil) })
     }
 
     func multiLEDInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
-        callback?("2,5,6")
+        let ledSelectorView = LEDSelectorView.instatiate()
+        let defaultValues = Set(inputHandler.defaultInput.components(separatedBy: ","))
+
+        ledSelectorView.setup(selectionType: .multi, defaultValues: defaultValues) { [weak self] leds in
+            callback?(leds)
+            self?.dismissModalViewController()
+        }
+
+        presentModal(with: ledSelectorView, onDismissed: { callback?(nil) })
     }
 
     func colorSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {

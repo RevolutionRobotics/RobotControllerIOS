@@ -94,6 +94,7 @@ enum Image {
 
     enum Programs {
         static let compatibleIcon = UIImage(named: "CompatibleIcon")
+        static let checkboxWhiteChecked = UIImage(named: "CheckboxWhiteChecked")
 
         enum Buttonless {
             static let checkboxNotChecked = UIImage(named: "CheckboxNotChecked")

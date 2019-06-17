@@ -109,5 +109,6 @@ enum ModalKeys {
 
     enum Blockly {
         static let deleteVariable = "blockly_delete_variable"
+        static let ledSelectorSelectAll = "blockly_donut_selector_select_all"
     }
 }
