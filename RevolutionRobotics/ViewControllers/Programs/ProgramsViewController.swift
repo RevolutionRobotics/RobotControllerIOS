@@ -159,7 +159,23 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func blockContext(_ contextHandler: BlockContextHandler, callback: ((String?) -> Void)?) {
-        callback?(AddCommentAction(payload: "New comment").jsonSerialized)
+        let modal = BlockContextView.instatiate()
+        modal.setup(with: contextHandler)
+        modal.deleteCallback = { [weak self] in
+            self?.dismissModalViewController()
+            callback?(DeleteBlockAction(payload: "").jsonSerialized)
+        }
+        modal.duplicateCallback = { [weak self] in
+            self?.dismissModalViewController()
+            callback?(DuplicateBlockAction(payload: "").jsonSerialized)
+        }
+        modal.helpCallback = { [weak self] in
+            self?.dismissModalViewController()
+            callback?(HelpAction(payload: "").jsonSerialized)
+        }
+        presentModal(with: modal, onDismissed: {
+            callback?(AddCommentAction(payload: modal.getComment()).jsonSerialized)
+        })
     }
 
     func variableContext(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {

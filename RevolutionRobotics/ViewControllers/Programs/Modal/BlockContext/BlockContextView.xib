@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="BlockContextView" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRB-T5-qtz">
+                    <rect key="frame" x="205" y="32" width="50.5" height="21"/>
+                    <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3O-FJ-Cla" customClass="RRInputField" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="32" y="62" width="396" height="62"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="62" id="gCb-qd-7fQ"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KhW-VC-viB" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="4" y="190" width="150" height="46"/>
+                    <color key="backgroundColor" name="Black26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="OhV-jh-EPj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Delete block" image="deleteIcon"/>
+                    <connections>
+                        <action selector="deleteButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="H6C-Yb-njR"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9XQ-tT-x0n" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="155" y="190" width="150" height="46"/>
+                    <color key="backgroundColor" name="Black26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="BzC-lw-Se6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Get help" image="TipsIcon"/>
+                    <connections>
+                        <action selector="helpButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="jZa-ub-M4O"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHK-lT-ttI" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="306" y="190" width="150" height="46"/>
+                    <color key="backgroundColor" name="BlackTwo"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="xPm-2X-vC2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Duplicate block" image="Duplicate"/>
+                    <connections>
+                        <action selector="duplicateButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Lta-V0-mi0"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="FRB-T5-qtz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="16b-sz-UHb"/>
+                <constraint firstItem="KhW-VC-viB" firstAttribute="width" secondItem="EHK-lT-ttI" secondAttribute="width" id="2tu-Bm-3k3"/>
+                <constraint firstAttribute="bottom" secondItem="KhW-VC-viB" secondAttribute="bottom" constant="4" id="4Uu-O7-lPa"/>
+                <constraint firstItem="KhW-VC-viB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="5Xm-o3-Sy7"/>
+                <constraint firstAttribute="bottom" secondItem="EHK-lT-ttI" secondAttribute="bottom" constant="4" id="Ao6-gD-dZJ"/>
+                <constraint firstItem="Y3O-FJ-Cla" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="IBq-Fp-HNu"/>
+                <constraint firstAttribute="trailing" secondItem="Y3O-FJ-Cla" secondAttribute="trailing" constant="32" id="KnV-BO-pwf"/>
+                <constraint firstItem="KhW-VC-viB" firstAttribute="width" secondItem="9XQ-tT-x0n" secondAttribute="width" id="QB9-fl-MpH"/>
+                <constraint firstItem="Y3O-FJ-Cla" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="TdG-Z9-Jvv"/>
+                <constraint firstAttribute="trailing" secondItem="EHK-lT-ttI" secondAttribute="trailing" constant="4" id="ThJ-c2-eJq"/>
+                <constraint firstItem="9XQ-tT-x0n" firstAttribute="leading" secondItem="KhW-VC-viB" secondAttribute="trailing" constant="1" id="hT4-IQ-Icc"/>
+                <constraint firstAttribute="bottom" secondItem="9XQ-tT-x0n" secondAttribute="bottom" constant="4" id="jtd-Yr-6eB"/>
+                <constraint firstItem="EHK-lT-ttI" firstAttribute="leading" secondItem="9XQ-tT-x0n" secondAttribute="trailing" constant="1" id="nWL-dM-dUv"/>
+                <constraint firstItem="Y3O-FJ-Cla" firstAttribute="top" secondItem="FRB-T5-qtz" secondAttribute="bottom" constant="9" id="qOB-Iz-VCO"/>
+                <constraint firstItem="FRB-T5-qtz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zFz-C5-N4o"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="deleteButton" destination="KhW-VC-viB" id="HNl-gW-9Zd"/>
+                <outlet property="duplicateButton" destination="EHK-lT-ttI" id="1e9-Uy-lbE"/>
+                <outlet property="helpButton" destination="9XQ-tT-x0n" id="Q1r-zj-lJM"/>
+                <outlet property="noteInputField" destination="Y3O-FJ-Cla" id="CjV-y6-dwk"/>
+                <outlet property="titleLabel" destination="FRB-T5-qtz" id="2mq-7f-ciP"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="Duplicate" width="16" height="16"/>
+        <image name="TipsIcon" width="16" height="16"/>
+        <image name="deleteIcon" width="16" height="16"/>
+        <namedColor name="Black26">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.25999999046325684" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BlackTwo">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

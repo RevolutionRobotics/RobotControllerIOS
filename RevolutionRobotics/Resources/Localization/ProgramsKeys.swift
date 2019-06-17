@@ -31,5 +31,14 @@ enum ProgramsKeys {
         static let showAll = "buttonless_program_show_all_programs"
     }
 
+    enum BlockContext {
+        static let delete = "dialog_block_options_delete"
+        static let help = "dialog_block_options_help"
+        static let duplicate = "dialog_block_options_duplicate"
+        static let title = "dialog_block_options_comment_title"
+        static let placeholder = "dialog_block_options_comment_description"
+
+    }
+
     static let programOrderTitle = "program_priority_screen_title"
 }

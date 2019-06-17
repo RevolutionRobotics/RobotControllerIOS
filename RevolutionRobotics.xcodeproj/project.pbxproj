@@ -298,6 +298,8 @@
 		D0D00FE822AFA84C00274241 /* ButtonlessProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D00FE622AFA84C00274241 /* ButtonlessProgramsViewController.swift */; };
 		D0D00FE922AFA84C00274241 /* ButtonlessProgramsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D00FE722AFA84C00274241 /* ButtonlessProgramsViewController.xib */; };
 		D0E3F88422B3E9ED00B4D9F2 /* TextInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3F88322B3E9ED00B4D9F2 /* TextInputView.xib */; };
+		D0E3F88D22B7B0AB00B4D9F2 /* BlockContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3F88C22B7B0AB00B4D9F2 /* BlockContextView.swift */; };
+		D0E3F88F22B7B0B300B4D9F2 /* BlockContextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3F88E22B7B0B300B4D9F2 /* BlockContextView.xib */; };
 		FE4B16182277202600CAA083 /* RobotConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */; };
 		FE4B161C2277219C00CAA083 /* DashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161B2277219C00CAA083 /* DashedView.swift */; };
 		FE4B161E227721C700CAA083 /* PortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161D227721C700CAA083 /* PortButton.swift */; };
@@ -606,6 +608,8 @@
 		D0D00FE622AFA84C00274241 /* ButtonlessProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonlessProgramsViewController.swift; sourceTree = "<group>"; };
 		D0D00FE722AFA84C00274241 /* ButtonlessProgramsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonlessProgramsViewController.xib; sourceTree = "<group>"; };
 		D0E3F88322B3E9ED00B4D9F2 /* TextInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextInputView.xib; sourceTree = "<group>"; };
+		D0E3F88C22B7B0AB00B4D9F2 /* BlockContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockContextView.swift; sourceTree = "<group>"; };
+		D0E3F88E22B7B0B300B4D9F2 /* BlockContextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlockContextView.xib; sourceTree = "<group>"; };
 		FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RobotConfigurationViewController.xib; sourceTree = "<group>"; };
 		FE4B161B2277219C00CAA083 /* DashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedView.swift; sourceTree = "<group>"; };
 		FE4B161D227721C700CAA083 /* PortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortButton.swift; sourceTree = "<group>"; };
@@ -885,12 +889,9 @@
 		09994316228DBA6500D87385 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				D0E3F88B22B7B09700B4D9F2 /* BlockContext */,
 				D0241A1022B3BD82005E8DB2 /* ShowCode */,
 				D0241A1722B3E92A005E8DB2 /* TextInput */,
-				094D0DD422AFA93600B9B74E /* SliderInput */,
-				094D0DCF22AF9F5500B9B74E /* DriveDirectionSelector */,
-				0938894822B12C7F00292B32 /* SoundPicker */,
-				0965766022AFEE5D00A50C8E /* DialpadInput */,
 				0965765022AFCC9E00A50C8E /* ColorSelector */,
 				0965766022AFEE5D00A50C8E /* DialpadInput */,
 				0972843D22B3950D007A7FE1 /* DriveDirectionSelector */,
@@ -1634,8 +1635,8 @@
 				D0241A1522B3BDD6005E8DB2 /* ShowCodeView.xib */,
 			);
 			path = ShowCode;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		D0241A1722B3E92A005E8DB2 /* TextInput */ = {
 			isa = PBXGroup;
 			children = (
@@ -1745,6 +1746,15 @@
 				D0241A0D22B29352005E8DB2 /* CommunityViewController.xib */,
 			);
 			path = Community;
+			sourceTree = "<group>";
+		};
+		D0E3F88B22B7B09700B4D9F2 /* BlockContext */ = {
+			isa = PBXGroup;
+			children = (
+				D0E3F88C22B7B0AB00B4D9F2 /* BlockContextView.swift */,
+				D0E3F88E22B7B0B300B4D9F2 /* BlockContextView.xib */,
+			);
+			path = BlockContext;
 			sourceTree = "<group>";
 		};
 		FE4B161422771FC000CAA083 /* Configuration */ = {
@@ -1869,6 +1879,7 @@
 				D0B2A736227C7CF1004473EC /* ControllerCollectionViewCell.xib in Resources */,
 				D03BA8612277384A005B3E33 /* ConnectionModal.xib in Resources */,
 				D03BA85D2277384A005B3E33 /* TestingModal.xib in Resources */,
+				D0E3F88F22B7B0B300B4D9F2 /* BlockContextView.xib in Resources */,
 				D03BA85F2277384A005B3E33 /* ChapterFinishedModal.xib in Resources */,
 				09ED1BAB225247E2009CF262 /* MenuViewController.xib in Resources */,
 				2A9F52122265E96B00F9F651 /* ProgramsViewController.xib in Resources */,
@@ -1917,7 +1928,6 @@
 				0938897822B24DD900292B32 /* bell.mp3 in Resources */,
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
 				D0049A432270ABA1007FA256 /* AvailableRobotsTableViewCell.xib in Resources */,
-				0965765422AFCCBF00A50C8E /* ColorSelectorView.xib in Resources */,
 				D0241A0F22B29352005E8DB2 /* CommunityViewController.xib in Resources */,
 				094FC5DB228C3CC40085B407 /* MultiTaskerPadView.xib in Resources */,
 				09994319228DBA6500D87385 /* ProgramInfoModal.xib in Resources */,
@@ -2096,6 +2106,7 @@
 				2A7DDB1022856DC200891DA6 /* PortMappingDataModel.swift in Sources */,
 				2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */,
 				096333FD2289C2A60029D87B /* UIButton+BackgroundColor.swift in Sources */,
+				D0E3F88D22B7B0AB00B4D9F2 /* BlockContextView.swift in Sources */,
 				D0A11090227B1DAD0064FBB6 /* ControllerKeys.swift in Sources */,
 				D0049A422270ABA1007FA256 /* AvailableRobotsTableViewCell.swift in Sources */,
 				D0241A1422B3BDCD005E8DB2 /* ShowCodeView.swift in Sources */,
