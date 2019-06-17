@@ -307,6 +307,8 @@
 		D0E3F88A22B786BF00B4D9F2 /* ProgramsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3F88922B786BF00B4D9F2 /* ProgramsView.xib */; };
 		D0E3F88D22B7B0AB00B4D9F2 /* BlockContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3F88C22B7B0AB00B4D9F2 /* BlockContextView.swift */; };
 		D0E3F88F22B7B0B300B4D9F2 /* BlockContextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3F88E22B7B0B300B4D9F2 /* BlockContextView.xib */; };
+		D0E3F89222B7D71A00B4D9F2 /* ProgramDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3F89122B7D71A00B4D9F2 /* ProgramDescriptionView.swift */; };
+		D0E3F89422B7D99A00B4D9F2 /* ProgramDescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3F89322B7D99A00B4D9F2 /* ProgramDescriptionView.xib */; };
 		FE4B16182277202600CAA083 /* RobotConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */; };
 		FE4B161C2277219C00CAA083 /* DashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161B2277219C00CAA083 /* DashedView.swift */; };
 		FE4B161E227721C700CAA083 /* PortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161D227721C700CAA083 /* PortButton.swift */; };
@@ -624,6 +626,8 @@
 		D0E3F88922B786BF00B4D9F2 /* ProgramsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramsView.xib; sourceTree = "<group>"; };
 		D0E3F88C22B7B0AB00B4D9F2 /* BlockContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockContextView.swift; sourceTree = "<group>"; };
 		D0E3F88E22B7B0B300B4D9F2 /* BlockContextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlockContextView.xib; sourceTree = "<group>"; };
+		D0E3F89122B7D71A00B4D9F2 /* ProgramDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDescriptionView.swift; sourceTree = "<group>"; };
+		D0E3F89322B7D99A00B4D9F2 /* ProgramDescriptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramDescriptionView.xib; sourceTree = "<group>"; };
 		FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RobotConfigurationViewController.xib; sourceTree = "<group>"; };
 		FE4B161B2277219C00CAA083 /* DashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedView.swift; sourceTree = "<group>"; };
 		FE4B161D227721C700CAA083 /* PortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortButton.swift; sourceTree = "<group>"; };
@@ -921,6 +925,9 @@
 				0938894822B12C7F00292B32 /* SoundPicker */,
 				0965766022AFEE5D00A50C8E /* DialpadInput */,
 				D0E3F88B22B7B09700B4D9F2 /* BlockContext */,
+				D0241A1022B3BD82005E8DB2 /* ShowCode */,
+				D0241A1722B3E92A005E8DB2 /* TextInput */,
+				D0E3F89022B7D70000B4D9F2 /* ProgramDescription */,
 				D0241A1022B3BD82005E8DB2 /* ShowCode */,
 				D0241A1722B3E92A005E8DB2 /* TextInput */,
 				0965765022AFCC9E00A50C8E /* ColorSelector */,
@@ -1797,6 +1804,15 @@
 				D0E3F88E22B7B0B300B4D9F2 /* BlockContextView.xib */,
 			);
 			path = BlockContext;
+            sourceTree = "<group>";
+        };
+		D0E3F89022B7D70000B4D9F2 /* ProgramDescription */ = {
+			isa = PBXGroup;
+			children = (
+				D0E3F89122B7D71A00B4D9F2 /* ProgramDescriptionView.swift */,
+				D0E3F89322B7D99A00B4D9F2 /* ProgramDescriptionView.xib */,
+			);
+			path = ProgramDescription;
 			sourceTree = "<group>";
 		};
 		FE4B161422771FC000CAA083 /* Configuration */ = {
@@ -2012,6 +2028,7 @@
 				09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */,
 				0964798122686DE000F68456 /* WhoToBuildViewController.xib in Resources */,
 				D001FCB422A92F7D004C49F3 /* ChallengeFinishedModal.xib in Resources */,
+				D0E3F89422B7D99A00B4D9F2 /* ProgramDescriptionView.xib in Resources */,
 				0941075F2297E889000A658A /* ProgramSelectorViewController.xib in Resources */,
 				0938897E22B24DD900292B32 /* robot.mp3 in Resources */,
 				0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */,
@@ -2287,6 +2304,7 @@
 				094FC5CE228C35E90085B407 /* GamerPadView.swift in Sources */,
 				0941075E2297E889000A658A /* ProgramSelectorViewController.swift in Sources */,
 				D0BF25702282C6E000F08C9C /* PlayControllerViewController.swift in Sources */,
+				D0E3F89222B7D71A00B4D9F2 /* ProgramDescriptionView.swift in Sources */,
 				FE4B161E227721C700CAA083 /* PortButton.swift in Sources */,
 				D0313335228D5CBA00704989 /* ControllerType.swift in Sources */,
 				D05C64D0225F57BC00B7BF4F /* Robot.swift in Sources */,

@@ -19,7 +19,7 @@ final class ProgramDataModel: Object {
     @objc dynamic var id: String = ""
     @objc dynamic var remoteId: String = ""
     @objc dynamic var name: String = ""
-    @objc dynamic var customDesctipion: String = ""
+    @objc dynamic var customDescription: String = ""
     @objc dynamic var lastModified: Date = Date()
     @objc dynamic var xmlFileName: String = ""
     @objc dynamic var pythonFileName: String = ""
@@ -30,7 +30,7 @@ final class ProgramDataModel: Object {
         self.id = UUID().uuidString
         self.remoteId = program.id
         self.name = program.name
-        self.customDesctipion = program.description
+        self.customDescription = program.description
         self.lastModified = Date(timeIntervalSince1970: program.lastModified)
         self.xmlFileName = self.id + Constants.xmlPostfix
         self.pythonFileName = self.id + Constants.pythonPostfix

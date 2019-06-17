@@ -37,7 +37,11 @@ enum ProgramsKeys {
         static let duplicate = "dialog_block_options_duplicate"
         static let title = "dialog_block_options_comment_title"
         static let placeholder = "dialog_block_options_comment_description"
+    }
 
+    enum SelectProgram {
+        static let delete = "program_info_delete_program"
+        static let load = "program_info_load_program"
     }
 
     static let programOrderTitle = "program_priority_screen_title"

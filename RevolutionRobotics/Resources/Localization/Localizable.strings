@@ -125,6 +125,8 @@
 "dialog_block_options_duplicate" = "Duplicate";
 "dialog_block_options_comment_title" = "Note";
 "dialog_block_options_comment_description" = "Tap here and add a comment!";
+"program_info_delete_program" = "Delete program";
+"program_info_load_program" = "Load program";
 
 // MARK: - Settings
 "settings_screen_title" = "Settings";
