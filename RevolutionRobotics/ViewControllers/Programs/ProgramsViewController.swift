@@ -18,6 +18,7 @@ final class ProgramsViewController: BaseViewController {
     @IBOutlet private weak var containerView: UIView!
 
     // MARK: - Properties
+    var realmService: RealmServiceInterface!
     var selectedProgram: ProgramDataModel?
     private let blocklyViewController = BlocklyViewController()
     private var showCode: Bool = false
@@ -193,6 +194,12 @@ extension ProgramsViewController {
     }
 
     @IBAction private func openProgramButtonTapped(_ sender: UIButton) {
-        print("Open program button tapped")
+        let modal = ProgramsView.instatiate()
+        modal.setup(with: realmService.getPrograms())
+        modal.selectedProgramCallback = { [weak self] program in
+            self?.dismissModalViewController()
+            print("\(program)")
+        }
+        presentModal(with: modal)
     }
 }

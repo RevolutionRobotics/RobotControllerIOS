@@ -296,6 +296,8 @@
 		D0BF25732283101000F08C9C /* CommunityModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF25722283100F00F08C9C /* CommunityModalViewController.swift */; };
 		D0D00FE822AFA84C00274241 /* ButtonlessProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D00FE622AFA84C00274241 /* ButtonlessProgramsViewController.swift */; };
 		D0D00FE922AFA84C00274241 /* ButtonlessProgramsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D00FE722AFA84C00274241 /* ButtonlessProgramsViewController.xib */; };
+		D0E3F88822B786B800B4D9F2 /* ProgramsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3F88722B786B800B4D9F2 /* ProgramsView.swift */; };
+		D0E3F88A22B786BF00B4D9F2 /* ProgramsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3F88922B786BF00B4D9F2 /* ProgramsView.xib */; };
 		FE4B16182277202600CAA083 /* RobotConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */; };
 		FE4B161C2277219C00CAA083 /* DashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161B2277219C00CAA083 /* DashedView.swift */; };
 		FE4B161E227721C700CAA083 /* PortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B161D227721C700CAA083 /* PortButton.swift */; };
@@ -602,6 +604,8 @@
 		D0BF25722283100F00F08C9C /* CommunityModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityModalViewController.swift; sourceTree = "<group>"; };
 		D0D00FE622AFA84C00274241 /* ButtonlessProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonlessProgramsViewController.swift; sourceTree = "<group>"; };
 		D0D00FE722AFA84C00274241 /* ButtonlessProgramsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonlessProgramsViewController.xib; sourceTree = "<group>"; };
+		D0E3F88722B786B800B4D9F2 /* ProgramsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsView.swift; sourceTree = "<group>"; };
+		D0E3F88922B786BF00B4D9F2 /* ProgramsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramsView.xib; sourceTree = "<group>"; };
 		FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RobotConfigurationViewController.xib; sourceTree = "<group>"; };
 		FE4B161B2277219C00CAA083 /* DashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedView.swift; sourceTree = "<group>"; };
 		FE4B161D227721C700CAA083 /* PortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortButton.swift; sourceTree = "<group>"; };
@@ -881,11 +885,8 @@
 		09994316228DBA6500D87385 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				D0E3F88622B782E200B4D9F2 /* ProgramsModal */,
 				D0241A1022B3BD82005E8DB2 /* ShowCode */,
-				094D0DD422AFA93600B9B74E /* SliderInput */,
-				094D0DCF22AF9F5500B9B74E /* DriveDirectionSelector */,
-				0938894822B12C7F00292B32 /* SoundPicker */,
-				0965766022AFEE5D00A50C8E /* DialpadInput */,
 				0965765022AFCC9E00A50C8E /* ColorSelector */,
 				0965766022AFEE5D00A50C8E /* DialpadInput */,
 				0972843D22B3950D007A7FE1 /* DriveDirectionSelector */,
@@ -1733,6 +1734,15 @@
 			path = Community;
 			sourceTree = "<group>";
 		};
+		D0E3F88622B782E200B4D9F2 /* ProgramsModal */ = {
+			isa = PBXGroup;
+			children = (
+				D0E3F88722B786B800B4D9F2 /* ProgramsView.swift */,
+				D0E3F88922B786BF00B4D9F2 /* ProgramsView.xib */,
+			);
+			path = ProgramsModal;
+			sourceTree = "<group>";
+		};
 		FE4B161422771FC000CAA083 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -1849,6 +1859,7 @@
 				2A3A759522953EC500ED9A1D /* PlayControllerViewController.xib in Resources */,
 				0977990922981C0300D571B0 /* ProgramSelectorTableViewCell.xib in Resources */,
 				D0D00FE922AFA84C00274241 /* ButtonlessProgramsViewController.xib in Resources */,
+				D0E3F88A22B786BF00B4D9F2 /* ProgramsView.xib in Resources */,
 				2AA926D722773DC1000FAA98 /* SideButton.xib in Resources */,
 				0972844022B3950D007A7FE1 /* DriveDirectionSelectorView.xib in Resources */,
 				0938897A22B24DD900292B32 /* yee_haw.mp3 in Resources */,
@@ -1902,7 +1913,6 @@
 				0938897822B24DD900292B32 /* bell.mp3 in Resources */,
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
 				D0049A432270ABA1007FA256 /* AvailableRobotsTableViewCell.xib in Resources */,
-				0965765422AFCCBF00A50C8E /* ColorSelectorView.xib in Resources */,
 				D0241A0F22B29352005E8DB2 /* CommunityViewController.xib in Resources */,
 				094FC5DB228C3CC40085B407 /* MultiTaskerPadView.xib in Resources */,
 				09994319228DBA6500D87385 /* ProgramInfoModal.xib in Resources */,
@@ -2174,6 +2184,7 @@
 				0938894A22B12C9000292B32 /* SoundPickerView.swift in Sources */,
 				D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */,
 				2AD858E02296B9EB0082CDC0 /* ControllerDataModel.swift in Sources */,
+				D0E3F88822B786B800B4D9F2 /* ProgramsView.swift in Sources */,
 				2AF8C75F2280659000CE1ACB /* FileManager+Documents.swift in Sources */,
 				D0D00FE822AFA84C00274241 /* ButtonlessProgramsViewController.swift in Sources */,
 				D05C64E1225F5C9900B7BF4F /* Motor.swift in Sources */,
