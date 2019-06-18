@@ -59,9 +59,12 @@ extension RRInputField {
 extension RRInputField: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        textFieldResigned?(textField.text)
 
         return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textFieldResigned?(textField.text)
     }
 
     func textField(_ textField: UITextField,

@@ -117,6 +117,13 @@ extension RealmService: RealmServiceInterface {
         return controllers
     }
 
+    func getController(id: String?) -> ControllerDataModel? {
+        guard let id = id,
+            let controllers = realmConnector.findAll(type: ControllerDataModel.self) as? [ControllerDataModel],
+            let controller = controllers.first(where: { $0.id == id }) else { return nil }
+        return controller
+    }
+
     func deleteController(_ controller: ControllerDataModel) {
         return realmConnector.delete(object: controller)
     }
@@ -166,5 +173,9 @@ extension RealmService: RealmServiceInterface {
 
     func savePrograms(programs: [ProgramDataModel]) {
         realmConnector.save(objects: programs, shouldUpdate: true)
+    }
+
+    func saveProgramBindings(_ bindings: [ProgramBindingDataModel]) {
+        realmConnector.save(objects: bindings, shouldUpdate: false)
     }
 }

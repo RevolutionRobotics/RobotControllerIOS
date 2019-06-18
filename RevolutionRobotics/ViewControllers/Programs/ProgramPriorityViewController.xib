@@ -16,7 +16,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgramsOrderViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgramPriorityViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="doneButton" destination="Cov-4M-mbj" id="whN-To-tyR"/>
                 <outlet property="navigationBar" destination="hmw-tk-d80" id="WQ6-5E-tT5"/>
@@ -36,8 +36,12 @@
                         <constraint firstAttribute="height" constant="71" id="Q5f-yl-sbt"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vd-5x-HQI" userLabel="bottomBarBackgroundView">
+                    <rect key="frame" x="0.0" y="339" width="896" height="75"/>
+                    <color key="backgroundColor" name="BlackTwo"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXm-1J-TXG">
-                    <rect key="frame" x="0.0" y="360" width="896" height="54"/>
+                    <rect key="frame" x="0.0" y="339" width="896" height="54"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cov-4M-mbj" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="789" y="4" width="103" height="46"/>
@@ -64,22 +68,24 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9HK-ND-dXM">
-                    <rect key="frame" x="0.0" y="359" width="896" height="1"/>
+                    <rect key="frame" x="0.0" y="338" width="896" height="1"/>
                     <color key="backgroundColor" name="BrownGrey"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="4GR-nS-eHC"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="52" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rOs-L4-d53">
-                    <rect key="frame" x="0.0" y="79" width="896" height="280"/>
+                    <rect key="frame" x="0.0" y="79" width="896" height="259"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="9HK-ND-dXM" firstAttribute="top" secondItem="rOs-L4-d53" secondAttribute="bottom" id="0PX-EL-GJ6"/>
+                <constraint firstItem="7vd-5x-HQI" firstAttribute="trailing" secondItem="DXm-1J-TXG" secondAttribute="trailing" id="6Na-pE-fjd"/>
+                <constraint firstItem="7vd-5x-HQI" firstAttribute="leading" secondItem="DXm-1J-TXG" secondAttribute="leading" id="9zr-LB-VdL"/>
                 <constraint firstItem="DXm-1J-TXG" firstAttribute="top" secondItem="9HK-ND-dXM" secondAttribute="bottom" id="FCs-Mo-Ch9"/>
-                <constraint firstAttribute="bottom" secondItem="DXm-1J-TXG" secondAttribute="bottom" id="JRq-X1-umC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="DXm-1J-TXG" secondAttribute="bottom" id="JRq-X1-umC"/>
                 <constraint firstItem="9HK-ND-dXM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R1g-1a-QJC"/>
                 <constraint firstItem="hmw-tk-d80" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RT6-Ky-dyN"/>
                 <constraint firstAttribute="trailing" secondItem="DXm-1J-TXG" secondAttribute="trailing" id="TZm-ZX-Oe7"/>
@@ -88,7 +94,9 @@
                 <constraint firstAttribute="trailing" secondItem="9HK-ND-dXM" secondAttribute="trailing" id="b4b-gM-H7U"/>
                 <constraint firstItem="rOs-L4-d53" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="c44-px-70m"/>
                 <constraint firstItem="DXm-1J-TXG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cee-Aq-9im"/>
+                <constraint firstAttribute="bottom" secondItem="7vd-5x-HQI" secondAttribute="bottom" id="iLm-Z0-kbm"/>
                 <constraint firstAttribute="trailing" secondItem="hmw-tk-d80" secondAttribute="trailing" id="lcu-EL-ZsO"/>
+                <constraint firstItem="7vd-5x-HQI" firstAttribute="top" secondItem="DXm-1J-TXG" secondAttribute="top" id="onp-zM-eWh"/>
                 <constraint firstAttribute="trailing" secondItem="rOs-L4-d53" secondAttribute="trailing" id="xVi-mk-2Kc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

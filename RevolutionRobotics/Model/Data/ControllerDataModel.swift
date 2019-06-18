@@ -12,6 +12,7 @@ final class ControllerDataModel: Object {
     // MARK: - Properties
     @objc dynamic var id: String = ""
     @objc dynamic var configurationId: String = ""
+    @objc dynamic var joystickPriority: Int = 0
     @objc dynamic var name: String = ""
     @objc dynamic var type: String = ""
     @objc dynamic var controllerDescription: String = ""
@@ -27,6 +28,7 @@ final class ControllerDataModel: Object {
         self.configurationId = controller.configurationId
         self.name = controller.name
         self.type = controller.type.rawValue
+        self.joystickPriority = controller.joystickPriority
         self.controllerDescription = controller.description
         self.lastModified = Date(timeIntervalSince1970: controller.lastModified)
         self.mapping = ControllerButtonMappingDataModel(mapping: controller.mapping)
@@ -36,6 +38,17 @@ final class ControllerDataModel: Object {
             list.append(dataModel)
         }
         backgroundProgramBindings = list
+    }
+
+    convenience init(configurationId: String, type: String, mapping: ControllerButtonMappingDataModel) {
+        self.init()
+
+        self.id = UUID().uuidString
+        self.configurationId = configurationId
+        self.type = type
+        self.lastModified = Date()
+        self.mapping = mapping
+        backgroundProgramBindings = List<ProgramBindingDataModel>()
     }
 
     override static func primaryKey() -> String? {
@@ -83,6 +96,7 @@ final class ControllerButtonMappingDataModel: Object {
 
 final class ProgramBindingDataModel: Object {
     // MARK: - Properties
+    @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var programId: String = ""
     @objc dynamic var priority: Int = 0
 
@@ -93,5 +107,16 @@ final class ProgramBindingDataModel: Object {
 
         self.programId = binding.programId
         self.priority = binding.priority
+    }
+
+    convenience init(programId: String, priority: Int) {
+        self.init()
+
+        self.programId = programId
+        self.priority = priority
+    }
+
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }

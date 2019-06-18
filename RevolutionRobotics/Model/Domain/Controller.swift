@@ -16,6 +16,7 @@ struct Controller: FirebaseData {
         static let name = "name"
         static let type = "type"
         static let configurationId = "configurationId"
+        static let joystickPriority = "joystickPriority"
         static let description = "description"
         static let lastModified = "lastModified"
         static let mapping = "mapping"
@@ -30,6 +31,7 @@ struct Controller: FirebaseData {
     var name: String
     var type: ControllerType
     var configurationId: String
+    var joystickPriority: Int
     var description: String
     var lastModified: Double
     var mapping: ControllerButtonMapping
@@ -45,6 +47,7 @@ struct Controller: FirebaseData {
             let tempType = dic[Constants.type] as? String,
             let type = ControllerType(rawValue: tempType),
             let configurationId = dic[Constants.configurationId] as? String,
+            let joystickPriority = dic[Constants.joystickPriority] as? Int,
             let description = dic[Constants.description] as? String,
             let lastModified = dic[Constants.lastModified] as? Double,
             let mapping = ControllerButtonMapping(snapshot: snapshot.childSnapshot(forPath: Constants.mapping)) else {
@@ -55,6 +58,7 @@ struct Controller: FirebaseData {
         self.name = name
         self.type = type
         self.configurationId = configurationId
+        self.joystickPriority = joystickPriority
         self.description = description
         self.lastModified = lastModified
         self.mapping = mapping

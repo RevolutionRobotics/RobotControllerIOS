@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -38,6 +39,10 @@
             <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0X-fX-xpf" userLabel="bottomContainerBackgroundView">
+                    <rect key="frame" x="0.0" y="250" width="568" height="70"/>
+                    <color key="backgroundColor" white="0.050000000000000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zRV-Od-gLo">
                     <rect key="frame" x="0.0" y="250" width="568" height="70"/>
                     <subviews>
@@ -176,9 +181,10 @@
             </subviews>
             <color key="backgroundColor" name="Black70"/>
             <constraints>
-                <constraint firstItem="zRV-Od-gLo" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="7tR-zH-klc"/>
+                <constraint firstItem="zRV-Od-gLo" firstAttribute="bottom" secondItem="cAR-pQ-T89" secondAttribute="bottom" id="7tR-zH-klc"/>
                 <constraint firstItem="zRV-Od-gLo" firstAttribute="top" secondItem="JZ4-hL-owz" secondAttribute="bottom" id="AZs-bA-7An"/>
                 <constraint firstAttribute="trailing" secondItem="q6i-B9-ehi" secondAttribute="trailing" id="Kje-Fo-lPb"/>
+                <constraint firstItem="e0X-fX-xpf" firstAttribute="top" secondItem="zRV-Od-gLo" secondAttribute="top" id="My7-pX-xFJ"/>
                 <constraint firstAttribute="trailing" secondItem="Dxa-4C-h76" secondAttribute="trailing" constant="4" id="Nj3-NT-9X9"/>
                 <constraint firstItem="q6i-B9-ehi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QTD-gd-cP0"/>
                 <constraint firstAttribute="trailing" secondItem="JZ4-hL-owz" secondAttribute="trailing" id="Tpo-WO-S80"/>
@@ -186,9 +192,13 @@
                 <constraint firstItem="JZ4-hL-owz" firstAttribute="top" secondItem="q6i-B9-ehi" secondAttribute="bottom" id="eJ0-Jm-6b8"/>
                 <constraint firstItem="q6i-B9-ehi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hHe-gc-S7b"/>
                 <constraint firstAttribute="trailing" secondItem="zRV-Od-gLo" secondAttribute="trailing" id="noL-jY-cUX"/>
+                <constraint firstItem="e0X-fX-xpf" firstAttribute="trailing" secondItem="zRV-Od-gLo" secondAttribute="trailing" id="pYu-nq-VzA"/>
                 <constraint firstItem="JZ4-hL-owz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rPS-kZ-CKr"/>
+                <constraint firstAttribute="bottom" secondItem="e0X-fX-xpf" secondAttribute="bottom" id="tAd-D4-nEJ"/>
                 <constraint firstItem="zRV-Od-gLo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xA0-x4-L1n"/>
+                <constraint firstItem="e0X-fX-xpf" firstAttribute="leading" secondItem="zRV-Od-gLo" secondAttribute="leading" id="zxz-XD-2Pb"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="cAR-pQ-T89"/>
             <point key="canvasLocation" x="48" y="94"/>
         </view>
     </objects>

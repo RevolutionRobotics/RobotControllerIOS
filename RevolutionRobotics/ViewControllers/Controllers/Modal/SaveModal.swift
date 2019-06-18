@@ -17,7 +17,7 @@ final class SaveModal: UIView {
     }
 
     // MARK: - SaveData
-    public typealias SaveData = (name: String, description: String?)
+    typealias SaveData = (name: String, description: String?)
 
     // MARK: - Outlets
     @IBOutlet private weak var titleLabel: UILabel!

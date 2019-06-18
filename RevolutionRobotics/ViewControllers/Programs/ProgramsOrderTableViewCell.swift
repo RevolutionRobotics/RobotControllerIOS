@@ -14,6 +14,7 @@ final class ProgramsOrderTableViewCell: UITableViewCell {
     @IBOutlet private weak var orderLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var programIcon: UIImageView!
 
     // MARK: - Callbacks
     var infoCallback: Callback?
@@ -21,10 +22,18 @@ final class ProgramsOrderTableViewCell: UITableViewCell {
 
 // MARK: - Setup
 extension ProgramsOrderTableViewCell {
-    func setup(with program: ProgramDataModel, order: Int) {
+    func setup(with program: ProgramDataModel, order: Int, isButtonlessProgram: Bool) {
         nameLabel.text = program.name
         dateLabel.text = DateFormatter.string(from: program.lastModified, format: .yearMonthDay)
         orderLabel.text = "\(order)."
+        programIcon.image = isButtonlessProgram ? Image.Programs.Priority.buttonless : Image.Programs.Priority.button
+    }
+}
+
+// MARK: - View lifecycle
+extension ProgramsOrderTableViewCell {
+    override func layoutSubviews() {
+        super.layoutSubviews()
         borderView.setBorder(fillColor: Color.black, strokeColor: Color.brownGrey)
     }
 }
