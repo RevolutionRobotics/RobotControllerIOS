@@ -47,7 +47,7 @@ extension ProgramInfoModal {
         editButtonTapped = editButtonHandler
         actionButtonTapped = actionButtonHandler
         titleLabel.text = program.name
-        descriptionLabel.text = program.customDesctipion
+        descriptionLabel.text = program.customDescription
         dateLabel.text = DateFormatter.string(from: program.lastModified, format: .yearMonthDay)
         issueLabel.text = issue
     }

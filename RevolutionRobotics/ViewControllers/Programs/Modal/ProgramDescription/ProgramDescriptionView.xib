@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="ProgramDescriptionView" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JlP-wP-G7f">
+                    <rect key="frame" x="32" y="32" width="396" height="22"/>
+                    <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKf-Wu-2TD" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="4" y="190" width="225.5" height="46"/>
+                    <color key="backgroundColor" name="Black26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="ag7-T7-6ld"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Button" image="deleteIcon"/>
+                    <connections>
+                        <action selector="deleteButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="zaO-pE-8p2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppF-kP-rTR" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="230.5" y="190" width="225.5" height="46"/>
+                    <color key="backgroundColor" name="BlackTwo"/>
+                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Button" image="LoadIcon"/>
+                    <connections>
+                        <action selector="loadButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="2Ke-s9-jwb"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CalendarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="DLo-TN-8JN">
+                    <rect key="frame" x="32" y="100.5" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="iWY-ca-VXe"/>
+                        <constraint firstAttribute="width" constant="16" id="iv6-eU-m9S"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZa-cx-UMa">
+                    <rect key="frame" x="56" y="101.5" width="29" height="14.5"/>
+                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zng-rS-pin">
+                    <rect key="frame" x="32" y="70" width="396" height="14.5"/>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="ppF-kP-rTR" firstAttribute="width" secondItem="OKf-Wu-2TD" secondAttribute="width" id="1F7-Pm-OfG"/>
+                <constraint firstItem="OKf-Wu-2TD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="Ed1-Bz-4wj"/>
+                <constraint firstItem="ppF-kP-rTR" firstAttribute="height" secondItem="OKf-Wu-2TD" secondAttribute="height" id="Eni-wM-Bbj"/>
+                <constraint firstItem="DLo-TN-8JN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="Igv-ya-L6c"/>
+                <constraint firstItem="JlP-wP-G7f" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="JJB-pp-XP6"/>
+                <constraint firstItem="JlP-wP-G7f" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="JeP-kZ-fJZ"/>
+                <constraint firstItem="zng-rS-pin" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="JhV-kw-hgI"/>
+                <constraint firstAttribute="bottom" secondItem="OKf-Wu-2TD" secondAttribute="bottom" constant="4" id="L1u-Ct-7qA"/>
+                <constraint firstItem="OKf-Wu-2TD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DLo-TN-8JN" secondAttribute="bottom" constant="16" id="VnY-4J-bqK"/>
+                <constraint firstItem="CZa-cx-UMa" firstAttribute="centerY" secondItem="DLo-TN-8JN" secondAttribute="centerY" id="cg6-7O-kOX"/>
+                <constraint firstAttribute="trailing" secondItem="zng-rS-pin" secondAttribute="trailing" constant="32" id="dPy-VJ-twZ"/>
+                <constraint firstItem="zng-rS-pin" firstAttribute="top" secondItem="JlP-wP-G7f" secondAttribute="bottom" constant="16" id="gNS-pf-OuM"/>
+                <constraint firstItem="DLo-TN-8JN" firstAttribute="top" secondItem="zng-rS-pin" secondAttribute="bottom" constant="16" id="gZu-gk-kbU"/>
+                <constraint firstItem="JlP-wP-G7f" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nVd-0Q-QcT"/>
+                <constraint firstAttribute="bottom" secondItem="ppF-kP-rTR" secondAttribute="bottom" constant="4" id="o35-p3-ShU"/>
+                <constraint firstItem="ppF-kP-rTR" firstAttribute="leading" secondItem="OKf-Wu-2TD" secondAttribute="trailing" constant="1" id="rGJ-V7-RGU"/>
+                <constraint firstItem="CZa-cx-UMa" firstAttribute="leading" secondItem="DLo-TN-8JN" secondAttribute="trailing" constant="8" id="vR2-54-kfO"/>
+                <constraint firstAttribute="trailing" secondItem="ppF-kP-rTR" secondAttribute="trailing" constant="4" id="xXx-Ah-WDh"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="deleteButton" destination="OKf-Wu-2TD" id="vY1-F0-ByB"/>
+                <outlet property="descriptionLabel" destination="zng-rS-pin" id="hx2-sL-g4w"/>
+                <outlet property="lastModifiedLabel" destination="CZa-cx-UMa" id="xfM-gX-jzr"/>
+                <outlet property="loadButton" destination="ppF-kP-rTR" id="dgK-If-Mhw"/>
+                <outlet property="titleLabel" destination="JlP-wP-G7f" id="av4-rV-dgN"/>
+            </connections>
+            <point key="canvasLocation" x="22.767857142857142" y="76.811594202898561"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CalendarIcon" width="16" height="16"/>
+        <image name="LoadIcon" width="16" height="16"/>
+        <image name="deleteIcon" width="16" height="16"/>
+        <namedColor name="Black26">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.25999999046325684" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BlackTwo">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
