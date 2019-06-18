@@ -106,4 +106,8 @@ enum ModalKeys {
         static let confirm = "delete_controller_confirm"
         static let cancel = "delete_controller_cancel"
     }
+
+    enum Blockly {
+        static let deleteVariable = "blockly_delete_variable"
+    }
 }

@@ -223,3 +223,4 @@
 
 "title_python_code" = "Generated python code";
 "new_variable_name" = "New variable name:";
+"blockly_delete_variable" = "Delete variable";
