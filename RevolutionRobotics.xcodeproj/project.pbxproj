@@ -1768,6 +1768,8 @@
 				D0E3F88922B786BF00B4D9F2 /* ProgramsView.xib */,
 			);
 			path = ProgramsModal;
+			sourceTree = "<group>";
+		};
 		D0E3F88B22B7B09700B4D9F2 /* BlockContext */ = {
 			isa = PBXGroup;
 			children = (
