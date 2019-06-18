@@ -89,6 +89,9 @@ extension ScreenAssembly {
     private func registerProgramsViewController(to container: Container) {
         container
             .register(ProgramsViewController.self, factory: { _ in return ProgramsViewController() })
+            .initCompleted { (resolver, viewController) in
+                viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
+            }
             .inObjectScope(.weak)
     }
 

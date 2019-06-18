@@ -18,7 +18,9 @@ final class ProgramSelectorTableViewCell: UITableViewCell {
     // MARK: - Lifecycle
     override func layoutSubviews() {
         super.layoutSubviews()
-        borderView.setBorder(fillColor: .clear, strokeColor: Color.brownGrey, croppedCorners: [.bottomLeft, .topRight])
+        borderView.setBorder(fillColor: Color.black,
+                             strokeColor: Color.brownGrey,
+                             croppedCorners: [.bottomLeft, .topRight])
     }
 }
 
