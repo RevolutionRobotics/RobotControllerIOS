@@ -21,7 +21,11 @@ final class FirmwareUpdateViewController: BaseViewController {
 
     // MARK: - Properties
     var bluetoothService: BluetoothServiceInterface!
+    var firebaseService: FirebaseServiceInterface!
     private let checkForUpdatesModal = CheckForUpdatesModal.instatiate()
+    private var currentFirmware: String = ""
+    private var updateURL: String = ""
+    private var updateVersion: String = ""
 }
 
 // MARK: - View lifecycle
@@ -49,18 +53,68 @@ extension FirmwareUpdateViewController {
                 }
             })
         }
+
+        checkForUpdatesModal.checkForUpdateCallback = { [weak self] in
+            self?.firebaseService.getFirmwareUpdate(completion: { [weak self] result in
+                switch result {
+                case .success(let updates):
+                    if self?.currentFirmware != updates.first?.fileName {
+                        self?.checkForUpdatesModal.updateFound(version: (updates.first?.fileName)!)
+                        self?.updateURL = (updates.first?.url)!
+                        self?.updateVersion = (updates.first?.fileName)!
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            })
+        }
+
+        checkForUpdatesModal.downloadAndUpdataCallback = { [weak self] in
+            self?.firebaseService.downloadFirmwareUpdate(
+                resourceURL: (self?.updateURL)!,
+                completion: { [weak self] result in
+                    switch result {
+                    case .success(let data):
+                        self?.uploadFramework(data: data)
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+            })
+        }
+    }
+
+    private func uploadFramework(data: Data) {
+        dismissModalViewController()
+        let downloadView = UpdatingFirmwareModalView.instatiate()
+        presentModal(with: downloadView)
+
+        bluetoothService.updateFramework(data: data, version: updateVersion, onCompleted: { [weak self] result in
+            switch result {
+            case .success:
+                self?.dismissModalViewController()
+                let successModalView = SuccessfulUpdateModal.instatiate()
+                successModalView.doneCallback = { [weak self] in
+                    self?.dismissModalViewController()
+                }
+                self?.presentModal(with: successModalView)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         subscribeForConnectionChange()
+        UIApplication.shared.isIdleTimerDisabled = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         unsubscribeFromConnectionChange()
+        UIApplication.shared.isIdleTimerDisabled = false
     }
 }
 
@@ -155,9 +209,21 @@ extension FirmwareUpdateViewController {
         getManufacturerName()
         getHardwareRevision()
         getSoftwareRevision()
+        getFirmwareVersion()
         getModelNumber()
         getPrimaryBatteryPercentage()
         getMotorBatteryPercentage()
+    }
+
+    private func getFirmwareVersion() {
+        bluetoothService.getFirmwareRevision(onCompleted: { [weak self] result in
+            switch result {
+            case .success(let firmwareVersion):
+                self?.checkForUpdatesModal.firmwareVersion = firmwareVersion
+            case .failure:
+                os_log("Error: Failed to fetch firmware version from robot via bluetooth!")
+            }
+        })
     }
 
     private func getSerialNumber() {

@@ -26,6 +26,11 @@ final class CheckForUpdatesModal: UIView {
     @IBOutlet private weak var mainBatteryLabel: UILabel!
     @IBOutlet private weak var motorBatteryLabel: UILabel!
 
+    var checkForUpdateCallback: Callback?
+    var downloadAndUpdataCallback: Callback?
+
+    private var foundUpdate = false
+
     // MARK: - Properties
     var brainId: String = "" {
         didSet {
@@ -88,13 +93,15 @@ extension CheckForUpdatesModal {
 
 // MARK: - Public methods
 extension CheckForUpdatesModal {
-    func updateFound() {
+    func updateFound(version: String) {
         loadingIndicator.isHidden = true
         devInfoView.isHidden = true
+        versionLabel.isHidden = true
         updateView.isHidden = false
-        updateLabel.text = ModalKeys.FirmwareUpdate.downloadReady.translate(args: "3.2.0.0")
+        updateLabel.text = ModalKeys.FirmwareUpdate.downloadReady.translate(args: version)
         checkForUpdatesButton.setTitle(ModalKeys.FirmwareUpdate.downloadUpdate.translate(), for: .normal)
         checkForUpdatesButton.setImage(Image.downloadIcon, for: .normal)
+        foundUpdate = true
     }
 
     func upToDate() {
@@ -110,6 +117,12 @@ extension CheckForUpdatesModal {
 // MARK: - Event handler
 extension CheckForUpdatesModal {
     @IBAction private func checkForUpdatesTapped(_ sender: Any) {
-        loadingIndicator.isHidden = false
+        if foundUpdate {
+            loadingIndicator.isHidden = true
+            downloadAndUpdataCallback?()
+        } else {
+            loadingIndicator.isHidden = false
+            checkForUpdateCallback?()
+        }
     }
 }

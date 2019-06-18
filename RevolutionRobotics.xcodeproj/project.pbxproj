@@ -135,6 +135,8 @@
 		2A78388822C0BF9800423991 /* drivetrainTest.py in Resources */ = {isa = PBXBuildFile; fileRef = 2A78388722C0BF9800423991 /* drivetrainTest.py */; };
 		2A78388B22C0C08700423991 /* PortTestServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A78388A22C0C08700423991 /* PortTestServiceInterface.swift */; };
 		2A78388D22C0C10100423991 /* PortTestCodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A78388C22C0C10100423991 /* PortTestCodeService.swift */; };
+		2A78388F22C106A000423991 /* UpdatingFirmwareModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A78388E22C106A000423991 /* UpdatingFirmwareModalView.swift */; };
+		2A78389122C106C000423991 /* UpdatingFirmwareModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A78389022C106C000423991 /* UpdatingFirmwareModalView.xib */; };
 		2A7DDB0E22856BC500891DA6 /* ConfigurationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DDB0D22856BC500891DA6 /* ConfigurationDataModel.swift */; };
 		2A7DDB1022856DC200891DA6 /* PortMappingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DDB0F22856DC200891DA6 /* PortMappingDataModel.swift */; };
 		2A7DDB1222856FC800891DA6 /* MotorDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DDB1122856FC800891DA6 /* MotorDataModel.swift */; };
@@ -203,6 +205,7 @@
 		2AF8C762228069EC00CE1ACB /* RealmConnectorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8C761228069EC00CE1ACB /* RealmConnectorInterface.swift */; };
 		2AF8C76422806A1800CE1ACB /* RealmConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8C76322806A1800CE1ACB /* RealmConnector.swift */; };
 		2AFAA11222663111002BE0A2 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAA11122663111002BE0A2 /* UIImage+Color.swift */; };
+		2AFD41D222B90C3C00E29F74 /* FirmwareUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD41D122B90C3C00E29F74 /* FirmwareUpdate.swift */; };
 		2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */; };
 		D001FCAA22A7DDE9004C49F3 /* ChallengeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D001FCA822A7DDE9004C49F3 /* ChallengeDetailViewController.swift */; };
 		D001FCAB22A7DDE9004C49F3 /* ChallengeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D001FCA922A7DDE9004C49F3 /* ChallengeDetailViewController.xib */; };
@@ -468,6 +471,8 @@
 		2A78388722C0BF9800423991 /* drivetrainTest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = drivetrainTest.py; sourceTree = "<group>"; };
 		2A78388A22C0C08700423991 /* PortTestServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortTestServiceInterface.swift; sourceTree = "<group>"; };
 		2A78388C22C0C10100423991 /* PortTestCodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortTestCodeService.swift; sourceTree = "<group>"; };
+		2A78388E22C106A000423991 /* UpdatingFirmwareModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatingFirmwareModalView.swift; sourceTree = "<group>"; };
+		2A78389022C106C000423991 /* UpdatingFirmwareModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdatingFirmwareModalView.xib; sourceTree = "<group>"; };
 		2A7DDB0D22856BC500891DA6 /* ConfigurationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationDataModel.swift; sourceTree = "<group>"; };
 		2A7DDB0F22856DC200891DA6 /* PortMappingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortMappingDataModel.swift; sourceTree = "<group>"; };
 		2A7DDB1122856FC800891DA6 /* MotorDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorDataModel.swift; sourceTree = "<group>"; };
@@ -538,6 +543,7 @@
 		2AF8C761228069EC00CE1ACB /* RealmConnectorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConnectorInterface.swift; sourceTree = "<group>"; };
 		2AF8C76322806A1800CE1ACB /* RealmConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConnector.swift; sourceTree = "<group>"; };
 		2AFAA11122663111002BE0A2 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
+		2AFD41D122B90C3C00E29F74 /* FirmwareUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdate.swift; sourceTree = "<group>"; };
 		2B39E5F8B094B00B188CBF30 /* Pods-RevolutionRobotics.debug prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug prod.xcconfig"; sourceTree = "<group>"; };
 		2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Pods-RevolutionRobotics-settings-metadata.plist"; path = "../RevolutionRobotics/Resources/Settings/Settings.bundle/Pods-RevolutionRobotics-settings-metadata.plist"; sourceTree = "<group>"; };
 		43BC08A3B14DC91EF1DFAB7E /* Pods-RevolutionRobotics-metadata.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RevolutionRobotics-metadata.plist"; sourceTree = "<group>"; };
@@ -968,7 +974,6 @@
 				D0E3F88622B782E200B4D9F2 /* ProgramsModal */,
 				D0E3F88B22B7B09700B4D9F2 /* BlockContext */,
 				D0E3F89022B7D70000B4D9F2 /* ProgramDescription */,
-				D0241A1022B3BD82005E8DB2 /* ShowCode */,
 				D0241A1722B3E92A005E8DB2 /* TextInput */,
 				099DA56F22B78698005DCD60 /* LEDSelector */,
 				D0241A1022B3BD82005E8DB2 /* ShowCode */,
@@ -1321,6 +1326,7 @@
 				D05C64DC225F592400B7BF4F /* Sensor.swift */,
 				D05C64D8225F58E200B7BF4F /* Side.swift */,
 				D05C64C7225F570000B7BF4F /* TestCode.swift */,
+				2AFD41D122B90C3C00E29F74 /* FirmwareUpdate.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -1822,6 +1828,8 @@
 				D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModal.xib */,
 				D06C32762289BAE9005534C0 /* CheckForUpdatesModal.swift */,
 				D06C32782289BAF1005534C0 /* CheckForUpdatesModal.xib */,
+				2A78388E22C106A000423991 /* UpdatingFirmwareModalView.swift */,
+				2A78389022C106C000423991 /* UpdatingFirmwareModalView.xib */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -2142,6 +2150,7 @@
 				2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */,
 				0938897722B24DD900292B32 /* car_horn.mp3 in Resources */,
 				094F9DE02264CA7000BE118B /* RRNavigationBar.xib in Resources */,
+				2A78389122C106C000423991 /* UpdatingFirmwareModalView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2358,6 +2367,7 @@
 				2ADE8C3A2270A7A700ECEC72 /* CommunityKeys.swift in Sources */,
 				2AFAA11222663111002BE0A2 /* UIImage+Color.swift in Sources */,
 				2A3A75922292DD3A00ED9A1D /* ControllerButton.swift in Sources */,
+				2A78388F22C106A000423991 /* UpdatingFirmwareModalView.swift in Sources */,
 				2ADE8C362270A79300ECEC72 /* ProgramsKeys.swift in Sources */,
 				D0049A532271CC52007FA256 /* TurnOnBrainView.swift in Sources */,
 				2ABEF0E4228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift in Sources */,
@@ -2419,6 +2429,7 @@
 				2ADE8C382270A79E00ECEC72 /* SettingsKeys.swift in Sources */,
 				2A78388D22C0C10100423991 /* PortTestCodeService.swift in Sources */,
 				0938898822B26ED400292B32 /* UIColor+HEX.swift in Sources */,
+				2AFD41D222B90C3C00E29F74 /* FirmwareUpdate.swift in Sources */,
 				094FC5CE228C35E90085B407 /* GamerPadView.swift in Sources */,
 				0941075E2297E889000A658A /* ProgramSelectorViewController.swift in Sources */,
 				D0BF25702282C6E000F08C9C /* PlayControllerViewController.swift in Sources */,
