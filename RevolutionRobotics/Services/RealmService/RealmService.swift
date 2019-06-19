@@ -175,6 +175,10 @@ extension RealmService: RealmServiceInterface {
         realmConnector.save(objects: programs, shouldUpdate: true)
     }
 
+    func deleteProgram(_ program: ProgramDataModel) {
+        return realmConnector.delete(object: program)
+    }
+
     func saveProgramBindings(_ bindings: [ProgramBindingDataModel]) {
         realmConnector.save(objects: bindings, shouldUpdate: false)
     }
