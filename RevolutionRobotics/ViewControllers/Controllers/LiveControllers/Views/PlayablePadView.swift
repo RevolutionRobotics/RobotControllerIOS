@@ -16,7 +16,7 @@ protocol PlayablePadView: UIView {
     var verticalPositionChanged: CallbackType<CGFloat>? { get set }
     var buttonTapped: CallbackType<PressedPadButton>? { get set }
 
-    func configure(programs: [Program?])
+    func configure(programs: [ProgramDataModel?])
 }
 
 extension PlayablePadView {
@@ -25,7 +25,7 @@ extension PlayablePadView {
         verticalPositionChanged?(position.y)
     }
 
-    func connectButtonHandling(at index: Int, program: Program, to button: PadButton) {
+    func connectButtonHandling(at index: Int, program: ProgramDataModel, to button: PadButton) {
         button.setup(title: program.name) { [weak self] pressed in
             self?.buttonTapped?((index: index, pressed: pressed))
         }

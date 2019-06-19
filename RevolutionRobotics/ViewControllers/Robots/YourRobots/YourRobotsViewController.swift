@@ -161,13 +161,12 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
 
     private func navigateToPlayControllerViewController(with robot: UserRobot) {
         guard let configuration = realmService.getConfiguration(id: robot.configId),
-            let controller = realmService.getController(id: configuration.controller),
-            let type = ControllerType(rawValue: controller.type) else {
+            let controller = realmService.getController(id: configuration.controller) else {
                 return
         }
 
         let playController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
-        playController.controllerType = type
+        playController.controllerDataModel = controller
         navigationController?.pushViewController(playController, animated: true)
     }
 

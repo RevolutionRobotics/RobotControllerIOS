@@ -1804,8 +1804,8 @@
 				D0E3F88E22B7B0B300B4D9F2 /* BlockContextView.xib */,
 			);
 			path = BlockContext;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		D0E3F89022B7D70000B4D9F2 /* ProgramDescription */ = {
 			isa = PBXGroup;
 			children = (

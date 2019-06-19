@@ -167,7 +167,7 @@ extension ScreenAssembly {
         container
             .register(PlayControllerViewController.self, factory: { _ in return PlayControllerViewController() })
             .initCompleted { (resolver, playControllerViewController) in
-                playControllerViewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)
+                playControllerViewController.realmService = resolver.resolve(RealmServiceInterface.self)
                 playControllerViewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)
             }
             .inObjectScope(.weak)
