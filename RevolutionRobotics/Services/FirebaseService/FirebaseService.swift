@@ -48,8 +48,22 @@ extension FirebaseService: FirebaseServiceInterface {
                     programs.forEach({ program in
                         let dataModel = ProgramDataModel(program: program)
                         dataModels.append(dataModel)
-                        Storage.storage().store(resourceName: program.xml, as: dataModel.xmlFileName)
-                        Storage.storage().store(resourceName: program.python, as: dataModel.pythonFileName)
+                        Storage.storage().reference(forURL: program.python).downloadURL(completion: { (url, error) in
+                            guard error == nil, let url = url else { return }
+                            realmService.updateObject(closure: {
+                                do {
+                                    dataModel.python = try Data(contentsOf: url).base64EncodedString()
+                                } catch { }
+                            })
+                        })
+                        Storage.storage().reference(forURL: program.xml).downloadURL(completion: { (url, error) in
+                            guard error == nil, let url = url else { return }
+                            realmService.updateObject(closure: {
+                                do {
+                                    dataModel.xml = try Data(contentsOf: url).base64EncodedString()
+                                } catch { }
+                            })
+                        })
                     })
                     realmService.savePrograms(programs: dataModels)
                 }

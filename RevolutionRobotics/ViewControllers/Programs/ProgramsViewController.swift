@@ -71,16 +71,14 @@ extension ProgramsViewController {
         guard let program = selectedProgram else {
             return
         }
-        guard !program.xmlFileName.isEmpty, !program.pythonFileName.isEmpty, !program.variableNames.isEmpty else {
-            return
-        }
+
         if let programDataModel = realmService.getProgram(id: program.id) {
             realmService.updateObject {
-                programDataModel.xmlFileName = program.xmlFileName
-                programDataModel.pythonFileName = program.pythonFileName
                 programDataModel.variableNames = program.variableNames
                 programDataModel.lastModified = Date()
                 programDataModel.customDescription = program.customDescription
+                programDataModel.xml = program.xml
+                programDataModel.python = program.python
             }
         } else {
             realmService.savePrograms(programs: [program])
@@ -108,14 +106,9 @@ extension ProgramsViewController {
         descriptionModal.setup(with: program)
         descriptionModal.loadCallback = { [weak self] in
             self?.dismissModalViewController()
-            guard let data = FileManager.default.open(name: program.xmlFileName) else {
-                return
-            }
-            guard let xmlString = String(data: data, encoding: .utf8) else {
-                return
-            }
             self?.selectedProgram = program
-            self?.blocklyViewController.loadProgram(xml: xmlString)
+            let xmlString = String(data: Data(base64Encoded: program.xml)!, encoding: .utf8)
+            self?.blocklyViewController.loadProgram(xml: xmlString ?? "")
             self?.prefillProgram()
             self?.setupButtons()
         }
@@ -259,10 +252,10 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
         let variableList = variables.components(separatedBy: ",")
         if let programDataModel = realmService.getProgram(id: program.id) {
             realmService.updateObject {
-                programDataModel.variableNames.append(objectsIn: variableList)
+                programDataModel.variableNames.append(objectsIn: variableList.filter({ !$0.isEmpty }))
             }
         } else {
-            program.variableNames.append(objectsIn: variableList)
+            program.variableNames.append(objectsIn: variableList.filter({ !$0.isEmpty }))
             saveProgram()
         }
     }
@@ -277,28 +270,20 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
             }
             presentModal(with: modal)
         } else {
-            guard let program = selectedProgram else {
-                return
-            }
-            let data = pythonCode.data(using: .utf8)
-            FileManager.default.save(data, as: program.pythonFileNameForSave)
-            if realmService.getProgram(id: program.id) == nil {
-                program.pythonFileName = program.pythonFileNameForSave
-                saveProgram()
-            }
+            guard let program = selectedProgram else { return }
+
+            realmService.updateObject(closure: {
+                program.python = pythonCode.data(using: .utf8)?.base64EncodedString() ?? ""
+            })
         }
     }
 
     func onXMLProgramSaved(xmlCode: String) {
-        guard let program = selectedProgram, !showCode else {
-            return
-        }
-        let data = xmlCode.data(using: .utf8)
-        FileManager.default.save(data, as: program.xmlFileNameForSave)
-        if realmService.getProgram(id: program.id) == nil {
-            program.xmlFileName = program.xmlFileNameForSave
-            saveProgram()
-        }
+        guard let program = selectedProgram, !showCode else { return }
+
+        realmService.updateObject(closure: {
+            program.xml = xmlCode.data(using: .utf8)?.base64EncodedString() ?? ""
+        })
     }
 }
 

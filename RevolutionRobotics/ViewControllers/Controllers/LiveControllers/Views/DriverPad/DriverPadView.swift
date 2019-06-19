@@ -11,7 +11,7 @@ import UIKit
 final class DriverPadView: UIView, PlayablePadView {
     // MARK: - Constants
     private enum Constants {
-        static let defaultSliderValue: Float = 128.0
+        static let defaultSliderValue: Float = 127.0
         static let rotationAngle = -(CGFloat.pi / 2)
         static let animationDuration = 0.2
     }

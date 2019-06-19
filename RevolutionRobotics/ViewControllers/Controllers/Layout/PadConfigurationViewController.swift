@@ -24,12 +24,16 @@ final class PadConfigurationViewController: BaseViewController {
     @IBOutlet private weak var containerView: UIView!
 
     // MARK: - Properties
-    var controllerType: ControllerType = .gamer
+    var controllerType: ControllerType?
     var configurationView: ConfigurableControllerView!
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
     var configurationId: String?
-    var selectedController: ControllerDataModel?
+    var selectedController: ControllerDataModel? {
+        didSet {
+            self.controllerType = ControllerType(rawValue: (selectedController?.type)!)
+        }
+    }
 
     // MARK: - Private
     private var programs: [ProgramDataModel] = []
@@ -62,6 +66,8 @@ extension PadConfigurationViewController {
         viewModel.name = selectedController?.name ?? ""
         viewModel.customDesctiprion = selectedController?.controllerDescription ?? ""
         viewModel.id = selectedController?.id ?? UUID().uuidString
+        viewModel.configurationId = configurationId ?? ""
+        viewModel.type = controllerType ?? ControllerType(rawValue: (selectedController?.type)!)
 
         if selectedController != nil {
             prefillData()
@@ -191,7 +197,12 @@ extension PadConfigurationViewController {
 // MARK: - Presentation
 extension PadConfigurationViewController {
     private func isProgramCompatible(_ program: ProgramDataModel) -> Bool {
-        let variableNames = realmService.getConfiguration(id: configurationId)?.mapping?.variableNames ?? []
+        guard let variableNames = realmService.getConfiguration(id: configurationId)?.mapping?.variableNames else {
+            return false
+        }
+        if variableNames.isEmpty {
+            return true
+        }
         return Set(program.variableNames).isSubset(of: Set(variableNames))
     }
 
@@ -277,6 +288,7 @@ extension PadConfigurationViewController {
     }
 
     private func instantiateConfigurationView() {
+        guard let controllerType = controllerType else { return }
         switch controllerType {
         case .gamer:
             configurationView = GamerConfigurationView.instatiate()

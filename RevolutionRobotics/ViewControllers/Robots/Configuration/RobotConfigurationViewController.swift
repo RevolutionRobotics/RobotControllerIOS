@@ -510,7 +510,7 @@ extension RobotConfigurationViewController {
                     switch result {
                     case .success(let devices):
                         modalPresenter.discoveredDevices = devices
-                    case .failure(let error):
+                    case .failure:
                         os_log("Error: Failed to discover peripherals!")
                     }
                 })
