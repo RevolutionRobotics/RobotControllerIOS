@@ -160,18 +160,15 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
     }
 
     private func navigateToPlayControllerViewController(with robot: UserRobot) {
+        guard let configuration = realmService.getConfiguration(id: robot.configId),
+            let controller = realmService.getController(id: configuration.controller),
+            let type = ControllerType(rawValue: controller.type) else {
+                return
+        }
+
         let playController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
-        firebaseService.getController(
-            for: robot.configId,
-            completion: { [weak self] result in
-                switch result {
-                case .success(let controller):
-                    playController.controllerType = controller.type
-                    self?.navigationController?.pushViewController(playController, animated: true)
-                case .failure:
-                    os_log("Error: Failed to fetch controllers from Firebase!")
-                }
-        })
+        playController.controllerType = type
+        navigationController?.pushViewController(playController, animated: true)
     }
 
     private func navigateToBuildYourRobotViewController(with robot: UserRobot) {
