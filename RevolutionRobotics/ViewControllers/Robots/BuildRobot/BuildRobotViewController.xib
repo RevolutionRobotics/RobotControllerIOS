@@ -86,7 +86,7 @@
                     <viewLayoutGuide key="safeArea" id="84e-T7-lRU"/>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="UXT-Hc-TIW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="39U-y2-JzF"/>
                 <constraint firstItem="sjN-3g-Kcz" firstAttribute="top" secondItem="IxG-51-Oet" secondAttribute="bottom" constant="8" id="6nK-Xx-TX9"/>
