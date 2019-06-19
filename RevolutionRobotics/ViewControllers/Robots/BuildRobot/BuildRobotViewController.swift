@@ -118,20 +118,7 @@ extension BuildRobotViewController {
                     self?.updateStoredRobot(step: currentStep.stepNumber)
                 }
                 self?.dismissModalViewController()
-                guard let configId = self?.storedRobotDataModel?.configId else { return }
-                self?.firebaseService.getController(
-                    for: configId,
-                    completion: { [weak self] result in
-                        switch result {
-                        case .success(let controller):
-                            let playController =
-                                AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
-                            playController.controllerType = controller.type
-                            self?.navigationController?.pushViewController(playController, animated: true)
-                        case .failure:
-                            os_log("Error: Failed to fetch controllers from Firebase!")
-                        }
-                })
+                self?.navigateToPlayViewController()
             }
             self?.presentModal(with: buildFinishedModal)
         }
@@ -142,6 +129,16 @@ extension BuildRobotViewController {
             }
             self?.setupChapterFinishedModal(with: milestone)
         }
+    }
+
+    private func navigateToPlayViewController() {
+        guard let configId = storedRobotDataModel?.configId,
+            let configuration = realmService.getConfiguration(id: configId),
+            let controller = realmService.getController(id: configuration.controller) else { return }
+
+        let playViewController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
+        playViewController.controllerDataModel = controller
+        navigationController?.pushViewController(playViewController, animated: true)
     }
 
     private func setupStackView() {

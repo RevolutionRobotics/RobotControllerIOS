@@ -17,12 +17,11 @@ final class PlayControllerViewController: BaseViewController {
     @IBOutlet private weak var editButton: UIButton!
 
     // MARK: - Properties
-    var firebaseService: FirebaseServiceInterface!
+    var realmService: RealmServiceInterface!
     var bluetoothService: BluetoothServiceInterface!
-    var controllerType: ControllerType = .gamer
-    var controllerId: String?
+    var controllerDataModel: ControllerDataModel?
     private var padView: PlayablePadView!
-    private var programs: [Program?] = [] {
+    private var programs: [ProgramDataModel?] = [] {
         didSet {
             configurePadView()
         }
@@ -63,7 +62,11 @@ extension PlayControllerViewController {
 // MARK: - Setup
 extension PlayControllerViewController {
     private func setupPadView() {
-        switch controllerType {
+        guard let typeString = controllerDataModel?.type,
+            let type = ControllerType(rawValue: typeString) else {
+                return
+        }
+        switch type {
         case .gamer:
             padView = GamerPadView.instatiate()
         case .driver:
@@ -96,19 +99,19 @@ extension PlayControllerViewController {
 // MARK: - Data fetching
 extension PlayControllerViewController {
     private func fetchPrograms() {
-//        guard let controllerId = controllerId else {
-//            programs = []
-//            return
-//        }
-        firebaseService.getPrograms(for: "0", completion: { [weak self] result in
-            switch result {
-            case .success(let programs):
-                self?.programs = programs
-            case .failure:
-                let alert = UIAlertController.errorAlert(type: .network)
-                self?.present(alert, animated: true, completion: nil)
-            }
-        })
+        let b1Program = realmService.getProgram(id: controllerDataModel?.mapping?.b1?.programId) ??
+            realmService.getProgram(remoteId: controllerDataModel?.mapping?.b1?.programId)
+        let b2Program = realmService.getProgram(id: controllerDataModel?.mapping?.b2?.programId) ??
+            realmService.getProgram(remoteId: controllerDataModel?.mapping?.b2?.programId)
+        let b3Program = realmService.getProgram(id: controllerDataModel?.mapping?.b3?.programId) ??
+            realmService.getProgram(remoteId: controllerDataModel?.mapping?.b3?.programId)
+        let b4Program = realmService.getProgram(id: controllerDataModel?.mapping?.b4?.programId) ??
+            realmService.getProgram(remoteId: controllerDataModel?.mapping?.b4?.programId)
+        let b5Program = realmService.getProgram(id: controllerDataModel?.mapping?.b5?.programId) ??
+            realmService.getProgram(remoteId: controllerDataModel?.mapping?.b5?.programId)
+        let b6Program = realmService.getProgram(id: controllerDataModel?.mapping?.b6?.programId) ??
+            realmService.getProgram(remoteId: controllerDataModel?.mapping?.b6?.programId)
+        programs = [b1Program, b2Program, b3Program, b4Program, b5Program, b6Program]
     }
 }
 
