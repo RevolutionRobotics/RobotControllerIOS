@@ -138,7 +138,9 @@ extension BuildRobotViewController {
 
         let playViewController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
         playViewController.controllerDataModel = controller
-        navigationController?.pushViewController(playViewController, animated: true)
+        var viewControllers = [navigationController!.viewControllers[0]]
+        viewControllers.append(playViewController)
+        navigationController?.setViewControllers(viewControllers, animated: true)
     }
 
     private func setupStackView() {
