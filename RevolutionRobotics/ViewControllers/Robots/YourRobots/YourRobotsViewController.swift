@@ -193,6 +193,10 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
         guard let robot = robot else { return }
         let configuration = AppContainer.shared.container.unwrappedResolve(RobotConfigurationViewController.self)
         configuration.selectedRobot = robot
+        configuration.saveCallback = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+            self?.collectionView.reloadData()
+        }
         navigationController?.pushViewController(configuration, animated: true)
     }
 }
