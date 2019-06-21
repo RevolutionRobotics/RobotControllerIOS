@@ -70,6 +70,9 @@ final class RobotConfigurationViewController: BaseViewController {
     }
     private var lastSelectedIndexPath: IndexPath?
 
+    // MARK: - Callbacks
+    var saveCallback: Callback?
+
     var selectedRobot: UserRobot? {
         didSet {
             configuration = realmService.getConfiguration(id: selectedRobot?.configId)
@@ -353,7 +356,7 @@ extension RobotConfigurationViewController {
             self?.updateConfiguration(on: robot, name: data.name, description: data.description)
             FileManager.default.save(self?.robotImage, as: robot.id)
             self?.dismissModalViewController()
-            self?.navigationController?.popViewController(animated: true)
+            self?.saveCallback?()
         }
         presentModal(with: modal)
     }
