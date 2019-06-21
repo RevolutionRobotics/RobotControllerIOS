@@ -54,4 +54,7 @@ enum ProgramsKeys {
     }
 
     static let programOrderTitle = "program_priority_screen_title"
+    static let navigateBackTitle = "program_confirm_title"
+    static let navigateBackDescription = "program_confirm_description"
+    static let navigateBackPositive = "program_confirm_positive"
 }

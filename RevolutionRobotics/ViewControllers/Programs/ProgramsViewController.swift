@@ -305,7 +305,16 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 // MARK: - Actions
 extension ProgramsViewController {
     @IBAction private func backButtonTapped(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        let alert = UIAlertController(title: ProgramsKeys.navigateBackTitle.translate(),
+                                      message: ProgramsKeys.navigateBackDescription.translate(),
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: CommonKeys.no.translate(), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: ProgramsKeys.navigateBackPositive.translate(),
+                                      style: .destructive,
+                                      handler: { [weak self] _ in
+                                        self?.navigationController?.popViewController(animated: true)
+        }))
+        present(alert, animated: true)
     }
 
     @IBAction private func programCodeButtonTapped(_ sender: UIButton) {

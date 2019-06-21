@@ -13,6 +13,7 @@
 "error_general" = "Something went wrong, please try again";
 "error_test_code_upload" = "Test code upload error";
 "done" = "Done";
+"no" = "No";
 
 // MARK: - Menu
 "menu_robots_title" = "robots";
@@ -133,6 +134,9 @@
 "dialog_save_program_description" = "Description";
 "dialog_save_program_description_hint" = "Tap here and add a hint to remember when to use it!";
 "error_program_already_in_use" = "Program name is already in use.";
+"program_confirm_title" = "Would you like to leave the editor?";
+"program_confirm_description" = "All your unsaved changes will be lost.";
+"program_confirm_positive" = "Leave";
 
 // MARK: - Settings
 "settings_screen_title" = "Settings";
