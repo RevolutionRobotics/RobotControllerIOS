@@ -44,5 +44,14 @@ enum ProgramsKeys {
         static let load = "program_info_load_program"
     }
 
+    enum SaveProgram {
+        static let title = "dialog_save_program_title"
+        static let nameTitle = "dialog_save_program_name"
+        static let namePlaceholder = "dialog_save_program_name_hint"
+        static let descriptionTitle = "dialog_save_program_description"
+        static let descriptionPlaceholder = "dialog_save_program_description_hint"
+        static let nameInUse = "error_program_already_in_use"
+    }
+
     static let programOrderTitle = "program_priority_screen_title"
 }

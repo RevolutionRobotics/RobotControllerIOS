@@ -24,6 +24,12 @@ final class ProgramDataModel: Object {
     @objc dynamic var xmlFileName: String = ""
     @objc dynamic var pythonFileName: String = ""
     var variableNames: List<String> = List<String>()
+    dynamic var xmlFileNameForSave: String {
+        return xmlFileName.isEmpty ? (id + Constants.xmlPostfix) : xmlFileName
+    }
+    dynamic var pythonFileNameForSave: String {
+        return pythonFileName.isEmpty ? (id + Constants.pythonPostfix) : pythonFileName
+    }
 
     convenience init(program: Program) {
         self.init()
@@ -40,6 +46,11 @@ final class ProgramDataModel: Object {
             list.append(variable)
         }
         variableNames = list
+    }
+
+    convenience init(id: String) {
+        self.init()
+        self.id = id
     }
 
     override static func primaryKey() -> String? {

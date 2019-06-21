@@ -26,5 +26,6 @@ protocol RealmServiceInterface: class {
     func getProgram(id: String?) -> ProgramDataModel?
     func getProgram(remoteId: String?) -> ProgramDataModel?
     func savePrograms(programs: [ProgramDataModel])
+    func deleteProgram(_ program: ProgramDataModel)
     func saveProgramBindings(_ bindings: [ProgramBindingDataModel])
 }

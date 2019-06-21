@@ -39,6 +39,11 @@ extension ProgramDescriptionView {
         titleLabel.text = program.name
         descriptionLabel.text = program.customDescription
         lastModifiedLabel.text = DateFormatter.string(from: program.lastModified, format: .yearMonthDay)
+        guard !program.remoteId.isEmpty else {
+            return
+        }
+        deleteButton.removeFromSuperview()
+        loadButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.bottomLeft, .topRight])
     }
 }
 

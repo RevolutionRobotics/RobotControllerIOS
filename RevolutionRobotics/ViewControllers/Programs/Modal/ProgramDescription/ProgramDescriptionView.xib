@@ -36,9 +36,6 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKf-Wu-2TD" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="4" y="190" width="225.5" height="46"/>
                     <color key="backgroundColor" name="Black26"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="46" id="ag7-T7-6ld"/>
-                    </constraints>
                     <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
                     <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -50,6 +47,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppF-kP-rTR" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="230.5" y="190" width="225.5" height="46"/>
                     <color key="backgroundColor" name="BlackTwo"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="B7T-6o-R5Z"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
                     <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -88,9 +88,10 @@
                 <constraint firstItem="JlP-wP-G7f" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="JeP-kZ-fJZ"/>
                 <constraint firstItem="zng-rS-pin" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="JhV-kw-hgI"/>
                 <constraint firstAttribute="bottom" secondItem="OKf-Wu-2TD" secondAttribute="bottom" constant="4" id="L1u-Ct-7qA"/>
-                <constraint firstItem="OKf-Wu-2TD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DLo-TN-8JN" secondAttribute="bottom" constant="16" id="VnY-4J-bqK"/>
+                <constraint firstItem="ppF-kP-rTR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DLo-TN-8JN" secondAttribute="bottom" constant="16" id="VnY-4J-bqK"/>
                 <constraint firstItem="CZa-cx-UMa" firstAttribute="centerY" secondItem="DLo-TN-8JN" secondAttribute="centerY" id="cg6-7O-kOX"/>
                 <constraint firstAttribute="trailing" secondItem="zng-rS-pin" secondAttribute="trailing" constant="32" id="dPy-VJ-twZ"/>
+                <constraint firstItem="ppF-kP-rTR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" priority="750" constant="4" id="eQ7-hY-vad"/>
                 <constraint firstItem="zng-rS-pin" firstAttribute="top" secondItem="JlP-wP-G7f" secondAttribute="bottom" constant="16" id="gNS-pf-OuM"/>
                 <constraint firstItem="DLo-TN-8JN" firstAttribute="top" secondItem="zng-rS-pin" secondAttribute="bottom" constant="16" id="gZu-gk-kbU"/>
                 <constraint firstItem="JlP-wP-G7f" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nVd-0Q-QcT"/>
