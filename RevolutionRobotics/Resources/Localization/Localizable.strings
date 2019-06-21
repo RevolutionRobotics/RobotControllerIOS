@@ -210,7 +210,7 @@
 
 "save_robot_dialog_title" = "The robot is ready, name it!";
 "save_robot_dialog_name_title" = "Robot name";
-"save_robot_dialog_description_hint" = "Click and add a hint to remember when to use the robot!";
+"save_robot_dialog_description_hint" = "Add a hint to remember when to use the robot!";
 "save_robot_dialog_name_hint" = "Click here and name the robot!";
 "save_dialog_description_title" = "Description";
 "save_dialog_done" = "Done";
