@@ -71,6 +71,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - PieCharts (0.0.7)
   - Realm (3.14.2):
     - Realm/Headers (= 3.14.2)
   - Realm/Headers (3.14.2)
@@ -92,6 +93,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - Kingfisher (~> 5.3.1)
+  - PieCharts (~> 0.0.7)
   - RealmSwift (~> 3.14.1)
   - "RevolutionRoboticsBlockly (from `git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git`, branch `development`)"
   - "RevolutionRoboticsBluetooth (from `git@gitlab.supercharge.io:revolutionrobotics/bluetooth-ios.git`, branch `development`)"
@@ -117,6 +119,7 @@ SPEC REPOS:
     - Kingfisher
     - leveldb-library
     - nanopb
+    - PieCharts
     - Realm
     - RealmSwift
     - SwiftLint
@@ -164,6 +167,7 @@ SPEC CHECKSUMS:
   Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  PieCharts: 30e50dfa7dc19e5b84e9878d32089673ef5d0453
   Realm: 179c6706e3a49dbfe112e572fd3c03d3169bea35
   RealmSwift: 1797f272fb51c555b764fada32e82159a2c65247
   RevolutionRoboticsBlockly: d44590882291ff155337656deb4bd0574e506a82
@@ -173,6 +177,6 @@ SPEC CHECKSUMS:
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
 
-PODFILE CHECKSUM: 58fe07062ad0e2ddeca52d77e5f03fbf1223d568
+PODFILE CHECKSUM: 2d899d16d16a50d2fb5f941cb3617b31f2bb3cc1
 
 COCOAPODS: 1.6.1

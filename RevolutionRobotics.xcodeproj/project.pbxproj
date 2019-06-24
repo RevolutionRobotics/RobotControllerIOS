@@ -86,6 +86,8 @@
 		0985495C2271D44500A7C2DC /* UIImageView+GoogleStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985495B2271D44500A7C2DC /* UIImageView+GoogleStorage.swift */; };
 		09994319228DBA6500D87385 /* ProgramInfoModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09994317228DBA6500D87385 /* ProgramInfoModal.xib */; };
 		0999431A228DBA6500D87385 /* ProgramInfoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09994318228DBA6500D87385 /* ProgramInfoModal.swift */; };
+		099DA57122B786AF005DCD60 /* LEDSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DA57022B786AF005DCD60 /* LEDSelectorView.swift */; };
+		099DA57322B786B7005DCD60 /* LEDSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099DA57222B786B7005DCD60 /* LEDSelectorView.xib */; };
 		09C3874D226F32F70097619D /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C3874C226F32F70097619D /* UIView+Anchor.swift */; };
 		09C38753226F38F40097619D /* Jura-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09C38752226F38F40097619D /* Jura-Regular.ttf */; };
 		09C38755226F3ABC0097619D /* Barlow-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09C38754226F3ABC0097619D /* Barlow-Medium.ttf */; };
@@ -420,6 +422,8 @@
 		0985495B2271D44500A7C2DC /* UIImageView+GoogleStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+GoogleStorage.swift"; sourceTree = "<group>"; };
 		09994317228DBA6500D87385 /* ProgramInfoModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgramInfoModal.xib; sourceTree = "<group>"; };
 		09994318228DBA6500D87385 /* ProgramInfoModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramInfoModal.swift; sourceTree = "<group>"; };
+		099DA57022B786AF005DCD60 /* LEDSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDSelectorView.swift; sourceTree = "<group>"; };
+		099DA57222B786B7005DCD60 /* LEDSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LEDSelectorView.xib; sourceTree = "<group>"; };
 		09C3874C226F32F70097619D /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
 		09C38752226F38F40097619D /* Jura-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Regular.ttf"; sourceTree = "<group>"; };
 		09C38754226F3ABC0097619D /* Barlow-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Medium.ttf"; sourceTree = "<group>"; };
@@ -966,6 +970,8 @@
 				D0E3F89022B7D70000B4D9F2 /* ProgramDescription */,
 				D0241A1022B3BD82005E8DB2 /* ShowCode */,
 				D0241A1722B3E92A005E8DB2 /* TextInput */,
+				099DA56F22B78698005DCD60 /* LEDSelector */,
+				D0241A1022B3BD82005E8DB2 /* ShowCode */,
 				0965765022AFCC9E00A50C8E /* ColorSelector */,
 				0965766022AFEE5D00A50C8E /* DialpadInput */,
 				0972843D22B3950D007A7FE1 /* DriveDirectionSelector */,
@@ -976,6 +982,15 @@
 				0972844222B3BDB8007A7FE1 /* VariableContext */,
 			);
 			path = Modal;
+			sourceTree = "<group>";
+		};
+		099DA56F22B78698005DCD60 /* LEDSelector */ = {
+			isa = PBXGroup;
+			children = (
+				099DA57022B786AF005DCD60 /* LEDSelectorView.swift */,
+				099DA57222B786B7005DCD60 /* LEDSelectorView.xib */,
+			);
+			path = LEDSelector;
 			sourceTree = "<group>";
 		};
 		09C38756226F58180097619D /* CustomView */ = {
@@ -2111,6 +2126,7 @@
 				2ABCB648229E912D0081B51B /* MenuTutorialViewController.xib in Resources */,
 				09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */,
 				2A78388422C0BF6700423991 /* ultrasonicTest.py in Resources */,
+				099DA57322B786B7005DCD60 /* LEDSelectorView.xib in Resources */,
 				0964798122686DE000F68456 /* WhoToBuildViewController.xib in Resources */,
 				D001FCB422A92F7D004C49F3 /* ChallengeFinishedModal.xib in Resources */,
 				D0E3F89422B7D99A00B4D9F2 /* ProgramDescriptionView.xib in Resources */,
@@ -2145,6 +2161,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/PieCharts/PieCharts.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RevolutionRoboticsBlockly/RevolutionRoboticsBlockly.framework",
@@ -2163,6 +2180,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PieCharts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevolutionRoboticsBlockly.framework",
@@ -2312,6 +2330,7 @@
 				0999431A228DBA6500D87385 /* ProgramInfoModal.swift in Sources */,
 				2ABEF0DF228EA19E00AF87AC /* BlutoothService.swift in Sources */,
 				09ED1BA9225247B1009CF262 /* MenuViewController.swift in Sources */,
+				099DA57122B786AF005DCD60 /* LEDSelectorView.swift in Sources */,
 				2A473776229F0F8500641B07 /* UserDefaults+Constants.swift in Sources */,
 				2A7DDB0E22856BC500891DA6 /* ConfigurationDataModel.swift in Sources */,
 				D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */,
