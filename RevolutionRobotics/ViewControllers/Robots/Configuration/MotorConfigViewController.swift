@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenu
+import os
 
 final class MotorConfigViewController: BaseViewController {
     // MARK: - Outlets
@@ -43,8 +44,11 @@ final class MotorConfigViewController: BaseViewController {
     var screenDismissed: Callback?
     var name: String?
     var prohibitedNames: [String] = []
+    var bluetoothService: BluetoothServiceInterface!
+    var testCodeService: PortTestCodeServiceInterface!
 
     private var shouldCallDismiss = true
+    private var shouldStartTestProcess = false
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -248,6 +252,51 @@ extension MotorConfigViewController {
         clockwiseButton.set(selected: false)
         counterclockwiseButton.set(selected: false)
     }
+
+    private func presentTestingModal() {
+        let modal = TestingModal.instatiate()
+        modal.positiveButtonTapped = { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
+        modal.negativeButtonTapped = { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
+        presentModal(with: modal)
+    }
+
+    private func startPortTest() {
+        var testCode = ""
+        switch selectedMotorState {
+        case .motor(let rotation):
+            testCode = testCodeService.motorTestCode(for: portNumber, direction: rotation)
+        case .drivetrain(let side, let rotation):
+            testCode = testCodeService.drivatrainTestCode(for: portNumber, direction: rotation, side: side)
+        default: break
+        }
+
+        bluetoothService.testKit(data: testCode, onCompleted: nil)
+    }
+
+    private func presentConnectModal() {
+        let modalPresenter = BluetoothConnectionModalPresenter()
+        modalPresenter.present(
+            on: self,
+            startDiscoveryHandler: { [weak self] in
+                self?.bluetoothService.startDiscovery(onScanResult: { result in
+                    switch result {
+                    case .success(let devices):
+                        modalPresenter.discoveredDevices = devices
+                    case .failure:
+                        os_log("Error: Failed to discover peripherals!")
+                    }
+                })
+
+            },
+            deviceSelectionHandler: { [weak self] device in
+                self?.bluetoothService.connect(to: device)
+            },
+            nextStep: nil)
+    }
 }
 
 // MARK: - Button validation
@@ -264,14 +313,13 @@ extension MotorConfigViewController {
 // MARK: - Actions
 extension MotorConfigViewController {
     @IBAction private func testButtonTapped(_ sender: Any) {
-        let modal = TestingModal.instatiate()
-        modal.positiveButtonTapped = { [weak self] in
-            self?.dismiss(animated: true, completion: nil)
+        if bluetoothService.connectedDevice != nil {
+            startPortTest()
+            presentTestingModal()
+        } else {
+            shouldStartTestProcess = true
+            presentConnectModal()
         }
-        modal.negativeButtonTapped = { [weak self] in
-            self?.dismiss(animated: true, completion: nil)
-        }
-        presentModal(with: modal)
     }
 
     @IBAction private func doneButtonTapped(_ sender: Any) {

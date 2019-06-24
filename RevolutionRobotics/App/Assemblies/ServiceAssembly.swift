@@ -14,6 +14,7 @@ final class ServiceAssembly: Assembly {
         registerRealmConnector(to: container)
         registerRealmService(to: container)
         registerBluetoothService(to: container)
+        registerPortTestCodeService(to: container)
     }
 }
 
@@ -42,6 +43,12 @@ extension ServiceAssembly {
     private func registerBluetoothService(to container: Container) {
         container
             .register(BluetoothServiceInterface.self, factory: { _ in return BluetoothService() })
+            .inObjectScope(.container)
+    }
+
+    private func registerPortTestCodeService(to container: Container) {
+        container
+            .register(PortTestCodeServiceInterface.self, factory: { _ in return PortTestCodeService() })
             .inObjectScope(.container)
     }
 }

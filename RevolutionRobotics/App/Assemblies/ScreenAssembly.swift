@@ -154,6 +154,10 @@ extension ScreenAssembly {
     private func registerMotorConfigViewController(to container: Container) {
         container
             .register(MotorConfigViewController.self, factory: { _ in return MotorConfigViewController() })
+            .initCompleted { (resolver, viewController) in
+                viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)
+                viewController.testCodeService = resolver.resolve(PortTestCodeServiceInterface.self)
+            }
             .inObjectScope(.transient)
     }
 
@@ -162,6 +166,7 @@ extension ScreenAssembly {
             .register(SensorConfigViewController.self, factory: { _ in return SensorConfigViewController() })
             .initCompleted { (resolver, viewController) in
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)
+                viewController.testCodeService = resolver.resolve(PortTestCodeServiceInterface.self)
             }
             .inObjectScope(.transient)
     }
