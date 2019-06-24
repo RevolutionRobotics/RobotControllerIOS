@@ -33,7 +33,7 @@ extension UIImageView {
             case .success(let imageURL):
                 let resource = ImageResource(downloadURL: imageURL, cacheKey: googleStorageURL)
                 self?.kf.setImage(with: resource, placeholder: nil, options: [.targetCache(ImageCache.default)])
-            case .failure(let failure):
+            case .failure:
                 os_log("Error: Could not fetch image from Firebase!")
                 self?.image = Image.Common.imagePlaceholder
             }
@@ -65,7 +65,7 @@ extension UIImageView {
                     DispatchQueue.main.async {
                         self?.image = image
                     }
-                case .failure(let error):
+                case .failure:
                     os_log("Error: Could not fetch image from cache!")
                 }
         })

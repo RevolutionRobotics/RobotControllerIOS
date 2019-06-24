@@ -167,6 +167,22 @@ extension FirebaseService: FirebaseServiceInterface {
     func getChallengeCategories(completion: CallbackType<Result<[ChallengeCategory], FirebaseError>>?) {
         getDataArray(ChallengeCategory.self, completion: completion)
     }
+
+    func getFirmwareUpdate(completion: CallbackType<Result<[FirmwareUpdate], FirebaseError>>?) {
+        getDataArray(FirmwareUpdate.self, completion: completion)
+    }
+
+    func downloadFirmwareUpdate(resourceURL: String, completion: CallbackType<Result<Data, FirebaseError>>?) {
+        Storage.storage().reference(forURL: resourceURL).downloadURL(completion: { (url, error) in
+            guard error == nil, let url = url else { return }
+            do {
+                let data = try Data(contentsOf: url)
+                completion?(.success(data))
+            } catch {
+                completion?(.failure(.invalidImageURL))
+            }
+        })
+    }
 }
 
 // MARK: - Private

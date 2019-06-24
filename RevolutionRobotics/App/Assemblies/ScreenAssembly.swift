@@ -186,6 +186,7 @@ extension ScreenAssembly {
             .register(FirmwareUpdateViewController.self, factory: { _ in return FirmwareUpdateViewController() })
             .initCompleted({ (resolver, viewController) in
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)
+                viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)
             })
             .inObjectScope(.weak)
     }

@@ -63,6 +63,8 @@ enum ModalKeys {
         static let mainBattery = "firmware_main_battery"
         static let motorBattery = "firmware_motor_battery"
         static let loading = "firmware_loading"
+        static let firmwareDownloadInfo = "firmware_download_info"
+        static let firmwareDownloadPleaseWait = "firmware_please_wait"
     }
 
     enum Program {
