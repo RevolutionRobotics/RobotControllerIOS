@@ -30,7 +30,7 @@ extension BuildFinishedModal {
         driveButton.setTitle(RobotsKeys.BuildRobot.buildFinishedDrive.translate(), for: .normal)
         homeButton.setTitle(RobotsKeys.BuildRobot.buildFinishedHome.translate(), for: .normal)
         driveButton.setBorder(fillColor: . clear, strokeColor: .white, croppedCorners: [.topRight])
-        homeButton.setBorder(fillColor: Color.black26, strokeColor: . clear, croppedCorners: [.bottomLeft])
+        homeButton.setBorder(fillColor: .clear, strokeColor: . clear, croppedCorners: [.bottomLeft])
     }
 }
 

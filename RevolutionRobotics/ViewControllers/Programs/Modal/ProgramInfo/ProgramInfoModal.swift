@@ -57,18 +57,18 @@ extension ProgramInfoModal {
         case .add:
             actionButton.setImage(Image.Common.plusIcon, for: .normal)
             actionButton.setTitle(ModalKeys.Program.addProgram.translate(), for: .normal)
-            editProgramButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
+            editProgramButton.setBorder(fillColor: .clear, croppedCorners: [.bottomLeft])
             actionButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
         case .remove:
             actionButton.setImage(Image.Common.closeIcon, for: .normal)
             actionButton.setTitle(ModalKeys.Program.removeProgram.translate(), for: .normal)
-            editProgramButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
+            editProgramButton.setBorder(fillColor: .clear, croppedCorners: [.bottomLeft])
             actionButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
         case .incompatible:
             actionButton.setImage(Image.tickIcon, for: .normal)
             actionButton.setTitle(ModalKeys.Program.gotIt.translate(), for: .normal)
             issueLabel.isHidden = false
-            editProgramButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
+            editProgramButton.setBorder(fillColor: .clear, croppedCorners: [.bottomLeft])
             actionButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
         case .info:
             editProgramButton.removeFromSuperview()

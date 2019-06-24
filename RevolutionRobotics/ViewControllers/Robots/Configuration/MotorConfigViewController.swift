@@ -215,7 +215,7 @@ extension MotorConfigViewController {
 
     private func setupActionButtons() {
         testButton.setTitle(RobotsKeys.Configure.Motor.testButton.translate(), for: .normal)
-        testButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
+        testButton.setBorder(fillColor: .clear, croppedCorners: [.bottomLeft])
         doneButton.setTitle(RobotsKeys.Configure.Motor.doneButton.translate(), for: .normal)
         doneButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
     }

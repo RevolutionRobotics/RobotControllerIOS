@@ -54,10 +54,10 @@ extension ProgramsViewController {
     }
 
     private func setupButtons() {
-        programNameButton.setBorder()
-        programCodeButton.setBorder()
-        saveProgramButton.setBorder()
-        openProgramButton.setBorder()
+        programNameButton.setBorder(fillColor: .clear)
+        programCodeButton.setBorder(fillColor: .clear)
+        saveProgramButton.setBorder(fillColor: .clear)
+        openProgramButton.setBorder(fillColor: .clear)
     }
 
     private func prefillProgram() {

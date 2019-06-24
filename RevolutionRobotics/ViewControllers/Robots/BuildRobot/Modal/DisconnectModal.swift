@@ -37,8 +37,8 @@ extension DisconnectModal {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        disconnectButton.setBorder(strokeColor: .white, croppedCorners: [.topRight])
-        cancelButton.setBorder(fillColor: Color.black26, strokeColor: .clear, croppedCorners: [.bottomLeft])
+        disconnectButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
+        cancelButton.setBorder(fillColor: .clear, strokeColor: .clear, croppedCorners: [.bottomLeft])
     }
 }
 

@@ -533,7 +533,7 @@
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma0-hZ-XMo" userLabel="skipButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="661" y="304" width="103" height="46"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="BlackTwo"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="103" id="481-iP-vP0"/>
                         <constraint firstAttribute="height" constant="46" id="MHK-4L-j8Z"/>
@@ -605,14 +605,14 @@
         <image name="BlueBorder" width="124" height="162"/>
         <image name="BlueBorderHighlighted" width="124" height="162"/>
         <image name="BottomHeader" width="361" height="33"/>
-        <image name="ChallengeModel" width="120" height="158"/>
+        <image name="ChallengeModel" width="120" height="99"/>
         <image name="CheckIcon" width="16" height="16"/>
         <image name="CommunityIcon" width="22" height="22"/>
         <image name="Logo" width="37" height="37"/>
-        <image name="ProgramModel" width="120" height="102"/>
+        <image name="ProgramModel" width="120" height="99"/>
         <image name="RedBorder" width="124" height="162"/>
         <image name="RedBorderHighlighted" width="124" height="162"/>
-        <image name="RobotModel" width="120" height="150"/>
+        <image name="RobotModel" width="120" height="98"/>
         <image name="SettingsIcon" width="22" height="22"/>
         <image name="SkipIcon" width="16" height="16"/>
         <image name="TutorialLeftArrow" width="12" height="24"/>

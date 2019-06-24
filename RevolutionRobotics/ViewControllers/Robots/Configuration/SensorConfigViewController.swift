@@ -109,7 +109,7 @@ extension SensorConfigViewController {
     }
 
     private func setupActionButtons() {
-        testButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
+        testButton.setBorder(fillColor: .clear, croppedCorners: [.bottomLeft])
         doneButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
     }
 }

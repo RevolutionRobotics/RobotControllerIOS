@@ -71,11 +71,11 @@ extension RobotOptionsView {
     }
 
     private func setupButtons() {
-        deleteButton.setBorder(fillColor: Color.black26, strokeColor: .clear, croppedCorners: [.bottomLeft])
+        deleteButton.setBorder(fillColor: .clear, strokeColor: .clear, croppedCorners: [.bottomLeft])
         deleteButton.setTitle(ModalKeys.RobotInfo.delete.translate(), for: .normal)
-        duplicateButton.setBorder(fillColor: Color.black26, strokeColor: .clear, croppedCorners: [])
+        duplicateButton.setBorder(fillColor: .clear, strokeColor: .clear, croppedCorners: [])
         duplicateButton.setTitle(ModalKeys.RobotInfo.duplicate.translate(), for: .normal)
-        editButton.setBorder(fillColor: Color.blackTwo, strokeColor: .white, croppedCorners: [.topRight])
+        editButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
         editButton.setTitle(ModalKeys.RobotInfo.edit.translate(), for: .normal)
     }
 

@@ -94,10 +94,10 @@ extension TipsModalView {
     private func setupBorders() {
         layoutIfNeeded()
         if isSkipButtonHidden {
-            communityButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
+            communityButton.setBorder(fillColor: .clear, croppedCorners: [.bottomLeft])
         } else {
-            skipConnectionButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
-            communityButton.setBorder(fillColor: Color.black26, croppedCorners: [])
+            skipConnectionButton.setBorder(fillColor: .clear, croppedCorners: [.bottomLeft])
+            communityButton.setBorder(fillColor: .clear, croppedCorners: [])
         }
         tryAgainButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
     }

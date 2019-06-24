@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -40,6 +41,7 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quG-8c-x65" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="230" y="190" width="226" height="46"/>
+                    <color key="backgroundColor" name="BlackTwo"/>
                     <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
                     <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -50,6 +52,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxy-50-ZCi" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="4" y="190" width="226" height="46"/>
+                    <color key="backgroundColor" name="Black26"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="voI-Tp-jEq"/>
                     </constraints>
@@ -93,5 +96,11 @@
     <resources>
         <image name="CloseIcon" width="14" height="14"/>
         <image name="TickWhiteIcon" width="16" height="12"/>
+        <namedColor name="Black26">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.25999999046325684" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BlackTwo">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
