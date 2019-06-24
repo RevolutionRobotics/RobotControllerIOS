@@ -26,6 +26,7 @@ final class PlayControllerViewController: BaseViewController {
             configurePadView()
         }
     }
+    private var configurationAlreadySent: Bool = false
 }
 
 // MARK: View lifecycle
@@ -36,20 +37,18 @@ extension PlayControllerViewController {
         navigationBar.setup(title: RobotsKeys.Controllers.Play.screenTitle.translate(), delegate: self)
         setupPadView()
         fetchPrograms()
+        if bluetoothService.connectedDevice != nil {
+            sendConfiguration()
+        } else {
+            bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
+            presentBluetoothModal()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         subscribeForConnectionChange()
-
-        if bluetoothService.connectedDevice != nil {
-            bluetoothService.startKeepalive()
-            bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
-        } else {
-            bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
-            presentBluetoothModal()
-        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -153,13 +152,37 @@ extension PlayControllerViewController {
 
     override func connected() {
         super.connected()
-        bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
-        bluetoothService.startKeepalive()
+        bluetoothService.stopDiscovery()
+        sendConfiguration()
     }
 
     override func disconnected() {
         bluetoothService.stopKeepalive()
         bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
+    }
+
+    private func sendConfiguration() {
+        let data = ConfigurationJSONData(
+            configuration: realmService.getConfiguration(id: controllerDataModel?.configurationId)!,
+            controller: controllerDataModel!,
+            programs: realmService.getPrograms())
+        do {
+            let encodedData = try JSONEncoder().encode(data)
+            bluetoothService.sendConfigurationData(encodedData, onCompleted: { [weak self] result in
+                switch result {
+                case .success:
+                    self?.configurationAlreadySent = true
+                    self?.bluetoothService.startKeepalive()
+                    self?.bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    self?.bluetoothService.stopKeepalive()
+                    self?.bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
+                }
+            })
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 

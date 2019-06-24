@@ -18,6 +18,7 @@ final class BluetoothService: BluetoothServiceInterface {
     private let deviceInfo: RoboticsDeviceServiceInterface = RoboticsDeviceService()
     private let batteryInfo: RoboticsBatteryServiceInterface = RoboticsBatteryService()
     private let liveController: RoboticsLiveControllerServiceInterface = RoboticsLiveControllerService()
+    private let configuration: RoboticsConfigurationServiceInterface = RoboticsConfigurationService()
 
     // MARK: - Discovery
     func startDiscovery(onScanResult: CallbackType<Result<[Device], Error>>?) {
@@ -48,6 +49,19 @@ final class BluetoothService: BluetoothServiceInterface {
 
     func disconnect() {
         connector.disconnect()
+    }
+
+    func sendConfigurationData(_ data: Data, onCompleted: CallbackType<Result<String, Error>>?) {
+        FileManager.default.save(data, as: "configData")
+        let path = FileManager.documentsDirectory.appendingPathComponent("configData").absoluteString
+        configuration.sendConfiguration(
+            with: URL(string: path)!,
+            onSuccess: {
+                onCompleted?(.success("Success"))
+        },
+            onError: { error in
+                onCompleted?(.failure(error))
+        })
     }
 
     // MARK: - Device info
@@ -115,5 +129,18 @@ final class BluetoothService: BluetoothServiceInterface {
 
     func changeButtonState(index: Int, pressed: Bool) {
         liveController.changeButtonState(index: index, pressed: pressed)
+    }
+
+    func testKit(data: String, onCompleted: CallbackType<Result<String, Error>>?) {
+        FileManager.default.save(data.data(using: .utf8), as: "testData")
+        let path = FileManager.documentsDirectory.appendingPathComponent("testData").absoluteString
+        configuration.testKit(
+            with: URL(string: path)!,
+            onSuccess: {
+                onCompleted?(.success("Success"))
+        },
+            onError: { error in
+                onCompleted?(.failure(error))
+        })
     }
 }

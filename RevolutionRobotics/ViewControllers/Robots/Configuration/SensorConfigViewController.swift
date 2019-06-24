@@ -37,6 +37,7 @@ final class SensorConfigViewController: BaseViewController {
     var screenDismissed: Callback?
     var name: String?
     var prohibitedNames: [String] = []
+    var bluetoothService: BluetoothServiceInterface!
 
     private var shouldCallDismiss = true
 

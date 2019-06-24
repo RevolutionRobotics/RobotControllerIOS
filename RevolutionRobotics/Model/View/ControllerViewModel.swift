@@ -11,8 +11,10 @@ import Foundation
 final class ControllerViewModel {
     // MARK: - Properties
     var id: String = ""
+    var configurationId: String = ""
     var name: String = ""
     var customDesctiprion: String = ""
+    var type: ControllerType!
     var b1Binding: ProgramBindingDataModel?
     var b2Binding: ProgramBindingDataModel?
     var b3Binding: ProgramBindingDataModel?

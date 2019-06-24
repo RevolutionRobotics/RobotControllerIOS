@@ -10,26 +10,15 @@ import Foundation
 import RealmSwift
 
 final class ProgramDataModel: Object {
-    private enum Constants {
-        static let xmlPostfix = ".xml"
-        static let pythonPostfix = ".py"
-    }
-
     // MARK: - Properties
     @objc dynamic var id: String = ""
     @objc dynamic var remoteId: String = ""
     @objc dynamic var name: String = ""
     @objc dynamic var customDescription: String = ""
     @objc dynamic var lastModified: Date = Date()
-    @objc dynamic var xmlFileName: String = ""
-    @objc dynamic var pythonFileName: String = ""
+    @objc dynamic var xml: String = ""
+    @objc dynamic var python: String = ""
     var variableNames: List<String> = List<String>()
-    dynamic var xmlFileNameForSave: String {
-        return xmlFileName.isEmpty ? (id + Constants.xmlPostfix) : xmlFileName
-    }
-    dynamic var pythonFileNameForSave: String {
-        return pythonFileName.isEmpty ? (id + Constants.pythonPostfix) : pythonFileName
-    }
 
     convenience init(program: Program) {
         self.init()
@@ -38,8 +27,6 @@ final class ProgramDataModel: Object {
         self.name = program.name
         self.customDescription = program.description
         self.lastModified = Date(timeIntervalSince1970: program.lastModified)
-        self.xmlFileName = self.id + Constants.xmlPostfix
-        self.pythonFileName = self.id + Constants.pythonPostfix
 
         let list = List<String>()
         program.variables.forEach { variable in

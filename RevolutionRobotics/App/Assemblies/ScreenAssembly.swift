@@ -160,6 +160,9 @@ extension ScreenAssembly {
     private func registerSensorConfigViewController(to container: Container) {
         container
             .register(SensorConfigViewController.self, factory: { _ in return SensorConfigViewController() })
+            .initCompleted { (resolver, viewController) in
+                viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)
+            }
             .inObjectScope(.transient)
     }
 
