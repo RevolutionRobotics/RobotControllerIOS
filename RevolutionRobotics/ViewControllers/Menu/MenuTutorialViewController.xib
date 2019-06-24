@@ -118,7 +118,7 @@
                                     <state key="highlighted" backgroundImage="RedBorderHighlighted"/>
                                 </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RobotModel" translatesAutoresizingMaskIntoConstraints="NO" id="Log-NY-chE" userLabel="robotIconImageView">
-                                    <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="211"/>
+                                    <rect key="frame" x="0.0" y="70.333333333333343" width="161.33333333333334" height="124.66666666666669"/>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sb-WW-lMo">
                                     <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="70.333333333333329"/>
@@ -141,17 +141,17 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="9tG-bp-Kep" firstAttribute="top" secondItem="iQz-OV-6jA" secondAttribute="top" id="155-W5-5xl"/>
-                                <constraint firstAttribute="trailing" secondItem="Log-NY-chE" secondAttribute="trailing" id="8MK-KH-0Tm"/>
+                                <constraint firstItem="Log-NY-chE" firstAttribute="leading" secondItem="iQz-OV-6jA" secondAttribute="leading" id="EAo-pi-ygn"/>
                                 <constraint firstItem="1Sb-WW-lMo" firstAttribute="top" secondItem="iQz-OV-6jA" secondAttribute="top" id="EoM-F4-JIQ"/>
                                 <constraint firstAttribute="width" secondItem="iQz-OV-6jA" secondAttribute="height" multiplier="124:162" id="ErJ-Ju-QRv"/>
                                 <constraint firstItem="1Sb-WW-lMo" firstAttribute="leading" secondItem="iQz-OV-6jA" secondAttribute="leading" id="F4w-AN-sco"/>
                                 <constraint firstItem="9tG-bp-Kep" firstAttribute="leading" secondItem="iQz-OV-6jA" secondAttribute="leading" id="KLR-5h-wlU"/>
+                                <constraint firstItem="Log-NY-chE" firstAttribute="centerX" secondItem="iQz-OV-6jA" secondAttribute="centerX" id="Lle-Af-EhC"/>
+                                <constraint firstItem="Log-NY-chE" firstAttribute="top" secondItem="1Sb-WW-lMo" secondAttribute="bottom" id="Qsx-bK-rzi"/>
                                 <constraint firstItem="1Sb-WW-lMo" firstAttribute="height" secondItem="iQz-OV-6jA" secondAttribute="height" multiplier="1/3" id="U7Z-P2-Shc"/>
-                                <constraint firstItem="Log-NY-chE" firstAttribute="top" secondItem="iQz-OV-6jA" secondAttribute="top" id="Yh3-qU-HkX"/>
+                                <constraint firstAttribute="bottom" secondItem="Log-NY-chE" secondAttribute="bottom" constant="16" id="Vtm-19-QUD"/>
                                 <constraint firstAttribute="bottom" secondItem="9tG-bp-Kep" secondAttribute="bottom" id="coV-sj-9Vc"/>
                                 <constraint firstAttribute="trailing" secondItem="1Sb-WW-lMo" secondAttribute="trailing" id="fQh-4w-a2c"/>
-                                <constraint firstAttribute="bottom" secondItem="Log-NY-chE" secondAttribute="bottom" id="kOb-BW-MX7"/>
-                                <constraint firstItem="Log-NY-chE" firstAttribute="leading" secondItem="iQz-OV-6jA" secondAttribute="leading" id="oLt-M3-1N2"/>
                                 <constraint firstAttribute="trailing" secondItem="9tG-bp-Kep" secondAttribute="trailing" id="sG5-sx-Y5G"/>
                             </constraints>
                         </view>
@@ -164,7 +164,7 @@
                                     <state key="highlighted" backgroundImage="YellowBorderHighlighted"/>
                                 </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProgramModel" translatesAutoresizingMaskIntoConstraints="NO" id="QQk-Iw-Poo" userLabel="programModelIconImageView">
-                                    <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="211"/>
+                                    <rect key="frame" x="0.0" y="70.333333333333343" width="161.33333333333334" height="124.66666666666666"/>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQl-fQ-k70">
                                     <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="70.333333333333329"/>
@@ -186,18 +186,18 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="QQk-Iw-Poo" firstAttribute="centerX" secondItem="NaX-YQ-t9C" secondAttribute="centerX" id="5nA-wE-14c"/>
                                 <constraint firstItem="MQl-fQ-k70" firstAttribute="top" secondItem="NaX-YQ-t9C" secondAttribute="top" id="Cf7-wR-Civ"/>
-                                <constraint firstItem="QQk-Iw-Poo" firstAttribute="top" secondItem="NaX-YQ-t9C" secondAttribute="top" id="EJ8-Pc-N7g"/>
-                                <constraint firstItem="QQk-Iw-Poo" firstAttribute="leading" secondItem="NaX-YQ-t9C" secondAttribute="leading" id="Evl-cn-E68"/>
                                 <constraint firstAttribute="trailing" secondItem="MQl-fQ-k70" secondAttribute="trailing" id="Lrj-3d-h9U"/>
                                 <constraint firstItem="MQl-fQ-k70" firstAttribute="leading" secondItem="NaX-YQ-t9C" secondAttribute="leading" id="Szt-iZ-6Z6"/>
-                                <constraint firstAttribute="bottom" secondItem="QQk-Iw-Poo" secondAttribute="bottom" id="cQL-ra-YdS"/>
+                                <constraint firstAttribute="bottom" secondItem="QQk-Iw-Poo" secondAttribute="bottom" constant="16" id="buE-yU-icA"/>
                                 <constraint firstItem="Nhf-hF-ha3" firstAttribute="top" secondItem="NaX-YQ-t9C" secondAttribute="top" id="eb7-U8-0pg"/>
                                 <constraint firstItem="Nhf-hF-ha3" firstAttribute="leading" secondItem="NaX-YQ-t9C" secondAttribute="leading" id="esK-i4-9MF"/>
                                 <constraint firstAttribute="bottom" secondItem="Nhf-hF-ha3" secondAttribute="bottom" id="gPO-FC-DWM"/>
                                 <constraint firstItem="MQl-fQ-k70" firstAttribute="height" secondItem="NaX-YQ-t9C" secondAttribute="height" multiplier="1/3" id="i3Q-1Y-gjN"/>
+                                <constraint firstItem="QQk-Iw-Poo" firstAttribute="top" secondItem="MQl-fQ-k70" secondAttribute="bottom" id="lc2-aW-hsy"/>
+                                <constraint firstItem="QQk-Iw-Poo" firstAttribute="leading" secondItem="NaX-YQ-t9C" secondAttribute="leading" id="mAD-Tr-ac5"/>
                                 <constraint firstAttribute="trailing" secondItem="Nhf-hF-ha3" secondAttribute="trailing" id="opB-pv-rs5"/>
-                                <constraint firstAttribute="trailing" secondItem="QQk-Iw-Poo" secondAttribute="trailing" id="pJv-kq-oUL"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KGJ-UH-HkV" userLabel="challengesContainer">
@@ -209,7 +209,7 @@
                                     <state key="highlighted" backgroundImage="BlueBorderHighlighted"/>
                                 </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeModel" translatesAutoresizingMaskIntoConstraints="NO" id="IDU-9O-qq9" userLabel="challengesIconImageView">
-                                    <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="211"/>
+                                    <rect key="frame" x="0.0" y="70.333333333333343" width="161.33333333333334" height="124.66666666666666"/>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2g-82-6Z2">
                                     <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="70.333333333333329"/>
@@ -234,15 +234,15 @@
                                 <constraint firstAttribute="width" secondItem="KGJ-UH-HkV" secondAttribute="height" multiplier="124:162" id="116-By-7hL"/>
                                 <constraint firstAttribute="trailing" secondItem="m2g-82-6Z2" secondAttribute="trailing" id="2eQ-xM-bnn"/>
                                 <constraint firstAttribute="bottom" secondItem="SU3-nm-HDD" secondAttribute="bottom" id="7lq-ZC-si0"/>
+                                <constraint firstItem="IDU-9O-qq9" firstAttribute="top" secondItem="m2g-82-6Z2" secondAttribute="bottom" id="C7g-3f-iaJ"/>
                                 <constraint firstItem="SU3-nm-HDD" firstAttribute="leading" secondItem="KGJ-UH-HkV" secondAttribute="leading" id="Gbh-dT-Eae"/>
-                                <constraint firstAttribute="bottom" secondItem="IDU-9O-qq9" secondAttribute="bottom" id="U0u-Ba-M2a"/>
+                                <constraint firstItem="IDU-9O-qq9" firstAttribute="centerX" secondItem="KGJ-UH-HkV" secondAttribute="centerX" id="PwQ-gH-3AR"/>
+                                <constraint firstAttribute="bottom" secondItem="IDU-9O-qq9" secondAttribute="bottom" constant="16" id="VdX-kI-qeP"/>
                                 <constraint firstItem="m2g-82-6Z2" firstAttribute="leading" secondItem="KGJ-UH-HkV" secondAttribute="leading" id="ZYV-Ls-k6g"/>
-                                <constraint firstItem="IDU-9O-qq9" firstAttribute="top" secondItem="KGJ-UH-HkV" secondAttribute="top" id="bO3-ne-W1n"/>
                                 <constraint firstAttribute="trailing" secondItem="SU3-nm-HDD" secondAttribute="trailing" id="cOX-u8-7AM"/>
                                 <constraint firstItem="m2g-82-6Z2" firstAttribute="height" secondItem="KGJ-UH-HkV" secondAttribute="height" multiplier="1/3" id="cjQ-3d-POc"/>
                                 <constraint firstItem="m2g-82-6Z2" firstAttribute="top" secondItem="KGJ-UH-HkV" secondAttribute="top" id="oLK-5C-KnS"/>
-                                <constraint firstItem="IDU-9O-qq9" firstAttribute="leading" secondItem="KGJ-UH-HkV" secondAttribute="leading" id="pP1-GU-3M5"/>
-                                <constraint firstAttribute="trailing" secondItem="IDU-9O-qq9" secondAttribute="trailing" id="yjs-EC-Oqc"/>
+                                <constraint firstItem="IDU-9O-qq9" firstAttribute="leading" secondItem="KGJ-UH-HkV" secondAttribute="leading" id="uY4-CH-GPR"/>
                                 <constraint firstItem="SU3-nm-HDD" firstAttribute="top" secondItem="KGJ-UH-HkV" secondAttribute="top" id="yxq-0v-Eeb"/>
                             </constraints>
                         </view>
@@ -605,14 +605,14 @@
         <image name="BlueBorder" width="124" height="162"/>
         <image name="BlueBorderHighlighted" width="124" height="162"/>
         <image name="BottomHeader" width="361" height="33"/>
-        <image name="ChallengeModel" width="120" height="158"/>
+        <image name="ChallengeModel" width="120" height="99"/>
         <image name="CheckIcon" width="16" height="16"/>
         <image name="CommunityIcon" width="22" height="22"/>
         <image name="Logo" width="37" height="37"/>
-        <image name="ProgramModel" width="120" height="102"/>
+        <image name="ProgramModel" width="120" height="99"/>
         <image name="RedBorder" width="124" height="162"/>
         <image name="RedBorderHighlighted" width="124" height="162"/>
-        <image name="RobotModel" width="120" height="150"/>
+        <image name="RobotModel" width="120" height="98"/>
         <image name="SettingsIcon" width="22" height="22"/>
         <image name="SkipIcon" width="16" height="16"/>
         <image name="TutorialLeftArrow" width="12" height="24"/>
