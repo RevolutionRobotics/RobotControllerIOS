@@ -43,16 +43,12 @@ extension PlayControllerViewController {
             bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
             presentBluetoothModal()
         }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
 
         subscribeForConnectionChange()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         bluetoothService.stopKeepalive()
         unsubscribeFromConnectionChange()
     }
