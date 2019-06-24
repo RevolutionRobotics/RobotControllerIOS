@@ -15,6 +15,7 @@ class BaseViewController: UIViewController {
         static let menuFadeStrength: CGFloat = 0.65
         static let menuWidth: CGFloat = UIScreen.main.bounds.width / 3 < 215.0 ? 215.0 : UIScreen.main.bounds.width / 3
         static let communityURL: URL = URL(string: "https://www.google.com")!
+        static let keyboardTopSpace: CGFloat = 20
     }
 
     // MARK: - Properties
@@ -28,6 +29,10 @@ class BaseViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+
+    deinit {
+        unregisterObserver()
+    }
 }
 
 // MARK: - View lifecycle
@@ -36,6 +41,7 @@ extension BaseViewController {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
         setupSideMenuPreferences()
+        registerObserver()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -180,4 +186,43 @@ extension BaseViewController {
 
     @objc func disconnected() { }
     @objc func connectionError() { }
+}
+
+// MARK: Keyboard
+extension BaseViewController {
+    private func registerObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+
+    private func unregisterObserver() {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            return
+        }
+        guard let view = view.allSubViews().first(where: { $0.isFirstResponder }) else {
+            return
+        }
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        let frame = view.superview?.convert(view.frame, to: nil)
+        self.view.frame.origin.y = min(0, keyboardHeight - (frame!.maxY + Constants.keyboardTopSpace))
+    }
+
+    @objc private func keyboardWillHide() {
+        self.view.frame.origin.y = 0
+    }
+
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
