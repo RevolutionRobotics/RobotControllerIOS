@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenu
+import os
 
 final class SensorConfigViewController: BaseViewController {
     // MARK: - Outlets
@@ -38,8 +39,14 @@ final class SensorConfigViewController: BaseViewController {
     var name: String?
     var prohibitedNames: [String] = []
     var bluetoothService: BluetoothServiceInterface!
+    var testCodeService: PortTestCodeServiceInterface!
 
     private var shouldCallDismiss = true
+    private var shouldStartTestProcess = false
+
+    private var sensorPortNumber: Int {
+        return portNumber - 6
+    }
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -55,6 +62,14 @@ final class SensorConfigViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupActionButtons()
+    }
+
+    override func connected() {
+        super.connected()
+        if shouldStartTestProcess {
+            shouldStartTestProcess = false
+            startPortTest()
+        }
     }
 }
 
@@ -110,11 +125,8 @@ extension SensorConfigViewController {
     private func validateActionButtons() {
         testButton.isEnabled = selectedSensorType != .empty
     }
-}
 
-// MARK: - Actions
-extension SensorConfigViewController {
-    @IBAction private func testButtonTapped(_ sender: Any) {
+    private func presentTestingModal() {
         let modal = TestingModal.instatiate()
         modal.positiveButtonTapped = { [weak self] in
             self?.dismiss(animated: true, completion: nil)
@@ -123,6 +135,49 @@ extension SensorConfigViewController {
             self?.dismiss(animated: true, completion: nil)
         }
         presentModal(with: modal)
+    }
+
+    private func startPortTest() {
+        let isBumperType = selectedSensorType == .bumper
+        let testCode = isBumperType ?
+            testCodeService.bumperTestCode(for: sensorPortNumber) :
+            testCodeService.ultrasonicTestCode(for: sensorPortNumber)
+
+        bluetoothService.testKit(data: testCode, onCompleted: nil)
+    }
+
+    private func presentConnectModal() {
+        let modalPresenter = BluetoothConnectionModalPresenter()
+        modalPresenter.present(
+            on: self,
+            startDiscoveryHandler: { [weak self] in
+                self?.bluetoothService.startDiscovery(onScanResult: { result in
+                    switch result {
+                    case .success(let devices):
+                        modalPresenter.discoveredDevices = devices
+                    case .failure:
+                        os_log("Error: Failed to discover peripherals!")
+                    }
+                })
+
+            },
+            deviceSelectionHandler: { [weak self] device in
+                self?.bluetoothService.connect(to: device)
+            },
+            nextStep: nil)
+    }
+}
+
+// MARK: - Actions
+extension SensorConfigViewController {
+    @IBAction private func testButtonTapped(_ sender: Any) {
+        if bluetoothService.connectedDevice != nil {
+            startPortTest()
+            presentTestingModal()
+        } else {
+            shouldStartTestProcess = true
+            presentConnectModal()
+        }
     }
 
     @IBAction private func doneButtonTapped(_ sender: Any) {
