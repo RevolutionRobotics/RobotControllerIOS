@@ -137,6 +137,12 @@ extension ProgramPriorityViewController: UITableViewDataSource {
 
     private func saveController(name: String?, description: String?) {
         guard let controller = realmService.getController(id: controllerViewModel?.id) else {
+            let newController = ControllerDataModel(id: controllerViewModel?.id,
+                                                    configurationId: controllerViewModel!.configurationId,
+                                                    type: (controllerViewModel?.type)!.rawValue,
+                                                    mapping: ControllerButtonMappingDataModel())
+            realmService.saveControllers([newController])
+            saveController(name: name, description: description)
             return
         }
 
@@ -160,6 +166,20 @@ extension ProgramPriorityViewController: UITableViewDataSource {
                 controller.backgroundProgramBindings.append(binding)
             })
         })
+
+        if let configuration = realmService.getConfiguration(id: controllerViewModel?.configurationId),
+            configuration.controller.isEmpty {
+            realmService.updateObject(closure: {
+                configuration.controller = controller.id
+            })
+        }
+
+        if let robot = realmService.getRobots().first(where: { $0.configId == controllerViewModel?.configurationId }),
+            robot.buildStatus != BuildStatus.completed.rawValue {
+            realmService.updateObject(closure: {
+                robot.buildStatus = BuildStatus.completed.rawValue
+            })
+        }
     }
 
     //swiftlint:disable cyclomatic_complexity

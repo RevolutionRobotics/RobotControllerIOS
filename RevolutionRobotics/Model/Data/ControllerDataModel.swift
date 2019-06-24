@@ -40,10 +40,10 @@ final class ControllerDataModel: Object {
         backgroundProgramBindings = list
     }
 
-    convenience init(configurationId: String, type: String, mapping: ControllerButtonMappingDataModel) {
+    convenience init(id: String?, configurationId: String, type: String, mapping: ControllerButtonMappingDataModel) {
         self.init()
 
-        self.id = UUID().uuidString
+        self.id = id ?? UUID().uuidString
         self.configurationId = configurationId
         self.type = type
         self.lastModified = Date()
