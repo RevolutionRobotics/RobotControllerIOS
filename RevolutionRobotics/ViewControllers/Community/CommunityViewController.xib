@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,12 +36,19 @@
             <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RzI-H7-Swa">
-                    <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CommunityBackground" translatesAutoresizingMaskIntoConstraints="NO" id="RzI-H7-Swa">
+                    <rect key="frame" x="0.0" y="31" width="568" height="378.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="RzI-H7-Swa" secondAttribute="height" multiplier="5184:3456" id="aUk-gA-gl0"/>
+                    </constraints>
                 </imageView>
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htu-k4-tnf">
+                    <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cae-N2-ble" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="171" y="250" width="226" height="46"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="BlackTwo"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="226" id="cbb-NP-rhb"/>
                         <constraint firstAttribute="height" constant="46" id="rtW-Ar-ECs"/>
@@ -54,13 +62,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHARE OR GET HELP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFb-kz-OFD">
-                    <rect key="frame" x="193" y="77" width="182.5" height="21.5"/>
+                    <rect key="frame" x="193" y="77" width="182.5" height="21"/>
                     <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of the forum with benefits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vh4-1c-iED">
-                    <rect key="frame" x="185.5" y="115.5" width="197" height="14.5"/>
+                    <rect key="frame" x="185.5" y="115" width="197" height="14"/>
                     <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -75,21 +83,30 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="RzI-H7-Swa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9Wi-P0-RQM"/>
+                <constraint firstItem="RzI-H7-Swa" firstAttribute="top" secondItem="vpr-br-aoj" secondAttribute="bottom" constant="-40" id="9Po-7F-aiC"/>
                 <constraint firstItem="vpr-br-aoj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Iag-0f-6eM"/>
-                <constraint firstItem="RzI-H7-Swa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KLD-hm-Ms1"/>
+                <constraint firstItem="RzI-H7-Swa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Jbm-Ft-oU9"/>
+                <constraint firstItem="RzI-H7-Swa" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="MXd-g7-jCL"/>
+                <constraint firstItem="htu-k4-tnf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MvX-kl-TDK"/>
                 <constraint firstItem="OFb-kz-OFD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ohl-sU-4t8"/>
                 <constraint firstItem="vpr-br-aoj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RGD-2j-WUd"/>
-                <constraint firstAttribute="trailing" secondItem="RzI-H7-Swa" secondAttribute="trailing" id="UJi-16-xNE"/>
                 <constraint firstItem="vh4-1c-iED" firstAttribute="top" secondItem="OFb-kz-OFD" secondAttribute="bottom" constant="17" id="YIr-Iu-gff"/>
                 <constraint firstItem="cae-N2-ble" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dCo-BN-UxN"/>
                 <constraint firstItem="OFb-kz-OFD" firstAttribute="top" secondItem="vpr-br-aoj" secondAttribute="bottom" constant="6" id="eLv-pD-8MB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cae-N2-ble" secondAttribute="bottom" constant="24" id="gmM-JC-bSd"/>
+                <constraint firstAttribute="bottom" secondItem="htu-k4-tnf" secondAttribute="bottom" id="lFh-04-D7G"/>
                 <constraint firstAttribute="trailing" secondItem="vpr-br-aoj" secondAttribute="trailing" id="nP8-lm-mxO"/>
                 <constraint firstItem="vh4-1c-iED" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="o3S-Zq-Veq"/>
-                <constraint firstAttribute="bottom" secondItem="RzI-H7-Swa" secondAttribute="bottom" id="shz-hB-MuV"/>
+                <constraint firstItem="htu-k4-tnf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rUh-Em-J9v"/>
+                <constraint firstAttribute="trailing" secondItem="htu-k4-tnf" secondAttribute="trailing" id="weU-eb-j8s"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="CommunityBackground" width="5184" height="3456"/>
+        <namedColor name="BlackTwo">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
