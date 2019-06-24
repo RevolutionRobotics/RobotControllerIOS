@@ -122,6 +122,28 @@ extension ProgramsViewController {
 
 // MARK: - BlocklyBridgeDelegate
 extension ProgramsViewController: BlocklyBridgeDelegate {
+    func alert(message: String, callback: (() -> Void)?) {
+        let alertView = AlertModalView.instatiate()
+
+        alertView.setup(message: message) { [weak self] in
+            callback?()
+            self?.dismissModalViewController()
+        }
+
+        presentModal(with: alertView, onDismissed: { callback?() })
+    }
+
+    func confirm(message: String, callback: ((Bool) -> Void)?) {
+        let confirmView = ConfirmModalView.instatiate()
+
+        confirmView.setup(message: message) { [weak self] confirmed in
+            callback?(confirmed)
+            self?.dismissModalViewController()
+        }
+
+        presentModal(with: confirmView, onDismissed: { callback?(false) })
+    }
+
     func optionSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
         let optionSelectorView = OptionSelectorView.instatiate()
 

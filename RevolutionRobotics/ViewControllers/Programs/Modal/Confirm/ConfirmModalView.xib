@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nEL-Ze-noc" customClass="ConfirmModalView" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZM-nZ-yVQ">
+                    <rect key="frame" x="32" y="64" width="396" height="21.5"/>
+                    <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NvT-jk-CLT" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="232" y="190" width="224" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="usP-bW-anI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Button" image="CheckIcon">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="okButtonTapped:" destination="nEL-Ze-noc" eventType="touchUpInside" id="nyq-pW-bLx"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itg-0M-yqa" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="4" y="190" width="224" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="UId-gE-esQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Button" image="CloseIcon">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelButtonTapped:" destination="nEL-Ze-noc" eventType="touchUpInside" id="300-0u-kmu"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="NvT-jk-CLT" firstAttribute="leading" secondItem="itg-0M-yqa" secondAttribute="trailing" constant="4" id="5IV-gg-wXH"/>
+                <constraint firstItem="2ZM-nZ-yVQ" firstAttribute="leading" secondItem="nEL-Ze-noc" secondAttribute="leading" constant="32" id="5nP-vh-GfK"/>
+                <constraint firstItem="itg-0M-yqa" firstAttribute="width" secondItem="NvT-jk-CLT" secondAttribute="width" id="6PD-Nk-jYx"/>
+                <constraint firstAttribute="bottom" secondItem="NvT-jk-CLT" secondAttribute="bottom" constant="4" id="LQ3-Mj-K8k"/>
+                <constraint firstAttribute="trailing" secondItem="NvT-jk-CLT" secondAttribute="trailing" constant="4" id="LzI-dp-Kcg"/>
+                <constraint firstItem="itg-0M-yqa" firstAttribute="leading" secondItem="nEL-Ze-noc" secondAttribute="leading" constant="4" id="V5z-Qa-3lP"/>
+                <constraint firstAttribute="bottom" secondItem="itg-0M-yqa" secondAttribute="bottom" constant="4" id="dmr-hd-9RH"/>
+                <constraint firstAttribute="trailing" secondItem="2ZM-nZ-yVQ" secondAttribute="trailing" constant="32" id="u8S-x4-Lvf"/>
+                <constraint firstItem="2ZM-nZ-yVQ" firstAttribute="top" secondItem="nEL-Ze-noc" secondAttribute="top" constant="64" id="wUP-G5-ho7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelButton" destination="itg-0M-yqa" id="dp4-Zf-F12"/>
+                <outlet property="okButton" destination="NvT-jk-CLT" id="cmz-TJ-MKp"/>
+                <outlet property="titleLabel" destination="2ZM-nZ-yVQ" id="FYF-hy-XPz"/>
+            </connections>
+            <point key="canvasLocation" x="24.637681159420293" y="84.375"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CheckIcon" width="16" height="16"/>
+        <image name="CloseIcon" width="14" height="14"/>
+    </resources>
+</document>
