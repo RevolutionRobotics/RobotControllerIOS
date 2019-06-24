@@ -316,6 +316,7 @@
 		D0A11096227B23F20064FBB6 /* RRInputField.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0A11095227B23F20064FBB6 /* RRInputField.xib */; };
 		D0B2A735227C7CF1004473EC /* ControllerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2A733227C7CF1004473EC /* ControllerCollectionViewCell.swift */; };
 		D0B2A736227C7CF1004473EC /* ControllerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B2A734227C7CF1004473EC /* ControllerCollectionViewCell.xib */; };
+		D0BBD99A22C0C040005A373A /* UIView+SubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBD99922C0C040005A373A /* UIView+SubViews.swift */; };
 		D0BF256B2282C6C100F08C9C /* BuildFinishedModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF25692282C6BA00F08C9C /* BuildFinishedModal.swift */; };
 		D0BF256C2282C6C100F08C9C /* BuildFinishedModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BF256A2282C6C100F08C9C /* BuildFinishedModal.xib */; };
 		D0BF25702282C6E000F08C9C /* PlayControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF256E2282C6E000F08C9C /* PlayControllerViewController.swift */; };
@@ -654,6 +655,7 @@
 		D0A11095227B23F20064FBB6 /* RRInputField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RRInputField.xib; sourceTree = "<group>"; };
 		D0B2A733227C7CF1004473EC /* ControllerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ControllerCollectionViewCell.swift; path = RevolutionRobotics/ViewControllers/Robots/Configuration/ControllerCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D0B2A734227C7CF1004473EC /* ControllerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ControllerCollectionViewCell.xib; path = RevolutionRobotics/ViewControllers/Robots/Configuration/ControllerCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		D0BBD99922C0C040005A373A /* UIView+SubViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SubViews.swift"; sourceTree = "<group>"; };
 		D0BF25692282C6BA00F08C9C /* BuildFinishedModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildFinishedModal.swift; sourceTree = "<group>"; };
 		D0BF256A2282C6C100F08C9C /* BuildFinishedModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuildFinishedModal.xib; sourceTree = "<group>"; };
 		D0BF256D2282C6E000F08C9C /* PlayControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayControllerViewController.xib; sourceTree = "<group>"; };
@@ -1505,6 +1507,7 @@
 				D05BAA7C22676A0C00624438 /* UIView+NibLoadable.swift */,
 				D05BAA7D22676A0C00624438 /* UIView+Reusable.swift */,
 				096333F92289BBA40029D87B /* UIView+Rounded.swift */,
+				D0BBD99922C0C040005A373A /* UIView+SubViews.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -2405,6 +2408,7 @@
 				D0313335228D5CBA00704989 /* ControllerType.swift in Sources */,
 				D05C64D0225F57BC00B7BF4F /* Robot.swift in Sources */,
 				0964798D22689DEC00F68456 /* ModalViewController.swift in Sources */,
+				D0BBD99A22C0C040005A373A /* UIView+SubViews.swift in Sources */,
 				094F9DDE2264CA5600BE118B /* RRNavigationBar.swift in Sources */,
 				2AA926D22271CB07000FAA98 /* RRSlider.swift in Sources */,
 				D0BF25732283101000F08C9C /* CommunityModalViewController.swift in Sources */,
