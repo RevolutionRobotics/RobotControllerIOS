@@ -3,97 +3,97 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "iPhone Notification 20pt@2x.png",
+      "filename" : "iPhoneNotification20pt@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "iPhone Notification 20pt@3x.png",
+      "filename" : "iPhoneNotification20pt@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "iPhone Settings 29pt@2x.png",
+      "filename" : "iPhoneSettings29pt@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "iPhone Settings 29pt@3x.png",
+      "filename" : "iPhoneSettings29pt@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "iPhone Spotlight 40pt@2x.png",
+      "filename" : "iPhoneSpotlight40pt@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "iPhone Spotlight 40pt@3x.png",
+      "filename" : "iPhoneSpotlight40pt@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "iPhone App 60pt@2x.png",
+      "filename" : "iPhoneApp60pt@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "iPhone App 60pt@3x.png",
+      "filename" : "iPhoneApp60pt@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "iPhone Notification 20pt.png",
+      "filename" : "iPhoneNotification20pt.png",
       "scale" : "1x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "iPhone Notification 20pt@2x-1.png",
+      "filename" : "iPhoneNotification20pt@2x-1.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "iPhone Settings 29pt.png",
+      "filename" : "iPhoneSettings29pt.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "iPhone Settings 29pt@2x-1.png",
+      "filename" : "iPhoneSettings29pt@2x-1.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "iPhone Spotlight 40pt.png",
+      "filename" : "iPhoneSpotlight40pt.png",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "iPhone Spotlight 40pt@2x-1.png",
+      "filename" : "iPhoneSpotlight40pt@2x-1.png",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "iPadd App.png",
+      "filename" : "iPadApp.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "iPadd App@2x.png",
+      "filename" : "iPadApp@2x.png",
       "scale" : "2x"
     },
     {
