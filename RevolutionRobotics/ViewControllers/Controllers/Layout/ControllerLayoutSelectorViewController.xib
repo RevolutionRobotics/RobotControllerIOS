@@ -17,10 +17,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ControllerLayoutSelectorViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
+                <outlet property="driverButton" destination="9LD-fF-clC" id="7jU-PC-pwV"/>
                 <outlet property="driverControllerButton" destination="9LD-fF-clC" id="CbU-OE-Ztu"/>
                 <outlet property="driverControllerLabel" destination="gtj-ye-JjU" id="6kB-7f-OLe"/>
+                <outlet property="gamerButton" destination="q3y-98-7rU" id="RhT-7M-Op6"/>
                 <outlet property="gamerControllerButton" destination="q3y-98-7rU" id="4CR-ga-SPM"/>
                 <outlet property="gamerControllerLabel" destination="IWn-51-U2F" id="50m-et-KG0"/>
+                <outlet property="multiTaskerButton" destination="U95-p7-sy6" id="aex-xg-j54"/>
                 <outlet property="multiTaskerControllerButton" destination="U95-p7-sy6" id="v76-2h-XfJ"/>
                 <outlet property="multiTaskerControllerLabel" destination="Ghb-ZU-eQH" id="Wka-hR-86x"/>
                 <outlet property="navigationBar" destination="VZ2-UC-kYI" id="A92-aY-f5I"/>

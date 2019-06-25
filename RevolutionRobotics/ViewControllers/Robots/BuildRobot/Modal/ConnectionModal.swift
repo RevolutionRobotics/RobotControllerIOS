@@ -35,7 +35,7 @@ extension ConnectionModal {
     }
 
     var failed: ConnectionModal {
-        skipConnectionButton.setBorder(fillColor: Color.black26, strokeColor: .clear, croppedCorners: [.bottomLeft])
+        skipConnectionButton.setBorder(fillColor: .clear, strokeColor: .clear, croppedCorners: [.bottomLeft])
         skipConnectionButton.setTitle(ModalKeys.Connection.failedConnectionSkipButton.translate(), for: .normal)
 
         tipsButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [])

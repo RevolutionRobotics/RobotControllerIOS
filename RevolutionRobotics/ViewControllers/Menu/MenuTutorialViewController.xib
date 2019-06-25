@@ -533,7 +533,7 @@
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma0-hZ-XMo" userLabel="skipButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="661" y="304" width="103" height="46"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="BlackTwo"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="103" id="481-iP-vP0"/>
                         <constraint firstAttribute="height" constant="46" id="MHK-4L-j8Z"/>

@@ -115,7 +115,6 @@ extension MenuTutorialViewController {
         finishButton.setBorder(fillColor: .clear, strokeColor: .white)
         skipButton.titleLabel?.font = Constants.buttonFont
         finishButton.titleLabel?.font = Constants.buttonFont
-        finishButton.setBorder(fillColor: Color.blackTwo, strokeColor: .white)
     }
 
     private func setBorder(on view: UIView) {

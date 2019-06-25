@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,6 +47,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4f-g9-nir" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="595" y="8" width="48" height="40"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="Obh-oZ-JpY"/>
                                 <constraint firstAttribute="width" constant="48" id="nlK-kC-6rg"/>
@@ -57,6 +59,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kc-sJ-21m" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="539" y="8" width="48" height="40"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="Zeh-8C-lK8"/>
                                 <constraint firstAttribute="width" constant="48" id="r2K-AP-CFC"/>
@@ -68,6 +71,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flb-lY-xZT" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="483" y="8" width="48" height="40"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="48" id="aZ0-1I-i8g"/>
                                 <constraint firstAttribute="height" constant="40" id="mtg-Ic-h5K"/>
@@ -79,6 +83,7 @@
                         </button>
                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1w9-Zy-8Ed" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="310" y="8" width="165" height="40"/>
+                            <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="Xnx-Ry-hjR"/>
                             </constraints>
@@ -126,5 +131,8 @@
         <image name="CodeIcon" width="24" height="24"/>
         <image name="FolderIcon" width="24" height="24"/>
         <image name="floppy" width="25" height="25"/>
+        <namedColor name="BlackTwo">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

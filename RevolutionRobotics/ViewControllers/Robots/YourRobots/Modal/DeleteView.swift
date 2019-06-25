@@ -31,10 +31,10 @@ extension DeleteView {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        cancelButton.setBorder(fillColor: Color.black26,
+        cancelButton.setBorder(fillColor: .clear,
                                strokeColor: Color.blackTwo,
                                croppedCorners: [.bottomLeft])
-        deleteButton.setBorder(fillColor: Color.blackTwo,
+        deleteButton.setBorder(fillColor: .clear,
                                strokeColor: UIColor.white,
                                croppedCorners: [.topRight])
         cancelButton.setTitle(ModalKeys.DeleteRobot.cancel.translate(), for: .normal)

@@ -102,6 +102,9 @@
 "configure_sensor_ultrasound_button_title" = "Ultrasound";
 
 // MARK: - Controller
+"controller_type_gamer" = "gamer";
+"controller_type_multitasker" = "multi-tasker";
+"controller_type_driver" = "driver";
 "play_controller_screen_title" = "Play!";
 "controller_setup_screen_title" = "Assign programs to buttons!";
 "controller_setup_empty" = "empty";

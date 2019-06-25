@@ -29,8 +29,8 @@ extension TestingModal {
 
         titleLabel.text = RobotsKeys.BuildRobot.testingTitle.translate().uppercased()
         questionLabel.text = RobotsKeys.BuildRobot.testingQuestion.translate().uppercased()
-        negativeButton.setBorder(fillColor: Color.black26, strokeColor: Color.blackTwo, croppedCorners: [.bottomLeft])
-        positiveButton.setBorder(fillColor: UIColor.clear, strokeColor: UIColor.white, croppedCorners: [.topRight])
+        negativeButton.setBorder(fillColor: .clear, strokeColor: Color.blackTwo, croppedCorners: [.bottomLeft])
+        positiveButton.setBorder(fillColor: .clear, strokeColor: UIColor.white, croppedCorners: [.topRight])
         negativeButton.setTitle(RobotsKeys.BuildRobot.testingNegativeButtonTitle.translate(), for: .normal)
         positiveButton.setTitle(RobotsKeys.BuildRobot.testingPositiveButtonTitle.translate(), for: .normal)
     }

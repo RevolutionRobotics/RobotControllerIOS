@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -92,6 +93,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxy-50-ZCi" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="4" y="184.5" width="226" height="51.5"/>
+                    <color key="backgroundColor" name="Black26"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="voI-Tp-jEq"/>
                     </constraints>
@@ -142,5 +144,8 @@
         <image name="CrossWhiteIcon" width="14" height="12"/>
         <image name="TestImagePlaceholder" width="109" height="52"/>
         <image name="TickWhiteIcon" width="16" height="12"/>
+        <namedColor name="Black26">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.25999999046325684" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -7,6 +7,9 @@
 //
 
 enum ControllerKeys {
+    static let gamer = "controller_type_gamer"
+    static let multiTasker = "controller_type_multitasker"
+    static let driver = "controller_type_driver"
     static let selectorScreenTitle = "controller_selector_title"
     static let createNew = "controller_create_new"
     static let configureTitle = "controller_setup_screen_title"

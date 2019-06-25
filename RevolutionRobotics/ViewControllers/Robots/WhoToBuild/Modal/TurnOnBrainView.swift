@@ -37,14 +37,14 @@ extension TurnOnBrainView {
     func setup(laterHidden: Bool = false) {
         if laterHidden {
             laterButton.removeFromSuperview()
-            tipsButton.setBorder(fillColor: Color.black26,
+            tipsButton.setBorder(fillColor: .clear,
                                  strokeColor: Color.blackTwo,
                                  croppedCorners: [.bottomLeft])
         } else {
-            laterButton.setBorder(fillColor: Color.black26,
+            laterButton.setBorder(fillColor: .clear,
                                   strokeColor: Color.blackTwo,
                                   croppedCorners: [.bottomLeft])
-            tipsButton.setBorder(fillColor: Color.black26,
+            tipsButton.setBorder(fillColor: .clear,
                                  strokeColor: Color.blackTwo,
                                  croppedCorners: [])
         }
