@@ -47,7 +47,7 @@ extension BuildRobotViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         subscribeForConnectionChange()
-        presentBluetoothConnectionModal()
+        presentBluetoothConnectionModal(buttonTapped: false)
 
         guard !steps.isEmpty else { return }
         refreshViews()
@@ -220,9 +220,13 @@ extension BuildRobotViewController {
         presentModal(with: view)
     }
 
-    private func presentBluetoothConnectionModal() {
+    private func presentBluetoothConnectionModal(buttonTapped: Bool = true) {
         guard bluetoothService.connectedDevice != nil else {
             presentConnectModal()
+            return
+        }
+
+        guard buttonTapped else {
             return
         }
 

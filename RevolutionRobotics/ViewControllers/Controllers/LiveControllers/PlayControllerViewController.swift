@@ -78,11 +78,11 @@ extension PlayControllerViewController {
         padView.configure(programs: programs)
 
         padView.horizontalPositionChanged = { [weak self] xPosition in
-            self?.bluetoothService.updateXDirection(Int(xPosition.rounded(.toNearestOrAwayFromZero)))
+            self?.bluetoothService.updateXDirection(Int(xPosition.nextDown.rounded(.toNearestOrAwayFromZero)))
         }
 
         padView.verticalPositionChanged = { [weak self] yPosition in
-            self?.bluetoothService.updateYDirection(Int(yPosition.rounded(.toNearestOrAwayFromZero)))
+            self?.bluetoothService.updateYDirection(Int(yPosition.nextDown.rounded(.toNearestOrAwayFromZero)))
         }
 
         padView.buttonTapped = { [weak self] pressedPadButton in
