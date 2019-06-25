@@ -13,6 +13,8 @@
 		09105AA12280581F00AB7B72 /* PortConfigurationItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09105A9D2280581F00AB7B72 /* PortConfigurationItemView.xib */; };
 		091B98A8229830B500DCEEF4 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B98A7229830B500DCEEF4 /* DateFormatter.swift */; };
 		091B98AB229835DA00DCEEF4 /* ProgramSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B98AA229835DA00DCEEF4 /* ProgramSorter.swift */; };
+		0921710C22C20D7100F773B5 /* AlertModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0921710A22C20D7100F773B5 /* AlertModalView.swift */; };
+		0921710D22C20D7100F773B5 /* AlertModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0921710B22C20D7100F773B5 /* AlertModalView.xib */; };
 		0938894A22B12C9000292B32 /* SoundPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0938894922B12C9000292B32 /* SoundPickerView.swift */; };
 		0938894C22B12CB200292B32 /* SoundPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0938894B22B12CB200292B32 /* SoundPickerView.xib */; };
 		0938894F22B1399500292B32 /* SoundPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0938894D22B1399400292B32 /* SoundPickerCell.swift */; };
@@ -88,6 +90,8 @@
 		0999431A228DBA6500D87385 /* ProgramInfoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09994318228DBA6500D87385 /* ProgramInfoModal.swift */; };
 		099DA57122B786AF005DCD60 /* LEDSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DA57022B786AF005DCD60 /* LEDSelectorView.swift */; };
 		099DA57322B786B7005DCD60 /* LEDSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099DA57222B786B7005DCD60 /* LEDSelectorView.xib */; };
+		09BD4C1722C117320046DB74 /* ConfirmModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4C1622C117320046DB74 /* ConfirmModalView.swift */; };
+		09BD4C1922C117460046DB74 /* ConfirmModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BD4C1822C117460046DB74 /* ConfirmModalView.xib */; };
 		09C3874D226F32F70097619D /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C3874C226F32F70097619D /* UIView+Anchor.swift */; };
 		09C38753226F38F40097619D /* Jura-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09C38752226F38F40097619D /* Jura-Regular.ttf */; };
 		09C38755226F3ABC0097619D /* Barlow-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09C38754226F3ABC0097619D /* Barlow-Medium.ttf */; };
@@ -352,6 +356,8 @@
 		09105A9D2280581F00AB7B72 /* PortConfigurationItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortConfigurationItemView.xib; sourceTree = "<group>"; };
 		091B98A7229830B500DCEEF4 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		091B98AA229835DA00DCEEF4 /* ProgramSorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSorter.swift; sourceTree = "<group>"; };
+		0921710A22C20D7100F773B5 /* AlertModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertModalView.swift; sourceTree = "<group>"; };
+		0921710B22C20D7100F773B5 /* AlertModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertModalView.xib; sourceTree = "<group>"; };
 		0938894922B12C9000292B32 /* SoundPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPickerView.swift; sourceTree = "<group>"; };
 		0938894B22B12CB200292B32 /* SoundPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoundPickerView.xib; sourceTree = "<group>"; };
 		0938894D22B1399400292B32 /* SoundPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPickerCell.swift; sourceTree = "<group>"; };
@@ -427,6 +433,8 @@
 		09994318228DBA6500D87385 /* ProgramInfoModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramInfoModal.swift; sourceTree = "<group>"; };
 		099DA57022B786AF005DCD60 /* LEDSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDSelectorView.swift; sourceTree = "<group>"; };
 		099DA57222B786B7005DCD60 /* LEDSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LEDSelectorView.xib; sourceTree = "<group>"; };
+		09BD4C1622C117320046DB74 /* ConfirmModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmModalView.swift; sourceTree = "<group>"; };
+		09BD4C1822C117460046DB74 /* ConfirmModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmModalView.xib; sourceTree = "<group>"; };
 		09C3874C226F32F70097619D /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
 		09C38752226F38F40097619D /* Jura-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Regular.ttf"; sourceTree = "<group>"; };
 		09C38754226F3ABC0097619D /* Barlow-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Medium.ttf"; sourceTree = "<group>"; };
@@ -737,6 +745,15 @@
 			path = DateFormatter;
 			sourceTree = "<group>";
 		};
+		0921710922C20D7100F773B5 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				0921710A22C20D7100F773B5 /* AlertModalView.swift */,
+				0921710B22C20D7100F773B5 /* AlertModalView.xib */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		0938894822B12C7F00292B32 /* SoundPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -970,6 +987,8 @@
 		09994316228DBA6500D87385 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				0921710922C20D7100F773B5 /* Alert */,
+				09BD4C1A22C11A1C0046DB74 /* Confirm */,
 				D008E79D22B92A0B00789B91 /* SaveProgram */,
 				D0E3F88622B782E200B4D9F2 /* ProgramsModal */,
 				D0E3F88B22B7B09700B4D9F2 /* BlockContext */,
@@ -996,6 +1015,15 @@
 				099DA57222B786B7005DCD60 /* LEDSelectorView.xib */,
 			);
 			path = LEDSelector;
+			sourceTree = "<group>";
+		};
+		09BD4C1A22C11A1C0046DB74 /* Confirm */ = {
+			isa = PBXGroup;
+			children = (
+				09BD4C1622C117320046DB74 /* ConfirmModalView.swift */,
+				09BD4C1822C117460046DB74 /* ConfirmModalView.xib */,
+			);
+			path = Confirm;
 			sourceTree = "<group>";
 		};
 		09C38756226F58180097619D /* CustomView */ = {
@@ -2114,9 +2142,11 @@
 				0972844A22B3C520007A7FE1 /* VariableContextCell.xib in Resources */,
 				2AB778612282F6D4004442E2 /* DeleteView.xib in Resources */,
 				D05BAA9E22676BCA00624438 /* WhoToBuildCollectionViewCell.xib in Resources */,
+				09BD4C1922C117460046DB74 /* ConfirmModalView.xib in Resources */,
 				D06C32792289BAF1005534C0 /* CheckForUpdatesModal.xib in Resources */,
 				D031333F228EA66100704989 /* MostRecentProgramsViewController.xib in Resources */,
 				2A77320322648FB000D7F38D /* Settings.bundle in Resources */,
+				0921710D22C20D7100F773B5 /* AlertModalView.xib in Resources */,
 				09C38753226F38F40097619D /* Jura-Regular.ttf in Resources */,
 				D0049A542271CC52007FA256 /* TurnOnBrainView.xib in Resources */,
 				D001FCAB22A7DDE9004C49F3 /* ChallengeDetailViewController.xib in Resources */,
@@ -2301,6 +2331,7 @@
 				2A0789EB2293245400CFFDD6 /* MultiTaskerConfigurationView.swift in Sources */,
 				D0241A0A22B14337005E8DB2 /* ProgramsOrderTableViewCell.swift in Sources */,
 				2A227C7622B396390032948B /* ControllerViewModel.swift in Sources */,
+				0921710C22C20D7100F773B5 /* AlertModalView.swift in Sources */,
 				D0241A0622B14011005E8DB2 /* ProgramPriorityViewController.swift in Sources */,
 				094FC5D7228C3C600085B407 /* PlayablePadView.swift in Sources */,
 				D05C64DD225F592400B7BF4F /* Sensor.swift in Sources */,
@@ -2473,6 +2504,7 @@
 				096333EE228993CF0029D87B /* TLAnalogJoystick.swift in Sources */,
 				0938895322B23ABC00292B32 /* AudioPlayer.swift in Sources */,
 				2ADE8C342270A78600ECEC72 /* RobotsKeys.swift in Sources */,
+				09BD4C1722C117320046DB74 /* ConfirmModalView.swift in Sources */,
 				2AB7785F2282F6CA004442E2 /* DeleteView.swift in Sources */,
 				2AB7785F2282F6CA004442E2 /* DeleteView.swift in Sources */,
 				D001FCB722A951FC004C49F3 /* ChallengesCollectionViewOddCell.swift in Sources */,

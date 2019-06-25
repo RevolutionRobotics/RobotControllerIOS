@@ -112,5 +112,7 @@ enum ModalKeys {
     enum Blockly {
         static let deleteVariable = "blockly_delete_variable"
         static let ledSelectorSelectAll = "blockly_donut_selector_select_all"
+        static let ok = "blockly_confirm_ok"
+        static let cancel = "blockly_confirm_cancel"
     }
 }
