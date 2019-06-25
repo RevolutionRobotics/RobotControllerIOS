@@ -69,10 +69,6 @@ final class RobotConfigurationViewController: BaseViewController {
         }
     }
     private var lastSelectedIndexPath: IndexPath?
-
-    // MARK: - Callbacks
-    var saveCallback: Callback?
-
     var selectedRobot: UserRobot? {
         didSet {
             configuration = realmService.getConfiguration(id: selectedRobot?.configId)
@@ -81,6 +77,9 @@ final class RobotConfigurationViewController: BaseViewController {
         }
     }
     var configuration: ConfigurationDataModel?
+
+    // MARK: - Callbacks
+    var saveCallback: Callback?
 }
 
 // MARK: - View lifecycle
@@ -220,6 +219,7 @@ extension RobotConfigurationViewController {
         photoModal.deleteHandler = { [weak self] in
             FileManager.default.delete(name: self?.selectedRobot?.id)
             self?.robotImage = nil
+            self?.configurationView.image = nil
             self?.dismiss(animated: true)
         }
     }
@@ -239,8 +239,8 @@ extension RobotConfigurationViewController {
             case .bumper, .ultrasonic:
                 self?.showSensorConfiguration(portNumber: port.number)
             }
-
         }
+        configurationView.image = robotImage
     }
 
     private func showMotorConfiguration(portNumber: Int) {
@@ -460,6 +460,10 @@ extension RobotConfigurationViewController: UIImagePickerControllerDelegate, UIN
 
         photoModal.setImage(newImage)
         robotImage = newImage
+        if let robotId = selectedRobot?.id {
+            FileManager.default.save(robotImage, as: robotId)
+            configurationView.image = newImage
+        }
         dismiss(animated: true)
         presentModal(with: photoModal, animated: true)
     }
