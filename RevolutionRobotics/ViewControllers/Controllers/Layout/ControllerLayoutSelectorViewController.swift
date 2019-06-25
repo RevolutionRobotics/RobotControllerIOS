@@ -17,9 +17,6 @@ final class ControllerLayoutSelectorViewController: BaseViewController {
     @IBOutlet private weak var multiTaskerControllerButton: UIButton!
     @IBOutlet private weak var driverControllerLabel: UILabel!
     @IBOutlet private weak var driverControllerButton: UIButton!
-    @IBOutlet private weak var gamerButton: UIButton!
-    @IBOutlet private weak var multiTaskerButton: UIButton!
-    @IBOutlet private weak var driverButton: UIButton!
 
     // MARK: - Properties
     var configurationId: String?
@@ -31,9 +28,9 @@ extension ControllerLayoutSelectorViewController {
         super.viewDidLoad()
 
         navigationBar.setup(title: ControllerKeys.selectorScreenTitle.translate(), delegate: self)
-        gamerButton.setTitle(ControllerKeys.gamer.translate(), for: .normal)
-        multiTaskerButton.setTitle(ControllerKeys.multiTasker.translate(), for: .normal)
-        driverButton.setTitle(ControllerKeys.driver.translate(), for: .normal)
+        gamerControllerLabel.text = ControllerKeys.gamer.translate()
+        multiTaskerControllerLabel.text = ControllerKeys.multiTasker.translate()
+        driverControllerLabel.text = ControllerKeys.driver.translate()
     }
 }
 
