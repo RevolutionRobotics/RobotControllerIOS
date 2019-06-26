@@ -25,11 +25,9 @@ struct FirmwareUpdate: FirebaseData {
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
-        guard let dic = snapshot.value as? NSDictionary else {
-            return nil
-        }
-        guard let fileName = dic[Constants.filename] as? String,
-            let url = dic[Constants.url] as? String else {
+        guard let dictionary = snapshot.value as? NSDictionary,
+            let fileName = dictionary[Constants.filename] as? String,
+            let url = dictionary[Constants.url] as? String else {
                 return nil
         }
 

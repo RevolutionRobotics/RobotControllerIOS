@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct ChallengeCategory: FirebaseData {
+struct ChallengeCategory: FirebaseData, FirebaseOrderable {
     // MARK: - Constants
     private enum Constants {
         static let id = "id"
@@ -18,6 +18,7 @@ struct ChallengeCategory: FirebaseData {
         static let description = "description"
         static let progress = "progress"
         static let challenges = "challenges"
+        static let order = "order"
     }
 
     // MARK: - Path
@@ -28,19 +29,17 @@ struct ChallengeCategory: FirebaseData {
     var name: String
     var image: String
     var description: String
-    var progress: Int
+    var order: Int
     var challenges: [Challenge]
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
-        guard let dic = snapshot.value as? NSDictionary else {
-            return nil
-        }
-        guard let id = dic[Constants.id] as? String,
-            let name = dic[Constants.name] as? String,
-            let image = dic[Constants.image] as? String,
-            let description = dic[Constants.description] as? String,
-            let progress = dic[Constants.progress] as? Int else {
+        guard let dictionary = snapshot.value as? NSDictionary,
+            let id = dictionary[Constants.id] as? String,
+            let name = dictionary[Constants.name] as? String,
+            let image = dictionary[Constants.image] as? String,
+            let description = dictionary[Constants.description] as? String,
+            let order = dictionary[Constants.order] as? Int else {
                 return nil
         }
 
@@ -48,7 +47,7 @@ struct ChallengeCategory: FirebaseData {
         self.name = name
         self.image = image
         self.description = description
-        self.progress = progress
+        self.order = order
 
         let challenges = snapshot.childSnapshot(forPath: Constants.challenges)
             .children.compactMap { $0 as? DataSnapshot }

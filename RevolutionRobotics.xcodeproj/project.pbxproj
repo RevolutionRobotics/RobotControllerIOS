@@ -274,7 +274,6 @@
 		D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA7C22676A0C00624438 /* UIView+NibLoadable.swift */; };
 		D05BAA7F22676A0C00624438 /* UIView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA7D22676A0C00624438 /* UIView+Reusable.swift */; };
 		D05BAA9E22676BCA00624438 /* WhoToBuildCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D05BAA9A22676BCA00624438 /* WhoToBuildCollectionViewCell.xib */; };
-		D05C64C8225F570000B7BF4F /* TestCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64C7225F570000B7BF4F /* TestCode.swift */; };
 		D05C64CA225F572F00B7BF4F /* MilestoneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64C9225F572F00B7BF4F /* MilestoneType.swift */; };
 		D05C64CC225F575A00B7BF4F /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64CB225F575A00B7BF4F /* Milestone.swift */; };
 		D05C64CE225F578A00B7BF4F /* BuildStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64CD225F578A00B7BF4F /* BuildStep.swift */; };
@@ -622,7 +621,6 @@
 		D05BAA7C22676A0C00624438 /* UIView+NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadable.swift"; sourceTree = "<group>"; };
 		D05BAA7D22676A0C00624438 /* UIView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Reusable.swift"; sourceTree = "<group>"; };
 		D05BAA9A22676BCA00624438 /* WhoToBuildCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WhoToBuildCollectionViewCell.xib; sourceTree = "<group>"; };
-		D05C64C7225F570000B7BF4F /* TestCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCode.swift; sourceTree = "<group>"; };
 		D05C64C9225F572F00B7BF4F /* MilestoneType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneType.swift; sourceTree = "<group>"; };
 		D05C64CB225F575A00B7BF4F /* Milestone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
 		D05C64CD225F578A00B7BF4F /* BuildStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildStep.swift; sourceTree = "<group>"; };
@@ -1353,7 +1351,6 @@
 				D05C64DE225F5C4E00B7BF4F /* Rotation.swift */,
 				D05C64DC225F592400B7BF4F /* Sensor.swift */,
 				D05C64D8225F58E200B7BF4F /* Side.swift */,
-				D05C64C7225F570000B7BF4F /* TestCode.swift */,
 				2AFD41D122B90C3C00E29F74 /* FirmwareUpdate.swift */,
 			);
 			path = Domain;
@@ -2364,7 +2361,6 @@
 				0972844122B3950D007A7FE1 /* DriveDirectionSelectorView.swift in Sources */,
 				D03BA85E2277384A005B3E33 /* TestingModal.swift in Sources */,
 				D05C64D6225F587700B7BF4F /* UserRobot.swift in Sources */,
-				D05C64C8225F570000B7BF4F /* TestCode.swift in Sources */,
 				D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */,
 				D03BA8602277384A005B3E33 /* ChapterFinishedModal.swift in Sources */,
 				0999431A228DBA6500D87385 /* ProgramInfoModal.swift in Sources */,

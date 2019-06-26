@@ -27,6 +27,8 @@ final class ProgramDataModel: Object {
         self.name = program.name
         self.customDescription = program.description
         self.lastModified = Date(timeIntervalSince1970: program.lastModified)
+        self.xml = program.xml
+        self.python = program.python
 
         let list = List<String>()
         program.variables.forEach { variable in

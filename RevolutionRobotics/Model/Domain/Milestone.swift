@@ -13,35 +13,40 @@ struct Milestone {
     // MARK: - Constants
     private enum Constants {
         static let image = "image"
-        static let testCodeId = "testCodeId"
+        static let testCode = "testCode"
+        static let testDescription = "testDescription"
+        static let testImage = "testImage"
         static let type = "type"
     }
 
     // MARK: - Properties
     var image: String
-    var testCodeId: Int
+    var testCode: String
+    var testDescription: String
+    var testImage: String
     var type: MilestoneType
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
-        guard let dic = snapshot.value as? NSDictionary else {
-            return nil
-        }
-        guard let image = dic[Constants.image] as? String,
-            let testCodeId = dic[Constants.testCodeId] as? Int,
-            let type = dic[Constants.type] as? String,
-            let milestoneType = MilestoneType(rawValue: type) else {
+        guard let dictionary = snapshot.value as? NSDictionary,
+            let image = dictionary[Constants.image] as? String,
+            let testCode = dictionary[Constants.testCode] as? String,
+            let testDescription = dictionary[Constants.testDescription] as? String,
+            let testImage = dictionary[Constants.testImage] as? String,
+            let milestoneType = MilestoneType(rawValue: (dictionary[Constants.type] as? String)!) else {
                 return nil
         }
 
         self.image = image
-        self.testCodeId = testCodeId
+        self.testCode = testCode
+        self.testDescription = testDescription
+        self.testImage = testImage
         self.type = milestoneType
     }
 }
 
 extension Milestone: Equatable {
     static func == (lhs: Milestone, rhs: Milestone) -> Bool {
-        return lhs.image == rhs.image && lhs.testCodeId == rhs.testCodeId && lhs.type == rhs.type
+        return lhs.image == rhs.image && lhs.testCode == rhs.testCode && lhs.type == rhs.type
     }
 }

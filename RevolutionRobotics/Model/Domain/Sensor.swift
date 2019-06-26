@@ -24,12 +24,10 @@ struct Sensor: Port {
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
-        guard let dic = snapshot.value as? NSDictionary else {
-            return nil
-        }
-        guard let variableName = dic[Constants.variableName] as? String,
-            let type = dic[Constants.type] as? String,
-            let testCodeId = dic[Constants.testCodeId] as? Int else {
+        guard let dictionary = snapshot.value as? NSDictionary,
+            let variableName = dictionary[Constants.variableName] as? String,
+            let type = dictionary[Constants.type] as? String,
+            let testCodeId = dictionary[Constants.testCodeId] as? Int else {
                 return nil
         }
 

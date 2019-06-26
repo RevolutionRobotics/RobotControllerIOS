@@ -33,19 +33,17 @@ struct BuildStep: FirebaseData, Equatable {
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
-        guard let dic = snapshot.value as? NSDictionary else {
-            return nil
-        }
-        guard let robotId = dic[Constants.robotId] as? Int,
-            let image = dic[Constants.image] as? String,
-            let stepNumber = dic[Constants.stepNumber] as? Int else {
+        guard let dictionary = snapshot.value as? NSDictionary,
+            let robotId = dictionary[Constants.robotId] as? String,
+            let image = dictionary[Constants.image] as? String,
+            let stepNumber = dictionary[Constants.stepNumber] as? Int else {
                 return nil
         }
 
-        self.robotId = "\(robotId)"
+        self.robotId = robotId
         self.image = image
-        self.partImage = dic[Constants.partImage] as? String
-        self.partImage2 = dic[Constants.partImage2] as? String
+        self.partImage = dictionary[Constants.partImage] as? String
+        self.partImage2 = dictionary[Constants.partImage2] as? String
         self.stepNumber = stepNumber
         self.milestone = Milestone(snapshot: snapshot.childSnapshot(forPath: Constants.milestone))
     }
