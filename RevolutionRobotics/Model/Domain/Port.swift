@@ -11,5 +11,4 @@ import Foundation
 protocol Port {
     var variableName: String { get set }
     var type: String { get set }
-    var testCodeId: Int { get set }
 }

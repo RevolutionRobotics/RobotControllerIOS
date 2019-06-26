@@ -18,20 +18,17 @@ final class MotorDataModel: Object {
     // MARK: - Properties
     @objc dynamic var variableName: String = ""
     @objc dynamic var type: String = ""
-    @objc dynamic var testCodeId: Int = 0
     @objc dynamic var rotation: String?
     @objc dynamic var side: String?
 
     // MARK: - Initialization
     convenience init(variableName: String,
                      type: String,
-                     testCodeId: Int,
                      rotation: String?,
                      side: String?) {
         self.init()
         self.variableName = variableName
         self.type = type
-        self.testCodeId = testCodeId
         self.rotation = rotation
         self.side = side
     }
@@ -41,7 +38,6 @@ final class MotorDataModel: Object {
         self.init()
         self.variableName = remoteMotor.variableName
         self.type = remoteMotor.type
-        self.testCodeId = remoteMotor.testCodeId
         self.rotation = remoteMotor.rotation.rawValue
         self.side = remoteMotor.side?.rawValue
     }
@@ -49,7 +45,6 @@ final class MotorDataModel: Object {
     convenience init(viewModel: MotorConfigViewModel) {
         self.init()
         self.variableName = viewModel.portName ?? ""
-        self.testCodeId = -1
         switch viewModel.state {
         case .drivetrain(let side, let rotation):
             self.type = Constants.drivetrain
