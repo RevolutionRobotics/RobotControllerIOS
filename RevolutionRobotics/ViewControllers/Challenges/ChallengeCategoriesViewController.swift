@@ -29,7 +29,7 @@ extension ChallengeCategoriesViewController {
         firebaseService.getChallengeCategories { [weak self] result in
             switch result {
             case .success(let challengeCategories):
-                self?.challengeCategories = challengeCategories
+                self?.challengeCategories = challengeCategories.sorted(by: { $0.order < $1.order })
             case .failure:
                 let alert = UIAlertController.errorAlert(type: .network)
                 self?.present(alert, animated: true, completion: nil)

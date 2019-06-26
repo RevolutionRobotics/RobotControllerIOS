@@ -44,7 +44,8 @@ struct Challenge: FirebaseData, FirebaseOrderable {
             .children.compactMap { $0 as? DataSnapshot }
             .map { (snapshot) -> ChallengeStep in
                 return ChallengeStep(snapshot: snapshot)!
-        }
+            }
+            .sorted(by: { $0.order < $1.order })
         self.challengeSteps = challengeSteps
     }
 }

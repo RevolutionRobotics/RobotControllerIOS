@@ -254,7 +254,7 @@ extension BuildRobotViewController {
         firebaseService.getBuildSteps(for: remoteRobotDataModel?.id, completion: { [weak self] result in
             switch result {
             case .success(let steps):
-                self?.steps = steps
+                self?.steps = steps.sorted(by: { $0.stepNumber < $1.stepNumber })
                 self?.currentStep = steps[self?.storedRobotDataModel?.actualBuildStep ?? 0]
                 guard let loaded = self?.isViewLoaded, loaded == true else { return }
                 self?.refreshViews()
