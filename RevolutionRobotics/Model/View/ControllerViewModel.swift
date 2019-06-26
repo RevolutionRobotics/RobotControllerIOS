@@ -42,6 +42,7 @@ final class ControllerViewModel {
             })
         }
     }
+
     var backgroundProgramBindings: [ProgramBindingDataModel] = []
 
     var joystickPriority: Int = 0

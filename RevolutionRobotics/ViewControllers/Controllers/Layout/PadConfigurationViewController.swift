@@ -29,17 +29,18 @@ final class PadConfigurationViewController: BaseViewController {
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
     var configurationId: String?
-    var selectedController: ControllerDataModel? {
-        didSet {
-            self.controllerType = ControllerType(rawValue: (selectedController?.type)!)
-        }
-    }
+    var selectedControllerId: String?
 
     // MARK: - Private
     private var programs: [ProgramDataModel] = []
     private var selectedButtonIndex: Int?
     private var selectedButtonState: ControllerButton.ControllerButtonState?
     private var selectedButtonProgram: ProgramDataModel?
+    private var selectedController: ControllerDataModel? {
+        didSet {
+            self.controllerType = ControllerType(rawValue: (selectedController?.type)!)
+        }
+    }
     private let viewModel = ControllerViewModel()
 }
 
@@ -59,32 +60,35 @@ extension PadConfigurationViewController {
         super.viewDidLoad()
 
         navigationBar.setup(title: ControllerKeys.configureTitle.translate(), delegate: self)
+        fetchSelectedController()
         setupConfigurationView()
-        fetchPrograms()
-
-        viewModel.joystickPriority = selectedController?.joystickPriority ?? 0
-        viewModel.name = selectedController?.name ?? ""
-        viewModel.customDesctiprion = selectedController?.controllerDescription ?? ""
-        viewModel.id = selectedController?.id ?? UUID().uuidString
-        viewModel.configurationId = configurationId ?? ""
-        viewModel.type = controllerType ?? ControllerType(rawValue: (selectedController?.type)!)
-
-        if selectedController != nil {
-            prefillData()
-        } else {
-            viewModel.isNewlyCreated = true
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        fetchSelectedController()
+        fetchPrograms()
+        setupViewModel()
+        prefillData()
         setupNextButton()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        guard let selectedButtonIndex = selectedButtonIndex else { return }
+        configurationView.set(state: .normal, on: selectedButtonIndex)
+    }
+}
+
+// MARK: - Prefill
+extension PadConfigurationViewController {
     //swiftlint:disable cyclomatic_complexity
     private func prefillData() {
-        if let binding = selectedController?.mapping?.b1 {
+        guard let selectedController = selectedController, let mapping = selectedController.mapping else { return }
+
+        if let binding = mapping.b1 {
             if let program = realmService.getProgram(id: binding.programId) ??
                 realmService.getProgram(remoteId: binding.programId) {
                 viewModel.b1Binding = binding
@@ -92,7 +96,7 @@ extension PadConfigurationViewController {
                 configurationView.set(state: .selected(program), on: 1)
             }
         }
-        if let binding = selectedController?.mapping?.b2 {
+        if let binding = mapping.b2 {
             if let program = realmService.getProgram(id: binding.programId) ??
                 realmService.getProgram(remoteId: binding.programId) {
                 viewModel.b2Binding = binding
@@ -100,7 +104,7 @@ extension PadConfigurationViewController {
                 configurationView.set(state: .selected(program), on: 2)
             }
         }
-        if let binding = selectedController?.mapping?.b3 {
+        if let binding = mapping.b3 {
             if let program = realmService.getProgram(id: binding.programId) ??
                 realmService.getProgram(remoteId: binding.programId) {
                 viewModel.b3Binding = binding
@@ -108,7 +112,7 @@ extension PadConfigurationViewController {
                 configurationView.set(state: .selected(program), on: 3)
             }
         }
-        if let binding = selectedController?.mapping?.b4 {
+        if let binding = mapping.b4 {
             if let program = realmService.getProgram(id: binding.programId) ??
                 realmService.getProgram(remoteId: binding.programId) {
                 viewModel.b4Binding = binding
@@ -116,7 +120,7 @@ extension PadConfigurationViewController {
                 configurationView.set(state: .selected(program), on: 4)
             }
         }
-        if let binding = selectedController?.mapping?.b5 {
+        if let binding = mapping.b5 {
             if let program = realmService.getProgram(id: binding.programId) ??
                 realmService.getProgram(remoteId: binding.programId) {
                 viewModel.b5Binding = binding
@@ -124,7 +128,7 @@ extension PadConfigurationViewController {
                 configurationView.set(state: .selected(program), on: 5)
             }
         }
-        if let binding = selectedController?.mapping?.b6 {
+        if let binding = mapping.b6 {
             if let program = realmService.getProgram(id: binding.programId) ??
                 realmService.getProgram(remoteId: binding.programId) {
                 viewModel.b6Binding = binding
@@ -133,15 +137,12 @@ extension PadConfigurationViewController {
             }
         }
 
-        if let backgroundPrograms = selectedController?.backgroundProgramBindings {
-            viewModel.backgroundPrograms = backgroundPrograms
-                .map({ [weak self] binding -> ProgramDataModel? in
-                    return self?.realmService.getProgram(id: binding.programId) ??
+        viewModel.backgroundProgramBindings = Array(selectedController.backgroundProgramBindings)
+        viewModel.backgroundPrograms = selectedController.backgroundProgramBindings
+                .compactMap { [weak self] binding in
+                    self?.realmService.getProgram(id: binding.programId) ??
                         self?.realmService.getProgram(remoteId: binding.programId)
-                })
-                .compactMap({ $0 })
-            viewModel.backgroundProgramBindings = Array(backgroundPrograms)
-        }
+                }
     }
 }
 
@@ -213,8 +214,8 @@ extension PadConfigurationViewController {
             let programSet = Set(programs)
             let prohibitedProgramSet = Set(viewModel.programs)
             let allowedPrograms = programSet.subtracting(prohibitedProgramSet)
-            displayablePrograms = Array(allowedPrograms).filter({ isProgramCompatible($0) })
-            displayablePrograms.append(selectedProgram)
+            displayablePrograms = Array(allowedPrograms).filter(isProgramCompatible)
+            displayablePrograms.insert(selectedProgram, at: 0)
         } else {
             displayablePrograms = Array(Set(programs).subtracting(Set(viewModel.programs)))
         }
@@ -297,6 +298,20 @@ extension PadConfigurationViewController {
         case .multiTasker:
             configurationView = MultiTaskerConfigurationView.instatiate()
         }
+    }
+
+    private func fetchSelectedController() {
+        selectedController = realmService.getController(id: selectedControllerId)
+    }
+
+    private func setupViewModel() {
+        viewModel.joystickPriority = selectedController?.joystickPriority ?? 0
+        viewModel.name = selectedController?.name ?? ""
+        viewModel.customDesctiprion = selectedController?.controllerDescription ?? ""
+        viewModel.id = selectedController?.id ?? UUID().uuidString
+        viewModel.configurationId = configurationId ?? ""
+        viewModel.type = controllerType ?? ControllerType(rawValue: (selectedController?.type)!)
+        viewModel.isNewlyCreated = selectedController == nil
     }
 
     private func setupConstraints() {

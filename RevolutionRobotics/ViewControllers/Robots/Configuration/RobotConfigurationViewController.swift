@@ -150,7 +150,7 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
         }
         cell.editCallback = { [weak self] in
             let vc = AppContainer.shared.container.unwrappedResolve(PadConfigurationViewController.self)
-            vc.selectedController = self?.controllers[indexPath.row]
+            vc.selectedControllerId = self?.controllers[indexPath.row].id
             vc.configurationId = self?.configuration?.id
             self?.navigationController?.pushViewController(vc, animated: true)
         }

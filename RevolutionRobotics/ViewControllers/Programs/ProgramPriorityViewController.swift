@@ -134,7 +134,10 @@ extension ProgramPriorityViewController: UITableViewDataSource {
         orderedPrograms.remove(at: sourceIndexPath.row)
         orderedPrograms.insert(program, at: destinationIndexPath.row)
     }
+}
 
+// MARK: - Update, save data
+extension ProgramPriorityViewController {
     private func saveController(name: String?, description: String?) {
         guard let controller = realmService.getController(id: controllerViewModel?.id) else {
             let newController = ControllerDataModel(id: controllerViewModel?.id,
@@ -155,16 +158,18 @@ extension ProgramPriorityViewController: UITableViewDataSource {
             controller.joystickPriority =
                 (self?.orderedPrograms.firstIndex(of: (self?.drivetrainPlaceholder)!))!
 
-            self?.updatePriority(on: self?.controllerViewModel?.b1Binding, controller: controller, buttonIndex: 1)
-            self?.updatePriority(on: self?.controllerViewModel?.b2Binding, controller: controller, buttonIndex: 2)
-            self?.updatePriority(on: self?.controllerViewModel?.b3Binding, controller: controller, buttonIndex: 3)
-            self?.updatePriority(on: self?.controllerViewModel?.b4Binding, controller: controller, buttonIndex: 4)
-            self?.updatePriority(on: self?.controllerViewModel?.b5Binding, controller: controller, buttonIndex: 5)
-            self?.updatePriority(on: self?.controllerViewModel?.b6Binding, controller: controller, buttonIndex: 6)
+            let viewModel = self?.controllerViewModel
+            self?.updateButtonProgramPriority(on: viewModel?.b1Binding, controller: controller, buttonIndex: 1)
+            self?.updateButtonProgramPriority(on: viewModel?.b2Binding, controller: controller, buttonIndex: 2)
+            self?.updateButtonProgramPriority(on: viewModel?.b3Binding, controller: controller, buttonIndex: 3)
+            self?.updateButtonProgramPriority(on: viewModel?.b4Binding, controller: controller, buttonIndex: 4)
+            self?.updateButtonProgramPriority(on: viewModel?.b5Binding, controller: controller, buttonIndex: 5)
+            self?.updateButtonProgramPriority(on: viewModel?.b6Binding, controller: controller, buttonIndex: 6)
             controller.backgroundProgramBindings.removeAll()
-            self?.controllerViewModel?.backgroundProgramBindings.forEach({ binding in
-                controller.backgroundProgramBindings.append(binding)
-            })
+            viewModel?.backgroundProgramBindings.forEach { [weak self] backgroundProgramBinding in
+                self?.updatePriority(of: backgroundProgramBinding)
+                controller.backgroundProgramBindings.append(backgroundProgramBinding)
+            }
         })
 
         if let configuration = realmService.getConfiguration(id: controllerViewModel?.configurationId),
@@ -182,10 +187,18 @@ extension ProgramPriorityViewController: UITableViewDataSource {
         }
     }
 
+    private func updatePriority(of programBinding: ProgramBindingDataModel?) {
+        guard let programBinding = programBinding else { return }
+        let program = orderedPrograms.first(where: { $0.id == programBinding.programId }) ??
+            orderedPrograms.first(where: { $0.remoteId == programBinding.programId })
+        let prio = Int(orderedPrograms.firstIndex(of: program!)!)
+        programBinding.priority = prio
+    }
+
     //swiftlint:disable cyclomatic_complexity
-    private func updatePriority(on programBinding: ProgramBindingDataModel?,
-                                controller: ControllerDataModel,
-                                buttonIndex: Int) {
+    private func updateButtonProgramPriority(on programBinding: ProgramBindingDataModel?,
+                                             controller: ControllerDataModel,
+                                             buttonIndex: Int) {
         guard let programBinding = programBinding else {
             switch buttonIndex {
             case 1:
@@ -205,10 +218,8 @@ extension ProgramPriorityViewController: UITableViewDataSource {
             }
             return
         }
-        let program = orderedPrograms.first(where: { $0.id == programBinding.programId }) ??
-            orderedPrograms.first(where: { $0.remoteId == programBinding.programId })
-        let prio = Int(orderedPrograms.firstIndex(of: program!)!)
-        programBinding.priority = prio
+
+        updatePriority(of: programBinding)
         switch buttonIndex {
         case 1:
             controller.mapping?.b1 = programBinding
