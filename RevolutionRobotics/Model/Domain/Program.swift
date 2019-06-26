@@ -35,15 +35,13 @@ struct Program: FirebaseData, Equatable, Hashable {
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
-        guard let dic = snapshot.value as? NSDictionary else {
-            return nil
-        }
-        guard let id = dic[Constants.id] as? String,
-            let name = dic[Constants.name] as? String,
-            let xml = dic[Constants.xml] as? String,
-            let python = dic[Constants.python] as? String,
-            let description = dic[Constants.description] as? String,
-            let lastModified = dic[Constants.lastModified] as? Double else {
+        guard let dictionary = snapshot.value as? NSDictionary,
+            let id = dictionary[Constants.id] as? String,
+            let name = dictionary[Constants.name] as? String,
+            let xml = dictionary[Constants.xml] as? String,
+            let python = dictionary[Constants.python] as? String,
+            let description = dictionary[Constants.description] as? String,
+            let lastModified = dictionary[Constants.lastModified] as? Double else {
                 return nil
         }
 

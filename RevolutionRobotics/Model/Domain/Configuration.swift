@@ -27,16 +27,14 @@ struct Configuration: FirebaseData {
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
-        guard let dic = snapshot.value as? NSDictionary else {
-            return nil
-        }
-        guard let id = dic[Constants.id] as? Int,
-            let controller = dic[Constants.controller] as? String,
+        guard let dictionary = snapshot.value as? NSDictionary,
+            let id = dictionary[Constants.id] as? String,
+            let controller = dictionary[Constants.controller] as? String,
             let mapping = PortMapping(snapshot: snapshot.childSnapshot(forPath: Constants.mapping)) else {
                 return nil
         }
 
-        self.id = "\(id)"
+        self.id = id
         self.controller = controller
         self.mapping = mapping
     }

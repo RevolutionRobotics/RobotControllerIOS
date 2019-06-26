@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct Robot: FirebaseData {
+struct Robot: FirebaseData, FirebaseOrderable {
     // MARK: - Constants
     private enum Constants {
         static let id = "id"
@@ -19,6 +19,7 @@ struct Robot: FirebaseData {
         static let buildTime = "buildTime"
         static let configurationId = "configurationId"
         static let defaultProgram = "defaultProgram"
+        static let order = "order"
     }
 
     // MARK: - Path
@@ -32,29 +33,29 @@ struct Robot: FirebaseData {
     var buildTime: String
     var configurationId: String
     var defaultProgram: String
+    var order: Int
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
-        guard let dic = snapshot.value as? NSDictionary else {
-            return nil
-        }
-
-        guard let id = dic[Constants.id] as? Int,
-            let name = dic[Constants.name] as? String,
-            let customDescription = dic[Constants.description] as? String,
-            let coverImage = dic[Constants.coverImage] as? String,
-            let buildTime = dic[Constants.buildTime] as? String,
-            let configurationId = dic[Constants.configurationId] as? Int,
-            let defaultProgram = dic[Constants.defaultProgram] as? String else {
+        guard let dictionary = snapshot.value as? NSDictionary,
+            let id = dictionary[Constants.id] as? String,
+            let name = dictionary[Constants.name] as? String,
+            let customDescription = dictionary[Constants.description] as? String,
+            let coverImage = dictionary[Constants.coverImage] as? String,
+            let buildTime = dictionary[Constants.buildTime] as? String,
+            let configurationId = dictionary[Constants.configurationId] as? String,
+            let order = dictionary[Constants.order] as? Int,
+            let defaultProgram = dictionary[Constants.defaultProgram] as? String else {
                 return nil
         }
 
-        self.id = "\(id)"
+        self.id = id
         self.name = name
         self.customDescription = customDescription
         self.coverImageGSURL = coverImage
         self.buildTime = buildTime
-        self.configurationId = "\(configurationId)"
+        self.configurationId = configurationId
         self.defaultProgram = defaultProgram
+        self.order = order
     }
 }

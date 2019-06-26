@@ -44,28 +44,7 @@ extension FirebaseService: FirebaseServiceInterface {
             case .success(let programs):
                 let realmService = AppContainer.shared.container.unwrappedResolve(RealmServiceInterface.self)
                 if realmService.getPrograms().isEmpty {
-                    var dataModels: [ProgramDataModel] = []
-                    programs.forEach({ program in
-                        let dataModel = ProgramDataModel(program: program)
-                        dataModels.append(dataModel)
-                        Storage.storage().reference(forURL: program.python).downloadURL(completion: { (url, error) in
-                            guard error == nil, let url = url else { return }
-                            realmService.updateObject(closure: {
-                                do {
-                                    dataModel.python = try Data(contentsOf: url).base64EncodedString()
-                                } catch { }
-                            })
-                        })
-                        Storage.storage().reference(forURL: program.xml).downloadURL(completion: { (url, error) in
-                            guard error == nil, let url = url else { return }
-                            realmService.updateObject(closure: {
-                                do {
-                                    dataModel.xml = try Data(contentsOf: url).base64EncodedString()
-                                } catch { }
-                            })
-                        })
-                    })
-                    realmService.savePrograms(programs: dataModels)
+                    realmService.savePrograms(programs: programs.map({ ProgramDataModel(program: $0) }))
                 }
             case .failure(let error):
                 onError?(error)
@@ -206,7 +185,13 @@ extension FirebaseService {
                 return
             }
 
-            completion?(.success(models.compactMap { $0 }))
+            guard let orderableModels = models as? [FirebaseOrderable?],
+                let ordered = orderableModels.compactMap({ $0 }).sorted(by: { $0.order < $1.order }) as? [T] else {
+                    completion?(.success(models.compactMap({ $0 })))
+                    return
+            }
+
+            completion?(.success(ordered))
         }
     }
 }

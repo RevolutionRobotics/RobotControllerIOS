@@ -28,13 +28,11 @@ struct Motor: Port {
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
-        guard let dic = snapshot.value as? NSDictionary else {
-            return nil
-        }
-        guard let variableName = dic[Constants.variableName] as? String,
-            let type = dic[Constants.type] as? String,
-            let testCodeId = dic[Constants.testCodeId] as? Int,
-            let tempRotation = dic[Constants.rotation] as? String,
+        guard let dictionary = snapshot.value as? NSDictionary,
+            let variableName = dictionary[Constants.variableName] as? String,
+            let type = dictionary[Constants.type] as? String,
+            let testCodeId = dictionary[Constants.testCodeId] as? Int,
+            let tempRotation = dictionary[Constants.rotation] as? String,
             let rotation = Rotation(rawValue: tempRotation) else {
                 return nil
         }
@@ -44,7 +42,7 @@ struct Motor: Port {
         self.testCodeId = testCodeId
         self.rotation = rotation
 
-        if let tempSide = dic[Constants.side] as? String, let side = Side(rawValue: tempSide) {
+        if let tempSide = dictionary[Constants.side] as? String, let side = Side(rawValue: tempSide) {
             self.side = side
         }
     }

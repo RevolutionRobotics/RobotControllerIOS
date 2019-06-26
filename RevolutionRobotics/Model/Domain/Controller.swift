@@ -39,17 +39,15 @@ struct Controller: FirebaseData {
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
-        guard let dic = snapshot.value as? NSDictionary else {
-            return nil
-        }
-        guard let id = dic[Constants.id] as? String,
-            let name = dic[Constants.name] as? String,
-            let tempType = dic[Constants.type] as? String,
+        guard let dictionary = snapshot.value as? NSDictionary,
+            let id = dictionary[Constants.id] as? String,
+            let name = dictionary[Constants.name] as? String,
+            let tempType = dictionary[Constants.type] as? String,
             let type = ControllerType(rawValue: tempType),
-            let configurationId = dic[Constants.configurationId] as? String,
-            let joystickPriority = dic[Constants.joystickPriority] as? Int,
-            let description = dic[Constants.description] as? String,
-            let lastModified = dic[Constants.lastModified] as? Double,
+            let configurationId = dictionary[Constants.configurationId] as? String,
+            let joystickPriority = dictionary[Constants.joystickPriority] as? Int,
+            let description = dictionary[Constants.description] as? String,
+            let lastModified = dictionary[Constants.lastModified] as? Double,
             let mapping = ControllerButtonMapping(snapshot: snapshot.childSnapshot(forPath: Constants.mapping)) else {
                 return nil
         }

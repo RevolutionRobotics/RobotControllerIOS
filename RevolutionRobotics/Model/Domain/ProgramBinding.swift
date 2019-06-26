@@ -25,11 +25,9 @@ struct ProgramBinding: FirebaseData {
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
-        guard let dic = snapshot.value as? NSDictionary else {
-            return nil
-        }
-        guard let programId = dic[Constants.programId] as? String,
-            let priority = dic[Constants.priority] as? Int else {
+        guard let dictionary = snapshot.value as? NSDictionary,
+            let programId = dictionary[Constants.programId] as? String,
+            let priority = dictionary[Constants.priority] as? Int else {
                 return nil
         }
 

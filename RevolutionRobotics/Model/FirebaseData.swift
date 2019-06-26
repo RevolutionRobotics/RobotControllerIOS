@@ -15,3 +15,7 @@ protocol FirebaseData {
 
     static var firebasePath: String { get }
 }
+
+protocol FirebaseOrderable {
+    var order: Int { get set }
+}

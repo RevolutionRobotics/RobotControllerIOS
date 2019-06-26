@@ -9,11 +9,12 @@
 import Foundation
 import Firebase
 
-struct Part: FirebaseData {
+struct Part: FirebaseData, FirebaseOrderable {
     // MARK: - Constants
     private enum Constants {
         static let name = "name"
         static let image = "image"
+        static let order = "order"
     }
 
     // MARK: - Path
@@ -22,18 +23,19 @@ struct Part: FirebaseData {
     // MARK: - Properties
     var name: String
     var image: String
+    var order: Int
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
-        guard let dic = snapshot.value as? NSDictionary else {
-            return nil
-        }
-        guard let name = dic[Constants.name] as? String,
-            let image = dic[Constants.image] as? String else {
+        guard let dictionary = snapshot.value as? NSDictionary,
+            let name = dictionary[Constants.name] as? String,
+            let order = dictionary[Constants.order] as? Int,
+            let image = dictionary[Constants.image] as? String else {
                 return nil
         }
 
         self.name = name
         self.image = image
+        self.order = order
     }
 }

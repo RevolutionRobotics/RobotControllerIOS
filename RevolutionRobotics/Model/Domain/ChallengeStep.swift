@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct ChallengeStep: FirebaseData {
+struct ChallengeStep: FirebaseData, FirebaseOrderable {
     // MARK: - Constants
     private enum Constants {
         static let id = "id"
@@ -17,6 +17,7 @@ struct ChallengeStep: FirebaseData {
         static let description = "description"
         static let image = "image"
         static let parts = "parts"
+        static let order = "order"
     }
 
     // MARK: - Path
@@ -27,17 +28,17 @@ struct ChallengeStep: FirebaseData {
     var title: String
     var description: String
     var image: String
+    var order: Int
     var parts: [Part]
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
-        guard let dic = snapshot.value as? NSDictionary else {
-            return nil
-        }
-        guard let id = dic[Constants.id] as? String,
-            let title = dic[Constants.title] as? String,
-            let description = dic[Constants.description] as? String,
-            let image = dic[Constants.image] as? String else {
+        guard let dictionary = snapshot.value as? NSDictionary,
+            let id = dictionary[Constants.id] as? String,
+            let title = dictionary[Constants.title] as? String,
+            let description = dictionary[Constants.description] as? String,
+            let order = dictionary[Constants.order] as? Int,
+            let image = dictionary[Constants.image] as? String else {
                 return nil
         }
 
@@ -45,6 +46,7 @@ struct ChallengeStep: FirebaseData {
         self.title = title
         self.description = description
         self.image = image
+        self.order = order
 
         let parts = snapshot.childSnapshot(forPath: Constants.parts)
             .children.compactMap { $0 as? DataSnapshot }
