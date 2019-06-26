@@ -52,7 +52,8 @@ struct ChallengeStep: FirebaseData, FirebaseOrderable {
             .children.compactMap { $0 as? DataSnapshot }
             .map { (snapshot) -> Part in
                 return Part(snapshot: snapshot)!
-        }
+            }
+            .sorted(by: { $0.order < $1.order })
         self.parts = parts
     }
 }

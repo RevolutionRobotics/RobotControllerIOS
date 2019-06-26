@@ -53,7 +53,8 @@ struct ChallengeCategory: FirebaseData, FirebaseOrderable {
             .children.compactMap { $0 as? DataSnapshot }
             .map { (snapshot) -> Challenge in
                 return Challenge(snapshot: snapshot)!
-        }
+            }
+            .sorted(by: { $0.order < $1.order })
         self.challenges = challenges
     }
 }
