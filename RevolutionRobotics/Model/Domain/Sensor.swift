@@ -14,25 +14,21 @@ struct Sensor: Port {
     private enum Constants {
         static let variableName = "variableName"
         static let type = "type"
-        static let testCodeId = "testCodeId"
     }
 
     // MARK: - Properties
     var variableName: String
     var type: String
-    var testCodeId: Int
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
         guard let dictionary = snapshot.value as? NSDictionary,
             let variableName = dictionary[Constants.variableName] as? String,
-            let type = dictionary[Constants.type] as? String,
-            let testCodeId = dictionary[Constants.testCodeId] as? Int else {
+            let type = dictionary[Constants.type] as? String else {
                 return nil
         }
 
         self.variableName = variableName
         self.type = type
-        self.testCodeId = testCodeId
     }
 }

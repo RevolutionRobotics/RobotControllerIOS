@@ -18,16 +18,13 @@ final class SensorDataModel: Object {
     // MARK: - Properties
     @objc dynamic var variableName: String = ""
     @objc dynamic var type: String = ""
-    @objc dynamic var testCodeId: Int = 0
 
     // MARK: - Initialization
     convenience init(variableName: String,
-                     type: String,
-                     testCodeId: Int) {
+                     type: String) {
         self.init()
         self.variableName = variableName
         self.type = type
-        self.testCodeId = testCodeId
     }
 
     convenience init?(remoteSensor: Sensor?) {
@@ -35,13 +32,11 @@ final class SensorDataModel: Object {
         self.init()
         self.variableName = remoteSensor.variableName
         self.type = remoteSensor.type
-        self.testCodeId = remoteSensor.testCodeId
     }
 
     convenience init(viewModel: SensorConfigViewModel) {
         self.init()
         self.variableName = viewModel.portName ?? ""
-        self.testCodeId = -1
         switch viewModel.type {
         case .bumper:
             self.type = Constants.bumper
