@@ -32,6 +32,7 @@ class BuildRobotViewController: BaseViewController {
     private var currentStep: BuildStep?
     private let partView = PartView.instatiate()
     private let partView2 = PartView.instatiate()
+    private var milestone: Milestone?
 }
 
 // MARK: - View lifecycle
@@ -159,7 +160,16 @@ extension BuildRobotViewController {
             self?.buildProgressBar.milestoneFinished()
         }
         chapterFinishedModal.testNowButtonTapped = { [weak self] in
-            self?.showTestingModal(with: milestone)
+            if self?.bluetoothService.connectedDevice != nil {
+                self?.bluetoothService.testKit(
+                    data: String(data: Data(base64Encoded: milestone.testCode)!, encoding: .utf8)!,
+                    onCompleted: nil)
+                self?.showTestingModal(with: milestone)
+            } else {
+                self?.dismissModalViewController()
+                self?.presentConnectModal()
+                self?.milestone = milestone
+            }
         }
         presentModal(with: chapterFinishedModal)
     }
@@ -167,18 +177,19 @@ extension BuildRobotViewController {
     private func showTestingModal(with milestone: Milestone) {
         dismissModalViewController()
         let testingModal = TestingModal.instatiate()
+        testingModal.setup(with: milestone)
         testingModal.positiveButtonTapped = { [weak self] in
             self?.dismissModalViewController()
             self?.buildProgressBar.milestoneFinished()
         }
         testingModal.negativeButtonTapped = { [weak self] in
+            self?.dismissModalViewController()
             self?.showTipsModal(with: milestone)
         }
         presentModal(with: testingModal)
     }
 
     private func showTipsModal(with milestone: Milestone) {
-        dismissModalViewController()
         let tips = TipsModalView.instatiate()
         tips.title = ModalKeys.Tips.title.translate()
         tips.subtitle = ModalKeys.Tips.subtitle.translate()
@@ -200,6 +211,10 @@ extension BuildRobotViewController {
             self?.buildProgressBar.milestoneFinished()
         }
         tips.tryAgainCallback = { [weak self] in
+
+            self?.bluetoothService.testKit(
+                data: String(data: Data(base64Encoded: milestone.testCode)!, encoding: .utf8)!,
+                onCompleted: nil)
             self?.showTestingModal(with: milestone)
         }
         presentModal(with: tips)
@@ -333,6 +348,12 @@ extension BuildRobotViewController {
     override func connected() {
         super.connected()
         bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
+        if let milestone = milestone {
+            bluetoothService.testKit(
+                data: String(data: Data(base64Encoded: milestone.testCode)!, encoding: .utf8)!,
+                onCompleted: nil)
+            self.milestone = nil
+        }
     }
 
     override func disconnected() {

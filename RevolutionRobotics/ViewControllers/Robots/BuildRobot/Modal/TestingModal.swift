@@ -29,16 +29,22 @@ extension TestingModal {
 
         titleLabel.text = RobotsKeys.BuildRobot.testingTitle.translate().uppercased()
         questionLabel.text = RobotsKeys.BuildRobot.testingQuestion.translate().uppercased()
-        negativeButton.setBorder(fillColor: .clear, strokeColor: Color.blackTwo, croppedCorners: [.bottomLeft])
-        positiveButton.setBorder(fillColor: .clear, strokeColor: UIColor.white, croppedCorners: [.topRight])
         negativeButton.setTitle(RobotsKeys.BuildRobot.testingNegativeButtonTitle.translate(), for: .normal)
         positiveButton.setTitle(RobotsKeys.BuildRobot.testingPositiveButtonTitle.translate(), for: .normal)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        negativeButton.setBorder(fillColor: .clear, strokeColor: Color.blackTwo, croppedCorners: [.bottomLeft])
+        positiveButton.setBorder(fillColor: .clear, strokeColor: UIColor.white, croppedCorners: [.topRight])
     }
 }
 
 // MARK: - Setup
 extension TestingModal {
     func setup(with milestone: Milestone) {
+        testImageView.downloadImage(googleStorageURL: milestone.image)
+        testInstructionLabel.text = milestone.testDescription
     }
 }
 
