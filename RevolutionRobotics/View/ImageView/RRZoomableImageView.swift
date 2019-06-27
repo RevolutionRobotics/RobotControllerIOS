@@ -50,4 +50,23 @@ extension RRZoomableImageView: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }
+
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        let boundsSize = self.bounds.size
+        var contentsFrame = imageView.frame
+
+        if contentsFrame.size.width < boundsSize.width {
+            contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0
+        } else {
+            contentsFrame.origin.x = 0.0
+        }
+
+        if contentsFrame.size.height < boundsSize.height {
+            contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0
+        } else {
+            contentsFrame.origin.y = 0.0
+        }
+
+        imageView.frame = contentsFrame
+    }
 }
