@@ -181,6 +181,7 @@
 		2ABCB64E229EC6760081B51B /* TutorialProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCB64D229EC6760081B51B /* TutorialProgressView.swift */; };
 		2ABCB650229EC6900081B51B /* TutorialProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABCB64F229EC6900081B51B /* TutorialProgressView.xib */; };
 		2ABD618422500F7C00587F1C /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABD618322500F7C00587F1C /* AppDependencies.swift */; };
+		2ABDAF2622C4BD7200705756 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ABDAF2522C4BD7200705756 /* GoogleService-Info.plist */; };
 		2ABEF0DD228EA0FA00AF87AC /* BluetoothServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0DC228EA0FA00AF87AC /* BluetoothServiceInterface.swift */; };
 		2ABEF0DF228EA19E00AF87AC /* BlutoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0DE228EA19E00AF87AC /* BlutoothService.swift */; };
 		2ABEF0E4228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0E3228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift */; };
@@ -287,7 +288,7 @@
 		D05C64E1225F5C9900B7BF4F /* Motor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64E0225F5C9900B7BF4F /* Motor.swift */; };
 		D05C64E5225F5DEE00B7BF4F /* PortMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64E4225F5DEE00B7BF4F /* PortMapping.swift */; };
 		D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64E6225F5E3600B7BF4F /* Configuration.swift */; };
-		D05C64E9225F683800B7BF4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D05C64E8225F683800B7BF4F /* GoogleService-Info.plist */; };
+		D05C64E9225F683800B7BF4F /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = D05C64E8225F683800B7BF4F /* GoogleService-Info-dev.plist */; };
 		D06C3267228570FF005534C0 /* ResetTutorialModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C3266228570FF005534C0 /* ResetTutorialModal.swift */; };
 		D06C326922857107005534C0 /* ResetTutorialModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C326822857107005534C0 /* ResetTutorialModal.xib */; };
 		D06C326C22857A80005534C0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C326A22857A80005534C0 /* AboutViewController.swift */; };
@@ -520,6 +521,7 @@
 		2ABCB64D229EC6760081B51B /* TutorialProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialProgressView.swift; sourceTree = "<group>"; };
 		2ABCB64F229EC6900081B51B /* TutorialProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialProgressView.xib; sourceTree = "<group>"; };
 		2ABD618322500F7C00587F1C /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		2ABDAF2522C4BD7200705756 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2ABEF0DC228EA0FA00AF87AC /* BluetoothServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothServiceInterface.swift; sourceTree = "<group>"; };
 		2ABEF0DE228EA19E00AF87AC /* BlutoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlutoothService.swift; sourceTree = "<group>"; };
 		2ABEF0E3228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothConnectionModalPresenter.swift; sourceTree = "<group>"; };
@@ -634,7 +636,7 @@
 		D05C64E0225F5C9900B7BF4F /* Motor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motor.swift; sourceTree = "<group>"; };
 		D05C64E4225F5DEE00B7BF4F /* PortMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortMapping.swift; sourceTree = "<group>"; };
 		D05C64E6225F5E3600B7BF4F /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		D05C64E8225F683800B7BF4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D05C64E8225F683800B7BF4F /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
 		D06C3266228570FF005534C0 /* ResetTutorialModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetTutorialModal.swift; sourceTree = "<group>"; };
 		D06C326822857107005534C0 /* ResetTutorialModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetTutorialModal.xib; sourceTree = "<group>"; };
 		D06C326A22857A80005534C0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -1048,10 +1050,11 @@
 		09ED1B9022523C22009CF262 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2ADF1F80224AB3B600CC721F /* Info.plist */,
 				2A78388022C0BF3F00423991 /* PortTestCode */,
 				0938895422B23C9B00292B32 /* Sounds */,
-				2ADF1F80224AB3B600CC721F /* Info.plist */,
 				09ED1BA4225242E8009CF262 /* Assets */,
+				2ABDAF2422C4BD2B00705756 /* Firebase */,
 				097F8431225BA33800DD32BF /* Fonts */,
 				2ADE8C272270A58600ECEC72 /* Localization */,
 				2A77320122648F9A00D7F38D /* Settings */,
@@ -1495,6 +1498,15 @@
 			path = UIImagePickerController;
 			sourceTree = "<group>";
 		};
+		2ABDAF2422C4BD2B00705756 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				2ABDAF2522C4BD7200705756 /* GoogleService-Info.plist */,
+				D05C64E8225F683800B7BF4F /* GoogleService-Info-dev.plist */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		2ABEF0DB228EA0E600AF87AC /* BluetoothService */ = {
 			isa = PBXGroup;
 			children = (
@@ -1636,7 +1648,6 @@
 		2ADF1F73224AB3B400CC721F /* RevolutionRobotics */ = {
 			isa = PBXGroup;
 			children = (
-				D05C64E8225F683800B7BF4F /* GoogleService-Info.plist */,
 				09ED1BA52252434E009CF262 /* App */,
 				D05C64C6225F56C400B7BF4F /* Model */,
 				09ED1B9022523C22009CF262 /* Resources */,
@@ -2078,7 +2089,7 @@
 				2A9F52162265E97700F9F651 /* SettingsViewController.xib in Resources */,
 				D0049A3F2270A8D7007FA256 /* AvailableRobotsView.xib in Resources */,
 				D0241A0B22B14337005E8DB2 /* ProgramsOrderTableViewCell.xib in Resources */,
-				D05C64E9225F683800B7BF4F /* GoogleService-Info.plist in Resources */,
+				D05C64E9225F683800B7BF4F /* GoogleService-Info-dev.plist in Resources */,
 				09C38755226F3ABC0097619D /* Barlow-Medium.ttf in Resources */,
 				D0899C6922A6BCB900DB6F97 /* ChallengesCollectionViewEvenCell.xib in Resources */,
 				D0241A0322B1221B005E8DB2 /* ButtonlessProgramTableViewCell.xib in Resources */,
@@ -2136,6 +2147,7 @@
 				096479872268776200F68456 /* BuildRobotViewController.xib in Resources */,
 				2A78388622C0BF8700423991 /* motorTest.py in Resources */,
 				0938897922B24DD900292B32 /* uh_oh.mp3 in Resources */,
+				2ABDAF2622C4BD7200705756 /* GoogleService-Info.plist in Resources */,
 				0972844A22B3C520007A7FE1 /* VariableContextCell.xib in Resources */,
 				2AB778612282F6D4004442E2 /* DeleteView.xib in Resources */,
 				D05BAA9E22676BCA00624438 /* WhoToBuildCollectionViewCell.xib in Resources */,
@@ -2826,11 +2838,20 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = TP6VZ3G227;
 				DisplayNamePrefix = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"$(inherited)",
+					"PB_FIELD_32BIT=1",
+					"PB_NO_PACKED_STRUCTS=1",
+					"PB_ENABLE_MALLOC=1",
+				);
 				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -DPROD";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.development.sc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.revolutionrobotics.RevolutionRobotics.development.sc";
@@ -2850,14 +2871,24 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TP6VZ3G227;
 				DisplayNamePrefix = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"$(inherited)",
+					"PB_FIELD_32BIT=1",
+					"PB_NO_PACKED_STRUCTS=1",
+					"PB_ENABLE_MALLOC=1",
+					"PROD=1",
+				);
 				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -DPROD";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.sc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Supercharge Wildcard";
+				PROVISIONING_PROFILE_SPECIFIER = "Revolution Robotics PROD";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";

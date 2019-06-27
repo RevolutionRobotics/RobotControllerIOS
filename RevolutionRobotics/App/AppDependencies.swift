@@ -11,6 +11,7 @@ import Fabric
 import Crashlytics
 import Firebase
 import Kingfisher
+import os
 
 struct AppDependencies {
     func setup() {
@@ -27,7 +28,17 @@ extension AppDependencies {
     }
 
     private func setupFirebase() {
-        FirebaseApp.configure()
+        var path = ""
+        #if PROD
+        path = Bundle.main.path(forResource: "GoogleService-Info", ofType: ".plist")!
+        #else
+        path = Bundle.main.path(forResource: "GoogleService-Info-dev", ofType: ".plist")!
+        #endif
+        guard let options = FirebaseOptions(contentsOfFile: path) else {
+            os_log("Failed to load Firebase options!")
+            return
+        }
+        FirebaseApp.configure(options: options)
     }
 
     private func setupKingfisher() {
