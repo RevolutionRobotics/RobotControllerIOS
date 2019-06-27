@@ -9,19 +9,12 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Barlow-Regular.ttf">
-            <string>Barlow-Regular</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChallengeDetailViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
-                <outlet property="descriptionLabel" destination="oBL-CA-bZD" id="E4f-uo-0RN"/>
+                <outlet property="contentView" destination="z5U-M3-Ifp" id="j9X-xo-1Cl"/>
                 <outlet property="navigationBar" destination="iRj-mf-GC4" id="Jpn-Di-1sK"/>
-                <outlet property="partsCollectionView" destination="aje-La-Vve" id="WyH-td-qcc"/>
                 <outlet property="progressBar" destination="XAw-Vq-Qme" id="0Nh-Yq-PoJ"/>
-                <outlet property="stepImage" destination="5jC-05-t59" id="ZPI-zl-BnY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,6 +23,10 @@
             <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5U-M3-Ifp">
+                    <rect key="frame" x="44" y="40" width="808" height="374"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRj-mf-GC4" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="896" height="71"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -37,15 +34,6 @@
                         <constraint firstAttribute="height" constant="71" id="wyO-cR-5Ci"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In this challenge, you’ll learn a simple way to use gears to make your wheels rotate faster." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBL-CA-bZD">
-                    <rect key="frame" x="66" y="75" width="764" height="14.5"/>
-                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="RobotPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="5jC-05-t59">
-                    <rect key="frame" x="413" y="131.5" width="70" height="155.5"/>
-                </imageView>
                 <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="XAw-Vq-Qme" customClass="BuildProgressBar" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="68" y="337" width="760" height="40"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,41 +41,22 @@
                         <constraint firstAttribute="height" constant="40" id="057-Cz-mf5"/>
                     </constraints>
                 </view>
-                <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="aje-La-Vve">
-                    <rect key="frame" x="66" y="75" width="764" height="212"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="24" minimumInteritemSpacing="24" id="Z4i-rv-mQ8">
-                        <size key="itemSize" width="85" height="85"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XAw-Vq-Qme" secondAttribute="bottom" constant="16" id="1bY-hp-oyJ"/>
-                <constraint firstItem="5jC-05-t59" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BAs-ds-odg"/>
-                <constraint firstItem="aje-La-Vve" firstAttribute="bottom" secondItem="5jC-05-t59" secondAttribute="bottom" id="Bvh-ko-Kof"/>
+                <constraint firstItem="z5U-M3-Ifp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="7Hr-RM-3lk"/>
+                <constraint firstItem="z5U-M3-Ifp" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="E5M-ye-fa5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XAw-Vq-Qme" secondAttribute="trailing" constant="24" id="EGI-kD-xG0"/>
+                <constraint firstAttribute="bottom" secondItem="z5U-M3-Ifp" secondAttribute="bottom" id="FU5-NN-gMF"/>
                 <constraint firstItem="iRj-mf-GC4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IHG-Zk-Yfn"/>
                 <constraint firstItem="iRj-mf-GC4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MFh-du-88d"/>
-                <constraint firstItem="oBL-CA-bZD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="66" id="SDm-LW-3QH"/>
-                <constraint firstItem="aje-La-Vve" firstAttribute="top" secondItem="oBL-CA-bZD" secondAttribute="top" id="W5a-5E-gCk"/>
+                <constraint firstItem="z5U-M3-Ifp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Z1G-TH-3vZ"/>
                 <constraint firstItem="XAw-Vq-Qme" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="a9O-Ww-j4r"/>
-                <constraint firstAttribute="trailing" secondItem="oBL-CA-bZD" secondAttribute="trailing" constant="66" id="b5e-9e-glw"/>
-                <constraint firstItem="XAw-Vq-Qme" firstAttribute="top" secondItem="5jC-05-t59" secondAttribute="bottom" constant="50" id="dxh-wh-mRJ"/>
                 <constraint firstAttribute="trailing" secondItem="iRj-mf-GC4" secondAttribute="trailing" id="hO2-c9-NJI"/>
-                <constraint firstItem="aje-La-Vve" firstAttribute="leading" secondItem="oBL-CA-bZD" secondAttribute="leading" id="myP-GC-qgn"/>
-                <constraint firstItem="oBL-CA-bZD" firstAttribute="top" secondItem="iRj-mf-GC4" secondAttribute="bottom" constant="4" id="qwK-td-ieK"/>
-                <constraint firstItem="5jC-05-t59" firstAttribute="top" secondItem="oBL-CA-bZD" secondAttribute="bottom" constant="42" id="scW-iF-Wp8"/>
-                <constraint firstItem="aje-La-Vve" firstAttribute="trailing" secondItem="oBL-CA-bZD" secondAttribute="trailing" id="xlF-9O-8b5"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="36.971830985915496" y="99.375"/>
         </view>
     </objects>
-    <resources>
-        <image name="RobotPlaceholder" width="70" height="92"/>
-    </resources>
 </document>
