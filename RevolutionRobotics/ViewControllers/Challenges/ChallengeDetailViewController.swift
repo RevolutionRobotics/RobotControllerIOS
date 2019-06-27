@@ -11,10 +11,8 @@ import UIKit
 final class ChallengeDetailViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet private weak var navigationBar: RRNavigationBar!
-    @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var stepImage: UIImageView!
+    @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var progressBar: BuildProgressBar!
-    @IBOutlet private weak var partsCollectionView: UICollectionView!
 
     // MARK: - Properties
     private var challenge: Challenge?
@@ -52,18 +50,24 @@ extension ChallengeDetailViewController {
     }
 
     private func setupContent(for step: Int) {
-        guard let challenge = challenge else { return }
-        let hasParts = !challenge.challengeSteps[step].parts.isEmpty
-        partsCollectionView.isHidden = !hasParts
-        descriptionLabel.isHidden = hasParts
-        stepImage.isHidden = hasParts
-        if !hasParts {
-            descriptionLabel.text = challenge.challengeSteps[step].description
-            stepImage.downloadImage(googleStorageURL: challenge.challengeSteps[step].image)
-        } else {
-            parts = challenge.challengeSteps[step].parts
-            partsCollectionView.reloadData()
+        guard let challengeStep = challenge?.challengeSteps[step] else { return }
+        switch challengeStep.challengeType {
+        case .horizontal:
+            setupDetailContent(with: challengeStep, on: ChallengeDetailHorizontalContent.instatiate())
+        case .vertical:
+            setupDetailContent(with: challengeStep, on: ChallengeDetailVerticalContent.instatiate())
+        case .zoomable:
+            setupDetailContent(with: challengeStep, on: ChallengeDetailZoomableContent.instatiate())
+        case .partList:
+            setupDetailContent(with: challengeStep, on: ChallengeDetailPartListContent.instatiate())
         }
+    }
+
+    private func setupDetailContent(with step: ChallengeStep, on content: ChallengeDetailContentView) {
+        contentView.removeAllSubViews()
+        content.setup(with: step)
+        contentView.addSubview(content)
+        content.anchorToSuperview()
     }
 }
 
@@ -71,10 +75,6 @@ extension ChallengeDetailViewController {
 extension ChallengeDetailViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        partsCollectionView.delegate = self
-        partsCollectionView.dataSource = self
-        partsCollectionView.register(ChallengeDetailCollectionViewCell.self)
 
         guard let challenge = challenge else { return }
         navigationBar.setup(title: challenge.name, delegate: self)
@@ -85,23 +85,6 @@ extension ChallengeDetailViewController {
         super.viewDidAppear(animated)
 
         setupProgressBar()
-    }
-}
-
-// MARK: - UICollectionViewDelegate
-extension ChallengeDetailViewController: UICollectionViewDelegate {
-}
-
-// MARK: - UICollectionViewDataSource
-extension ChallengeDetailViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return parts.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: ChallengeDetailCollectionViewCell = partsCollectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.setup(wiht: parts[indexPath.row])
-        return cell
+        contentView.layoutIfNeeded()
     }
 }

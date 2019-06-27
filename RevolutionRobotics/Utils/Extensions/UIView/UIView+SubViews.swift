@@ -12,4 +12,8 @@ extension UIView {
     func allSubViews() -> [UIView] {
         return subviews + subviews.flatMap { $0.allSubViews() }
     }
+
+    func removeAllSubViews() {
+        allSubViews().forEach({ $0.removeFromSuperview() })
+    }
 }

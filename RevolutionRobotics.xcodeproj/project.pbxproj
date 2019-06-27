@@ -301,6 +301,16 @@
 		D06F01D2228AFFA600AF73E5 /* FirmwareDownloadModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModal.xib */; };
 		D06F01D7228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift */; };
 		D06F01D9228B0B6300AF73E5 /* SuccessfulUpdateModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModal.xib */; };
+		D075EA2422C4F0510003C183 /* ChallengeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075EA2322C4F0510003C183 /* ChallengeType.swift */; };
+		D075EA2722C4FB160003C183 /* ChallengeDetailHorizontalContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075EA2622C4FB160003C183 /* ChallengeDetailHorizontalContent.swift */; };
+		D075EA2B22C4FB510003C183 /* ChallengeDetailPartListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075EA2A22C4FB510003C183 /* ChallengeDetailPartListContent.swift */; };
+		D075EA2D22C4FB600003C183 /* ChallengeDetailZoomableContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075EA2C22C4FB600003C183 /* ChallengeDetailZoomableContent.swift */; };
+		D075EA2F22C4FCB80003C183 /* ChallengeDetailVerticalContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D075EA2E22C4FCB80003C183 /* ChallengeDetailVerticalContent.xib */; };
+		D075EA3122C4FCC50003C183 /* ChallengeDetailHorizontalContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D075EA3022C4FCC50003C183 /* ChallengeDetailHorizontalContent.xib */; };
+		D075EA3322C4FCD30003C183 /* ChallengeDetailPartListContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D075EA3222C4FCD30003C183 /* ChallengeDetailPartListContent.xib */; };
+		D075EA3522C4FCDE0003C183 /* ChallengeDetailZoomableContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D075EA3422C4FCDE0003C183 /* ChallengeDetailZoomableContent.xib */; };
+		D075EA3922C4FF550003C183 /* ChallengeDetailVerticalContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075EA3822C4FF550003C183 /* ChallengeDetailVerticalContent.swift */; };
+		D075EA3D22C602060003C183 /* ChallengeDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075EA3C22C602060003C183 /* ChallengeDetailContentView.swift */; };
 		D0899C5022A5458300DB6F97 /* ChallengeCategoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0899C4F22A5458300DB6F97 /* ChallengeCategoryDataModel.swift */; };
 		D0899C6922A6BCB900DB6F97 /* ChallengesCollectionViewEvenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0899C6122A6BCB700DB6F97 /* ChallengesCollectionViewEvenCell.xib */; };
 		D0899C6A22A6BCB900DB6F97 /* ChallengeCategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0899C6222A6BCB700DB6F97 /* ChallengeCategoriesViewController.xib */; };
@@ -648,6 +658,16 @@
 		D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareDownloadModal.xib; sourceTree = "<group>"; };
 		D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulUpdateModal.swift; sourceTree = "<group>"; };
 		D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessfulUpdateModal.xib; sourceTree = "<group>"; };
+		D075EA2322C4F0510003C183 /* ChallengeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeType.swift; sourceTree = "<group>"; };
+		D075EA2622C4FB160003C183 /* ChallengeDetailHorizontalContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailHorizontalContent.swift; sourceTree = "<group>"; };
+		D075EA2A22C4FB510003C183 /* ChallengeDetailPartListContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailPartListContent.swift; sourceTree = "<group>"; };
+		D075EA2C22C4FB600003C183 /* ChallengeDetailZoomableContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailZoomableContent.swift; sourceTree = "<group>"; };
+		D075EA2E22C4FCB80003C183 /* ChallengeDetailVerticalContent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailVerticalContent.xib; sourceTree = "<group>"; };
+		D075EA3022C4FCC50003C183 /* ChallengeDetailHorizontalContent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailHorizontalContent.xib; sourceTree = "<group>"; };
+		D075EA3222C4FCD30003C183 /* ChallengeDetailPartListContent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailPartListContent.xib; sourceTree = "<group>"; };
+		D075EA3422C4FCDE0003C183 /* ChallengeDetailZoomableContent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailZoomableContent.xib; sourceTree = "<group>"; };
+		D075EA3822C4FF550003C183 /* ChallengeDetailVerticalContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailVerticalContent.swift; sourceTree = "<group>"; };
+		D075EA3C22C602060003C183 /* ChallengeDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailContentView.swift; sourceTree = "<group>"; };
 		D0899C4F22A5458300DB6F97 /* ChallengeCategoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCategoryDataModel.swift; sourceTree = "<group>"; };
 		D0899C6122A6BCB700DB6F97 /* ChallengesCollectionViewEvenCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChallengesCollectionViewEvenCell.xib; sourceTree = "<group>"; };
 		D0899C6222A6BCB700DB6F97 /* ChallengeCategoriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChallengeCategoriesViewController.xib; sourceTree = "<group>"; };
@@ -1335,6 +1355,7 @@
 				D0313329228D5CBA00704989 /* Challenge.swift */,
 				D0313327228D5CB900704989 /* ChallengeCategory.swift */,
 				D031332D228D5CBA00704989 /* ChallengeStep.swift */,
+				D075EA2322C4F0510003C183 /* ChallengeType.swift */,
 				D05C64E6225F5E3600B7BF4F /* Configuration.swift */,
 				D0313326228D5CB900704989 /* Controller.swift */,
 				D0313328228D5CBA00704989 /* ControllerButtonMapping.swift */,
@@ -1418,6 +1439,7 @@
 		2A9F520A2265E92B00F9F651 /* Challenges */ = {
 			isa = PBXGroup;
 			children = (
+				D075EA2522C4FAF30003C183 /* ChallengeDetailContent */,
 				D001FCB022A92F5D004C49F3 /* Modal */,
 				D0899C7122A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.swift */,
 				D0899C7222A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.xib */,
@@ -1867,6 +1889,22 @@
 			path = Bundle;
 			sourceTree = "<group>";
 		};
+		D075EA2522C4FAF30003C183 /* ChallengeDetailContent */ = {
+			isa = PBXGroup;
+			children = (
+				D075EA2622C4FB160003C183 /* ChallengeDetailHorizontalContent.swift */,
+				D075EA3022C4FCC50003C183 /* ChallengeDetailHorizontalContent.xib */,
+				D075EA3822C4FF550003C183 /* ChallengeDetailVerticalContent.swift */,
+				D075EA2E22C4FCB80003C183 /* ChallengeDetailVerticalContent.xib */,
+				D075EA2A22C4FB510003C183 /* ChallengeDetailPartListContent.swift */,
+				D075EA3222C4FCD30003C183 /* ChallengeDetailPartListContent.xib */,
+				D075EA2C22C4FB600003C183 /* ChallengeDetailZoomableContent.swift */,
+				D075EA3422C4FCDE0003C183 /* ChallengeDetailZoomableContent.xib */,
+				D075EA3C22C602060003C183 /* ChallengeDetailContentView.swift */,
+			);
+			path = ChallengeDetailContent;
+			sourceTree = "<group>";
+		};
 		D0A11089227B18110064FBB6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -2066,6 +2104,7 @@
 				D0B2A736227C7CF1004473EC /* ControllerCollectionViewCell.xib in Resources */,
 				D03BA8612277384A005B3E33 /* ConnectionModal.xib in Resources */,
 				D03BA85D2277384A005B3E33 /* TestingModal.xib in Resources */,
+				D075EA2F22C4FCB80003C183 /* ChallengeDetailVerticalContent.xib in Resources */,
 				D0E3F88F22B7B0B300B4D9F2 /* BlockContextView.xib in Resources */,
 				D03BA85F2277384A005B3E33 /* ChapterFinishedModal.xib in Resources */,
 				09ED1BAB225247E2009CF262 /* MenuViewController.xib in Resources */,
@@ -2095,6 +2134,7 @@
 				2ABCB650229EC6900081B51B /* TutorialProgressView.xib in Resources */,
 				2AB8F95322888AF300D7D93C /* ConfigurationView.xib in Resources */,
 				2ADE8C462271A6B900ECEC72 /* BuildProgressBar.xib in Resources */,
+				D075EA3122C4FCC50003C183 /* ChallengeDetailHorizontalContent.xib in Resources */,
 				094FC5D0228C35F70085B407 /* GamerPadView.xib in Resources */,
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
 				09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */,
@@ -2165,6 +2205,7 @@
 				0964798122686DE000F68456 /* WhoToBuildViewController.xib in Resources */,
 				D001FCB422A92F7D004C49F3 /* ChallengeFinishedModal.xib in Resources */,
 				D0E3F89422B7D99A00B4D9F2 /* ProgramDescriptionView.xib in Resources */,
+				D075EA3522C4FCDE0003C183 /* ChallengeDetailZoomableContent.xib in Resources */,
 				0941075F2297E889000A658A /* ProgramSelectorViewController.xib in Resources */,
 				0938897E22B24DD900292B32 /* robot.mp3 in Resources */,
 				0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */,
@@ -2172,6 +2213,7 @@
 				D0241A1622B3BDD6005E8DB2 /* ShowCodeView.xib in Resources */,
 				0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */,
 				0938897D22B24DD900292B32 /* oh_no.mp3 in Resources */,
+				D075EA3322C4FCD30003C183 /* ChallengeDetailPartListContent.xib in Resources */,
 				D0A1107E227870040064FBB6 /* YourRobotsCollectionViewCell.xib in Resources */,
 				D06C327422899F60005534C0 /* FirmwareUpdateViewController.xib in Resources */,
 				2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */,
@@ -2304,12 +2346,14 @@
 				D0899C6F22A6BCB900DB6F97 /* ChallengeCategoryCollectionViewCell.swift in Sources */,
 				2A77320A2264A32D00D7F38D /* ServiceAssembly.swift in Sources */,
 				09105AA02280581F00AB7B72 /* PortConfigurationItemView.swift in Sources */,
+				D075EA2B22C4FB510003C183 /* ChallengeDetailPartListContent.swift in Sources */,
 				2AB7ACD922BA64B300309234 /* ConfigurationJSONData.swift in Sources */,
 				2A7DDB1022856DC200891DA6 /* PortMappingDataModel.swift in Sources */,
 				2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */,
 				2AB7ACE822BB98C300309234 /* AnalogControllerAssignmentJSONData.swift in Sources */,
 				096333FD2289C2A60029D87B /* UIButton+BackgroundColor.swift in Sources */,
 				D0E3F88D22B7B0AB00B4D9F2 /* BlockContextView.swift in Sources */,
+				D075EA3922C4FF550003C183 /* ChallengeDetailVerticalContent.swift in Sources */,
 				2AB7ACE422BB987700309234 /* MotorConfigJSONData.swift in Sources */,
 				D0A11090227B1DAD0064FBB6 /* ControllerKeys.swift in Sources */,
 				D0049A422270ABA1007FA256 /* AvailableRobotsTableViewCell.swift in Sources */,
@@ -2350,9 +2394,11 @@
 				2A9F52062265E31C00F9F651 /* BaseViewController.swift in Sources */,
 				2A0789F2229339A400CFFDD6 /* DriverConfigurationView.swift in Sources */,
 				2AC7AB72228D4FB900D96457 /* URLSession+ImageDownload.swift in Sources */,
+				D075EA2D22C4FB600003C183 /* ChallengeDetailZoomableContent.swift in Sources */,
 				D05C64CE225F578A00B7BF4F /* BuildStep.swift in Sources */,
 				D05C64D9225F58E200B7BF4F /* Side.swift in Sources */,
 				09C3875A2270A7100097619D /* FirebaseError.swift in Sources */,
+				D075EA2422C4F0510003C183 /* ChallengeType.swift in Sources */,
 				2AB7ACE022BB982F00309234 /* EmptyJSONObject.swift in Sources */,
 				094F9DD82264BE1900BE118B /* Color.swift in Sources */,
 				2AF8C76422806A1800CE1ACB /* RealmConnector.swift in Sources */,
@@ -2430,6 +2476,7 @@
 				09105A9F2280581F00AB7B72 /* MotorConfigViewController.swift in Sources */,
 				D001FCAA22A7DDE9004C49F3 /* ChallengeDetailViewController.swift in Sources */,
 				2A458E27227C89AF000C03D2 /* RRProgressLabel.swift in Sources */,
+				D075EA2722C4FB160003C183 /* ChallengeDetailHorizontalContent.swift in Sources */,
 				2AB7ACF422BB99DB00309234 /* RobotConfigurationJSONData.swift in Sources */,
 				D0899C6C22A6BCB900DB6F97 /* ChallengeCategoriesViewController.swift in Sources */,
 				D06C327022899574005534C0 /* Bundle+Version.swift in Sources */,
@@ -2450,6 +2497,7 @@
 				091B98A8229830B500DCEEF4 /* DateFormatter.swift in Sources */,
 				2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */,
 				D05C64DF225F5C4E00B7BF4F /* Rotation.swift in Sources */,
+				D075EA3D22C602060003C183 /* ChallengeDetailContentView.swift in Sources */,
 				D03BA85C2277384A005B3E33 /* ConnectionModal.swift in Sources */,
 				D0A11084227B0BEB0064FBB6 /* ResizableCell.swift in Sources */,
 				D0899C6B22A6BCB900DB6F97 /* ChallengesViewController.swift in Sources */,
