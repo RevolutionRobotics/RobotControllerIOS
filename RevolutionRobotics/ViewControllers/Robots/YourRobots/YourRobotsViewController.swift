@@ -29,6 +29,7 @@ final class YourRobotsViewController: BaseViewController {
             }
         }
     }
+    private var selectedIndexPath: IndexPath?
 }
 
 // MARK: - View lifecycle
@@ -49,6 +50,11 @@ extension YourRobotsViewController {
         super.viewWillAppear(animated)
         collectionView.setupLayout()
         robots = realmService.getRobots()
+        guard let indexPath = selectedIndexPath else {
+            return
+        }
+        collectionView.reloadItems(at: [indexPath])
+        selectedIndexPath = nil
     }
 
     private func setupCollectionView() {
@@ -84,19 +90,20 @@ extension YourRobotsViewController: UICollectionViewDataSource {
         cell.indexPath = indexPath
         cell.configure(with: robots[indexPath.item])
         cell.optionsButtonHandler = { [weak self] in
-            self?.presentRobotOptionsModal(with: self?.robots[indexPath.item])
+            self?.presentRobotOptionsModal(with: indexPath)
         }
         return cell
     }
 
-    private func presentRobotOptionsModal(with robot: UserRobot?) {
+    private func presentRobotOptionsModal(with indexPath: IndexPath) {
+        let robot = robots[indexPath.item]
         let modifyView = RobotOptionsView.instatiate()
-        setupHandlers(on: modifyView, with: robot)
+        setupHandlers(on: modifyView, with: robot, for: indexPath)
         modifyView.robot = robot
         presentModal(with: modifyView)
     }
 
-    private func setupHandlers(on view: RobotOptionsView, with robot: UserRobot?) {
+    private func setupHandlers(on view: RobotOptionsView, with robot: UserRobot?, for indexPath: IndexPath) {
         view.deleteHandler = { [weak self] in
             guard let robot = robot else { return }
             self?.dismissModalViewController()
@@ -113,6 +120,7 @@ extension YourRobotsViewController: UICollectionViewDataSource {
         }
         view.editHandler = { [weak self] in
             guard let robot = robot else { return }
+            self?.selectedIndexPath = indexPath
             self?.dismissModalViewController()
             self?.navigateToConfiguration(with: robot)
         }
@@ -147,6 +155,7 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
             let cell = collectionView.cellForItem(at: indexPath) as? ResizableCell,
             cell.isCentered,
             let status = BuildStatus(rawValue: robots[indexPath.item].buildStatus) else { return }
+        selectedIndexPath = indexPath
         switch status {
         case .completed:
             navigateToPlayControllerViewController(with: robots[indexPath.item])

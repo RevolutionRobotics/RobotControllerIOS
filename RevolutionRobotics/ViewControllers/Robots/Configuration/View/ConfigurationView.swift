@@ -72,7 +72,7 @@ final class ConfigurationView: RRCustomView {
             return robotImageView.image
         }
         set {
-            robotImageView.image = newValue
+            robotImageView.image = newValue ?? Image.Configuration.Connections.defaultRobotImage
         }
     }
     var portSelectionHandler: CallbackType<(type: PortButton.PortType, number: Int)>?
