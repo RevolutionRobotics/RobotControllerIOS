@@ -30,6 +30,10 @@ final class PortMappingDataModel: Object {
     @objc dynamic var m5: MotorDataModel?
     @objc dynamic var m6: MotorDataModel?
 
+    var motors: [MotorDataModel?] {
+        return[m1, m2, m3, m4, m5, m6]
+    }
+
     var variableNames: [String] {
         return [s1?.variableName,
                 s2?.variableName,

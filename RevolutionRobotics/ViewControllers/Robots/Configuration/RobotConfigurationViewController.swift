@@ -246,6 +246,9 @@ extension RobotConfigurationViewController {
     private func showMotorConfiguration(portNumber: Int) {
         let motorConfig = AppContainer.shared.container.unwrappedResolve(MotorConfigViewController.self)
         motorConfig.portNumber = portNumber
+        if let motors = configuration?.mapping?.motors.compactMap({ $0 }) {
+            motorConfig.numberOfDrivetrains = motors.filter({ $0.type == MotorDataModel.Constants.drivetrain }).count
+        }
         motorConfig.selectedMotorState =
             MotorConfigViewModelState(dataModel: configuration?.mapping?.motor(for: portNumber))
         motorConfig.name = configuration?.mapping?.motor(for: portNumber)?.variableName

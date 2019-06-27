@@ -39,6 +39,7 @@ final class MotorConfigViewController: BaseViewController {
     }
 
     var portNumber = 0
+    var numberOfDrivetrains = 0
     var doneButtonTapped: CallbackType<MotorConfigViewModel>?
     var testButtonTapped: CallbackType<MotorConfigViewModel>?
     var screenDismissed: Callback?
@@ -89,6 +90,7 @@ extension MotorConfigViewController {
 
     private func switchToEmptyState() {
         resetButtons()
+        nameInputField.text = name
         emptyButton.set(selected: true)
         middleButtonContainer.isHidden = true
         bottomButtonContainer.isHidden = true
@@ -96,6 +98,8 @@ extension MotorConfigViewController {
 
     private func switchToDrivetrainWithoutSideState() {
         resetButtons()
+        nameInputField.text = name ??
+            RobotsKeys.Configure.Motor.drivetrainButton.translate() + String(numberOfDrivetrains + 1)
         drivetrainButton.set(selected: true)
         middleButtonContainer.removeAllArrangedSubviews()
         middleButtonContainer.addArrangedSubview(leftButton)
@@ -122,6 +126,7 @@ extension MotorConfigViewController {
 
     private func switchToMotorWithoutRotationState() {
         resetButtons()
+        nameInputField.text = name
         motorButton.set(selected: true)
         middleButtonContainer.removeAllArrangedSubviews()
         middleButtonContainer.addArrangedSubview(counterclockwiseButton)
