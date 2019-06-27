@@ -9,7 +9,7 @@
 final class BlocklyListAnalogElementJSONData: JSONRepresentable {
     // MARK: - Constants
     private enum Constants {
-        static let multitaskerControllerType = "drive_2sticks"
+        static let driverControllerType = "drive_2sticks"
         static let joystickControllerType = "drive_joystick"
     }
 
@@ -20,8 +20,8 @@ final class BlocklyListAnalogElementJSONData: JSONRepresentable {
     // MARK: - Initialization
     static func joystick(type: String, priority: Int) -> BlocklyListAnalogElementJSONData {
         var controllerType: String = ""
-        if type == ControllerType.multiTasker.rawValue {
-            controllerType = Constants.multitaskerControllerType
+        if type == ControllerType.driver.rawValue {
+            controllerType = Constants.driverControllerType
         } else {
             controllerType = Constants.joystickControllerType
         }
