@@ -40,7 +40,7 @@ extension BlockContextView {
 // MARK: - Functions
 extension BlockContextView {
     func setup(with contextHandler: BlockContextHandler) {
-        titleLabel.text = contextHandler.title
+        titleLabel.text = contextHandler.title.uppercased()
         noteInputField.setup(title: ProgramsKeys.BlockContext.title.translate(),
                              placeholder: ProgramsKeys.BlockContext.placeholder.translate(),
                              characterLimit: nil)
