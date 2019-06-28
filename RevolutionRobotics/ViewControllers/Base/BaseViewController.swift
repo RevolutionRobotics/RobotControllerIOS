@@ -114,7 +114,11 @@ extension BaseViewController {
 // MARK: - ModalViewControllerDelegate
 extension BaseViewController: ModalViewControllerDelegate {
     func dismissModalViewController() {
-        dismiss(animated: true, completion: nil)
+        if presentedViewController is ModalViewController {
+            dismiss(animated: true, completion: nil)
+        } else if presentedViewController?.presentedViewController is ModalViewController {
+            presentedViewController?.dismiss(animated: true, completion: nil)
+        }
     }
 
     func backgroundTapped() {

@@ -58,6 +58,7 @@ enum Image {
     }
 
     enum Configure {
+        static let reconfigure = UIImage(named: "Reconfigure")
         static let emptySelected = UIImage(named: "EmptySelected")
         static let emptyUnselected = UIImage(named: "EmptyUnselected")
         static let drivetrainSelected = UIImage(named: "DrivetrainSelected")
@@ -129,6 +130,13 @@ enum Image {
         static let ChallengeGoldLine = UIImage(named: "ChallengeGoldLine")
         static let ChallengeGreyLine = UIImage(named: "ChallengeGreyLine")
         static let ChallengeInactiveCard = UIImage(named: "ChallengeInactiveCard")
+    }
+
+    enum Testing {
+        static let MotorTestImage = UIImage(named: "MotorTestImage")
+        static let DrivetrainTestImage = UIImage(named: "DrivetrainTestImage")
+        static let UltrasonicTestImage = UIImage(named: "UltrasonicTestImage")
+        static let BumperTestImage = UIImage(named: "BumperTestImage")
     }
 
     static let downloadIcon = UIImage(named: "DownloadIcon")

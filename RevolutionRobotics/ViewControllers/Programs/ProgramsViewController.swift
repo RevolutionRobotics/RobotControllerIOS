@@ -124,6 +124,9 @@ extension ProgramsViewController {
 
 // MARK: - BlocklyBridgeDelegate
 extension ProgramsViewController: BlocklyBridgeDelegate {
+    func onBlocklyLoaded() {
+    }
+
     func alert(message: String, callback: (() -> Void)?) {
         let alertView = AlertModalView.instatiate()
 

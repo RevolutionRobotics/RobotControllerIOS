@@ -254,7 +254,7 @@ extension RobotConfigurationViewController {
         motorConfig.name = configuration?.mapping?.motor(for: portNumber)?.variableName
         motorConfig.prohibitedNames = configuration?.mapping?.variableNames.filter({ $0 != motorConfig.name }) ?? []
         motorConfig.doneButtonTapped = { [weak self] config in
-            self?.dismissModalViewController()
+            self?.dismiss(animated: true, completion: nil)
             self?.updateMotorPort(config, on: motorConfig.portNumber)
         }
         motorConfig.screenDismissed = { [weak self] in
@@ -303,7 +303,7 @@ extension RobotConfigurationViewController {
         sensorConfig.name = configuration?.mapping?.sensor(for: portNumber)?.variableName
         sensorConfig.prohibitedNames = configuration?.mapping?.variableNames.filter({ $0 != sensorConfig.name }) ?? []
         sensorConfig.doneButtonTapped = { [weak self] config in
-            self?.dismissModalViewController()
+            self?.dismiss(animated: true, completion: nil)
             self?.updateSensorPort(config, on: sensorConfig.portNumber)
         }
         sensorConfig.screenDismissed = { [weak self] in

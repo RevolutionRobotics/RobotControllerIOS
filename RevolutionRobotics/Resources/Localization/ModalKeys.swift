@@ -115,4 +115,15 @@ enum ModalKeys {
         static let ok = "blockly_confirm_ok"
         static let cancel = "blockly_confirm_cancel"
     }
+
+    enum Testing {
+        static let testingTitle = "build_robot_testing_title"
+        static let testingQuestion = "build_robot_testing_question"
+        static let testingNegativeButtonTitle = "build_robot_testing_negative_button_title"
+        static let testingPositiveButtonTitle = "build_robot_testing_positive_button_title"
+        static let drivetrainTest = "testing_drivetrain_test"
+        static let motorTest = "testing_motor_test"
+        static let bumperTest = "testing_bumper_test"
+        static let ultrasonicTest = "testing_ultrasonic_test"
+    }
 }

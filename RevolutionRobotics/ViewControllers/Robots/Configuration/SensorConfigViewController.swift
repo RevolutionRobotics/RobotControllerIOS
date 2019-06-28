@@ -42,7 +42,7 @@ final class SensorConfigViewController: BaseViewController {
     var testCodeService: PortTestCodeServiceInterface!
 
     private var shouldCallDismiss = true
-    private var shouldStartTestProcess = false
+    private var shouldRunTestScriptOnConnection = false
 
     private var sensorPortNumber: Int {
         return portNumber - 6
@@ -59,16 +59,39 @@ final class SensorConfigViewController: BaseViewController {
         nameInputField.text = name
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        subscribeForConnectionChange()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromConnectionChange()
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupActionButtons()
     }
 
     override func connected() {
-        super.connected()
-        if shouldStartTestProcess {
-            shouldStartTestProcess = false
-            startPortTest()
+        presentConnectedModal(onCompleted: { [weak self] in
+            guard let runTest = self?.shouldRunTestScriptOnConnection, runTest else { return }
+
+            self?.shouldRunTestScriptOnConnection = false
+            self?.startPortTest()
+            self?.presentTestingModal()
+        })
+    }
+
+    private func presentConnectedModal(onCompleted callback: Callback?) {
+        let connectionModal = ConnectionModal.instatiate()
+        presentModal(with: connectionModal.successful)
+
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
+            self?.presentedViewController?.dismiss(animated: true, completion: nil)
+            callback?()
         }
     }
 }
@@ -128,13 +151,45 @@ extension SensorConfigViewController {
 
     private func presentTestingModal() {
         let modal = TestingModal.instatiate()
+        switch selectedSensorType {
+        case .bumper:
+            modal.setup(with: .bumper)
+        case .ultrasonic:
+            modal.setup(with: .ultrasonic)
+        default: break
+        }
         modal.positiveButtonTapped = { [weak self] in
             self?.dismiss(animated: true, completion: nil)
         }
         modal.negativeButtonTapped = { [weak self] in
             self?.dismiss(animated: true, completion: nil)
+            self?.presentTipsModal()
         }
         presentModal(with: modal)
+    }
+
+    private func presentTipsModal() {
+        let tips = TipsModalView.instatiate()
+        tips.title = ModalKeys.Tips.title.translate()
+        tips.subtitle = ModalKeys.Tips.subtitle.translate()
+        tips.tips = "Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat."
+        tips.skipTitle = ModalKeys.Tips.reconfigure.translate()
+        tips.communityTitle = ModalKeys.Tips.community.translate()
+        tips.tryAgainTitle = ModalKeys.Tips.tryAgin.translate()
+        tips.skipIcon = Image.Configure.reconfigure
+
+        tips.communityCallback = { [weak self] in
+            self?.presentSafariModal(presentationFinished: nil)
+        }
+        tips.skipCallback = { [weak self] in
+            self?.dismissModalViewController()
+        }
+        tips.tryAgainCallback = { [weak self] in
+            self?.dismissModalViewController()
+            self?.presentTestingModal()
+            self?.startPortTest()
+        }
+        presentModal(with: tips)
     }
 
     private func startPortTest() {
@@ -175,7 +230,7 @@ extension SensorConfigViewController {
             startPortTest()
             presentTestingModal()
         } else {
-            shouldStartTestProcess = true
+            shouldRunTestScriptOnConnection = true
             presentConnectModal()
         }
     }

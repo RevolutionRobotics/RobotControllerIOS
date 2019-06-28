@@ -87,6 +87,12 @@ final class TipsModalView: UIView {
             }
         }
     }
+
+    var skipIcon: UIImage? {
+        didSet {
+            skipConnectionButton.setImage(skipIcon, for: .normal)
+        }
+    }
 }
 
 // MARK: - Functions

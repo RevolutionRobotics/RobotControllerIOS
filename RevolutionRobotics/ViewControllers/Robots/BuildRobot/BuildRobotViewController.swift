@@ -177,7 +177,7 @@ extension BuildRobotViewController {
     private func showTestingModal(with milestone: Milestone) {
         dismissModalViewController()
         let testingModal = TestingModal.instatiate()
-        testingModal.setup(with: milestone)
+        testingModal.setup(with: .milestone(milestone))
         testingModal.positiveButtonTapped = { [weak self] in
             self?.dismissModalViewController()
             self?.buildProgressBar.milestoneFinished()
