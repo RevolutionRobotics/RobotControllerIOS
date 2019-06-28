@@ -187,6 +187,7 @@
 		2ABEF0DD228EA0FA00AF87AC /* BluetoothServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0DC228EA0FA00AF87AC /* BluetoothServiceInterface.swift */; };
 		2ABEF0DF228EA19E00AF87AC /* BlutoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0DE228EA19E00AF87AC /* BlutoothService.swift */; };
 		2ABEF0E4228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0E3228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift */; };
+		2AC0192622C6432100C8FA8A /* UINavigationController+NavigateBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC0192522C6432100C8FA8A /* UINavigationController+NavigateBack.swift */; };
 		2AC7AB72228D4FB900D96457 /* URLSession+ImageDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7AB71228D4FB900D96457 /* URLSession+ImageDownload.swift */; };
 		2AD858DE2295AE940082CDC0 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD858DD2295AE940082CDC0 /* UIAlertController+Error.swift */; };
 		2AD858E02296B9EB0082CDC0 /* ControllerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD858DF2296B9EB0082CDC0 /* ControllerDataModel.swift */; };
@@ -539,6 +540,7 @@
 		2ABEF0DC228EA0FA00AF87AC /* BluetoothServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothServiceInterface.swift; sourceTree = "<group>"; };
 		2ABEF0DE228EA19E00AF87AC /* BlutoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlutoothService.swift; sourceTree = "<group>"; };
 		2ABEF0E3228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothConnectionModalPresenter.swift; sourceTree = "<group>"; };
+		2AC0192522C6432100C8FA8A /* UINavigationController+NavigateBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+NavigateBack.swift"; sourceTree = "<group>"; };
 		2AC7AB71228D4FB900D96457 /* URLSession+ImageDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+ImageDownload.swift"; sourceTree = "<group>"; };
 		2AD858DD2295AE940082CDC0 /* UIAlertController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Error.swift"; sourceTree = "<group>"; };
 		2AD858DF2296B9EB0082CDC0 /* ControllerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerDataModel.swift; sourceTree = "<group>"; };
@@ -1551,6 +1553,14 @@
 			path = BluetoothConnectionModalPresenter;
 			sourceTree = "<group>";
 		};
+		2AC0192422C6430800C8FA8A /* UINavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				2AC0192522C6432100C8FA8A /* UINavigationController+NavigateBack.swift */,
+			);
+			path = UINavigationController;
+			sourceTree = "<group>";
+		};
 		2AC7AB70228D4FA400D96457 /* URLSession */ = {
 			isa = PBXGroup;
 			children = (
@@ -1799,6 +1809,7 @@
 		D008E03A2260AAF500089DC7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2AC0192422C6430800C8FA8A /* UINavigationController */,
 				0938898622B26ED400292B32 /* UIColor */,
 				2A473774229F0F7300641B07 /* UserDefaults */,
 				091B98A9229830BC00DCEEF4 /* DateFormatter */,
@@ -2455,6 +2466,7 @@
 				09C3874D226F32F70097619D /* UIView+Anchor.swift in Sources */,
 				2A1C8AEF22A7E28D0023F08F /* DisconnectModal.swift in Sources */,
 				2A7DDB1222856FC800891DA6 /* MotorDataModel.swift in Sources */,
+				2AC0192622C6432100C8FA8A /* UINavigationController+NavigateBack.swift in Sources */,
 				2ADE8C3A2270A7A700ECEC72 /* CommunityKeys.swift in Sources */,
 				2AFAA11222663111002BE0A2 /* UIImage+Color.swift in Sources */,
 				2A3A75922292DD3A00ED9A1D /* ControllerButton.swift in Sources */,

@@ -33,6 +33,10 @@ class BuildRobotViewController: BaseViewController {
     private let partView = PartView.instatiate()
     private let partView2 = PartView.instatiate()
     private var milestone: Milestone?
+
+    override func backButtonDidTap() {
+        navigationController?.pop(to: YourRobotsViewController.self)
+    }
 }
 
 // MARK: - View lifecycle

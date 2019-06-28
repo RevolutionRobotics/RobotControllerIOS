@@ -9,7 +9,7 @@
 import UIKit
 import SideMenu
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, RRNavigationBarDelegate {
     // MARK: - Constants
     private enum Constants {
         static let menuFadeStrength: CGFloat = 0.65
@@ -33,6 +33,15 @@ class BaseViewController: UIViewController {
     deinit {
         unregisterObserver()
     }
+
+    func backButtonDidTap() {
+        navigationController?.popViewController(animated: true)
+    }
+
+    func popToRootViewController(animated: Bool) {
+        self.dismissModalViewController()
+        navigationController?.popToRootViewController(animated: animated)
+    }
 }
 
 // MARK: - View lifecycle
@@ -48,18 +57,6 @@ extension BaseViewController {
         super.viewWillAppear(animated)
         view.setNeedsLayout()
         view.layoutIfNeeded()
-    }
-}
-
-// MARK: - RRNavigationBarDelegate
-extension BaseViewController: RRNavigationBarDelegate {
-    func backButtonDidTap() {
-        navigationController?.popViewController(animated: true)
-    }
-
-    func popToRootViewController(animated: Bool) {
-        self.dismissModalViewController()
-        navigationController?.popToRootViewController(animated: animated)
     }
 }
 

@@ -249,7 +249,7 @@ extension ProgramPriorityViewController {
         saveModal.saveCallback = { [weak self] (data: SaveModal.SaveData) in
             self?.saveController(name: data.name, description: data.description)
             self?.dismissModalViewController()
-            self?.navigationController?.popToRootViewController(animated: true)
+            self?.navigationController?.pop(to: RobotConfigurationViewController.self)
         }
         presentModal(with: saveModal)
     }
