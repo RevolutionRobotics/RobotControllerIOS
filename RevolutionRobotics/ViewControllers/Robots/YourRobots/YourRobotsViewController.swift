@@ -160,7 +160,10 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
         case .completed:
             navigateToPlayControllerViewController(with: robots[indexPath.item])
         case .initial, .inProgress:
-            if robots[indexPath.item].remoteId.isEmpty {
+            let hasNoControllers =
+                realmService.getControllers().filter({ $0.configurationId == robots[indexPath.item].configId }).isEmpty
+            let isRobotFromFirebase = robots[indexPath.item].remoteId.isEmpty
+            if isRobotFromFirebase || (!isRobotFromFirebase && hasNoControllers) {
                 navigateToConfiguration(with: robots[indexPath.item])
             } else {
                 navigateToBuildYourRobotViewController(with: robots[indexPath.item])
