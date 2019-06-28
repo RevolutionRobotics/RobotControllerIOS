@@ -219,7 +219,7 @@ extension ButtonlessProgramsViewController {
     }
 
     @IBAction private func nextButtonTapped(_ sender: UIButton) {
-        controllerViewModel?.backgroundPrograms = selectedPrograms
+        controllerViewModel?.backgroundPrograms = selectedPrograms.filter(isProgramCompatible)
         let vc = AppContainer.shared.container.unwrappedResolve(ProgramPriorityViewController.self)
         vc.controllerViewModel = controllerViewModel
         navigationController?.pushViewController(vc, animated: true)

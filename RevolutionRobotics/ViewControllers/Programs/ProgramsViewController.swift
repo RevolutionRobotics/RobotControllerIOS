@@ -19,6 +19,7 @@ final class ProgramsViewController: BaseViewController {
 
     // MARK: - Properties
     var realmService: RealmServiceInterface!
+    var programCompatibilityValidator: ProgramCompatibilityValidator!
     var selectedProgram: ProgramDataModel?
     private let blocklyViewController = BlocklyViewController()
     private var showCode: Bool = false
@@ -28,6 +29,7 @@ final class ProgramsViewController: BaseViewController {
 extension ProgramsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        programCompatibilityValidator = ProgramCompatibilityValidator(realmService: realmService)
         setupBlocklyViewController()
     }
 
@@ -61,7 +63,8 @@ extension ProgramsViewController {
     }
 
     private func prefillProgram() {
-        programNameButton.setTitle(selectedProgram?.name, for: .normal)
+        guard let program = selectedProgram else { return }
+        programNameButton.setTitle(program.name, for: .normal)
     }
 }
 
@@ -83,14 +86,14 @@ extension ProgramsViewController {
         } else {
             realmService.savePrograms(programs: [program])
         }
+
         prefillProgram()
         setupButtons()
     }
 
     private func save(description: String) {
-        guard let program = selectedProgram else {
-            return
-        }
+        guard let program = selectedProgram else { return }
+
         if let programDataModel = realmService.getProgram(id: program.id) {
             realmService.updateObject {
                 programDataModel.customDescription = description
@@ -107,8 +110,7 @@ extension ProgramsViewController {
         descriptionModal.loadCallback = { [weak self] in
             self?.dismissModalViewController()
             self?.selectedProgram = program
-            let xmlString = String(data: Data(base64Encoded: program.xml)!, encoding: .utf8)
-            self?.blocklyViewController.loadProgram(xml: xmlString ?? "")
+            self?.blocklyViewController.loadProgram(xml: program.xml.base64Decoded ?? "")
             self?.prefillProgram()
             self?.setupButtons()
         }
@@ -283,19 +285,29 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
         presentModal(with: variableContextView, onDismissed: { callback?(nil) })
     }
 
+    func onBlocklyLoaded() {
+        guard let program = selectedProgram, let xml = program.xml.base64Decoded else { return }
+
+        blocklyViewController.loadProgram(xml: xml)
+    }
+
     func onVariablesExported(variables: String) {
-        guard let program = selectedProgram, !showCode else {
-            return
-        }
-        let variableList = variables.components(separatedBy: ",")
+        guard let program = selectedProgram, !showCode else { return }
+        let variableList = variables.components(separatedBy: ",").filter { !$0.isEmpty }
         if let programDataModel = realmService.getProgram(id: program.id) {
             realmService.updateObject {
-                programDataModel.variableNames.append(objectsIn: variableList.filter({ !$0.isEmpty }))
+                programDataModel.variableNames.removeAll()
+                programDataModel.variableNames.append(objectsIn: variableList)
             }
+            programCompatibilityValidator.validate(program: programDataModel)
+
         } else {
-            program.variableNames.append(objectsIn: variableList.filter({ !$0.isEmpty }))
+            program.variableNames.removeAll()
+            program.variableNames.append(objectsIn: variableList)
             saveProgram()
+            programCompatibilityValidator.validate(program: program)
         }
+
     }
 
     func onPythonProgramSaved(pythonCode: String) {
@@ -311,7 +323,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
             guard let program = selectedProgram else { return }
 
             realmService.updateObject(closure: {
-                program.python = pythonCode.data(using: .utf8)?.base64EncodedString() ?? ""
+                program.python = pythonCode.base64Encoded ?? ""
             })
         }
     }
@@ -320,7 +332,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
         guard let program = selectedProgram, !showCode else { return }
 
         realmService.updateObject(closure: {
-            program.xml = xmlCode.data(using: .utf8)?.base64EncodedString() ?? ""
+            program.xml = xmlCode.base64Encoded ?? ""
         })
     }
 }

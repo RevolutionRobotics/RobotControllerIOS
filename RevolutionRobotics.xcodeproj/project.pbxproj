@@ -90,6 +90,8 @@
 		0999431A228DBA6500D87385 /* ProgramInfoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09994318228DBA6500D87385 /* ProgramInfoModal.swift */; };
 		099DA57122B786AF005DCD60 /* LEDSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DA57022B786AF005DCD60 /* LEDSelectorView.swift */; };
 		099DA57322B786B7005DCD60 /* LEDSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099DA57222B786B7005DCD60 /* LEDSelectorView.xib */; };
+		099FF24622C360D500CD9104 /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF24522C360D500CD9104 /* String+Base64.swift */; };
+		099FF24822C36E2C00CD9104 /* ProgramCompatibilityValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF24722C36E2C00CD9104 /* ProgramCompatibilityValidator.swift */; };
 		09BD4C1722C117320046DB74 /* ConfirmModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4C1622C117320046DB74 /* ConfirmModalView.swift */; };
 		09BD4C1922C117460046DB74 /* ConfirmModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BD4C1822C117460046DB74 /* ConfirmModalView.xib */; };
 		09C3874D226F32F70097619D /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C3874C226F32F70097619D /* UIView+Anchor.swift */; };
@@ -433,6 +435,8 @@
 		09994318228DBA6500D87385 /* ProgramInfoModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramInfoModal.swift; sourceTree = "<group>"; };
 		099DA57022B786AF005DCD60 /* LEDSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDSelectorView.swift; sourceTree = "<group>"; };
 		099DA57222B786B7005DCD60 /* LEDSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LEDSelectorView.xib; sourceTree = "<group>"; };
+		099FF24522C360D500CD9104 /* String+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64.swift"; sourceTree = "<group>"; };
+		099FF24722C36E2C00CD9104 /* ProgramCompatibilityValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramCompatibilityValidator.swift; sourceTree = "<group>"; };
 		09BD4C1622C117320046DB74 /* ConfirmModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmModalView.swift; sourceTree = "<group>"; };
 		09BD4C1822C117460046DB74 /* ConfirmModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmModalView.xib; sourceTree = "<group>"; };
 		09C3874C226F32F70097619D /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
@@ -1414,6 +1418,7 @@
 				D0241A0522B14011005E8DB2 /* ProgramPriorityViewController.xib */,
 				D0241A0822B14337005E8DB2 /* ProgramsOrderTableViewCell.swift */,
 				D0241A0922B14337005E8DB2 /* ProgramsOrderTableViewCell.xib */,
+				099FF24722C36E2C00CD9104 /* ProgramCompatibilityValidator.swift */,
 			);
 			path = Programs;
 			sourceTree = "<group>";
@@ -1606,6 +1611,7 @@
 			isa = PBXGroup;
 			children = (
 				2ADE8C282270A61000ECEC72 /* String+Translate.swift */,
+				099FF24522C360D500CD9104 /* String+Base64.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -2464,6 +2470,7 @@
 				D05C64DF225F5C4E00B7BF4F /* Rotation.swift in Sources */,
 				D03BA85C2277384A005B3E33 /* ConnectionModal.swift in Sources */,
 				D0A11084227B0BEB0064FBB6 /* ResizableCell.swift in Sources */,
+				099FF24822C36E2C00CD9104 /* ProgramCompatibilityValidator.swift in Sources */,
 				D0899C6B22A6BCB900DB6F97 /* ChallengesViewController.swift in Sources */,
 				2ADE8C382270A79E00ECEC72 /* SettingsKeys.swift in Sources */,
 				2A78388D22C0C10100423991 /* PortTestCodeService.swift in Sources */,
@@ -2473,6 +2480,7 @@
 				0941075E2297E889000A658A /* ProgramSelectorViewController.swift in Sources */,
 				D0BF25702282C6E000F08C9C /* PlayControllerViewController.swift in Sources */,
 				D0E3F89222B7D71A00B4D9F2 /* ProgramDescriptionView.swift in Sources */,
+				099FF24622C360D500CD9104 /* String+Base64.swift in Sources */,
 				FE4B161E227721C700CAA083 /* PortButton.swift in Sources */,
 				D0313335228D5CBA00704989 /* ControllerType.swift in Sources */,
 				D05C64D0225F57BC00B7BF4F /* Robot.swift in Sources */,
