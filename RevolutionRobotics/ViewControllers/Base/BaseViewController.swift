@@ -14,7 +14,7 @@ class BaseViewController: UIViewController, RRNavigationBarDelegate {
     private enum Constants {
         static let menuFadeStrength: CGFloat = 0.65
         static let menuWidth: CGFloat = UIScreen.main.bounds.width / 3 < 215.0 ? 215.0 : UIScreen.main.bounds.width / 3
-        static let communityURL: URL = URL(string: "https://www.google.com")!
+        static let communityURL: URL = URL(string: "https://www.revolutionrobotics.org")!
         static let keyboardTopSpace: CGFloat = 20
     }
 
@@ -66,8 +66,7 @@ extension BaseViewController {
         with contentView: UIView,
         animated: Bool = true,
         closeHidden: Bool = false,
-        onDismissed: Callback? = nil
-    ) {
+        onDismissed: Callback? = nil) {
         let modalViewController = AppContainer.shared.container.unwrappedResolve(ModalViewController.self)
         onModalDismissed = onDismissed
         modalViewController.delegate = self
