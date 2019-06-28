@@ -122,6 +122,7 @@ extension FirmwareUpdateViewController {
 extension FirmwareUpdateViewController {
     private func showTurnOnTheBrain() {
         let modalPresenter = BluetoothConnectionModalPresenter()
+        modalPresenter.shouldHideSkip = true
         modalPresenter.present(
             on: self,
             startDiscoveryHandler: { [weak self] in
