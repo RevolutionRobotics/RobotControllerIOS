@@ -34,7 +34,8 @@ extension PlayControllerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.setup(title: RobotsKeys.Controllers.Play.screenTitle.translate(), delegate: self)
+        navigationBar.setup(title: controllerDataModel?.name ?? RobotsKeys.Controllers.Play.screenTitle.translate(),
+                            delegate: self)
         setupPadView()
         fetchPrograms()
         if bluetoothService.connectedDevice != nil {
