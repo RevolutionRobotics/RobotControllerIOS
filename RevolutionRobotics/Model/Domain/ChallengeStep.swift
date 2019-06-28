@@ -18,6 +18,7 @@ struct ChallengeStep: FirebaseData, FirebaseOrderable {
         static let image = "image"
         static let parts = "parts"
         static let order = "order"
+        static let challengeType = "challengeType"
     }
 
     // MARK: - Path
@@ -30,6 +31,7 @@ struct ChallengeStep: FirebaseData, FirebaseOrderable {
     var image: String
     var order: Int
     var parts: [Part]
+    var challengeType: ChallengeType
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
@@ -38,7 +40,9 @@ struct ChallengeStep: FirebaseData, FirebaseOrderable {
             let title = dictionary[Constants.title] as? String,
             let description = dictionary[Constants.description] as? String,
             let order = dictionary[Constants.order] as? Int,
-            let image = dictionary[Constants.image] as? String else {
+            let image = dictionary[Constants.image] as? String,
+            let typeString = dictionary[Constants.challengeType] as? String,
+            let challengeType = ChallengeType(rawValue: typeString) else {
                 return nil
         }
 
@@ -47,6 +51,7 @@ struct ChallengeStep: FirebaseData, FirebaseOrderable {
         self.description = description
         self.image = image
         self.order = order
+        self.challengeType = challengeType
 
         let parts = snapshot.childSnapshot(forPath: Constants.parts)
             .children.compactMap { $0 as? DataSnapshot }
