@@ -22,10 +22,6 @@ enum RobotsKeys {
     }
 
     enum BuildRobot {
-        static let testingTitle = "build_robot_testing_title"
-        static let testingQuestion = "build_robot_testing_question"
-        static let testingNegativeButtonTitle = "build_robot_testing_negative_button_title"
-        static let testingPositiveButtonTitle = "build_robot_testing_positive_button_title"
         static let turnOnTheBrainInstruction = "build_robot_turn_on_the_brain_instruction"
         static let turnOnTheBrainTip = "build_robot_turn_on_the_brain_tip"
 

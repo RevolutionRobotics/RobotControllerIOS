@@ -9,6 +9,15 @@
 import UIKit
 
 final class TestingModal: UIView {
+    // MARK: - Enum
+    enum TestingModalType {
+        case motor
+        case drivetrain
+        case ultrasonic
+        case bumper
+        case milestone(Milestone)
+    }
+
     // MARK: - Outlets
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var testImageView: UIImageView!
@@ -27,10 +36,10 @@ extension TestingModal {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        titleLabel.text = RobotsKeys.BuildRobot.testingTitle.translate().uppercased()
-        questionLabel.text = RobotsKeys.BuildRobot.testingQuestion.translate().uppercased()
-        negativeButton.setTitle(RobotsKeys.BuildRobot.testingNegativeButtonTitle.translate(), for: .normal)
-        positiveButton.setTitle(RobotsKeys.BuildRobot.testingPositiveButtonTitle.translate(), for: .normal)
+        titleLabel.text = ModalKeys.Testing.testingTitle.translate().uppercased()
+        questionLabel.text = ModalKeys.Testing.testingQuestion.translate().uppercased()
+        negativeButton.setTitle(ModalKeys.Testing.testingNegativeButtonTitle.translate(), for: .normal)
+        positiveButton.setTitle(ModalKeys.Testing.testingPositiveButtonTitle.translate(), for: .normal)
     }
 
     override func layoutSubviews() {
@@ -42,9 +51,24 @@ extension TestingModal {
 
 // MARK: - Setup
 extension TestingModal {
-    func setup(with milestone: Milestone) {
-        testImageView.downloadImage(googleStorageURL: milestone.image)
-        testInstructionLabel.text = milestone.testDescription
+    func setup(with type: TestingModalType) {
+        switch type {
+        case .bumper:
+            testImageView.image = Image.Testing.BumperTestImage
+            testInstructionLabel.text = ModalKeys.Testing.bumperTest.translate()
+        case .ultrasonic:
+            testImageView.image = Image.Testing.UltrasonicTestImage
+            testInstructionLabel.text = ModalKeys.Testing.ultrasonicTest.translate()
+        case .drivetrain:
+            testImageView.image = Image.Testing.DrivetrainTestImage
+            testInstructionLabel.text = ModalKeys.Testing.drivetrainTest.translate()
+        case .motor:
+            testImageView.image = Image.Testing.MotorTestImage
+            testInstructionLabel.text = ModalKeys.Testing.motorTest.translate()
+        case .milestone(let milestone):
+            testImageView.downloadImage(googleStorageURL: milestone.image)
+            testInstructionLabel.text = milestone.testDescription
+        }
     }
 }
 

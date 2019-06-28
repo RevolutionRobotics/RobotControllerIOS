@@ -70,10 +70,6 @@
 "build_chapter_finish_dialog_button_home" = "Home";
 "build_chapter_finish_dialog_button_next_chapter" = "Test later";
 "build_chapter_finish_dialog_button_test" = "Test now";
-"build_robot_testing_title" = "Testing";
-"build_robot_testing_question" = "Looking good?";
-"build_robot_testing_positive_button_title" = "Works fine!";
-"build_robot_testing_negative_button_title" = "Not really";
 "build_robot_finished_home" = "Home";
 "build_robot_finished_drive" = "Let's drive!";
 "build_robot_finished_all_set" = "All set!";
@@ -244,3 +240,12 @@
 "blockly_donut_selector_select_all" = "Select all";
 "blockly_confirm_cancel" = "Cancel";
 "blockly_confirm_ok" = "OK";
+
+"build_robot_testing_title" = "Testing";
+"build_robot_testing_question" = "Looking good?";
+"build_robot_testing_positive_button_title" = "Works fine!";
+"build_robot_testing_negative_button_title" = "Not really";
+"testing_drivetrain_test" = "Robot moves back and forth and reaches initial position.";
+"testing_motor_test" = "The attached motor does a half rotation back and forth and reaches initial position.";
+"testing_bumper_test" = "Move your hand in front of the robot and gently push it. If the sensor detects it, the LED lights of the robot will turn green, otherwise turn red.";
+"testing_ultrasonic_test" = "Move your hand in front of the robot. If the sensor detects it, the LED lights of the robot will turn green, otherwise turn red.";
