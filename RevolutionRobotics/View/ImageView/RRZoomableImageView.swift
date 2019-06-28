@@ -38,7 +38,6 @@ final class RRZoomableImageView: UIScrollView {
         minimumZoomScale = Constants.minimumZoomScale
         maximumZoomScale = Constants.maximumZoomScale
 
-        imageView.frame = bounds
         imageView.contentMode = .scaleAspectFit
         zoomScale = Constants.defaultZoomScale
         addSubview(imageView)
@@ -52,6 +51,13 @@ extension RRZoomableImageView: UIScrollViewDelegate {
     }
 
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        centerImage()
+    }
+}
+
+// MARK: - ImageLayout
+extension RRZoomableImageView {
+    private func centerImage() {
         let boundsSize = self.bounds.size
         var contentsFrame = imageView.frame
 
@@ -68,5 +74,15 @@ extension RRZoomableImageView: UIScrollViewDelegate {
         }
 
         imageView.frame = contentsFrame
+    }
+
+    func resetZoom() {
+        zoomScale = Constants.defaultZoomScale
+        centerImage()
+    }
+
+    func resizeImageView() {
+        imageView.frame = bounds
+        centerImage()
     }
 }

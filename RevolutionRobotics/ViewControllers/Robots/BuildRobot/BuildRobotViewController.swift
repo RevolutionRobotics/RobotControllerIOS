@@ -59,6 +59,7 @@ extension BuildRobotViewController {
 
         guard !steps.isEmpty else { return }
         if storedRobotDataModel == nil { updateStoredRobot(step: 0) }
+        zoomableImageView.resizeImageView()
         setupProgressBar()
     }
 

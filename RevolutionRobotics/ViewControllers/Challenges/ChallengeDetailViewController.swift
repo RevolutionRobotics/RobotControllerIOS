@@ -65,9 +65,9 @@ extension ChallengeDetailViewController {
 
     private func setupDetailContent(with step: ChallengeStep, on content: ChallengeDetailContentProtocol) {
         contentView.removeAllSubViews()
+        content.frame = contentView.bounds
         content.setup(with: step)
         contentView.addSubview(content)
-        content.anchorToSuperview()
     }
 }
 

@@ -16,6 +16,8 @@ final class ChallengeDetailZoomableContent: UIView {
 // MARK: - ChallengeDetailContent
 extension ChallengeDetailZoomableContent: ChallengeDetailContentProtocol {
     func setup(with step: ChallengeStep) {
+        zoomableImageView.frame = bounds
+        zoomableImageView.resizeImageView()
         zoomableImageView.imageView.downloadImage(googleStorageURL: step.image)
     }
 }

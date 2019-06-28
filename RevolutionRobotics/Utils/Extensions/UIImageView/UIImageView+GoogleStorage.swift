@@ -33,6 +33,7 @@ extension UIImageView {
             case .success(let imageURL):
                 let resource = ImageResource(downloadURL: imageURL, cacheKey: googleStorageURL)
                 self?.kf.setImage(with: resource, placeholder: nil, options: [.targetCache(ImageCache.default)])
+                self?.resetZoom()
             case .failure:
                 os_log("Error: Could not fetch image from Firebase!")
                 self?.image = Image.Common.imagePlaceholder
@@ -64,10 +65,16 @@ extension UIImageView {
                 case .success(let image):
                     DispatchQueue.main.async {
                         self?.image = image
+                        self?.resetZoom()
                     }
                 case .failure:
                     os_log("Error: Could not fetch image from cache!")
                 }
         })
+    }
+
+    private func resetZoom() {
+        guard let superView = superview as? RRZoomableImageView else { return }
+        superView.resetZoom()
     }
 }
