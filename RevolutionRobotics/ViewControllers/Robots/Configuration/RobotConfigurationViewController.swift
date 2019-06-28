@@ -157,19 +157,44 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
         cell.deleteCallback = { [weak self] in
             let deleteView = DeleteView.instatiate()
             deleteView.title = ModalKeys.ControllerDelete.description.translate()
-            deleteView.deleteButtonHandler = { [weak self] in
-                self?.deleteController(self?.controllers[indexPath.row])
-                self?.dismissModalViewController()
-            }
-            deleteView.cancelButtonHandler = { [weak self] in
-                self?.dismissModalViewController()
-            }
+            deleteView.deleteButtonHandler = { [weak self] in self?.handleControllerDeletion(on: indexPath) }
+            deleteView.cancelButtonHandler = { [weak self] in self?.dismissModalViewController() }
             self?.presentModal(with: deleteView)
         }
         if let lastIndexPath = lastSelectedIndexPath {
             cell.isSelected = lastIndexPath == indexPath
         }
         return cell
+    }
+
+    private func handleControllerDeletion(on indexPath: IndexPath) {
+        guard let configuration = configuration else { return }
+        let controllerToDelete = controllers[indexPath.row]
+        let hasOnlyOneAvailableController =
+            realmService.getControllers().filter({ $0.configurationId == configuration.id }).count == 1
+        let isControllerToDeleteTheSelectedOne = controllerToDelete.id == configuration.controller
+        if isControllerToDeleteTheSelectedOne && hasOnlyOneAvailableController {
+            let robot = realmService.getRobots().first(where: { $0.configId == configuration.id })!
+            realmService.updateObject(closure: {
+                configuration.controller = ""
+                robot.buildStatus = BuildStatus.inProgress.rawValue
+            })
+            deleteController(controllerToDelete)
+        } else if isControllerToDeleteTheSelectedOne {
+            let controller = realmService.getControllers().first(where: { $0.configurationId == configuration.id &&
+                $0.id != controllerToDelete.id })!
+            realmService.updateObject(closure: {
+                configuration.controller = controller.id
+            })
+            deleteController(controllerToDelete)
+        } else {
+            deleteController(controllerToDelete)
+        }
+
+        collectionView.clearIndexPath()
+        controllers = realmService.getControllers().filter({ $0.configurationId == configuration.id })
+        collectionView.reloadData()
+        dismissModalViewController()
     }
 
     private func deleteController(_ controller: ControllerDataModel?) {

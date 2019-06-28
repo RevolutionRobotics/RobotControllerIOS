@@ -45,7 +45,7 @@ extension ProgramPriorityViewController {
         programsTableView.register(ProgramsOrderTableViewCell.self)
 
         drivetrainPlaceholder.id = "-1"
-        drivetrainPlaceholder.name = "DRIVETRAIN PLACEHOLDER"
+        drivetrainPlaceholder.name = "Drivetrain"
     }
 
     override func viewWillAppear(_ animated: Bool) {

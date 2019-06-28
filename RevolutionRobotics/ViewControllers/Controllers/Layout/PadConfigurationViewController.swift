@@ -38,7 +38,9 @@ final class PadConfigurationViewController: BaseViewController {
     private var selectedButtonProgram: ProgramDataModel?
     private var selectedController: ControllerDataModel? {
         didSet {
-            self.controllerType = ControllerType(rawValue: (selectedController?.type)!)
+            if let selectedController = selectedController {
+                self.controllerType = ControllerType(rawValue: selectedController.type)!
+            }
         }
     }
     private let viewModel = ControllerViewModel()
