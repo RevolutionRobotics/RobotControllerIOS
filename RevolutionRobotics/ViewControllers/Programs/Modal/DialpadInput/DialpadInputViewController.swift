@@ -9,7 +9,9 @@
 import UIKit
 import RevolutionRoboticsBlockly
 
-final class DialpadInputViewController: UIViewController {
+protocol Dismissable { }
+
+final class DialpadInputViewController: UIViewController, Dismissable {
     // MARK: - Constants
     private enum Constants {
         static let clippingRadius: CGFloat = 6.0
