@@ -31,15 +31,18 @@ final class ButtonlessProgramsViewController: BaseViewController {
         }
     }
     private var allPrograms: [ProgramDataModel] = []
-    private var configurationVariableNames: [String] = []
+    private var compatiblePrograms: [ProgramDataModel] {
+        return allPrograms.filter(isProgramCompatible)
+    }
     private var selectedPrograms: [ProgramDataModel] = []
     private var filteredAndOrderedPrograms: [ProgramDataModel] = [] {
         didSet {
+            updateEmptyStateVisibility()
             programsTableView.reloadData()
         }
     }
     private let programSorter = ProgramSorter()
-    private var programSortingOptions = ProgramSorter.Options(field: .name, order: .ascending) {
+    private var programSortingOptions = ProgramSorter.Options(field: .date, order: .descending) {
         didSet {
             filteredAndOrderedPrograms = programSorter.sort(programs: filteredAndOrderedPrograms,
                                                             options: programSortingOptions)
@@ -53,45 +56,105 @@ extension ButtonlessProgramsViewController {
         super.viewDidLoad()
 
         navigationBar.setup(title: ProgramsKeys.Buttonless.title.translate(), delegate: self)
-        selectAllButton.setTitle(ProgramsKeys.Buttonless.selectAll.translate(), for: .normal)
-        nextButton.setTitle(CommonKeys.next.translate(), for: .normal)
-        nextButton.superview?.setNeedsLayout()
-        nextButton.superview?.layoutIfNeeded()
-        programsTableView.dataSource = self
-        programsTableView.delegate = self
-        programsTableView.register(ButtonlessProgramTableViewCell.self)
+        setupButtons()
+        setupTableView()
         fetchPrograms()
-        configurationVariableNames = realmService.getConfiguration(id: configurationId)?.mapping?.variableNames ?? []
-    }
-
-    private func fetchPrograms() {
-        let programs = Set(realmService.getPrograms())
-        let prohibited = Set(controllerViewModel?.buttonPrograms ?? [])
-        updatePrograms(Array(programs.subtracting(prohibited)))
-        compatibleButton.setTitle(ProgramsKeys.Buttonless.showCompatible.translate(), for: .normal)
-        compatibleButton.setImage(Image.Programs.Buttonless.CompatibleIcon, for: .normal)
-        compatibleButton.isSelected = false
-    }
-
-    private func updatePrograms(_ programs: [ProgramDataModel]) {
-        allPrograms = programs
-        if compatibleButton.isSelected {
-            let variableNames = Set(configurationVariableNames)
-            let compatiblePrograms = allPrograms.filter({ Set($0.variableNames).isSubset(of: variableNames) })
-            filteredAndOrderedPrograms =
-                programSorter.sort(programs: compatiblePrograms, options: programSortingOptions)
-        } else {
-            filteredAndOrderedPrograms = programSorter.sort(programs: allPrograms, options: programSortingOptions)
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         nextButton.setBorder(fillColor: .clear, strokeColor: .white)
+        updateEmptyStateVisibility()
+        programsTableView.reloadData()
+    }
+}
+
+// MARK: - Setup
+extension ButtonlessProgramsViewController {
+    private func setupButtons() {
+        setupSelectAllButton()
+        setupNextButton()
+        setupCompatibleButton()
+        setupDateButton()
+        setupNameButton()
+        setupInitialSorting()
+    }
+
+    private func setupSelectAllButton() {
+        selectAllButton.setTitle(ProgramsKeys.Buttonless.selectAll.translate(), for: .normal)
+        selectAllButton.setImage(Image.Programs.Buttonless.checkboxChecked, for: .selected)
+        selectAllButton.setImage(Image.Programs.Buttonless.checkboxNotChecked, for: .normal)
+    }
+
+    private func setupCompatibleButton() {
+        compatibleButton.setTitle(ProgramsKeys.Buttonless.showAll.translate(), for: .selected)
+        compatibleButton.setImage(Image.Programs.Buttonless.CompatibleIconAll, for: .selected)
+        compatibleButton.setTitle(ProgramsKeys.Buttonless.showCompatible.translate(), for: .normal)
+        compatibleButton.setImage(Image.Programs.Buttonless.CompatibleIcon, for: .normal)
+        compatibleButton.isSelected = true
+    }
+
+    private func setupNextButton() {
+        nextButton.setTitle(CommonKeys.next.translate(), for: .normal)
+        nextButton.superview?.setNeedsLayout()
+        nextButton.superview?.layoutIfNeeded()
+    }
+
+    private func setupInitialSorting() {
+        dateButton.isSelected = programSortingOptions.field == .date
+        nameButton.isSelected = programSortingOptions.field == .name
+
+        programSortingOptions.field == .date ? resetNameButton() : resetDateButton()
+    }
+
+    private func setupDateButton() {
+        dateButton.setImage(Image.Programs.Buttonless.SortDateUpSelected, for: .normal)
+        dateButton.setImage(Image.Programs.Buttonless.SortDateDownSelected, for: .selected)
+    }
+
+    private func setupNameButton() {
+        nameButton.setImage(Image.Programs.Buttonless.SortNameUpSelected, for: .selected)
+        nameButton.setImage(Image.Programs.Buttonless.SortNameDownSelected, for: .normal)
+    }
+
+    private func setupTableView() {
+        programsTableView.dataSource = self
+        programsTableView.delegate = self
+        programsTableView.register(ButtonlessProgramTableViewCell.self)
+    }
+
+    private func updateEmptyStateVisibility() {
+        selectAllButton.isHidden = compatiblePrograms.isEmpty
         programsTableView.isHidden = filteredAndOrderedPrograms.isEmpty
         noProgramsLabel.isHidden = !filteredAndOrderedPrograms.isEmpty
-        programsTableView.reloadData()
+    }
+
+    private func resetNameButton() {
+        nameButton.isSelected = false
+        nameButton.setImage(Image.Programs.Buttonless.SortNameUp, for: .normal)
+    }
+
+    private func resetDateButton() {
+        dateButton.isSelected = false
+        dateButton.setImage(Image.Programs.Buttonless.SortDateUp, for: .normal)
+    }
+}
+
+// MARK: - Program
+extension ButtonlessProgramsViewController {
+    private func fetchPrograms() {
+        let programs = Set(realmService.getPrograms())
+        let prohibited = Set(controllerViewModel?.buttonPrograms ?? [])
+        updatePrograms(Array(programs.subtracting(prohibited)))
+    }
+
+    private func updatePrograms(_ programs: [ProgramDataModel]) {
+        allPrograms = programs
+        filteredAndOrderedPrograms = programSorter.sort(
+            programs: compatibleButton.isSelected ? compatiblePrograms : allPrograms,
+            options: programSortingOptions
+        )
     }
 
     private func isProgramCompatible(_ program: ProgramDataModel) -> Bool {
@@ -161,61 +224,36 @@ extension ButtonlessProgramsViewController: UITableViewDelegate {
 extension ButtonlessProgramsViewController {
     @IBAction private func compatibleButtonTapped(_ sender: UIButton) {
         compatibleButton.isSelected.toggle()
-        if compatibleButton.isSelected {
-            let variableNames = Set(configurationVariableNames)
-            let compatiblePrograms = allPrograms.filter({ Set($0.variableNames).isSubset(of: variableNames) })
-            filteredAndOrderedPrograms =
-                programSorter.sort(programs: compatiblePrograms, options: programSortingOptions)
-            compatibleButton.setTitle(ProgramsKeys.Buttonless.showAll.translate(), for: .normal)
-            compatibleButton.setImage(Image.Programs.Buttonless.CompatibleIconAll, for: .normal)
-        } else {
-            filteredAndOrderedPrograms = programSorter.sort(programs: allPrograms, options: programSortingOptions)
-            compatibleButton.setTitle(ProgramsKeys.Buttonless.showCompatible.translate(), for: .normal)
-            compatibleButton.setImage(Image.Programs.Buttonless.CompatibleIcon, for: .normal)
-        }
+        filteredAndOrderedPrograms = programSorter.sort(
+            programs: compatibleButton.isSelected ? compatiblePrograms : allPrograms,
+            options: programSortingOptions
+        )
     }
 
     @IBAction private func selectAllButtonTapped(_ sender: UIButton) {
-        sender.isSelected.toggle()
-
-        if sender.isSelected {
-            selectedPrograms = filteredAndOrderedPrograms
-            sender.setImage(Image.Programs.Buttonless.checkboxChecked, for: .normal)
-        } else {
-            selectedPrograms = []
-            sender.setImage(Image.Programs.Buttonless.checkboxNotChecked, for: .normal)
-        }
+        selectAllButton.isSelected.toggle()
+        selectedPrograms = selectAllButton.isSelected ? filteredAndOrderedPrograms : []
         programsTableView.reloadData()
     }
 
     @IBAction private func nameButtonTapped(_ sender: UIButton) {
         nameButton.isSelected.toggle()
-        dateButton.isSelected = true
-        dateButton.setImage(Image.Programs.Buttonless.SortDateUp, for: .normal)
+        setupNameButton()
+        resetDateButton()
         programSortingOptions = ProgramSorter.Options(
             field: .name,
             order: nameButton.isSelected ? .ascending : .descending
         )
-        if programSortingOptions.order == .ascending {
-            nameButton.setImage(Image.Programs.Buttonless.SortNameUpSelected, for: .normal)
-        } else {
-            nameButton.setImage(Image.Programs.Buttonless.SortNameDownSelected, for: .normal)
-        }
     }
 
     @IBAction private func dateButtonTapped(_ sender: UIButton) {
         dateButton.isSelected.toggle()
-        nameButton.isSelected = false
-        nameButton.setImage(Image.Programs.Buttonless.SortNameUp, for: .normal)
+        setupDateButton()
+        resetNameButton()
         programSortingOptions = ProgramSorter.Options(
             field: .date,
-            order: dateButton.isSelected ? .ascending : .descending
+            order: dateButton.isSelected ? .descending : .ascending
         )
-        if programSortingOptions.order == .ascending {
-            dateButton.setImage(Image.Programs.Buttonless.SortDateUpSelected, for: .normal)
-        } else {
-            dateButton.setImage(Image.Programs.Buttonless.SortDateDownSelected, for: .normal)
-        }
     }
 
     @IBAction private func nextButtonTapped(_ sender: UIButton) {
