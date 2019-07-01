@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MostRecentProgramsViewController: BaseViewController {
+final class MostRecentProgramsViewController: BaseViewController, Dismissable {
     // MARK: - Constant
     private enum Constants {
         static let buttonFont = Font.jura(size: 12.0, weight: .bold)
