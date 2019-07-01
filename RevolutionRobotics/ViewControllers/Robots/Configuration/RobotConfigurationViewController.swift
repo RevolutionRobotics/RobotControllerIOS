@@ -51,6 +51,7 @@ final class RobotConfigurationViewController: BaseViewController {
     @IBOutlet private weak var controllerCollectionView: UIView!
     @IBOutlet private weak var createNewButton: SideButton!
     @IBOutlet private weak var bluetoothButton: RRButton!
+    @IBOutlet private weak var leftButtonLeadingConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
     var realmService: RealmServiceInterface!
@@ -116,6 +117,9 @@ extension RobotConfigurationViewController {
         }
 
         collectionView.setupLayout()
+        if UIView.notchSize > CGFloat.zero {
+            leftButtonLeadingConstraint.constant = UIView.actualNotchSize
+        }
         controllers = realmService.getControllers().filter({ $0.configurationId == configuration!.id })
     }
 

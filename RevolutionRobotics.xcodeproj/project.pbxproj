@@ -336,6 +336,7 @@
 		D0A11090227B1DAD0064FBB6 /* ControllerKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1108F227B1DAD0064FBB6 /* ControllerKeys.swift */; };
 		D0A11094227B23E90064FBB6 /* RRInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A11093227B23E90064FBB6 /* RRInputField.swift */; };
 		D0A11096227B23F20064FBB6 /* RRInputField.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0A11095227B23F20064FBB6 /* RRInputField.xib */; };
+		D0A8C74822C9EECE00F7F12B /* UIView+Notch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8C74722C9EECE00F7F12B /* UIView+Notch.swift */; };
 		D0B2A735227C7CF1004473EC /* ControllerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2A733227C7CF1004473EC /* ControllerCollectionViewCell.swift */; };
 		D0B2A736227C7CF1004473EC /* ControllerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B2A734227C7CF1004473EC /* ControllerCollectionViewCell.xib */; };
 		D0BBD99A22C0C040005A373A /* UIView+SubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBD99922C0C040005A373A /* UIView+SubViews.swift */; };
@@ -697,6 +698,7 @@
 		D0A1108F227B1DAD0064FBB6 /* ControllerKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerKeys.swift; sourceTree = "<group>"; };
 		D0A11093227B23E90064FBB6 /* RRInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRInputField.swift; sourceTree = "<group>"; };
 		D0A11095227B23F20064FBB6 /* RRInputField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RRInputField.xib; sourceTree = "<group>"; };
+		D0A8C74722C9EECE00F7F12B /* UIView+Notch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Notch.swift"; sourceTree = "<group>"; };
 		D0B2A733227C7CF1004473EC /* ControllerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ControllerCollectionViewCell.swift; path = RevolutionRobotics/ViewControllers/Robots/Configuration/ControllerCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D0B2A734227C7CF1004473EC /* ControllerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ControllerCollectionViewCell.xib; path = RevolutionRobotics/ViewControllers/Robots/Configuration/ControllerCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		D0BBD99922C0C040005A373A /* UIView+SubViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SubViews.swift"; sourceTree = "<group>"; };
@@ -1603,6 +1605,7 @@
 				D05BAA7D22676A0C00624438 /* UIView+Reusable.swift */,
 				096333F92289BBA40029D87B /* UIView+Rounded.swift */,
 				D0BBD99922C0C040005A373A /* UIView+SubViews.swift */,
+				D0A8C74722C9EECE00F7F12B /* UIView+Notch.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -2455,6 +2458,7 @@
 				094FC5DF228C3CF60085B407 /* DriverPadView.swift in Sources */,
 				D001FCAE22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.swift in Sources */,
 				094F9DDC2264BEE600BE118B /* Font.swift in Sources */,
+				D0A8C74822C9EECE00F7F12B /* UIView+Notch.swift in Sources */,
 				D0313330228D5CBA00704989 /* ChallengeCategory.swift in Sources */,
 				2AB7ACEC22BB990100309234 /* ButtonControllerAssignmentItemJSONData.swift in Sources */,
 				D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */,

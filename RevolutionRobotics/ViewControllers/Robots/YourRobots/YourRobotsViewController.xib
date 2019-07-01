@@ -16,6 +16,7 @@
                 <outlet property="collectionView" destination="CbJ-Mi-Gfm" id="w7x-ye-zAJ"/>
                 <outlet property="emptyStateImageView" destination="cQA-Lh-BeE" id="k2g-VA-P3a"/>
                 <outlet property="leftButton" destination="H8J-XN-649" id="hIy-L8-kBe"/>
+                <outlet property="leftButtonLeadingConstraint" destination="efK-YP-qIx" id="xWq-fV-Fe0"/>
                 <outlet property="navigationBar" destination="wMT-cF-hD1" id="HkW-zx-BUl"/>
                 <outlet property="rightButton" destination="ejH-0k-pKe" id="WFJ-db-rE8"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kUu-hN-uyr"/>
@@ -65,7 +66,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8J-XN-649">
-                    <rect key="frame" x="44" y="182" width="25" height="50"/>
+                    <rect key="frame" x="0.0" y="182" width="25" height="50"/>
                     <state key="normal" image="LeftButton"/>
                     <connections>
                         <action selector="leftButtonTapped:" destination="-1" eventType="touchUpInside" id="fRw-Bu-ZGg"/>
@@ -86,6 +87,7 @@
                 <constraint firstItem="CbJ-Mi-Gfm" firstAttribute="top" secondItem="wMT-cF-hD1" secondAttribute="bottom" id="Yhs-ce-ICm"/>
                 <constraint firstAttribute="trailing" secondItem="CbJ-Mi-Gfm" secondAttribute="trailing" id="bjz-ze-n5e"/>
                 <constraint firstAttribute="trailing" secondItem="cQA-Lh-BeE" secondAttribute="trailing" constant="142" id="dkZ-cy-JBr"/>
+                <constraint firstItem="H8J-XN-649" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="efK-YP-qIx"/>
                 <constraint firstItem="cQA-Lh-BeE" firstAttribute="top" secondItem="wMT-cF-hD1" secondAttribute="bottom" constant="32" id="frj-lt-4oY"/>
                 <constraint firstAttribute="bottom" secondItem="cQA-Lh-BeE" secondAttribute="bottom" constant="54" id="gh0-6B-Wa5"/>
                 <constraint firstItem="wMT-cF-hD1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lBT-jk-2Tj"/>
@@ -93,7 +95,6 @@
                 <constraint firstItem="wMT-cF-hD1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rPq-Fk-ku8"/>
                 <constraint firstAttribute="trailing" secondItem="RzR-w5-NTv" secondAttribute="trailing" id="s8o-e9-KOa"/>
                 <constraint firstItem="CbJ-Mi-Gfm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uVb-Bh-f2E"/>
-                <constraint firstItem="H8J-XN-649" firstAttribute="leading" secondItem="ES3-7Z-Wkg" secondAttribute="leading" id="v9c-PV-eiq"/>
                 <constraint firstAttribute="bottom" secondItem="0I6-N1-gZz" secondAttribute="bottom" id="xr3-je-lNa"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ES3-7Z-Wkg"/>
