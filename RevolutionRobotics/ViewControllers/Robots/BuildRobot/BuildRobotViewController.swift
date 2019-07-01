@@ -271,7 +271,9 @@ extension BuildRobotViewController {
             deviceSelectionHandler: { [weak self] device in
                 self?.bluetoothService.connect(to: device)
             },
-            nextStep: nil)
+            nextStep: { [weak self] in
+                self?.dismissModalViewController()
+        })
     }
 
     private func fetchBuildSteps() {
