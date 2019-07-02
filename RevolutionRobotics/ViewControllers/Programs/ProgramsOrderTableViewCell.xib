@@ -131,9 +131,12 @@
             <connections>
                 <outlet property="borderView" destination="Es4-ir-jqf" id="fJM-1a-u7F"/>
                 <outlet property="dateLabel" destination="5lM-JW-TPu" id="Dpu-m5-NiS"/>
+                <outlet property="infoButton" destination="oon-6h-NC5" id="l1C-Bc-r2G"/>
                 <outlet property="nameLabel" destination="6UP-PQ-mwH" id="Jd5-jE-acg"/>
                 <outlet property="orderLabel" destination="GpC-cX-JEf" id="61p-Wu-rVf"/>
                 <outlet property="programIcon" destination="xaS-9B-P22" id="f4f-bU-Qlu"/>
+                <outletCollection property="innerSeparatorViews" destination="joB-eY-ZPY" collectionClass="NSMutableArray" id="Z45-S0-zNu"/>
+                <outletCollection property="innerSeparatorViews" destination="589-Wc-XAz" collectionClass="NSMutableArray" id="9ra-gl-PBs"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
         </tableViewCell>
