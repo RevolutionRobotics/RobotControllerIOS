@@ -12,8 +12,8 @@ import SpriteKit
 typealias PressedPadButton = (index: Int, pressed: Bool)
 
 protocol PlayablePadView: UIView {
-    var horizontalPositionChanged: CallbackType<CGFloat>? { get set }
-    var verticalPositionChanged: CallbackType<CGFloat>? { get set }
+    var xAxisPositionChanged: CallbackType<CGFloat>? { get set }
+    var yAxisPositionChanged: CallbackType<CGFloat>? { get set }
     var buttonTapped: CallbackType<PressedPadButton>? { get set }
 
     func configure(programs: [ProgramDataModel?])
@@ -21,8 +21,8 @@ protocol PlayablePadView: UIView {
 
 extension PlayablePadView {
     func handlePositionChange(position: CGPoint) {
-        horizontalPositionChanged?(position.x)
-        verticalPositionChanged?(position.y)
+        xAxisPositionChanged?(position.x)
+        yAxisPositionChanged?(position.y)
     }
 
     func connectButtonHandling(at index: Int, program: ProgramDataModel, to button: PadButton) {

@@ -85,7 +85,7 @@
                         <constraint firstItem="d99-Za-9OX" firstAttribute="leading" secondItem="Shv-KB-z3L" secondAttribute="leading" id="wY6-5W-6XY"/>
                     </constraints>
                 </view>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="128" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-E1-rM7">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="128" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-E1-rM7" userLabel="xAxisSlider">
                     <rect key="frame" x="-2" y="144" width="192" height="31"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="188" id="Vza-gr-cjn"/>
@@ -94,14 +94,14 @@
                     <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
-                        <action selector="verticalReset:" destination="iN0-l3-epB" eventType="touchDragOutside" id="14S-J0-5ft"/>
-                        <action selector="verticalReset:" destination="iN0-l3-epB" eventType="touchUpOutside" id="L85-0B-8wr"/>
-                        <action selector="verticalReset:" destination="iN0-l3-epB" eventType="touchDragExit" id="NjN-hR-GbC"/>
-                        <action selector="verticalReset:" destination="iN0-l3-epB" eventType="touchUpInside" id="rPA-27-5yU"/>
-                        <action selector="verticalValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="urx-eE-Tk9"/>
+                        <action selector="xAxisReset:" destination="iN0-l3-epB" eventType="touchDragOutside" id="14S-J0-5ft"/>
+                        <action selector="xAxisReset:" destination="iN0-l3-epB" eventType="touchUpOutside" id="L85-0B-8wr"/>
+                        <action selector="xAxisReset:" destination="iN0-l3-epB" eventType="touchDragExit" id="NjN-hR-GbC"/>
+                        <action selector="xAxisReset:" destination="iN0-l3-epB" eventType="touchUpInside" id="rPA-27-5yU"/>
+                        <action selector="xAxisValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="urx-eE-Tk9"/>
                     </connections>
                 </slider>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="128" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="qEQ-Zy-qJ4">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="128" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="qEQ-Zy-qJ4" userLabel="yAxisSlider">
                     <rect key="frame" x="402" y="144" width="192" height="31"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="188" id="Sdk-IJ-QKD"/>
@@ -110,11 +110,11 @@
                     <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
-                        <action selector="horizontalReset:" destination="iN0-l3-epB" eventType="touchDragExit" id="3bK-lY-Qw5"/>
-                        <action selector="horizontalReset:" destination="iN0-l3-epB" eventType="touchDragOutside" id="88Y-XT-fEJ"/>
-                        <action selector="horizontalReset:" destination="iN0-l3-epB" eventType="touchUpInside" id="Dg5-wg-to6"/>
-                        <action selector="horizontalReset:" destination="iN0-l3-epB" eventType="touchUpOutside" id="mbY-46-xDa"/>
-                        <action selector="horizontalValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="O3j-PH-e5C"/>
+                        <action selector="yAxisReset:" destination="iN0-l3-epB" eventType="touchDragExit" id="3bK-lY-Qw5"/>
+                        <action selector="yAxisReset:" destination="iN0-l3-epB" eventType="touchDragOutside" id="88Y-XT-fEJ"/>
+                        <action selector="yAxisReset:" destination="iN0-l3-epB" eventType="touchUpInside" id="Dg5-wg-to6"/>
+                        <action selector="yAxisReset:" destination="iN0-l3-epB" eventType="touchUpOutside" id="mbY-46-xDa"/>
+                        <action selector="yAxisValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="O3j-PH-e5C"/>
                     </connections>
                 </slider>
             </subviews>
@@ -129,8 +129,8 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="horizontalDirectionSlider" destination="qEQ-Zy-qJ4" id="9br-wv-umN"/>
-                <outlet property="verticalDirectionSlider" destination="8eN-E1-rM7" id="ByR-6c-jHf"/>
+                <outlet property="xAxisSlider" destination="8eN-E1-rM7" id="ByR-6c-jHf"/>
+                <outlet property="yAxisSlider" destination="qEQ-Zy-qJ4" id="9br-wv-umN"/>
                 <outletCollection property="buttons" destination="pkh-sb-lZu" collectionClass="NSMutableArray" id="Jfa-7W-Czv"/>
                 <outletCollection property="buttons" destination="Hp9-xd-9vg" collectionClass="NSMutableArray" id="JVC-U2-vQj"/>
                 <outletCollection property="buttons" destination="tMF-og-CZ3" collectionClass="NSMutableArray" id="niH-Vv-yd7"/>

@@ -15,8 +15,8 @@ final class GamerPadView: UIView, PlayablePadView {
     @IBOutlet private var buttons: [PadButton]!
 
     // MARK: - Playable
-    var horizontalPositionChanged: CallbackType<CGFloat>?
-    var verticalPositionChanged: CallbackType<CGFloat>?
+    var xAxisPositionChanged: CallbackType<CGFloat>?
+    var yAxisPositionChanged: CallbackType<CGFloat>?
     var buttonTapped: CallbackType<PressedPadButton>?
 
     func configure(programs: [ProgramDataModel?]) {

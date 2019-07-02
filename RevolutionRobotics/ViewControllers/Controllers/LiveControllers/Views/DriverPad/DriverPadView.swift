@@ -18,12 +18,12 @@ final class DriverPadView: UIView, PlayablePadView {
 
     // MARK: - Outlets
     @IBOutlet private var buttons: [PadButton]!
-    @IBOutlet private weak var verticalDirectionSlider: UISlider!
-    @IBOutlet private weak var horizontalDirectionSlider: UISlider!
+    @IBOutlet private weak var xAxisSlider: UISlider!
+    @IBOutlet private weak var yAxisSlider: UISlider!
 
     // MARK: - Playable
-    var horizontalPositionChanged: CallbackType<CGFloat>?
-    var verticalPositionChanged: CallbackType<CGFloat>?
+    var xAxisPositionChanged: CallbackType<CGFloat>?
+    var yAxisPositionChanged: CallbackType<CGFloat>?
     var buttonTapped: CallbackType<PressedPadButton>?
 
     func configure(programs: [ProgramDataModel?]) {
@@ -45,30 +45,31 @@ extension DriverPadView {
 
 // MARK: - Actions
 extension DriverPadView {
-    @IBAction private func verticalReset(_ slider: UISlider) {
-        verticalPositionChanged?(CGFloat(Constants.defaultSliderValue))
+    @IBAction private func xAxisReset(_ slider: UISlider) {
+        xAxisPositionChanged?(CGFloat(Constants.defaultSliderValue))
+
         resetValue(in: slider)
     }
 
-    @IBAction private func verticalValueChanged(_ slider: UISlider) {
-        verticalPositionChanged?(CGFloat(slider.value))
+    @IBAction private func xAxisValueChanged(_ slider: UISlider) {
+        xAxisPositionChanged?(CGFloat(slider.value))
     }
 
-    @IBAction private func horizontalReset(_ slider: UISlider) {
-        horizontalPositionChanged?(CGFloat(Constants.defaultSliderValue))
+    @IBAction private func yAxisReset(_ slider: UISlider) {
+        yAxisPositionChanged?(CGFloat(Constants.defaultSliderValue))
         resetValue(in: slider)
     }
 
-    @IBAction private func horizontalValueChanged(_ slider: UISlider) {
-        horizontalPositionChanged?(CGFloat(slider.value))
+    @IBAction private func yAxisValueChanged(_ slider: UISlider) {
+        yAxisPositionChanged?(CGFloat(slider.value))
     }
 }
 
 // MARK: - Setup
 extension DriverPadView {
     private func setupSliders() {
-        customizeAppearance(for: verticalDirectionSlider)
-        customizeAppearance(for: horizontalDirectionSlider)
+        customizeAppearance(for: xAxisSlider)
+        customizeAppearance(for: yAxisSlider)
     }
 
     private func customizeAppearance(for slider: UISlider) {
