@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fKI-DJ-FHW">
-                    <rect key="frame" x="40" y="40" width="816" height="314"/>
+                    <rect key="frame" x="40" y="80" width="816" height="274"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="24" minimumInteritemSpacing="24" id="fZl-i1-9rv">
                         <size key="itemSize" width="85" height="85"/>
@@ -29,7 +29,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="fKI-DJ-FHW" secondAttribute="trailing" constant="40" id="SPo-Pd-vKe"/>
-                <constraint firstItem="fKI-DJ-FHW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="azp-t9-MFf"/>
+                <constraint firstItem="fKI-DJ-FHW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="azp-t9-MFf"/>
                 <constraint firstAttribute="bottom" secondItem="fKI-DJ-FHW" secondAttribute="bottom" constant="60" id="wJB-3m-0Q8"/>
                 <constraint firstItem="fKI-DJ-FHW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="yyY-7O-e8f"/>
             </constraints>

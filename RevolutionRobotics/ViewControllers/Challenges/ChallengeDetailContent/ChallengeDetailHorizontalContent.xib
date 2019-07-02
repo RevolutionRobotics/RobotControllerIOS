@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s2Y-k7-cJM">
-                    <rect key="frame" x="453" y="40" width="403" height="314"/>
+                    <rect key="frame" x="453" y="80" width="403" height="274"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Heb-XG-4nJ">
-                    <rect key="frame" x="40" y="40" width="403" height="14.5"/>
+                    <rect key="frame" x="40" y="80" width="403" height="14.5"/>
                     <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -36,9 +36,9 @@
                 <constraint firstItem="Heb-XG-4nJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="8EI-hz-Vkg"/>
                 <constraint firstAttribute="bottom" secondItem="s2Y-k7-cJM" secondAttribute="bottom" constant="60" id="AhC-Tr-Lny"/>
                 <constraint firstAttribute="trailing" secondItem="s2Y-k7-cJM" secondAttribute="trailing" constant="40" id="Yhf-oI-AUJ"/>
-                <constraint firstItem="Heb-XG-4nJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="bHt-gj-NDn"/>
+                <constraint firstItem="Heb-XG-4nJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="bHt-gj-NDn"/>
                 <constraint firstItem="s2Y-k7-cJM" firstAttribute="width" secondItem="Heb-XG-4nJ" secondAttribute="width" id="h7z-MA-hKq"/>
-                <constraint firstItem="s2Y-k7-cJM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="rV0-TK-wg8"/>
+                <constraint firstItem="s2Y-k7-cJM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="rV0-TK-wg8"/>
                 <constraint firstItem="s2Y-k7-cJM" firstAttribute="leading" secondItem="Heb-XG-4nJ" secondAttribute="trailing" constant="10" id="zJd-s9-bXL"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
