@@ -14,7 +14,6 @@ final class PlayControllerViewController: BaseViewController {
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var padViewContainer: UIView!
     @IBOutlet private weak var bluetoothButton: UIButton!
-    @IBOutlet private weak var editButton: UIButton!
 
     // MARK: - Properties
     var realmService: RealmServiceInterface!
@@ -192,8 +191,5 @@ extension PlayControllerViewController {
         }
 
         presentDisconnectModal()
-    }
-
-    @IBAction private func editButtonTapped(_ sender: Any) {
     }
 }
