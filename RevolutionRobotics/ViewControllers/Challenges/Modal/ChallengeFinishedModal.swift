@@ -24,6 +24,7 @@ final class ChallengeFinishedModal: UIView {
                 listButton.backgroundColor = Color.blackTwo
                 listButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
                 homeButton.setBorder(fillColor: .clear, strokeColor: .clear, croppedCorners: [.bottomLeft])
+                finishedLabel.text = ModalKeys.Challenge.lastChallengeFinished.translate().uppercased()
             }
         }
     }
@@ -39,10 +40,14 @@ extension ChallengeFinishedModal {
 
         homeButton.backgroundColor = Color.black26
         homeButton.setBorder(fillColor: .clear, strokeColor: .clear, croppedCorners: [.bottomLeft])
+        homeButton.setTitle(ModalKeys.Challenge.homeButton.translate(), for: .normal)
         listButton.backgroundColor = Color.black26
         listButton.setBorder(fillColor: .clear, strokeColor: .clear, croppedCorners: [])
+        listButton.setTitle(ModalKeys.Challenge.listButton.translate(), for: .normal)
         nextButton.backgroundColor = Color.blackTwo
         nextButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
+        nextButton.setTitle(ModalKeys.Challenge.nextButton.translate(), for: .normal)
+        finishedLabel.text = ModalKeys.Challenge.challengeFinished.translate().uppercased()
     }
 }
 
