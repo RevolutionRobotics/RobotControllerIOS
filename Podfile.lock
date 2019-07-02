@@ -140,7 +140,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   RevolutionRoboticsBlockly:
-    :commit: f4818cbd46696995be8987073bd66074f3358efe
+    :commit: aff8509b61d3e514e6d2e6393f8ca6415f9d979f
     :git: "git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git"
     :submodules: true
   RevolutionRoboticsBluetooth:
