@@ -60,8 +60,9 @@ extension YourRobotsCollectionViewCell {
     func configure(with robot: UserRobot) {
         nameLabel.text = robot.customName
         isFinished = robot.buildStatus == BuildStatus.completed.rawValue
-        actionLabel.text = isFinished ? RobotsKeys.YourRobots.play.translate() :
-            RobotsKeys.YourRobots.continueBuilding.translate()
+        let isRemote = !robot.remoteId.isEmpty
+        actionLabel.text = isFinished ? RobotsKeys.YourRobots.play.translate() : isRemote ?
+            RobotsKeys.YourRobots.continueBuilding.translate() : RobotsKeys.YourRobots.continueEditing.translate()
         descriptionLabel.text = robot.customDescription
         let isCompleted = robot.buildStatus == BuildStatus.completed.rawValue
         statusImageView.image = isCompleted ? Image.Common.calendar : Image.Common.underConstruction
