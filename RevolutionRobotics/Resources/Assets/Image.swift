@@ -54,7 +54,6 @@ enum Image {
     enum YourRobots {
         static let cellRedBorderEditable = UIImage(named: "YourRobotsEditableRedCell")
         static let cellWhiteBorderEditable = UIImage(named: "YourRobotsEditableWhiteCell")
-        static let robotPlaceholder = UIImage(named: "RobotPlaceholder")
     }
 
     enum Configure {
