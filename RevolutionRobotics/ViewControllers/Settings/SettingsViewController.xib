@@ -38,10 +38,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64N-RU-QcB">
-                    <rect key="frame" x="58" y="111" width="780" height="263"/>
+                    <rect key="frame" x="58" y="71" width="780" height="343"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSM-wl-8Xi" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="780" height="79.5"/>
+                            <rect key="frame" x="0.0" y="90.5" width="780" height="46"/>
                             <color key="backgroundColor" name="Black"/>
                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
                             <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -52,8 +52,11 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNR-5c-6Tc" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="91.5" width="780" height="80"/>
+                            <rect key="frame" x="0.0" y="148.5" width="780" height="46"/>
                             <color key="backgroundColor" name="Black"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="46" id="53T-D8-LmQ"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
                             <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -63,7 +66,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1C-89-2Zz" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="183.5" width="780" height="79.5"/>
+                            <rect key="frame" x="0.0" y="206.5" width="780" height="46"/>
                             <color key="backgroundColor" name="Black"/>
                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
                             <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -80,24 +83,23 @@
                         <constraint firstItem="oNR-5c-6Tc" firstAttribute="top" secondItem="tSM-wl-8Xi" secondAttribute="bottom" constant="12" id="1kz-SK-Axj"/>
                         <constraint firstAttribute="trailing" secondItem="oNR-5c-6Tc" secondAttribute="trailing" id="9MU-od-1NI"/>
                         <constraint firstAttribute="trailing" secondItem="tSM-wl-8Xi" secondAttribute="trailing" id="A1N-4y-AN7"/>
-                        <constraint firstAttribute="bottom" secondItem="o1C-89-2Zz" secondAttribute="bottom" id="AVH-Ik-7Gm"/>
                         <constraint firstItem="tSM-wl-8Xi" firstAttribute="leading" secondItem="64N-RU-QcB" secondAttribute="leading" id="TP2-W1-7du"/>
-                        <constraint firstItem="tSM-wl-8Xi" firstAttribute="top" secondItem="64N-RU-QcB" secondAttribute="top" id="YMB-gB-80B"/>
                         <constraint firstItem="o1C-89-2Zz" firstAttribute="height" secondItem="tSM-wl-8Xi" secondAttribute="height" id="ZUp-3G-Qja"/>
                         <constraint firstItem="o1C-89-2Zz" firstAttribute="leading" secondItem="64N-RU-QcB" secondAttribute="leading" id="blg-Dy-4Sc"/>
                         <constraint firstAttribute="trailing" secondItem="o1C-89-2Zz" secondAttribute="trailing" id="d4v-Wm-H34"/>
                         <constraint firstItem="o1C-89-2Zz" firstAttribute="height" secondItem="oNR-5c-6Tc" secondAttribute="height" id="fIC-xY-8aq"/>
                         <constraint firstItem="oNR-5c-6Tc" firstAttribute="leading" secondItem="64N-RU-QcB" secondAttribute="leading" id="tUI-Ef-xkF"/>
+                        <constraint firstItem="oNR-5c-6Tc" firstAttribute="centerY" secondItem="64N-RU-QcB" secondAttribute="centerY" id="vm2-fg-TMM"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="1bL-oA-zJf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2zt-fi-vV5"/>
-                <constraint firstAttribute="bottom" secondItem="64N-RU-QcB" secondAttribute="bottom" constant="40" id="AnY-E3-A9V"/>
+                <constraint firstAttribute="bottom" secondItem="64N-RU-QcB" secondAttribute="bottom" id="AnY-E3-A9V"/>
                 <constraint firstAttribute="trailing" secondItem="64N-RU-QcB" secondAttribute="trailing" constant="58" id="JVF-3a-bE9"/>
                 <constraint firstAttribute="trailing" secondItem="1bL-oA-zJf" secondAttribute="trailing" id="LTB-rz-LJ4"/>
-                <constraint firstItem="64N-RU-QcB" firstAttribute="top" secondItem="1bL-oA-zJf" secondAttribute="bottom" constant="40" id="SbJ-Kj-hHA"/>
+                <constraint firstItem="64N-RU-QcB" firstAttribute="top" secondItem="1bL-oA-zJf" secondAttribute="bottom" id="SbJ-Kj-hHA"/>
                 <constraint firstItem="1bL-oA-zJf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iYk-GS-6z0"/>
                 <constraint firstItem="64N-RU-QcB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="58" id="tjt-Kn-lgB"/>
             </constraints>
