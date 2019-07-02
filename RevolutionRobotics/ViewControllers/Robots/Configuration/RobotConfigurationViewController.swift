@@ -81,6 +81,10 @@ final class RobotConfigurationViewController: BaseViewController {
 
     // MARK: - Callbacks
     var saveCallback: Callback?
+
+    override func backButtonDidTap() {
+        navigationController?.pop(to: YourRobotsViewController.self)
+    }
 }
 
 // MARK: - View lifecycle
