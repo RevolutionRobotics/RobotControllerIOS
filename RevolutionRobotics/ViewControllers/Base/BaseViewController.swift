@@ -79,13 +79,17 @@ extension BaseViewController {
         )
     }
 
-    func presentSafariModal(presentationFinished: Callback?, url: URL? = nil) {
+    func openSafari(presentationFinished: Callback?, url: URL? = nil) {
         if self.presentedViewController != nil {
-            dismiss(animated: true, completion: { [weak self] in
-                self?.presentSafari(presentationFinished: presentationFinished, url: url)
+            dismiss(animated: true, completion: {
+                UIApplication.shared.open(url ?? Constants.communityURL, options: [:], completionHandler: { (_) in
+                    presentationFinished?()
+                })
             })
         } else {
-            presentSafari(presentationFinished: presentationFinished, url: url)
+            UIApplication.shared.open(url ?? Constants.communityURL, options: [:], completionHandler: { (_) in
+                presentationFinished?()
+            })
         }
     }
 
@@ -97,13 +101,6 @@ extension BaseViewController {
         viewController.modalTransitionStyle = transitionStyle
         viewController.modalPresentationStyle = presentationStyle
         present(viewController, animated: true, completion: nil)
-    }
-
-    private func presentSafari(presentationFinished: Callback?, url: URL?) {
-        let communityModalViewController = CommunityModalViewController(url: url ?? Constants.communityURL)
-        communityModalViewController.presentationFinished = presentationFinished
-        communityModalViewController.modalPresentationStyle = .overFullScreen
-        present(communityModalViewController, animated: true, completion: nil)
     }
 }
 

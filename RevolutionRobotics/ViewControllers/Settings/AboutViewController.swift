@@ -110,7 +110,7 @@ extension AboutViewController {
         if UIApplication.shared.canOpenURL(socialNetwork.appBaseUrl) {
             UIApplication.shared.open(socialNetwork.appBaseUrl, options: [:], completionHandler: nil)
         } else {
-            presentSafariModal(presentationFinished: nil, url: socialNetwork.appWebUrl)
+            openSafari(presentationFinished: nil, url: socialNetwork.appWebUrl)
         }
     }
 }
@@ -126,15 +126,15 @@ extension AboutViewController {
     }
 
     @IBAction private func webButtonTapped(_ sender: Any) {
-        presentSafariModal(presentationFinished: nil, url: Constants.website)
+        openSafari(presentationFinished: nil, url: Constants.website)
     }
 
     @IBAction private func termsAndConditionsButtonTapped(_ sender: Any) {
-        presentSafariModal(presentationFinished: nil, url: Constants.termsAndConditions)
+        openSafari(presentationFinished: nil, url: Constants.termsAndConditions)
     }
 
     @IBAction private func privacyPolicyButtonTapped(_ sender: Any) {
-        presentSafariModal(presentationFinished: nil, url: Constants.privacyPolicy)
+        openSafari(presentationFinished: nil, url: Constants.privacyPolicy)
     }
 
     @IBAction private func permissionsButtonTapped(_ sender: Any) {

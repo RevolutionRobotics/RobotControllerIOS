@@ -180,7 +180,7 @@ extension SensorConfigViewController {
         tips.skipIcon = Image.Configure.reconfigure
 
         tips.communityCallback = { [weak self] in
-            self?.presentSafariModal(presentationFinished: nil)
+            self?.openSafari(presentationFinished: nil)
         }
         tips.skipCallback = { [weak self] in
             self?.dismissModalViewController()
