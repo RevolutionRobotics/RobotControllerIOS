@@ -43,7 +43,8 @@ extension ProgramsView {
 // MARK: - Setup
 extension ProgramsView {
     func setup(with programs: [ProgramDataModel]) {
-        self.programs = programs
+        let asd = programs.sorted(by: { $0.lastModified > $1.lastModified })
+        self.programs = asd
     }
 }
 
