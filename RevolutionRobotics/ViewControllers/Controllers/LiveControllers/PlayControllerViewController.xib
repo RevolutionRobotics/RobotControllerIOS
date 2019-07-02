@@ -13,7 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayControllerViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="bluetoothButton" destination="Bxw-DW-22P" id="IU3-Ad-TKr"/>
-                <outlet property="editButton" destination="REr-Ld-kb0" id="d84-xd-ow7"/>
                 <outlet property="navigationBar" destination="eRU-zB-qgZ" id="DfF-Rd-MdU"/>
                 <outlet property="padViewContainer" destination="s9J-9X-ob8" id="edn-Id-o09"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -41,25 +40,12 @@
                                 <action selector="bluetoothButtonTapped:" destination="-1" eventType="touchUpInside" id="Fkg-rG-uTp"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REr-Ld-kb0" userLabel="editButton">
-                            <rect key="frame" x="788" y="2" width="44" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="44" id="MfC-Mi-4SA"/>
-                                <constraint firstAttribute="height" constant="44" id="wMM-d4-67Z"/>
-                            </constraints>
-                            <state key="normal" image="EditIcon"/>
-                            <connections>
-                                <action selector="editButtonTapped:" destination="-1" eventType="touchUpInside" id="Ryk-tI-aJb"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Bxw-DW-22P" secondAttribute="trailing" constant="12" id="2dL-qU-qxG"/>
-                        <constraint firstItem="REr-Ld-kb0" firstAttribute="centerY" secondItem="Bxw-DW-22P" secondAttribute="centerY" id="3jT-9O-bmX"/>
                         <constraint firstAttribute="height" constant="71" id="Rip-Ru-03F"/>
                         <constraint firstItem="Bxw-DW-22P" firstAttribute="top" secondItem="eRU-zB-qgZ" secondAttribute="top" constant="2" id="r4S-wN-vgc"/>
-                        <constraint firstItem="Bxw-DW-22P" firstAttribute="leading" secondItem="REr-Ld-kb0" secondAttribute="trailing" constant="8" id="xRC-zt-kNb"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s9J-9X-ob8">
@@ -85,7 +71,6 @@
     </objects>
     <resources>
         <image name="BluetoothInactiveIcon" width="24" height="24"/>
-        <image name="EditIcon" width="20" height="20"/>
         <image name="PlayControllerBackground" width="305" height="288"/>
     </resources>
 </document>
