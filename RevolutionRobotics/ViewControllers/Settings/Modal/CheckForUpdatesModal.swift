@@ -96,7 +96,6 @@ extension CheckForUpdatesModal {
     func updateFound(version: String) {
         loadingIndicator.isHidden = true
         devInfoView.isHidden = true
-        versionLabel.isHidden = true
         updateView.isHidden = false
         updateLabel.text = ModalKeys.FirmwareUpdate.downloadReady.translate(args: version)
         checkForUpdatesButton.setTitle(ModalKeys.FirmwareUpdate.downloadUpdate.translate(), for: .normal)
