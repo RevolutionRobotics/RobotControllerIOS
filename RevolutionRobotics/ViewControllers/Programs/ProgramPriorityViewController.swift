@@ -24,7 +24,8 @@ final class ProgramPriorityViewController: BaseViewController {
             guard let controllerViewModel = controllerViewModel else { return }
             orderedPrograms = controllerViewModel.priorityOrderedPrograms
             drivetrainPlaceholder = ProgramDataModel()
-            orderedPrograms.insert(drivetrainPlaceholder, at: controllerViewModel.joystickPriority)
+            orderedPrograms.insert(drivetrainPlaceholder,
+                                   at: min(controllerViewModel.joystickPriority, orderedPrograms.count))
         }
     }
     private var orderedPrograms: [ProgramDataModel] = []
