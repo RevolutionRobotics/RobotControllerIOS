@@ -126,4 +126,12 @@ enum ModalKeys {
         static let bumperTest = "testing_bumper_test"
         static let ultrasonicTest = "testing_ultrasonic_test"
     }
+
+    enum Challenge {
+        static let challengeFinished = "challenge_finished_dialog_title"
+        static let lastChallengeFinished = "challenge_finished_dialog_latest_title"
+        static let homeButton = "challenge_finished_dialog_button_home"
+        static let listButton = "challenge_finished_dialog_button_challenge_list"
+        static let nextButton = "challenge_finished_dialog_button_next"
+    }
 }
