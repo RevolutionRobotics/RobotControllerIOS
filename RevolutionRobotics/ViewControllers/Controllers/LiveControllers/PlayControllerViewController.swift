@@ -77,11 +77,11 @@ extension PlayControllerViewController {
     private func configurePadView() {
         padView.configure(programs: programs)
 
-        padView.horizontalPositionChanged = { [weak self] xPosition in
+        padView.xAxisPositionChanged = { [weak self] xPosition in
             self?.bluetoothService.updateXDirection(Int(xPosition.nextDown.rounded(.toNearestOrAwayFromZero)))
         }
 
-        padView.verticalPositionChanged = { [weak self] yPosition in
+        padView.yAxisPositionChanged = { [weak self] yPosition in
             self?.bluetoothService.updateYDirection(Int(yPosition.nextDown.rounded(.toNearestOrAwayFromZero)))
         }
 
