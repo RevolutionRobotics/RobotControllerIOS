@@ -74,7 +74,7 @@ extension YourRobotsCollectionViewCell {
             if !robot.remoteId.isEmpty {
                 robotImageView.downloadImage(googleStorageURL: robot.customImage)
             } else {
-                robotImageView.image = Image.YourRobots.robotPlaceholder
+                robotImageView.image = Image.Common.imagePlaceholder
             }
         }
     }
