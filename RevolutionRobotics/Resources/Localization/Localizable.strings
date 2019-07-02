@@ -142,6 +142,7 @@
 "settings_reset_turorial" = "Reset tutorial";
 "settings_firmware_update" = "Firmware update";
 "settings_about_application" = "About application";
+"tutorial_reset_success" = "successful tutorial reset";
 "about_screen_title" = "About application";
 "about_permissions_title" = "Permissions";
 "about_permissions_instruction" = "To modify them, please open the main Settings app on your device";

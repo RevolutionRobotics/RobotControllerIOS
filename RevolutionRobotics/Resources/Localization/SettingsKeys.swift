@@ -27,4 +27,8 @@ enum SettingsKeys {
         static let termsAndConditionsButton = "about_terms_conditions_button_title"
         static let version = "about_version"
     }
+
+    enum Tutorial {
+        static let successfulReset = "tutorial_reset_success"
+    }
 }
