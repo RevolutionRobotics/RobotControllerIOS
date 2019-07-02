@@ -100,7 +100,7 @@ final class SensorConfigViewController: BaseViewController {
 // MARK: - Setup
 extension SensorConfigViewController {
     private func setupNameInputField() {
-        nameInputField.setup(title: RobotsKeys.Configure.Motor.nameInputfield.translate(args: "S\(portNumber)"))
+        nameInputField.setup(title: RobotsKeys.Configure.Motor.nameInputfield.translate(args: "S\(sensorPortNumber)"))
     }
 
     private func setupButtonRow() {
