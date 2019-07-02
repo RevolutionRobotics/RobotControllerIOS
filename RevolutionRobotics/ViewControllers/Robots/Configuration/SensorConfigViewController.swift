@@ -76,6 +76,7 @@ final class SensorConfigViewController: BaseViewController {
     }
 
     override func connected() {
+        bluetoothService.stopDiscovery()
         presentConnectedModal(onCompleted: { [weak self] in
             guard let runTest = self?.shouldRunTestScriptOnConnection, runTest else { return }
 
@@ -219,7 +220,9 @@ extension SensorConfigViewController {
             deviceSelectionHandler: { [weak self] device in
                 self?.bluetoothService.connect(to: device)
             },
-            nextStep: nil)
+            onDismissed: { [weak self] in
+                self?.bluetoothService.stopDiscovery()
+        })
     }
 }
 

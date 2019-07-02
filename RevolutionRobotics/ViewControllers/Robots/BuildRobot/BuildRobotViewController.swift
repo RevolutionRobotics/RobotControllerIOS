@@ -272,8 +272,8 @@ extension BuildRobotViewController {
             deviceSelectionHandler: { [weak self] device in
                 self?.bluetoothService.connect(to: device)
             },
-            nextStep: { [weak self] in
-                self?.dismissModalViewController()
+            onDismissed: { [weak self] in
+                self?.bluetoothService.stopDiscovery()
         })
     }
 
@@ -359,6 +359,7 @@ extension BuildRobotViewController {
 extension BuildRobotViewController {
     override func connected() {
         super.connected()
+        bluetoothService.stopDiscovery()
         bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
         if let milestone = milestone {
             bluetoothService.testKit(

@@ -140,13 +140,16 @@ extension FirmwareUpdateViewController {
                 self?.connectedBrainView.isHidden = false
                 self?.bluetoothService.connect(to: device)
             },
-            nextStep: nil)
+            onDismissed: { [weak self] in
+                self?.bluetoothService.stopDiscovery()
+        })
     }
 }
 
 // MARK: - Connection
 extension FirmwareUpdateViewController {
     override func connected() {
+        bluetoothService.stopDiscovery()
         dismissModalViewController()
         let connectionModal = ConnectionModal.instatiate()
         presentModal(with: connectionModal.successful)
