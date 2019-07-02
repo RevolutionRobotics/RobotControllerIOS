@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5U-M3-Ifp">
-                    <rect key="frame" x="44" y="40" width="808" height="374"/>
+                    <rect key="frame" x="44" y="0.0" width="808" height="414"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRj-mf-GC4" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
@@ -35,7 +35,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="XAw-Vq-Qme" customClass="BuildProgressBar" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="68" y="337" width="760" height="40"/>
+                    <rect key="frame" x="52" y="353" width="792" height="40"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="057-Cz-mf5"/>
@@ -44,16 +44,16 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XAw-Vq-Qme" secondAttribute="bottom" constant="16" id="1bY-hp-oyJ"/>
-                <constraint firstItem="z5U-M3-Ifp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="7Hr-RM-3lk"/>
+                <constraint firstItem="z5U-M3-Ifp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7Hr-RM-3lk"/>
                 <constraint firstItem="z5U-M3-Ifp" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="E5M-ye-fa5"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XAw-Vq-Qme" secondAttribute="trailing" constant="24" id="EGI-kD-xG0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XAw-Vq-Qme" secondAttribute="trailing" constant="8" id="EGI-kD-xG0"/>
                 <constraint firstAttribute="bottom" secondItem="z5U-M3-Ifp" secondAttribute="bottom" id="FU5-NN-gMF"/>
                 <constraint firstItem="iRj-mf-GC4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IHG-Zk-Yfn"/>
                 <constraint firstItem="iRj-mf-GC4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MFh-du-88d"/>
                 <constraint firstItem="z5U-M3-Ifp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Z1G-TH-3vZ"/>
-                <constraint firstItem="XAw-Vq-Qme" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="a9O-Ww-j4r"/>
+                <constraint firstItem="XAw-Vq-Qme" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="a9O-Ww-j4r"/>
                 <constraint firstAttribute="trailing" secondItem="iRj-mf-GC4" secondAttribute="trailing" id="hO2-c9-NJI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XAw-Vq-Qme" secondAttribute="bottom" id="t9W-RQ-FcQ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="36.971830985915496" y="99.375"/>

@@ -12,8 +12,10 @@ final class RRZoomableImageView: UIScrollView {
     // MARK: - Constants
     private enum Constants {
         static let minimumZoomScale: CGFloat = 0.5
-        static let defaultZoomScale: CGFloat = 0.75
+        static let defaultZoomScale: CGFloat = 1.0
         static let maximumZoomScale: CGFloat = 3.0
+        static let navigationBarHeight: CGFloat = 60
+        static let progressBarHeight: CGFloat = 37
     }
 
     // MARK: - Properties
@@ -83,6 +85,9 @@ extension RRZoomableImageView {
 
     func resizeImageView() {
         imageView.frame = bounds
+        let scale = (bounds.height - Constants.progressBarHeight - Constants.navigationBarHeight) / bounds.height
+        imageView.frame.size.height *= scale
+        imageView.frame.size.width *= scale
         centerImage()
     }
 }
