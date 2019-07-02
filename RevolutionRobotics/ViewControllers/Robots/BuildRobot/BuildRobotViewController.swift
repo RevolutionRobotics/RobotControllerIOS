@@ -255,6 +255,7 @@ extension BuildRobotViewController {
 
     private func presentConnectModal() {
         let modalPresenter = BluetoothConnectionModalPresenter()
+        modalPresenter.shouldHideSkip = true
         modalPresenter.present(
             on: self,
             startDiscoveryHandler: { [weak self] in
