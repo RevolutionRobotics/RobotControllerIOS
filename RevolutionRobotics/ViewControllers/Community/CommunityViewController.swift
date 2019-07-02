@@ -37,6 +37,6 @@ extension CommunityViewController {
 // MARK: - Action handlers
 extension CommunityViewController {
     @IBAction private func beginButtonTapped(_ sender: Any) {
-        presentSafariModal(presentationFinished: nil)
+        openSafari(presentationFinished: nil)
     }
 }

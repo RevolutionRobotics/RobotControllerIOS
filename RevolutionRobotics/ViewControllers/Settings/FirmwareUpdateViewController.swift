@@ -182,7 +182,7 @@ extension FirmwareUpdateViewController {
             failedConnectionTipsModal.isSkipButtonHidden = true
             failedConnectionTipsModal.tryAgainCallback = self?.dismissAndTryAgain
             failedConnectionTipsModal.communityCallback = { [weak self] in
-                self?.presentSafariModal(presentationFinished: { [weak self] in
+                self?.openSafari(presentationFinished: { [weak self] in
                     self?.dismissAndTryAgain()
                 })
             }
