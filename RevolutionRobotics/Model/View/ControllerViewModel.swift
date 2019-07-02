@@ -31,15 +31,18 @@ final class ControllerViewModel {
 
     var backgroundPrograms: [ProgramDataModel] = [] {
         didSet {
-            let ids = backgroundPrograms.map({ $0.id })
-            let remoteIds = backgroundPrograms.map({ $0.remoteId })
-            backgroundProgramBindings =
-                backgroundProgramBindings.filter({ ids.contains($0.programId) || remoteIds.contains($0.programId) })
-            ids.forEach({ id in
-                if backgroundProgramBindings.first(where: { $0.programId == id }) == nil {
-                    backgroundProgramBindings.append(ProgramBindingDataModel(programId: id, priority: 1))
+            let programIDs = backgroundPrograms.map { $0.id }
+            let remoteIDs = backgroundPrograms.map { $0.remoteId }
+            let ids = Set(programIDs + remoteIDs)
+            backgroundProgramBindings.removeAll { !ids.contains($0.programId) }
+
+            backgroundPrograms
+                .filter { program in
+                    backgroundProgramBindings
+                        .first(where: { $0.programId == program.id || $0.programId == program.remoteId }) == nil
                 }
-            })
+                .map { ProgramBindingDataModel(programId: $0.id, priority: 1) }
+                .forEach { backgroundProgramBindings.append($0) }
         }
     }
 

@@ -26,12 +26,27 @@ final class ButtonlessProgramTableViewCell: UITableViewCell {
     // MARK: - Callbacks
     var infoCallback: Callback?
     var state: State = .incompatible
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        renderState()
+    }
 }
 
 // MARK: - Setup
 extension ButtonlessProgramTableViewCell {
     func update(state: State) {
         self.state = state
+        renderState()
+    }
+
+    func setup(with program: ProgramDataModel) {
+        nameLabel.text = program.name
+        dateLabel.text = DateFormatter.string(from: program.lastModified, format: .yearMonthDay)
+        update(state: .available)
+    }
+
+    private func renderState() {
         switch state {
         case .available:
             borderView.setBorder(fillColor: Color.black, strokeColor: Color.brownGrey)
@@ -58,13 +73,6 @@ extension ButtonlessProgramTableViewCell {
                 view.backgroundColor = Color.brightRed
             }
         }
-    }
-
-    func setup(with program: ProgramDataModel) {
-        nameLabel.text = program.name
-        dateLabel.text = DateFormatter.string(from: program.lastModified,
-                                              format: .yearMonthDay)
-        update(state: .available)
     }
 }
 
