@@ -108,10 +108,7 @@ extension ProgramPriorityViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ProgramsOrderTableViewCell = programsTableView.dequeueReusableCell(forIndexPath: indexPath)
         let program = orderedPrograms[indexPath.row]
-        cell.setup(with: program,
-                   order: indexPath.row + 1,
-                   isButtonlessProgram: (controllerViewModel?.isBackgroundProgram(program))!)
-        cell.infoCallback = { [weak self] in
+        let infoCallback = { [weak self] in
             let modal = ProgramInfoModal.instatiate()
             modal.configure(
                 program: program,
@@ -123,6 +120,13 @@ extension ProgramPriorityViewController: UITableViewDataSource {
             })
             self?.presentModal(with: modal)
         }
+        cell.setup(
+            with: program,
+            order: indexPath.row + 1,
+            isButtonlessProgram: (controllerViewModel?.isBackgroundProgram(program))!,
+            infoCallback: program.id == drivetrainPlaceholder.id ? nil : infoCallback
+        )
+
         return cell
     }
 
