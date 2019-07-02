@@ -19,8 +19,8 @@ final class BluetoothConnectionModalPresenter {
     var shouldHideSkip = false
     private weak var presenter: BaseViewController!
     private var startDiscoveryHandler: Callback?
-    private var nextStep: Callback?
     private var deviceSelectionHandler: CallbackType<Device>?
+    private var dismissHandler: Callback?
 }
 
 // MARK: - Public methods
@@ -28,10 +28,10 @@ extension BluetoothConnectionModalPresenter {
     func present(on viewController: BaseViewController,
                  startDiscoveryHandler: Callback?,
                  deviceSelectionHandler: CallbackType<Device>?,
-                 nextStep: Callback?) {
+                 onDismissed: Callback?) {
         self.presenter = viewController
         self.startDiscoveryHandler = startDiscoveryHandler
-        self.nextStep = nextStep
+        self.dismissHandler = onDismissed
         self.deviceSelectionHandler = deviceSelectionHandler
 
         showTurnOnTheBrain()
@@ -56,7 +56,6 @@ extension BluetoothConnectionModalPresenter {
     private func setupLaterHandler(on modal: TurnOnBrainView) {
         modal.laterHandler = { [weak self] in
             self?.presenter.dismiss(animated: true, completion: nil)
-            self?.nextStep?()
         }
     }
 
@@ -77,7 +76,7 @@ extension BluetoothConnectionModalPresenter {
         tips.communityTitle = ModalKeys.Tips.community.translate()
         tips.tryAgainTitle = ModalKeys.Tips.tryAgin.translate()
         tips.skipCallback = { [weak self] in
-            self?.nextStep?()
+            self?.presenter.dismissModalViewController()
         }
         tips.tryAgainCallback = { [weak self] in
             self?.presenter.dismiss(animated: true, completion: nil)
@@ -100,7 +99,9 @@ extension BluetoothConnectionModalPresenter {
 
     private func showBluetoothDiscovery() {
         availableRobotsView.selectionHandler = deviceSelectionHandler
-        presenter.presentModal(with: availableRobotsView)
+        presenter.presentModal(with: availableRobotsView, onDismissed: { [weak self] in
+            self?.dismissHandler?()
+        })
         startDiscoveryHandler?()
     }
 }

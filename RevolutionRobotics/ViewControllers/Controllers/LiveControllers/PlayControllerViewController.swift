@@ -130,7 +130,9 @@ extension PlayControllerViewController {
             deviceSelectionHandler: { [weak self] device in
                 self?.bluetoothService.connect(to: device)
             },
-            nextStep: nil)
+            onDismissed: { [weak self] in
+                self?.bluetoothService.stopDiscovery()
+        })
     }
 
     private func presentDisconnectModal() {
