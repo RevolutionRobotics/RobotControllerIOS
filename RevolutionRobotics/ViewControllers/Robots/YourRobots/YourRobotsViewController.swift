@@ -142,9 +142,9 @@ extension YourRobotsViewController: UICollectionViewDataSource {
         realmService.deleteRobot(robot)
         robots = realmService.getRobots()
         collectionView.clearIndexPath()
-        collectionView.performBatchUpdates({
-            collectionView.reloadSections(IndexSet(integer: 0))
-        }, completion: nil)
+        collectionView.performBatchUpdates(nil, completion: { [weak self] _ in
+            self?.collectionView.refreshCollectionView(cellDeleted: true)
+        })
     }
 }
 

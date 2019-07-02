@@ -84,7 +84,9 @@ extension BluetoothConnectionModalPresenter {
             self?.showTurnOnTheBrain()
         }
         tips.communityCallback = { [weak self] in
-            self?.presenter.presentSafariModal(presentationFinished: nil)
+            self?.presenter.presentSafariModal(presentationFinished: {
+                self?.showTurnOnTheBrain()
+            })
         }
         presenter.presentModal(with: tips)
     }

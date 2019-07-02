@@ -102,11 +102,11 @@ extension RRCollectionView {
         }
     }
 
-    private func centerCell() {
+    private func centerCell(cellDeleted: Bool = false) {
         guard self.numberOfSections > 0, self.numberOfItems(inSection: 0) > 0 else {
             return
         }
-        self.scrollToItem(at: indexPathOfCentermostCell, at: .centeredHorizontally, animated: true)
+        self.scrollToItem(at: indexPathOfCentermostCell, at: .centeredHorizontally, animated: !cellDeleted)
         selectedIndexPath = indexPathOfCentermostCell
         designCells()
     }
@@ -134,19 +134,18 @@ extension RRCollectionView {
         centerCell()
     }
 
-    func refreshCollectionView() {
+    func refreshCollectionView(cellDeleted: Bool = false) {
         self.performBatchUpdates({
             reloadInputViews()
         }, completion: { [weak self] completed in
             if completed {
                 if let indexPath = self?.selectedIndexPath {
-                    self?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
                     self?.indexPathOfCentermostCell = indexPath
                     self?.resizeVisibleCells()
-                    self?.centerCell()
+                    self?.centerCell(cellDeleted: cellDeleted)
                 } else {
                     self?.resizeVisibleCells()
-                    self?.centerCell()
+                    self?.centerCell(cellDeleted: cellDeleted)
                 }
             }
         })
