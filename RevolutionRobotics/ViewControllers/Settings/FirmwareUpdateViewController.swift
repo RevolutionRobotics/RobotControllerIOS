@@ -210,21 +210,9 @@ extension FirmwareUpdateViewController {
         getManufacturerName()
         getHardwareRevision()
         getSoftwareRevision()
-        getFirmwareVersion()
         getModelNumber()
         getPrimaryBatteryPercentage()
         getMotorBatteryPercentage()
-    }
-
-    private func getFirmwareVersion() {
-        bluetoothService.getFirmwareRevision(onCompleted: { [weak self] result in
-            switch result {
-            case .success(let firmwareVersion):
-                self?.checkForUpdatesModal.firmwareVersion = firmwareVersion
-            case .failure:
-                os_log("Error: Failed to fetch firmware version from robot via bluetooth!")
-            }
-        })
     }
 
     private func getSerialNumber() {
@@ -265,6 +253,7 @@ extension FirmwareUpdateViewController {
             switch result {
             case .success(let softwareRevision):
                 self?.checkForUpdatesModal.softwareVersion = softwareRevision
+                self?.checkForUpdatesModal.firmwareVersion = softwareRevision
             case .failure:
                 os_log("Error: Failed to fetch software revision from robot via bluetooth!")
             }
