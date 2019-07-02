@@ -18,6 +18,7 @@
                 <outlet property="controllerCollectionView" destination="mYC-o0-2cD" id="zim-pb-SNy"/>
                 <outlet property="createNewButton" destination="Pr2-V4-VDh" id="o1Q-GI-O3e"/>
                 <outlet property="leftButton" destination="t8S-aZ-NOv" id="c1L-O5-XT0"/>
+                <outlet property="leftButtonLeadingConstraint" destination="7uc-jL-dNt" id="BdB-5l-OP0"/>
                 <outlet property="navigationBar" destination="oyj-RX-Rpw" id="CUl-UR-9sA"/>
                 <outlet property="rightButton" destination="aIp-Ql-FYR" id="lVi-VW-Z7A"/>
                 <outlet property="segmentedControl" destination="849-Dt-fTu" id="4wB-7V-652"/>
@@ -142,7 +143,7 @@
                     </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8S-aZ-NOv">
-                    <rect key="frame" x="44" y="264.5" width="25" height="50"/>
+                    <rect key="frame" x="0.0" y="264.5" width="25" height="50"/>
                     <state key="normal" image="LeftButton"/>
                     <connections>
                         <action selector="leftButtonTapped:" destination="-1" eventType="touchUpInside" id="xeQ-Em-Jz0"/>
@@ -154,6 +155,7 @@
                 <constraint firstAttribute="trailing" secondItem="dqD-V3-qDN" secondAttribute="trailing" id="3aD-Ff-8lY"/>
                 <constraint firstAttribute="trailing" secondItem="mYC-o0-2cD" secondAttribute="trailing" id="4Eh-A4-g1B"/>
                 <constraint firstItem="R0b-BO-qaQ" firstAttribute="bottom" secondItem="qje-Yl-IXm" secondAttribute="bottom" id="4ug-g6-S5S"/>
+                <constraint firstItem="t8S-aZ-NOv" firstAttribute="leading" secondItem="HeV-pd-fdw" secondAttribute="leading" id="7uc-jL-dNt"/>
                 <constraint firstItem="dqD-V3-qDN" firstAttribute="leading" secondItem="HeV-pd-fdw" secondAttribute="leading" id="EQx-4R-ATI"/>
                 <constraint firstItem="oyj-RX-Rpw" firstAttribute="leading" secondItem="HeV-pd-fdw" secondAttribute="leading" id="FTZ-ga-aGT"/>
                 <constraint firstItem="aIp-Ql-FYR" firstAttribute="centerY" secondItem="mYC-o0-2cD" secondAttribute="centerY" id="GiJ-by-YV6"/>
@@ -168,7 +170,6 @@
                 <constraint firstItem="t8S-aZ-NOv" firstAttribute="centerY" secondItem="mYC-o0-2cD" secondAttribute="centerY" id="m7j-hw-Ygd"/>
                 <constraint firstAttribute="trailing" secondItem="aIp-Ql-FYR" secondAttribute="trailing" id="mTw-CT-oKG"/>
                 <constraint firstItem="R0b-BO-qaQ" firstAttribute="centerX" secondItem="HeV-pd-fdw" secondAttribute="centerX" id="sUh-bf-szg"/>
-                <constraint firstItem="t8S-aZ-NOv" firstAttribute="leading" secondItem="qje-Yl-IXm" secondAttribute="leading" id="ta4-wz-ELI"/>
                 <constraint firstAttribute="bottom" secondItem="mYC-o0-2cD" secondAttribute="bottom" id="vhe-aN-5vy"/>
                 <constraint firstItem="mYC-o0-2cD" firstAttribute="top" secondItem="Ynx-ue-Ua9" secondAttribute="bottom" id="yoR-VS-uEv"/>
             </constraints>

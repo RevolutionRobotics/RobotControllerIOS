@@ -20,6 +20,7 @@
                 <outlet property="buildYourOwnButton" destination="ONa-fq-Gt8" id="NfM-s2-daN"/>
                 <outlet property="collectionView" destination="Khj-tZ-cCT" id="PCS-GE-39m"/>
                 <outlet property="leftButton" destination="mzB-FK-UOJ" id="CKf-SO-KL2"/>
+                <outlet property="leftButtonLeadingConstraint" destination="P8o-gD-OoZ" id="GTr-1r-DTg"/>
                 <outlet property="loadingIndicator" destination="SEb-Pv-g9f" id="xpE-ia-5Ll"/>
                 <outlet property="navigationBar" destination="cDH-Vx-iGI" id="A1v-5T-2tf"/>
                 <outlet property="rightButton" destination="9UF-wg-exO" id="Y94-Tq-Moa"/>
@@ -77,7 +78,7 @@
                     </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzB-FK-UOJ">
-                    <rect key="frame" x="44" y="182" width="25" height="50"/>
+                    <rect key="frame" x="0.0" y="182" width="25" height="50"/>
                     <state key="normal" image="LeftButton"/>
                     <connections>
                         <action selector="leftButtonTapped:" destination="-1" eventType="touchUpInside" id="gdB-V8-RrC"/>
@@ -89,13 +90,13 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="mzB-FK-UOJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="00O-Ht-8C0"/>
                 <constraint firstItem="SEb-Pv-g9f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0BW-FI-uqH"/>
                 <constraint firstAttribute="bottom" secondItem="HlK-Uf-80a" secondAttribute="bottom" id="AlX-6A-pSc"/>
                 <constraint firstItem="cDH-Vx-iGI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ArX-qm-aUN"/>
                 <constraint firstItem="Khj-tZ-cCT" firstAttribute="top" secondItem="cDH-Vx-iGI" secondAttribute="bottom" id="Gvh-Gx-hIy"/>
                 <constraint firstAttribute="trailing" secondItem="cDH-Vx-iGI" secondAttribute="trailing" id="Jop-Lg-qis"/>
                 <constraint firstItem="SEb-Pv-g9f" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="LdF-Qd-rCP"/>
+                <constraint firstItem="mzB-FK-UOJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="P8o-gD-OoZ"/>
                 <constraint firstAttribute="trailing" secondItem="HlK-Uf-80a" secondAttribute="trailing" id="QNQ-ni-awD"/>
                 <constraint firstAttribute="trailing" secondItem="Khj-tZ-cCT" secondAttribute="trailing" id="R8r-Di-D5q"/>
                 <constraint firstItem="9UF-wg-exO" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="TGg-xw-0KX"/>

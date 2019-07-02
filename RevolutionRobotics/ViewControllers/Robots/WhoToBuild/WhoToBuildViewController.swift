@@ -18,6 +18,7 @@ final class WhoToBuildViewController: BaseViewController {
     @IBOutlet private weak var leftButton: UIButton!
     @IBOutlet private weak var buildYourOwnButton: RRButton!
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var leftButtonLeadingConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
@@ -102,6 +103,9 @@ extension WhoToBuildViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.setupLayout()
+        if UIView.notchSize > CGFloat.zero {
+            leftButtonLeadingConstraint.constant = UIView.actualNotchSize
+        }
         fetchRobots()
         fetchConfigurations()
         fetchControllers()

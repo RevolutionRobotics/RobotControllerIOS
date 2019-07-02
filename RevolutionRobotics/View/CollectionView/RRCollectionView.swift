@@ -70,8 +70,7 @@ extension RRCollectionView: UICollectionViewDelegateFlowLayout {
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         let cellWidth: CGFloat = self.frame.size.height * cellRatio
         let padding = (self.frame.width / 2) - (cellWidth / 2)
-        let notchSize = UIApplication.shared.keyWindow?.safeAreaInsets.left
-        return UIEdgeInsets(top: 0, left: padding - (notchSize ?? 0), bottom: 0, right: padding)
+        return UIEdgeInsets(top: 0, left: padding - UIView.actualNotchSize, bottom: 0, right: padding)
     }
 }
 

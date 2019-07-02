@@ -17,6 +17,7 @@ final class YourRobotsViewController: BaseViewController {
     @IBOutlet private weak var leftButton: UIButton!
     @IBOutlet private weak var collectionView: RRCollectionView!
     @IBOutlet private weak var emptyStateImageView: UIImageView!
+    @IBOutlet private weak var leftButtonLeadingConstraint: NSLayoutConstraint!
 
     // MARK: - Variables
     var realmService: RealmServiceInterface!
@@ -49,6 +50,9 @@ extension YourRobotsViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.setupLayout()
+        if UIView.notchSize > CGFloat.zero {
+            leftButtonLeadingConstraint.constant = UIView.actualNotchSize
+        }
         robots = realmService.getRobots()
         guard let indexPath = selectedIndexPath else {
             return
