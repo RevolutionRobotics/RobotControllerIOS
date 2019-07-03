@@ -183,6 +183,9 @@ extension MotorConfigViewController {
 extension MotorConfigViewController {
     private func setupNameInputField() {
         nameInputField.setup(title: RobotsKeys.Configure.Motor.nameInputfield.translate(args: "M\(portNumber)"))
+        nameInputField.textFieldResigned = { [weak self] _ in
+            self?.validateActionButtons()
+        }
     }
 
     private func setupTopButtonRow() {
@@ -373,11 +376,12 @@ extension MotorConfigViewController {
 // MARK: - Button validation
 extension MotorConfigViewController {
     private func validateActionButtons() {
+        let name = nameInputField.text ?? ""
         testButton.isEnabled = selectedMotorState != .empty &&
             selectedMotorState != .drivetrainWithoutSide &&
             selectedMotorState != .motorWithoutRotation
         doneButton.isEnabled = selectedMotorState != .drivetrainWithoutSide &&
-            selectedMotorState != .motorWithoutRotation
+            selectedMotorState != .motorWithoutRotation && !name.isEmpty
     }
 }
 
@@ -400,8 +404,6 @@ extension MotorConfigViewController {
             return
         }
         guard let name = nameInputField.text, !name.isEmpty else {
-            let alert = UIAlertController.errorAlert(type: .variableNameEmpty)
-            present(alert, animated: true, completion: nil)
             return
         }
         guard !prohibitedNames.contains(name) else {

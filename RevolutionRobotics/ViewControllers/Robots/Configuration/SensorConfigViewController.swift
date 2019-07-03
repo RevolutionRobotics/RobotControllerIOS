@@ -101,6 +101,9 @@ final class SensorConfigViewController: BaseViewController {
 extension SensorConfigViewController {
     private func setupNameInputField() {
         nameInputField.setup(title: RobotsKeys.Configure.Motor.nameInputfield.translate(args: "S\(sensorPortNumber)"))
+        nameInputField.textFieldResigned = { [weak self] _ in
+            self?.validateActionButtons()
+        }
     }
 
     private func setupButtonRow() {
@@ -147,7 +150,9 @@ extension SensorConfigViewController {
     }
 
     private func validateActionButtons() {
+        let name = nameInputField.text ?? ""
         testButton.isEnabled = selectedSensorType != .empty
+        doneButton.isEnabled = selectedSensorType != .empty && !name.isEmpty
     }
 
     private func presentTestingModal() {
@@ -245,8 +250,6 @@ extension SensorConfigViewController {
             return
         }
         guard let name = nameInputField.text, !name.isEmpty else {
-            let alert = UIAlertController.errorAlert(type: .variableNameEmpty)
-            present(alert, animated: true, completion: nil)
             return
         }
         guard !prohibitedNames.contains(name) else {
