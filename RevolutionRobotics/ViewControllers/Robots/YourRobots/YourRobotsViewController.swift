@@ -24,7 +24,8 @@ final class YourRobotsViewController: BaseViewController {
     var firebaseService: FirebaseServiceInterface!
     private var robots: [UserRobot] = [] {
         didSet {
-            collectionView.reloadData()
+            robots = robots.sorted(by: { $0.lastModified > $1.lastModified })
+            collectionView.reloadSections(IndexSet(integer: 0))
             if !robots.isEmpty {
                 self.collectionView.refreshCollectionView()
             }
