@@ -453,7 +453,7 @@ extension RobotConfigurationViewController {
     private func presentDisconnectModal() {
         let view = DisconnectModal.instatiate()
         view.disconnectHandler = { [weak self] in
-            self?.bluetoothService.disconnect()
+            self?.bluetoothService.disconnect(shouldReconnect: false)
             self?.dismissModalViewController()
         }
         view.cancelHandler = { [weak self] in

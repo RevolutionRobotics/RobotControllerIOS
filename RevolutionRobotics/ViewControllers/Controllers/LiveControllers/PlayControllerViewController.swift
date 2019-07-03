@@ -139,7 +139,7 @@ extension PlayControllerViewController {
         let view = DisconnectModal.instatiate()
         view.robotName = bluetoothService.connectedDevice?.name
         view.disconnectHandler = { [weak self] in
-            self?.bluetoothService.disconnect()
+            self?.bluetoothService.disconnect(shouldReconnect: false)
             self?.dismissModalViewController()
         }
         view.cancelHandler = { [weak self] in
