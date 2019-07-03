@@ -126,6 +126,18 @@ extension ProgramsViewController {
         }
         presentModal(with: descriptionModal)
     }
+
+    private func confirmLeave() {
+        let modal = ConfirmLeaveModalView.instatiate()
+        modal.leaveCallback = { [weak self] in
+            self?.dismissModalViewController()
+            self?.navigationController?.popViewController(animated: true)
+        }
+        modal.cancelCallback = { [weak self] in
+            self?.dismissModalViewController()
+        }
+        presentModal(with: modal)
+    }
 }
 
 // MARK: - BlocklyBridgeDelegate
@@ -339,16 +351,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
             isBackButtonTapped = false
             if let selectedProgram = selectedProgram {
                 if selectedProgram.xml.base64Decoded != xmlCode {
-                    let alert = UIAlertController(title: ProgramsKeys.navigateBackTitle.translate(),
-                                                  message: ProgramsKeys.navigateBackDescription.translate(),
-                                                  preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: CommonKeys.no.translate(), style: .cancel, handler: nil))
-                    alert.addAction(UIAlertAction(title: ProgramsKeys.navigateBackPositive.translate(),
-                                                  style: .destructive,
-                                                  handler: { [weak self] _ in
-                                                    self?.navigationController?.popViewController(animated: true)
-                    }))
-                    present(alert, animated: true)
+                    confirmLeave()
                 } else {
                     navigationController?.popViewController(animated: true)
                 }
@@ -356,16 +359,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
                 if xmlCode == Constants.defaultXMLCode {
                     navigationController?.popViewController(animated: true)
                 } else {
-                    let alert = UIAlertController(title: ProgramsKeys.navigateBackTitle.translate(),
-                                                  message: ProgramsKeys.navigateBackDescription.translate(),
-                                                  preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: CommonKeys.no.translate(), style: .cancel, handler: nil))
-                    alert.addAction(UIAlertAction(title: ProgramsKeys.navigateBackPositive.translate(),
-                                                  style: .destructive,
-                                                  handler: { [weak self] _ in
-                                                    self?.navigationController?.popViewController(animated: true)
-                    }))
-                    present(alert, animated: true)
+                    confirmLeave()
                 }
             }
         } else {
