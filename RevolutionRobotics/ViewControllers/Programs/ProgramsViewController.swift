@@ -314,6 +314,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
         let variableList = variables.components(separatedBy: ",").filter { !$0.isEmpty }
         if let programDataModel = realmService.getProgram(id: program.id) {
             realmService.updateObject {
+                programDataModel.lastModified = Date()
                 programDataModel.variableNames.removeAll()
                 programDataModel.variableNames.append(objectsIn: variableList)
             }
@@ -341,6 +342,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
             guard let program = selectedProgram else { return }
 
             realmService.updateObject(closure: {
+                program.lastModified = Date()
                 program.python = pythonCode.base64Encoded ?? ""
             })
         }
@@ -366,6 +368,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
             guard let program = selectedProgram, !showCode else { return }
 
             realmService.updateObject(closure: {
+                program.lastModified = Date()
                 program.xml = xmlCode.base64Encoded ?? ""
             })
         }

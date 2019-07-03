@@ -59,15 +59,14 @@ extension ButtonlessProgramsViewController {
         navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         setupButtons()
         setupTableView()
-        fetchPrograms()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         nextButton.setBorder(fillColor: .clear, strokeColor: .white)
+        fetchPrograms()
         updateEmptyStateVisibility()
-        programsTableView.reloadData()
     }
 }
 
