@@ -25,7 +25,8 @@ protocol BluetoothServiceInterface {
 
     // MARK: - Connection
     func connect(to device: Device)
-    func disconnect()
+    func reconnect()
+    func disconnect(shouldReconnect: Bool)
 
     // MARK: - Device info
     func getPrimaryBatteryPercentage(onCompleted: CallbackType<Result<Int, Error>>?)

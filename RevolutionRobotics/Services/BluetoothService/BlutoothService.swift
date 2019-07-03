@@ -12,6 +12,8 @@ import RevolutionRoboticsBluetooth
 final class BluetoothService: BluetoothServiceInterface {
     // MARK: - Properties
     var connectedDevice: Device?
+    private var mostRecentlyConnectedDevice: Device?
+    private var shouldReconnect = false
 
     private let discoverer: RoboticsDeviceDiscovererInterface = RoboticsDeviceDiscoverer()
     private let connector: RoboticsDeviceConnectorInterface = RoboticsDeviceConnector()
@@ -37,6 +39,7 @@ final class BluetoothService: BluetoothServiceInterface {
             onConnected: { [weak self] in
                 NotificationCenter.default.post(name: .robotConnected, object: nil)
                 self?.connectedDevice = device
+                self?.mostRecentlyConnectedDevice = device
             },
             onDisconnected: { [weak self] in
                 NotificationCenter.default.post(name: .robotDisconnected, object: nil)
@@ -47,8 +50,15 @@ final class BluetoothService: BluetoothServiceInterface {
         })
     }
 
-    func disconnect() {
+    func reconnect() {
+        guard let mostRecentlyConnectedDevice = mostRecentlyConnectedDevice, shouldReconnect else { return }
+        connect(to: mostRecentlyConnectedDevice)
+    }
+
+    func disconnect(shouldReconnect: Bool) {
+        guard connectedDevice != nil else { return }
         connector.disconnect()
+        self.shouldReconnect = shouldReconnect
     }
 
     func sendConfigurationData(_ data: Data, onCompleted: CallbackType<Result<String, Error>>?) {

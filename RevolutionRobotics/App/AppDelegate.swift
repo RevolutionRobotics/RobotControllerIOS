@@ -31,6 +31,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return .all
     }
+
+    func applicationWillResignActive(_ application: UIApplication) {
+        let bluetoothService = AppContainer.shared.container.unwrappedResolve(BluetoothServiceInterface.self)
+        bluetoothService.disconnect(shouldReconnect: true)
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        let bluetoothService = AppContainer.shared.container.unwrappedResolve(BluetoothServiceInterface.self)
+        bluetoothService.reconnect()
+    }
 }
 
 // MARK: - Setup
