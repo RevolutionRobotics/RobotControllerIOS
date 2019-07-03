@@ -10,6 +10,11 @@ import UIKit
 import RevolutionRoboticsBlockly
 
 final class ProgramsViewController: BaseViewController {
+    // MARK: - Constants
+    private enum Constants {
+        static let defaultXMLCode = "<xml xmlns=\"http://www.w3.org/1999/xhtml\"></xml>"
+    }
+
     // MARK: - Outlets
     @IBOutlet private weak var programNameButton: RRButton!
     @IBOutlet private weak var programCodeButton: RRButton!
@@ -21,6 +26,7 @@ final class ProgramsViewController: BaseViewController {
     var realmService: RealmServiceInterface!
     var programCompatibilityValidator: ProgramCompatibilityValidator!
     var selectedProgram: ProgramDataModel?
+    private var isBackButtonTapped = false
     private let blocklyViewController = BlocklyViewController()
     private var showCode: Bool = false
 }
@@ -329,27 +335,54 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func onXMLProgramSaved(xmlCode: String) {
-        guard let program = selectedProgram, !showCode else { return }
+        if isBackButtonTapped {
+            isBackButtonTapped = false
+            if let selectedProgram = selectedProgram {
+                if selectedProgram.xml.base64Decoded != xmlCode {
+                    let alert = UIAlertController(title: ProgramsKeys.navigateBackTitle.translate(),
+                                                  message: ProgramsKeys.navigateBackDescription.translate(),
+                                                  preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: CommonKeys.no.translate(), style: .cancel, handler: nil))
+                    alert.addAction(UIAlertAction(title: ProgramsKeys.navigateBackPositive.translate(),
+                                                  style: .destructive,
+                                                  handler: { [weak self] _ in
+                                                    self?.navigationController?.popViewController(animated: true)
+                    }))
+                    present(alert, animated: true)
+                } else {
+                    navigationController?.popViewController(animated: true)
+                }
+            } else {
+                if xmlCode == Constants.defaultXMLCode {
+                    navigationController?.popViewController(animated: true)
+                } else {
+                    let alert = UIAlertController(title: ProgramsKeys.navigateBackTitle.translate(),
+                                                  message: ProgramsKeys.navigateBackDescription.translate(),
+                                                  preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: CommonKeys.no.translate(), style: .cancel, handler: nil))
+                    alert.addAction(UIAlertAction(title: ProgramsKeys.navigateBackPositive.translate(),
+                                                  style: .destructive,
+                                                  handler: { [weak self] _ in
+                                                    self?.navigationController?.popViewController(animated: true)
+                    }))
+                    present(alert, animated: true)
+                }
+            }
+        } else {
+            guard let program = selectedProgram, !showCode else { return }
 
-        realmService.updateObject(closure: {
-            program.xml = xmlCode.base64Encoded ?? ""
-        })
+            realmService.updateObject(closure: {
+                program.xml = xmlCode.base64Encoded ?? ""
+            })
+        }
     }
 }
 
 // MARK: - Actions
 extension ProgramsViewController {
     @IBAction private func backButtonTapped(_ sender: UIButton) {
-        let alert = UIAlertController(title: ProgramsKeys.navigateBackTitle.translate(),
-                                      message: ProgramsKeys.navigateBackDescription.translate(),
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: CommonKeys.no.translate(), style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: ProgramsKeys.navigateBackPositive.translate(),
-                                      style: .destructive,
-                                      handler: { [weak self] _ in
-                                        self?.navigationController?.popViewController(animated: true)
-        }))
-        present(alert, animated: true)
+        blocklyViewController.saveProgram()
+        isBackButtonTapped = true
     }
 
     @IBAction private func programCodeButtonTapped(_ sender: UIButton) {
