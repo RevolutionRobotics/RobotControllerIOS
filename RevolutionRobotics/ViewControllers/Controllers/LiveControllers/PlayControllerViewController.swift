@@ -13,11 +13,9 @@ final class PlayControllerViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var padViewContainer: UIView!
-    @IBOutlet private weak var bluetoothButton: UIButton!
 
     // MARK: - Properties
     var realmService: RealmServiceInterface!
-    var bluetoothService: BluetoothServiceInterface!
     var controllerDataModel: ControllerDataModel?
     private var padView: PlayablePadView!
     private var programs: [ProgramDataModel?] = [] {
@@ -38,19 +36,18 @@ extension PlayControllerViewController {
         setupPadView()
         fetchPrograms()
         if bluetoothService.connectedDevice != nil {
+            navigationBar.bluetoothButtonState = .connected
             sendConfiguration()
         } else {
-            bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
+            navigationBar.bluetoothButtonState = .notConnected
             presentBluetoothModal()
         }
 
-        subscribeForConnectionChange()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         bluetoothService.stopKeepalive()
-        unsubscribeFromConnectionChange()
     }
 }
 
@@ -152,11 +149,12 @@ extension PlayControllerViewController {
         super.connected()
         bluetoothService.stopDiscovery()
         sendConfiguration()
+        navigationBar.bluetoothButtonState = .connected
     }
 
     override func disconnected() {
         bluetoothService.stopKeepalive()
-        bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
+        navigationBar.bluetoothButtonState = .notConnected
     }
 
     private func sendConfiguration() {
@@ -171,27 +169,15 @@ extension PlayControllerViewController {
                 case .success:
                     self?.configurationAlreadySent = true
                     self?.bluetoothService.startKeepalive()
-                    self?.bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
+                    self?.navigationBar.bluetoothButtonState = .connected
                 case .failure(let error):
                     print(error.localizedDescription)
                     self?.bluetoothService.stopKeepalive()
-                    self?.bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
+                    self?.navigationBar.bluetoothButtonState = .notConnected
                 }
             })
         } catch {
             print(error.localizedDescription)
         }
-    }
-}
-
-// MARK: - Actions
-extension PlayControllerViewController {
-    @IBAction private func bluetoothButtonTapped(_ sender: Any) {
-        guard bluetoothService.connectedDevice != nil else {
-            presentBluetoothModal()
-            return
-        }
-
-        presentDisconnectModal()
     }
 }

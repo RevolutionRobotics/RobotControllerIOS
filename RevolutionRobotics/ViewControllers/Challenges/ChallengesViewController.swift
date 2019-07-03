@@ -27,6 +27,7 @@ extension ChallengesViewController {
         super.viewDidLoad()
 
         guard let category = challengeCategory else { return }
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         navigationBar.setup(title: category.name, delegate: self)
         challengeDescription.text = category.description
         challengesCollectionView.delegate = self
@@ -153,5 +154,18 @@ extension ChallengesViewController: UICollectionViewDataSource {
             }
             return cell
         }
+    }
+}
+
+// MARK: - Bluetooth connection
+extension ChallengesViewController {
+    override func connected() {
+        super.connected()
+        navigationBar.bluetoothButtonState = .connected
+    }
+
+    override func disconnected() {
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 }

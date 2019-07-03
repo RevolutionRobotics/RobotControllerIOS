@@ -61,6 +61,7 @@ extension PadConfigurationViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         navigationBar.setup(title: ControllerKeys.configureTitle.translate(), delegate: self)
         fetchSelectedController()
         setupConfigurationView()
@@ -360,5 +361,18 @@ extension PadConfigurationViewController {
     private func selectedProgram(of buttonState: ControllerButton.ControllerButtonState) -> ProgramDataModel? {
         guard case .selected(let program) = buttonState else { return nil }
         return program
+    }
+}
+
+// MARK: - Bluetooth connection
+extension PadConfigurationViewController {
+    override func connected() {
+        super.connected()
+        navigationBar.bluetoothButtonState = .connected
+    }
+
+    override func disconnected() {
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 }

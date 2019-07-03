@@ -22,6 +22,7 @@ extension SettingsViewController {
         super.viewDidLoad()
 
         navigationBar.setup(title: SettingsKeys.Main.title.translate(), delegate: self)
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -57,5 +58,18 @@ extension SettingsViewController {
     @IBAction private func aboutButtonTapped(_ sender: Any) {
         let aboutViewController = AppContainer.shared.container.unwrappedResolve(AboutViewController.self)
         navigationController?.pushViewController(aboutViewController, animated: true)
+    }
+}
+
+// MARK: - Bluetooth connection
+extension SettingsViewController {
+    override func connected() {
+        super.connected()
+        navigationBar.bluetoothButtonState = .connected
+    }
+
+    override func disconnected() {
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 }

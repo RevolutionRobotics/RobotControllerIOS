@@ -37,6 +37,8 @@ extension ProgramPriorityViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
+
         navigationBar.setup(title: ProgramsKeys.programOrderTitle.translate(), delegate: self)
         doneButton.setTitle(CommonKeys.done.translate(), for: .normal)
         programsTableView.dataSource = self
@@ -257,5 +259,18 @@ extension ProgramPriorityViewController {
             self?.navigationController?.pop(to: RobotConfigurationViewController.self)
         }
         presentModal(with: saveModal)
+    }
+}
+
+// MARK: - Bluetooth connection
+extension ProgramPriorityViewController {
+    override func connected() {
+        super.connected()
+        navigationBar.bluetoothButtonState = .connected
+    }
+
+    override func disconnected() {
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 }

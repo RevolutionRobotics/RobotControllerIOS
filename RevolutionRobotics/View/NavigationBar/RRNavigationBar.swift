@@ -8,17 +8,40 @@
 
 import UIKit
 
+enum BluetoothButtonState {
+    case connected
+    case notConnected
+}
+
 protocol RRNavigationBarDelegate: class {
     func backButtonDidTap()
     func popToRootViewController(animated: Bool)
+    func bluetoothButtonTapped()
 }
 
 final class RRNavigationBar: RRCustomView {
     // MARK: - Outlets
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var bluetoothButton: RRButton!
 
-    // MARK: - Delegate
+    // MARK: - Properties
+    var shouldHideBackButton: Bool = false {
+        didSet {
+            backButton.isHidden = shouldHideBackButton
+        }
+    }
+    var bluetoothButtonState: BluetoothButtonState = .notConnected {
+        didSet {
+            switch bluetoothButtonState {
+            case .connected:
+                bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
+            case .notConnected:
+                bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
+            }
+        }
+    }
+
     private weak var delegate: RRNavigationBarDelegate? = nil {
         didSet {
             backButton.isHidden = delegate == nil
@@ -38,5 +61,9 @@ extension RRNavigationBar {
 extension RRNavigationBar {
     @IBAction private func backButtonTapped(_ sender: Any) {
         delegate?.backButtonDidTap()
+    }
+
+    @IBAction private func bluetoothButtonTapped(_ sender: Any) {
+        delegate?.bluetoothButtonTapped()
     }
 }

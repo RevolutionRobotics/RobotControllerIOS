@@ -45,7 +45,6 @@ final class MotorConfigViewController: BaseViewController {
     var screenDismissed: Callback?
     var name: String?
     var prohibitedNames: [String] = []
-    var bluetoothService: BluetoothServiceInterface!
     var testCodeService: PortTestCodeServiceInterface!
 
     private var shouldCallDismiss = true
@@ -63,17 +62,6 @@ final class MotorConfigViewController: BaseViewController {
         switchTo(state: selectedMotorState)
 
         nameInputField.text = name
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        subscribeForConnectionChange()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        unsubscribeFromConnectionChange()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -323,29 +311,6 @@ extension MotorConfigViewController {
         }
 
         bluetoothService.testKit(data: testCode, onCompleted: nil)
-    }
-
-    private func presentConnectModal() {
-        let modalPresenter = BluetoothConnectionModalPresenter()
-        modalPresenter.present(
-            on: self,
-            startDiscoveryHandler: { [weak self] in
-                self?.bluetoothService.startDiscovery(onScanResult: { result in
-                    switch result {
-                    case .success(let devices):
-                        modalPresenter.discoveredDevices = devices
-                    case .failure:
-                        os_log("Error: Failed to discover peripherals!")
-                    }
-                })
-
-            },
-            deviceSelectionHandler: { [weak self] device in
-                self?.bluetoothService.connect(to: device)
-            },
-            onDismissed: { [weak self] in
-                self?.bluetoothService.stopDiscovery()
-        })
     }
 
     private func presentTipsModal() {

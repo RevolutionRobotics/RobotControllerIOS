@@ -76,6 +76,7 @@ extension ChallengeDetailViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         guard let challenge = challenge else { return }
         navigationBar.setup(title: challenge.name, delegate: self)
         setupContent(for: 0)
@@ -86,5 +87,18 @@ extension ChallengeDetailViewController {
 
         setupProgressBar()
         contentView.layoutIfNeeded()
+    }
+}
+
+// MARK: - Bluetooth connection
+extension ChallengeDetailViewController {
+    override func connected() {
+        super.connected()
+        navigationBar.bluetoothButtonState = .connected
+    }
+
+    override func disconnected() {
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 }

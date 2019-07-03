@@ -76,7 +76,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Na-bl-7Us" userLabel="settingsButton">
-                    <rect key="frame" x="755" y="1" width="44" height="44"/>
+                    <rect key="frame" x="715" y="1" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="9Lb-zd-0PN"/>
                         <constraint firstAttribute="width" constant="44" id="QeQ-z4-wsT"/>
@@ -85,7 +85,7 @@
                     <state key="normal" image="SettingsIcon"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT3-dM-8fq" userLabel="communityButton" customClass="UIButt">
-                    <rect key="frame" x="708" y="1" width="44" height="44"/>
+                    <rect key="frame" x="668" y="1" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="Wk9-x4-E2O"/>
                         <constraint firstAttribute="width" constant="44" id="t8y-un-hww"/>
@@ -118,7 +118,7 @@
                                     <state key="highlighted" backgroundImage="RedBorderHighlighted"/>
                                 </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RobotModel" translatesAutoresizingMaskIntoConstraints="NO" id="Log-NY-chE" userLabel="robotIconImageView">
-                                    <rect key="frame" x="0.0" y="70.333333333333343" width="161.33333333333334" height="124.66666666666669"/>
+                                    <rect key="frame" x="0.0" y="70.333333333333343" width="161.33333333333334" height="124.66666666666666"/>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sb-WW-lMo">
                                     <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="70.333333333333329"/>
@@ -417,7 +417,7 @@
                     </constraints>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQr-vd-giG" userLabel="communityDescriptionContainerView">
-                    <rect key="frame" x="544" y="45" width="212" height="191"/>
+                    <rect key="frame" x="504" y="45" width="212" height="191"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdq-ND-6zw" userLabel="contentView">
                             <rect key="frame" x="0.0" y="12" width="212" height="179"/>
@@ -467,7 +467,7 @@
                     </constraints>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mN-Ii-Laj" userLabel="settingsDescriptionContainerView">
-                    <rect key="frame" x="591" y="45" width="212" height="191"/>
+                    <rect key="frame" x="551" y="45" width="212" height="191"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sK9-fM-oTD" userLabel="contentView">
                             <rect key="frame" x="0.0" y="12" width="212" height="179"/>
@@ -561,7 +561,7 @@
                 <constraint firstItem="LNN-mC-4Pq" firstAttribute="top" secondItem="bcb-n4-Ic4" secondAttribute="top" id="7Li-tw-4r0"/>
                 <constraint firstItem="bcb-n4-Ic4" firstAttribute="trailing" secondItem="ma0-hZ-XMo" secondAttribute="trailing" constant="4" id="9ue-kx-ccz"/>
                 <constraint firstItem="KGJ-UH-HkV" firstAttribute="leading" secondItem="TeK-pG-oug" secondAttribute="trailing" constant="-12" id="GCo-I4-jka"/>
-                <constraint firstAttribute="trailing" secondItem="7Na-bl-7Us" secondAttribute="trailing" constant="13" id="Gnk-25-DGD"/>
+                <constraint firstAttribute="trailing" secondItem="7Na-bl-7Us" secondAttribute="trailing" constant="53" id="Gnk-25-DGD"/>
                 <constraint firstAttribute="trailing" secondItem="wCU-Rj-rLS" secondAttribute="trailing" id="KkG-eF-4wo"/>
                 <constraint firstItem="7Na-bl-7Us" firstAttribute="leading" secondItem="OT3-dM-8fq" secondAttribute="trailing" constant="3" id="N3k-uP-sYC"/>
                 <constraint firstItem="bcb-n4-Ic4" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="tLI-po-cnB" secondAttribute="trailing" constant="60" id="QBE-oR-zfb"/>
@@ -608,7 +608,7 @@
         <image name="ChallengeModel" width="120" height="99"/>
         <image name="CheckIcon" width="16" height="16"/>
         <image name="CommunityIcon" width="22" height="22"/>
-        <image name="Logo" width="37" height="37"/>
+        <image name="Logo" width="38" height="38"/>
         <image name="ProgramModel" width="120" height="99"/>
         <image name="RedBorder" width="124" height="162"/>
         <image name="RedBorderHighlighted" width="124" height="162"/>

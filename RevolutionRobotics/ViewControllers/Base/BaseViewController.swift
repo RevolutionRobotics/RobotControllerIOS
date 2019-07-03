@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenu
+import os
 
 class BaseViewController: UIViewController, RRNavigationBarDelegate {
     // MARK: - Constants
@@ -20,6 +21,8 @@ class BaseViewController: UIViewController, RRNavigationBarDelegate {
 
     // MARK: - Properties
     private var onModalDismissed: Callback?
+    private let modalPresenter = BluetoothConnectionModalPresenter()
+    var bluetoothService: BluetoothServiceInterface!
 
     // MARK: - Initialization
     init() {
@@ -31,6 +34,7 @@ class BaseViewController: UIViewController, RRNavigationBarDelegate {
     }
 
     deinit {
+        unsubscribeFromConnectionChange()
         unregisterObserver()
     }
 
@@ -42,6 +46,15 @@ class BaseViewController: UIViewController, RRNavigationBarDelegate {
         self.dismissModalViewController()
         navigationController?.popToRootViewController(animated: animated)
     }
+
+    func bluetoothButtonTapped() {
+        guard bluetoothService.connectedDevice != nil else {
+            presentConnectModal()
+            return
+        }
+
+        presentDisconnectModal()
+    }
 }
 
 // MARK: - View lifecycle
@@ -51,6 +64,7 @@ extension BaseViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
         setupSideMenuPreferences()
         registerObserver()
+        subscribeForConnectionChange()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -152,7 +166,43 @@ extension BaseViewController {
 
 // MARK: - Bluetooth connection
 extension BaseViewController {
-    func subscribeForConnectionChange() {
+    func presentConnectModal() {
+        let modalPresenter = BluetoothConnectionModalPresenter()
+        modalPresenter.present(
+            on: self,
+            startDiscoveryHandler: { [weak self] in
+                self?.bluetoothService.startDiscovery(onScanResult: { result in
+                    switch result {
+                    case .success(let devices):
+                        modalPresenter.discoveredDevices = devices
+                    case .failure:
+                        os_log("Error: Failed to discover peripherals!")
+                    }
+                })
+
+            },
+            deviceSelectionHandler: { [weak self] device in
+                self?.bluetoothService.connect(to: device)
+            },
+            onDismissed: { [weak self] in
+                self?.bluetoothService.stopDiscovery()
+        })
+    }
+
+    private func presentDisconnectModal() {
+        let view = DisconnectModal.instatiate()
+        view.robotName = bluetoothService.connectedDevice?.name
+        view.disconnectHandler = { [weak self] in
+            self?.bluetoothService.disconnect(shouldReconnect: false)
+            self?.dismissModalViewController()
+        }
+        view.cancelHandler = { [weak self] in
+            self?.dismissModalViewController()
+        }
+        presentModal(with: view)
+    }
+
+    private func subscribeForConnectionChange() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(connected),
                                                name: .robotConnected,
@@ -167,11 +217,12 @@ extension BaseViewController {
                                                object: nil)
     }
 
-    func unsubscribeFromConnectionChange() {
+    private func unsubscribeFromConnectionChange() {
         NotificationCenter.default.removeObserver(self)
     }
 
     @objc func connected() {
+        bluetoothService.stopDiscovery()
         dismissModalViewController()
         let connectionModal = ConnectionModal.instatiate()
         presentModal(with: connectionModal.successful)

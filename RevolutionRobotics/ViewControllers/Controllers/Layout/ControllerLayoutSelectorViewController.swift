@@ -27,6 +27,7 @@ extension ControllerLayoutSelectorViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         navigationBar.setup(title: ControllerKeys.selectorScreenTitle.translate(), delegate: self)
         gamerControllerLabel.text = ControllerKeys.gamer.translate()
         multiTaskerControllerLabel.text = ControllerKeys.multiTasker.translate()
@@ -55,5 +56,18 @@ extension ControllerLayoutSelectorViewController {
         vc.configurationId = configurationId
         vc.controllerType = .driver
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+// MARK: - Bluetooth connection
+extension ControllerLayoutSelectorViewController {
+    override func connected() {
+        super.connected()
+        navigationBar.bluetoothButtonState = .connected
+    }
+
+    override func disconnected() {
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 }

@@ -97,6 +97,7 @@ extension WhoToBuildViewController {
 
         navigationBar.setup(title: RobotsKeys.WhoToBuild.title.translate(), delegate: self)
         buildYourOwnButton.setTitle(RobotsKeys.WhoToBuild.buildNewButtonTitle.translate(), for: .normal)
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         setupCollectionView()
     }
 
@@ -109,12 +110,6 @@ extension WhoToBuildViewController {
         fetchRobots()
         fetchConfigurations()
         fetchControllers()
-        subscribeForConnectionChange()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        unsubscribeFromConnectionChange()
     }
 
     private func setupCollectionView() {
@@ -158,5 +153,18 @@ extension WhoToBuildViewController {
         let buildScreen = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
         buildScreen.remoteRobotDataModel = selectedRobot
         navigationController?.pushViewController(buildScreen, animated: true)
+    }
+}
+
+// MARK: - Bluetooth connection
+extension WhoToBuildViewController {
+    override func connected() {
+        super.connected()
+        navigationBar.bluetoothButtonState = .connected
+    }
+
+    override func disconnected() {
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 }

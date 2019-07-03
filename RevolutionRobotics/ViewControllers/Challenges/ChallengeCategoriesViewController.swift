@@ -9,7 +9,7 @@
 import UIKit
 
 final class ChallengeCategoriesViewController: BaseViewController {
-    // MARK: - Outlet
+    // MARK: - Outlets
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var challengesCollectionView: UICollectionView!
 
@@ -43,10 +43,8 @@ extension ChallengeCategoriesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.setup(title: ChallengesKeys.Main.title.translate(), delegate: self)
-        challengesCollectionView.register(ChallengeCategoryCollectionViewCell.self)
-        challengesCollectionView.delegate = self
-        challengesCollectionView.dataSource = self
+        setupNavigationBar()
+        setupCollectionView()
         fetchChallenges()
     }
 
@@ -54,6 +52,20 @@ extension ChallengeCategoriesViewController {
         super.viewWillAppear(animated)
 
         challengesCollectionView.reloadData()
+    }
+}
+
+// MARK: - Setup
+extension ChallengeCategoriesViewController {
+    private func setupNavigationBar() {
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
+        navigationBar.setup(title: ChallengesKeys.Main.title.translate(), delegate: self)
+    }
+
+    private func setupCollectionView() {
+        challengesCollectionView.register(ChallengeCategoryCollectionViewCell.self)
+        challengesCollectionView.delegate = self
+        challengesCollectionView.dataSource = self
     }
 }
 
@@ -90,5 +102,18 @@ extension ChallengeCategoriesViewController: UICollectionViewDataSource {
         let category = realmService.getChallengeCategory(id: challengeCategories[indexPath.row].id)
         cell.setup(with: challengeCategories[indexPath.row], userCategory: category)
         return cell
+    }
+}
+
+// MARK: - Bluetooth connection
+extension ChallengeCategoriesViewController {
+    override func connected() {
+        super.connected()
+        navigationBar.bluetoothButtonState = .connected
+    }
+
+    override func disconnected() {
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 }

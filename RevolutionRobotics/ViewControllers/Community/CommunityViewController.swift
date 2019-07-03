@@ -21,6 +21,7 @@ extension CommunityViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         navigationBar.setup(title: CommunityKeys.title.translate(), delegate: self)
         beginButton.setTitle(CommunityKeys.beginButton.translate(), for: .normal)
         titleLabel.text = CommunityKeys.contentTitle.translate().uppercased()
@@ -34,9 +35,22 @@ extension CommunityViewController {
     }
 }
 
-// MARK: - Action handlers
+// MARK: - Actions
 extension CommunityViewController {
     @IBAction private func beginButtonTapped(_ sender: Any) {
         openSafari(presentationFinished: nil)
+    }
+}
+
+// MARK: - Bluetooth connection
+extension CommunityViewController {
+    override func connected() {
+        super.connected()
+        navigationBar.bluetoothButtonState = .connected
+    }
+
+    override func disconnected() {
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 }
