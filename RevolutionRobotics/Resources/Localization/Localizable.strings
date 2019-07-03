@@ -14,6 +14,7 @@
 "error_test_code_upload" = "Test code upload error";
 "done" = "Done";
 "no" = "No";
+"cancel" = "Cancel";
 
 // MARK: - Menu
 "menu_robots_title" = "robots";
