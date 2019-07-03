@@ -49,7 +49,7 @@ final class ControllerCollectionViewCell: ResizableCell {
         }
     }
 
-    override var isSelected: Bool {
+    var isControllerSelected: Bool = false {
         didSet {
             setState()
         }
@@ -60,7 +60,7 @@ final class ControllerCollectionViewCell: ResizableCell {
         infoButton.isUserInteractionEnabled = isCentered
         deleteButton.isUserInteractionEnabled = isCentered
         modifyButton.isUserInteractionEnabled = isCentered
-        if isSelected {
+        if isControllerSelected {
             selectedLabel.text = RobotsKeys.Controllers.controllerSelected.translate()
             backgroundImageView.image =
                 isCentered ? Image.Configuration.Controllers.cellRedBorderSelected :

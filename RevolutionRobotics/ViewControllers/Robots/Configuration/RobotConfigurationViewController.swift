@@ -144,7 +144,7 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
         let cell: ControllerCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.indexPath = indexPath
         cell.setup(with: controllers[indexPath.row])
-        cell.isSelected = configuration?.controller == controllers[indexPath.row].id
+        cell.isControllerSelected = configuration?.controller == controllers[indexPath.row].id
         cell.infoCallback = { [weak self] in
             let controllerInfoView = ControllerInfoModal.instatiate()
             controllerInfoView.setup(
@@ -170,7 +170,7 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
             self?.presentModal(with: deleteView)
         }
         if let lastIndexPath = lastSelectedIndexPath {
-            cell.isSelected = lastIndexPath == indexPath
+            cell.isControllerSelected = lastIndexPath == indexPath
         }
         return cell
     }
@@ -214,20 +214,16 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
 // MARK: - RRCollectionViewDelegate
 extension RobotConfigurationViewController: RRCollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard !collectionView.isDecelerating,
-            let cell = collectionView.cellForItem(at: indexPath) as? ControllerCollectionViewCell,
-            cell.isCentered,
-            lastSelectedIndexPath != indexPath else {
-                return
-        }
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ControllerCollectionViewCell,
+            lastSelectedIndexPath != indexPath else { return }
 
         for index in 0...collectionView.numberOfItems(inSection: 0) {
             let cell =
                 collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? ControllerCollectionViewCell
-            cell?.isSelected = false
+            cell?.isControllerSelected = false
         }
 
-        cell.isSelected = true
+        cell.isControllerSelected = true
 
         realmService.updateObject(closure: { [weak self] in
             guard let id = self?.controllers[indexPath.item].id else { return }
