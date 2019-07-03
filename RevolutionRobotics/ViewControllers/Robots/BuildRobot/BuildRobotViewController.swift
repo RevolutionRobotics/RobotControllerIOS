@@ -157,9 +157,6 @@ extension BuildRobotViewController {
 
     private func setupChapterFinishedModal(with milestone: Milestone) {
         let chapterFinishedModal = ChapterFinishedModal.instatiate()
-        chapterFinishedModal.homeButtonTapped = { [weak self] in
-            self?.popToRootViewController(animated: true)
-        }
         chapterFinishedModal.testLaterButtonTapped = { [weak self] in
             self?.dismissModalViewController()
             self?.buildProgressBar.milestoneFinished()

@@ -12,12 +12,10 @@ final class ChapterFinishedModal: UIView {
     // MARK: - Outlets
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
-    @IBOutlet private weak var homeButton: UIButton!
     @IBOutlet private weak var testLaterButton: UIButton!
     @IBOutlet private weak var testNowButton: UIButton!
 
     // MARK: - Callbacks
-    var homeButtonTapped: Callback?
     var testLaterButtonTapped: Callback?
     var testNowButtonTapped: Callback?
 
@@ -27,10 +25,7 @@ final class ChapterFinishedModal: UIView {
         titleLabel.text = RobotsKeys.BuildRobot.ChapterFinished.title.translate().uppercased()
         subtitleLabel.text = RobotsKeys.BuildRobot.ChapterFinished.description.translate().uppercased()
 
-        homeButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
-        homeButton.setTitle(RobotsKeys.BuildRobot.ChapterFinished.homeButton.translate(), for: .normal)
-
-        testLaterButton.setBorder(fillColor: Color.black26, croppedCorners: [])
+        testLaterButton.setBorder(fillColor: Color.black26, croppedCorners: [.bottomLeft])
         testLaterButton.setTitle(RobotsKeys.BuildRobot.ChapterFinished.testLaterButton.translate(), for: .normal)
 
         testNowButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
@@ -38,10 +33,6 @@ final class ChapterFinishedModal: UIView {
     }
 
     // MARK: - Actions
-    @IBAction private func homeButtonTapped(_ sender: Any) {
-        homeButtonTapped?()
-    }
-
     @IBAction private func testLaterButtonTapped(_ sender: Any) {
         testLaterButtonTapped?()
     }
