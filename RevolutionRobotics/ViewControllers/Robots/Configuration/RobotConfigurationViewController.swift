@@ -50,13 +50,11 @@ final class RobotConfigurationViewController: BaseViewController {
     @IBOutlet private weak var collectionView: RRCollectionView!
     @IBOutlet private weak var controllerCollectionView: UIView!
     @IBOutlet private weak var createNewButton: SideButton!
-    @IBOutlet private weak var bluetoothButton: RRButton!
     @IBOutlet private weak var leftButtonLeadingConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
     var realmService: RealmServiceInterface!
     var firebaseService: FirebaseServiceInterface!
-    var bluetoothService: BluetoothServiceInterface!
     var viewModel: ViewModel!
     private let photoModal = PhotoModal.instatiate()
     private var robotImage: UIImage?
@@ -93,6 +91,7 @@ extension RobotConfigurationViewController {
         super.viewDidLoad()
 
         navigationBar.setup(title: selectedRobot?.customName ?? RobotsKeys.Configure.title.translate(), delegate: self)
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
 
         setupSegmentedControl()
         setupRobotImageView()
@@ -115,7 +114,6 @@ extension RobotConfigurationViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        subscribeForConnectionChange()
         if selectedRobot == nil {
             createNewConfiguration()
         }
@@ -125,11 +123,6 @@ extension RobotConfigurationViewController {
             leftButtonLeadingConstraint.constant = UIView.actualNotchSize
         }
         controllers = realmService.getControllers().filter({ $0.configurationId == configuration!.id })
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        unsubscribeFromConnectionChange()
     }
 }
 
@@ -254,9 +247,9 @@ extension RobotConfigurationViewController {
     }
 
     private func setupBluetoothButton() {
-        let image =
-            bluetoothService.connectedDevice != nil ? Image.Common.bluetoothIcon : Image.Common.bluetoothInactiveIcon
-        bluetoothButton.setImage(image, for: .normal)
+//        let image =
+//            bluetoothService.connectedDevice != nil ? Image.Common.bluetoothIcon : Image.Common.bluetoothInactiveIcon
+//        bluetoothButton.setImage(image, for: .normal)
     }
 
     private func setupConfigurationView() {
@@ -418,50 +411,6 @@ extension RobotConfigurationViewController {
         })
     }
 
-    @IBAction private func bluetoothTapped(_ sender: Any) {
-        guard bluetoothService.connectedDevice != nil else {
-            presentConnectModal()
-            return
-        }
-
-        presentDisconnectModal()
-    }
-
-    private func presentConnectModal() {
-        let modalPresenter = BluetoothConnectionModalPresenter()
-        modalPresenter.present(
-            on: self,
-            startDiscoveryHandler: { [weak self] in
-                self?.bluetoothService.startDiscovery(onScanResult: { result in
-                    switch result {
-                    case .success(let devices):
-                        modalPresenter.discoveredDevices = devices
-                    case .failure:
-                        os_log("Error: Failed to discover peripherals!")
-                    }
-                })
-
-            },
-            deviceSelectionHandler: { [weak self] device in
-                self?.bluetoothService.connect(to: device)
-            },
-            onDismissed: { [weak self] in
-                self?.bluetoothService.stopDiscovery()
-        })
-    }
-
-    private func presentDisconnectModal() {
-        let view = DisconnectModal.instatiate()
-        view.disconnectHandler = { [weak self] in
-            self?.bluetoothService.disconnect(shouldReconnect: false)
-            self?.dismissModalViewController()
-        }
-        view.cancelHandler = { [weak self] in
-            self?.dismissModalViewController()
-        }
-        presentModal(with: view)
-    }
-
     @IBAction private func leftButtonTapped(_ sender: Any) {
         collectionView.leftStep()
     }
@@ -539,36 +488,14 @@ extension RobotConfigurationViewController: UIImagePickerControllerDelegate, UIN
 
 // MARK: - Connections
 extension RobotConfigurationViewController {
-    private func presentBluetoothModal() {
-        let modalPresenter = BluetoothConnectionModalPresenter()
-        modalPresenter.present(
-            on: self,
-            startDiscoveryHandler: { [weak self] in
-                self?.bluetoothService.startDiscovery(onScanResult: { result in
-                    switch result {
-                    case .success(let devices):
-                        modalPresenter.discoveredDevices = devices
-                    case .failure:
-                        os_log("Error: Failed to discover peripherals!")
-                    }
-                })
-
-            },
-            deviceSelectionHandler: { [weak self] device in
-                self?.bluetoothService.connect(to: device)
-            },
-            onDismissed: { [weak self] in
-                self?.bluetoothService.stopDiscovery()
-        })
-    }
-
     override func connected() {
         super.connected()
         bluetoothService.stopDiscovery()
-        bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
+        navigationBar.bluetoothButtonState = .connected
     }
 
     override func disconnected() {
-        bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 }

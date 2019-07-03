@@ -56,6 +56,7 @@ extension ButtonlessProgramsViewController {
         super.viewDidLoad()
 
         navigationBar.setup(title: ProgramsKeys.Buttonless.title.translate(), delegate: self)
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         setupButtons()
         setupTableView()
         fetchPrograms()
@@ -261,5 +262,18 @@ extension ButtonlessProgramsViewController {
         let vc = AppContainer.shared.container.unwrappedResolve(ProgramPriorityViewController.self)
         vc.controllerViewModel = controllerViewModel
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+// MARK: - Bluetooth connection
+extension ButtonlessProgramsViewController {
+    override func connected() {
+        super.connected()
+        navigationBar.bluetoothButtonState = .connected
+    }
+
+    override func disconnected() {
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 }

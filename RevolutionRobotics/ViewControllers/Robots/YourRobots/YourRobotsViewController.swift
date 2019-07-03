@@ -39,6 +39,7 @@ extension YourRobotsViewController {
         super.viewDidLoad()
 
         navigationBar.setup(title: RobotsKeys.YourRobots.title.translate(), delegate: self)
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         buildNewButton.title = RobotsKeys.YourRobots.buildNewButtonTitle.translate()
         buildNewButton.selectionHandler = { [weak self] in
             let whoToBuildViewController = AppContainer.shared.container.unwrappedResolve(WhoToBuildViewController.self)
@@ -211,5 +212,18 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
             self?.collectionView.reloadData()
         }
         navigationController?.pushViewController(configuration, animated: true)
+    }
+}
+
+// MARK: - Bluetooth connection
+extension YourRobotsViewController {
+    override func connected() {
+        super.connected()
+        navigationBar.bluetoothButtonState = .connected
+    }
+
+    override func disconnected() {
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 }

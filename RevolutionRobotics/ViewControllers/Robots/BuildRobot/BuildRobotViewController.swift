@@ -13,7 +13,6 @@ class BuildRobotViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var progressLabel: RRProgressLabel!
-    @IBOutlet private weak var bluetoothButton: RRButton!
     @IBOutlet private weak var partStackView: UIStackView!
     @IBOutlet private weak var buildProgressBar: BuildProgressBar!
     @IBOutlet private weak var zoomableImageView: RRZoomableImageView!
@@ -21,7 +20,6 @@ class BuildRobotViewController: BaseViewController {
     // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
-    var bluetoothService: BluetoothServiceInterface!
     var remoteRobotDataModel: Robot? {
         didSet {
             fetchBuildSteps()
@@ -51,7 +49,6 @@ extension BuildRobotViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        subscribeForConnectionChange()
         presentBluetoothConnectionModal(buttonTapped: false)
 
         guard !steps.isEmpty else { return }
@@ -66,20 +63,12 @@ extension BuildRobotViewController {
         zoomableImageView.resizeImageView()
         setupProgressBar()
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        unsubscribeFromConnectionChange()
-    }
 }
 
 // MARK: - Setup
 extension BuildRobotViewController {
     private func setupBluetoothButton() {
-        let image =
-            bluetoothService.connectedDevice != nil ? Image.Common.bluetoothIcon : Image.Common.bluetoothInactiveIcon
-        bluetoothButton.setImage(image, for: .normal)
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
     }
 
     private func setupComponents() {
@@ -253,30 +242,6 @@ extension BuildRobotViewController {
         presentDisconnectModal()
     }
 
-    private func presentConnectModal() {
-        let modalPresenter = BluetoothConnectionModalPresenter()
-        modalPresenter.shouldHideSkip = true
-        modalPresenter.present(
-            on: self,
-            startDiscoveryHandler: { [weak self] in
-                self?.bluetoothService.startDiscovery(onScanResult: { result in
-                    switch result {
-                    case .success(let devices):
-                        modalPresenter.discoveredDevices = devices
-                    case .failure:
-                        os_log("Error: Failed to discover peripherals!")
-                    }
-                })
-
-            },
-            deviceSelectionHandler: { [weak self] device in
-                self?.bluetoothService.connect(to: device)
-            },
-            onDismissed: { [weak self] in
-                self?.bluetoothService.stopDiscovery()
-        })
-    }
-
     private func fetchBuildSteps() {
         firebaseService.getBuildSteps(for: remoteRobotDataModel?.id, completion: { [weak self] result in
             switch result {
@@ -359,8 +324,7 @@ extension BuildRobotViewController {
 extension BuildRobotViewController {
     override func connected() {
         super.connected()
-        bluetoothService.stopDiscovery()
-        bluetoothButton.setImage(Image.Common.bluetoothIcon, for: .normal)
+        navigationBar.bluetoothButtonState = .connected
         if let milestone = milestone {
             bluetoothService.testKit(
                 data: String(data: Data(base64Encoded: milestone.testCode)!, encoding: .utf8)!,
@@ -370,7 +334,8 @@ extension BuildRobotViewController {
     }
 
     override func disconnected() {
-        bluetoothButton.setImage(Image.Common.bluetoothInactiveIcon, for: .normal)
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 
     override func connectionError() {

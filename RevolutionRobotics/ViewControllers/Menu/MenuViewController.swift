@@ -11,16 +11,12 @@ import RevolutionRoboticsBlockly
 import SafariServices
 
 final class MenuViewController: BaseViewController {
-    // MARK: - Constants
-    private enum Constants {
-        static let communityURL: URL = URL(string: "https://www.google.com")! // TODO: Change to the real community URL
-    }
-
     // MARK: - Outlets
     @IBOutlet private weak var menuItemContainer: UIView!
     @IBOutlet private weak var robotsTitleLabel: UILabel!
     @IBOutlet private weak var programsTitleLabel: UILabel!
     @IBOutlet private weak var challengesTitleLabel: UILabel!
+    @IBOutlet private weak var navigationBar: RRNavigationBar!
 }
 
 // MARK: - View lifecycle
@@ -31,6 +27,8 @@ extension MenuViewController {
         robotsTitleLabel.text = MenuKeys.robotCellTitle.translate()
         programsTitleLabel.text = MenuKeys.programsCellTitle.translate()
         challengesTitleLabel.text = MenuKeys.challengesCellTitle.translate()
+        navigationBar.setup(title: nil, delegate: self)
+        navigationBar.shouldHideBackButton = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -70,5 +68,18 @@ extension MenuViewController {
         let challengesViewController =
             AppContainer.shared.container.unwrappedResolve(ChallengeCategoriesViewController.self)
         navigationController?.pushViewController(challengesViewController, animated: true)
+    }
+}
+
+// MARK: - Bluetooth connection
+extension MenuViewController {
+    override func connected() {
+        super.connected()
+        navigationBar.bluetoothButtonState = .connected
+    }
+
+    override func disconnected() {
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 }

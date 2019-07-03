@@ -17,7 +17,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuildRobotViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
-                <outlet property="bluetoothButton" destination="qT2-XC-Jw8" id="MQY-4a-5yX"/>
                 <outlet property="buildProgressBar" destination="TTV-yz-alA" id="jLG-lk-B5H"/>
                 <outlet property="navigationBar" destination="IxG-51-Oet" id="HKX-6k-zjx"/>
                 <outlet property="partStackView" destination="5uw-FO-bon" id="zdG-nV-fJM"/>
@@ -41,38 +40,23 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxG-51-Oet" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="812" height="71"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qT2-XC-Jw8" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="762" y="2" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="2v1-7X-ZEC"/>
-                                <constraint firstAttribute="height" constant="40" id="mcZ-HS-Yf5"/>
-                            </constraints>
-                            <state key="normal" image="BluetoothIcon"/>
-                            <connections>
-                                <action selector="bluetoothButtonTapped:" destination="-1" eventType="touchUpInside" id="20l-KL-gvW"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYq-fd-hML" userLabel="progressLabel" customClass="RRProgressLabel" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="728" y="22" width="30" height="0.0"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYq-fd-hML" userLabel="progressLabel" customClass="RRProgressLabel" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="728" y="13" width="30" height="18"/>
                             <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHd-YH-4xv">
-                            <rect key="frame" x="728" y="2" width="30" height="40"/>
+                            <rect key="frame" x="728" y="12" width="30" height="30"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="JHd-YH-4xv" firstAttribute="leading" secondItem="sYq-fd-hML" secondAttribute="leading" id="21P-tY-u7P"/>
-                        <constraint firstItem="JHd-YH-4xv" firstAttribute="centerY" secondItem="qT2-XC-Jw8" secondAttribute="centerY" id="3J5-ag-pHo"/>
-                        <constraint firstItem="sYq-fd-hML" firstAttribute="centerY" secondItem="qT2-XC-Jw8" secondAttribute="centerY" id="4R3-cO-LNA"/>
                         <constraint firstAttribute="height" constant="71" id="N99-YK-ZpF"/>
-                        <constraint firstItem="qT2-XC-Jw8" firstAttribute="leading" secondItem="sYq-fd-hML" secondAttribute="trailing" constant="4" id="UYk-Pk-bLZ"/>
+                        <constraint firstItem="sYq-fd-hML" firstAttribute="top" secondItem="IxG-51-Oet" secondAttribute="top" constant="13" id="YJG-un-S8C"/>
                         <constraint firstItem="JHd-YH-4xv" firstAttribute="trailing" secondItem="sYq-fd-hML" secondAttribute="trailing" id="bwa-nN-ZHp"/>
-                        <constraint firstAttribute="trailing" secondItem="qT2-XC-Jw8" secondAttribute="trailing" constant="10" id="ffa-TY-NZQ"/>
-                        <constraint firstItem="JHd-YH-4xv" firstAttribute="height" secondItem="qT2-XC-Jw8" secondAttribute="height" id="imL-uq-zgz"/>
-                        <constraint firstItem="qT2-XC-Jw8" firstAttribute="top" secondItem="IxG-51-Oet" secondAttribute="top" constant="2" id="tHR-h2-h7r"/>
+                        <constraint firstAttribute="trailing" secondItem="sYq-fd-hML" secondAttribute="trailing" constant="54" id="rAC-gc-0oE"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTV-yz-alA" userLabel="buildProgressBar" customClass="BuildProgressBar" customModule="RevolutionRobotics" customModuleProvider="target">
@@ -88,6 +72,7 @@
             </subviews>
             <color key="backgroundColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sYq-fd-hML" secondAttribute="trailing" constant="10" id="02l-rK-Haf"/>
                 <constraint firstItem="UXT-Hc-TIW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="39U-y2-JzF"/>
                 <constraint firstItem="sjN-3g-Kcz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6nK-Xx-TX9"/>
                 <constraint firstItem="IxG-51-Oet" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AZn-Um-Hvk"/>
@@ -96,6 +81,7 @@
                 <constraint firstItem="5uw-FO-bon" firstAttribute="top" secondItem="JHd-YH-4xv" secondAttribute="bottom" constant="2" id="ISN-dL-d97"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="TTV-yz-alA" secondAttribute="leading" constant="-8" id="OUs-3m-AO5"/>
                 <constraint firstAttribute="bottom" secondItem="UXT-Hc-TIW" secondAttribute="bottom" id="QIG-7Y-eEh"/>
+                <constraint firstItem="5uw-FO-bon" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="44" id="QMF-YV-ffP"/>
                 <constraint firstItem="UXT-Hc-TIW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Qn9-uh-l79"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="sjN-3g-Kcz" secondAttribute="leading" id="RG9-5U-S3Z"/>
                 <constraint firstAttribute="trailing" secondItem="UXT-Hc-TIW" secondAttribute="trailing" id="UCe-Cc-pR0"/>
@@ -110,7 +96,6 @@
         </view>
     </objects>
     <resources>
-        <image name="BluetoothIcon" width="40" height="40"/>
         <image name="GlowBackground" width="568" height="320"/>
     </resources>
 </document>

@@ -20,7 +20,6 @@ final class FirmwareUpdateViewController: BaseViewController {
     @IBOutlet private weak var checkForUpdatesLabel: UILabel!
 
     // MARK: - Properties
-    var bluetoothService: BluetoothServiceInterface!
     var firebaseService: FirebaseServiceInterface!
     private let checkForUpdatesModal = CheckForUpdatesModal.instatiate()
     private var currentFirmware: String = ""
@@ -33,12 +32,13 @@ extension FirmwareUpdateViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         navigationBar.setup(title: SettingsKeys.Firmware.title.translate(), delegate: self)
         brainIDTitleLabel.text = ModalKeys.FirmwareUpdate.loading.translate()
         newConnectionButton.title = SettingsKeys.Firmware.newConnectionButton.translate()
         newConnectionButton.image = Image.Common.bluetoothWhiteIcon
         newConnectionButton.selectionHandler = { [weak self] in
-            self?.showTurnOnTheBrain()
+            self?.presentConnectModal()
         }
 
         if bluetoothService.connectedDevice != nil {
@@ -106,49 +106,20 @@ extension FirmwareUpdateViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        subscribeForConnectionChange()
         UIApplication.shared.isIdleTimerDisabled = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        unsubscribeFromConnectionChange()
         UIApplication.shared.isIdleTimerDisabled = false
-    }
-}
-
-// MARK: - Functions
-extension FirmwareUpdateViewController {
-    private func showTurnOnTheBrain() {
-        let modalPresenter = BluetoothConnectionModalPresenter()
-        modalPresenter.shouldHideSkip = true
-        modalPresenter.present(
-            on: self,
-            startDiscoveryHandler: { [weak self] in
-                self?.bluetoothService.startDiscovery(onScanResult: { result in
-                    switch result {
-                    case .success(let devices):
-                        modalPresenter.discoveredDevices = devices
-                    case .failure:
-                        os_log("Error: Failed to discover peripherals!")
-                    }
-                })
-
-            },
-            deviceSelectionHandler: { [weak self] device in
-                self?.connectedBrainView.isHidden = false
-                self?.bluetoothService.connect(to: device)
-            },
-            onDismissed: { [weak self] in
-                self?.bluetoothService.stopDiscovery()
-        })
     }
 }
 
 // MARK: - Connection
 extension FirmwareUpdateViewController {
     override func connected() {
+        connectedBrainView.isHidden = false
         bluetoothService.stopDiscovery()
         dismissModalViewController()
         let connectionModal = ConnectionModal.instatiate()
@@ -195,7 +166,7 @@ extension FirmwareUpdateViewController {
 
     private func dismissAndTryAgain() {
         dismissModalViewController()
-        showTurnOnTheBrain()
+        presentConnectModal()
     }
 }
 

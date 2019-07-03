@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayControllerViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
-                <outlet property="bluetoothButton" destination="Bxw-DW-22P" id="IU3-Ad-TKr"/>
                 <outlet property="navigationBar" destination="eRU-zB-qgZ" id="DfF-Rd-MdU"/>
                 <outlet property="padViewContainer" destination="s9J-9X-ob8" id="edn-Id-o09"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -28,24 +27,9 @@
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRU-zB-qgZ" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="896" height="71"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bxw-DW-22P" userLabel="bluetoothButton">
-                            <rect key="frame" x="840" y="2" width="44" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="DBL-G1-fRL"/>
-                                <constraint firstAttribute="width" constant="44" id="thF-i0-8Km"/>
-                            </constraints>
-                            <state key="normal" image="BluetoothInactiveIcon"/>
-                            <connections>
-                                <action selector="bluetoothButtonTapped:" destination="-1" eventType="touchUpInside" id="Fkg-rG-uTp"/>
-                            </connections>
-                        </button>
-                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Bxw-DW-22P" secondAttribute="trailing" constant="12" id="2dL-qU-qxG"/>
                         <constraint firstAttribute="height" constant="71" id="Rip-Ru-03F"/>
-                        <constraint firstItem="Bxw-DW-22P" firstAttribute="top" secondItem="eRU-zB-qgZ" secondAttribute="top" constant="2" id="r4S-wN-vgc"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s9J-9X-ob8">
@@ -70,7 +54,6 @@
         </view>
     </objects>
     <resources>
-        <image name="BluetoothInactiveIcon" width="24" height="24"/>
         <image name="PlayControllerBackground" width="305" height="288"/>
     </resources>
 </document>

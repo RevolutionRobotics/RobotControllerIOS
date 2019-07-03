@@ -13,7 +13,7 @@ protocol ModalViewControllerDelegate: class {
     func dismissModalViewController()
 }
 
-final class ModalViewController: BaseViewController {
+final class ModalViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet private weak var modalContainer: UIView!
     @IBOutlet private weak var closeButton: UIButton!

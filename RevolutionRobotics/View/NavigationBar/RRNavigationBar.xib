@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="backButton" destination="M9M-8p-KAY" id="e12-jV-573"/>
+                <outlet property="bluetoothButton" destination="i60-SE-gmU" id="1fO-Ts-krA"/>
                 <outlet property="titleLabel" destination="fAQ-Kd-tmk" id="Fuf-iV-5cn"/>
             </connections>
         </placeholder>
@@ -46,6 +47,17 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i60-SE-gmU" userLabel="bluetoothButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="591" y="1" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="8ew-n1-LWc"/>
+                        <constraint firstAttribute="height" constant="44" id="Czc-X1-0lQ"/>
+                    </constraints>
+                    <state key="normal" image="BluetoothInactiveIcon"/>
+                    <connections>
+                        <action selector="bluetoothButtonTapped:" destination="-1" eventType="touchUpInside" id="PBl-bA-uan"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -53,7 +65,9 @@
                 <constraint firstItem="hsI-v2-QvQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8QG-UG-wXC"/>
                 <constraint firstAttribute="trailing" secondItem="hsI-v2-QvQ" secondAttribute="trailing" id="Ilf-Y1-JTI"/>
                 <constraint firstItem="M9M-8p-KAY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="9" id="R0U-LO-PLZ"/>
+                <constraint firstItem="i60-SE-gmU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="1" id="fbH-G0-dKp"/>
                 <constraint firstItem="M9M-8p-KAY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="jEq-oW-3Nr"/>
+                <constraint firstAttribute="trailing" secondItem="i60-SE-gmU" secondAttribute="trailing" constant="10" id="uPB-6t-YUs"/>
                 <constraint firstItem="hsI-v2-QvQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vPC-Va-4CH"/>
                 <constraint firstAttribute="bottom" secondItem="hsI-v2-QvQ" secondAttribute="bottom" id="x18-zW-dQL"/>
                 <constraint firstItem="fAQ-Kd-tmk" firstAttribute="leading" secondItem="M9M-8p-KAY" secondAttribute="trailing" constant="10" id="zmn-di-3ok"/>
@@ -66,6 +80,7 @@
     </objects>
     <resources>
         <image name="BackIcon" width="13" height="22"/>
+        <image name="BluetoothInactiveIcon" width="24" height="24"/>
         <image name="NavigationBarBackground" width="401" height="71"/>
     </resources>
 </document>
