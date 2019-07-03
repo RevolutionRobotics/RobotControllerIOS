@@ -21,7 +21,7 @@ final class VariableContextView: UIView {
     @IBOutlet private weak var tableView: UITableView!
 
     // MARK: - Properties
-    private var variableContextActionSelected: CallbackType<String?>?
+    private var variableContextActionSelected: CallbackType<VariableContextAction?>?
     private var variables: [Option] = []
     private var defaultVariableKey: String?
 
@@ -36,7 +36,7 @@ final class VariableContextView: UIView {
 
 // MARK: - Setup
 extension VariableContextView {
-    func setup(optionSelector: OptionSelector, variableContextActionSelected: CallbackType<String?>?) {
+    func setup(optionSelector: OptionSelector, variableContextActionSelected: CallbackType<VariableContextAction?>?) {
         self.variableContextActionSelected = variableContextActionSelected
         defaultVariableKey = optionSelector.defaultKey
         variables = optionSelector.options.dropLast()
@@ -60,8 +60,7 @@ extension VariableContextView {
 // MARK: - UITableViewDelegate
 extension VariableContextView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let setVariableAction = SetVariableAction(payload: variables[indexPath.row].key)
-        variableContextActionSelected?(setVariableAction.jsonSerialized)
+        variableContextActionSelected?(SetVariableAction(payload: variables[indexPath.row].key))
     }
 }
 
@@ -89,6 +88,6 @@ extension VariableContextView: UITableViewDataSource {
 extension VariableContextView {
     @IBAction private func doneButtonTapped(_ sender: Any) {
         guard let defaultVariableKey = defaultVariableKey else { return }
-        variableContextActionSelected?(DeleteVariableAction(payload: defaultVariableKey).jsonSerialized)
+        variableContextActionSelected?(DeleteVariableAction(payload: defaultVariableKey))
     }
 }

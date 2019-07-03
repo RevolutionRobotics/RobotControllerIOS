@@ -21,6 +21,12 @@ final class BlockContextView: UIView {
     var deleteCallback: Callback?
     var helpCallback: Callback?
     var duplicateCallback: Callback?
+
+    // MARK: - Properties
+    var comment: String? {
+        guard let text = noteInputField.text else { return nil }
+        return text.isEmpty ? nil : text
+    }
 }
 
 // MARK: - View lifecycle
@@ -45,10 +51,6 @@ extension BlockContextView {
                              placeholder: ProgramsKeys.BlockContext.placeholder.translate(),
                              characterLimit: nil)
         noteInputField.text = contextHandler.comment
-    }
-
-    func getComment() -> String {
-        return noteInputField.text ?? ""
     }
 }
 

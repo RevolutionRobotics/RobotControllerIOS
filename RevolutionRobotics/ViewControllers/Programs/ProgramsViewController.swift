@@ -272,27 +272,28 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
         presentModal(with: textInput, onDismissed: { callback?(nil) })
     }
 
-    func blockContext(_ contextHandler: BlockContextHandler, callback: ((String?) -> Void)?) {
-        let modal = BlockContextView.instatiate()
-        modal.setup(with: contextHandler)
-        modal.deleteCallback = { [weak self] in
+    func blockContext(_ contextHandler: BlockContextHandler, callback: ((BlockContextAction?) -> Void)?) {
+        let blockContext = BlockContextView.instatiate()
+        blockContext.setup(with: contextHandler)
+        blockContext.deleteCallback = { [weak self] in
             self?.dismissModalViewController()
-            callback?(DeleteBlockAction(payload: "").jsonSerialized)
+            callback?(DeleteBlockAction())
         }
-        modal.duplicateCallback = { [weak self] in
+        blockContext.duplicateCallback = { [weak self] in
             self?.dismissModalViewController()
-            callback?(DuplicateBlockAction(payload: "").jsonSerialized)
+            callback?(DuplicateBlockAction())
         }
-        modal.helpCallback = { [weak self] in
+        blockContext.helpCallback = { [weak self] in
             self?.dismissModalViewController()
-            callback?(HelpAction(payload: "").jsonSerialized)
+            callback?(HelpAction())
         }
-        presentModal(with: modal, onDismissed: {
-            callback?(AddCommentAction(payload: modal.getComment()).jsonSerialized)
+
+        presentModal(with: blockContext, onDismissed: {
+            callback?(AddCommentAction(payload: blockContext.comment))
         })
     }
 
-    func variableContext(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
+    func variableContext(_ optionSelector: OptionSelector, callback: ((VariableContextAction?) -> Void)?) {
         let variableContextView = VariableContextView.instatiate()
 
         variableContextView.setup(optionSelector: optionSelector) { [weak self] variableAction in
