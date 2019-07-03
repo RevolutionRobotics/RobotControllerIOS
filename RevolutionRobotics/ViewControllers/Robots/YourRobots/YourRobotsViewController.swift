@@ -155,10 +155,7 @@ extension YourRobotsViewController: UICollectionViewDataSource {
 // MARK: - RRCollectionViewDelegate
 extension YourRobotsViewController: RRCollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard !collectionView.isDecelerating,
-            let cell = collectionView.cellForItem(at: indexPath) as? ResizableCell,
-            cell.isCentered,
-            let status = BuildStatus(rawValue: robots[indexPath.item].buildStatus) else { return }
+        guard let status = BuildStatus(rawValue: robots[indexPath.item].buildStatus) else { return }
         selectedIndexPath = indexPath
         switch status {
         case .completed:

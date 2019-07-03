@@ -59,7 +59,16 @@ extension RRCollectionView: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        rrDelegate?.collectionView(collectionView, didSelectItemAt: indexPath)
+        guard !self.isDecelerating else { return }
+        if let cell = self.cellForItem(at: indexPath) as? ResizableCell {
+            if cell.isCentered {
+                rrDelegate?.collectionView(collectionView, didSelectItemAt: indexPath)
+            } else {
+                scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                selectedIndexPath = indexPath
+                designCells()
+            }
+        }
     }
 }
 

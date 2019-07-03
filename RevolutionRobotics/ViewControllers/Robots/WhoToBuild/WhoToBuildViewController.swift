@@ -142,9 +142,6 @@ extension WhoToBuildViewController: UICollectionViewDataSource {
 // MARk: - RRCollectionViewDelegate
 extension WhoToBuildViewController: RRCollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard !collectionView.isDecelerating,
-            let cell = collectionView.cellForItem(at: indexPath) as? WhoToBuildCollectionViewCell,
-            cell.isCentered else { return }
         selectedRobot = robots[indexPath.row]
         navigateToBuildScreen()
     }
