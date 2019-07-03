@@ -254,7 +254,7 @@
 "testing_ultrasonic_test" = "Move your hand in front of the robot. If the sensor detects it, the LED lights of the robot will turn green, otherwise turn red.";
 
 "challenge_finished_dialog_title" = "Challenge accomplished!";
-"challenge_finished_dialog_latest_title" = "Challenge accomplished, well done!";
+"challenge_finished_dialog_latest_title" = "Challenge section accomplished, well done!";
 "challenge_finished_dialog_button_home" = "Home";
 "challenge_finished_dialog_button_challenge_list" = "Challenge list";
 "challenge_finished_dialog_button_next" = "Next challenge";
