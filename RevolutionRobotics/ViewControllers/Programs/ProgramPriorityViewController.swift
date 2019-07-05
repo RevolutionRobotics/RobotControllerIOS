@@ -10,6 +10,11 @@ import UIKit
 import RealmSwift
 
 final class ProgramPriorityViewController: BaseViewController {
+    // MARK: - Constants
+    enum Constants {
+        static let tableViewTopInset: CGFloat = 30
+    }
+
     // MARK: - Outlets
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var programsTableView: UITableView!
@@ -30,6 +35,8 @@ final class ProgramPriorityViewController: BaseViewController {
     }
     private var orderedPrograms: [ProgramDataModel] = []
     private var drivetrainPlaceholder: ProgramDataModel!
+    private var sourceIndexPath: IndexPath?
+    private var destinationIndexPath: IndexPath?
 }
 
 // MARK: - View lifecycle
@@ -46,6 +53,7 @@ extension ProgramPriorityViewController {
         programsTableView.dropDelegate = self
         programsTableView.dragInteractionEnabled = true
         programsTableView.register(ProgramsOrderTableViewCell.self)
+        programsTableView.contentInset = UIEdgeInsets(top: Constants.tableViewTopInset, left: 0, bottom: 0, right: 0)
 
         drivetrainPlaceholder.id = "-1"
         drivetrainPlaceholder.name = "Drivetrain"
@@ -64,6 +72,7 @@ extension ProgramPriorityViewController: UITableViewDragDelegate {
     func tableView(_ tableView: UITableView,
                    itemsForBeginning session: UIDragSession,
                    at indexPath: IndexPath) -> [UIDragItem] {
+        sourceIndexPath = indexPath
         return dragItems(for: indexPath)
     }
 
@@ -92,12 +101,31 @@ extension ProgramPriorityViewController: UITableViewDragDelegate {
 
 // MARK: - UITableViewDropDelegate
 extension ProgramPriorityViewController: UITableViewDropDelegate {
-    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) { }
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+        guard let sourceIndexPath = sourceIndexPath, let destinationIndexPath = coordinator.destinationIndexPath else {
+            return
+        }
+        moveItem(from: sourceIndexPath, to: destinationIndexPath)
+    }
 
     func tableView(_ tableView: UITableView,
                    dropSessionDidUpdate session: UIDropSession,
                    withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        self.destinationIndexPath = destinationIndexPath
         return UITableViewDropProposal(operation: .move, intent: .automatic)
+    }
+
+    func tableView(_ tableView: UITableView, dropSessionDidExit session: UIDropSession) {
+        guard let sourceIndexPath = sourceIndexPath, var destinationIndexPath = destinationIndexPath else {
+            return
+        }
+        if destinationIndexPath.row > sourceIndexPath.row {
+            destinationIndexPath = IndexPath(row: orderedPrograms.count - 1, section: 0)
+        } else {
+            destinationIndexPath = IndexPath(row: 0, section: 0)
+        }
+        moveItem(from: sourceIndexPath, to: destinationIndexPath)
+        programsTableView.scrollToRow(at: destinationIndexPath, at: .none, animated: true)
     }
 }
 
@@ -130,16 +158,6 @@ extension ProgramPriorityViewController: UITableViewDataSource {
         )
 
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let program = orderedPrograms[sourceIndexPath.row]
-        orderedPrograms.remove(at: sourceIndexPath.row)
-        orderedPrograms.insert(program, at: destinationIndexPath.row)
     }
 }
 
@@ -243,6 +261,16 @@ extension ProgramPriorityViewController {
         default:
             break
         }
+    }
+
+    private func moveItem(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let program = orderedPrograms[sourceIndexPath.row]
+        orderedPrograms.remove(at: sourceIndexPath.row)
+        orderedPrograms.insert(program, at: destinationIndexPath.row)
+        programsTableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+        self.sourceIndexPath = nil
+        self.destinationIndexPath = nil
+        programsTableView.reloadData()
     }
 }
 
