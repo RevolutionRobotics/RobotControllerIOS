@@ -210,6 +210,11 @@ extension RobotConfigurationViewController: RRCollectionViewDelegate {
         guard let cell = collectionView.cellForItem(at: indexPath) as? ControllerCollectionViewCell,
             lastSelectedIndexPath != indexPath else { return }
 
+        guard !cell.isControllerSelected else {
+            navigateToPlayControllerViewController(with: controllers[indexPath.row])
+            return
+        }
+
         for index in 0...collectionView.numberOfItems(inSection: 0) {
             let cell =
                 collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? ControllerCollectionViewCell
@@ -234,6 +239,12 @@ extension RobotConfigurationViewController: RRCollectionViewDelegate {
 
 // MARK: - Setups
 extension RobotConfigurationViewController {
+    private func navigateToPlayControllerViewController(with controller: ControllerDataModel) {
+        let playController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
+        playController.controllerDataModel = controller
+        navigationController?.pushViewController(playController, animated: true)
+    }
+
     private func setupPhotoModal() {
         photoModal.showImagePicker = { [weak self] in
             UIImagePickerController.show(with: self!, on: (self?.presentedViewController)!)

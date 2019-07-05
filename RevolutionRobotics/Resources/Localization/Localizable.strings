@@ -60,7 +60,7 @@
 "configure_connection_tab_title" = "Connections";
 "configure_controller_tab_title" = "Controllers";
 "controller_choose_this" = "Choose this!";
-"controller_selected" = "Selected";
+"controller_selected" = "Play!";
 "error_variable_already_in_use" = "Variable name is already in use.";
 "error_variable_empty" = "Variable name cannot be empty.";
 
