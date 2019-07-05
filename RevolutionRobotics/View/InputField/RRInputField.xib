@@ -34,10 +34,10 @@
                     <rect key="frame" x="0.0" y="9" width="396" height="36"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="asd" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="14v-rH-h7O">
-                            <rect key="frame" x="16" y="5.6666666666666661" width="369" height="24.333333333333336"/>
+                            <rect key="frame" x="16" y="8" width="369" height="22"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="16"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -54,9 +54,9 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svc-C8-svv">
-                    <rect key="frame" x="16" y="0.0" width="28.666666666666671" height="14.666666666666666"/>
+                    <rect key="frame" x="15.999999999999996" y="0.0" width="33.666666666666657" height="17"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
