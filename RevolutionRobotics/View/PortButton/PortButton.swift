@@ -28,21 +28,21 @@ final class PortButton: UIButton {
             switch string {
             case "motor":
                 self = .motor
-            case "drivetrain":
-                self = .drivetrain
+            case "drive":
+                self = .drive
             case "bumper":
                 self = .bumper
-            case "ultrasonic":
-                self = .ultrasonic
+            case "distance":
+                self = .distance
             default:
                 return nil
             }
         }
 
         case motor
-        case drivetrain
+        case drive
         case bumper
-        case ultrasonic
+        case distance
     }
 
     // MARK: - State
@@ -178,12 +178,12 @@ extension PortButton {
         switch portType {
         case .motor:
             setImage(Image.Configuration.Connections.motorIcon, for: .normal)
-        case .drivetrain:
-            setImage(Image.Configuration.Connections.drivetrainIcon, for: .normal)
+        case .drive:
+            setImage(Image.Configuration.Connections.driveIcon, for: .normal)
         case .bumper:
             setImage(Image.Configuration.Connections.bumperIcon, for: .normal)
-        case .ultrasonic:
-            setImage(Image.Configuration.Connections.ultrasonicIcon, for: .normal)
+        case .distance:
+            setImage(Image.Configuration.Connections.distanceIcon, for: .normal)
         }
     }
 }

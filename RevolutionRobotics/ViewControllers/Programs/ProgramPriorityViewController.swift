@@ -28,13 +28,13 @@ final class ProgramPriorityViewController: BaseViewController {
         didSet {
             guard let controllerViewModel = controllerViewModel else { return }
             orderedPrograms = controllerViewModel.priorityOrderedPrograms
-            drivetrainPlaceholder = ProgramDataModel()
-            orderedPrograms.insert(drivetrainPlaceholder,
+            drivePlaceholder = ProgramDataModel()
+            orderedPrograms.insert(drivePlaceholder,
                                    at: min(controllerViewModel.joystickPriority, orderedPrograms.count))
         }
     }
     private var orderedPrograms: [ProgramDataModel] = []
-    private var drivetrainPlaceholder: ProgramDataModel!
+    private var drivePlaceholder: ProgramDataModel!
     private var sourceIndexPath: IndexPath?
     private var destinationIndexPath: IndexPath?
 }
@@ -55,8 +55,8 @@ extension ProgramPriorityViewController {
         programsTableView.register(ProgramsOrderTableViewCell.self)
         programsTableView.contentInset = UIEdgeInsets(top: Constants.tableViewTopInset, left: 0, bottom: 0, right: 0)
 
-        drivetrainPlaceholder.id = "-1"
-        drivetrainPlaceholder.name = "Drivetrain"
+        drivePlaceholder.id = "-1"
+        drivePlaceholder.name = "Drive"
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -154,7 +154,7 @@ extension ProgramPriorityViewController: UITableViewDataSource {
             with: program,
             order: indexPath.row + 1,
             isButtonlessProgram: (controllerViewModel?.isBackgroundProgram(program))!,
-            infoCallback: program.id == drivetrainPlaceholder.id ? nil : infoCallback
+            infoCallback: program.id == drivePlaceholder.id ? nil : infoCallback
         )
 
         return cell
@@ -181,7 +181,7 @@ extension ProgramPriorityViewController {
             controller.controllerDescription = description ?? ""
             controller.lastModified = Date()
             controller.joystickPriority =
-                (self?.orderedPrograms.firstIndex(of: (self?.drivetrainPlaceholder)!))!
+                (self?.orderedPrograms.firstIndex(of: (self?.drivePlaceholder)!))!
 
             let viewModel = self?.controllerViewModel
             self?.updateButtonProgramPriority(on: viewModel?.b1Binding, controller: controller, buttonIndex: 1)

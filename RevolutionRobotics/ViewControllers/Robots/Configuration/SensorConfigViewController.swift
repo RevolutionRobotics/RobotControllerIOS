@@ -20,7 +20,7 @@ final class SensorConfigViewController: BaseViewController {
     // MARK: - Views
     private let emptyButton = PortConfigurationItemView.instatiate()
     private let bumperButton = PortConfigurationItemView.instatiate()
-    private let ultrasoundButton = PortConfigurationItemView.instatiate()
+    private let distanceButton = PortConfigurationItemView.instatiate()
 
     // MARK: - Variables
     var selectedSensorType: SensorConfigViewModelType = .empty {
@@ -33,18 +33,36 @@ final class SensorConfigViewController: BaseViewController {
     }
 
     var portNumber = 0
+    var bumperSensorCounts: Int!
+    var distanceSensorCounts: Int!
+    var name: String?
+    var prohibitedNames: [String] = []
     var doneButtonTapped: CallbackType<SensorConfigViewModel>?
     var testButtonTapped: CallbackType<SensorConfigViewModel>?
     var screenDismissed: Callback?
-    var name: String?
-    var prohibitedNames: [String] = []
     var testCodeService: PortTestCodeServiceInterface!
 
+    // MARK: - Private
     private var shouldCallDismiss = true
     private var shouldRunTestScriptOnConnection = false
 
     private var sensorPortNumber: Int {
         return portNumber - 6
+    }
+
+    private var nameInputFieldText: String? {
+        if let name = name, name.contains(selectedSensorType.rawValue) { return name }
+
+        switch selectedSensorType {
+        case .bumper:
+            let bumperCountString = bumperSensorCounts == 0 ? "" : "\(bumperSensorCounts + 1)"
+            return selectedSensorType.rawValue + bumperCountString
+        case .distance:
+            let distanceCountString = distanceSensorCounts == 0 ? "" : "\(distanceSensorCounts + 1)"
+            return selectedSensorType.rawValue + distanceCountString
+        default:
+            return nil
+        }
     }
 
     // MARK: - Lifecycle
@@ -113,14 +131,14 @@ extension SensorConfigViewController {
         )
         buttonContainer.addArrangedSubview(bumperButton)
 
-        ultrasoundButton.configure(options: PortConfigurationItemView.Options(
-            title: RobotsKeys.Configure.Sensor.ultrasoundButton.translate(),
-            selectedImage: Image.Configure.ultrasoundSelected,
-            unselectedImage: Image.Configure.ultrasoundUnselected) { [weak self] in
-                self?.selectedSensorType = .ultrasonic
+        distanceButton.configure(options: PortConfigurationItemView.Options(
+            title: RobotsKeys.Configure.Sensor.distanceButton.translate(),
+            selectedImage: Image.Configure.distanceSelected,
+            unselectedImage: Image.Configure.distanceUnselected) { [weak self] in
+                self?.selectedSensorType = .distance
             }
         )
-        buttonContainer.addArrangedSubview(ultrasoundButton)
+        buttonContainer.addArrangedSubview(distanceButton)
     }
 
     private func setupActionButtons() {
@@ -132,14 +150,19 @@ extension SensorConfigViewController {
 // MARK: - Event handling
 extension SensorConfigViewController {
     private func handleSelectionChange() {
+        nameInputField.text = nameInputFieldText
         emptyButton.set(selected: selectedSensorType == .empty)
         bumperButton.set(selected: selectedSensorType == .bumper)
-        ultrasoundButton.set(selected: selectedSensorType == .ultrasonic)
+        distanceButton.set(selected: selectedSensorType == .distance)
     }
 
     private func validateActionButtons() {
-        let name = nameInputField.text ?? ""
         testButton.isEnabled = selectedSensorType != .empty
+        guard let name = nameInputField.text else {
+            doneButton.isEnabled = selectedSensorType == .empty
+            return
+        }
+
         doneButton.isEnabled = (selectedSensorType != .empty && !name.isEmpty) || selectedSensorType == .empty
     }
 
@@ -148,8 +171,8 @@ extension SensorConfigViewController {
         switch selectedSensorType {
         case .bumper:
             modal.setup(with: .bumper)
-        case .ultrasonic:
-            modal.setup(with: .ultrasonic)
+        case .distance:
+            modal.setup(with: .distance)
         default: break
         }
         modal.positiveButtonTapped = { [weak self] in
@@ -190,7 +213,7 @@ extension SensorConfigViewController {
         let isBumperType = selectedSensorType == .bumper
         let testCode = isBumperType ?
             testCodeService.bumperTestCode(for: sensorPortNumber) :
-            testCodeService.ultrasonicTestCode(for: sensorPortNumber)
+            testCodeService.distanceTestCode(for: sensorPortNumber)
 
         bluetoothService.testKit(data: testCode, onCompleted: nil)
     }

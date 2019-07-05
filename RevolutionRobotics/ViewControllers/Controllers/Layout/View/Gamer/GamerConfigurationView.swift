@@ -61,7 +61,7 @@ extension GamerConfigurationView {
 
     private func setupDrivetrainButton() {
         drivetrainButton.lines = drivetrainDashedView
-        drivetrainButton.setTitle(ControllerKeys.drivetrain.translate(), for: .normal)
+        drivetrainButton.setTitle(ControllerKeys.drive.translate(), for: .normal)
         drivetrainButton.setupStaticState()
     }
 

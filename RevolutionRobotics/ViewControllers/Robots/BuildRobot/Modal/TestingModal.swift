@@ -12,8 +12,8 @@ final class TestingModal: UIView {
     // MARK: - Enum
     enum TestingModalType {
         case motor
-        case drivetrain
-        case ultrasonic
+        case drive
+        case distance
         case bumper
         case milestone(Milestone)
     }
@@ -56,12 +56,12 @@ extension TestingModal {
         case .bumper:
             testImageView.image = Image.Testing.BumperTestImage
             testInstructionLabel.text = ModalKeys.Testing.bumperTest.translate()
-        case .ultrasonic:
-            testImageView.image = Image.Testing.UltrasonicTestImage
-            testInstructionLabel.text = ModalKeys.Testing.ultrasonicTest.translate()
-        case .drivetrain:
-            testImageView.image = Image.Testing.DrivetrainTestImage
-            testInstructionLabel.text = ModalKeys.Testing.drivetrainTest.translate()
+        case .distance:
+            testImageView.image = Image.Testing.distanceTestImage
+            testInstructionLabel.text = ModalKeys.Testing.distanceTest.translate()
+        case .drive:
+            testImageView.image = Image.Testing.driveTestImage
+            testInstructionLabel.text = ModalKeys.Testing.driveTest.translate()
         case .motor:
             testImageView.image = Image.Testing.MotorTestImage
             testInstructionLabel.text = ModalKeys.Testing.motorTest.translate()

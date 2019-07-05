@@ -136,9 +136,9 @@
 		2A77320A2264A32D00D7F38D /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732092264A32D00D7F38D /* ServiceAssembly.swift */; };
 		2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77320E2264A79900D7F38D /* FirebaseServiceInterface.swift */; };
 		2A78388222C0BF5600423991 /* bumperTest.py in Resources */ = {isa = PBXBuildFile; fileRef = 2A78388122C0BF5600423991 /* bumperTest.py */; };
-		2A78388422C0BF6700423991 /* ultrasonicTest.py in Resources */ = {isa = PBXBuildFile; fileRef = 2A78388322C0BF6700423991 /* ultrasonicTest.py */; };
+		2A78388422C0BF6700423991 /* distanceTest.py in Resources */ = {isa = PBXBuildFile; fileRef = 2A78388322C0BF6700423991 /* distanceTest.py */; };
 		2A78388622C0BF8700423991 /* motorTest.py in Resources */ = {isa = PBXBuildFile; fileRef = 2A78388522C0BF8700423991 /* motorTest.py */; };
-		2A78388822C0BF9800423991 /* drivetrainTest.py in Resources */ = {isa = PBXBuildFile; fileRef = 2A78388722C0BF9800423991 /* drivetrainTest.py */; };
+		2A78388822C0BF9800423991 /* driveTest.py in Resources */ = {isa = PBXBuildFile; fileRef = 2A78388722C0BF9800423991 /* driveTest.py */; };
 		2A78388B22C0C08700423991 /* PortTestServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A78388A22C0C08700423991 /* PortTestServiceInterface.swift */; };
 		2A78388D22C0C10100423991 /* PortTestCodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A78388C22C0C10100423991 /* PortTestCodeService.swift */; };
 		2A78388F22C106A000423991 /* UpdatingFirmwareModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A78388E22C106A000423991 /* UpdatingFirmwareModalView.swift */; };
@@ -496,9 +496,9 @@
 		2A7732092264A32D00D7F38D /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		2A77320E2264A79900D7F38D /* FirebaseServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceInterface.swift; sourceTree = "<group>"; };
 		2A78388122C0BF5600423991 /* bumperTest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = bumperTest.py; sourceTree = "<group>"; };
-		2A78388322C0BF6700423991 /* ultrasonicTest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = ultrasonicTest.py; sourceTree = "<group>"; };
+		2A78388322C0BF6700423991 /* distanceTest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = distanceTest.py; sourceTree = "<group>"; };
 		2A78388522C0BF8700423991 /* motorTest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = motorTest.py; sourceTree = "<group>"; };
-		2A78388722C0BF9800423991 /* drivetrainTest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = drivetrainTest.py; sourceTree = "<group>"; };
+		2A78388722C0BF9800423991 /* driveTest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = driveTest.py; sourceTree = "<group>"; };
 		2A78388A22C0C08700423991 /* PortTestServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortTestServiceInterface.swift; sourceTree = "<group>"; };
 		2A78388C22C0C10100423991 /* PortTestCodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortTestCodeService.swift; sourceTree = "<group>"; };
 		2A78388E22C106A000423991 /* UpdatingFirmwareModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatingFirmwareModalView.swift; sourceTree = "<group>"; };
@@ -1358,9 +1358,9 @@
 			isa = PBXGroup;
 			children = (
 				2A78388122C0BF5600423991 /* bumperTest.py */,
-				2A78388322C0BF6700423991 /* ultrasonicTest.py */,
+				2A78388322C0BF6700423991 /* distanceTest.py */,
 				2A78388522C0BF8700423991 /* motorTest.py */,
-				2A78388722C0BF9800423991 /* drivetrainTest.py */,
+				2A78388722C0BF9800423991 /* driveTest.py */,
 			);
 			path = PortTestCode;
 			sourceTree = "<group>";
@@ -2212,7 +2212,8 @@
 				2A90537322A3DA3A0047509D /* RobotOptionsView.xib in Resources */,
 				094D0DD622AFA94A00B9B74E /* SliderInputView.xib in Resources */,
 				2AC7619122D33A09005FED04 /* Barlow-BoldItalic.ttf in Resources */,
-				2A78388822C0BF9800423991 /* drivetrainTest.py in Resources */,
+				2A78388822C0BF9800423991 /* driveTest.py in Resources */,
+				2A78388822C0BF9800423991 /* driveTest.py in Resources */,
 				D001FCB822A951FC004C49F3 /* ChallengesCollectionViewOddCell.xib in Resources */,
 				0938897222B24DD900292B32 /* cat.mp3 in Resources */,
 				0938894C22B12CB200292B32 /* SoundPickerView.xib in Resources */,
@@ -2270,7 +2271,7 @@
 				D0BF256C2282C6C100F08C9C /* BuildFinishedModal.xib in Resources */,
 				2ABCB648229E912D0081B51B /* MenuTutorialViewController.xib in Resources */,
 				09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */,
-				2A78388422C0BF6700423991 /* ultrasonicTest.py in Resources */,
+				2A78388422C0BF6700423991 /* distanceTest.py in Resources */,
 				099DA57322B786B7005DCD60 /* LEDSelectorView.xib in Resources */,
 				0964798122686DE000F68456 /* WhoToBuildViewController.xib in Resources */,
 				D001FCB422A92F7D004C49F3 /* ChallengeFinishedModal.xib in Resources */,

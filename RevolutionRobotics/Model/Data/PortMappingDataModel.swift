@@ -12,10 +12,10 @@ import RealmSwift
 final class PortMappingDataModel: Object {
     // MARK: - Constants
     private enum Constants {
-        static let drivetrain = "drivetrain"
+        static let drive = "drive"
         static let motor = "motor"
         static let bumper = "bumper"
-        static let ultrasonic = "ultrasonic"
+        static let distance = "distance"
     }
 
     // MARK: - Properties
@@ -32,6 +32,18 @@ final class PortMappingDataModel: Object {
 
     var motors: [MotorDataModel?] {
         return[m1, m2, m3, m4, m5, m6]
+    }
+
+    var sensors: [SensorDataModel?] {
+        return [s1, s2, s3, s4]
+    }
+
+    var bumperSensorCount: Int {
+        return sensors.compactMap { $0 }.filter { $0.type == Constants.bumper }.count
+    }
+
+    var distanceSensorCount: Int {
+        return sensors.compactMap { $0 }.filter { $0.type == Constants.distance }.count
     }
 
     var variableNames: [String] {
@@ -89,14 +101,14 @@ final class PortMappingDataModel: Object {
         var dataModel: MotorDataModel? = MotorDataModel()
         dataModel?.variableName = config.portName!
         switch config.state {
-        case .drivetrain(let side, let rotation):
-            dataModel?.type = Constants.drivetrain
+        case .drive(let side, let rotation):
+            dataModel?.type = Constants.drive
             dataModel?.side = side.rawValue
             dataModel?.rotation = rotation.rawValue
         case .motor(let rotation):
             dataModel?.type = Constants.motor
             dataModel?.rotation = rotation.rawValue
-        case .empty, .motorWithoutRotation, .drivetrainWithoutSide:
+        case .empty, .motorWithoutRotation, .driveWithoutSide:
             dataModel = nil
         }
 
@@ -127,8 +139,8 @@ final class PortMappingDataModel: Object {
         switch config.type {
         case .bumper:
             dataModel?.type = Constants.bumper
-        case .ultrasonic:
-            dataModel?.type = Constants.ultrasonic
+        case .distance:
+            dataModel?.type = Constants.distance
         case .empty:
             dataModel = nil
         }

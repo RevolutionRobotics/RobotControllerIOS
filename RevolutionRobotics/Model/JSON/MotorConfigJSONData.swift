@@ -11,7 +11,7 @@ class MotorConfigJSONData: JSONRepresentable {
     private enum Constants {
         enum MotorType: Int {
             case motor = 1
-            case drivetrain = 2
+            case drive = 2
         }
 
         enum Direction: Int {
@@ -35,8 +35,8 @@ class MotorConfigJSONData: JSONRepresentable {
     init?(with dataModel: MotorDataModel?) {
         guard let dataModel = dataModel else { return nil }
         self.name = dataModel.variableName
-        self.type = dataModel.type == MotorDataModel.Constants.drivetrain ?
-            Constants.MotorType.drivetrain.rawValue : Constants.MotorType.motor.rawValue
+        self.type = dataModel.type == MotorDataModel.Constants.drive ?
+            Constants.MotorType.drive.rawValue : Constants.MotorType.motor.rawValue
         self.direction = dataModel.rotation == Rotation.clockwise.rawValue ?
             Constants.Direction.clockwise.rawValue : Constants.Direction.counterClockwise.rawValue
         self.side = dataModel.side == Side.left.rawValue ? Constants.Side.left.rawValue : Constants.Side.right.rawValue

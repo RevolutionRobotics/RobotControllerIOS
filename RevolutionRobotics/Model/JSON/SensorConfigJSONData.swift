@@ -10,7 +10,7 @@ class SensorConfigJSONData: JSONRepresentable {
     // MARK: - Constants
     private enum Constants {
         enum SensorType: Int {
-            case ultrasonic = 1
+            case distance = 1
             case bumper = 2
         }
     }
@@ -23,8 +23,8 @@ class SensorConfigJSONData: JSONRepresentable {
     init?(with dataModel: SensorDataModel?) {
         guard let dataModel = dataModel else { return nil }
         self.name = dataModel.variableName
-        self.type = dataModel.type == SensorDataModel.Constants.ultrasonic ?
-            Constants.SensorType.ultrasonic.rawValue : Constants.SensorType.bumper.rawValue
+        self.type = dataModel.type == SensorDataModel.Constants.distance ?
+            Constants.SensorType.distance.rawValue : Constants.SensorType.bumper.rawValue
     }
 
     // MARK: - Encodable
