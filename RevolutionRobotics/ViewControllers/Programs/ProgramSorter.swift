@@ -33,14 +33,12 @@ final class ProgramSorter {
     }
 
     private func sortProgramsByName(_ programs: [ProgramDataModel], order: Order) -> [ProgramDataModel] {
-        return programs.sorted(by: {
-            switch order {
-            case .ascending:
-                return $0.name < $1.name
-            case .descending:
-                return $0.name > $1.name
-            }
-        })
+        switch order {
+        case .ascending:
+            return programs.sorted(by: { $0.name.caseInsensitiveCompare($1.name) == .orderedAscending })
+        case .descending:
+            return programs.sorted(by: { $0.name.caseInsensitiveCompare($1.name) == .orderedDescending })
+        }
     }
 
     private func sortProgramsByDate(_ programs: [ProgramDataModel], order: Order) -> [ProgramDataModel] {
