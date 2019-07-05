@@ -188,6 +188,10 @@
 		2ABEF0DF228EA19E00AF87AC /* BlutoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0DE228EA19E00AF87AC /* BlutoothService.swift */; };
 		2ABEF0E4228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0E3228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift */; };
 		2AC0192622C6432100C8FA8A /* UINavigationController+NavigateBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC0192522C6432100C8FA8A /* UINavigationController+NavigateBack.swift */; };
+		2AC7619022D33A09005FED04 /* Barlow-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AC7618D22D33A08005FED04 /* Barlow-Italic.ttf */; };
+		2AC7619122D33A09005FED04 /* Barlow-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AC7618E22D33A08005FED04 /* Barlow-BoldItalic.ttf */; };
+		2AC7619222D33A09005FED04 /* Barlow-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AC7618F22D33A08005FED04 /* Barlow-MediumItalic.ttf */; };
+		2AC7619522D33F1E005FED04 /* NSAttributedString+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7619422D33F1E005FED04 /* NSAttributedString+HTML.swift */; };
 		2AC7AB72228D4FB900D96457 /* URLSession+ImageDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7AB71228D4FB900D96457 /* URLSession+ImageDownload.swift */; };
 		2AD858DE2295AE940082CDC0 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD858DD2295AE940082CDC0 /* UIAlertController+Error.swift */; };
 		2AD858E02296B9EB0082CDC0 /* ControllerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD858DF2296B9EB0082CDC0 /* ControllerDataModel.swift */; };
@@ -544,6 +548,10 @@
 		2ABEF0DE228EA19E00AF87AC /* BlutoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlutoothService.swift; sourceTree = "<group>"; };
 		2ABEF0E3228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothConnectionModalPresenter.swift; sourceTree = "<group>"; };
 		2AC0192522C6432100C8FA8A /* UINavigationController+NavigateBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+NavigateBack.swift"; sourceTree = "<group>"; };
+		2AC7618D22D33A08005FED04 /* Barlow-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Italic.ttf"; sourceTree = "<group>"; };
+		2AC7618E22D33A08005FED04 /* Barlow-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-BoldItalic.ttf"; sourceTree = "<group>"; };
+		2AC7618F22D33A08005FED04 /* Barlow-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-MediumItalic.ttf"; sourceTree = "<group>"; };
+		2AC7619422D33F1E005FED04 /* NSAttributedString+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+HTML.swift"; sourceTree = "<group>"; };
 		2AC7AB71228D4FB900D96457 /* URLSession+ImageDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+ImageDownload.swift"; sourceTree = "<group>"; };
 		2AD858DD2295AE940082CDC0 /* UIAlertController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Error.swift"; sourceTree = "<group>"; };
 		2AD858DF2296B9EB0082CDC0 /* ControllerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerDataModel.swift; sourceTree = "<group>"; };
@@ -999,6 +1007,9 @@
 		097F8431225BA33800DD32BF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				2AC7618E22D33A08005FED04 /* Barlow-BoldItalic.ttf */,
+				2AC7618D22D33A08005FED04 /* Barlow-Italic.ttf */,
+				2AC7618F22D33A08005FED04 /* Barlow-MediumItalic.ttf */,
 				096479882268797F00F68456 /* Barlow-Bold.ttf */,
 				09C38754226F3ABC0097619D /* Barlow-Medium.ttf */,
 				09FB0D6B2267735800735B74 /* Barlow-Regular.ttf */,
@@ -1568,6 +1579,14 @@
 			path = UINavigationController;
 			sourceTree = "<group>";
 		};
+		2AC7619322D33F09005FED04 /* NSAttributedString */ = {
+			isa = PBXGroup;
+			children = (
+				2AC7619422D33F1E005FED04 /* NSAttributedString+HTML.swift */,
+			);
+			path = NSAttributedString;
+			sourceTree = "<group>";
+		};
 		2AC7AB70228D4FA400D96457 /* URLSession */ = {
 			isa = PBXGroup;
 			children = (
@@ -1817,6 +1836,7 @@
 		D008E03A2260AAF500089DC7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2AC7619322D33F09005FED04 /* NSAttributedString */,
 				2AC0192422C6430800C8FA8A /* UINavigationController */,
 				0938898622B26ED400292B32 /* UIColor */,
 				2A473774229F0F7300641B07 /* UserDefaults */,
@@ -2191,10 +2211,12 @@
 				2A50DA292292CF7900B3D74C /* PadConfigurationViewController.xib in Resources */,
 				2A90537322A3DA3A0047509D /* RobotOptionsView.xib in Resources */,
 				094D0DD622AFA94A00B9B74E /* SliderInputView.xib in Resources */,
+				2AC7619122D33A09005FED04 /* Barlow-BoldItalic.ttf in Resources */,
 				2A78388822C0BF9800423991 /* drivetrainTest.py in Resources */,
 				D001FCB822A951FC004C49F3 /* ChallengesCollectionViewOddCell.xib in Resources */,
 				0938897222B24DD900292B32 /* cat.mp3 in Resources */,
 				0938894C22B12CB200292B32 /* SoundPickerView.xib in Resources */,
+				2AC7619022D33A09005FED04 /* Barlow-Italic.ttf in Resources */,
 				2ADF1F7C224AB3B600CC721F /* Images.xcassets in Resources */,
 				2A1C8AF122A7E2A90023F08F /* DisconnectModal.xib in Resources */,
 				0938898122B24DD900292B32 /* alarm_clock.mp3 in Resources */,
@@ -2203,6 +2225,7 @@
 				0938897822B24DD900292B32 /* bell.mp3 in Resources */,
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
 				D0049A432270ABA1007FA256 /* AvailableRobotsTableViewCell.xib in Resources */,
+				2AC7619222D33A09005FED04 /* Barlow-MediumItalic.ttf in Resources */,
 				D0241A0F22B29352005E8DB2 /* CommunityViewController.xib in Resources */,
 				094FC5DB228C3CC40085B407 /* MultiTaskerPadView.xib in Resources */,
 				09994319228DBA6500D87385 /* ProgramInfoModal.xib in Resources */,
@@ -2478,6 +2501,7 @@
 				2AB7ACEC22BB990100309234 /* ButtonControllerAssignmentItemJSONData.swift in Sources */,
 				D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */,
 				D05C64CC225F575A00B7BF4F /* Milestone.swift in Sources */,
+				2AC7619522D33F1E005FED04 /* NSAttributedString+HTML.swift in Sources */,
 				0952387522A57159001C1CE1 /* OptionSelectorButton.swift in Sources */,
 				D0241A0222B1221B005E8DB2 /* ButtonlessProgramTableViewCell.swift in Sources */,
 				09ED1B9C2252424F009CF262 /* Reusable.swift in Sources */,

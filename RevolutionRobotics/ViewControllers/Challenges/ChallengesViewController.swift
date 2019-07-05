@@ -29,7 +29,7 @@ extension ChallengesViewController {
         guard let category = challengeCategory else { return }
         navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         navigationBar.setup(title: category.name, delegate: self)
-        challengeDescription.text = category.description
+        challengeDescription.attributedText = NSAttributedString.attributedString(from: category.description)
         challengesCollectionView.delegate = self
         challengesCollectionView.dataSource = self
         challengesCollectionView.register(ChallengesCollectionViewEvenCell.self)
