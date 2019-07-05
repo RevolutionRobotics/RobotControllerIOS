@@ -279,7 +279,9 @@ extension ProgramPriorityViewController {
     @IBAction private func doneButtonTapped(_ sender: Any) {
         let saveModal = SaveModal.instatiate()
         saveModal.type = .controller
-        saveModal.name = controllerViewModel?.name
+        let name = (controllerViewModel?.name)!.isEmpty ?
+            controllerViewModel?.type.displayName : controllerViewModel?.name
+        saveModal.name = name
         saveModal.descriptionTitle = controllerViewModel?.customDesctiprion
         saveModal.saveCallback = { [weak self] (data: SaveModal.SaveData) in
             self?.saveController(name: data.name, description: data.description)

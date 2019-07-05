@@ -24,4 +24,15 @@ enum ControllerType: String {
             return Image.Controller.driver
         }
     }
+
+    var displayName: String {
+        switch self {
+        case .gamer:
+            return ControllerKeys.gamer.translate()
+        case .multiTasker:
+            return ControllerKeys.multiTasker.translate()
+        case .driver:
+            return ControllerKeys.driver.translate()
+        }
+    }
 }
