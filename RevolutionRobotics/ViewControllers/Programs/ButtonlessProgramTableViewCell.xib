@@ -90,7 +90,7 @@
                             <constraint firstItem="3jZ-oQ-BtQ" firstAttribute="top" secondItem="ZIm-YX-hog" secondAttribute="top" id="vwn-6x-stb"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFY-Uf-8n7">
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFY-Uf-8n7">
                         <rect key="frame" x="24" y="15" width="16" height="22"/>
                         <state key="normal" image="CheckboxNotChecked"/>
                     </button>
