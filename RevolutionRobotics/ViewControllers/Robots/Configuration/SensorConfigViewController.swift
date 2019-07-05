@@ -140,7 +140,7 @@ extension SensorConfigViewController {
     private func validateActionButtons() {
         let name = nameInputField.text ?? ""
         testButton.isEnabled = selectedSensorType != .empty
-        doneButton.isEnabled = selectedSensorType != .empty && !name.isEmpty
+        doneButton.isEnabled = (selectedSensorType != .empty && !name.isEmpty) || selectedSensorType == .empty
     }
 
     private func presentTestingModal() {
