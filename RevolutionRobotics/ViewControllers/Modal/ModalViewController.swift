@@ -21,9 +21,12 @@ final class ModalViewController: UIViewController {
     // MARK: - Delegate
     weak var delegate: ModalViewControllerDelegate?
 
-    // MARK: - Content
+    // MARK: - Properties
     var contentView: UIView?
     var isCloseHidden: Bool = false
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscapeRight
+    }
 }
 
 // MARK: - View lifecycle
