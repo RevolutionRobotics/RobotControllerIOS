@@ -56,10 +56,10 @@ extension ChallengesViewController {
             self?.popToRootViewController(animated: true)
         }
         modal.listCallback = { [weak self] in
-            self?.navigateBack()
+            self?.handleNavigateBack()
         }
         modal.nextCallback = { [weak self] in
-            self?.navigateBack()
+            self?.handleNavigateBack()
             self?.showNextChallenge()
         }
         if currentChallenge + 1 == challengeCategory?.challenges.count {
@@ -68,7 +68,7 @@ extension ChallengesViewController {
         presentModal(with: modal)
     }
 
-    private func navigateBack() {
+    private func handleNavigateBack() {
         updateProgress()
         dismissModalViewController()
         navigationController?.popViewController(animated: false)

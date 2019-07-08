@@ -77,6 +77,13 @@ extension BaseViewController {
     }
 }
 
+// MARK: - Navigation
+extension BaseViewController {
+    func navigateBack() {
+        navigationController?.popViewController(animated: true)
+    }
+}
+
 // MARK: - Modal
 extension BaseViewController {
     func presentModal(
