@@ -339,6 +339,14 @@ extension RobotConfigurationViewController {
                                       RobotsKeys.Configure.controllerTabTitle.translate()])
         segmentedControl.selectionCallback = { [weak self] selectedSegment in
             self?.segmentSelected(selectedSegment)
+            if selectedSegment == .controllers {
+                if (self?.configuration?.controller.isEmpty)! {
+                    let controllersViewController =
+                        AppContainer.shared.container.unwrappedResolve(ControllerLayoutSelectorViewController.self)
+                    controllersViewController.configurationId = self?.configuration?.id
+                    self?.navigationController?.pushViewController(controllersViewController, animated: true)
+                }
+            }
         }
         segmentedControl.setSelectedIndex(0)
     }
