@@ -11,7 +11,7 @@ import UIKit
 final class RRZoomableImageView: UIScrollView {
     // MARK: - Constants
     private enum Constants {
-        static let minimumZoomScale: CGFloat = 0.5
+        static let minimumZoomScale: CGFloat = 1.0
         static let defaultZoomScale: CGFloat = 1.0
         static let maximumZoomScale: CGFloat = 3.0
         static let navigationBarHeight: CGFloat = 60
