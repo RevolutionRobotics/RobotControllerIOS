@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5U-M3-Ifp">
-                    <rect key="frame" x="44" y="0.0" width="808" height="414"/>
+                    <rect key="frame" x="44" y="0.0" width="808" height="393"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRj-mf-GC4" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
@@ -47,7 +47,7 @@
                 <constraint firstItem="z5U-M3-Ifp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7Hr-RM-3lk"/>
                 <constraint firstItem="z5U-M3-Ifp" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="E5M-ye-fa5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XAw-Vq-Qme" secondAttribute="trailing" constant="8" id="EGI-kD-xG0"/>
-                <constraint firstAttribute="bottom" secondItem="z5U-M3-Ifp" secondAttribute="bottom" id="FU5-NN-gMF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="z5U-M3-Ifp" secondAttribute="bottom" id="FU5-NN-gMF"/>
                 <constraint firstItem="iRj-mf-GC4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IHG-Zk-Yfn"/>
                 <constraint firstItem="iRj-mf-GC4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MFh-du-88d"/>
                 <constraint firstItem="z5U-M3-Ifp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Z1G-TH-3vZ"/>
