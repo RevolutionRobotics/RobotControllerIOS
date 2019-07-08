@@ -41,6 +41,7 @@ extension RRCollectionView {
 // MARK: - UICollectionViewDelegate
 extension RRCollectionView: UICollectionViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.isUserInteractionEnabled = true
         centerCell()
     }
 
@@ -51,6 +52,7 @@ extension RRCollectionView: UICollectionViewDelegate {
     }
 
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        self.isUserInteractionEnabled = true
         designCells()
     }
 
@@ -64,6 +66,7 @@ extension RRCollectionView: UICollectionViewDelegate {
             if cell.isCentered {
                 rrDelegate?.collectionView(collectionView, didSelectItemAt: indexPath)
             } else {
+                self.isUserInteractionEnabled = false
                 scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
                 selectedIndexPath = indexPath
                 designCells()
