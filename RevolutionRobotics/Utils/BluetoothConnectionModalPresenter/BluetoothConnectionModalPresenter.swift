@@ -7,6 +7,7 @@
 //
 
 import struct RevolutionRoboticsBluetooth.Device
+import UIKit
 
 final class BluetoothConnectionModalPresenter {
     // MARK: - Properties
@@ -21,15 +22,18 @@ final class BluetoothConnectionModalPresenter {
     private var startDiscoveryHandler: Callback?
     private var deviceSelectionHandler: CallbackType<Device>?
     private var dismissHandler: Callback?
+    private var isBluetoothPoweredOn: Bool = false
 }
 
 // MARK: - Public methods
 extension BluetoothConnectionModalPresenter {
     func present(on viewController: BaseViewController,
+                 isBluetoothPoweredOn: Bool,
                  startDiscoveryHandler: Callback?,
                  deviceSelectionHandler: CallbackType<Device>?,
                  onDismissed: Callback?) {
         self.presenter = viewController
+        self.isBluetoothPoweredOn = isBluetoothPoweredOn
         self.startDiscoveryHandler = startDiscoveryHandler
         self.dismissHandler = onDismissed
         self.deviceSelectionHandler = deviceSelectionHandler
@@ -98,10 +102,14 @@ extension BluetoothConnectionModalPresenter {
     }
 
     private func showBluetoothDiscovery() {
-        availableRobotsView.selectionHandler = deviceSelectionHandler
-        presenter.presentModal(with: availableRobotsView, onDismissed: { [weak self] in
-            self?.dismissHandler?()
-        })
-        startDiscoveryHandler?()
+        if isBluetoothPoweredOn {
+            availableRobotsView.selectionHandler = deviceSelectionHandler
+            presenter.presentModal(with: availableRobotsView, onDismissed: { [weak self] in
+                self?.dismissHandler?()
+            })
+            startDiscoveryHandler?()
+        } else {
+            presenter.present(UIAlertController.errorAlert(type: .bluetooth), animated: true)
+        }
     }
 }

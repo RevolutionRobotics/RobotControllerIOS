@@ -83,7 +83,7 @@ extension PlayControllerViewController {
         }
 
         padView.buttonTapped = { [weak self] pressedPadButton in
-            self?.bluetoothService.changeButtonState(index: pressedPadButton.index, pressed: pressedPadButton.pressed)
+            self?.bluetoothService.changeButtonState(index: pressedPadButton.index)
         }
     }
 }
@@ -113,6 +113,7 @@ extension PlayControllerViewController {
         let modalPresenter = BluetoothConnectionModalPresenter()
         modalPresenter.present(
             on: self,
+            isBluetoothPoweredOn: bluetoothService.isBluetoothPoweredOn,
             startDiscoveryHandler: { [weak self] in
                 self?.bluetoothService.startDiscovery(onScanResult: { result in
                     switch result {
@@ -148,8 +149,10 @@ extension PlayControllerViewController {
     override func connected() {
         super.connected()
         bluetoothService.stopDiscovery()
-        sendConfiguration()
         navigationBar.bluetoothButtonState = .connected
+        Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false) { [weak self] _ in
+            self?.sendConfiguration()
+        }
     }
 
     override func disconnected() {

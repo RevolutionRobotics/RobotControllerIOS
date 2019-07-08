@@ -173,6 +173,7 @@ extension BaseViewController {
         let modalPresenter = BluetoothConnectionModalPresenter()
         modalPresenter.present(
             on: self,
+            isBluetoothPoweredOn: bluetoothService.isBluetoothPoweredOn,
             startDiscoveryHandler: { [weak self] in
                 self?.bluetoothService.startDiscovery(onScanResult: { result in
                     switch result {

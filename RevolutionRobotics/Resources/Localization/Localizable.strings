@@ -258,3 +258,6 @@
 "challenge_finished_dialog_button_home" = "Home";
 "challenge_finished_dialog_button_challenge_list" = "Challenge list";
 "challenge_finished_dialog_button_next" = "Next challenge";
+
+"error_bluetooth_description" = "Please check your bluetooth settings!";
+"error_bluetooth_settings" = "Settings";
