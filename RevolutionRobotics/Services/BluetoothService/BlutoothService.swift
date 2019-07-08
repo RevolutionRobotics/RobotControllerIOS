@@ -14,7 +14,7 @@ final class BluetoothService: BluetoothServiceInterface {
     // MARK: - Properties
     var connectedDevice: Device?
     var isBluetoothPoweredOn: Bool {
-        return CBCentralManager().state == .poweredOn
+        return discoverer.bluetoothRadioState == .poweredOn
     }
     private var mostRecentlyConnectedDevice: Device?
     private var shouldReconnect = false
