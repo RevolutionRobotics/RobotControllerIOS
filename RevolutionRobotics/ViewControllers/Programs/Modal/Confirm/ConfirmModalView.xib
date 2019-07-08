@@ -26,15 +26,9 @@
             <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZM-nZ-yVQ">
-                    <rect key="frame" x="32" y="40" width="396" height="21.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZM-nZ-yVQ">
+                    <rect key="frame" x="32" y="64" width="396" height="21.5"/>
                     <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="18"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocd-Eb-sDj">
-                    <rect key="frame" x="32" y="91.5" width="396" height="17"/>
-                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -74,19 +68,15 @@
                 <constraint firstItem="itg-0M-yqa" firstAttribute="width" secondItem="NvT-jk-CLT" secondAttribute="width" id="6PD-Nk-jYx"/>
                 <constraint firstAttribute="bottom" secondItem="NvT-jk-CLT" secondAttribute="bottom" constant="4" id="LQ3-Mj-K8k"/>
                 <constraint firstAttribute="trailing" secondItem="NvT-jk-CLT" secondAttribute="trailing" constant="4" id="LzI-dp-Kcg"/>
-                <constraint firstItem="Ocd-Eb-sDj" firstAttribute="top" secondItem="2ZM-nZ-yVQ" secondAttribute="bottom" constant="30" id="Psm-tY-q7y"/>
                 <constraint firstItem="itg-0M-yqa" firstAttribute="leading" secondItem="nEL-Ze-noc" secondAttribute="leading" constant="4" id="V5z-Qa-3lP"/>
-                <constraint firstItem="Ocd-Eb-sDj" firstAttribute="leading" secondItem="2ZM-nZ-yVQ" secondAttribute="leading" id="XNZ-EG-Zeg"/>
                 <constraint firstAttribute="bottom" secondItem="itg-0M-yqa" secondAttribute="bottom" constant="4" id="dmr-hd-9RH"/>
                 <constraint firstAttribute="trailing" secondItem="2ZM-nZ-yVQ" secondAttribute="trailing" constant="32" id="u8S-x4-Lvf"/>
-                <constraint firstItem="Ocd-Eb-sDj" firstAttribute="trailing" secondItem="2ZM-nZ-yVQ" secondAttribute="trailing" id="uTf-Ys-IZg"/>
-                <constraint firstItem="2ZM-nZ-yVQ" firstAttribute="top" secondItem="nEL-Ze-noc" secondAttribute="top" constant="40" id="wUP-G5-ho7"/>
+                <constraint firstItem="2ZM-nZ-yVQ" firstAttribute="top" secondItem="nEL-Ze-noc" secondAttribute="top" constant="64" id="wUP-G5-ho7"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="negativeButton" destination="itg-0M-yqa" id="dp4-Zf-F12"/>
-                <outlet property="positiveButton" destination="NvT-jk-CLT" id="cmz-TJ-MKp"/>
-                <outlet property="subtitleLabel" destination="Ocd-Eb-sDj" id="6Jx-i4-gDM"/>
+                <outlet property="cancelButton" destination="itg-0M-yqa" id="dp4-Zf-F12"/>
+                <outlet property="okButton" destination="NvT-jk-CLT" id="cmz-TJ-MKp"/>
                 <outlet property="titleLabel" destination="2ZM-nZ-yVQ" id="FYF-hy-XPz"/>
             </connections>
             <point key="canvasLocation" x="24.637681159420293" y="84.375"/>

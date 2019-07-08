@@ -44,10 +44,6 @@ enum ProgramsKeys {
         static let load = "program_info_load_program"
     }
 
-    enum Priority {
-        static let title = "program_priority_screen_title"
-    }
-
     enum SaveProgram {
         static let title = "dialog_save_program_title"
         static let nameTitle = "dialog_save_program_name"
@@ -57,15 +53,8 @@ enum ProgramsKeys {
         static let nameInUse = "error_program_already_in_use"
     }
 
-    enum NavigateBack {
-        static let title = "program_confirm_title"
-        static let subtitle = "program_confirm_description"
-        static let positive = "program_confirm_positive"
-    }
-
-    enum ConfirmOpen {
-        static let title = "dialog_load_program_confirm_title"
-        static let subtitle = "dialog_load_program_confirm_description"
-        static let positive = "dialog_load_program_confirm_button_positive"
-    }
+    static let programOrderTitle = "program_priority_screen_title"
+    static let navigateBackTitle = "program_confirm_title"
+    static let navigateBackDescription = "program_confirm_description"
+    static let navigateBackPositive = "program_confirm_positive"
 }
