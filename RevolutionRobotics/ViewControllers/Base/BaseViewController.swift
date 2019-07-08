@@ -23,6 +23,9 @@ class BaseViewController: UIViewController, RRNavigationBarDelegate {
     private var onModalDismissed: Callback?
     private let modalPresenter = BluetoothConnectionModalPresenter()
     var bluetoothService: BluetoothServiceInterface!
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscapeRight
+    }
 
     // MARK: - Initialization
     init() {
