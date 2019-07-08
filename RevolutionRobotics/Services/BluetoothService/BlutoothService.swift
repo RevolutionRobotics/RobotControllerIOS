@@ -8,10 +8,14 @@
 
 import Foundation
 import RevolutionRoboticsBluetooth
+import CoreBluetooth
 
 final class BluetoothService: BluetoothServiceInterface {
     // MARK: - Properties
     var connectedDevice: Device?
+    var isBluetoothPoweredOn: Bool {
+        return CBCentralManager().state == .poweredOn
+    }
     private var mostRecentlyConnectedDevice: Device?
     private var shouldReconnect = false
 
@@ -151,8 +155,8 @@ final class BluetoothService: BluetoothServiceInterface {
         liveController.updateYDirection(y: yDirection)
     }
 
-    func changeButtonState(index: Int, pressed: Bool) {
-        liveController.changeButtonState(index: index, pressed: pressed)
+    func changeButtonState(index: Int) {
+        liveController.changeButtonState(index: index, pressed: true)
     }
 
     func testKit(data: String, onCompleted: CallbackType<Result<String, Error>>?) {

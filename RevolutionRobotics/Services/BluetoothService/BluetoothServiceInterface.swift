@@ -18,6 +18,7 @@ extension Notification.Name {
 protocol BluetoothServiceInterface {
     // MARK: - Properties
     var connectedDevice: Device? { get set }
+    var isBluetoothPoweredOn: Bool { get }
 
     // MARK: - Discovery
     func startDiscovery(onScanResult: CallbackType<Result<[Device], Error>>?)
@@ -47,5 +48,5 @@ protocol BluetoothServiceInterface {
     func stopKeepalive()
     func updateXDirection(_ xDirection: Int)
     func updateYDirection(_ yDirection: Int)
-    func changeButtonState(index: Int, pressed: Bool)
+    func changeButtonState(index: Int)
 }

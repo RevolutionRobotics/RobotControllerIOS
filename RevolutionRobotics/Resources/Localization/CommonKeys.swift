@@ -15,4 +15,6 @@ enum CommonKeys {
     static let done = "done"
     static let no = "no"
     static let cancel = "cancel"
+    static let bluetoothErrorDescription = "error_bluetooth_description"
+    static let bluetoothErrorSettings = "error_bluetooth_settings"
 }
