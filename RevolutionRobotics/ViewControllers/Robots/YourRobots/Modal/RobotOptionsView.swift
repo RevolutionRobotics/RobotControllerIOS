@@ -44,8 +44,6 @@ final class RobotOptionsView: UIView {
                 status != .completed else {
                     return
             }
-
-            removeEditButton()
         }
     }
 }
@@ -83,14 +81,6 @@ extension RobotOptionsView {
         titleLabel.text = robot?.customName
         descriptionLabel.text = robot?.customDescription
         dateLabel.text = DateFormatter.string(from: robot?.lastModified, format: .yearMonthDay)
-    }
-
-    private func removeEditButton() {
-        editButton.removeFromSuperview()
-        setNeedsLayout()
-        layoutIfNeeded()
-        deleteButton.setBorder(fillColor: Color.black26, strokeColor: .clear, croppedCorners: [.bottomLeft])
-        duplicateButton.setBorder(fillColor: Color.black26, strokeColor: .clear, croppedCorners: [.topRight])
     }
 }
 
