@@ -46,7 +46,7 @@ extension ProgramPriorityViewController {
 
         navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
 
-        navigationBar.setup(title: ProgramsKeys.Priority.title.translate(), delegate: self)
+        navigationBar.setup(title: ProgramsKeys.programOrderTitle.translate(), delegate: self)
         doneButton.setTitle(CommonKeys.done.translate(), for: .normal)
         programsTableView.dataSource = self
         programsTableView.dragDelegate = self

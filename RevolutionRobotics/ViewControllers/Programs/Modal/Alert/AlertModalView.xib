@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZM-nZ-yVQ">
-                    <rect key="frame" x="32" y="40" width="396" height="21.5"/>
+                    <rect key="frame" x="32" y="64" width="396" height="21.5"/>
                     <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                 <constraint firstAttribute="trailing" secondItem="NvT-jk-CLT" secondAttribute="trailing" constant="4" id="LzI-dp-Kcg"/>
                 <constraint firstItem="NvT-jk-CLT" firstAttribute="leading" secondItem="nEL-Ze-noc" secondAttribute="leading" constant="4" id="hsj-1S-Wvx"/>
                 <constraint firstAttribute="trailing" secondItem="2ZM-nZ-yVQ" secondAttribute="trailing" constant="32" id="u8S-x4-Lvf"/>
-                <constraint firstItem="2ZM-nZ-yVQ" firstAttribute="top" secondItem="nEL-Ze-noc" secondAttribute="top" constant="40" id="wUP-G5-ho7"/>
+                <constraint firstItem="2ZM-nZ-yVQ" firstAttribute="top" secondItem="nEL-Ze-noc" secondAttribute="top" constant="64" id="wUP-G5-ho7"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
