@@ -17,6 +17,9 @@ final class MenuViewController: BaseViewController {
     @IBOutlet private weak var programsTitleLabel: UILabel!
     @IBOutlet private weak var challengesTitleLabel: UILabel!
     @IBOutlet private weak var navigationBar: RRNavigationBar!
+
+    // MARK: - Properties
+    var realmService: RealmServiceInterface!
 }
 
 // MARK: - View lifecycle
@@ -55,8 +58,10 @@ extension MenuViewController {
     }
 
     @IBAction private func robotsButtonTapped(_ sender: UIButton) {
-        let yourRobotsViewController = AppContainer.shared.container.unwrappedResolve(YourRobotsViewController.self)
-        navigationController?.pushViewController(yourRobotsViewController, animated: true)
+        let vc = realmService.getRobots().isEmpty ?
+            AppContainer.shared.container.unwrappedResolve(WhoToBuildViewController.self) :
+            AppContainer.shared.container.unwrappedResolve(YourRobotsViewController.self)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction private func programsButtonTapped(_ sender: UIButton) {

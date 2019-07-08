@@ -46,6 +46,7 @@ extension ScreenAssembly {
             .register(MenuViewController.self, factory: { _ in return MenuViewController() })
             .initCompleted { (resolver, viewController) in
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
+                viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
             }
             .inObjectScope(.weak)
     }
