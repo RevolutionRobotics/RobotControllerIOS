@@ -34,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="213" height="224"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="RobotPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="TCB-zL-eiC" userLabel="robotImageView">
-                        <rect key="frame" x="16" y="54" width="181" height="65"/>
+                        <rect key="frame" x="16" y="54" width="181" height="64.5"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3O-CF-ILH">
                         <rect key="frame" x="16" y="24" width="181" height="19"/>
@@ -43,7 +43,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firebase hint" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhF-Su-8hc">
-                        <rect key="frame" x="18" y="131" width="177" height="14"/>
+                        <rect key="frame" x="18" y="130.5" width="177" height="14.5"/>
                         <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -52,25 +52,22 @@
                         <rect key="frame" x="18" y="155" width="16" height="16"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019/02/15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pC-Rl-Fr1">
-                        <rect key="frame" x="42" y="156" width="61.5" height="14"/>
+                        <rect key="frame" x="42" y="156" width="58" height="14"/>
                         <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUD-tB-1Po" userLabel="popupButton">
-                        <rect key="frame" x="175" y="186" width="35" height="35"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="EUD-tB-1Po" secondAttribute="height" multiplier="1:1" id="ZdP-FX-YDK"/>
-                        </constraints>
+                        <rect key="frame" x="157" y="186" width="53" height="35"/>
                         <connections>
                             <action selector="deleteButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="lhS-Du-kR4"/>
                         </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DOZ-1A-0H7">
-                        <rect key="frame" x="3" y="186" width="164" height="35"/>
+                        <rect key="frame" x="3" y="186" width="146" height="35"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wV9-9Q-FAd">
-                                <rect key="frame" x="2" y="9" width="160" height="17"/>
+                                <rect key="frame" x="2" y="9" width="142" height="17"/>
                                 <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -91,6 +88,7 @@
                 <constraint firstItem="u76-hq-HP7" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="2LJ-Gi-spT"/>
                 <constraint firstItem="TCB-zL-eiC" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="3at-jc-2xG"/>
                 <constraint firstItem="Z3O-CF-ILH" firstAttribute="top" secondItem="u76-hq-HP7" secondAttribute="top" constant="24" id="5RD-Ab-PKs"/>
+                <constraint firstItem="EUD-tB-1Po" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.25" id="EsN-Lo-yrw"/>
                 <constraint firstItem="u76-hq-HP7" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="IdY-1C-a6P"/>
                 <constraint firstItem="DOZ-1A-0H7" firstAttribute="top" secondItem="baB-yQ-wnU" secondAttribute="bottom" constant="15" identifier="asdasd" id="PK3-K8-sPZ"/>
                 <constraint firstAttribute="trailing" secondItem="EUD-tB-1Po" secondAttribute="trailing" constant="3" id="QTc-Ev-ya6"/>
@@ -135,6 +133,6 @@
     <resources>
         <image name="CalendarIcon" width="16" height="16"/>
         <image name="RobotPlaceholder" width="70" height="92"/>
-        <image name="YourRobotsEditableWhiteCell" width="159" height="168"/>
+        <image name="YourRobotsEditableWhiteCell" width="213" height="224"/>
     </resources>
 </document>
