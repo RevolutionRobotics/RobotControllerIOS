@@ -57,8 +57,8 @@
 "who_to_build_build_new_button_title" = "build your own";
 "who_to_build_searching_title" = "Searching for robots in the area";
 "configuration_new_screen_title" = "Build your own!";
-"configure_connection_tab_title" = "Connections";
-"configure_controller_tab_title" = "Controllers";
+"configure_connection_tab_title" = "Configure";
+"configure_controller_tab_title" = "Controller";
 "controller_choose_this" = "Choose this!";
 "controller_selected" = "Selected";
 "error_variable_already_in_use" = "Variable name is already in use.";
