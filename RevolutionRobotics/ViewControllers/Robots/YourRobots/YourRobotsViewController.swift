@@ -125,10 +125,15 @@ extension YourRobotsViewController: UICollectionViewDataSource {
             self?.presentModal(with: deleteView)
         }
         view.editHandler = { [weak self] in
-            guard let robot = robot else { return }
+            guard let robot = robot, let robotStatus = BuildStatus(rawValue: robot.buildStatus) else { return }
             self?.selectedIndexPath = indexPath
             self?.dismissModalViewController()
-            self?.navigateToConfiguration(with: robot)
+
+            if !robot.remoteId.isEmpty && robotStatus != .completed {
+                self?.navigateToBuildYourRobotViewController(with: robot)
+            } else {
+                self?.navigateToConfiguration(with: robot)
+            }
         }
         view.duplicateHandler = { [weak self] in
             guard let robot = robot else { return }
