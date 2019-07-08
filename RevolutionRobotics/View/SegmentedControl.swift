@@ -57,6 +57,12 @@ extension SegmentedControl {
         }
     }
 
+    func updateControllersSegment(with title: String) {
+        if let controllerButton = buttons.last {
+            controllerButton.setTitle(title, for: .normal)
+        }
+    }
+
     private func setupView() {
         setupStackView()
     }

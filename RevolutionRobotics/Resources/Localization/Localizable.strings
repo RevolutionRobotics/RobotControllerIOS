@@ -87,7 +87,7 @@
 
 // MARK: - Configure
 "configure_motor_empty_button_title" = "Empty";
-"configure_motor_drivetrain_button_title" = "Drivetrain";
+"configure_motor_drivetrain_button_title" = "Drive";
 "configure_motor_motor_button_title" = "Motor";
 "configure_motor_left_button_title" = "Left";
 "configure_motor_right_button_title" = "Right";
@@ -106,7 +106,7 @@
 "play_controller_screen_title" = "Play!";
 "controller_setup_screen_title" = "Assign programs to buttons!";
 "controller_setup_empty" = "empty";
-"controller_setup_drivetrain" = "drivetrain";
+"controller_setup_drivetrain" = "drive";
 
 // MARK: - Programs
 "programs_screen_title" = "Programs";

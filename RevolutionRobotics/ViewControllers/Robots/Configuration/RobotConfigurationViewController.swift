@@ -62,9 +62,15 @@ final class RobotConfigurationViewController: BaseViewController {
     private var controllers: [ControllerDataModel] = [] {
         didSet {
             collectionView.reloadData()
+            var controllerTitle = RobotsKeys.Configure.controllerTabTitle.translate()
             if !controllers.isEmpty {
                 self.collectionView.refreshCollectionView()
+            } else {
+                if controllers.isEmpty {
+                    controllerTitle += " ⚠️"
+                }
             }
+            segmentedControl.updateControllersSegment(with: controllerTitle)
         }
     }
     private var lastSelectedIndexPath: IndexPath?
