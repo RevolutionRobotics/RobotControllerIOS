@@ -10,6 +10,14 @@ import UIKit
 import RevolutionRoboticsBlockly
 
 final class ProgramsViewController: BaseViewController {
+    // MARK: - ProgramSaveReason
+    private enum ProgramSaveReason {
+        case edited
+        case navigateBack
+        case openProgram
+        case showCode
+    }
+
     // MARK: - Constants
     private enum Constants {
         static let defaultXMLCode = "<xml xmlns=\"http://www.w3.org/1999/xhtml\"></xml>"
@@ -26,9 +34,12 @@ final class ProgramsViewController: BaseViewController {
     var realmService: RealmServiceInterface!
     var programCompatibilityValidator: ProgramCompatibilityValidator!
     var selectedProgram: ProgramDataModel?
-    private var isBackButtonTapped = false
     private let blocklyViewController = BlocklyViewController()
-    private var showCode: Bool = false
+    private var programSaveReason = ProgramSaveReason.edited {
+        didSet {
+            blocklyViewController.saveProgram()
+        }
+    }
 }
 
 // MARK: - View lifecycle
@@ -128,15 +139,49 @@ extension ProgramsViewController {
     }
 
     private func confirmLeave() {
-        let modal = ConfirmLeaveModalView.instatiate()
-        modal.leaveCallback = { [weak self] in
-            self?.dismissModalViewController()
-            self?.navigationController?.popViewController(animated: true)
+        let confirmModal = ConfirmModalView.instatiate()
+
+        switch programSaveReason {
+        case .navigateBack:
+            confirmModal.setup(
+                title: ProgramsKeys.NavigateBack.title.translate(),
+                subtitle: ProgramsKeys.NavigateBack.subtitle.translate(),
+                positiveButtonTitle: ProgramsKeys.NavigateBack.positive.translate()
+            )
+
+            confirmModal.confirmSelected = { [weak self] confirmed in
+                self?.dismissModalViewController()
+                if confirmed {
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            }
+        case .openProgram:
+            confirmModal.setup(
+                title: ProgramsKeys.ConfirmOpen.title.translate(),
+                subtitle: ProgramsKeys.ConfirmOpen.subtitle.translate(),
+                positiveButtonTitle: ProgramsKeys.ConfirmOpen.positive.translate()
+            )
+            confirmModal.confirmSelected = { [weak self] confirmed in
+                self?.dismissModalViewController()
+                if confirmed {
+                    self?.openProgramModal()
+                }
+            }
+        default:
+            return
         }
-        modal.cancelCallback = { [weak self] in
+
+        presentModal(with: confirmModal)
+    }
+
+    private func openProgramModal() {
+        let programsView = ProgramsView.instatiate()
+        programsView.setup(with: realmService.getPrograms())
+        programsView.selectedProgramCallback = { [weak self] program in
             self?.dismissModalViewController()
+            self?.open(program: program)
         }
-        presentModal(with: modal)
+        presentModal(with: programsView)
     }
 }
 
@@ -156,7 +201,8 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     func confirm(message: String, callback: ((Bool) -> Void)?) {
         let confirmView = ConfirmModalView.instatiate()
 
-        confirmView.setup(message: message) { [weak self] confirmed in
+        confirmView.setup(title: message)
+        confirmView.confirmSelected = { [weak self] confirmed in
             callback?(confirmed)
             self?.dismissModalViewController()
         }
@@ -311,7 +357,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func onVariablesExported(variables: String) {
-        guard let program = selectedProgram, !showCode else { return }
+        guard let program = selectedProgram, programSaveReason == .edited else { return }
         let variableList = variables.components(separatedBy: ",").filter { !$0.isEmpty }
         if let programDataModel = realmService.getProgram(id: program.id) {
             realmService.updateObject {
@@ -331,47 +377,55 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func onPythonProgramSaved(pythonCode: String) {
-        if showCode {
-            showCode = false
-            let modal = ShowCodeView.instatiate()
-            modal.setup(with: pythonCode)
-            modal.doneCallback = { [weak self] in
+        switch programSaveReason {
+        case .showCode:
+            let codeView = ShowCodeView.instatiate()
+            codeView.setup(with: pythonCode)
+            codeView.doneCallback = { [weak self] in
                 self?.dismissModalViewController()
             }
-            presentModal(with: modal)
-        } else {
+            presentModal(with: codeView)
+        case .edited:
             guard let program = selectedProgram else { return }
 
-            realmService.updateObject(closure: {
+            realmService.updateObject {
                 program.lastModified = Date()
                 program.python = pythonCode.base64Encoded ?? ""
-            })
+            }
+        default:
+            return
         }
     }
 
     func onXMLProgramSaved(xmlCode: String) {
-        if isBackButtonTapped {
-            isBackButtonTapped = false
-            if let selectedProgram = selectedProgram {
-                if selectedProgram.xml.base64Decoded != xmlCode {
-                    confirmLeave()
-                } else {
-                    navigationController?.popViewController(animated: true)
-                }
-            } else {
-                if xmlCode == Constants.defaultXMLCode {
-                    navigationController?.popViewController(animated: true)
-                } else {
-                    confirmLeave()
-                }
-            }
-        } else {
-            guard let program = selectedProgram, !showCode else { return }
+        let isDefaulProgram = xmlCode == Constants.defaultXMLCode
 
-            realmService.updateObject(closure: {
+        switch programSaveReason {
+        case .navigateBack:
+            guard let selectedProgram = selectedProgram else {
+                isDefaulProgram ? navigateBack() : confirmLeave()
+                return
+            }
+
+            selectedProgram.xml.base64Decoded == xmlCode ? navigateBack() : confirmLeave()
+
+        case .openProgram:
+            guard let selectedProgram = selectedProgram else {
+                isDefaulProgram ? openProgramModal() : confirmLeave()
+                return
+            }
+
+            selectedProgram.xml.base64Decoded == xmlCode ? openProgramModal() : confirmLeave()
+
+        case .edited:
+            guard let program = selectedProgram else { return }
+
+            realmService.updateObject {
                 program.lastModified = Date()
                 program.xml = xmlCode.base64Encoded ?? ""
-            })
+            }
+        default:
+            return
         }
     }
 }
@@ -379,13 +433,11 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 // MARK: - Actions
 extension ProgramsViewController {
     @IBAction private func backButtonTapped(_ sender: UIButton) {
-        blocklyViewController.saveProgram()
-        isBackButtonTapped = true
+        programSaveReason = .navigateBack
     }
 
     @IBAction private func programCodeButtonTapped(_ sender: UIButton) {
-        showCode = true
-        blocklyViewController.saveProgram()
+        programSaveReason = .showCode
     }
 
     @IBAction private func saveProgramButtonTapped(_ sender: UIButton) {
@@ -417,18 +469,12 @@ extension ProgramsViewController {
             if let description = saveData.description {
                 self?.save(description: description)
             }
-            self?.blocklyViewController.saveProgram()
+            self?.programSaveReason = .edited
         }
         presentModal(with: saveModal)
     }
 
     @IBAction private func openProgramButtonTapped(_ sender: UIButton) {
-        let modal = ProgramsView.instatiate()
-        modal.setup(with: realmService.getPrograms())
-        modal.selectedProgramCallback = { [weak self] program in
-            self?.dismissModalViewController()
-            self?.open(program: program)
-        }
-        presentModal(with: modal)
+        programSaveReason = .openProgram
     }
 }
