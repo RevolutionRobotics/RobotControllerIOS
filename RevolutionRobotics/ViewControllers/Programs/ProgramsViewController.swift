@@ -128,15 +128,29 @@ extension ProgramsViewController {
     }
 
     private func confirmLeave() {
-        let modal = ConfirmLeaveModalView.instatiate()
-        modal.leaveCallback = { [weak self] in
+        let confirmModal = ConfirmModalView.instatiate()
+        confirmModal.setup(
+            title: ProgramsKeys.NavigateBack.title.translate(),
+            subtitle: ProgramsKeys.NavigateBack.subtitle.translate(),
+            positiveButtonTitle: ProgramsKeys.NavigateBack.positive.translate()
+        )
+        confirmModal.confirmSelected = { [weak self] confirmed in
             self?.dismissModalViewController()
-            self?.navigationController?.popViewController(animated: true)
+            if confirmed {
+                self?.navigationController?.popViewController(animated: true)
+            }
         }
-        modal.cancelCallback = { [weak self] in
+        presentModal(with: confirmModal)
+    }
+
+    private func openProgramModal() {
+        let programsView = ProgramsView.instatiate()
+        programsView.setup(with: realmService.getPrograms())
+        programsView.selectedProgramCallback = { [weak self] program in
             self?.dismissModalViewController()
+            self?.open(program: program)
         }
-        presentModal(with: modal)
+        presentModal(with: programsView)
     }
 }
 
@@ -156,7 +170,8 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     func confirm(message: String, callback: ((Bool) -> Void)?) {
         let confirmView = ConfirmModalView.instatiate()
 
-        confirmView.setup(message: message) { [weak self] confirmed in
+        confirmView.setup(title: message)
+        confirmView.confirmSelected = { [weak self] confirmed in
             callback?(confirmed)
             self?.dismissModalViewController()
         }
@@ -423,12 +438,24 @@ extension ProgramsViewController {
     }
 
     @IBAction private func openProgramButtonTapped(_ sender: UIButton) {
-        let modal = ProgramsView.instatiate()
-        modal.setup(with: realmService.getPrograms())
-        modal.selectedProgramCallback = { [weak self] program in
-            self?.dismissModalViewController()
-            self?.open(program: program)
+        guard selectedProgram != nil else {
+            openProgramModal()
+            return
         }
-        presentModal(with: modal)
+
+        let confirmModal = ConfirmModalView.instatiate()
+        confirmModal.setup(
+            title: ProgramsKeys.ConfirmOpen.title.translate(),
+            subtitle: ProgramsKeys.ConfirmOpen.subtitle.translate(),
+            positiveButtonTitle: ProgramsKeys.ConfirmOpen.positive.translate()
+        )
+        confirmModal.confirmSelected = { [weak self] confirmed in
+            self?.dismissModalViewController()
+            if confirmed {
+                self?.openProgramModal()
+            }
+        }
+        presentModal(with: confirmModal)
+
     }
 }
