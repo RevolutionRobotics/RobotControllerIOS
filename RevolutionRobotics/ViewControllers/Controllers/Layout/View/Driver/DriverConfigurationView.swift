@@ -63,13 +63,13 @@ extension DriverConfigurationView {
 
     private func setupLeftDrivetrainButton() {
         leftDrivetrainButton.lines = leftDrivetrainDashedView
-        leftDrivetrainButton.setTitle(ControllerKeys.drivetrain.translate(), for: .normal)
+        leftDrivetrainButton.setTitle(ControllerKeys.drive.translate(), for: .normal)
         leftDrivetrainButton.setupStaticState()
     }
 
     private func setupRightDrivetrainButton() {
         rightDrivetrainButton.lines = rightDrivetrainDashedView
-        rightDrivetrainButton.setTitle(ControllerKeys.drivetrain.translate(), for: .normal)
+        rightDrivetrainButton.setTitle(ControllerKeys.drive.translate(), for: .normal)
         rightDrivetrainButton.setupStaticState()
     }
 

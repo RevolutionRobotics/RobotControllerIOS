@@ -12,7 +12,7 @@ final class SensorDataModel: Object {
     // MARK: - Constants
     enum Constants {
         static let bumper = "bumper"
-        static let ultrasonic = "ultrasonic"
+        static let distance = "distance"
     }
 
     // MARK: - Properties
@@ -37,13 +37,6 @@ final class SensorDataModel: Object {
     convenience init(viewModel: SensorConfigViewModel) {
         self.init()
         self.variableName = viewModel.portName ?? ""
-        switch viewModel.type {
-        case .bumper:
-            self.type = Constants.bumper
-        case .ultrasonic:
-            self.type = Constants.ultrasonic
-        default:
-            fatalError("Invalid motor configuration view model!")
-        }
+        self.type = viewModel.type.rawValue
     }
 }

@@ -273,9 +273,9 @@ extension RobotConfigurationViewController {
         configurationView.portSelectionHandler = { [weak self] port in
             self?.configurationView.set(state: .highlighted, on: port.number)
             switch port.type {
-            case .motor, .drivetrain:
+            case .motor, .drive:
                 self?.showMotorConfiguration(portNumber: port.number)
-            case .bumper, .ultrasonic:
+            case .bumper, .distance:
                 self?.showSensorConfiguration(portNumber: port.number)
             }
         }
@@ -286,7 +286,7 @@ extension RobotConfigurationViewController {
         let motorConfig = AppContainer.shared.container.unwrappedResolve(MotorConfigViewController.self)
         motorConfig.portNumber = portNumber
         if let motors = configuration?.mapping?.motors.compactMap({ $0 }) {
-            motorConfig.numberOfDrivetrains = motors.filter({ $0.type == MotorDataModel.Constants.drivetrain }).count
+            motorConfig.numberOfDrives = motors.filter({ $0.type == MotorDataModel.Constants.drive }).count
         }
         motorConfig.selectedMotorState =
             MotorConfigViewModelState(dataModel: configuration?.mapping?.motor(for: portNumber))
@@ -340,6 +340,8 @@ extension RobotConfigurationViewController {
         sensorConfig.selectedSensorType =
             SensorConfigViewModelType(dataModel: configuration?.mapping?.sensor(for: portNumber))
         sensorConfig.name = configuration?.mapping?.sensor(for: portNumber)?.variableName
+        sensorConfig.bumperSensorCounts = configuration?.mapping?.bumperSensorCount ?? 0
+        sensorConfig.distanceSensorCounts = configuration?.mapping?.distanceSensorCount ?? 0
         sensorConfig.prohibitedNames = configuration?.mapping?.variableNames.filter({ $0 != sensorConfig.name }) ?? []
         sensorConfig.doneButtonTapped = { [weak self] config in
             self?.dismiss(animated: true, completion: nil)

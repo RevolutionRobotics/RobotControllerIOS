@@ -11,7 +11,7 @@ import RealmSwift
 final class MotorDataModel: Object {
     // MARK: - Constants
     enum Constants {
-        static let drivetrain = "drivetrain"
+        static let drive = "drive"
         static let motor = "motor"
     }
 
@@ -46,8 +46,8 @@ final class MotorDataModel: Object {
         self.init()
         self.variableName = viewModel.portName ?? ""
         switch viewModel.state {
-        case .drivetrain(let side, let rotation):
-            self.type = Constants.drivetrain
+        case .drive(let side, let rotation):
+            self.type = Constants.drive
             self.side = side.rawValue
             self.rotation = rotation.rawValue
         case .motor(let rotation):

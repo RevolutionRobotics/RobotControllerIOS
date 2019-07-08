@@ -14,18 +14,15 @@ struct SensorConfigViewModel {
 enum SensorConfigViewModelType: String {
     case empty
     case bumper
-    case ultrasonic
+    case distance
 
     // MARK: - Initialization
     init(dataModel: SensorDataModel?) {
-        guard let dataModel = dataModel else { self = .empty; return }
-        switch dataModel.type {
-        case SensorDataModel.Constants.bumper:
-            self = .bumper
-        case SensorDataModel.Constants.ultrasonic:
-            self = .ultrasonic
-        default:
+        guard let dataModel = dataModel, let type = SensorConfigViewModelType(rawValue: dataModel.type) else {
             self = .empty
+            return
         }
+
+        self = type
     }
 }

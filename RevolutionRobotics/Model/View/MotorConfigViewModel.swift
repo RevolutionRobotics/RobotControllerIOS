@@ -13,8 +13,8 @@ struct MotorConfigViewModel {
 
 enum MotorConfigViewModelState: Equatable {
     case empty
-    case drivetrainWithoutSide
-    case drivetrain(Side, Rotation)
+    case driveWithoutSide
+    case drive(Side, Rotation)
     case motorWithoutRotation
     case motor(Rotation)
 
@@ -25,12 +25,12 @@ enum MotorConfigViewModelState: Equatable {
         case MotorDataModel.Constants.motor:
             guard let raw = dataModel.rotation, let rotation = Rotation(rawValue: raw) else { self = .empty; return }
             self = .motor(rotation)
-        case MotorDataModel.Constants.drivetrain:
+        case MotorDataModel.Constants.drive:
             guard let rotationRaw = dataModel.rotation,
                 let sideRaw = dataModel.side,
                 let rotation = Rotation(rawValue: rotationRaw),
                 let side = Side(rawValue: sideRaw) else { self = .empty; return }
-            self = .drivetrain(side, rotation)
+            self = .drive(side, rotation)
         default:
             self = .empty
         }

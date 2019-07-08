@@ -38,10 +38,10 @@ enum Image {
             static let addIconDark20 = UIImage(named: "addIconDark20")
             static let addIconLight = UIImage(named: "addIconLight")
             static let defaultRobotImage = UIImage(named: "defaultRobotImage")
-            static let drivetrainIcon = UIImage(named: "drivetrainIcon")
+            static let driveIcon = UIImage(named: "DriveIcon")
             static let motorIcon = UIImage(named: "motorIcon")
             static let bumperIcon = UIImage(named: "bumperIcon")
-            static let ultrasonicIcon = UIImage(named: "ultrasonicIcon")
+            static let distanceIcon = UIImage(named: "DistanceIcon")
         }
         enum Controllers {
             static let cellRedBorderSelected = UIImage(named: "ControllerCellBorderSelectedRed")
@@ -60,8 +60,8 @@ enum Image {
         static let reconfigure = UIImage(named: "Reconfigure")
         static let emptySelected = UIImage(named: "EmptySelected")
         static let emptyUnselected = UIImage(named: "EmptyUnselected")
-        static let drivetrainSelected = UIImage(named: "DrivetrainSelected")
-        static let drivetrainUnselected = UIImage(named: "DrivetrainUnselected")
+        static let driveSelected = UIImage(named: "DriveSelected")
+        static let driveUnselected = UIImage(named: "DriveUnselected")
         static let motorSelected = UIImage(named: "MotorSelected")
         static let motorUnselected = UIImage(named: "MotorUnselected")
         static let clockwiseSelected = UIImage(named: "ClockwiseSelected")
@@ -74,8 +74,8 @@ enum Image {
         static let rightUnselected = UIImage(named: "RightUnselected")
         static let bumperSelected = UIImage(named: "BumperSelected")
         static let bumperUnselected = UIImage(named: "BumperUnselected")
-        static let ultrasoundSelected = UIImage(named: "UltrasoundSelected")
-        static let ultrasoundUnselected = UIImage(named: "UltrasoundUnselected")
+        static let distanceSelected = UIImage(named: "DistanceSelected")
+        static let distanceUnselected = UIImage(named: "DistanceUnselected")
     }
 
     enum Controller {
@@ -133,8 +133,8 @@ enum Image {
 
     enum Testing {
         static let MotorTestImage = UIImage(named: "MotorTestImage")
-        static let DrivetrainTestImage = UIImage(named: "DrivetrainTestImage")
-        static let UltrasonicTestImage = UIImage(named: "UltrasonicTestImage")
+        static let driveTestImage = UIImage(named: "DriveTestImage")
+        static let distanceTestImage = UIImage(named: "DistanceTestImage")
         static let BumperTestImage = UIImage(named: "BumperTestImage")
     }
 

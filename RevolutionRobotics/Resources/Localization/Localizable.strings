@@ -87,7 +87,7 @@
 
 // MARK: - Configure
 "configure_motor_empty_button_title" = "Empty";
-"configure_motor_drivetrain_button_title" = "Drive";
+"configure_motor_drive_button_title" = "Drive";
 "configure_motor_motor_button_title" = "Motor";
 "configure_motor_left_button_title" = "Left";
 "configure_motor_right_button_title" = "Right";
@@ -97,7 +97,7 @@
 "configure_motor_test_button_title" = "Test";
 "configure_motor_done_button_title" = "Done";
 "configure_sensor_bumper_button_title" = "Bumper";
-"configure_sensor_ultrasound_button_title" = "Ultrasound";
+"configure_sensor_distance_button_title" = "Distance";
 
 // MARK: - Controller
 "controller_type_gamer" = "gamer";
@@ -106,7 +106,7 @@
 "play_controller_screen_title" = "Play!";
 "controller_setup_screen_title" = "Assign programs to buttons!";
 "controller_setup_empty" = "empty";
-"controller_setup_drivetrain" = "drive";
+"controller_setup_drive" = "drive";
 
 // MARK: - Programs
 "programs_screen_title" = "Programs";
@@ -248,10 +248,10 @@
 "build_robot_testing_question" = "Looking good?";
 "build_robot_testing_positive_button_title" = "Works fine!";
 "build_robot_testing_negative_button_title" = "Not really";
-"testing_drivetrain_test" = "Robot moves back and forth and reaches initial position.";
+"testing_drive_test" = "Robot moves back and forth and reaches initial position.";
 "testing_motor_test" = "The attached motor does a half rotation back and forth and reaches initial position.";
 "testing_bumper_test" = "Move your hand in front of the robot and gently push it. If the sensor detects it, the LED lights of the robot will turn green, otherwise turn red.";
-"testing_ultrasonic_test" = "Move your hand in front of the robot. If the sensor detects it, the LED lights of the robot will turn green, otherwise turn red.";
+"testing_distance_test" = "Move your hand in front of the robot. If the sensor detects it, the LED lights of the robot will turn green, otherwise turn red.";
 
 "challenge_finished_dialog_title" = "Challenge accomplished!";
 "challenge_finished_dialog_latest_title" = "Challenge section accomplished, well done!";

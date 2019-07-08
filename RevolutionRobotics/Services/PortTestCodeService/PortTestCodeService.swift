@@ -14,9 +14,9 @@ final class PortTestCodeService {
     private enum Constants {
         static let pythonExtension = ".py"
         static let bumperTestCodeFileName = "bumperTest"
-        static let ultrasonicTestCodeFileName = "ultrasonicTest"
+        static let distanceTestCodeFileName = "distanceTest"
         static let motorTestCodeFileName = "motorTest"
-        static let drivetrainTestCodeFileName = "drivetrainTest"
+        static let driveTestCodeFileName = "driveTest"
         static let sensorPortPlaceholder = "{SENSOR}"
         static let motorPortPlaceholder = "{MOTOR}"
         static let motorDirectionPlaceholder = "{MOTOR_DIR}"
@@ -42,14 +42,14 @@ extension PortTestCodeService: PortTestCodeServiceInterface {
         }
     }
 
-    func ultrasonicTestCode(for portNumber: Int) -> String {
-        guard let codePath = Bundle.main.path(forResource: Constants.ultrasonicTestCodeFileName,
+    func distanceTestCode(for portNumber: Int) -> String {
+        guard let codePath = Bundle.main.path(forResource: Constants.distanceTestCodeFileName,
                                               ofType: Constants.pythonExtension) else { return "" }
         do {
             let code = try String(contentsOfFile: codePath)
             return code.replacingOccurrences(of: Constants.sensorPortPlaceholder, with: "\(portNumber)")
         } catch {
-            os_log("Error: Failed to load ultrasonic test code!")
+            os_log("Error: Failed to load distance test code!")
             return ""
         }
     }
@@ -70,7 +70,7 @@ extension PortTestCodeService: PortTestCodeServiceInterface {
     }
 
     func drivatrainTestCode(for portNumber: Int, direction: Rotation, side: Side) -> String {
-        guard let codePath = Bundle.main.path(forResource: Constants.drivetrainTestCodeFileName,
+        guard let codePath = Bundle.main.path(forResource: Constants.driveTestCodeFileName,
                                               ofType: Constants.pythonExtension) else { return "" }
         do {
             let code = try String(contentsOfFile: codePath)
@@ -81,7 +81,7 @@ extension PortTestCodeService: PortTestCodeServiceInterface {
                 .replacingOccurrences(of: Constants.motorDirectionPlaceholder, with: "\(replacedDirection)")
                 .replacingOccurrences(of: Constants.motorSidePlaceholder, with: "\(replacedSide)")
         } catch {
-            os_log("Error: Failed to load drivetrain test code!")
+            os_log("Error: Failed to load drive test code!")
             return ""
         }
     }

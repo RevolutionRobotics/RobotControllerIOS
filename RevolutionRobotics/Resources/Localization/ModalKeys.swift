@@ -121,10 +121,10 @@ enum ModalKeys {
         static let testingQuestion = "build_robot_testing_question"
         static let testingNegativeButtonTitle = "build_robot_testing_negative_button_title"
         static let testingPositiveButtonTitle = "build_robot_testing_positive_button_title"
-        static let drivetrainTest = "testing_drivetrain_test"
+        static let driveTest = "testing_drive_test"
         static let motorTest = "testing_motor_test"
         static let bumperTest = "testing_bumper_test"
-        static let ultrasonicTest = "testing_ultrasonic_test"
+        static let distanceTest = "testing_distance_test"
     }
 
     enum Challenge {

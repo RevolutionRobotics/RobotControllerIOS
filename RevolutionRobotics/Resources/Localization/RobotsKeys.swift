@@ -49,7 +49,7 @@ enum RobotsKeys {
 
         enum Motor {
             static let emptyButton = "configure_motor_empty_button_title"
-            static let drivetrainButton = "configure_motor_drivetrain_button_title"
+            static let driveButton = "configure_motor_drive_button_title"
             static let motorButton = "configure_motor_motor_button_title"
             static let leftButton = "configure_motor_left_button_title"
             static let rightButton = "configure_motor_right_button_title"
@@ -62,7 +62,7 @@ enum RobotsKeys {
 
         enum Sensor {
             static let bumperButton = "configure_sensor_bumper_button_title"
-            static let ultrasoundButton = "configure_sensor_ultrasound_button_title"
+            static let distanceButton = "configure_sensor_distance_button_title"
         }
     }
 
