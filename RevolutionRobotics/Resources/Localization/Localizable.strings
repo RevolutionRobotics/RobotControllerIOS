@@ -134,6 +134,9 @@
 "dialog_save_program_name_hint" = "Tap here to name it!";
 "dialog_save_program_description" = "Description";
 "dialog_save_program_description_hint" = "Tap here and add a hint to remember when to use it!";
+"dialog_load_program_confirm_title" = "Would you like to load another program?";
+"dialog_load_program_confirm_description" = "All your unsaved changes will be lost";
+"dialog_load_program_confirm_button_positive" = "Open programs";
 "error_program_already_in_use" = "Program name is already in use.";
 "program_confirm_title" = "Would you like to leave the editor?";
 "program_confirm_description" = "All your unsaved changes will be lost.";

@@ -332,8 +332,6 @@
 		D0899C7422A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0899C7222A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.xib */; };
 		D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CE1226478200052EE1F /* FirebaseService.swift */; };
 		D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CEF22648F990052EE1F /* UIView+Crop.swift */; };
-		D0995A2C22CCB0A6005691B9 /* ConfirmLeaveModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0995A2B22CCB0A6005691B9 /* ConfirmLeaveModalView.swift */; };
-		D0995A2E22CCB0AE005691B9 /* ConfirmLeaveModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0995A2D22CCB0AE005691B9 /* ConfirmLeaveModalView.xib */; };
 		D0A1107D227870040064FBB6 /* YourRobotsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */; };
 		D0A1107E227870040064FBB6 /* YourRobotsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0A1107C227870040064FBB6 /* YourRobotsCollectionViewCell.xib */; };
 		D0A11084227B0BEB0064FBB6 /* ResizableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */; };
@@ -700,8 +698,6 @@
 		D0899C7222A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChallengeCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		D08C1CE1226478200052EE1F /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D08C1CEF22648F990052EE1F /* UIView+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Crop.swift"; sourceTree = "<group>"; };
-		D0995A2B22CCB0A6005691B9 /* ConfirmLeaveModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLeaveModalView.swift; sourceTree = "<group>"; };
-		D0995A2D22CCB0AE005691B9 /* ConfirmLeaveModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmLeaveModalView.xib; sourceTree = "<group>"; };
 		D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRobotsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0A1107C227870040064FBB6 /* YourRobotsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourRobotsCollectionViewCell.xib; sourceTree = "<group>"; };
 		D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableCell.swift; sourceTree = "<group>"; };
@@ -1030,7 +1026,6 @@
 		09994316228DBA6500D87385 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				D0995A2A22CCB07D005691B9 /* ConfirmLeave */,
 				0921710922C20D7100F773B5 /* Alert */,
 				09BD4C1A22C11A1C0046DB74 /* Confirm */,
 				D008E79D22B92A0B00789B91 /* SaveProgram */,
@@ -1961,15 +1956,6 @@
 			path = ChallengeDetailContent;
 			sourceTree = "<group>";
 		};
-		D0995A2A22CCB07D005691B9 /* ConfirmLeave */ = {
-			isa = PBXGroup;
-			children = (
-				D0995A2B22CCB0A6005691B9 /* ConfirmLeaveModalView.swift */,
-				D0995A2D22CCB0AE005691B9 /* ConfirmLeaveModalView.xib */,
-			);
-			path = ConfirmLeave;
-			sourceTree = "<group>";
-		};
 		D0A11089227B18110064FBB6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -2239,7 +2225,6 @@
 				0938897422B24DD900292B32 /* ta_da.mp3 in Resources */,
 				D06C326D22857A80005534C0 /* AboutViewController.xib in Resources */,
 				D008E7A122B9304000789B91 /* SaveProgramView.xib in Resources */,
-				D0995A2E22CCB0AE005691B9 /* ConfirmLeaveModalView.xib in Resources */,
 				D0899C6D22A6BCB900DB6F97 /* ChallengeCategoryCollectionViewCell.xib in Resources */,
 				2A50DA2E2292CFB000B3D74C /* GamerConfigurationView.xib in Resources */,
 				096479872268776200F68456 /* BuildRobotViewController.xib in Resources */,
@@ -2613,7 +2598,6 @@
 				D0A11094227B23E90064FBB6 /* RRInputField.swift in Sources */,
 				D0049A3D2270A8CF007FA256 /* AvailableRobotsView.swift in Sources */,
 				FE4B161C2277219C00CAA083 /* DashedView.swift in Sources */,
-				D0995A2C22CCB0A6005691B9 /* ConfirmLeaveModalView.swift in Sources */,
 				09ED1B9A225241C9009CF262 /* NibLoadable.swift in Sources */,
 				D0049A1E226F0929007FA256 /* RRButton.swift in Sources */,
 				D06C327322899F60005534C0 /* FirmwareUpdateViewController.swift in Sources */,

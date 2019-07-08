@@ -11,32 +11,38 @@ import UIKit
 final class ConfirmModalView: UIView {
     // MARK: - Outlets
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var cancelButton: RRButton!
-    @IBOutlet private weak var okButton: RRButton!
+    @IBOutlet private weak var subtitleLabel: UILabel!
+    @IBOutlet private weak var negativeButton: RRButton!
+    @IBOutlet private weak var positiveButton: RRButton!
 
     // MARK: - Properties
-    private var confirmSelected: CallbackType<Bool>?
+    var confirmSelected: CallbackType<Bool>?
 
     // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        setupButtons()
+        setupButtonBorders()
     }
 }
 
 // MARK: - Setup
 extension ConfirmModalView {
-    func setup(message: String, confirmSelected: CallbackType<Bool>?) {
-        self.confirmSelected = confirmSelected
-        titleLabel.text = message.uppercased()
+    func setup(
+        title: String,
+        subtitle: String? = nil,
+        negativeButtonTitle: String = CommonKeys.cancel.translate(),
+        positiveButtonTitle: String = ModalKeys.Blockly.ok.translate()
+    ) {
+        titleLabel.text = title.uppercased()
+        subtitleLabel.text = subtitle
+        negativeButton.setTitle(negativeButtonTitle, for: .normal)
+        positiveButton.setTitle(positiveButtonTitle, for: .normal)
     }
 
-    private func setupButtons() {
-        okButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
-        okButton.setTitle(ModalKeys.Blockly.ok.translate(), for: .normal)
-        cancelButton.setBorder(fillColor: Color.black26, strokeColor: Color.blackTwo, croppedCorners: [.bottomLeft])
-        cancelButton.setTitle(ModalKeys.Blockly.cancel.translate(), for: .normal)
+    private func setupButtonBorders() {
+        positiveButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
+        negativeButton.setBorder(fillColor: Color.black26, strokeColor: Color.blackTwo, croppedCorners: [.bottomLeft])
     }
 }
 
