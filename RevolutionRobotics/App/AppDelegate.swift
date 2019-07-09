@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
     var window: UIWindow?
+    private var shouldReconnect = false
     private var navigationController: RRNavigationController!
     private let dependencies = AppDependencies()
     private let assemblyRegister = AssemblyRegister()
@@ -33,13 +34,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
+        shouldReconnect = true
         let bluetoothService = AppContainer.shared.container.unwrappedResolve(BluetoothServiceInterface.self)
-        bluetoothService.disconnect(shouldReconnect: true)
+        bluetoothService.disconnect(shouldReconnect: shouldReconnect)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        let bluetoothService = AppContainer.shared.container.unwrappedResolve(BluetoothServiceInterface.self)
-        bluetoothService.reconnect()
+        if shouldReconnect {
+            shouldReconnect = false
+            let bluetoothService = AppContainer.shared.container.unwrappedResolve(BluetoothServiceInterface.self)
+            bluetoothService.reconnect()
+        }
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        if shouldReconnect {
+            shouldReconnect = false
+            let bluetoothService = AppContainer.shared.container.unwrappedResolve(BluetoothServiceInterface.self)
+            bluetoothService.reconnect()
+        }
     }
 }
 
