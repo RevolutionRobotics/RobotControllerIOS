@@ -446,16 +446,9 @@ extension ProgramsViewController {
         }
         saveModal.doneCallback = { [weak self] saveData in
             self?.dismissModalViewController()
-            guard !(self?.realmService.getPrograms()
-                .contains(where: { $0.name == saveData.name && !$0.remoteId.isEmpty }) ?? true) else {
-                    let alert = UIAlertController(title: nil,
-                                                  message: ProgramsKeys.SaveProgram.nameInUse.translate(),
-                                                  preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: CommonKeys.errorOk.translate(),
-                                                  style: .default,
-                                                  handler: nil))
-                    self?.present(alert, animated: true)
-                    return
+            guard !(self?.programAlreadyExists(name: saveData.name))! else {
+                self?.present(UIAlertController.errorAlert(type: .programAlreadyExists), animated: true)
+                return
             }
             if self?.selectedProgram == nil {
                 self?.selectedProgram = ProgramDataModel(id: UUID().uuidString)
@@ -475,5 +468,14 @@ extension ProgramsViewController {
 
     @IBAction private func openProgramButtonTapped(_ sender: UIButton) {
         programSaveReason = .openProgram
+    }
+}
+
+// MARK: - Private methods
+extension ProgramsViewController {
+    private func programAlreadyExists(name: String?) -> Bool {
+        guard let name = name else { return true }
+
+        return realmService.getPrograms().contains(where: { $0.name == name })
     }
 }

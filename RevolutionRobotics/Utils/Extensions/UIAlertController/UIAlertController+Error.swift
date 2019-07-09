@@ -14,6 +14,7 @@ extension UIAlertController {
         case bluetooth
         case variableNameEmpty
         case variableNameAlreadyInUse
+        case programAlreadyExists
     }
 
     static func errorAlert(type: ErrorType) -> UIAlertController {
@@ -25,7 +26,9 @@ extension UIAlertController {
         case .variableNameEmpty:
             return variableNameEmptyAlert()
         case .variableNameAlreadyInUse:
-            return variableNameAlreadyInUse()
+            return variableNameAlreadyInUseAlert()
+        case .programAlreadyExists:
+            return programAlreadyExistsAlert()
         }
     }
 
@@ -72,7 +75,7 @@ extension UIAlertController {
         return alertController
     }
 
-    private static func variableNameAlreadyInUse() -> UIAlertController {
+    private static func variableNameAlreadyInUseAlert() -> UIAlertController {
         let alertController = UIAlertController(title: CommonKeys.errorTitle.translate(),
                                                 message: RobotsKeys.Configure.variableError.translate(),
                                                 preferredStyle: .alert)
@@ -80,6 +83,16 @@ extension UIAlertController {
             alertController.dismiss(animated: true, completion: nil)
         })
         alertController.addAction(okAction)
+        return alertController
+    }
+
+    private static func programAlreadyExistsAlert() -> UIAlertController {
+        let alertController = UIAlertController(title: nil,
+                                                message: ProgramsKeys.SaveProgram.nameInUse.translate(),
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: CommonKeys.errorOk.translate(),
+                                                style: .default,
+                                                handler: nil))
         return alertController
     }
 }
