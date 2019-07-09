@@ -406,7 +406,7 @@ extension MotorConfigViewController {
 
     private func presentConnectedModal(onCompleted callback: Callback?) {
         let connectionModal = ConnectionModalView.instatiate()
-        presentModal(with: connectionModal.successful)
+        presentModal(with: connectionModal.successful, closeHidden: true)
 
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
             self?.presentedViewController?.dismiss(animated: true, completion: nil)
