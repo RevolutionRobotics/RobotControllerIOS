@@ -25,8 +25,8 @@ extension BuildFinishedModalView {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        allSetLabel.text = RobotsKeys.BuildRobot.buildFinishedAllSet.translate()
-        messageLabel.text = RobotsKeys.BuildRobot.buildFinishedMessage.translate()
+        allSetLabel.text = RobotsKeys.BuildRobot.buildFinishedAllSet.translate().uppercased()
+        messageLabel.text = RobotsKeys.BuildRobot.buildFinishedMessage.translate().uppercased()
         driveButton.setTitle(RobotsKeys.BuildRobot.buildFinishedDrive.translate(), for: .normal)
         homeButton.setTitle(RobotsKeys.BuildRobot.buildFinishedHome.translate(), for: .normal)
         driveButton.setBorder(fillColor: . clear, strokeColor: .white, croppedCorners: [.topRight])
