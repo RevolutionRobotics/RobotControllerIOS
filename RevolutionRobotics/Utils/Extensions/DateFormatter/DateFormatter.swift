@@ -17,6 +17,6 @@ extension DateFormatter {
         guard let date = date else { return "" }
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format.rawValue
-        return dateFormatter.string(from: date)
+        return dateFormatter.string(from: date).uppercased()
     }
 }
