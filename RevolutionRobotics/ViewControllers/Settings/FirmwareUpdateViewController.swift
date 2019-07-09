@@ -119,6 +119,7 @@ extension FirmwareUpdateViewController {
 // MARK: - Bluetooth connection
 extension FirmwareUpdateViewController {
     override func connected() {
+        navigationBar.bluetoothButtonState = .connected
         connectedBrainView.isHidden = false
         bluetoothService.stopDiscovery()
         dismissModalViewController()
@@ -140,7 +141,8 @@ extension FirmwareUpdateViewController {
     }
 
     override func disconnected() {
-        os_log("Info: Disconnected from robot!")
+        super.disconnected()
+        navigationBar.bluetoothButtonState = .notConnected
     }
 
     override func connectionError() {
