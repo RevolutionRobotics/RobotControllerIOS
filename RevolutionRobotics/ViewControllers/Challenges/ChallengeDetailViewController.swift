@@ -68,6 +68,7 @@ extension ChallengeDetailViewController {
         content.frame = contentView.bounds
         contentView.addSubview(content)
         content.setup(with: step)
+        navigationBar.setup(title: step.title, delegate: self)
     }
 }
 
@@ -78,7 +79,6 @@ extension ChallengeDetailViewController {
 
         navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         guard let challenge = challenge else { return }
-        navigationBar.setup(title: challenge.name, delegate: self)
         setupContent(for: 0)
     }
 
