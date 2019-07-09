@@ -18,6 +18,7 @@ extension RealmService: RealmServiceInterface {
     func deepCopyRobot(_ robot: UserRobot) {
         let newRobot = UserRobot(value: robot)
         newRobot.id = UUID().uuidString
+        newRobot.lastModified = Date()
         newRobot.configId = deepCopy(getConfiguration(id: robot.configId))
         newRobot.customName = (newRobot.customName ?? "") + " " + ModalKeys.RobotInfo.copyPostfix.translate()
         deepCopy(from: getConfiguration(id: robot.configId), newConfigurationId: newRobot.configId)
