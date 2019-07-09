@@ -399,6 +399,8 @@ extension RobotConfigurationViewController {
             self?.updateConfiguration(on: robot, name: data.name, description: data.description)
             FileManager.default.save(self?.robotImage, as: robot.id)
             self?.dismissModalViewController()
+            self?.navigationBar.setup(title: self?.selectedRobot?.customName ?? RobotsKeys.Configure.title.translate(),
+                                      delegate: self)
             self?.saveCallback?()
         }
         presentModal(with: modal)
