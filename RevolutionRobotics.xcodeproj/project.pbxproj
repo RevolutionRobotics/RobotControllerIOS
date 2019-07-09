@@ -167,6 +167,7 @@
 		2AB0522522D4A9EC007B42F8 /* TestingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB0522422D4A9EC007B42F8 /* TestingModalView.swift */; };
 		2AB0522722D4AA24007B42F8 /* ChapterFinishedModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB0522622D4AA24007B42F8 /* ChapterFinishedModalView.swift */; };
 		2AB0522922D4AA75007B42F8 /* TurnOnBrainModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB0522822D4AA75007B42F8 /* TurnOnBrainModalView.swift */; };
+		2AB0522A22D4D8C9007B42F8 /* driveTest.py in Resources */ = {isa = PBXBuildFile; fileRef = 2A78388722C0BF9800423991 /* driveTest.py */; };
 		2AB778612282F6D4004442E2 /* DeleteModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB778602282F6D4004442E2 /* DeleteModalView.xib */; };
 		2AB7ACD922BA64B300309234 /* ConfigurationJSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7ACD822BA64B300309234 /* ConfigurationJSONData.swift */; };
 		2AB7ACDE22BB981A00309234 /* JSONRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7ACDD22BB981A00309234 /* JSONRepresentable.swift */; };
@@ -2143,6 +2144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AB0522A22D4D8C9007B42F8 /* driveTest.py in Resources */,
 				2A3A759522953EC500ED9A1D /* PlayControllerViewController.xib in Resources */,
 				0977990922981C0300D571B0 /* ProgramSelectorTableViewCell.xib in Resources */,
 				D0D00FE922AFA84C00274241 /* ButtonlessProgramsViewController.xib in Resources */,
