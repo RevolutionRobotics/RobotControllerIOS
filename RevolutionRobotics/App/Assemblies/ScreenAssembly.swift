@@ -227,8 +227,9 @@ extension ScreenAssembly {
 
     private func registerProgramsBottomViewController(to container: Container) {
         container
-            .register(MostRecentProgramsViewController.self,
-                      factory: { _ in return MostRecentProgramsViewController() })
+            .register(MostRecentProgramsViewController.self, factory: { _ in
+                return MostRecentProgramsViewController()
+            })
             .inObjectScope(.transient)
     }
 

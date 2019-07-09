@@ -43,7 +43,7 @@ extension AvailableRobotsTableViewCell {
     }
 }
 
-// MARK: - setup
+// MARK: - Setup
 extension AvailableRobotsTableViewCell {
     func setup(with name: String) {
         self.robotNameLabel.text = name

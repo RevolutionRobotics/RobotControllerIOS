@@ -6,4 +6,4 @@
 //  Copyright © 2019. Revolution Robotics. All rights reserved.
 //
 
-class EmptyJSONObject: JSONRepresentable { }
+final class EmptyJSONObject: JSONRepresentable { }

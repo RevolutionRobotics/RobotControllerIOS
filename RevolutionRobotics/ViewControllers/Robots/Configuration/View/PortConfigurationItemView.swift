@@ -13,7 +13,7 @@ final class PortConfigurationItemView: UIView {
     @IBOutlet private weak var button: RRButton!
     @IBOutlet private weak var label: UILabel!
 
-    // MARK: - Private
+    // MARK: - Properties
     private var callback: Callback?
 
     // MARK: - Options

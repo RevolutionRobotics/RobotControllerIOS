@@ -10,13 +10,13 @@ final class ProgramCompatibilityValidator {
     // MARK: - Properties
     private let realmService: RealmServiceInterface
 
-    // MARK: - Init
+    // MARK: - Initialization
     init(realmService: RealmServiceInterface) {
         self.realmService = realmService
     }
 }
 
-// MARK: - Validate
+// MARK: - Validation
 extension ProgramCompatibilityValidator {
     func validate(program: ProgramDataModel) {
         let controllersForProgram = realmService.getControllers().filter { controller in
@@ -35,7 +35,7 @@ extension ProgramCompatibilityValidator {
     }
 }
 
-// MARK: - Private
+// MARK: - Private methods
 extension ProgramCompatibilityValidator {
     private func checkContainment(of program: ProgramDataModel, in programBindings: [ProgramBindingDataModel]) -> Bool {
         return programBindings.reduce(false, { (previousResult, programBinding) in
@@ -102,10 +102,7 @@ extension ProgramCompatibilityValidator {
             return
         }
     }
-}
 
-// MARK: - Util
-extension ProgramCompatibilityValidator {
     private func buttonProgramBindings(in controller: ControllerDataModel) -> [ProgramBindingDataModel] {
         guard let mapping = controller.mapping else { return [] }
         let bindings = [mapping.b1, mapping.b2, mapping.b3, mapping.b4, mapping.b5, mapping.b6]

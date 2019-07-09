@@ -14,8 +14,10 @@ final class RRButton: UIButton {
             alpha = isEnabled ? 1.0 : 0.5
         }
     }
+}
 
-    // MARK: - View lifecycle
+// MARK: - View lifecycle
+extension RRButton {
     override func awakeFromNib() {
         super.awakeFromNib()
 

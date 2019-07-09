@@ -14,13 +14,9 @@ final class RRInputField: RRCustomView {
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var titleLabel: UILabel!
 
-    // MARK: - Variables
+    // MARK: - Properties
     private var characterLimit: Int?
-
-    // MARK: - Callbacks
     var textFieldResigned: CallbackType<String?>?
-
-    // MARK: - Public
     var text: String? {
         get {
             return textField.text
@@ -38,6 +34,12 @@ extension RRInputField {
 
         textField.delegate = self
     }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        borderView.setBorder(fillColor: .clear, strokeColor: Color.brownGrey)
+    }
 }
 
 // MARK: - Setup
@@ -46,12 +48,6 @@ extension RRInputField {
         titleLabel.text = title
         textField.placeholder = placeholder
         self.characterLimit = characterLimit
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        borderView.setBorder(fillColor: .clear, strokeColor: Color.brownGrey)
     }
 }
 

@@ -17,7 +17,7 @@ final class RRCollectionView: UICollectionView {
         static let duration: Double = 0.5
     }
 
-    // MARK: - Variables
+    // MARK: - Properties
     private var highestSine: CGFloat = 0
     private var indexPathOfCentermostCell = IndexPath(row: 0, section: 0)
     private var selectedIndexPath: IndexPath?
@@ -86,9 +86,8 @@ extension RRCollectionView: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - Design
+// MARK: - Private funtions
 extension RRCollectionView {
-    // MARK: - Private funtions
     private func resizeVisibleCells() {
         highestSine = 0
         for cell in self.visibleCells {
@@ -129,8 +128,10 @@ extension RRCollectionView {
                 cell.isCentered = cell.indexPath == selectedIndexPath
         }
     }
+}
 
-    // MARK: - Public functions
+// MARK: - Public functions
+extension RRCollectionView {
     func rightStep() {
         guard indexPathOfCentermostCell.row != self.numberOfItems(inSection: 0) - 1 else { return }
         indexPathOfCentermostCell.row += 1

@@ -50,7 +50,7 @@ extension ChallengesViewController {
     }
 
     private func setupModal() {
-        let modal = ChallengeFinishedModal.instatiate()
+        let modal = ChallengeFinishedModalView.instatiate()
         modal.homeCallback = { [weak self] in
             self?.updateProgress()
             self?.popToRootViewController(animated: true)

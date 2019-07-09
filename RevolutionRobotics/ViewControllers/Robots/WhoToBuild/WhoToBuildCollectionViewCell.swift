@@ -25,7 +25,7 @@ final class WhoToBuildCollectionViewCell: ResizableCell {
     @IBOutlet private weak var clockImageLeadingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var clockImageBottomConstraint: NSLayoutConstraint!
 
-    // MARK: - Variables
+    // MARK: - Properties
     private var baseHeightMultiplier: CGFloat = 0
     private var baseWidthMultiplier: CGFloat = 0
     private var baseImageWidthMultiplier: CGFloat = 0
@@ -39,7 +39,7 @@ final class WhoToBuildCollectionViewCell: ResizableCell {
     }
 }
 
-// MARK: - Functions
+// MARK: - Public methods
 extension WhoToBuildCollectionViewCell {
     func configure(with robot: Robot) {
         robotNameLabel.text = robot.name

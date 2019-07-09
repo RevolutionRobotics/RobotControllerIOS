@@ -12,7 +12,7 @@ final class ChallengeDetailPartListContent: UIView {
     // MARK: - Outlets
     @IBOutlet private weak var partsCollectionView: UICollectionView!
 
-    // MARK: - Variables
+    // MARK: - Properties
     private var parts: [Part] = []
 }
 

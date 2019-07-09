@@ -8,7 +8,6 @@
 
 import UIKit
 
-// MARK: - Progress
 enum Progress {
     case unavailable
     case available

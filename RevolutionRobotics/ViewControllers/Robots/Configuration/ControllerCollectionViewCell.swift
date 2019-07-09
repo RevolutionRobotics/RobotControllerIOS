@@ -24,17 +24,13 @@ final class ControllerCollectionViewCell: ResizableCell {
     @IBOutlet private weak var selectedLabel: UILabel!
     @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var selectedView: UIView!
-
-    // MARK: - Constraints
     @IBOutlet private weak var baseWidth: NSLayoutConstraint!
     @IBOutlet private weak var baseHeight: NSLayoutConstraint!
 
-    // MARK: - Callbacks
+    // MARK: - Properties
     var deleteCallback: Callback?
     var editCallback: Callback?
     var infoCallback: Callback?
-
-    // MARK: - Variables
     private var baseHeightMultiplier: CGFloat = 0
     private var baseWidthMultiplier: CGFloat = 0
     private var baseNameFontSize: CGFloat = 0
@@ -52,24 +48,6 @@ final class ControllerCollectionViewCell: ResizableCell {
     var isControllerSelected: Bool = false {
         didSet {
             setState()
-        }
-    }
-
-    // MARK: - Functions
-    private func setState() {
-        infoButton.isUserInteractionEnabled = isCentered
-        deleteButton.isUserInteractionEnabled = isCentered
-        modifyButton.isUserInteractionEnabled = isCentered
-        if isControllerSelected {
-            selectedLabel.text = RobotsKeys.Controllers.controllerSelected.translate()
-            backgroundImageView.image =
-                isCentered ? Image.Configuration.Controllers.cellRedBorderSelected :
-                Image.Configuration.Controllers.cellWhiteBorderSelected
-        } else {
-            selectedLabel.text = RobotsKeys.Controllers.controllerChooseThis.translate()
-            backgroundImageView.image =
-                isCentered ? Image.Configuration.Controllers.cellRedBorderNonSelected :
-                Image.Configuration.Controllers.cellWhiteBorderNonSelected
         }
     }
 
@@ -103,7 +81,7 @@ extension ControllerCollectionViewCell {
     }
 }
 
-// MARK: - Event handlers
+// MARK: - Actions
 extension ControllerCollectionViewCell {
     @IBAction private func deleteButtonTapped(_ sender: Any) {
         deleteCallback?()
@@ -115,5 +93,25 @@ extension ControllerCollectionViewCell {
 
     @IBAction private func infoButtonTapped(_ sender: Any) {
         infoCallback?()
+    }
+}
+
+// MARK: - Private methods
+extension ControllerCollectionViewCell {
+    private func setState() {
+        infoButton.isUserInteractionEnabled = isCentered
+        deleteButton.isUserInteractionEnabled = isCentered
+        modifyButton.isUserInteractionEnabled = isCentered
+        if isControllerSelected {
+            selectedLabel.text = RobotsKeys.Controllers.controllerSelected.translate()
+            backgroundImageView.image =
+                isCentered ? Image.Configuration.Controllers.cellRedBorderSelected :
+                Image.Configuration.Controllers.cellWhiteBorderSelected
+        } else {
+            selectedLabel.text = RobotsKeys.Controllers.controllerChooseThis.translate()
+            backgroundImageView.image =
+                isCentered ? Image.Configuration.Controllers.cellRedBorderNonSelected :
+                Image.Configuration.Controllers.cellWhiteBorderNonSelected
+        }
     }
 }

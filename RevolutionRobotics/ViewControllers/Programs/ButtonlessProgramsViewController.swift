@@ -175,7 +175,7 @@ extension ButtonlessProgramsViewController: UITableViewDataSource {
         let program = filteredAndOrderedPrograms[indexPath.row]
         cell.setup(with: program)
         cell.infoCallback = { [weak self] in
-            let modal = ProgramInfoModal.instatiate()
+            let modal = ProgramInfoModalView.instatiate()
             let isCompatible = (self?.isProgramCompatible(program))!
             modal.configure(
                 program: program,
@@ -204,7 +204,7 @@ extension ButtonlessProgramsViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - UITableViewDataSource
+// MARK: - UITableViewDelegate
 extension ButtonlessProgramsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? ButtonlessProgramTableViewCell,
@@ -220,7 +220,7 @@ extension ButtonlessProgramsViewController: UITableViewDelegate {
     }
 }
 
-// MARK: - Action handlers
+// MARK: - Actions
 extension ButtonlessProgramsViewController {
     @IBAction private func compatibleButtonTapped(_ sender: UIButton) {
         compatibleButton.isSelected.toggle()

@@ -6,7 +6,7 @@
 //  Copyright © 2019. Revolution Robotics. All rights reserved.
 //
 
-class SensorConfigJSONData: JSONRepresentable {
+final class SensorConfigJSONData: JSONRepresentable {
     // MARK: - Constants
     private enum Constants {
         enum SensorType: Int {

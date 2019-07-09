@@ -25,7 +25,7 @@ final class MotorConfigViewController: BaseViewController {
     @IBOutlet private weak var testButton: RRButton!
     @IBOutlet private weak var doneButton: RRButton!
 
-    // MARK: - Views
+    // MARK: - Properties
     private let emptyButton = PortConfigurationItemView.instatiate()
     private let driveButton = PortConfigurationItemView.instatiate()
     private let motorButton = PortConfigurationItemView.instatiate()
@@ -33,8 +33,6 @@ final class MotorConfigViewController: BaseViewController {
     private let counterclockwiseButton = PortConfigurationItemView.instatiate()
     private let leftButton = PortConfigurationItemView.instatiate()
     private let rightButton = PortConfigurationItemView.instatiate()
-
-    // MARK: - Variables
     var selectedMotorState: MotorConfigViewModelState = .empty {
         didSet {
             if isViewLoaded {
@@ -43,7 +41,6 @@ final class MotorConfigViewController: BaseViewController {
             }
         }
     }
-
     var portNumber = 0
     var numberOfDrives = 0
     var doneButtonTapped: CallbackType<MotorConfigViewModel>?
@@ -52,12 +49,12 @@ final class MotorConfigViewController: BaseViewController {
     var name: String?
     var prohibitedNames: [String] = []
     var testCodeService: PortTestCodeServiceInterface!
-
-    // MARK: Private
     private var shouldCallDismiss = true
     private var shouldRunTestScriptOnConnection = false
+}
 
-    // MARK: - Lifecycle
+// MARK: - View lifecycle
+extension MotorConfigViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,27 +69,6 @@ final class MotorConfigViewController: BaseViewController {
         super.viewDidAppear(animated)
         setupActionButtons()
         validateActionButtons()
-    }
-
-    override func connected() {
-        bluetoothService.stopDiscovery()
-        presentConnectedModal(onCompleted: { [weak self] in
-            guard let runTest = self?.shouldRunTestScriptOnConnection, runTest else { return }
-
-            self?.shouldRunTestScriptOnConnection = false
-            self?.startPortTest()
-            self?.presentTestingModal()
-        })
-    }
-
-    private func presentConnectedModal(onCompleted callback: Callback?) {
-        let connectionModal = ConnectionModal.instatiate()
-        presentModal(with: connectionModal.successful)
-
-        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
-            self?.presentedViewController?.dismiss(animated: true, completion: nil)
-            callback?()
-        }
     }
 }
 
@@ -300,7 +276,7 @@ extension MotorConfigViewController {
     }
 
     private func presentTestingModal() {
-        let modal = TestingModal.instatiate()
+        let modal = TestingModalView.instatiate()
         switch selectedMotorState {
         case .motor:
             modal.setup(with: .motor)
@@ -411,6 +387,30 @@ extension MotorConfigViewController: UISideMenuNavigationControllerDelegate {
     func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
         if shouldCallDismiss {
             screenDismissed?()
+        }
+    }
+}
+
+// MARK: - Bluetooth connection
+extension MotorConfigViewController {
+    override func connected() {
+        bluetoothService.stopDiscovery()
+        presentConnectedModal(onCompleted: { [weak self] in
+            guard let runTest = self?.shouldRunTestScriptOnConnection, runTest else { return }
+
+            self?.shouldRunTestScriptOnConnection = false
+            self?.startPortTest()
+            self?.presentTestingModal()
+        })
+    }
+
+    private func presentConnectedModal(onCompleted callback: Callback?) {
+        let connectionModal = ConnectionModalView.instatiate()
+        presentModal(with: connectionModal.successful)
+
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
+            self?.presentedViewController?.dismiss(animated: true, completion: nil)
+            callback?()
         }
     }
 }

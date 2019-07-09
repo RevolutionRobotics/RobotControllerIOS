@@ -21,7 +21,7 @@ final class FirmwareUpdateViewController: BaseViewController {
 
     // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
-    private let checkForUpdatesModal = CheckForUpdatesModal.instatiate()
+    private let checkForUpdatesModal = CheckForUpdateModalView.instatiate()
     private var currentFirmware: String = ""
     private var updateURL: String = ""
     private var updateVersion: String = ""
@@ -63,8 +63,8 @@ extension FirmwareUpdateViewController {
                         self?.updateURL = (updates.first?.url)!
                         self?.updateVersion = (updates.first?.fileName)!
                     }
-                case .failure(let error):
-                    print(error.localizedDescription)
+                case .failure:
+                    os_log("Error while getting firmware update!")
                 }
             })
         }
@@ -76,8 +76,8 @@ extension FirmwareUpdateViewController {
                     switch result {
                     case .success(let data):
                         self?.uploadFramework(data: data)
-                    case .failure(let error):
-                        print(error.localizedDescription)
+                    case .failure:
+                        os_log("Error while downloading firmware update!")
                     }
             })
         }
@@ -92,13 +92,13 @@ extension FirmwareUpdateViewController {
             switch result {
             case .success:
                 self?.dismissModalViewController()
-                let successModalView = SuccessfulUpdateModal.instatiate()
+                let successModalView = SuccessfulUpdateModalView.instatiate()
                 successModalView.doneCallback = { [weak self] in
                     self?.dismissModalViewController()
                 }
                 self?.presentModal(with: successModalView)
-            case .failure(let error):
-                print(error.localizedDescription)
+            case .failure:
+                os_log("Error while sending firmware update to the robot!")
             }
         })
     }
@@ -116,13 +116,13 @@ extension FirmwareUpdateViewController {
     }
 }
 
-// MARK: - Connection
+// MARK: - Bluetooth connection
 extension FirmwareUpdateViewController {
     override func connected() {
         connectedBrainView.isHidden = false
         bluetoothService.stopDiscovery()
         dismissModalViewController()
-        let connectionModal = ConnectionModal.instatiate()
+        let connectionModal = ConnectionModalView.instatiate()
         presentModal(with: connectionModal.successful)
 
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
@@ -144,7 +144,7 @@ extension FirmwareUpdateViewController {
     }
 
     override func connectionError() {
-        let connectionModal = ConnectionModal.instatiate()
+        let connectionModal = ConnectionModalView.instatiate()
         dismissModalViewController()
         presentModal(with: connectionModal.failed)
 
@@ -170,7 +170,7 @@ extension FirmwareUpdateViewController {
     }
 }
 
-// MARK: - Event handlers
+// MARK: - Actions
 extension FirmwareUpdateViewController {
     @IBAction private func checkForUpdatesButtonTapped(_ sender: Any) {
         getDeviceInfo()

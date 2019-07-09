@@ -107,7 +107,34 @@ extension PlayControllerViewController {
     }
 }
 
-// MARK: - Connections
+// MARK: - Configuration sending
+extension PlayControllerViewController {
+    private func sendConfiguration() {
+        let data = ConfigurationJSONData(
+            configuration: realmService.getConfiguration(id: controllerDataModel?.configurationId)!,
+            controller: controllerDataModel!,
+            programs: realmService.getPrograms())
+        do {
+            let encodedData = try JSONEncoder().encode(data)
+            bluetoothService.sendConfigurationData(encodedData, onCompleted: { [weak self] result in
+                switch result {
+                case .success:
+                    self?.configurationAlreadySent = true
+                    self?.bluetoothService.startKeepalive()
+                    self?.navigationBar.bluetoothButtonState = .connected
+                case .failure:
+                    os_log("Error while sending configuration to the robot!")
+                    self?.bluetoothService.stopKeepalive()
+                    self?.navigationBar.bluetoothButtonState = .notConnected
+                }
+            })
+        } catch {
+            os_log("Error while encoding the configuration!")
+        }
+    }
+}
+
+// MARK: - Bluetooth connection
 extension PlayControllerViewController {
     private func presentBluetoothModal() {
         let modalPresenter = BluetoothConnectionModalPresenter()
@@ -134,7 +161,7 @@ extension PlayControllerViewController {
     }
 
     private func presentDisconnectModal() {
-        let view = DisconnectModal.instatiate()
+        let view = DisconnectModalView.instatiate()
         view.robotName = bluetoothService.connectedDevice?.name
         view.disconnectHandler = { [weak self] in
             self?.bluetoothService.disconnect(shouldReconnect: false)
@@ -158,29 +185,5 @@ extension PlayControllerViewController {
     override func disconnected() {
         bluetoothService.stopKeepalive()
         navigationBar.bluetoothButtonState = .notConnected
-    }
-
-    private func sendConfiguration() {
-        let data = ConfigurationJSONData(
-            configuration: realmService.getConfiguration(id: controllerDataModel?.configurationId)!,
-            controller: controllerDataModel!,
-            programs: realmService.getPrograms())
-        do {
-            let encodedData = try JSONEncoder().encode(data)
-            bluetoothService.sendConfigurationData(encodedData, onCompleted: { [weak self] result in
-                switch result {
-                case .success:
-                    self?.configurationAlreadySent = true
-                    self?.bluetoothService.startKeepalive()
-                    self?.navigationBar.bluetoothButtonState = .connected
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    self?.bluetoothService.stopKeepalive()
-                    self?.navigationBar.bluetoothButtonState = .notConnected
-                }
-            })
-        } catch {
-            print(error.localizedDescription)
-        }
     }
 }

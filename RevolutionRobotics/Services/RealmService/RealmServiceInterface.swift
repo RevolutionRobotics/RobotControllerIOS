@@ -9,23 +9,29 @@
 protocol RealmServiceInterface: class {
     var realmConnector: RealmConnectorInterface! { get set }
 
-    func deepCopyRobot(_ robot: UserRobot)
+    func updateObject(closure: (() -> Void)?)
+
     func getRobots() -> [UserRobot]
     func saveRobot(_ robot: UserRobot, shouldUpdate: Bool)
     func deleteRobot(_ robot: UserRobot)
-    func updateObject(closure: (() -> Void)?)
+    func deepCopyRobot(_ robot: UserRobot)
+
     func getConfiguration(id: String?) -> ConfigurationDataModel?
-    func saveControllers(_ controllers: [ControllerDataModel])
+    func saveConfigurations(_ configurations: [ConfigurationDataModel])
+
     func getControllers() -> [ControllerDataModel]
     func getController(id: String?) -> ControllerDataModel?
+    func saveControllers(_ controllers: [ControllerDataModel])
     func deleteController(_ controller: ControllerDataModel)
-    func saveConfigurations(_ configurations: [ConfigurationDataModel])
+
     func getChallengeCategory(id: String?) -> ChallengeCategoryDataModel?
     func saveChallengeCategory(_ category: ChallengeCategoryDataModel)
+
     func getPrograms() -> [ProgramDataModel]
     func getProgram(id: String?) -> ProgramDataModel?
     func getProgram(remoteId: String?) -> ProgramDataModel?
     func savePrograms(programs: [ProgramDataModel])
     func deleteProgram(_ program: ProgramDataModel)
+
     func saveProgramBindings(_ bindings: [ProgramBindingDataModel])
 }

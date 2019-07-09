@@ -101,7 +101,7 @@ extension BuildRobotViewController {
             self?.updateStoredRobot(step: currentStepIndex)
         }
         buildProgressBar.buildFinished = { [weak self] in
-            let buildFinishedModal = BuildFinishedModal.instatiate()
+            let buildFinishedModal = BuildFinishedModalView.instatiate()
             buildFinishedModal.homeCallback = { [weak self] in
                 if let currentStep = self?.currentStep {
                     self?.updateStoredRobot(step: currentStep.stepNumber)
@@ -145,7 +145,7 @@ extension BuildRobotViewController {
     }
 
     private func setupChapterFinishedModal(with milestone: Milestone) {
-        let chapterFinishedModal = ChapterFinishedModal.instatiate()
+        let chapterFinishedModal = ChapterFinishedModalView.instatiate()
         chapterFinishedModal.testLaterButtonTapped = { [weak self] in
             self?.dismissModalViewController()
             self?.buildProgressBar.milestoneFinished()
@@ -153,7 +153,7 @@ extension BuildRobotViewController {
         chapterFinishedModal.testNowButtonTapped = { [weak self] in
             if self?.bluetoothService.connectedDevice != nil {
                 self?.bluetoothService.testKit(
-                    data: String(data: Data(base64Encoded: milestone.testCode)!, encoding: .utf8)!,
+                    data: milestone.testCode.base64Decoded!,
                     onCompleted: nil)
                 self?.showTestingModal(with: milestone)
             } else {
@@ -167,7 +167,7 @@ extension BuildRobotViewController {
 
     private func showTestingModal(with milestone: Milestone) {
         dismissModalViewController()
-        let testingModal = TestingModal.instatiate()
+        let testingModal = TestingModalView.instatiate()
         testingModal.setup(with: .milestone(milestone))
         testingModal.positiveButtonTapped = { [weak self] in
             self?.dismissModalViewController()
@@ -204,7 +204,7 @@ extension BuildRobotViewController {
         tips.tryAgainCallback = { [weak self] in
 
             self?.bluetoothService.testKit(
-                data: String(data: Data(base64Encoded: milestone.testCode)!, encoding: .utf8)!,
+                data: milestone.testCode.base64Decoded!,
                 onCompleted: nil)
             self?.showTestingModal(with: milestone)
         }
@@ -215,7 +215,7 @@ extension BuildRobotViewController {
 // MARK: - Private methods
 extension BuildRobotViewController {
     private func presentDisconnectModal() {
-        let view = DisconnectModal.instatiate()
+        let view = DisconnectModalView.instatiate()
         view.disconnectHandler = { [weak self] in
             self?.bluetoothService.disconnect(shouldReconnect: false)
             self?.dismissModalViewController()
@@ -324,7 +324,7 @@ extension BuildRobotViewController {
         navigationBar.bluetoothButtonState = .connected
         if let milestone = milestone {
             bluetoothService.testKit(
-                data: String(data: Data(base64Encoded: milestone.testCode)!, encoding: .utf8)!,
+                data: milestone.testCode.base64Decoded!,
                 onCompleted: nil)
             self.milestone = nil
         }
@@ -336,7 +336,7 @@ extension BuildRobotViewController {
     }
 
     override func connectionError() {
-        let connectionModal = ConnectionModal.instatiate()
+        let connectionModal = ConnectionModalView.instatiate()
         dismissModalViewController()
         presentModal(with: connectionModal.failed)
 

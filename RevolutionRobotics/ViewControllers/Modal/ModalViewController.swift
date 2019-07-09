@@ -18,12 +18,12 @@ final class ModalViewController: UIViewController {
     @IBOutlet private weak var modalContainer: UIView!
     @IBOutlet private weak var closeButton: UIButton!
 
-    // MARK: - Delegate
+    // MARK: - Properties
     weak var delegate: ModalViewControllerDelegate?
 
-    // MARK: - Properties
     var contentView: UIView?
     var isCloseHidden: Bool = false
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscapeRight
     }

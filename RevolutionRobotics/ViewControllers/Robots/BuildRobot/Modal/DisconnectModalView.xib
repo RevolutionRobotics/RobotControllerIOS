@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DisconnectModalView" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TESTING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUC-9R-2Xx" userLabel="titleLabel">
+                    <rect key="frame" x="32" y="32" width="396" height="21"/>
+                    <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking good?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHU-GM-Eb6" userLabel="descriptionLabel">
+                    <rect key="frame" x="32" y="69" width="396" height="14"/>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quG-8c-x65" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="230" y="190" width="226" height="46"/>
+                    <color key="backgroundColor" name="BlackTwo"/>
+                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Disconnect" image="TickWhiteIcon"/>
+                    <connections>
+                        <action selector="disconnectButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="959-sn-73p"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxy-50-ZCi" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="4" y="190" width="226" height="46"/>
+                    <color key="backgroundColor" name="Black26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="voI-Tp-jEq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Cancel" image="CloseIcon"/>
+                    <connections>
+                        <action selector="cancelButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Unc-Rr-V7R"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="pHU-GM-Eb6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8PP-8o-tNy"/>
+                <constraint firstItem="pHU-GM-Eb6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="BX9-Dn-x4r"/>
+                <constraint firstItem="quG-8c-x65" firstAttribute="top" secondItem="rxy-50-ZCi" secondAttribute="top" id="Bf0-MV-ISl"/>
+                <constraint firstAttribute="trailing" secondItem="pHU-GM-Eb6" secondAttribute="trailing" constant="32" id="DzM-9d-m2q"/>
+                <constraint firstAttribute="trailing" secondItem="quG-8c-x65" secondAttribute="trailing" constant="4" id="KbB-Nx-UxU"/>
+                <constraint firstItem="pHU-GM-Eb6" firstAttribute="top" secondItem="ZUC-9R-2Xx" secondAttribute="bottom" constant="16" id="M5B-f6-nKF"/>
+                <constraint firstItem="rxy-50-ZCi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="NH0-q7-vdt"/>
+                <constraint firstAttribute="bottom" secondItem="rxy-50-ZCi" secondAttribute="bottom" constant="4" id="V3t-C8-h46"/>
+                <constraint firstAttribute="trailing" secondItem="ZUC-9R-2Xx" secondAttribute="trailing" constant="32" id="Y1J-qk-UYX"/>
+                <constraint firstItem="quG-8c-x65" firstAttribute="leading" secondItem="rxy-50-ZCi" secondAttribute="trailing" id="YQn-QP-eWq"/>
+                <constraint firstAttribute="bottom" secondItem="quG-8c-x65" secondAttribute="bottom" constant="4" id="eCa-SF-XJw"/>
+                <constraint firstItem="quG-8c-x65" firstAttribute="height" secondItem="rxy-50-ZCi" secondAttribute="height" id="igL-si-Hlu"/>
+                <constraint firstItem="ZUC-9R-2Xx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="kL6-Q1-Bog"/>
+                <constraint firstItem="ZUC-9R-2Xx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="ke0-bv-UPV"/>
+                <constraint firstItem="quG-8c-x65" firstAttribute="width" secondItem="rxy-50-ZCi" secondAttribute="width" id="phP-cm-rvY"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelButton" destination="rxy-50-ZCi" id="hgi-ZM-hDz"/>
+                <outlet property="descriptionLabel" destination="pHU-GM-Eb6" id="N1S-4K-gJw"/>
+                <outlet property="disconnectButton" destination="quG-8c-x65" id="1Oj-Q4-IFE"/>
+                <outlet property="titleLabel" destination="ZUC-9R-2Xx" id="EL1-J8-Ggx"/>
+            </connections>
+            <point key="canvasLocation" x="22.767857142857142" y="76.811594202898561"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CloseIcon" width="14" height="14"/>
+        <image name="TickWhiteIcon" width="16" height="12"/>
+        <namedColor name="Black26">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.25999999046325684" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BlackTwo">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

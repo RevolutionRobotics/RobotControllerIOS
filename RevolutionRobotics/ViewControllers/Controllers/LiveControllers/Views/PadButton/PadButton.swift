@@ -13,7 +13,7 @@ final class PadButton: RRCustomView {
     @IBOutlet private weak var label: UILabel!
     @IBOutlet private weak var button: UIButton!
 
-    // MARK: - Callback
+    // MARK: - Properties
     private var buttonTapped: CallbackType<Bool>?
     private var pressed = false {
         didSet {

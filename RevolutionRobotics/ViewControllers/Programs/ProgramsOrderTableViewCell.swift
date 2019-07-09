@@ -18,7 +18,7 @@ final class ProgramsOrderTableViewCell: UITableViewCell {
     @IBOutlet private weak var infoButton: UIButton!
     @IBOutlet private weak var programIcon: UIImageView!
 
-    // MARK: - Callbacks
+    // MARK: - Properties
     private var infoCallback: Callback?
 }
 
@@ -45,7 +45,7 @@ extension ProgramsOrderTableViewCell {
     }
 }
 
-// MARK: - Action handlers
+// MARK: - Actions
 extension ProgramsOrderTableViewCell {
     @IBAction private func infoButtonTapped(_ sender: Any) {
         infoCallback?()

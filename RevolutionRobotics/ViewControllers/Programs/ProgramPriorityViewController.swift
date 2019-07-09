@@ -20,10 +20,8 @@ final class ProgramPriorityViewController: BaseViewController {
     @IBOutlet private weak var programsTableView: UITableView!
     @IBOutlet private weak var doneButton: UIButton!
 
-    // MARK: - Variables
+    // MARK: - Properties
     var realmService: RealmServiceInterface!
-
-    // MARK: - Callbacks
     var controllerViewModel: ControllerViewModel? {
         didSet {
             guard let controllerViewModel = controllerViewModel else { return }
@@ -56,7 +54,7 @@ extension ProgramPriorityViewController {
         programsTableView.contentInset = UIEdgeInsets(top: Constants.tableViewTopInset, left: 0, bottom: 0, right: 0)
 
         drivePlaceholder.id = "-1"
-        drivePlaceholder.name = "Drive"
+        drivePlaceholder.name = ProgramsKeys.drivePriorityPlaceholder.translate()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -139,7 +137,7 @@ extension ProgramPriorityViewController: UITableViewDataSource {
         let cell: ProgramsOrderTableViewCell = programsTableView.dequeueReusableCell(forIndexPath: indexPath)
         let program = orderedPrograms[indexPath.row]
         let infoCallback = { [weak self] in
-            let modal = ProgramInfoModal.instatiate()
+            let modal = ProgramInfoModalView.instatiate()
             modal.configure(
                 program: program,
                 infoType: .info,
@@ -274,16 +272,16 @@ extension ProgramPriorityViewController {
     }
 }
 
-// MARK: - Action handlers
+// MARK: - Actions
 extension ProgramPriorityViewController {
     @IBAction private func doneButtonTapped(_ sender: Any) {
-        let saveModal = SaveModal.instatiate()
+        let saveModal = SaveModalView.instatiate()
         saveModal.type = .controller
         let name = (controllerViewModel?.name)!.isEmpty ?
             controllerViewModel?.type.displayName : controllerViewModel?.name
         saveModal.name = name
         saveModal.descriptionTitle = controllerViewModel?.customDesctiprion
-        saveModal.saveCallback = { [weak self] (data: SaveModal.SaveData) in
+        saveModal.saveCallback = { [weak self] (data: SaveModalView.SaveData) in
             self?.saveController(name: data.name, description: data.description)
             self?.dismissModalViewController()
             self?.navigationController?.pop(to: RobotConfigurationViewController.self)

@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let assemblyRegister = AssemblyRegister()
 
     func application(_ application: UIApplication,
+                     supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return .all
+    }
+
+    func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         assemblyRegister.registerAssemblies()
         dependencies.setup()
@@ -25,11 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fetchFirebaseData()
 
         return true
-    }
-
-    func application(_ application: UIApplication,
-                     supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        return .all
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -58,7 +58,10 @@ extension AppDelegate {
             UserDefaults.standard.set(true, forKey: UserDefaults.Keys.shouldShowTutorial)
         }
     }
+}
 
+// MARK: - Prefetch data
+extension AppDelegate {
     private func fetchFirebaseData() {
         DispatchQueue.global(qos: .userInteractive).async {
             let firebaseService = AppContainer.shared.container.unwrappedResolve(FirebaseServiceInterface.self)

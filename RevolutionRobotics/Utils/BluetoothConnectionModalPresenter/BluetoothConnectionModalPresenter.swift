@@ -45,25 +45,25 @@ extension BluetoothConnectionModalPresenter {
 // MARK: - Private methods
 extension BluetoothConnectionModalPresenter {
     private func showTurnOnTheBrain() {
-        let turnOnModal = TurnOnBrainView.instatiate()
+        let turnOnModal = TurnOnBrainModalView.instatiate()
         turnOnModal.setup()
         setupHandlers(on: turnOnModal)
         presenter.presentModal(with: turnOnModal)
     }
 
-    private func setupHandlers(on modal: TurnOnBrainView) {
+    private func setupHandlers(on modal: TurnOnBrainModalView) {
         setupLaterHandler(on: modal)
         setupTipsHandler(on: modal)
         setupStartDiscoveryHandler(on: modal)
     }
 
-    private func setupLaterHandler(on modal: TurnOnBrainView) {
+    private func setupLaterHandler(on modal: TurnOnBrainModalView) {
         modal.laterHandler = { [weak self] in
             self?.presenter.dismiss(animated: true, completion: nil)
         }
     }
 
-    private func setupTipsHandler(on modal: TurnOnBrainView) {
+    private func setupTipsHandler(on modal: TurnOnBrainModalView) {
         modal.tipsHandler = { [weak self] in
             self?.showTipsModal()
         }
@@ -94,7 +94,7 @@ extension BluetoothConnectionModalPresenter {
         presenter.presentModal(with: tips)
     }
 
-    private func setupStartDiscoveryHandler(on modal: TurnOnBrainView) {
+    private func setupStartDiscoveryHandler(on modal: TurnOnBrainModalView) {
         modal.startHandler = { [weak self] in
             self?.presenter.dismiss(animated: true, completion: nil)
             self?.showBluetoothDiscovery()

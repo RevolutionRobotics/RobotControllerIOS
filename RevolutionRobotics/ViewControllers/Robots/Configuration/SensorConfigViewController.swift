@@ -17,12 +17,10 @@ final class SensorConfigViewController: BaseViewController {
     @IBOutlet private weak var testButton: RRButton!
     @IBOutlet private weak var doneButton: RRButton!
 
-    // MARK: - Views
+    // MARK: - Properties
     private let emptyButton = PortConfigurationItemView.instatiate()
     private let bumperButton = PortConfigurationItemView.instatiate()
     private let distanceButton = PortConfigurationItemView.instatiate()
-
-    // MARK: - Variables
     var selectedSensorType: SensorConfigViewModelType = .empty {
         didSet {
             if isViewLoaded {
@@ -31,7 +29,6 @@ final class SensorConfigViewController: BaseViewController {
             }
         }
     }
-
     var portNumber = 0
     var bumperSensorCounts: Int!
     var distanceSensorCounts: Int!
@@ -41,8 +38,6 @@ final class SensorConfigViewController: BaseViewController {
     var testButtonTapped: CallbackType<SensorConfigViewModel>?
     var screenDismissed: Callback?
     var testCodeService: PortTestCodeServiceInterface!
-
-    // MARK: - Private
     private var shouldCallDismiss = true
     private var shouldRunTestScriptOnConnection = false
 
@@ -64,8 +59,10 @@ final class SensorConfigViewController: BaseViewController {
             return nil
         }
     }
+}
 
-    // MARK: - Lifecycle
+// MARK: - View lifecycle
+extension SensorConfigViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -79,27 +76,6 @@ final class SensorConfigViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupActionButtons()
-    }
-
-    override func connected() {
-        bluetoothService.stopDiscovery()
-        presentConnectedModal(onCompleted: { [weak self] in
-            guard let runTest = self?.shouldRunTestScriptOnConnection, runTest else { return }
-
-            self?.shouldRunTestScriptOnConnection = false
-            self?.startPortTest()
-            self?.presentTestingModal()
-        })
-    }
-
-    private func presentConnectedModal(onCompleted callback: Callback?) {
-        let connectionModal = ConnectionModal.instatiate()
-        presentModal(with: connectionModal.successful)
-
-        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
-            self?.presentedViewController?.dismiss(animated: true, completion: nil)
-            callback?()
-        }
     }
 }
 
@@ -167,7 +143,7 @@ extension SensorConfigViewController {
     }
 
     private func presentTestingModal() {
-        let modal = TestingModal.instatiate()
+        let modal = TestingModalView.instatiate()
         switch selectedSensorType {
         case .bumper:
             modal.setup(with: .bumper)
@@ -255,6 +231,30 @@ extension SensorConfigViewController: UISideMenuNavigationControllerDelegate {
     func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
         if shouldCallDismiss {
             screenDismissed?()
+        }
+    }
+}
+
+// MARK: - Bluetooth connection
+extension SensorConfigViewController {
+    override func connected() {
+        bluetoothService.stopDiscovery()
+        presentConnectedModal(onCompleted: { [weak self] in
+            guard let runTest = self?.shouldRunTestScriptOnConnection, runTest else { return }
+
+            self?.shouldRunTestScriptOnConnection = false
+            self?.startPortTest()
+            self?.presentTestingModal()
+        })
+    }
+
+    private func presentConnectedModal(onCompleted callback: Callback?) {
+        let connectionModal = ConnectionModalView.instatiate()
+        presentModal(with: connectionModal.successful)
+
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
+            self?.presentedViewController?.dismiss(animated: true, completion: nil)
+            callback?()
         }
     }
 }

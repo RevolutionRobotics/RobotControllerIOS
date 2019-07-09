@@ -9,11 +9,11 @@
 import UIKit
 
 extension UIView {
-    func allSubViews() -> [UIView] {
-        return subviews + subviews.flatMap { $0.allSubViews() }
+    func allSubviews() -> [UIView] {
+        return subviews + subviews.flatMap { $0.allSubviews() }
     }
 
     func removeAllSubViews() {
-        allSubViews().forEach({ $0.removeFromSuperview() })
+        allSubviews().forEach({ $0.removeFromSuperview() })
     }
 }

@@ -43,7 +43,7 @@ final class RobotConfigurationViewController: BaseViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var configurationView: ConfigurationView!
-    @IBOutlet private weak var segmentedControl: SegmentedControl!
+    @IBOutlet private weak var segmentedControl: RRSegmentedControl!
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var leftButton: UIButton!
     @IBOutlet private weak var rightButton: UIButton!
@@ -56,7 +56,7 @@ final class RobotConfigurationViewController: BaseViewController {
     var realmService: RealmServiceInterface!
     var firebaseService: FirebaseServiceInterface!
     var viewModel: ViewModel!
-    private let photoModal = PhotoModal.instatiate()
+    private let photoModal = PhotoModalView.instatiate()
     private var robotImage: UIImage?
     private var shouldPrefillConfiguration = false
     private var controllers: [ControllerDataModel] = [] {
@@ -82,8 +82,6 @@ final class RobotConfigurationViewController: BaseViewController {
         }
     }
     var configuration: ConfigurationDataModel?
-
-    // MARK: - Callbacks
     var saveCallback: Callback?
 
     override func backButtonDidTap() {
@@ -103,7 +101,6 @@ extension RobotConfigurationViewController {
         setupRobotImageView()
         setupCollectionView()
         setupConfigurationView()
-        setupBluetoothButton()
         setupPhotoModal()
         if shouldPrefillConfiguration {
             refreshConfigurationData()
@@ -145,7 +142,7 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
         cell.setup(with: controllers[indexPath.row])
         cell.isControllerSelected = configuration?.controller == controllers[indexPath.row].id
         cell.infoCallback = { [weak self] in
-            let controllerInfoView = ControllerInfoModal.instatiate()
+            let controllerInfoView = ControllerInfoModalView.instatiate()
             controllerInfoView.setup(
                 name: self?.controllers[indexPath.row].name,
                 description: self?.controllers[indexPath.row].controllerDescription,
@@ -162,7 +159,7 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
             self?.navigationController?.pushViewController(vc, animated: true)
         }
         cell.deleteCallback = { [weak self] in
-            let deleteView = DeleteView.instatiate()
+            let deleteView = DeleteModalView.instatiate()
             deleteView.title = ModalKeys.ControllerDelete.description.translate()
             deleteView.deleteButtonHandler = { [weak self] in self?.handleControllerDeletion(on: indexPath) }
             deleteView.cancelButtonHandler = { [weak self] in self?.dismissModalViewController() }
@@ -261,12 +258,6 @@ extension RobotConfigurationViewController {
             self?.configurationView.image = nil
             self?.dismiss(animated: true)
         }
-    }
-
-    private func setupBluetoothButton() {
-//        let image =
-//            bluetoothService.connectedDevice != nil ? Image.Common.bluetoothIcon : Image.Common.bluetoothInactiveIcon
-//        bluetoothButton.setImage(image, for: .normal)
     }
 
     private func setupConfigurationView() {
@@ -400,7 +391,7 @@ extension RobotConfigurationViewController {
     @IBAction private func saveTapped(_ sender: Any) {
         guard let robot = selectedRobot else { return }
 
-        let modal = SaveModal.instatiate()
+        let modal = SaveModalView.instatiate()
         modal.type = .configuration
         modal.name = robot.customName
         modal.descriptionTitle = robot.customDescription

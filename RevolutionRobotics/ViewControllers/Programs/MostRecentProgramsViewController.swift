@@ -24,12 +24,10 @@ final class MostRecentProgramsViewController: BaseViewController, Dismissable {
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private var buttons: [RRButton]!
 
-    // MARK: - Callbacks
+    // MARK: - Properties
     var programSelected: CallbackType<ProgramDataModel>?
     var dismissed: Callback?
     var showMoreTapped: Callback?
-
-    // MARK: - Variables
     private var programs: [ProgramDataModel] = []
     private var selectedProgram: ProgramDataModel?
     private let programSorter = ProgramSorter()

@@ -63,7 +63,7 @@ struct Program: FirebaseData, Equatable, Hashable {
         self.variables = variables
     }
 
-    var hashValue: Int {
-        return id.hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
