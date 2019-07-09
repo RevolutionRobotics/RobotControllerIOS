@@ -239,12 +239,14 @@ extension SensorConfigViewController: UISideMenuNavigationControllerDelegate {
 extension SensorConfigViewController {
     override func connected() {
         bluetoothService.stopDiscovery()
-        presentConnectedModal(onCompleted: { [weak self] in
-            guard let runTest = self?.shouldRunTestScriptOnConnection, runTest else { return }
+        dismiss(animated: true, completion: {
+            self.presentConnectedModal(onCompleted: { [weak self] in
+                guard let runTest = self?.shouldRunTestScriptOnConnection, runTest else { return }
 
-            self?.shouldRunTestScriptOnConnection = false
-            self?.startPortTest()
-            self?.presentTestingModal()
+                self?.shouldRunTestScriptOnConnection = false
+                self?.startPortTest()
+                self?.presentTestingModal()
+            })
         })
     }
 
@@ -253,8 +255,9 @@ extension SensorConfigViewController {
         presentModal(with: connectionModal.successful, closeHidden: true)
 
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
-            self?.presentedViewController?.dismiss(animated: true, completion: nil)
-            callback?()
+            self?.presentedViewController?.dismiss(animated: true, completion: {
+                callback?()
+            })
         }
     }
 }

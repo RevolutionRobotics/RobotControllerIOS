@@ -509,8 +509,11 @@ extension RobotConfigurationViewController: UIImagePickerControllerDelegate, UIN
 // MARK: - Connections
 extension RobotConfigurationViewController {
     override func connected() {
-        super.connected()
-        bluetoothService.stopDiscovery()
+        if presentedViewController == nil {
+            super.connected()
+            bluetoothService.stopDiscovery()
+        }
+
         navigationBar.bluetoothButtonState = .connected
     }
 

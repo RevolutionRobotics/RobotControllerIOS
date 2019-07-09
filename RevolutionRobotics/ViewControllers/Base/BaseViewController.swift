@@ -235,12 +235,14 @@ extension BaseViewController {
 
     @objc func connected() {
         bluetoothService.stopDiscovery()
-        dismissModalViewController()
-        let connectionModal = ConnectionModalView.instatiate()
-        presentModal(with: connectionModal.successful, closeHidden: true)
+        if navigationController?.topViewController == self {
+            dismissModalViewController()
+            let connectionModal = ConnectionModalView.instatiate()
+            presentModal(with: connectionModal.successful, closeHidden: true)
 
-        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
-            self?.dismissModalViewController()
+            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
+                self?.dismissModalViewController()
+            }
         }
     }
 
