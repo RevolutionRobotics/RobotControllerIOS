@@ -124,7 +124,7 @@ extension FirmwareUpdateViewController {
         bluetoothService.stopDiscovery()
         dismissModalViewController()
         let connectionModal = ConnectionModalView.instatiate()
-        presentModal(with: connectionModal.successful)
+        presentModal(with: connectionModal.successful, closeHidden: true)
 
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
             self?.dismissModalViewController()
