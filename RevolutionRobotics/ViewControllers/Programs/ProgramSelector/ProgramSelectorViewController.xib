@@ -73,7 +73,7 @@
                     <rect key="frame" x="668" y="62" width="58" height="15"/>
                     <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="2" maxX="-4" maxY="0.0"/>
-                    <state key="normal" title="Modified" image="ArrowDown"/>
+                    <state key="normal" title="Modified" image="ArrowUp"/>
                     <connections>
                         <action selector="dateSorterButtonTapped:" destination="-1" eventType="touchUpInside" id="unm-ZC-6vH"/>
                     </connections>
@@ -110,6 +110,7 @@
     </objects>
     <resources>
         <image name="ArrowDown" width="12" height="12"/>
+        <image name="ArrowUp" width="12" height="12"/>
         <image name="BackIcon" width="13" height="22"/>
         <image name="FilterIcon" width="16" height="16"/>
         <namedColor name="Black">
