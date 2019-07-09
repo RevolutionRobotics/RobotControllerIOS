@@ -57,7 +57,7 @@
                                 <constraint firstAttribute="height" constant="40" id="BgN-Wi-FXb"/>
                                 <constraint firstAttribute="width" constant="40" id="fy7-Cl-Nr7"/>
                             </constraints>
-                            <state key="normal" image="EditIcon"/>
+                            <state key="normal" image="EditRobot"/>
                             <connections>
                                 <action selector="saveTapped:" destination="-1" eventType="touchUpInside" id="ftI-dq-vFw"/>
                             </connections>
@@ -160,7 +160,7 @@
         </view>
     </objects>
     <resources>
-        <image name="EditIcon" width="20" height="20"/>
+        <image name="EditRobot" width="20" height="20"/>
         <image name="GlowBackground" width="568" height="320"/>
         <image name="LeftButton" width="25" height="50"/>
         <image name="RightButton" width="25" height="50"/>
