@@ -7,6 +7,8 @@
 //
 
 enum ProgramsKeys {
+    static let drivePriorityPlaceholder = "priority_drivetrain_item"
+
     enum Main {
         static let title = "programs_screen_title"
     }

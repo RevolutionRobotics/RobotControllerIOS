@@ -45,7 +45,7 @@ extension MenuViewController {
     }
 }
 
-// MARK: - Event handlers
+// MARK: - Actions
 extension MenuViewController {
     @IBAction private func communityButtonTapped(_ sender: UIButton) {
         let communityViewController = AppContainer.shared.container.unwrappedResolve(CommunityViewController.self)

@@ -62,8 +62,8 @@ conditional_returns_on_newline:
 control_statement:
   severity: error
 cyclomatic_complexity:
-  - 7 #warning
-  - 8 #error
+  - 9 #warning
+  - 10 #error
 empty_count:
   severity: error
 empty_parameters:
@@ -71,8 +71,8 @@ empty_parameters:
 explicit_init:
   severity: error
 file_length:
-  - 500 #warning
-  - 750 #error
+  - 550 #warning
+  - 600 #error
 force_cast:
   severity: error
 force_try:

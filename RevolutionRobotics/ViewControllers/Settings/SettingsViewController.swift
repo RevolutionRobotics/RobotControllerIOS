@@ -37,10 +37,10 @@ extension SettingsViewController {
     }
 }
 
-// MARK: - Event handlers
+// MARK: - Actions
 extension SettingsViewController {
     @IBAction private func resetButtonTapped(_ sender: Any) {
-        let modal = ResetTutorialModal.instatiate()
+        let modal = ResetTutorialModalView.instatiate()
         modal.setup(with: SettingsKeys.Tutorial.successfulReset.translate().uppercased())
         presentModal(with: modal, closeHidden: true)
         UserDefaults.standard.set(true, forKey: UserDefaults.Keys.shouldShowTutorial)

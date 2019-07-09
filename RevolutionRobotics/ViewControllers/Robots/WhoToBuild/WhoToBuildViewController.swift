@@ -35,7 +35,7 @@ final class WhoToBuildViewController: BaseViewController {
     }
 }
 
-// MARK: - Private functions
+// MARK: - Private methods
 extension WhoToBuildViewController {
     private func fetchRobots() {
         firebaseService.getRobots { [weak self] result in
@@ -74,7 +74,7 @@ extension WhoToBuildViewController {
     }
 }
 
-// MARK: - Event handlers
+// MARK: - Actions
 extension WhoToBuildViewController {
     @IBAction private func rightButtonTapped(_ sender: Any) {
         collectionView.rightStep()

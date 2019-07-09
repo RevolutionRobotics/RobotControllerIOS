@@ -23,10 +23,13 @@ final class ButtonlessProgramTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
 
-    // MARK: - Callbacks
+    // MARK: - Properties
     var infoCallback: Callback?
     var state: State = .incompatible
+}
 
+// MARK: - View lifecycle
+extension ButtonlessProgramTableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         renderState()

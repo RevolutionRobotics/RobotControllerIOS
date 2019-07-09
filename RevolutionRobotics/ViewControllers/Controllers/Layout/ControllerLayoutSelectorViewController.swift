@@ -35,7 +35,7 @@ extension ControllerLayoutSelectorViewController {
     }
 }
 
-// MARK: - Event handlers
+// MARK: - Actions
 extension ControllerLayoutSelectorViewController {
     @IBAction private func gamerButtonTapped(_ sender: Any) {
         let vc = AppContainer.shared.container.unwrappedResolve(PadConfigurationViewController.self)

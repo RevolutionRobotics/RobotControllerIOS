@@ -32,8 +32,10 @@ final class JoystickScene: SKScene {
 
     var positionChanged: CallbackType<CGPoint>?
     var returnedToDefaultPosition: CallbackType<CGPoint>?
+}
 
-    // MARK: - Lifecycle
+// MARK: - View lifecycle
+extension JoystickScene {
     override func sceneDidLoad() {
         setupJoystick()
         setupScene()
@@ -55,7 +57,7 @@ extension JoystickScene {
     }
 }
 
-// MARK: - Normalize
+// MARK: - Value normalization
 extension JoystickScene {
     private func handleMoveAndNormalizePosition(for joystick: TLAnalogJoystick) {
         let position = normalizePoint(joystick.handle.position)

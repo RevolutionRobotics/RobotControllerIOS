@@ -19,7 +19,7 @@ final class YourRobotsViewController: BaseViewController {
     @IBOutlet private weak var emptyStateImageView: UIImageView!
     @IBOutlet private weak var leftButtonLeadingConstraint: NSLayoutConstraint!
 
-    // MARK: - Variables
+    // MARK: - Properties
     var realmService: RealmServiceInterface!
     var firebaseService: FirebaseServiceInterface!
     private var robots: [UserRobot] = [] {
@@ -70,7 +70,7 @@ extension YourRobotsViewController {
     }
 }
 
-// MARK: - Event handlers
+// MARK: - Actions
 extension YourRobotsViewController {
     @IBAction private func leftButtonTapped(_ sender: Any) {
         collectionView.leftStep()
@@ -103,17 +103,17 @@ extension YourRobotsViewController: UICollectionViewDataSource {
 
     private func presentRobotOptionsModal(with indexPath: IndexPath) {
         let robot = robots[indexPath.item]
-        let modifyView = RobotOptionsView.instatiate()
+        let modifyView = RobotOptionsModalView.instatiate()
         setupHandlers(on: modifyView, with: robot, for: indexPath)
         modifyView.robot = robot
         presentModal(with: modifyView)
     }
 
-    private func setupHandlers(on view: RobotOptionsView, with robot: UserRobot?, for indexPath: IndexPath) {
+    private func setupHandlers(on view: RobotOptionsModalView, with robot: UserRobot?, for indexPath: IndexPath) {
         view.deleteHandler = { [weak self] in
             guard let robot = robot else { return }
             self?.dismissModalViewController()
-            let deleteView = DeleteView.instatiate()
+            let deleteView = DeleteModalView.instatiate()
             deleteView.title = ModalKeys.DeleteRobot.description.translate()
             deleteView.deleteButtonHandler = { [weak self] in
                 self?.deleteRobot(robot)

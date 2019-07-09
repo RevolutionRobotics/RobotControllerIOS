@@ -21,7 +21,7 @@ final class DriverPadView: UIView, PlayablePadView {
     @IBOutlet private weak var xAxisSlider: UISlider!
     @IBOutlet private weak var yAxisSlider: UISlider!
 
-    // MARK: - Playable
+    // MARK: - Properties
     var xAxisPositionChanged: CallbackType<CGFloat>?
     var yAxisPositionChanged: CallbackType<CGFloat>?
     var buttonTapped: CallbackType<PressedPadButton>?
@@ -35,7 +35,7 @@ final class DriverPadView: UIView, PlayablePadView {
     }
 }
 
-// MARK: - Lifecycle
+// MARK: - View lifecycle
 extension DriverPadView {
     override func awakeFromNib() {
         super.awakeFromNib()

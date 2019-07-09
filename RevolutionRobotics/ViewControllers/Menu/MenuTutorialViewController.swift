@@ -8,7 +8,6 @@
 
 import UIKit
 
-// MARK: - TutorialStep
 enum TutorialStep: Int {
     case robot
     case programs

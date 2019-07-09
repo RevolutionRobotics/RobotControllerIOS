@@ -95,7 +95,16 @@ final class TipsModalView: UIView {
     }
 }
 
-// MARK: - Functions
+// MARK: - View lifecycle
+extension TipsModalView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        self.setupBorders()
+    }
+}
+
+// MARK: - Private methods
 extension TipsModalView {
     private func setupBorders() {
         layoutIfNeeded()
@@ -109,16 +118,7 @@ extension TipsModalView {
     }
 }
 
-// MARK: - View lifecycle
-extension TipsModalView {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-        self.setupBorders()
-    }
-}
-
-// MARK: - Event handlers
+// MARK: - Actions
 extension TipsModalView {
     @IBAction private func communityButtonTapped(_ sender: Any) {
         communityCallback?()

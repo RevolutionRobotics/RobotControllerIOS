@@ -45,6 +45,7 @@ struct Milestone {
     }
 }
 
+// MARK: - Equatable
 extension Milestone: Equatable {
     static func == (lhs: Milestone, rhs: Milestone) -> Bool {
         return lhs.image == rhs.image && lhs.testCode == rhs.testCode && lhs.type == rhs.type

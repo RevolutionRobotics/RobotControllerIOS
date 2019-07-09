@@ -14,7 +14,7 @@ final class MultiTaskerPadView: UIView, PlayablePadView {
     @IBOutlet private weak var joystickContainer: SKView!
     @IBOutlet private var buttons: [PadButton]!
 
-    // MARK: - Playable
+    // MARK: - Properties
     var xAxisPositionChanged: CallbackType<CGFloat>?
     var yAxisPositionChanged: CallbackType<CGFloat>?
     var buttonTapped: CallbackType<PressedPadButton>?
@@ -28,7 +28,7 @@ final class MultiTaskerPadView: UIView, PlayablePadView {
     }
 }
 
-// MARK: View lifecycle
+// MARK: - View lifecycle
 extension MultiTaskerPadView {
     override func awakeFromNib() {
         super.awakeFromNib()

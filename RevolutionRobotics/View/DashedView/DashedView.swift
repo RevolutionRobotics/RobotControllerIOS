@@ -10,12 +10,15 @@ import UIKit
 
 @IBDesignable
 final class DashedView: UIView {
+    // MARK: - Constants
     private enum Constants {
         static let dashedLinePadding: CGFloat = 0
     }
 
+    // MARK: - Properties
     let dottedLineLayer = CAShapeLayer()
 
+    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -25,12 +28,18 @@ final class DashedView: UIView {
         super.init(coder: aDecoder)
         setupView()
     }
+}
 
+// MARK: - Interface builder
+extension DashedView {
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         setupView()
     }
+}
 
+// MARK: - View lifecycle
+extension DashedView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
@@ -45,7 +54,10 @@ final class DashedView: UIView {
 
         dottedLineLayer.path = path
     }
+}
 
+// MARK: - Setup
+extension DashedView {
     private func setupView() {
         backgroundColor = .clear
         dottedLineLayer.strokeColor = Color.brownishGrey.cgColor

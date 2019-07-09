@@ -10,6 +10,7 @@ import RealmSwift
 
 protocol RealmConnectorInterface {
     var realm: Realm! { get }
+
     func connectToRealm()
     func deleteRealm()
     func findAll(type: Object.Type) -> [Object]

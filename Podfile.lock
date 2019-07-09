@@ -140,11 +140,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   RevolutionRoboticsBlockly:
-    :commit: d86f77f3a183cf51cceeff76cb583b094de63498
+    :commit: fa126bdaf69aed5bbdd71a5c1107b19f74efdd77
     :git: "git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git"
     :submodules: true
   RevolutionRoboticsBluetooth:
-    :commit: 9b68804090165e1af762725a1ea663fda6813e7a
+    :commit: 05a4287a2480ab102ad0267bd8bc99925242645d
     :git: "git@gitlab.supercharge.io:revolutionrobotics/bluetooth-ios.git"
   SideMenu:
     :commit: ccd4b640063a721180b77a59d2a45039672ec95d
@@ -177,6 +177,6 @@ SPEC CHECKSUMS:
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
 
-PODFILE CHECKSUM: 2d899d16d16a50d2fb5f941cb3617b31f2bb3cc1
+PODFILE CHECKSUM: 0e50ad2e74c566cb498e4eb6b613c3be473495d0
 
 COCOAPODS: 1.6.1

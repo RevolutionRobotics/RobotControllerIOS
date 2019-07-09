@@ -67,6 +67,7 @@ final class ConfigurationView: RRCustomView {
 
     @IBOutlet private var buttons: [PortButton]!
 
+    // MARK: Properties
     var image: UIImage? {
         get {
             return robotImageView.image

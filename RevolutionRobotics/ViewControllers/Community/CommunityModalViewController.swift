@@ -9,9 +9,13 @@
 import UIKit
 import SafariServices
 
-class CommunityModalViewController: SFSafariViewController {
+final class CommunityModalViewController: SFSafariViewController {
+    // MARK: - Properties
     var presentationFinished: Callback?
+}
 
+// MARK: - View lifecycle
+extension CommunityModalViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -30,8 +30,6 @@ final class PadConfigurationViewController: BaseViewController {
     var realmService: RealmServiceInterface!
     var configurationId: String?
     var selectedControllerId: String?
-
-    // MARK: - Private
     private var programs: [ProgramDataModel] = []
     private var selectedButtonIndex: Int?
     private var selectedButtonState: ControllerButton.ControllerButtonState?
@@ -85,7 +83,7 @@ extension PadConfigurationViewController {
     }
 }
 
-// MARK: - Prefill
+// MARK: - Prefill data
 extension PadConfigurationViewController {
     //swiftlint:disable cyclomatic_complexity
     private func prefillData() {
@@ -247,10 +245,11 @@ extension PadConfigurationViewController {
 
     private func showProgramInfoModal(program: ProgramDataModel, onDismissed: Callback?) {
         guard let buttonState = selectedButtonState else { return }
-        let programInfoModal = ProgramInfoModal.instatiate()
+        let programInfoModal = ProgramInfoModalView.instatiate()
         let shouldDisplayRemove = selectedProgram(of: buttonState) != nil && selectedProgram(of: buttonState) == program
         let isCompatible = isProgramCompatible(program)
-        let infoType: ProgramInfoModal.InfoType = isCompatible ? (shouldDisplayRemove ? .remove : .add) : .incompatible
+        let infoType: ProgramInfoModalView.InfoType =
+            isCompatible ? (shouldDisplayRemove ? .remove : .add) : .incompatible
 
         programInfoModal.configure(
             program: program,

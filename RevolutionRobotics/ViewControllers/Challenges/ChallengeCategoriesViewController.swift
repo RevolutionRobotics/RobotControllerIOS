@@ -23,21 +23,6 @@ final class ChallengeCategoriesViewController: BaseViewController {
     }
 }
 
-// MARK: - Private fucntions
-extension ChallengeCategoriesViewController {
-    private func fetchChallenges() {
-        firebaseService.getChallengeCategories { [weak self] result in
-            switch result {
-            case .success(let challengeCategories):
-                self?.challengeCategories = challengeCategories.sorted(by: { $0.order < $1.order })
-            case .failure:
-                let alert = UIAlertController.errorAlert(type: .network)
-                self?.present(alert, animated: true, completion: nil)
-            }
-        }
-    }
-}
-
 // MARK: - View lifecycle
 extension ChallengeCategoriesViewController {
     override func viewDidLoad() {
@@ -102,6 +87,21 @@ extension ChallengeCategoriesViewController: UICollectionViewDataSource {
         let category = realmService.getChallengeCategory(id: challengeCategories[indexPath.row].id)
         cell.setup(with: challengeCategories[indexPath.row], userCategory: category)
         return cell
+    }
+}
+
+// MARK: - Private fucntions
+extension ChallengeCategoriesViewController {
+    private func fetchChallenges() {
+        firebaseService.getChallengeCategories { [weak self] result in
+            switch result {
+            case .success(let challengeCategories):
+                self?.challengeCategories = challengeCategories.sorted(by: { $0.order < $1.order })
+            case .failure:
+                let alert = UIAlertController.errorAlert(type: .network)
+                self?.present(alert, animated: true, completion: nil)
+            }
+        }
     }
 }
 

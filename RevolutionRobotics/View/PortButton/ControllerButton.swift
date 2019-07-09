@@ -26,10 +26,8 @@ final class ControllerButton: UIButton {
         case selected(ProgramDataModel)
     }
 
-    // MARK: - Port Number
+    // MARK: - Properties
     @IBInspectable var buttonNumber: Int = 0
-
-    // MARK: - References
     var buttonState: ControllerButtonState = .normal {
         didSet {
             setState(to: buttonState)
@@ -44,7 +42,7 @@ final class ControllerButton: UIButton {
     }
     var dotImageView: UIImageView!
 
-    // MARK: - Inits
+    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -88,7 +86,16 @@ extension ControllerButton {
     }
 }
 
-// MARK: - Actions
+// MARK: - Public functions
+extension ControllerButton {
+    func setupStaticState() {
+        isUserInteractionEnabled = false
+        setBorder(strokeColor: Color.brownGrey, lineWidth: Constants.borderWidth)
+        setLineSelectedState(to: true, color: Color.brownGrey)
+    }
+}
+
+// MARK: - Private methods
 extension ControllerButton {
     private func setLineSelectedState(to selected: Bool, color: UIColor? = Color.brownishGrey) {
         highlighterView.backgroundColor = color
@@ -141,11 +148,5 @@ extension ControllerButton {
         setTitleColor(.white, for: .normal)
         setLineSelectedState(to: true, color: Color.brightRed)
         setupDotState(for: true)
-    }
-
-    func setupStaticState() {
-        isUserInteractionEnabled = false
-        setBorder(strokeColor: Color.brownGrey, lineWidth: Constants.borderWidth)
-        setLineSelectedState(to: true, color: Color.brownGrey)
     }
 }

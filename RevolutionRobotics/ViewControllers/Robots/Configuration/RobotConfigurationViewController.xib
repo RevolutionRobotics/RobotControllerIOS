@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,10 +30,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ynx-ue-Ua9">
-                    <rect key="frame" x="328" y="71" width="240" height="94"/>
+                    <rect key="frame" x="328" y="71" width="240" height="115"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="849-Dt-fTu" customClass="SegmentedControl" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="29" width="240" height="36"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="849-Dt-fTu" customClass="RRSegmentedControl" customModule="RevolutionRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="39.5" width="240" height="36"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" placeholder="YES" id="UwZ-Q9-xbH"/>
@@ -88,7 +84,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0b-BO-qaQ" userLabel="configurationView" customClass="ConfigurationView" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="227" y="165" width="442" height="228"/>
+                    <rect key="frame" x="227" y="186" width="442" height="228"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="442" id="8y4-l3-tFv"/>
@@ -96,14 +92,14 @@
                     </constraints>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYC-o0-2cD">
-                    <rect key="frame" x="0.0" y="165" width="896" height="249"/>
+                    <rect key="frame" x="0.0" y="186" width="896" height="228"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVt-Oi-mfz" customClass="RRCollectionView" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="15" width="896" height="219"/>
+                            <rect key="frame" x="0.0" y="15" width="896" height="198"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pr2-V4-VDh" userLabel="sideButton" customClass="SideButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="787" y="191" width="109" height="52"/>
+                            <rect key="frame" x="787" y="170" width="109" height="52"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="109" id="7qG-M0-8ci"/>
@@ -122,14 +118,14 @@
                     </constraints>
                 </view>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIp-Ql-FYR">
-                    <rect key="frame" x="871" y="264.5" width="25" height="50"/>
+                    <rect key="frame" x="880" y="289" width="16" height="22"/>
                     <state key="normal" image="RightButton"/>
                     <connections>
                         <action selector="rightButtonTapped:" destination="-1" eventType="touchUpInside" id="gyb-Ho-O1B"/>
                     </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8S-aZ-NOv">
-                    <rect key="frame" x="0.0" y="264.5" width="25" height="50"/>
+                    <rect key="frame" x="0.0" y="289" width="16" height="22"/>
                     <state key="normal" image="LeftButton"/>
                     <connections>
                         <action selector="leftButtonTapped:" destination="-1" eventType="touchUpInside" id="xeQ-Em-Jz0"/>

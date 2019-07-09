@@ -28,6 +28,7 @@ final class TutorialProgressView: RRCustomView {
     @IBOutlet private weak var progressView5: UIView!
     @IBOutlet private var progressViews: [UIView]!
 
+    // MARK: - Properties
     var nextButtonTapped: CallbackType<TutorialStep>?
     var previousButtonTapped: CallbackType<TutorialStep>?
 

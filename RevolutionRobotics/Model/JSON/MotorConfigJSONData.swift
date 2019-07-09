@@ -6,7 +6,7 @@
 //  Copyright © 2019. Revolution Robotics. All rights reserved.
 //
 
-class MotorConfigJSONData: JSONRepresentable {
+final class MotorConfigJSONData: JSONRepresentable {
     // MARK: Constants
     private enum Constants {
         enum MotorType: Int {

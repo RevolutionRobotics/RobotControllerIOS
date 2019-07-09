@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import os
 
 final class AudioPlayer {
     // MARK: - Constants
@@ -21,7 +22,7 @@ final class AudioPlayer {
     // MARK: - Play
     func playSound(name: String) {
         guard let url = Bundle.main.url(forResource: name, withExtension: Constants.mp3Extension) else {
-            print("Couldn't find \(name) in boundle")
+            os_log("Couldn't find selected sound in bundle!")
             return
         }
 
@@ -33,9 +34,8 @@ final class AudioPlayer {
             guard let player = player else { return }
 
             player.play()
-
-        } catch let error {
-            print(error.localizedDescription)
+        } catch {
+            os_log("Error while playing sound!")
         }
     }
 }

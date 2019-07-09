@@ -52,12 +52,8 @@ final class PortButton: UIButton {
         case selected
     }
 
+    // MARK: - Properties
     var portType: PortType = .motor
-
-    // MARK: - Port Number
-    @IBInspectable var portNumber: Int = 0
-
-    // MARK: - References
     var portState: PortState = .normal {
         didSet {
             setState(to: portState)
@@ -70,15 +66,15 @@ final class PortButton: UIButton {
             dotImageView.image = UIImage(named: Constants.addIconDark)
         }
     }
-
     private let highlighterView = UIView()
+    @IBInspectable var portNumber: Int = 0
     @IBInspectable var borderColor: UIColor? = .white {
         didSet {
             highlighterView.backgroundColor = borderColor
         }
     }
 
-    // MARK: - Inits
+    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -118,7 +114,7 @@ extension PortButton {
     }
 }
 
-// MARK: - Actions
+// MARK: - Private methods
 extension PortButton {
     private func setLineSelectedState(to selected: Bool, color: UIColor? = Color.brownishGrey) {
         highlighterView.backgroundColor = color

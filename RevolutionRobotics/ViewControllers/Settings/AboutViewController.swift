@@ -105,7 +105,7 @@ extension AboutViewController {
     }
 }
 
-// MARK: - Functions
+// MARK: - Private methods
 extension AboutViewController {
     private func open(socialNetwork: SocialNetwork) {
         if UIApplication.shared.canOpenURL(socialNetwork.appBaseUrl) {
@@ -116,7 +116,7 @@ extension AboutViewController {
     }
 }
 
-// MARK: - Event handlers
+// MARK: - Actions
 extension AboutViewController {
     @IBAction private func facebookButtonTapped(_ sender: Any) {
         open(socialNetwork: .facebook)

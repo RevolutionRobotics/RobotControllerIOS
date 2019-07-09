@@ -13,7 +13,7 @@ final class PartView: UIView {
     @IBOutlet private weak var partImageView: UIImageView!
     @IBOutlet private weak var separatorView: UIView!
 
-    // MARK: - Variables
+    // MARK: - Properties
     var isLast: Bool = false {
         didSet {
             separatorView.isHidden = isLast
@@ -21,7 +21,7 @@ final class PartView: UIView {
     }
 }
 
-// MARK: - Setup
+// MARK: - Setups
 extension PartView {
     func setup(with urlString: String?) {
         guard let urlString = urlString else {

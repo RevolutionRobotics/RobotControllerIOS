@@ -10,7 +10,6 @@ import UIKit
 import RevolutionRoboticsBlockly
 
 final class ProgramsViewController: BaseViewController {
-    // MARK: - ProgramSaveReason
     private enum ProgramSaveReason {
         case edited
         case navigateBack
@@ -122,7 +121,7 @@ extension ProgramsViewController {
     }
 
     private func open(program: ProgramDataModel) {
-        let descriptionModal = ProgramDescriptionView.instatiate()
+        let descriptionModal = ProgramDescriptionModalView.instatiate()
         descriptionModal.setup(with: program)
         descriptionModal.loadCallback = { [weak self] in
             self?.dismissModalViewController()
@@ -175,7 +174,7 @@ extension ProgramsViewController {
     }
 
     private func openProgramModal() {
-        let programsView = ProgramsView.instatiate()
+        let programsView = ProgramListModalView.instatiate()
         programsView.setup(with: realmService.getPrograms())
         programsView.selectedProgramCallback = { [weak self] program in
             self?.dismissModalViewController()
@@ -211,7 +210,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func optionSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
-        let optionSelectorView = OptionSelectorView.instatiate()
+        let optionSelectorView = OptionSelectorModalView.instatiate()
 
         optionSelectorView.setup(optionSelector: optionSelector) { [weak self] option in
             callback?(option.key)
@@ -222,7 +221,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func driveDirectionSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
-        let driveDirectionSelectorView = DriveDirectionSelectorView.instatiate()
+        let driveDirectionSelectorView = DriveDirectionSelectorModalView.instatiate()
 
         driveDirectionSelectorView.setup(optionSelector: optionSelector) { [weak self] option in
             callback?(option.key)
@@ -233,7 +232,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func sliderHandler(_ sliderHandler: SliderHandler, callback: ((String?) -> Void)?) {
-        let sliderInputView = SliderInputView.instatiate()
+        let sliderInputView = SliderInputModalView.instatiate()
 
         sliderInputView.setup(sliderHandler: sliderHandler) { [weak self] value in
             callback?(value)
@@ -244,7 +243,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func singleLEDInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
-        let ledSelectorView = LEDSelectorView.instatiate()
+        let ledSelectorView = LEDSelectorModalView.instatiate()
         let defaultValues = Set([inputHandler.defaultInput])
 
         ledSelectorView.setup(selectionType: .single, defaultValues: defaultValues) { [weak self] led in
@@ -256,7 +255,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func multiLEDInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
-        let ledSelectorView = LEDSelectorView.instatiate()
+        let ledSelectorView = LEDSelectorModalView.instatiate()
         let defaultValues = Set(inputHandler.defaultInput.components(separatedBy: ","))
 
         ledSelectorView.setup(selectionType: .multi, defaultValues: defaultValues) { [weak self] leds in
@@ -268,7 +267,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func colorSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
-        let colorSelector = ColorSelectorView.instatiate()
+        let colorSelector = ColorSelectorModalView.instatiate()
 
         colorSelector.setup(optionSelector: optionSelector) { [weak self] color in
             callback?(color)
@@ -279,7 +278,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func audioSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
-        let soundPicker = SoundPickerView.instatiate()
+        let soundPicker = SoundPickerModalView.instatiate()
 
         soundPicker.setup(optionSelector: optionSelector) { [weak self] sound in
             callback?(sound)
@@ -305,7 +304,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func textInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
-        let textInput = TextInputView.instatiate()
+        let textInput = TextInputModalView.instatiate()
         textInput.setup(inputHandler: inputHandler)
         textInput.doneCallback = { [weak self] name in
             callback?(name)
@@ -319,7 +318,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func blockContext(_ contextHandler: BlockContextHandler, callback: ((BlockContextAction?) -> Void)?) {
-        let blockContext = BlockContextView.instatiate()
+        let blockContext = BlockContextMenuModalView.instatiate()
         blockContext.setup(with: contextHandler)
         blockContext.deleteCallback = { [weak self] in
             self?.dismissModalViewController()
@@ -340,7 +339,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func variableContext(_ optionSelector: OptionSelector, callback: ((VariableContextAction?) -> Void)?) {
-        let variableContextView = VariableContextView.instatiate()
+        let variableContextView = VariableContextModalView.instatiate()
 
         variableContextView.setup(optionSelector: optionSelector) { [weak self] variableAction in
             callback?(variableAction)
@@ -379,7 +378,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     func onPythonProgramSaved(pythonCode: String) {
         switch programSaveReason {
         case .showCode:
-            let codeView = ShowCodeView.instatiate()
+            let codeView = CodePreviewModalView.instatiate()
             codeView.setup(with: pythonCode)
             codeView.doneCallback = { [weak self] in
                 self?.dismissModalViewController()
@@ -441,7 +440,7 @@ extension ProgramsViewController {
     }
 
     @IBAction private func saveProgramButtonTapped(_ sender: UIButton) {
-        let saveModal = SaveProgramView.instatiate()
+        let saveModal = SaveProgramModalView.instatiate()
         if let program = selectedProgram {
             saveModal.setup(with: program)
         }

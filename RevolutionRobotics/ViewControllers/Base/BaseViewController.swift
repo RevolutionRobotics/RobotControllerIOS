@@ -41,6 +41,7 @@ class BaseViewController: UIViewController, RRNavigationBarDelegate {
         unregisterObserver()
     }
 
+    // MARK: - RRNavigationBarDelegate
     func backButtonDidTap() {
         navigationController?.popViewController(animated: true)
     }
@@ -145,7 +146,7 @@ extension BaseViewController: ModalViewControllerDelegate {
     }
 }
 
-// MARK: - Side
+// MARK: - Side menu
 extension BaseViewController {
     enum MenuSide {
         case left
@@ -201,7 +202,7 @@ extension BaseViewController {
     }
 
     private func presentDisconnectModal() {
-        let view = DisconnectModal.instatiate()
+        let view = DisconnectModalView.instatiate()
         view.robotName = bluetoothService.connectedDevice?.name
         view.disconnectHandler = { [weak self] in
             self?.bluetoothService.disconnect(shouldReconnect: false)
@@ -235,7 +236,7 @@ extension BaseViewController {
     @objc func connected() {
         bluetoothService.stopDiscovery()
         dismissModalViewController()
-        let connectionModal = ConnectionModal.instatiate()
+        let connectionModal = ConnectionModalView.instatiate()
         presentModal(with: connectionModal.successful)
 
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
@@ -268,7 +269,7 @@ extension BaseViewController {
         guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
             return
         }
-        guard let view = view.allSubViews().first(where: { $0.isFirstResponder }) else {
+        guard let view = view.allSubviews().first(where: { $0.isFirstResponder }) else {
             return
         }
         let keyboardRectangle = keyboardFrame.cgRectValue

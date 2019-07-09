@@ -141,6 +141,7 @@
 "program_confirm_title" = "Would you like to leave the editor?";
 "program_confirm_description" = "All your unsaved changes will be lost.";
 "program_confirm_positive" = "Leave";
+"priority_drivetrain_item" = "Drive";
 
 // MARK: - Settings
 "settings_screen_title" = "Settings";
