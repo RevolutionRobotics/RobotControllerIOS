@@ -58,10 +58,15 @@ extension MenuViewController {
     }
 
     @IBAction private func robotsButtonTapped(_ sender: UIButton) {
-        let vc = realmService.getRobots().isEmpty ?
-            AppContainer.shared.container.unwrappedResolve(WhoToBuildViewController.self) :
-            AppContainer.shared.container.unwrappedResolve(YourRobotsViewController.self)
-        navigationController?.pushViewController(vc, animated: true)
+        if realmService.getRobots().isEmpty {
+            let vc = AppContainer.shared.container.unwrappedResolve(YourRobotsViewController.self)
+            let vc2 = AppContainer.shared.container.unwrappedResolve(WhoToBuildViewController.self)
+            navigationController?.pushViewController(vc, animated: false)
+            navigationController?.pushViewController(vc2, animated: true)
+        } else {
+            let vc = AppContainer.shared.container.unwrappedResolve(YourRobotsViewController.self)
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
     @IBAction private func programsButtonTapped(_ sender: UIButton) {
