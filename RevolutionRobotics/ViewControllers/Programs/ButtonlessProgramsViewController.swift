@@ -185,6 +185,7 @@ extension ButtonlessProgramsViewController: UITableViewDataSource {
                     self?.dismissModalViewController()
                     let vc = AppContainer.shared.container.unwrappedResolve(ProgramsViewController.self)
                     vc.selectedProgram = program
+                    vc.shouldDismissAfterSave = true
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }, actionButtonHandler: { [weak self] _ in
                     self?.dismissModalViewController()
