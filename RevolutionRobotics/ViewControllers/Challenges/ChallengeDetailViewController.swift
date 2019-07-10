@@ -78,7 +78,7 @@ extension ChallengeDetailViewController {
         super.viewDidLoad()
 
         navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
-        guard let challenge = challenge else { return }
+        guard challenge != nil else { return }
         setupContent(for: 0)
     }
 

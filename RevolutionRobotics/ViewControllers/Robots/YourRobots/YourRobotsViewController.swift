@@ -129,9 +129,10 @@ extension YourRobotsViewController: UICollectionViewDataSource {
             self?.selectedIndexPath = indexPath
             self?.dismissModalViewController()
 
-            if !robot.remoteId.isEmpty && robotStatus != .completed {
+            switch robotStatus {
+            case .initial, .inProgress:
                 self?.navigateToBuildYourRobotViewController(with: robot)
-            } else {
+            case .invalidConfiguration, .completed:
                 self?.navigateToConfiguration(with: robot)
             }
         }
@@ -168,14 +169,9 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
         case .completed:
             navigateToPlayControllerViewController(with: robots[indexPath.item])
         case .initial, .inProgress:
-            let hasNoControllers =
-                realmService.getControllers().filter({ $0.configurationId == robots[indexPath.item].configId }).isEmpty
-            let isRobotFromFirebase = robots[indexPath.item].remoteId.isEmpty
-            if isRobotFromFirebase || (!isRobotFromFirebase && hasNoControllers) {
-                navigateToConfiguration(with: robots[indexPath.item])
-            } else {
-                navigateToBuildYourRobotViewController(with: robots[indexPath.item])
-            }
+            navigateToBuildYourRobotViewController(with: robots[indexPath.item])
+        case .invalidConfiguration:
+            navigateToConfiguration(with: robots[indexPath.item])
         }
     }
 

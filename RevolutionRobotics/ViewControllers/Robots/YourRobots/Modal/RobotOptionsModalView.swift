@@ -14,6 +14,7 @@ final class RobotOptionsModalView: UIView {
         static let titleFont = Font.jura(size: 18.0, weight: .bold)
         static let descriptionFont = Font.barlow(size: 12.0, weight: .regular)
         static let dateFont = Font.barlow(size: 12.0, weight: .medium)
+        static let errorFont = Font.barlow(size: 12.0, weight: .regular)
     }
 
     // MARK: - Outlets
@@ -63,8 +64,8 @@ extension RobotOptionsModalView {
     private func setupLabels() {
         titleLabel.font = Constants.titleFont
         descriptionLabel.font = Constants.descriptionFont
-        dateLabel.font = Constants.descriptionFont
-        errorLabel.font = Constants.descriptionFont
+        dateLabel.font = Constants.dateFont
+        errorLabel.font = Constants.errorFont
         errorLabel.text = ModalKeys.RobotInfo.error.translate()
     }
 
@@ -81,6 +82,14 @@ extension RobotOptionsModalView {
         titleLabel.text = robot?.customName
         descriptionLabel.text = robot?.customDescription
         dateLabel.text = DateFormatter.string(from: robot?.lastModified, format: .yearMonthDay)
+
+        if robot?.buildStatus == BuildStatus.invalidConfiguration.rawValue {
+            errorLabel.text = ModalKeys.RobotInfo.error.translate()
+            errorLabel.isHidden = false
+        } else {
+            errorLabel.text = nil
+            errorLabel.isHidden = true
+        }
     }
 }
 

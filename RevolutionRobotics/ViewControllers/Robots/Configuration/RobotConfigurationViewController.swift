@@ -178,12 +178,12 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
             realmService.getControllers().filter({ $0.configurationId == configuration.id }).count == 1
         let isControllerToDeleteTheSelectedOne = controllerToDelete.id == configuration.controller
         if isControllerToDeleteTheSelectedOne && hasOnlyOneAvailableController {
-            let robot = realmService.getRobots().first(where: { $0.configId == configuration.id })!
-            realmService.updateObject(closure: {
+            realmService.updateObject(closure: { [weak self] in
                 configuration.controller = ""
-                robot.buildStatus = BuildStatus.inProgress.rawValue
+                self?.selectedRobot?.buildStatus = BuildStatus.invalidConfiguration.rawValue
             })
             deleteController(controllerToDelete)
+            saveCallback?()
         } else if isControllerToDeleteTheSelectedOne {
             let controller = realmService.getControllers().first(where: { $0.configurationId == configuration.id &&
                 $0.id != controllerToDelete.id })!
@@ -411,7 +411,7 @@ extension RobotConfigurationViewController {
         let robot = UserRobot(
             id: UUID().uuidString,
             remoteId: "",
-            buildStatus: .inProgress,
+            buildStatus: .invalidConfiguration,
             actualBuildStep: -1,
             lastModified: Date(),
             configId: configId,

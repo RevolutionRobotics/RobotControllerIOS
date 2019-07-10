@@ -12,4 +12,5 @@ enum BuildStatus: Int {
     case initial = 0
     case inProgress
     case completed
+    case invalidConfiguration
 }
