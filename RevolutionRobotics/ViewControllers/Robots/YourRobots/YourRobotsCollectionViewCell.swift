@@ -37,7 +37,6 @@ final class YourRobotsCollectionViewCell: ResizableCell {
         }
     }
 
-    var isFinished: Bool = false
     var optionsButtonHandler: Callback?
 }
 
@@ -59,10 +58,16 @@ extension YourRobotsCollectionViewCell {
 extension YourRobotsCollectionViewCell {
     func configure(with robot: UserRobot) {
         nameLabel.text = robot.customName
-        isFinished = robot.buildStatus == BuildStatus.completed.rawValue
-        let isRemote = !robot.remoteId.isEmpty
-        actionLabel.text = isFinished ? RobotsKeys.YourRobots.play.translate() : isRemote ?
-            RobotsKeys.YourRobots.continueBuilding.translate() : RobotsKeys.YourRobots.continueEditing.translate()
+        switch robot.buildStatus {
+        case BuildStatus.inProgress.rawValue, BuildStatus.initial.rawValue:
+            actionLabel.text = RobotsKeys.YourRobots.continueBuilding.translate()
+        case BuildStatus.completed.rawValue:
+            actionLabel.text = RobotsKeys.YourRobots.play.translate()
+        case BuildStatus.invalidConfiguration.rawValue:
+            actionLabel.text = RobotsKeys.YourRobots.continueEditing.translate()
+        default:
+            break
+        }
         descriptionLabel.text = robot.customDescription
         let isCompleted = robot.buildStatus == BuildStatus.completed.rawValue
         statusImageView.image = isCompleted ? Image.Common.calendar : Image.Common.underConstruction

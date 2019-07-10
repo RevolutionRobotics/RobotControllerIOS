@@ -56,7 +56,6 @@
                         <constraint firstAttribute="height" constant="71" id="N99-YK-ZpF"/>
                         <constraint firstItem="sYq-fd-hML" firstAttribute="top" secondItem="IxG-51-Oet" secondAttribute="top" constant="13" id="YJG-un-S8C"/>
                         <constraint firstItem="JHd-YH-4xv" firstAttribute="trailing" secondItem="sYq-fd-hML" secondAttribute="trailing" id="bwa-nN-ZHp"/>
-                        <constraint firstAttribute="trailing" secondItem="sYq-fd-hML" secondAttribute="trailing" constant="54" id="rAC-gc-0oE"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTV-yz-alA" userLabel="buildProgressBar" customClass="BuildProgressBar" customModule="RevolutionRobotics" customModuleProvider="target">
@@ -72,7 +71,7 @@
             </subviews>
             <color key="backgroundColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sYq-fd-hML" secondAttribute="trailing" constant="50" id="02l-rK-Haf"/>
+                <constraint firstItem="IxG-51-Oet" firstAttribute="trailing" secondItem="sYq-fd-hML" secondAttribute="trailing" constant="54" id="02l-rK-Haf"/>
                 <constraint firstItem="UXT-Hc-TIW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="39U-y2-JzF"/>
                 <constraint firstItem="sjN-3g-Kcz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6nK-Xx-TX9"/>
                 <constraint firstItem="IxG-51-Oet" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AZn-Um-Hvk"/>
