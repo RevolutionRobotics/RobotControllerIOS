@@ -21,6 +21,7 @@ enum Image {
         static let plusIcon = UIImage(named: "plus16")
         static let closeIcon = UIImage(named: "CloseIcon")
         static let arrowUp = UIImage(named: "ArrowUp")
+        static let arrowDown = UIImage(named: "ArrowDown")
     }
 
     enum BuildRobot {
@@ -94,6 +95,7 @@ enum Image {
 
     enum Programs {
         static let compatibleIcon = UIImage(named: "CompatibleIcon")
+        static let filterIcon = UIImage(named: "FilterIcon")
         static let checkboxWhiteChecked = UIImage(named: "CheckboxWhiteChecked")
 
         enum Buttonless {

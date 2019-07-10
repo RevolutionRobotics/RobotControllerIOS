@@ -25,7 +25,7 @@ final class ProgramSelectorViewController: BaseViewController {
 
     // MARK: - Properties
     private let programSorter = ProgramSorter()
-    private var programSortingOptions = ProgramSorter.Options(field: .name, order: .ascending) {
+    private var programSortingOptions = ProgramSorter.Options(field: .date, order: .descending) {
         didSet {
              filteredAndOrderedPrograms = programSorter.sort(programs: allPrograms, options: programSortingOptions)
         }
@@ -48,7 +48,7 @@ final class ProgramSelectorViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupTranslations()
+        setupNormalState()
         setupButtonsSelectedState()
         setupButtonsInitialState()
         fetchPrograms()
@@ -64,9 +64,10 @@ extension ProgramSelectorViewController {
         tableView.estimatedRowHeight = Constants.estimatedRowHeight
     }
 
-    private func setupTranslations() {
+    private func setupNormalState() {
         titleLabel.text = ProgramsKeys.Selector.title.translate()
         filterButton.setTitle(ProgramsKeys.Selector.showAllPrograms.translate(), for: .normal)
+        filterButton.setImage(Image.Programs.filterIcon, for: .normal)
         nameSorterButton.setTitle(ProgramsKeys.Selector.orderByName.translate(), for: .normal)
         dateSorterButton.setTitle(ProgramsKeys.Selector.orderByDate.translate(), for: .normal)
     }
@@ -75,13 +76,13 @@ extension ProgramSelectorViewController {
         filterButton.setTitle(ProgramsKeys.Selector.showCompatiblePrograms.translate(), for: .selected)
         filterButton.setImage(Image.Programs.compatibleIcon, for: .selected)
         nameSorterButton.setImage(Image.Common.arrowUp, for: .selected)
-        dateSorterButton.setImage(Image.Common.arrowUp, for: .selected)
+        dateSorterButton.setImage(Image.Common.arrowDown, for: .selected)
     }
 
     private func setupButtonsInitialState() {
         filterButton.isSelected = true
-        setEnabledState(for: nameSorterButton)
-        setDisabledState(for: dateSorterButton)
+        dateSorterButton.isSelected = true
+        setDisabledState(for: nameSorterButton)
     }
 
     private func setDisabledState(for button: UIButton) {
@@ -89,13 +90,13 @@ extension ProgramSelectorViewController {
         button.alpha = Constants.disabledAlphaValue
     }
 
-    private func setEnabledState(for button: UIButton) {
+    private func toggleEnabledState(for button: UIButton) {
         button.isSelected.toggle()
         button.alpha = Constants.enabledAlphaValue
     }
 }
 
-// MARK: - Fetch
+// MARK: - Programs
 extension ProgramSelectorViewController {
     private func fetchPrograms() {
         let programs = Set(realmService.getPrograms())
@@ -105,11 +106,17 @@ extension ProgramSelectorViewController {
 
     private func updatePrograms(_ programs: [ProgramDataModel]) {
         allPrograms = programs
-        if filterButton.isSelected {
+        filterPrograms()
+    }
+
+    private func filterPrograms() {
+        if !filterButton.isSelected {
             let variableNames = Set(configurationVariableNames)
-            let compatiblePrograms = allPrograms.filter({ Set($0.variableNames).isSubset(of: variableNames) })
-            filteredAndOrderedPrograms =
-                programSorter.sort(programs: compatiblePrograms, options: programSortingOptions)
+            let compatiblePrograms = allPrograms.filter { Set($0.variableNames).isSubset(of: variableNames) }
+            filteredAndOrderedPrograms = programSorter.sort(
+                programs: compatiblePrograms,
+                options: programSortingOptions
+            )
         } else {
             filteredAndOrderedPrograms = programSorter.sort(programs: allPrograms, options: programSortingOptions)
         }
@@ -145,18 +152,11 @@ extension ProgramSelectorViewController {
 
     @IBAction private func filterButtonTapped(_ sender: Any) {
         filterButton.isSelected.toggle()
-        if filterButton.isSelected {
-            let variableNames = Set(configurationVariableNames)
-            let compatiblePrograms = allPrograms.filter({ Set($0.variableNames).isSubset(of: variableNames) })
-            filteredAndOrderedPrograms =
-                programSorter.sort(programs: compatiblePrograms, options: programSortingOptions)
-        } else {
-            filteredAndOrderedPrograms = programSorter.sort(programs: allPrograms, options: programSortingOptions)
-        }
+        filterPrograms()
     }
 
     @IBAction private func nameSorterButtonTapped(_ sender: Any) {
-        setEnabledState(for: nameSorterButton)
+        toggleEnabledState(for: nameSorterButton)
         setDisabledState(for: dateSorterButton)
         programSortingOptions = ProgramSorter.Options(
             field: .name,
@@ -165,11 +165,11 @@ extension ProgramSelectorViewController {
     }
 
     @IBAction private func dateSorterButtonTapped(_ sender: Any) {
-        setEnabledState(for: dateSorterButton)
+        toggleEnabledState(for: dateSorterButton)
         setDisabledState(for: nameSorterButton)
         programSortingOptions = ProgramSorter.Options(
             field: .date,
-            order: dateSorterButton.isSelected ? .ascending : .descending
+            order: dateSorterButton.isSelected ? .descending : .ascending
         )
     }
 }
