@@ -51,7 +51,11 @@ extension WhoToBuildCollectionViewCell {
         baseWidth = baseWidth.setMultiplier(multiplier: multiplier * baseWidthMultiplier)
         baseHeight = baseHeight.setMultiplier(multiplier: multiplier * baseHeightMultiplier)
         robotNameLabel.font = robotNameLabel.font.withSize(baseNameFontSize * multiplier * multiplier)
-        buildTimeLabel.font = buildTimeLabel.font.withSize(baseBuildTimeFontSize * multiplier * multiplier)
+        if let text = buildTimeLabel.text, text.count > 3 && UIScreen.main.bounds.size.height == 320 {
+            buildTimeLabel.font = buildTimeLabel.font.withSize(baseBuildTimeFontSize * multiplier * multiplier * 0.66)
+        } else {
+            buildTimeLabel.font = buildTimeLabel.font.withSize(baseBuildTimeFontSize * multiplier * multiplier)
+        }
     }
 }
 
