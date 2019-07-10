@@ -115,7 +115,7 @@ extension BuildRobotViewController {
                 self?.dismissModalViewController()
                 self?.navigateToPlayViewController()
             }
-            self?.presentModal(with: buildFinishedModal)
+            self?.presentModal(with: buildFinishedModal, closeHidden: true)
         }
         buildProgressBar.showMilestone = { [weak self] in
             guard let milestone = self?.currentStep?.milestone else {

@@ -65,7 +65,7 @@ extension ChallengesViewController {
         if currentChallenge + 1 == challengeCategory?.challenges.count {
             modal.isLastChallenge = true
         }
-        presentModal(with: modal)
+        presentModal(with: modal, closeHidden: true)
     }
 
     private func handleNavigateBack() {
