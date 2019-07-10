@@ -33,12 +33,16 @@ final class ProgramsViewController: BaseViewController {
     var realmService: RealmServiceInterface!
     var programCompatibilityValidator: ProgramCompatibilityValidator!
     var selectedProgram: ProgramDataModel?
+    var shouldDismissAfterSave = false
     private let blocklyViewController = BlocklyViewController()
     private var programSaveReason = ProgramSaveReason.edited {
         didSet {
             blocklyViewController.saveProgram()
         }
     }
+
+    var isPythonExported = false
+    var isXMLExported = false
 }
 
 // MARK: - View lifecycle
@@ -394,6 +398,14 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
         default:
             return
         }
+
+        isPythonExported = true
+        if isXMLExported && isPythonExported && shouldDismissAfterSave {
+            isXMLExported = false
+            isPythonExported = false
+            shouldDismissAfterSave = false
+            navigationController?.popViewController(animated: true)
+        }
     }
 
     func onXMLProgramSaved(xmlCode: String) {
@@ -425,6 +437,14 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
             }
         default:
             return
+        }
+
+        isXMLExported = true
+        if isXMLExported && isPythonExported && shouldDismissAfterSave {
+            isXMLExported = false
+            isPythonExported = false
+            shouldDismissAfterSave = false
+            navigationController?.popViewController(animated: true)
         }
     }
 }
