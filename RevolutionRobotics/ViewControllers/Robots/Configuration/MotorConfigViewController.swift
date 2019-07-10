@@ -395,12 +395,14 @@ extension MotorConfigViewController: UISideMenuNavigationControllerDelegate {
 extension MotorConfigViewController {
     override func connected() {
         bluetoothService.stopDiscovery()
-        presentConnectedModal(onCompleted: { [weak self] in
-            guard let runTest = self?.shouldRunTestScriptOnConnection, runTest else { return }
+        dismiss(animated: true, completion: {
+            self.presentConnectedModal(onCompleted: { [weak self] in
+                guard let runTest = self?.shouldRunTestScriptOnConnection, runTest else { return }
 
-            self?.shouldRunTestScriptOnConnection = false
-            self?.startPortTest()
-            self?.presentTestingModal()
+                self?.shouldRunTestScriptOnConnection = false
+                self?.startPortTest()
+                self?.presentTestingModal()
+            })
         })
     }
 

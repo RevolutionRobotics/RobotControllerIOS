@@ -85,6 +85,7 @@ extension MenuViewController {
 extension MenuViewController {
     override func connected() {
         super.connected()
+
         navigationBar.bluetoothButtonState = .connected
     }
 
