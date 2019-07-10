@@ -66,10 +66,8 @@ final class BluetoothService: BluetoothServiceInterface {
     }
 
     func sendConfigurationData(_ data: Data, onCompleted: CallbackType<Result<String, Error>>?) {
-        FileManager.default.save(data, as: "configData")
-        let path = FileManager.documentsDirectory.appendingPathComponent("configData").absoluteString
         configuration.sendConfiguration(
-            with: URL(string: path)!,
+            with: data,
             onSuccess: {
                 onCompleted?(.success("Success"))
         },
@@ -125,9 +123,7 @@ final class BluetoothService: BluetoothServiceInterface {
     }
 
     func updateFramework(data: Data, version: String, onCompleted: CallbackType<Result<String, Error>>?) {
-        FileManager.default.save(data, as: version)
-        let path = FileManager.documentsDirectory.appendingPathComponent(version).absoluteString
-        configuration.updateFramework(with: URL(string: path)!,
+        configuration.updateFramework(with: data,
                                       onSuccess: { onCompleted?(.success("Success")) },
                                       onError: { error in
                                         onCompleted?(.failure(error))
@@ -156,10 +152,8 @@ final class BluetoothService: BluetoothServiceInterface {
     }
 
     func testKit(data: String, onCompleted: CallbackType<Result<String, Error>>?) {
-        FileManager.default.save(data.data(using: .utf8), as: "testData")
-        let path = FileManager.documentsDirectory.appendingPathComponent("testData").absoluteString
         configuration.testKit(
-            with: URL(string: path)!,
+            with: data.data(using: .utf8)!,
             onSuccess: {
                 onCompleted?(.success("Success"))
         },

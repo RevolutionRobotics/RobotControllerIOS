@@ -62,6 +62,8 @@ extension FirmwareUpdateViewController {
                         self?.checkForUpdatesModal.updateFound(version: (updates.first?.fileName)!)
                         self?.updateURL = (updates.first?.url)!
                         self?.updateVersion = (updates.first?.fileName)!
+                    } else {
+                        self?.checkForUpdatesModal.upToDate()
                     }
                 case .failure:
                     os_log("Error while getting firmware update!")
@@ -233,6 +235,7 @@ extension FirmwareUpdateViewController {
             case .success(let softwareRevision):
                 self?.checkForUpdatesModal.softwareVersion = softwareRevision
                 self?.checkForUpdatesModal.firmwareVersion = softwareRevision
+                self?.currentFirmware = softwareRevision
             case .failure:
                 os_log("Error: Failed to fetch software revision from robot via bluetooth!")
             }
