@@ -184,7 +184,7 @@ extension BuildRobotViewController {
         let tips = TipsModalView.instatiate()
         tips.title = ModalKeys.Tips.title.translate()
         tips.subtitle = ModalKeys.Tips.subtitle.translate()
-        tips.tips = "Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat."
+        tips.tips = ModalKeys.Tips.tips.translate()
         tips.skipTitle = ModalKeys.Tips.skipTesting.translate()
         tips.communityTitle = ModalKeys.Tips.community.translate()
         tips.tryAgainTitle = ModalKeys.Tips.tryAgin.translate()
@@ -350,12 +350,17 @@ extension BuildRobotViewController {
         connectionModal.tipsButtonTapped = { [weak self] in
             self?.dismissModalViewController()
             let failedConnectionTipsModal = TipsModalView.instatiate()
-            self?.presentModal(with: failedConnectionTipsModal)
-            failedConnectionTipsModal.skipCallback = self?.dismissModalViewController
+            failedConnectionTipsModal.skipTitle = ModalKeys.Connection.failedConnectionSkipButton.translate()
+            failedConnectionTipsModal.skipCallback = { [weak self] in
+                self?.dismissModalViewController()
+            }
             failedConnectionTipsModal.tryAgainCallback = self?.dismissAndTryAgain
             failedConnectionTipsModal.communityCallback = {
-                // TODO: Use BaseViewController showCommunityViewControoler when it's implemented
+                self?.openSafari(presentationFinished: { [weak self] in
+                    self?.dismissAndTryAgain()
+                })
             }
+            self?.presentModal(with: failedConnectionTipsModal)
         }
     }
 

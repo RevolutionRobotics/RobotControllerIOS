@@ -181,6 +181,7 @@
 
 "tips_dialog_title" = "Tips";
 "tips_dialog_sub_title" = "Try to…";
+"tips_dialog_tips" = "Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.";
 "tips_dialog_button_reconfigure" = "Reconfigure";
 "tips_dialog_button_skip_testing" = "Skip testing";
 "tips_dialog_button_community" = "Community";

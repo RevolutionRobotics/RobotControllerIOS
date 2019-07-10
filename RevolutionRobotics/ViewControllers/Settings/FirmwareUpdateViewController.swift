@@ -155,7 +155,10 @@ extension FirmwareUpdateViewController {
         connectionModal.tipsButtonTapped = { [weak self] in
             self?.dismissModalViewController()
             let failedConnectionTipsModal = TipsModalView.instatiate()
-            failedConnectionTipsModal.isSkipButtonHidden = true
+            failedConnectionTipsModal.skipTitle = ModalKeys.Connection.failedConnectionSkipButton.translate()
+            failedConnectionTipsModal.skipCallback = { [weak self] in
+                self?.dismissModalViewController()
+            }
             failedConnectionTipsModal.tryAgainCallback = self?.dismissAndTryAgain
             failedConnectionTipsModal.communityCallback = { [weak self] in
                 self?.openSafari(presentationFinished: { [weak self] in

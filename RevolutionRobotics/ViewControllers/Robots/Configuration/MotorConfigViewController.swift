@@ -311,7 +311,7 @@ extension MotorConfigViewController {
         let tips = TipsModalView.instatiate()
         tips.title = ModalKeys.Tips.title.translate()
         tips.subtitle = ModalKeys.Tips.subtitle.translate()
-        tips.tips = "Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat."
+        tips.tips = ModalKeys.Tips.tips.translate()
         tips.skipTitle = ModalKeys.Tips.reconfigure.translate()
         tips.communityTitle = ModalKeys.Tips.community.translate()
         tips.tryAgainTitle = ModalKeys.Tips.tryAgin.translate()

@@ -17,7 +17,6 @@ final class BluetoothConnectionModalPresenter {
             availableRobotsView.discoveredDevices = discoveredDevices
         }
     }
-    var shouldHideSkip = false
     private weak var presenter: BaseViewController!
     private var startDiscoveryHandler: Callback?
     private var deviceSelectionHandler: CallbackType<Device>?
@@ -72,16 +71,12 @@ extension BluetoothConnectionModalPresenter {
     private func showTipsModal() {
         presenter.dismiss(animated: true, completion: nil)
         let tips = TipsModalView.instatiate()
-        tips.isSkipButtonHidden = shouldHideSkip
         tips.title = ModalKeys.Tips.title.translate()
         tips.subtitle = ModalKeys.Tips.subtitle.translate()
-        tips.tips = "Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat."
-        tips.skipTitle = ModalKeys.Connection.failedConnectionSkipButton.translate()
+        tips.tips = ModalKeys.Tips.tips.translate()
+        tips.isSkipButtonHidden = true
         tips.communityTitle = ModalKeys.Tips.community.translate()
         tips.tryAgainTitle = ModalKeys.Tips.tryAgin.translate()
-        tips.skipCallback = { [weak self] in
-            self?.presenter.dismissModalViewController()
-        }
         tips.tryAgainCallback = { [weak self] in
             self?.presenter.dismiss(animated: true, completion: nil)
             self?.showTurnOnTheBrain()
