@@ -107,7 +107,7 @@ extension CheckForUpdateModalView {
         loadingIndicator.isHidden = true
         devInfoView.isHidden = true
         updateView.isHidden = false
-        updateLabel.text = ModalKeys.FirmwareUpdate.upToDate.translate()
+        updateLabel.text = ModalKeys.FirmwareUpdate.upToDateVersion.translate()
         checkForUpdatesButton.setTitle(ModalKeys.FirmwareUpdate.done.translate(), for: .normal)
         checkForUpdatesButton.setImage(Image.tickIcon, for: .normal)
     }

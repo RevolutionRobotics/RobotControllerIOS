@@ -51,7 +51,7 @@ enum ModalKeys {
         static let currentVersion = "firmware_current_version"
         static let downloadUpdate = "firmware_update_download"
         static let downloadReady = "firmware_update_download_ready"
-        static let upToDate = "firmware_up_to_date"
+        static let upToDateVersion = "firmware_up_to_date"
         static let done = "firmware_done_button"
         static let downloading = "firmware_download_info"
         static let pleaseWait = "firmware_please_wait"

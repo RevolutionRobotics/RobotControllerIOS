@@ -194,7 +194,7 @@
 "firmware_current_version" = "Current framework version %@";
 "firmware_update_download" = "Download and update";
 "firmware_update_download_ready" = "New update (%@) is available to download";
-"firmware_up_to_date" = "Up to date";
+"firmware_update_latest_used" = "You have the latest framework version";
 "firmware_done_button" = "Done";
 "firmware_hardware_version" = "Hardware version: %@";
 "firmware_model_number" = "Model number: %@";
