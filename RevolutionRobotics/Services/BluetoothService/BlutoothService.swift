@@ -124,17 +124,13 @@ final class BluetoothService: BluetoothServiceInterface {
                                   onError: { onCompleted?(.failure($0)) })
     }
 
-    // We're updating the framework on the firmware characteristic, its intentional
     func updateFramework(data: Data, version: String, onCompleted: CallbackType<Result<String, Error>>?) {
         FileManager.default.save(data, as: version)
         let path = FileManager.documentsDirectory.appendingPathComponent(version).absoluteString
-        configuration.updateFirmware(
-            with: URL(string: path)!,
-            onSuccess: {
-                onCompleted?(.success("Success"))
-        },
-            onError: { error in
-                onCompleted?(.failure(error))
+        configuration.updateFramework(with: URL(string: path)!,
+                                      onSuccess: { onCompleted?(.success("Success")) },
+                                      onError: { error in
+                                        onCompleted?(.failure(error))
         })
     }
 
