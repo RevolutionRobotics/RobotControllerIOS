@@ -30,6 +30,7 @@ enum ModalKeys {
     enum Tips {
         static let title = "tips_dialog_title"
         static let subtitle = "tips_dialog_sub_title"
+        static let tips = "tips_dialog_tips"
         static let reconfigure = "tips_dialog_button_reconfigure"
         static let skipTesting = "tips_dialog_button_skip_testing"
         static let community = "tips_dialog_button_community"
