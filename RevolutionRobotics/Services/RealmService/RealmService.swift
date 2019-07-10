@@ -59,6 +59,12 @@ extension RealmService: RealmServiceInterface {
             newController.mapping = deepCopy(dataModel.mapping)
             newController.backgroundProgramBindings = deepCopy(dataModel.backgroundProgramBindings)
             newControllers.append(newController)
+
+            if dataModel.id == configuration?.controller {
+                updateObject(closure: { [weak self] in
+                    self?.getConfiguration(id: newConfigurationId)?.controller = newController.id
+                })
+            }
         }
         saveControllers(newControllers)
     }
