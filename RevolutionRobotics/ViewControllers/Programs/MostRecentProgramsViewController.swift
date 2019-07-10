@@ -13,6 +13,7 @@ final class MostRecentProgramsViewController: BaseViewController, Dismissable {
     private enum Constants {
         static let buttonFont = Font.jura(size: 12.0, weight: .bold)
         static let firstFiveProgamRange = 0...4
+        static let firstFourProgamRange = 0...3
         static let animationDuration: TimeInterval = 0.25
     }
 
@@ -55,10 +56,18 @@ extension MostRecentProgramsViewController {
         if self.programs.isEmpty {
             self.programs = []
         } else {
-            if self.programs.count >= 5 {
-                self.programs = Array(self.programs[Constants.firstFiveProgamRange])
+            if selectedProgram == nil {
+                if self.programs.count >= 5 {
+                    self.programs = Array(self.programs[Constants.firstFiveProgamRange])
+                } else {
+                    self.programs = Array(self.programs[0...])
+                }
             } else {
-                self.programs = Array(self.programs[0...])
+                if self.programs.count >= 4 {
+                    self.programs = [selectedProgram!] + Array(self.programs[Constants.firstFourProgamRange])
+                } else {
+                    self.programs = Array(self.programs[0...])
+                }
             }
         }
 
