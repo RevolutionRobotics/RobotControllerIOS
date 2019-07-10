@@ -27,7 +27,10 @@ final class ProgramSelectorViewController: BaseViewController {
     private let programSorter = ProgramSorter()
     private var programSortingOptions = ProgramSorter.Options(field: .date, order: .descending) {
         didSet {
-             filteredAndOrderedPrograms = programSorter.sort(programs: allPrograms, options: programSortingOptions)
+             filteredAndOrderedPrograms = programSorter.sort(
+                programs: filteredAndOrderedPrograms,
+                options: programSortingOptions
+            )
         }
     }
 
