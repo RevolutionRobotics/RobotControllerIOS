@@ -145,6 +145,7 @@ extension FirmwareUpdateViewController {
     override func disconnected() {
         super.disconnected()
         navigationBar.bluetoothButtonState = .notConnected
+        connectedBrainView.isHidden = true
     }
 
     override func connectionError() {
