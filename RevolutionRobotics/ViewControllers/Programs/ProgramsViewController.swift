@@ -466,7 +466,7 @@ extension ProgramsViewController {
         }
         saveModal.doneCallback = { [weak self] saveData in
             self?.dismissModalViewController()
-            guard !(self?.programAlreadyExists(name: saveData.name))! else {
+            guard (self?.canBeOverwritten(name: saveData.name))! else {
                 self?.present(UIAlertController.errorAlert(type: .programAlreadyExists), animated: true)
                 return
             }
@@ -493,9 +493,9 @@ extension ProgramsViewController {
 
 // MARK: - Private methods
 extension ProgramsViewController {
-    private func programAlreadyExists(name: String?) -> Bool {
+    private func canBeOverwritten(name: String?) -> Bool {
         guard let name = name else { return true }
 
-        return realmService.getPrograms().contains(where: { $0.name == name })
+        return !realmService.getPrograms().contains(where: { $0.name == name && !$0.remoteId.isEmpty })
     }
 }
