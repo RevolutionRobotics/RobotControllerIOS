@@ -21,6 +21,9 @@ extension RealmService: RealmServiceInterface {
         newRobot.lastModified = Date()
         newRobot.configId = deepCopy(getConfiguration(id: robot.configId))
         newRobot.customName = (newRobot.customName ?? "") + " " + ModalKeys.RobotInfo.copyPostfix.translate()
+        if let image = FileManager.default.image(for: robot.id) {
+            FileManager.default.save(image, as: newRobot.id)
+        }
         deepCopy(from: getConfiguration(id: robot.configId), newConfigurationId: newRobot.configId)
         saveRobot(newRobot)
     }
