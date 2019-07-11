@@ -201,6 +201,7 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
         controllers = realmService.getControllers()
             .filter({ $0.configurationId == configuration.id })
             .sorted(by: { $0.lastModified > $1.lastModified })
+        collectionView.reloadData()
         dismissModalViewController()
     }
 
@@ -361,7 +362,7 @@ extension RobotConfigurationViewController {
                 }
             }
         }
-        segmentedControl.setSelectedIndex(0)
+        segmentedControl.setSelectedIndex(segmentedControl.selectedSegment.rawValue)
     }
 
     private func segmentSelected(_ segment: ConfigurationSegment) {
