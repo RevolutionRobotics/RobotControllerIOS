@@ -103,7 +103,11 @@ extension RealmService: RealmServiceInterface {
     }
 
     func deleteRobot(_ robot: UserRobot) {
-        return realmConnector.delete(object: robot)
+        let configuration = getConfiguration(id: robot.configId)!
+        let controllers = getControllers().filter({ $0.configurationId == robot.configId })
+        realmConnector.delete(objects: controllers)
+        realmConnector.delete(object: configuration)
+        realmConnector.delete(object: robot)
     }
 
     func updateObject(closure: (() -> Void)?) {
