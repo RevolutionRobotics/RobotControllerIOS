@@ -29,6 +29,7 @@ final class FirmwareUpdateViewController: BaseViewController {
 
 // MARK: - View lifecycle
 extension FirmwareUpdateViewController {
+    // swiftlint:disable cyclomatic_complexity
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,34 +55,37 @@ extension FirmwareUpdateViewController {
             })
         }
 
-        checkForUpdatesModal.checkForUpdateCallback = { [weak self] in
-            self?.firebaseService.getFirmwareUpdate(completion: { [weak self] result in
-                switch result {
-                case .success(let updates):
-                    if self?.currentFirmware != updates.first?.fileName {
-                        self?.checkForUpdatesModal.updateFound(version: (updates.first?.fileName)!)
-                        self?.updateURL = (updates.first?.url)!
-                        self?.updateVersion = (updates.first?.fileName)!
-                    } else {
-                        self?.checkForUpdatesModal.upToDate()
-                    }
-                case .failure:
-                    os_log("Error while getting firmware update!")
-                }
-            })
-        }
-
-        checkForUpdatesModal.downloadAndUpdataCallback = { [weak self] in
-            self?.firebaseService.downloadFirmwareUpdate(
-                resourceURL: (self?.updateURL)!,
-                completion: { [weak self] result in
+        checkForUpdatesModal.buttonHandler = { [weak self] status in
+            switch status {
+            case .initial:
+                self?.firebaseService.getFirmwareUpdate(completion: { result in
                     switch result {
-                    case .success(let data):
-                        self?.uploadFramework(data: data)
+                    case .success(let updates):
+                        if self?.currentFirmware != updates.first?.fileName {
+                            self?.checkForUpdatesModal.status = .updateNeeded((updates.first?.fileName)!)
+                            self?.updateURL = (updates.first?.url)!
+                            self?.updateVersion = (updates.first?.fileName)!
+                        } else {
+                            self?.checkForUpdatesModal.status = .updated
+                        }
                     case .failure:
-                        os_log("Error while downloading firmware update!")
+                        os_log("Error while getting firmware update!")
                     }
-            })
+                })
+            case .updateNeeded:
+                self?.firebaseService.downloadFirmwareUpdate(
+                    resourceURL: (self?.updateURL)!,
+                    completion: { result in
+                        switch result {
+                        case .success(let data):
+                            self?.uploadFramework(data: data)
+                        case .failure:
+                            os_log("Error while downloading firmware update!")
+                        }
+                })
+            case .updated:
+                self?.dismissModalViewController()
+            }
         }
     }
 
