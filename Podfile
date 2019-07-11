@@ -27,9 +27,12 @@ target 'RevolutionRobotics' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
 
+  repoUrl = 'git@github.com:RevolutionRobotics/'
+  activeBranch = 'development'
+
   # RevolutionRobotics
-  pod 'RevolutionRoboticsBlockly', git: 'git@gitlab.supercharge.io:revolutionrobotics/blockly-ios.git', branch: 'development', :submodules => true
-  pod 'RevolutionRoboticsBluetooth', git: 'git@gitlab.supercharge.io:revolutionrobotics/bluetooth-ios.git', branch: 'development'
+  pod 'RevolutionRoboticsBlockly', git: "#{repoUrl}RevolutionRoboticsBlocklyIOS", branch: activeBranch, :submodules => true
+  pod 'RevolutionRoboticsBluetooth', git: "#{repoUrl}RevolutionRoboticsBluetoothIOS.git", branch: activeBranch
 end
 
 post_install do |installer|
