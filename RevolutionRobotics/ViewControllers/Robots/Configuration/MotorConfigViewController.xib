@@ -24,6 +24,7 @@
                 <outlet property="nameInputField" destination="tcK-vW-Pn1" id="J9a-E1-w4m"/>
                 <outlet property="testButton" destination="tuo-Ao-DrN" id="vzZ-Oe-yV9"/>
                 <outlet property="topButtonContainer" destination="i84-KW-cY8" id="Qnw-xM-yVJ"/>
+                <outlet property="topConstraint" destination="Fdr-fn-cSf" id="Sjn-eV-2d4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

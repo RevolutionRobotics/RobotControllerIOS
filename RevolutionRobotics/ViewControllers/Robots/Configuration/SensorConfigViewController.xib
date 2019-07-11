@@ -22,6 +22,7 @@
                 <outlet property="doneButton" destination="Ftu-3t-6or" id="NK2-XV-4v6"/>
                 <outlet property="nameInputField" destination="Dq7-q0-GrG" id="GRy-ZO-531"/>
                 <outlet property="testButton" destination="927-kM-12a" id="4y9-yj-NAc"/>
+                <outlet property="topConstraint" destination="N2z-0h-yKM" id="hua-kt-FuG"/>
                 <outlet property="view" destination="wTU-bG-PV7" id="0PN-BG-mpD"/>
             </connections>
         </placeholder>
