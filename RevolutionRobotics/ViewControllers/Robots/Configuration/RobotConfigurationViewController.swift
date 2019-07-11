@@ -61,9 +61,9 @@ final class RobotConfigurationViewController: BaseViewController {
     private var shouldPrefillConfiguration = false
     private var controllers: [ControllerDataModel] = [] {
         didSet {
-            collectionView.reloadData()
             var controllerTitle = RobotsKeys.Configure.controllerTabTitle.translate()
             if !controllers.isEmpty {
+                self.collectionView.reloadSections(IndexSet(integer: 0))
                 self.collectionView.refreshCollectionView()
             } else {
                 if controllers.isEmpty {
@@ -125,7 +125,9 @@ extension RobotConfigurationViewController {
         if UIView.notchSize > CGFloat.zero {
             leftButtonLeadingConstraint.constant = UIView.actualNotchSize
         }
-        controllers = realmService.getControllers().filter({ $0.configurationId == configuration!.id })
+        controllers = realmService.getControllers()
+            .filter({ $0.configurationId == configuration!.id })
+            .sorted(by: { $0.lastModified > $1.lastModified })
     }
 }
 
@@ -196,8 +198,9 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
         }
 
         collectionView.clearIndexPath()
-        controllers = realmService.getControllers().filter({ $0.configurationId == configuration.id })
-        collectionView.reloadData()
+        controllers = realmService.getControllers()
+            .filter({ $0.configurationId == configuration.id })
+            .sorted(by: { $0.lastModified > $1.lastModified })
         dismissModalViewController()
     }
 
@@ -365,7 +368,7 @@ extension RobotConfigurationViewController {
         configurationView.isHidden = segment == .controllers
         controllerCollectionView.isHidden = segment == .connections
         if segment == .controllers {
-            collectionView.reloadData()
+            collectionView.reloadSections(IndexSet(integer: 0))
             if !controllers.isEmpty {
                 collectionView.refreshCollectionView()
             }
