@@ -63,23 +63,22 @@ extension PadConfigurationViewController {
         navigationBar.setup(title: ControllerKeys.configureTitle.translate(), delegate: self)
         fetchSelectedController()
         setupConfigurationView()
+        fetchPrograms()
+        setupViewModel()
+        prefillData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        fetchSelectedController()
         fetchPrograms()
-        setupViewModel()
-        prefillData()
         setupNextButton()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        guard let selectedButtonIndex = selectedButtonIndex else { return }
-        configurationView.set(state: .normal, on: selectedButtonIndex)
+        guard let buttonIndex = selectedButtonIndex, let buttonState = selectedButtonState else { return }
+        configurationView.set(state: buttonState, on: buttonIndex)
     }
 }
 

@@ -53,29 +53,22 @@ extension MostRecentProgramsViewController {
 extension MostRecentProgramsViewController {
     func setup(programs: [ProgramDataModel], selectedProgram: ProgramDataModel?) {
         self.programs = programSorter.sort(programs: programs, by: .date, order: .descending)
-        if self.programs.isEmpty {
-            self.programs = []
-        } else {
-            if selectedProgram == nil {
-                if self.programs.count >= 5 {
-                    self.programs = Array(self.programs[Constants.firstFiveProgamRange])
-                } else {
-                    self.programs = Array(self.programs[0...])
-                }
-            } else {
-                if self.programs.count >= 4 {
-                    self.programs = [selectedProgram!] + Array(self.programs[Constants.firstFourProgamRange])
-                } else {
-                    self.programs = Array(self.programs[0...])
-                }
+        guard let selectedProgram = selectedProgram else {
+            if self.programs.count >= 5 {
+                self.programs = Array(self.programs[Constants.firstFiveProgamRange])
             }
+            return
         }
 
-        if let selectedProgram = selectedProgram,
-            let selectedIndex = self.programs.firstIndex(of: selectedProgram) {
+        if self.programs.contains(selectedProgram) {
+            let selectedIndex = self.programs.firstIndex(of: selectedProgram)
             self.selectedProgram = selectedProgram
-            self.programs.remove(at: selectedIndex)
+            self.programs.remove(at: selectedIndex!)
             self.programs.insert(selectedProgram, at: 0)
+        }
+
+        if self.programs.count >= 5 {
+            self.programs = Array(self.programs[Constants.firstFiveProgamRange])
         }
     }
 
