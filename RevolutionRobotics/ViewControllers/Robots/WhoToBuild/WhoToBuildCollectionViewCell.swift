@@ -13,6 +13,10 @@ final class WhoToBuildCollectionViewCell: ResizableCell {
     private enum Constants {
         static let clockIconLeadingConstraintRatio: CGFloat = 12.0 / 213.0
         static let clockIconBottomConstraintRatio: CGFloat = 16.0 / 224.0
+        static let iPhoneSEScreenHeight: CGFloat = 320
+        static let iPhone8ScreenHeight: CGFloat = 375
+        static let iPhoneSEFontSizeMultiplier: CGFloat = 0.66
+        static let iPhone8FontSizeMultiplier: CGFloat = 0.9
     }
 
     // MARK: - Outlets
@@ -51,10 +55,19 @@ extension WhoToBuildCollectionViewCell {
         baseWidth = baseWidth.setMultiplier(multiplier: multiplier * baseWidthMultiplier)
         baseHeight = baseHeight.setMultiplier(multiplier: multiplier * baseHeightMultiplier)
         robotNameLabel.font = robotNameLabel.font.withSize(baseNameFontSize * multiplier * multiplier)
-        if let text = buildTimeLabel.text, text.count > 3 && UIScreen.main.bounds.size.height == 320 {
-            buildTimeLabel.font = buildTimeLabel.font.withSize(baseBuildTimeFontSize * multiplier * multiplier * 0.66)
+        buildTimeLabel.font = buildTimeLabel.font.withSize(buildTimeLabelFontSize(multiplier: multiplier,
+                                                                                  text: buildTimeLabel.text))
+    }
+
+    private func buildTimeLabelFontSize(multiplier: CGFloat, text: String?) -> CGFloat {
+        guard let text = text, text.count > 3 else { return baseBuildTimeFontSize * multiplier * multiplier }
+
+        if UIScreen.main.bounds.size.height == Constants.iPhoneSEScreenHeight {
+            return baseBuildTimeFontSize * multiplier * multiplier * Constants.iPhoneSEFontSizeMultiplier
+        } else if UIScreen.main.bounds.size.height == Constants.iPhone8ScreenHeight {
+            return baseBuildTimeFontSize * multiplier * multiplier * Constants.iPhone8FontSizeMultiplier
         } else {
-            buildTimeLabel.font = buildTimeLabel.font.withSize(baseBuildTimeFontSize * multiplier * multiplier)
+            return baseBuildTimeFontSize * multiplier * multiplier
         }
     }
 }
