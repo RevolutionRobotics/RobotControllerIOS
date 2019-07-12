@@ -259,7 +259,6 @@ extension RobotConfigurationViewController {
         photoModal.deleteHandler = { [weak self] in
             FileManager.default.delete(name: self?.selectedRobot?.id)
             self?.robotImage = nil
-            self?.configurationView.image = nil
             self?.dismiss(animated: true)
         }
     }
@@ -274,7 +273,6 @@ extension RobotConfigurationViewController {
                 self?.showSensorConfiguration(portNumber: port.number)
             }
         }
-        configurationView.image = robotImage
     }
 
     private func showMotorConfiguration(portNumber: Int) {
@@ -469,7 +467,6 @@ extension RobotConfigurationViewController: UIImagePickerControllerDelegate, UIN
         robotImage = newImage
         if let robotId = selectedRobot?.id {
             FileManager.default.save(robotImage, as: robotId)
-            configurationView.image = newImage
         }
         dismiss(animated: true)
         presentModal(with: photoModal, animated: true)
