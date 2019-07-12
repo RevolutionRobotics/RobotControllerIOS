@@ -15,6 +15,8 @@ final class MotorConfigViewController: BaseViewController {
     private enum Constants {
         static let defaultDriveName = "drive"
         static let defaultMotorName = "motor"
+        static let iPhoneSEScreenHeight: CGFloat = 320
+        static let iPhoneSETopConstraintConstant: CGFloat = 8
     }
 
     // MARK: - Outlets
@@ -24,6 +26,7 @@ final class MotorConfigViewController: BaseViewController {
     @IBOutlet private weak var nameInputField: RRInputField!
     @IBOutlet private weak var testButton: RRButton!
     @IBOutlet private weak var doneButton: RRButton!
+    @IBOutlet private weak var topConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
     private let emptyButton = PortConfigurationItemView.instatiate()
@@ -63,6 +66,10 @@ extension MotorConfigViewController {
         setupSideButtons()
         setupNameInputField()
         switchTo(state: selectedMotorState)
+
+        if UIScreen.main.bounds.size.height == Constants.iPhoneSEScreenHeight {
+            topConstraint.constant = Constants.iPhoneSETopConstraintConstant
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {

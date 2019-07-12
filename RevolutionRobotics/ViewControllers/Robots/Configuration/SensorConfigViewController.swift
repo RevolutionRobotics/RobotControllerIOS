@@ -11,11 +11,18 @@ import SideMenu
 import os
 
 final class SensorConfigViewController: BaseViewController {
+    // MARK: - Constants
+    private enum Constants {
+        static let iPhoneSEScreenHeight: CGFloat = 320
+        static let iPhoneSETopConstraintConstant: CGFloat = 8
+    }
+
     // MARK: - Outlets
     @IBOutlet private weak var buttonContainer: UIStackView!
     @IBOutlet private weak var nameInputField: RRInputField!
     @IBOutlet private weak var testButton: RRButton!
     @IBOutlet private weak var doneButton: RRButton!
+    @IBOutlet private weak var topConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
     private let emptyButton = PortConfigurationItemView.instatiate()
@@ -71,6 +78,10 @@ extension SensorConfigViewController {
         handleSelectionChange()
         validateActionButtons()
         nameInputField.text = name
+
+        if UIScreen.main.bounds.size.height == Constants.iPhoneSEScreenHeight {
+            topConstraint.constant = Constants.iPhoneSETopConstraintConstant
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
