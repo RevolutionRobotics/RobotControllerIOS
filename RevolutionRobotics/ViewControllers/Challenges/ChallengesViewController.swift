@@ -9,6 +9,11 @@
 import UIKit
 
 final class ChallengesViewController: BaseViewController {
+    // MARK: - Constants
+    private enum Constants {
+        static let fontSize: CGFloat = 14.0
+    }
+
     // MARK: - Outlets
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var challengeDescription: UILabel!
@@ -29,7 +34,8 @@ extension ChallengesViewController {
         guard let category = challengeCategory else { return }
         navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         navigationBar.setup(title: category.name, delegate: self)
-        challengeDescription.attributedText = NSAttributedString.attributedString(from: category.description)
+        challengeDescription.attributedText = NSAttributedString.attributedString(from: category.description,
+                                                                                  fontSize: Constants.fontSize)
         challengesCollectionView.delegate = self
         challengesCollectionView.dataSource = self
         challengesCollectionView.register(ChallengesCollectionViewEvenCell.self)
