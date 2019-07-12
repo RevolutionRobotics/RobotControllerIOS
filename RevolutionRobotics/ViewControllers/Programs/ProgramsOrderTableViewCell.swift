@@ -17,9 +17,11 @@ final class ProgramsOrderTableViewCell: UITableViewCell {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var infoButton: UIButton!
     @IBOutlet private weak var programIcon: UIImageView!
+    @IBOutlet private weak var leftView: UIView!
 
     // MARK: - Properties
     private var infoCallback: Callback?
+    private var hasCustomBorder: Bool = false
 }
 
 // MARK: - Setup
@@ -35,13 +37,29 @@ extension ProgramsOrderTableViewCell {
         dateLabel.isHidden = infoCallback == nil
         innerSeparatorViews.forEach { $0.isHidden = infoCallback == nil }
     }
+
+    func setSelectedState(_ isSelected: Bool) {
+        hasCustomBorder = isSelected
+        if isSelected {
+            borderView.setBorder(fillColor: Color.black, strokeColor: Color.brightRed)
+            leftView.backgroundColor = Color.brightRed
+        } else {
+            borderView.setBorder(fillColor: Color.black, strokeColor: Color.brownGrey)
+            leftView.backgroundColor = Color.brownGrey
+        }
+
+        setNeedsLayout()
+    }
 }
 
 // MARK: - View lifecycle
 extension ProgramsOrderTableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
-        borderView.setBorder(fillColor: Color.black, strokeColor: Color.brownGrey)
+        if !hasCustomBorder {
+            borderView.setBorder(fillColor: Color.black, strokeColor: Color.brownGrey)
+            leftView.backgroundColor = Color.brownGrey
+        }
     }
 }
 

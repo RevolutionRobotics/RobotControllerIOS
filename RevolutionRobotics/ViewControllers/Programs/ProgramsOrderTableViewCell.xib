@@ -30,7 +30,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6MQ-fJ-nLw">
                                 <rect key="frame" x="0.0" y="0.0" width="6" height="39.5"/>
-                                <color key="backgroundColor" name="BrownGrey"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="6" id="OyM-54-LFw"/>
                                 </constraints>
@@ -127,11 +127,13 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="borderView" destination="Es4-ir-jqf" id="fJM-1a-u7F"/>
                 <outlet property="dateLabel" destination="5lM-JW-TPu" id="Dpu-m5-NiS"/>
                 <outlet property="infoButton" destination="oon-6h-NC5" id="l1C-Bc-r2G"/>
+                <outlet property="leftView" destination="6MQ-fJ-nLw" id="eqP-Jr-cse"/>
                 <outlet property="nameLabel" destination="6UP-PQ-mwH" id="Jd5-jE-acg"/>
                 <outlet property="orderLabel" destination="GpC-cX-JEf" id="61p-Wu-rVf"/>
                 <outlet property="programIcon" destination="xaS-9B-P22" id="f4f-bU-Qlu"/>
