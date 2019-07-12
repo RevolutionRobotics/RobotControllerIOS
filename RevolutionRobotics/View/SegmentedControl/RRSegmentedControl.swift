@@ -66,6 +66,7 @@ extension RRSegmentedControl {
             button.croppedCorners = croppedCorners
             button.setTitle(element, for: .normal)
             button.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
+            button.contentVerticalAlignment = .center
 
             buttons.append(button)
             stackView.addArrangedSubview(button)
@@ -84,6 +85,7 @@ extension RRSegmentedControl {
 
     private func setupStackView() {
         addSubview(stackView)
+        stackView.alignment = .center
         stackView.anchorToSuperview()
     }
 }
