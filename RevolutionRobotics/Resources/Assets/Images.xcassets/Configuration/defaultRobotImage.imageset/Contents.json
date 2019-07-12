@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "bitmap.png",
+      "filename" : "brain-image.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bitmap@2x.png",
+      "filename" : "brain-image@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bitmap@3x.png",
+      "filename" : "brain-image@3x.png",
       "scale" : "3x"
     }
   ],
