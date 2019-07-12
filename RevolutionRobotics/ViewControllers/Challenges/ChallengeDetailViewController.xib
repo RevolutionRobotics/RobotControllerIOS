@@ -35,10 +35,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="XAw-Vq-Qme" customClass="BuildProgressBar" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="52" y="353" width="792" height="40"/>
+                    <rect key="frame" x="52" y="349" width="792" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="057-Cz-mf5"/>
+                        <constraint firstAttribute="height" constant="44" id="057-Cz-mf5"/>
                     </constraints>
                 </view>
             </subviews>
