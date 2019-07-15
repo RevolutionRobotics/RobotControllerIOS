@@ -21,6 +21,7 @@ class BaseViewController: UIViewController, RRNavigationBarDelegate {
 
     // MARK: - Properties
     private var onModalDismissed: Callback?
+    private var shouldDismissOnBackgroundTap: Bool = true
     private let modalPresenter = BluetoothConnectionModalPresenter()
     var bluetoothService: BluetoothServiceInterface!
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -91,12 +92,14 @@ extension BaseViewController {
         with contentView: UIView,
         animated: Bool = true,
         closeHidden: Bool = false,
-        onDismissed: Callback? = nil) {
+        onDismissed: Callback? = nil,
+        shouldDismissOnBackgroundTap: Bool = true) {
         let modalViewController = AppContainer.shared.container.unwrappedResolve(ModalViewController.self)
         onModalDismissed = onDismissed
         modalViewController.delegate = self
         modalViewController.contentView = contentView
         modalViewController.isCloseHidden = closeHidden
+        self.shouldDismissOnBackgroundTap = shouldDismissOnBackgroundTap
         presentViewControllerModally(
             modalViewController,
             transitionStyle: .crossDissolve,
@@ -133,16 +136,22 @@ extension BaseViewController {
 extension BaseViewController: ModalViewControllerDelegate {
     func dismissModalViewController() {
         if presentedViewController is ModalViewController || presentedViewController is Dismissable {
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: {
+                self.onModalDismissed?()
+                self.onModalDismissed = nil
+            })
         } else if presentedViewController?.presentedViewController is ModalViewController {
             presentedViewController?.dismiss(animated: true, completion: nil)
         }
     }
 
     func backgroundTapped() {
-        onModalDismissed?()
-        onModalDismissed = nil
-        dismiss(animated: true, completion: nil)
+        if shouldDismissOnBackgroundTap {
+            dismiss(animated: true, completion: {
+                self.onModalDismissed?()
+                self.onModalDismissed = nil
+            })
+        }
     }
 }
 

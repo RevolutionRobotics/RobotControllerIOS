@@ -130,6 +130,10 @@ final class BluetoothService: BluetoothServiceInterface {
         })
     }
 
+    func stopWrite() {
+        configuration.stopWrite()
+    }
+
     // MARK: - Live controller
     func startKeepalive() {
         liveController.start()

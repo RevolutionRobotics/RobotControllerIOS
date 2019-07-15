@@ -56,7 +56,7 @@ extension ModalViewController {
 // MARK: - Actions
 extension ModalViewController {
     @IBAction private func closeButtonTapped(_ sender: Any) {
-        delegate?.backgroundTapped()
+        delegate?.dismissModalViewController()
     }
 
     @IBAction private func backgroundTapped(_ sender: Any) {

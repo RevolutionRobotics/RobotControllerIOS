@@ -25,6 +25,7 @@ final class FirmwareUpdateViewController: BaseViewController {
     private var currentFirmware: String = ""
     private var updateURL: String = ""
     private var updateVersion: String = ""
+    private var writeInterrupted = false
 }
 
 // MARK: - View lifecycle
@@ -90,23 +91,67 @@ extension FirmwareUpdateViewController {
     }
 
     private func uploadFramework(data: Data) {
-        dismissModalViewController()
-        let downloadView = UpdatingFirmwareModalView.instatiate()
-        presentModal(with: downloadView)
+        dismiss(animated: true, completion: {
+            let downloadView = UpdatingFirmwareModalView.instatiate()
+            self.presentModal(
+                with: downloadView,
+                animated: true,
+                closeHidden: false,
+                onDismissed: { [weak self] in
+                    self?.presentConfirmModal()
+                },
+                shouldDismissOnBackgroundTap: false)
 
-        bluetoothService.updateFramework(data: data, version: updateVersion, onCompleted: { [weak self] result in
-            switch result {
-            case .success:
-                self?.dismissModalViewController()
-                let successModalView = SuccessfulUpdateModalView.instatiate()
-                successModalView.doneCallback = { [weak self] in
-                    self?.dismissModalViewController()
-                }
-                self?.presentModal(with: successModalView)
-            case .failure:
-                os_log("Error while sending firmware update to the robot!")
-            }
+            self.bluetoothService.updateFramework(
+                data: data,
+                version: self.updateVersion,
+                onCompleted: { [weak self] result in
+                    switch result {
+                    case .success:
+                        self?.dismissModalViewController()
+                        if !(self?.writeInterrupted)! {
+                            let successModalView = SuccessfulUpdateModalView.instatiate()
+                            successModalView.doneCallback = { [weak self] in
+                                self?.dismissModalViewController()
+                            }
+                            self?.presentModal(with: successModalView)
+                        }
+                    case .failure:
+                        os_log("Error while sending firmware update to the robot!")
+                    }
+            })
         })
+    }
+
+    private func presentConfirmModal() {
+        let confirmModal = ConfirmModalView.instatiate()
+        confirmModal.setup(title: ModalKeys.FirmwareUpdate.frameworkStopConfirmTitle.translate().uppercased(),
+                           subtitle: nil,
+                           negativeButtonTitle: ModalKeys.FirmwareUpdate.frameworkStopConfirmNo.translate(),
+                           positiveButtonTitle: ModalKeys.FirmwareUpdate.frameworkStopConfirmYes.translate())
+        confirmModal.confirmSelected = { [weak self] positive in
+            if positive {
+                self?.writeInterrupted = true
+                self?.bluetoothService.stopWrite()
+            } else {
+                self?.dismiss(animated: true, completion: {
+                    let downloadView = UpdatingFirmwareModalView.instatiate()
+                    self?.presentModal(
+                        with: downloadView,
+                        animated: true,
+                        closeHidden: false,
+                        onDismissed: { [weak self] in
+                            self?.presentConfirmModal()
+                        },
+                        shouldDismissOnBackgroundTap: false)
+                })
+            }
+        }
+        presentModal(with: confirmModal,
+                     animated: true,
+                     closeHidden: true,
+                     onDismissed: nil,
+                     shouldDismissOnBackgroundTap: false)
     }
 
     override func viewWillAppear(_ animated: Bool) {

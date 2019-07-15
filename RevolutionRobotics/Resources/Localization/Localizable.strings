@@ -266,3 +266,7 @@
 
 "error_bluetooth_description" = "Please check your bluetooth settings!";
 "error_bluetooth_settings" = "Settings";
+
+"framework_stop_confirmation_title" = "Would you like to cancel the firmware update?";
+"framework_confirmation_dialog_yes_button" = "Yes";
+"framework_confirmation_dialog_no_button" = "No";
