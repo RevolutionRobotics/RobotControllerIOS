@@ -17,6 +17,7 @@ protocol RealmServiceInterface: class {
     func deepCopyRobot(_ robot: UserRobot)
 
     func getConfiguration(id: String?) -> ConfigurationDataModel?
+    func getConfigurations() -> [ConfigurationDataModel]
     func saveConfigurations(_ configurations: [ConfigurationDataModel])
 
     func getControllers() -> [ControllerDataModel]

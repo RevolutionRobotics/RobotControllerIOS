@@ -149,6 +149,13 @@ extension RealmService: RealmServiceInterface {
         return configuration
     }
 
+    func getConfigurations() -> [ConfigurationDataModel] {
+        guard
+            let configurations = realmConnector.findAll(type: ConfigurationDataModel.self) as? [ConfigurationDataModel]
+            else { return [] }
+        return configurations
+    }
+
     func saveControllers(_ controllers: [ControllerDataModel]) {
         realmConnector.save(objects: controllers, shouldUpdate: true)
     }
