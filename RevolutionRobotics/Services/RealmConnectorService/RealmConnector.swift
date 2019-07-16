@@ -52,10 +52,12 @@ extension RealmConnector: RealmConnectorInterface {
     }
 
     func findAll(type: Object.Type) -> [Object] {
+        realm.refresh()
         return Array(realm.objects(type))
     }
 
     func find(type: Object.Type, predicate: NSPredicate) -> [Object] {
+        realm.refresh()
         return Array(realm.objects(type).filter(predicate))
     }
 

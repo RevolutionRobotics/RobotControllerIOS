@@ -11,6 +11,7 @@ import RealmSwift
 final class ControllerDataModel: Object {
     // MARK: - Properties
     @objc dynamic var id: String = ""
+    @objc dynamic var remoteId: String = ""
     @objc dynamic var configurationId: String = ""
     @objc dynamic var joystickPriority: Int = 0
     @objc dynamic var name: String = ""
@@ -21,11 +22,12 @@ final class ControllerDataModel: Object {
     var backgroundProgramBindings: List<ProgramBindingDataModel> = List<ProgramBindingDataModel>()
 
     // MARK: - Initialization
-    convenience init(controller: Controller) {
+    convenience init(controller: Controller, localConfigurationId: String) {
         self.init()
 
-        self.id = controller.id
-        self.configurationId = controller.configurationId
+        self.id = UUID().uuidString
+        self.remoteId = controller.id
+        self.configurationId = localConfigurationId
         self.name = controller.name
         self.type = controller.type.rawValue
         self.joystickPriority = controller.joystickPriority
