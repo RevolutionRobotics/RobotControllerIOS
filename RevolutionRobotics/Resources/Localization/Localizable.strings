@@ -270,3 +270,7 @@
 "framework_stop_confirmation_title" = "Would you like to cancel the firmware update?";
 "framework_confirmation_dialog_yes_button" = "Yes";
 "framework_confirmation_dialog_no_button" = "No";
+
+"program_leave_confirmation_dialog_leave_button" = "Save and leave";
+"dialog_load_program_confirm_button_negative" = "Discard changes";
+"dialog_load_program_confirm_button_positive" = "Save and open";
