@@ -63,6 +63,9 @@ enum ProgramsKeys {
         static let title = "program_confirm_title"
         static let subtitle = "program_confirm_description"
         static let positive = "program_confirm_positive"
+        static let programLeaveConfirmPositive = "program_leave_confirmation_dialog_leave_button"
+        static let programLeaveConfirmNegative = "dialog_load_program_confirm_button_negative"
+        static let programOpenConfirmPositive = "dialog_load_program_confirm_button_positive"
     }
 
     enum ConfirmOpen {
