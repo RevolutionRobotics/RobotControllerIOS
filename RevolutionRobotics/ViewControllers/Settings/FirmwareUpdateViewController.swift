@@ -59,20 +59,25 @@ extension FirmwareUpdateViewController {
         checkForUpdatesModal.buttonHandler = { [weak self] status in
             switch status {
             case .initial:
-                self?.firebaseService.getFirmwareUpdate(completion: { result in
-                    switch result {
-                    case .success(let updates):
-                        if self?.currentFirmware != updates.first?.fileName {
-                            self?.checkForUpdatesModal.status = .updateNeeded((updates.first?.fileName)!)
-                            self?.updateURL = (updates.first?.url)!
-                            self?.updateVersion = (updates.first?.fileName)!
-                        } else {
-                            self?.checkForUpdatesModal.status = .updated
+                if Reachability.isConnectedToNetwork() {
+                    self?.firebaseService.getFirmwareUpdate(completion: { result in
+                        switch result {
+                        case .success(let updates):
+                            if self?.currentFirmware != updates.first?.fileName {
+                                self?.checkForUpdatesModal.status = .updateNeeded((updates.first?.fileName)!)
+                                self?.updateURL = (updates.first?.url)!
+                                self?.updateVersion = (updates.first?.fileName)!
+                            } else {
+                                self?.checkForUpdatesModal.status = .updated
+                            }
+                        case .failure:
+                            os_log("Error while getting firmware update!")
                         }
-                    case .failure:
-                        os_log("Error while getting firmware update!")
-                    }
-                })
+                    })
+                } else {
+                    self?.presentedViewController?.present(UIAlertController.errorAlert(type: .network), animated: true)
+
+                }
             case .updateNeeded:
                 self?.firebaseService.downloadFirmwareUpdate(
                     resourceURL: (self?.updateURL)!,

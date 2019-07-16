@@ -131,6 +131,7 @@
 		2A50DA2C2292CF9A00B3D74C /* GamerConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A50DA2B2292CF9A00B3D74C /* GamerConfigurationView.swift */; };
 		2A50DA2E2292CFB000B3D74C /* GamerConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A50DA2D2292CFB000B3D74C /* GamerConfigurationView.xib */; };
 		2A5A07EB22DDC9B3002B3EE3 /* LocalizedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5A07EA22DDC9B3002B3EE3 /* LocalizedText.swift */; };
+		2A5A07EE22DDE207002B3EE3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5A07ED22DDE207002B3EE3 /* Reachability.swift */; };
 		2A77320322648FB000D7F38D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A77320222648FB000D7F38D /* Settings.bundle */; };
 		2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732042264A15600D7F38D /* AssemblyRegister.swift */; };
 		2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732072264A32200D7F38D /* ScreenAssembly.swift */; };
@@ -488,6 +489,7 @@
 		2A50DA2B2292CF9A00B3D74C /* GamerConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamerConfigurationView.swift; sourceTree = "<group>"; };
 		2A50DA2D2292CFB000B3D74C /* GamerConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamerConfigurationView.xib; sourceTree = "<group>"; };
 		2A5A07EA22DDC9B3002B3EE3 /* LocalizedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedText.swift; sourceTree = "<group>"; };
+		2A5A07ED22DDE207002B3EE3 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2A77320222648FB000D7F38D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2A7732042264A15600D7F38D /* AssemblyRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyRegister.swift; sourceTree = "<group>"; };
 		2A7732072264A32200D7F38D /* ScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenAssembly.swift; sourceTree = "<group>"; };
@@ -1101,6 +1103,7 @@
 				2ABEF0E0228EF4CB00AF87AC /* BluetoothConnectionModalPresenter */,
 				D008E03A2260AAF500089DC7 /* Extensions */,
 				2A7732102264A95900D7F38D /* Protocols */,
+				2A5A07EC22DDE1F6002B3EE3 /* Reachability */,
 				2AB0521A22D48B70007B42F8 /* Typealiases */,
 			);
 			path = Utils;
@@ -1290,6 +1293,14 @@
 				2A0789EF2293397B00CFFDD6 /* MultiTasker */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2A5A07EC22DDE1F6002B3EE3 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				2A5A07ED22DDE207002B3EE3 /* Reachability.swift */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		2A77320122648F9A00D7F38D /* Settings */ = {
@@ -2397,6 +2408,7 @@
 			files = (
 				2AB0521F22D499EB007B42F8 /* DeleteModalView.swift in Sources */,
 				2AB0522122D49D22007B42F8 /* ChallengeFinishedModalView.swift in Sources */,
+				2A5A07EE22DDE207002B3EE3 /* Reachability.swift in Sources */,
 				2A3A759622953F2900ED9A1D /* TipsModalView.swift in Sources */,
 				D0B2A735227C7CF1004473EC /* ControllerCollectionViewCell.swift in Sources */,
 				2A7DDB1A22859B2900891DA6 /* CommonKeys.swift in Sources */,

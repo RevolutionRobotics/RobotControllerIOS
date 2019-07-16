@@ -10,7 +10,7 @@
 "next" = "Next";
 "error_title" = "Error";
 "error_ok_button" = "Ok";
-"error_general" = "Something went wrong, please try again";
+"error_general" = "Something went wrong, please check your internet connection.";
 "error_test_code_upload" = "Test code upload error";
 "done" = "Done";
 "no" = "No";
