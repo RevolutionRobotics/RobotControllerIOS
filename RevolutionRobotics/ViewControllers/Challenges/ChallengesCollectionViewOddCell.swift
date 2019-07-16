@@ -43,7 +43,7 @@ extension ChallengesCollectionViewOddCell {
 // MARK: - Setup
 extension ChallengesCollectionViewOddCell {
     func setup(with challenge: Challenge, index: Int) {
-        nameLabel.text = challenge.name
+        nameLabel.text = challenge.name.text
         challengeNumberLabel.text = "\(index)."
 
         switch progress {

@@ -130,6 +130,7 @@
 		2A50DA292292CF7900B3D74C /* PadConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A50DA282292CF7900B3D74C /* PadConfigurationViewController.xib */; };
 		2A50DA2C2292CF9A00B3D74C /* GamerConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A50DA2B2292CF9A00B3D74C /* GamerConfigurationView.swift */; };
 		2A50DA2E2292CFB000B3D74C /* GamerConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A50DA2D2292CFB000B3D74C /* GamerConfigurationView.xib */; };
+		2A5A07EB22DDC9B3002B3EE3 /* LocalizedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5A07EA22DDC9B3002B3EE3 /* LocalizedText.swift */; };
 		2A77320322648FB000D7F38D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A77320222648FB000D7F38D /* Settings.bundle */; };
 		2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732042264A15600D7F38D /* AssemblyRegister.swift */; };
 		2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732072264A32200D7F38D /* ScreenAssembly.swift */; };
@@ -486,6 +487,7 @@
 		2A50DA282292CF7900B3D74C /* PadConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PadConfigurationViewController.xib; sourceTree = "<group>"; };
 		2A50DA2B2292CF9A00B3D74C /* GamerConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamerConfigurationView.swift; sourceTree = "<group>"; };
 		2A50DA2D2292CFB000B3D74C /* GamerConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamerConfigurationView.xib; sourceTree = "<group>"; };
+		2A5A07EA22DDC9B3002B3EE3 /* LocalizedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedText.swift; sourceTree = "<group>"; };
 		2A77320222648FB000D7F38D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2A7732042264A15600D7F38D /* AssemblyRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyRegister.swift; sourceTree = "<group>"; };
 		2A7732072264A32200D7F38D /* ScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenAssembly.swift; sourceTree = "<group>"; };
@@ -1386,6 +1388,7 @@
 				D05C64DE225F5C4E00B7BF4F /* Rotation.swift */,
 				D05C64DC225F592400B7BF4F /* Sensor.swift */,
 				D05C64D8225F58E200B7BF4F /* Side.swift */,
+				2A5A07EA22DDC9B3002B3EE3 /* LocalizedText.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -2601,6 +2604,7 @@
 				D0049A1E226F0929007FA256 /* RRButton.swift in Sources */,
 				D06C327322899F60005534C0 /* FirmwareUpdateViewController.swift in Sources */,
 				2ADE8C442271A6B000ECEC72 /* BuildProgressBar.swift in Sources */,
+				2A5A07EB22DDC9B3002B3EE3 /* LocalizedText.swift in Sources */,
 				091B98AB229835DA00DCEEF4 /* ProgramSorter.swift in Sources */,
 				2AB7ACEE22BB992000309234 /* ButtonControllerAssignmentJSONData.swift in Sources */,
 				096333F62289B9710029D87B /* PadButton.swift in Sources */,

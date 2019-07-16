@@ -24,8 +24,8 @@ final class ProgramDataModel: Object {
         self.init()
         self.id = UUID().uuidString
         self.remoteId = program.id
-        self.name = program.name
-        self.customDescription = program.description
+        self.name = program.name.text
+        self.customDescription = program.description.text
         self.lastModified = Date(timeIntervalSince1970: program.lastModified)
         self.xml = program.xml
         self.python = program.python

@@ -26,10 +26,10 @@ struct Program: FirebaseData, Equatable, Hashable {
 
     // MARK: - Properties
     var id: String
-    var name: String
+    var name: LocalizedText
     var xml: String
     var python: String
-    var description: String
+    var description: LocalizedText
     var variables: [String]
     var lastModified: Double
 
@@ -37,19 +37,17 @@ struct Program: FirebaseData, Equatable, Hashable {
     init?(snapshot: DataSnapshot) {
         guard let dictionary = snapshot.value as? NSDictionary,
             let id = dictionary[Constants.id] as? String,
-            let name = dictionary[Constants.name] as? String,
             let xml = dictionary[Constants.xml] as? String,
             let python = dictionary[Constants.python] as? String,
-            let description = dictionary[Constants.description] as? String,
             let lastModified = dictionary[Constants.lastModified] as? Double else {
                 return nil
         }
 
         self.id = id
-        self.name = name
+        self.name = LocalizedText(snapshot: snapshot.childSnapshot(forPath: Constants.name))!
         self.xml = xml
         self.python = python
-        self.description = description
+        self.description = LocalizedText(snapshot: snapshot.childSnapshot(forPath: Constants.description))!
         self.lastModified = lastModified
 
         let variables = snapshot.childSnapshot(forPath: Constants.variables)

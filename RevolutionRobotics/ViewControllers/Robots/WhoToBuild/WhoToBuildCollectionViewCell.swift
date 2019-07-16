@@ -46,7 +46,7 @@ final class WhoToBuildCollectionViewCell: ResizableCell {
 // MARK: - Public methods
 extension WhoToBuildCollectionViewCell {
     func configure(with robot: Robot) {
-        robotNameLabel.text = robot.name
+        robotNameLabel.text = robot.name.text
         buildTimeLabel.text = robot.buildTime
         robotImageView.downloadImage(googleStorageURL: robot.coverImageGSURL)
     }

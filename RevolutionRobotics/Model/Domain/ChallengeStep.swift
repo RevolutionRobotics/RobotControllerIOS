@@ -26,8 +26,8 @@ struct ChallengeStep: FirebaseData, FirebaseOrderable {
 
     // MARK: - Properties
     var id: String
-    var title: String
-    var description: String
+    var title: LocalizedText
+    var description: LocalizedText
     var image: String
     var order: Int
     var parts: [Part]
@@ -37,8 +37,6 @@ struct ChallengeStep: FirebaseData, FirebaseOrderable {
     init?(snapshot: DataSnapshot) {
         guard let dictionary = snapshot.value as? NSDictionary,
             let id = dictionary[Constants.id] as? String,
-            let title = dictionary[Constants.title] as? String,
-            let description = dictionary[Constants.description] as? String,
             let order = dictionary[Constants.order] as? Int,
             let image = dictionary[Constants.image] as? String,
             let typeString = dictionary[Constants.challengeType] as? String,
@@ -47,8 +45,8 @@ struct ChallengeStep: FirebaseData, FirebaseOrderable {
         }
 
         self.id = id
-        self.title = title
-        self.description = description
+        self.title = LocalizedText(snapshot: snapshot.childSnapshot(forPath: Constants.title))!
+        self.description = LocalizedText(snapshot: snapshot.childSnapshot(forPath: Constants.description))!
         self.image = image
         self.order = order
         self.challengeType = challengeType

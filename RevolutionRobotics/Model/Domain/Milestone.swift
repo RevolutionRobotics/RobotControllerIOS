@@ -22,7 +22,7 @@ struct Milestone {
     // MARK: - Properties
     var image: String
     var testCode: String
-    var testDescription: String
+    var testDescription: LocalizedText
     var testImage: String
     var type: MilestoneType
 
@@ -31,7 +31,6 @@ struct Milestone {
         guard let dictionary = snapshot.value as? NSDictionary,
             let image = dictionary[Constants.image] as? String,
             let testCode = dictionary[Constants.testCode] as? String,
-            let testDescription = dictionary[Constants.testDescription] as? String,
             let testImage = dictionary[Constants.testImage] as? String,
             let milestoneType = MilestoneType(rawValue: (dictionary[Constants.type] as? String)!) else {
                 return nil
@@ -39,7 +38,7 @@ struct Milestone {
 
         self.image = image
         self.testCode = testCode
-        self.testDescription = testDescription
+        self.testDescription = LocalizedText(snapshot: snapshot.childSnapshot(forPath: Constants.testDescription))!
         self.testImage = testImage
         self.type = milestoneType
     }

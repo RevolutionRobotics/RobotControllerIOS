@@ -44,7 +44,7 @@ extension BuildRobotViewController {
 
         setupStackView()
         setupBluetoothButton()
-        navigationBar.setup(title: remoteRobotDataModel?.name, delegate: self)
+        navigationBar.setup(title: remoteRobotDataModel?.name.text, delegate: self)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -304,9 +304,9 @@ extension BuildRobotViewController {
             actualBuildStep: step,
             lastModified: Date(),
             configId: configId,
-            customName: remoteRobotDataModel?.name,
+            customName: remoteRobotDataModel?.name.text,
             customImage: remoteRobotDataModel?.coverImageGSURL,
-            customDescription: remoteRobotDataModel?.customDescription)
+            customDescription: remoteRobotDataModel?.customDescription.text)
 
         realmService.saveRobot(storedRobotDataModel!, shouldUpdate: true)
     }
