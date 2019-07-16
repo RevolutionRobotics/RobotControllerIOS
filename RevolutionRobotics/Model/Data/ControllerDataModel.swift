@@ -28,10 +28,10 @@ final class ControllerDataModel: Object {
         self.id = UUID().uuidString
         self.remoteId = controller.id
         self.configurationId = localConfigurationId
-        self.name = controller.name
+        self.name = controller.name.text
         self.type = controller.type.rawValue
         self.joystickPriority = controller.joystickPriority
-        self.controllerDescription = controller.description
+        self.controllerDescription = controller.description.text
         self.lastModified = Date(timeIntervalSince1970: controller.lastModified)
         self.mapping = ControllerButtonMappingDataModel(mapping: controller.mapping)
         let list = List<ProgramBindingDataModel>()

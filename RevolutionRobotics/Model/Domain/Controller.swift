@@ -28,11 +28,11 @@ struct Controller: FirebaseData {
 
     // MARK: - Properties
     var id: String
-    var name: String
+    var name: LocalizedText
     var type: ControllerType
     var configurationId: String
     var joystickPriority: Int
-    var description: String
+    var description: LocalizedText
     var lastModified: Double
     var mapping: ControllerButtonMapping
     var backgroundProgramBindings: [ProgramBinding]
@@ -41,23 +41,21 @@ struct Controller: FirebaseData {
     init?(snapshot: DataSnapshot) {
         guard let dictionary = snapshot.value as? NSDictionary,
             let id = dictionary[Constants.id] as? String,
-            let name = dictionary[Constants.name] as? String,
             let tempType = dictionary[Constants.type] as? String,
             let type = ControllerType(rawValue: tempType),
             let configurationId = dictionary[Constants.configurationId] as? String,
             let joystickPriority = dictionary[Constants.joystickPriority] as? Int,
-            let description = dictionary[Constants.description] as? String,
             let lastModified = dictionary[Constants.lastModified] as? Double,
             let mapping = ControllerButtonMapping(snapshot: snapshot.childSnapshot(forPath: Constants.mapping)) else {
                 return nil
         }
 
         self.id = id
-        self.name = name
+        self.name = LocalizedText(snapshot: snapshot.childSnapshot(forPath: Constants.name))!
         self.type = type
         self.configurationId = configurationId
         self.joystickPriority = joystickPriority
-        self.description = description
+        self.description = LocalizedText(snapshot: snapshot.childSnapshot(forPath: Constants.description))!
         self.lastModified = lastModified
         self.mapping = mapping
 

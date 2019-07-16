@@ -17,7 +17,7 @@ final class ChallengeDetailVerticalContent: UIView {
 // MARK: - ChallengeDetailContent
 extension ChallengeDetailVerticalContent: ChallengeDetailContentProtocol {
     func setup(with step: ChallengeStep) {
-        descriptionLabel.text = step.description
+        descriptionLabel.text = step.description.text
         challengeImageView.downloadImage(googleStorageURL: step.image)
     }
 }

@@ -67,7 +67,7 @@ extension TestingModalView {
             testInstructionLabel.text = ModalKeys.Testing.motorTest.translate()
         case .milestone(let milestone):
             testImageView.downloadImage(googleStorageURL: milestone.testImage)
-            testInstructionLabel.text = milestone.testDescription
+            testInstructionLabel.text = milestone.testDescription.text
         }
     }
 }

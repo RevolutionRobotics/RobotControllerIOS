@@ -22,7 +22,7 @@ final class ChallengeDetailHorizontalContent: UIView {
 // MARK: - ChallengeDetailContent
 extension ChallengeDetailHorizontalContent: ChallengeDetailContentProtocol {
     func setup(with step: ChallengeStep) {
-        descriptionLabel.attributedText = NSAttributedString.attributedString(from: step.description,
+        descriptionLabel.attributedText = NSAttributedString.attributedString(from: step.description.text,
                                                                               fontSize: Constants.fontSize)
         challengeImageView.downloadImage(googleStorageURL: step.image)
     }
