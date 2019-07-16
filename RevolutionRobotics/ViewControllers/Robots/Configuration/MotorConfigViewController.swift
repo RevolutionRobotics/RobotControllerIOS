@@ -49,9 +49,25 @@ final class MotorConfigViewController: BaseViewController {
     var doneButtonTapped: CallbackType<MotorConfigViewModel>?
     var testButtonTapped: CallbackType<MotorConfigViewModel>?
     var screenDismissed: Callback?
-    var name: String?
+    var name: String? {
+        didSet {
+            if name != nil {
+                switch selectedMotorState {
+                case .drive, .driveWithoutSide:
+                    customDriveName = name ?? ""
+                case .motor, .motorWithoutRotation:
+                    customMotorName = name ?? ""
+                case .empty:
+                    customDriveName = ""
+                    customMotorName = ""
+                }
+            }
+        }
+    }
     var prohibitedNames: [String] = []
     var testCodeService: PortTestCodeServiceInterface!
+    private var customMotorName = ""
+    private var customDriveName = ""
     private var shouldCallDismiss = true
     private var shouldRunTestScriptOnConnection = false
 }
@@ -60,6 +76,8 @@ final class MotorConfigViewController: BaseViewController {
 extension MotorConfigViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        nameInputField.text = name
 
         setupTopButtonRow()
         setupRotationButtons()
@@ -165,15 +183,21 @@ extension MotorConfigViewController {
 
     private func nameInputFieldText(for state: MotorConfigViewModelState) -> String? {
         switch state {
-        case .motor, .motorWithoutRotation:
-            if let name = name, name.contains(Constants.defaultMotorName) { return name }
-            return "\(Constants.defaultMotorName)\(portNumber)"
-
-        case .drive, .driveWithoutSide:
-            if let name = name, name.contains(Constants.defaultDriveName) { return name }
-            return "\(Constants.defaultDriveName)\(portNumber)"
-
-        default: return nil
+        case .motorWithoutRotation:
+            if customMotorName.isEmpty {
+                if let name = name, name.contains(Constants.defaultMotorName) { return name }
+                return "\(Constants.defaultMotorName)\(portNumber)"
+            } else {
+                return customMotorName
+            }
+        case .driveWithoutSide:
+            if customDriveName.isEmpty {
+                if let name = name, name.contains(Constants.defaultDriveName) { return name }
+                return "\(Constants.defaultDriveName)\(portNumber)"
+            } else {
+                return customDriveName
+            }
+        default: return nameInputField.text
         }
     }
 
