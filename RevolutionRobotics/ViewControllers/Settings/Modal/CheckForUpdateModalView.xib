@@ -39,7 +39,7 @@
                     <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Check for update!" image="RetryIcon"/>
                     <connections>
-                        <action selector="checkForUpdatesTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Alg-0g-XJZ"/>
+                        <action selector="buttonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Alg-0g-XJZ"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzo-WZ-idh">
@@ -178,7 +178,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="brainIDLabel" destination="kzo-WZ-idh" id="c4J-li-iam"/>
-                <outlet property="checkForUpdatesButton" destination="Dle-jn-rYv" id="p4u-cf-c1O"/>
+                <outlet property="button" destination="Dle-jn-rYv" id="p4u-cf-c1O"/>
                 <outlet property="devInfoView" destination="jDP-hC-J5B" id="Ve7-0X-BDn"/>
                 <outlet property="hardwareVersionLabel" destination="rVq-Rc-SWT" id="fJy-OH-Sks"/>
                 <outlet property="loadingIndicator" destination="emO-PI-5r5" id="nja-iz-IyM"/>

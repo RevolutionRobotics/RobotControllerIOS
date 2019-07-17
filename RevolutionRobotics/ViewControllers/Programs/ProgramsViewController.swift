@@ -146,27 +146,29 @@ extension ProgramsViewController {
 
         switch programSaveReason {
         case .navigateBack:
-            confirmModal.setup(
-                title: ProgramsKeys.NavigateBack.title.translate(),
-                subtitle: ProgramsKeys.NavigateBack.subtitle.translate(),
-                positiveButtonTitle: ProgramsKeys.NavigateBack.positive.translate()
-            )
+            confirmModal.setup(title: ProgramsKeys.NavigateBack.title.translate(),
+                               subtitle: nil,
+                               negativeButtonTitle: ProgramsKeys.NavigateBack.programLeaveConfirmNegative.translate(),
+                               positiveButtonTitle: ProgramsKeys.NavigateBack.programLeaveConfirmPositive.translate())
 
             confirmModal.confirmSelected = { [weak self] confirmed in
                 self?.dismissModalViewController()
                 if confirmed {
+                    self?.initiateSave(shouldNavigateBack: true, shouldOpenPrograms: false)
+                } else {
                     self?.navigationController?.popViewController(animated: true)
                 }
             }
         case .openProgram:
-            confirmModal.setup(
-                title: ProgramsKeys.ConfirmOpen.title.translate(),
-                subtitle: ProgramsKeys.ConfirmOpen.subtitle.translate(),
-                positiveButtonTitle: ProgramsKeys.ConfirmOpen.positive.translate()
-            )
+            confirmModal.setup(title: ProgramsKeys.ConfirmOpen.title.translate(),
+                               subtitle: nil,
+                               negativeButtonTitle: ProgramsKeys.NavigateBack.programLeaveConfirmNegative.translate(),
+                               positiveButtonTitle: ProgramsKeys.NavigateBack.programOpenConfirmPositive.translate())
             confirmModal.confirmSelected = { [weak self] confirmed in
                 self?.dismissModalViewController()
                 if confirmed {
+                    self?.initiateSave(shouldNavigateBack: false, shouldOpenPrograms: true)
+                } else {
                     self?.openProgramModal()
                 }
             }
@@ -460,13 +462,17 @@ extension ProgramsViewController {
     }
 
     @IBAction private func saveProgramButtonTapped(_ sender: UIButton) {
+        initiateSave(shouldNavigateBack: false, shouldOpenPrograms: false)
+    }
+
+    private func initiateSave(shouldNavigateBack: Bool, shouldOpenPrograms: Bool) {
         let saveModal = SaveProgramModalView.instatiate()
         if let program = selectedProgram {
             saveModal.setup(with: program)
         }
         saveModal.doneCallback = { [weak self] saveData in
             self?.dismissModalViewController()
-            guard !(self?.programAlreadyExists(name: saveData.name))! else {
+            guard (self?.canBeOverwritten(name: saveData.name))! else {
                 self?.present(UIAlertController.errorAlert(type: .programAlreadyExists), animated: true)
                 return
             }
@@ -482,6 +488,12 @@ extension ProgramsViewController {
                 self?.save(description: description)
             }
             self?.programSaveReason = .edited
+
+            if shouldNavigateBack {
+                self?.navigationController?.popViewController(animated: true)
+            } else if shouldOpenPrograms {
+                self?.openProgramModal()
+            }
         }
         presentModal(with: saveModal)
     }
@@ -493,9 +505,9 @@ extension ProgramsViewController {
 
 // MARK: - Private methods
 extension ProgramsViewController {
-    private func programAlreadyExists(name: String?) -> Bool {
+    private func canBeOverwritten(name: String?) -> Bool {
         guard let name = name else { return true }
 
-        return realmService.getPrograms().contains(where: { $0.name == name })
+        return !realmService.getPrograms().contains(where: { $0.name == name && !$0.remoteId.isEmpty })
     }
 }

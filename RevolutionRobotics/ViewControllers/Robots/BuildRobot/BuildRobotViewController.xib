@@ -59,10 +59,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTV-yz-alA" userLabel="buildProgressBar" customClass="BuildProgressBar" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="52" y="314" width="708" height="40"/>
+                    <rect key="frame" x="52" y="310" width="708" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="YPU-ds-GGo"/>
+                        <constraint firstAttribute="height" constant="44" id="YPU-ds-GGo"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="200" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5uw-FO-bon">

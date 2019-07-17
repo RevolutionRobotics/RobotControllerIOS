@@ -21,6 +21,9 @@ extension RealmService: RealmServiceInterface {
         newRobot.lastModified = Date()
         newRobot.configId = deepCopy(getConfiguration(id: robot.configId))
         newRobot.customName = (newRobot.customName ?? "") + " " + ModalKeys.RobotInfo.copyPostfix.translate()
+        if let image = FileManager.default.image(for: robot.id) {
+            FileManager.default.save(image, as: newRobot.id)
+        }
         deepCopy(from: getConfiguration(id: robot.configId), newConfigurationId: newRobot.configId)
         saveRobot(newRobot)
     }
@@ -103,7 +106,11 @@ extension RealmService: RealmServiceInterface {
     }
 
     func deleteRobot(_ robot: UserRobot) {
-        return realmConnector.delete(object: robot)
+        let configuration = getConfiguration(id: robot.configId)!
+        let controllers = getControllers().filter({ $0.configurationId == robot.configId })
+        realmConnector.delete(objects: controllers)
+        realmConnector.delete(object: configuration)
+        realmConnector.delete(object: robot)
     }
 
     func updateObject(closure: (() -> Void)?) {
@@ -140,6 +147,13 @@ extension RealmService: RealmServiceInterface {
             let configurations = realmConnector.findAll(type: ConfigurationDataModel.self) as? [ConfigurationDataModel],
             let configuration = configurations.first(where: { $0.id == id }) else { return nil }
         return configuration
+    }
+
+    func getConfigurations() -> [ConfigurationDataModel] {
+        guard
+            let configurations = realmConnector.findAll(type: ConfigurationDataModel.self) as? [ConfigurationDataModel]
+            else { return [] }
+        return configurations
     }
 
     func saveControllers(_ controllers: [ControllerDataModel]) {

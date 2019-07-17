@@ -42,6 +42,7 @@ protocol BluetoothServiceInterface {
     func sendConfigurationData(_ data: Data, onCompleted: CallbackType<Result<String, Error>>?)
     func testKit(data: String, onCompleted: CallbackType<Result<String, Error>>?)
     func updateFramework(data: Data, version: String, onCompleted: CallbackType<Result<String, Error>>?)
+    func stopWrite()
 
     // MARK: - Live controller
     func startKeepalive()

@@ -86,6 +86,12 @@ extension ProgramPriorityViewController: UITableViewDragDelegate {
                    dragPreviewParametersForRowAt indexPath: IndexPath) -> UIDragPreviewParameters? {
         let parameters = UIDragPreviewParameters()
         parameters.backgroundColor = .clear
+        guard let cell = tableView.cellForRow(at: indexPath) as? ProgramsOrderTableViewCell else {
+            return parameters
+        }
+
+        cell.setSelectedState(true)
+
         return parameters
     }
 
@@ -104,6 +110,8 @@ extension ProgramPriorityViewController: UITableViewDropDelegate {
             return
         }
         moveItem(from: sourceIndexPath, to: destinationIndexPath)
+        guard let cell = tableView.cellForRow(at: destinationIndexPath) as? ProgramsOrderTableViewCell else { return }
+        cell.setSelectedState(false)
     }
 
     func tableView(_ tableView: UITableView,
@@ -123,6 +131,7 @@ extension ProgramPriorityViewController: UITableViewDropDelegate {
             destinationIndexPath = IndexPath(row: 0, section: 0)
         }
         moveItem(from: sourceIndexPath, to: destinationIndexPath)
+
         programsTableView.scrollToRow(at: destinationIndexPath, at: .none, animated: true)
     }
 }

@@ -18,6 +18,6 @@ final class ChallengeDetailCollectionViewCell: UICollectionViewCell {
 extension ChallengeDetailCollectionViewCell {
     func setup(wiht part: Part) {
         partImageView.downloadImage(googleStorageURL: part.image)
-        partDescriptionLabel.text = part.name
+        partDescriptionLabel.text = part.name.text
     }
 }

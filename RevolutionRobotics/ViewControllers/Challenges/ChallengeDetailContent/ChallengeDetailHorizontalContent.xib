@@ -23,7 +23,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Heb-XG-4nJ">
-                    <rect key="frame" x="60" y="110" width="446" height="20"/>
+                    <rect key="frame" x="24" y="98" width="482" height="20"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <attributedString key="attributedText">
                         <fragment content="Label">
@@ -41,10 +41,10 @@
             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Heb-XG-4nJ" secondAttribute="bottom" constant="40" id="7jS-ng-9sg"/>
-                <constraint firstItem="Heb-XG-4nJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="8EI-hz-Vkg"/>
+                <constraint firstItem="Heb-XG-4nJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="8EI-hz-Vkg"/>
                 <constraint firstAttribute="bottom" secondItem="s2Y-k7-cJM" secondAttribute="bottom" constant="38" id="AhC-Tr-Lny"/>
                 <constraint firstAttribute="trailing" secondItem="s2Y-k7-cJM" secondAttribute="trailing" constant="60" id="Yhf-oI-AUJ"/>
-                <constraint firstItem="Heb-XG-4nJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="110" id="bHt-gj-NDn"/>
+                <constraint firstItem="Heb-XG-4nJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="98" id="bHt-gj-NDn"/>
                 <constraint firstItem="s2Y-k7-cJM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="66" id="rV0-TK-wg8"/>
                 <constraint firstItem="s2Y-k7-cJM" firstAttribute="leading" secondItem="Heb-XG-4nJ" secondAttribute="trailing" constant="20" id="zJd-s9-bXL"/>
             </constraints>

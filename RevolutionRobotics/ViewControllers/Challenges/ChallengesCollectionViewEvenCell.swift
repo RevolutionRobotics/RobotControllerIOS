@@ -49,7 +49,7 @@ extension ChallengesCollectionViewEvenCell {
 // MARK: - Setup
 extension ChallengesCollectionViewEvenCell {
     func setup(with challenge: Challenge, index: Int) {
-        nameLabel.text = challenge.name
+        nameLabel.text = challenge.name.text
         challengeNumberLabel.text = "\(index)."
 
         switch progress {

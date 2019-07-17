@@ -12,6 +12,7 @@ import RealmSwift
 final class ConfigurationDataModel: Object {
     // MARK: - Properties
     @objc dynamic var id: String = ""
+    @objc dynamic var remoteId: String = ""
     @objc dynamic var controller: String = ""
     @objc dynamic var mapping: PortMappingDataModel?
 
@@ -21,13 +22,15 @@ final class ConfigurationDataModel: Object {
                      mapping: PortMappingDataModel?) {
         self.init()
         self.id = id
+        self.remoteId = ""
         self.controller = controller
         self.mapping = mapping
     }
 
-    convenience init(remoteConfiguration: Configuration) {
+    convenience init(id: String, remoteConfiguration: Configuration) {
         self.init()
-        self.id = remoteConfiguration.id
+        self.id = id
+        self.remoteId = remoteConfiguration.id
         self.controller = remoteConfiguration.controller
         self.mapping = PortMappingDataModel(remoteMapping: remoteConfiguration.mapping)
     }

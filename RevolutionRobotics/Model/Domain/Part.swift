@@ -21,20 +21,19 @@ struct Part: FirebaseData, FirebaseOrderable {
     static var firebasePath: String = ""
 
     // MARK: - Properties
-    var name: String
+    var name: LocalizedText
     var image: String
     var order: Int
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
         guard let dictionary = snapshot.value as? NSDictionary,
-            let name = dictionary[Constants.name] as? String,
             let order = dictionary[Constants.order] as? Int,
             let image = dictionary[Constants.image] as? String else {
                 return nil
         }
 
-        self.name = name
+        self.name = LocalizedText(snapshot: snapshot.childSnapshot(forPath: Constants.name))!
         self.image = image
         self.order = order
     }

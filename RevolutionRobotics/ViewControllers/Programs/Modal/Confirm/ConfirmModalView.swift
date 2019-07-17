@@ -32,8 +32,7 @@ extension ConfirmModalView {
         title: String,
         subtitle: String? = nil,
         negativeButtonTitle: String = CommonKeys.cancel.translate(),
-        positiveButtonTitle: String = ModalKeys.Blockly.ok.translate()
-    ) {
+        positiveButtonTitle: String = ModalKeys.Blockly.ok.translate()) {
         titleLabel.text = title.uppercased()
         subtitleLabel.text = subtitle
         negativeButton.setTitle(negativeButtonTitle, for: .normal)
