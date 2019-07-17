@@ -10,6 +10,8 @@ import Foundation
 
 extension UserDefaults {
     enum Keys {
+        static let robotConfigSegmentedControl = "segmentedcontrol"
         static let shouldShowTutorial = "tutorial"
+        static let minVersion = "minVersion"
     }
 }

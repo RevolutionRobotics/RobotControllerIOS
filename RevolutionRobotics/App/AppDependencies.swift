@@ -28,7 +28,7 @@ extension AppDependencies {
     }
 
     private func setupFirebase() {
-        var path = ""
+        let path: String
         #if PROD
         path = Bundle.main.path(forResource: "GoogleService-Info", ofType: ".plist")!
         #else

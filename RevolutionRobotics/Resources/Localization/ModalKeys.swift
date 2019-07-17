@@ -7,6 +7,12 @@
 //
 
 enum ModalKeys {
+    enum Menu {
+        static let updateTitle = "menu_update_title"
+        static let updateMessage = "menu_update_message"
+        static let updateButton = "menu_button_update"
+    }
+
     enum Camera {
         static let title = "camera_dialog_title"
         static let delete = "camera_dialog_delete_title"
@@ -66,6 +72,9 @@ enum ModalKeys {
         static let loading = "firmware_loading"
         static let firmwareDownloadInfo = "firmware_download_info"
         static let firmwareDownloadPleaseWait = "firmware_please_wait"
+        static let frameworkStopConfirmTitle = "framework_stop_confirmation_title"
+        static let frameworkStopConfirmYes = "framework_confirmation_dialog_yes_button"
+        static let frameworkStopConfirmNo = "framework_confirmation_dialog_no_button"
     }
 
     enum Program {
