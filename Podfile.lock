@@ -95,7 +95,7 @@ DEPENDENCIES:
   - Kingfisher (~> 5.3.1)
   - PieCharts (~> 0.0.7)
   - RealmSwift (~> 3.14.1)
-  - "RevolutionRoboticsBlockly (from `git@github.com:RevolutionRobotics/RevolutionRoboticsBlocklyIOS`, branch `development`)"
+  - "RevolutionRoboticsBlockly (from `git@github.com:RevolutionRobotics/RevolutionRoboticsBlocklyIOS`, branch `handover`)"
   - "RevolutionRoboticsBluetooth (from `git@github.com:RevolutionRobotics/RevolutionRoboticsBluetoothIOS.git`, branch `development`)"
   - SideMenu (from `https://github.com/stelabouras/SideMenu.git`, branch `upgrade/xcode-10.2`)
   - SwiftLint (~> 0.31.0)
@@ -128,7 +128,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   RevolutionRoboticsBlockly:
-    :branch: development
+    :branch: handover
     :git: "git@github.com:RevolutionRobotics/RevolutionRoboticsBlocklyIOS"
     :submodules: true
   RevolutionRoboticsBluetooth:
@@ -140,11 +140,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   RevolutionRoboticsBlockly:
-    :commit: fa126bdaf69aed5bbdd71a5c1107b19f74efdd77
+    :commit: d1a6a98b468da812e7551f8477ca4de08d9cdc7a
     :git: "git@github.com:RevolutionRobotics/RevolutionRoboticsBlocklyIOS"
     :submodules: true
   RevolutionRoboticsBluetooth:
-    :commit: 15d9bc963003b8c0988775f3d2af7a3aaddda4c7
+    :commit: 5ed41331f47e30b220f2d84174cb5adf47c22cab
     :git: "git@github.com:RevolutionRobotics/RevolutionRoboticsBluetoothIOS.git"
   SideMenu:
     :commit: ccd4b640063a721180b77a59d2a45039672ec95d
@@ -177,6 +177,6 @@ SPEC CHECKSUMS:
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
 
-PODFILE CHECKSUM: 050ed71ae7b99dc4695522a3fab09950a6a60eb2
+PODFILE CHECKSUM: 5678543e8ca3a7711ec5a6c0e6b94353eda7eebc
 
 COCOAPODS: 1.6.1

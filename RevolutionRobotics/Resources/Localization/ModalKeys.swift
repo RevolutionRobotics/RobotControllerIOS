@@ -7,6 +7,12 @@
 //
 
 enum ModalKeys {
+    enum Menu {
+        static let updateTitle = "menu_update_title"
+        static let updateMessage = "menu_update_message"
+        static let updateButton = "menu_button_update"
+    }
+
     enum Camera {
         static let title = "camera_dialog_title"
         static let delete = "camera_dialog_delete_title"

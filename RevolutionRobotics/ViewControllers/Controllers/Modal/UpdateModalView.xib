@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+        <array key="Jura-Regular.ttf">
+            <string>Jura-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="QHy-1B-aHk" customClass="UpdateModalView" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMe-zj-Vt7">
+                    <rect key="frame" x="204.5" y="32" width="51.5" height="24"/>
+                    <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat. Per graece denique invidunt ei. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pL-zI-xab">
+                    <rect key="frame" x="32" y="64" width="396" height="29"/>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pH0-AB-qDr" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="4" y="190" width="452" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="0dj-Oz-h5I"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Update" image="TickWhiteIcon"/>
+                    <connections>
+                        <action selector="updateButtonTapped:" destination="QHy-1B-aHk" eventType="touchUpInside" id="5VY-mK-7v4"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="5pL-zI-xab" firstAttribute="leading" secondItem="QHy-1B-aHk" secondAttribute="leading" constant="32" id="6JV-yF-gnn"/>
+                <constraint firstItem="5pL-zI-xab" firstAttribute="top" secondItem="uMe-zj-Vt7" secondAttribute="bottom" constant="8" id="7Aq-gE-TKn"/>
+                <constraint firstItem="uMe-zj-Vt7" firstAttribute="top" secondItem="QHy-1B-aHk" secondAttribute="top" constant="32" id="AQh-9b-hdQ"/>
+                <constraint firstItem="pH0-AB-qDr" firstAttribute="leading" secondItem="QHy-1B-aHk" secondAttribute="leading" constant="4" id="Aqx-or-dyo"/>
+                <constraint firstItem="uMe-zj-Vt7" firstAttribute="centerX" secondItem="QHy-1B-aHk" secondAttribute="centerX" id="HmW-gR-XcR"/>
+                <constraint firstItem="uMe-zj-Vt7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QHy-1B-aHk" secondAttribute="leading" constant="32" id="PCE-jz-lFB"/>
+                <constraint firstAttribute="trailing" secondItem="pH0-AB-qDr" secondAttribute="trailing" constant="4" id="PU6-aD-iSI"/>
+                <constraint firstItem="5pL-zI-xab" firstAttribute="centerX" secondItem="QHy-1B-aHk" secondAttribute="centerX" id="Xdv-bR-nNh"/>
+                <constraint firstAttribute="bottom" secondItem="pH0-AB-qDr" secondAttribute="bottom" constant="4" id="mQ7-c4-yLH"/>
+                <constraint firstAttribute="trailing" secondItem="5pL-zI-xab" secondAttribute="trailing" constant="32" id="sRN-CU-k3w"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uMe-zj-Vt7" secondAttribute="trailing" constant="32" id="yZd-KS-qnr"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="blN-Dz-8MC"/>
+            <connections>
+                <outlet property="updateButton" destination="pH0-AB-qDr" id="wWI-SE-JXl"/>
+                <outlet property="updateModalMessage" destination="5pL-zI-xab" id="04C-X5-abl"/>
+                <outlet property="updateModalTitle" destination="uMe-zj-Vt7" id="gZK-HM-GEZ"/>
+            </connections>
+            <point key="canvasLocation" x="22.767857142857142" y="76.811594202898561"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="TickWhiteIcon" width="16" height="12"/>
+    </resources>
+</document>

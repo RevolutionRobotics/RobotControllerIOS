@@ -20,6 +20,9 @@
 "menu_robots_title" = "robots";
 "menu_programs_title" = "programs";
 "menu_challenges_title" = "challenges";
+"menu_update_title" = "Update needed";
+"menu_update_message" = "The application version you are using is no longer supported. Please update from the App Store!";
+"menu_button_update" = "Update";
 
 "tutorial_robots_title" = "Under robots, you can…";
 "tutorial_robots_description" = "- Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
