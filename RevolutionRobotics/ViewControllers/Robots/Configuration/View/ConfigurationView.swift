@@ -68,14 +68,6 @@ final class ConfigurationView: RRCustomView {
     @IBOutlet private var buttons: [PortButton]!
 
     // MARK: Properties
-    var image: UIImage? {
-        get {
-            return robotImageView.image
-        }
-        set {
-            robotImageView.image = newValue ?? Image.Configuration.Connections.defaultRobotImage
-        }
-    }
     var portSelectionHandler: CallbackType<(type: PortButton.PortType, number: Int)>?
 }
 

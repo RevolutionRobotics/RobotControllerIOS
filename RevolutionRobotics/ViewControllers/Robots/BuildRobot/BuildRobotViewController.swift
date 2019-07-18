@@ -44,7 +44,7 @@ extension BuildRobotViewController {
 
         setupStackView()
         setupBluetoothButton()
-        navigationBar.setup(title: remoteRobotDataModel?.name, delegate: self)
+        navigationBar.setup(title: remoteRobotDataModel?.name.text, delegate: self)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -280,19 +280,61 @@ extension BuildRobotViewController {
                                 croppedCorners: [.topRight, .bottomLeft])
     }
 
+    private func createNewRobot(remoteConfigurations: [Configuration], remoteControllers: [Controller], step: Int) {
+        let robotId = UUID().uuidString
+        let configId = UUID().uuidString
+        let remoteConfiguration =
+            remoteConfigurations.first(where: { $0.id == (remoteRobotDataModel?.configurationId)! })!
+        let localConfiguration = ConfigurationDataModel(id: configId, remoteConfiguration: remoteConfiguration)
+
+        let controllers = remoteControllers
+            .filter({ $0.configurationId == remoteConfiguration.id })
+            .map({ ControllerDataModel(controller: $0, localConfigurationId: localConfiguration.id) })
+
+        localConfiguration.controller =
+            (controllers.first(where: { $0.remoteId == remoteConfiguration.controller })?.id)!
+
+        realmService.saveControllers(controllers)
+        realmService.saveConfigurations([localConfiguration])
+
+        storedRobotDataModel = UserRobot(
+            id: robotId,
+            remoteId: remoteRobotDataModel!.id,
+            buildStatus: .inProgress,
+            actualBuildStep: step,
+            lastModified: Date(),
+            configId: configId,
+            customName: remoteRobotDataModel?.name.text,
+            customImage: remoteRobotDataModel?.coverImageGSURL,
+            customDescription: remoteRobotDataModel?.customDescription.text)
+
+        realmService.saveRobot(storedRobotDataModel!, shouldUpdate: true)
+    }
+
+    private func createNewRobot(step: Int) {
+        firebaseService.getConfigurations(completion: { [weak self] result in
+            switch result {
+            case .success(let remoteConfigurations):
+                self?.firebaseService.getControllers(completion: { [weak self] result in
+                    switch result {
+                    case .success(let remoteControllers):
+                        self?.createNewRobot(remoteConfigurations: remoteConfigurations,
+                                             remoteControllers: remoteControllers,
+                                             step: step)
+                    case .failure:
+                        os_log("Failed to retrieve controllers!")
+                    }
+                })
+            case .failure:
+                os_log("Failed to retrieve configurations!")
+            }
+        })
+    }
+
     private func updateStoredRobot(step: Int) {
         guard let robot = storedRobotDataModel else {
-            storedRobotDataModel = UserRobot(
-                id: UUID().uuidString,
-                remoteId: remoteRobotDataModel!.id,
-                buildStatus: .inProgress,
-                actualBuildStep: step,
-                lastModified: Date(),
-                configId: remoteRobotDataModel!.configurationId,
-                customName: remoteRobotDataModel?.name,
-                customImage: remoteRobotDataModel?.coverImageGSURL,
-                customDescription: remoteRobotDataModel?.customDescription)
-            realmService.saveRobot(storedRobotDataModel!, shouldUpdate: true)
+            createNewRobot(step: step)
+
             return
         }
         realmService.updateObject {

@@ -21,7 +21,7 @@ final class ChallengeCategoryCollectionViewCell: UICollectionViewCell {
 // MARK: - Setup
 extension ChallengeCategoryCollectionViewCell {
     func setup(with challengeCategory: ChallengeCategory, userCategory: ChallengeCategoryDataModel?) {
-        categoryName.text = challengeCategory.name
+        categoryName.text = challengeCategory.name.text
         categoryImageView.downloadImage(googleStorageURL: challengeCategory.image)
         guard let category = userCategory else {
             progressView.progress = 0

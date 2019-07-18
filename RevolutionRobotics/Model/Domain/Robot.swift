@@ -27,8 +27,8 @@ struct Robot: FirebaseData, FirebaseOrderable {
 
     // MARK: - Properties
     var id: String
-    var name: String
-    var customDescription: String
+    var name: LocalizedText
+    var customDescription: LocalizedText
     var coverImageGSURL: String
     var buildTime: String
     var configurationId: String
@@ -39,8 +39,6 @@ struct Robot: FirebaseData, FirebaseOrderable {
     init?(snapshot: DataSnapshot) {
         guard let dictionary = snapshot.value as? NSDictionary,
             let id = dictionary[Constants.id] as? String,
-            let name = dictionary[Constants.name] as? String,
-            let customDescription = dictionary[Constants.description] as? String,
             let coverImage = dictionary[Constants.coverImage] as? String,
             let buildTime = dictionary[Constants.buildTime] as? String,
             let configurationId = dictionary[Constants.configurationId] as? String,
@@ -50,8 +48,8 @@ struct Robot: FirebaseData, FirebaseOrderable {
         }
 
         self.id = id
-        self.name = name
-        self.customDescription = customDescription
+        self.name = LocalizedText(snapshot: snapshot.childSnapshot(forPath: Constants.name))!
+        self.customDescription = LocalizedText(snapshot: snapshot.childSnapshot(forPath: Constants.description))!
         self.coverImageGSURL = coverImage
         self.buildTime = buildTime
         self.configurationId = configurationId

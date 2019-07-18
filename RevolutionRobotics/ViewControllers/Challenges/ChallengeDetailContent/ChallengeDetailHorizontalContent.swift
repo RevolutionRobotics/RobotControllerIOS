@@ -9,6 +9,11 @@
 import UIKit
 
 final class ChallengeDetailHorizontalContent: UIView {
+    // MARK: - Constants
+    private enum Constants {
+        static let fontSize: CGFloat = 18.0
+    }
+
     // MARK: - Outlets
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var challengeImageView: UIImageView!
@@ -17,7 +22,8 @@ final class ChallengeDetailHorizontalContent: UIView {
 // MARK: - ChallengeDetailContent
 extension ChallengeDetailHorizontalContent: ChallengeDetailContentProtocol {
     func setup(with step: ChallengeStep) {
-        descriptionLabel.attributedText = NSAttributedString.attributedString(from: step.description)
+        descriptionLabel.attributedText = NSAttributedString.attributedString(from: step.description.text,
+                                                                              fontSize: Constants.fontSize)
         challengeImageView.downloadImage(googleStorageURL: step.image)
     }
 }

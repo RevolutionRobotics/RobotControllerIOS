@@ -25,7 +25,7 @@ extension ChallengeDetailViewController {
     func setup(with challenge: Challenge, needsReload: Bool = false) {
         self.challenge = challenge
         if needsReload {
-            navigationBar.setup(title: challenge.name, delegate: self)
+            navigationBar.setup(title: challenge.name.text, delegate: self)
             setupContent(for: 0)
             setupProgressBar()
         }
@@ -68,7 +68,7 @@ extension ChallengeDetailViewController {
         content.frame = contentView.bounds
         contentView.addSubview(content)
         content.setup(with: step)
-        navigationBar.setup(title: step.title, delegate: self)
+        navigationBar.setup(title: step.title.text, delegate: self)
     }
 }
 

@@ -114,6 +114,7 @@
 		2A0789ED2293393600CFFDD6 /* MultiTaskerConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0789EC2293393600CFFDD6 /* MultiTaskerConfigurationView.xib */; };
 		2A0789F2229339A400CFFDD6 /* DriverConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0789F1229339A400CFFDD6 /* DriverConfigurationView.swift */; };
 		2A18002D227AE5800082E801 /* ModalKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A18002C227AE5800082E801 /* ModalKeys.swift */; };
+		2A19F6F822DF1DCB0017CC5B /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A19F6F722DF1DCB0017CC5B /* String+Emoji.swift */; };
 		2A1C8AEF22A7E28D0023F08F /* DisconnectModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C8AEE22A7E28D0023F08F /* DisconnectModalView.swift */; };
 		2A1C8AF122A7E2A90023F08F /* DisconnectModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A1C8AF022A7E2A90023F08F /* DisconnectModalView.xib */; };
 		2A227C7622B396390032948B /* ControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A227C7522B396390032948B /* ControllerViewModel.swift */; };
@@ -130,6 +131,8 @@
 		2A50DA292292CF7900B3D74C /* PadConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A50DA282292CF7900B3D74C /* PadConfigurationViewController.xib */; };
 		2A50DA2C2292CF9A00B3D74C /* GamerConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A50DA2B2292CF9A00B3D74C /* GamerConfigurationView.swift */; };
 		2A50DA2E2292CFB000B3D74C /* GamerConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A50DA2D2292CFB000B3D74C /* GamerConfigurationView.xib */; };
+		2A5A07EB22DDC9B3002B3EE3 /* LocalizedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5A07EA22DDC9B3002B3EE3 /* LocalizedText.swift */; };
+		2A5A07EE22DDE207002B3EE3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5A07ED22DDE207002B3EE3 /* Reachability.swift */; };
 		2A77320322648FB000D7F38D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A77320222648FB000D7F38D /* Settings.bundle */; };
 		2A7732052264A15600D7F38D /* AssemblyRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732042264A15600D7F38D /* AssemblyRegister.swift */; };
 		2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7732072264A32200D7F38D /* ScreenAssembly.swift */; };
@@ -472,6 +475,7 @@
 		2A0789EC2293393600CFFDD6 /* MultiTaskerConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultiTaskerConfigurationView.xib; sourceTree = "<group>"; };
 		2A0789F1229339A400CFFDD6 /* DriverConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverConfigurationView.swift; sourceTree = "<group>"; };
 		2A18002C227AE5800082E801 /* ModalKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalKeys.swift; sourceTree = "<group>"; };
+		2A19F6F722DF1DCB0017CC5B /* String+Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Emoji.swift"; sourceTree = "<group>"; };
 		2A1C8AEE22A7E28D0023F08F /* DisconnectModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectModalView.swift; sourceTree = "<group>"; };
 		2A1C8AF022A7E2A90023F08F /* DisconnectModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisconnectModalView.xib; sourceTree = "<group>"; };
 		2A227C7522B396390032948B /* ControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerViewModel.swift; sourceTree = "<group>"; };
@@ -486,6 +490,8 @@
 		2A50DA282292CF7900B3D74C /* PadConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PadConfigurationViewController.xib; sourceTree = "<group>"; };
 		2A50DA2B2292CF9A00B3D74C /* GamerConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamerConfigurationView.swift; sourceTree = "<group>"; };
 		2A50DA2D2292CFB000B3D74C /* GamerConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamerConfigurationView.xib; sourceTree = "<group>"; };
+		2A5A07EA22DDC9B3002B3EE3 /* LocalizedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedText.swift; sourceTree = "<group>"; };
+		2A5A07ED22DDE207002B3EE3 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2A77320222648FB000D7F38D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2A7732042264A15600D7F38D /* AssemblyRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyRegister.swift; sourceTree = "<group>"; };
 		2A7732072264A32200D7F38D /* ScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenAssembly.swift; sourceTree = "<group>"; };
@@ -1099,6 +1105,7 @@
 				2ABEF0E0228EF4CB00AF87AC /* BluetoothConnectionModalPresenter */,
 				D008E03A2260AAF500089DC7 /* Extensions */,
 				2A7732102264A95900D7F38D /* Protocols */,
+				2A5A07EC22DDE1F6002B3EE3 /* Reachability */,
 				2AB0521A22D48B70007B42F8 /* Typealiases */,
 			);
 			path = Utils;
@@ -1290,6 +1297,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2A5A07EC22DDE1F6002B3EE3 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				2A5A07ED22DDE207002B3EE3 /* Reachability.swift */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
 		2A77320122648F9A00D7F38D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1386,6 +1401,7 @@
 				D05C64DE225F5C4E00B7BF4F /* Rotation.swift */,
 				D05C64DC225F592400B7BF4F /* Sensor.swift */,
 				D05C64D8225F58E200B7BF4F /* Side.swift */,
+				2A5A07EA22DDC9B3002B3EE3 /* LocalizedText.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -1675,6 +1691,7 @@
 			children = (
 				099FF24522C360D500CD9104 /* String+Base64.swift */,
 				2ADE8C282270A61000ECEC72 /* String+Translate.swift */,
+				2A19F6F722DF1DCB0017CC5B /* String+Emoji.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -2392,8 +2409,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A19F6F822DF1DCB0017CC5B /* String+Emoji.swift in Sources */,
 				2AB0521F22D499EB007B42F8 /* DeleteModalView.swift in Sources */,
 				2AB0522122D49D22007B42F8 /* ChallengeFinishedModalView.swift in Sources */,
+				2A5A07EE22DDE207002B3EE3 /* Reachability.swift in Sources */,
 				2A3A759622953F2900ED9A1D /* TipsModalView.swift in Sources */,
 				D0B2A735227C7CF1004473EC /* ControllerCollectionViewCell.swift in Sources */,
 				2A7DDB1A22859B2900891DA6 /* CommonKeys.swift in Sources */,
@@ -2601,6 +2620,7 @@
 				D0049A1E226F0929007FA256 /* RRButton.swift in Sources */,
 				D06C327322899F60005534C0 /* FirmwareUpdateViewController.swift in Sources */,
 				2ADE8C442271A6B000ECEC72 /* BuildProgressBar.swift in Sources */,
+				2A5A07EB22DDC9B3002B3EE3 /* LocalizedText.swift in Sources */,
 				091B98AB229835DA00DCEEF4 /* ProgramSorter.swift in Sources */,
 				2AB7ACEE22BB992000309234 /* ButtonControllerAssignmentJSONData.swift in Sources */,
 				096333F62289B9710029D87B /* PadButton.swift in Sources */,

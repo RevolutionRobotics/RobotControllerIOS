@@ -61,9 +61,9 @@ final class RobotConfigurationViewController: BaseViewController {
     private var shouldPrefillConfiguration = false
     private var controllers: [ControllerDataModel] = [] {
         didSet {
-            collectionView.reloadData()
             var controllerTitle = RobotsKeys.Configure.controllerTabTitle.translate()
             if !controllers.isEmpty {
+                self.collectionView.reloadSections(IndexSet(integer: 0))
                 self.collectionView.refreshCollectionView()
             } else {
                 if controllers.isEmpty {
@@ -125,7 +125,9 @@ extension RobotConfigurationViewController {
         if UIView.notchSize > CGFloat.zero {
             leftButtonLeadingConstraint.constant = UIView.actualNotchSize
         }
-        controllers = realmService.getControllers().filter({ $0.configurationId == configuration!.id })
+        controllers = realmService.getControllers()
+            .filter({ $0.configurationId == configuration!.id })
+            .sorted(by: { $0.lastModified > $1.lastModified })
     }
 }
 
@@ -196,7 +198,9 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
         }
 
         collectionView.clearIndexPath()
-        controllers = realmService.getControllers().filter({ $0.configurationId == configuration.id })
+        controllers = realmService.getControllers()
+            .filter({ $0.configurationId == configuration.id })
+            .sorted(by: { $0.lastModified > $1.lastModified })
         collectionView.reloadData()
         dismissModalViewController()
     }
@@ -255,7 +259,6 @@ extension RobotConfigurationViewController {
         photoModal.deleteHandler = { [weak self] in
             FileManager.default.delete(name: self?.selectedRobot?.id)
             self?.robotImage = nil
-            self?.configurationView.image = nil
             self?.dismiss(animated: true)
         }
     }
@@ -270,7 +273,6 @@ extension RobotConfigurationViewController {
                 self?.showSensorConfiguration(portNumber: port.number)
             }
         }
-        configurationView.image = robotImage
     }
 
     private func showMotorConfiguration(portNumber: Int) {
@@ -349,8 +351,9 @@ extension RobotConfigurationViewController {
                                       RobotsKeys.Configure.controllerTabTitle.translate()])
         segmentedControl.selectionCallback = { [weak self] selectedSegment in
             self?.segmentSelected(selectedSegment)
+            guard let configuration = self?.configuration else { return }
             if selectedSegment == .controllers {
-                if (self?.configuration?.controller.isEmpty)! {
+                if configuration.controller.isEmpty {
                     let controllersViewController =
                         AppContainer.shared.container.unwrappedResolve(ControllerLayoutSelectorViewController.self)
                     controllersViewController.configurationId = self?.configuration?.id
@@ -358,14 +361,14 @@ extension RobotConfigurationViewController {
                 }
             }
         }
-        segmentedControl.setSelectedIndex(0)
+        segmentedControl.setSelectedIndex(segmentedControl.selectedSegment.rawValue)
     }
 
     private func segmentSelected(_ segment: ConfigurationSegment) {
         configurationView.isHidden = segment == .controllers
         controllerCollectionView.isHidden = segment == .connections
         if segment == .controllers {
-            collectionView.reloadData()
+            collectionView.reloadSections(IndexSet(integer: 0))
             if !controllers.isEmpty {
                 collectionView.refreshCollectionView()
             }
@@ -465,7 +468,6 @@ extension RobotConfigurationViewController: UIImagePickerControllerDelegate, UIN
         robotImage = newImage
         if let robotId = selectedRobot?.id {
             FileManager.default.save(robotImage, as: robotId)
-            configurationView.image = newImage
         }
         dismiss(animated: true)
         presentModal(with: photoModal, animated: true)

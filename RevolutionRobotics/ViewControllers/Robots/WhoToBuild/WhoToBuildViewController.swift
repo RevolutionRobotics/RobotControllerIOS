@@ -49,29 +49,6 @@ extension WhoToBuildViewController {
             }
         }
     }
-
-    private func fetchConfigurations() {
-        firebaseService.getConfigurations { [weak self] result in
-            switch result {
-            case .success(let configurations):
-                let localConfigurations = configurations.map({ ConfigurationDataModel(remoteConfiguration: $0) })
-                self?.realmService.saveConfigurations(localConfigurations)
-            case .failure:
-                os_log("Error: Failed to fetch configurations from Firebase!")
-            }
-        }
-    }
-
-    private func fetchControllers() {
-        firebaseService.getControllers { [weak self] result in
-            switch result {
-            case .success(let controllers):
-                self?.realmService.saveControllers(controllers.map({ ControllerDataModel(controller: $0) }))
-            case .failure:
-                os_log("Error: Failed to fetch controllers from Firebase!")
-            }
-        }
-    }
 }
 
 // MARK: - Actions
@@ -108,8 +85,6 @@ extension WhoToBuildViewController {
             leftButtonLeadingConstraint.constant = UIView.actualNotchSize
         }
         fetchRobots()
-        fetchConfigurations()
-        fetchControllers()
     }
 
     private func setupCollectionView() {

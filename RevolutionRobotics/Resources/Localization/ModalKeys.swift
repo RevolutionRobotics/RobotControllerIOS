@@ -66,6 +66,9 @@ enum ModalKeys {
         static let loading = "firmware_loading"
         static let firmwareDownloadInfo = "firmware_download_info"
         static let firmwareDownloadPleaseWait = "firmware_please_wait"
+        static let frameworkStopConfirmTitle = "framework_stop_confirmation_title"
+        static let frameworkStopConfirmYes = "framework_confirmation_dialog_yes_button"
+        static let frameworkStopConfirmNo = "framework_confirmation_dialog_no_button"
     }
 
     enum Program {

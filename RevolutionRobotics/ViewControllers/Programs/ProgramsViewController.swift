@@ -146,27 +146,29 @@ extension ProgramsViewController {
 
         switch programSaveReason {
         case .navigateBack:
-            confirmModal.setup(
-                title: ProgramsKeys.NavigateBack.title.translate(),
-                subtitle: ProgramsKeys.NavigateBack.subtitle.translate(),
-                positiveButtonTitle: ProgramsKeys.NavigateBack.positive.translate()
-            )
+            confirmModal.setup(title: ProgramsKeys.NavigateBack.title.translate(),
+                               subtitle: nil,
+                               negativeButtonTitle: ProgramsKeys.NavigateBack.programLeaveConfirmNegative.translate(),
+                               positiveButtonTitle: ProgramsKeys.NavigateBack.programLeaveConfirmPositive.translate())
 
             confirmModal.confirmSelected = { [weak self] confirmed in
                 self?.dismissModalViewController()
                 if confirmed {
+                    self?.initiateSave(shouldNavigateBack: true, shouldOpenPrograms: false)
+                } else {
                     self?.navigationController?.popViewController(animated: true)
                 }
             }
         case .openProgram:
-            confirmModal.setup(
-                title: ProgramsKeys.ConfirmOpen.title.translate(),
-                subtitle: ProgramsKeys.ConfirmOpen.subtitle.translate(),
-                positiveButtonTitle: ProgramsKeys.ConfirmOpen.positive.translate()
-            )
+            confirmModal.setup(title: ProgramsKeys.ConfirmOpen.title.translate(),
+                               subtitle: nil,
+                               negativeButtonTitle: ProgramsKeys.NavigateBack.programLeaveConfirmNegative.translate(),
+                               positiveButtonTitle: ProgramsKeys.NavigateBack.programOpenConfirmPositive.translate())
             confirmModal.confirmSelected = { [weak self] confirmed in
                 self?.dismissModalViewController()
                 if confirmed {
+                    self?.initiateSave(shouldNavigateBack: false, shouldOpenPrograms: true)
+                } else {
                     self?.openProgramModal()
                 }
             }
@@ -195,7 +197,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         alertView.setup(message: message) { [weak self] in
             callback?()
-            self?.dismissModalViewController()
+            self?.dismiss(animated: true, completion: nil)
         }
 
         presentModal(with: alertView, onDismissed: { callback?() })
@@ -207,7 +209,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
         confirmView.setup(title: message)
         confirmView.confirmSelected = { [weak self] confirmed in
             callback?(confirmed)
-            self?.dismissModalViewController()
+            self?.dismiss(animated: true, completion: nil)
         }
 
         presentModal(with: confirmView, onDismissed: { callback?(false) })
@@ -218,7 +220,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         optionSelectorView.setup(optionSelector: optionSelector) { [weak self] option in
             callback?(option.key)
-            self?.dismissModalViewController()
+            self?.dismiss(animated: true, completion: nil)
         }
 
         presentModal(with: optionSelectorView, onDismissed: { callback?(nil) })
@@ -229,7 +231,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         driveDirectionSelectorView.setup(optionSelector: optionSelector) { [weak self] option in
             callback?(option.key)
-            self?.dismissModalViewController()
+            self?.dismiss(animated: true, completion: nil)
         }
 
         presentModal(with: driveDirectionSelectorView, onDismissed: { callback?(nil) })
@@ -240,7 +242,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         sliderInputView.setup(sliderHandler: sliderHandler) { [weak self] value in
             callback?(value)
-            self?.dismissModalViewController()
+            self?.dismiss(animated: true, completion: nil)
         }
 
         presentModal(with: sliderInputView, onDismissed: { callback?(nil) })
@@ -252,7 +254,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         ledSelectorView.setup(selectionType: .single, defaultValues: defaultValues) { [weak self] led in
             callback?(led)
-            self?.dismissModalViewController()
+            self?.dismiss(animated: true, completion: nil)
         }
 
         presentModal(with: ledSelectorView, onDismissed: { callback?(nil) })
@@ -264,7 +266,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         ledSelectorView.setup(selectionType: .multi, defaultValues: defaultValues) { [weak self] leds in
             callback?(leds)
-            self?.dismissModalViewController()
+            self?.dismiss(animated: true, completion: nil)
         }
 
         presentModal(with: ledSelectorView, onDismissed: { callback?(nil) })
@@ -275,7 +277,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         colorSelector.setup(optionSelector: optionSelector) { [weak self] color in
             callback?(color)
-            self?.dismissModalViewController()
+            self?.dismiss(animated: true, completion: nil)
         }
 
         presentModal(with: colorSelector, onDismissed: { callback?(nil) })
@@ -286,7 +288,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         soundPicker.setup(optionSelector: optionSelector) { [weak self] sound in
             callback?(sound)
-            self?.dismissModalViewController()
+            self?.dismiss(animated: true, completion: nil)
         }
 
         presentModal(with: soundPicker, onDismissed: { callback?(nil) })
@@ -303,7 +305,7 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
         dialpadInputViewController.setup(inputHandler: inputHandler) { [weak self] text in
             callback?(text)
-            self?.dismissModalViewController()
+            self?.dismiss(animated: true, completion: nil)
         }
     }
 
@@ -325,15 +327,15 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
         let blockContext = BlockContextMenuModalView.instatiate()
         blockContext.setup(with: contextHandler)
         blockContext.deleteCallback = { [weak self] in
-            self?.dismissModalViewController()
+           self?.dismiss(animated: true, completion: nil)
             callback?(DeleteBlockAction())
         }
         blockContext.duplicateCallback = { [weak self] in
-            self?.dismissModalViewController()
+            self?.dismiss(animated: true, completion: nil)
             callback?(DuplicateBlockAction())
         }
         blockContext.helpCallback = { [weak self] in
-            self?.dismissModalViewController()
+            self?.dismiss(animated: true, completion: nil)
             callback?(HelpAction())
         }
 
@@ -460,13 +462,17 @@ extension ProgramsViewController {
     }
 
     @IBAction private func saveProgramButtonTapped(_ sender: UIButton) {
+        initiateSave(shouldNavigateBack: false, shouldOpenPrograms: false)
+    }
+
+    private func initiateSave(shouldNavigateBack: Bool, shouldOpenPrograms: Bool) {
         let saveModal = SaveProgramModalView.instatiate()
         if let program = selectedProgram {
             saveModal.setup(with: program)
         }
         saveModal.doneCallback = { [weak self] saveData in
             self?.dismissModalViewController()
-            guard !(self?.programAlreadyExists(name: saveData.name))! else {
+            guard (self?.canBeOverwritten(name: saveData.name))! else {
                 self?.present(UIAlertController.errorAlert(type: .programAlreadyExists), animated: true)
                 return
             }
@@ -482,6 +488,12 @@ extension ProgramsViewController {
                 self?.save(description: description)
             }
             self?.programSaveReason = .edited
+
+            if shouldNavigateBack {
+                self?.navigationController?.popViewController(animated: true)
+            } else if shouldOpenPrograms {
+                self?.openProgramModal()
+            }
         }
         presentModal(with: saveModal)
     }
@@ -493,9 +505,9 @@ extension ProgramsViewController {
 
 // MARK: - Private methods
 extension ProgramsViewController {
-    private func programAlreadyExists(name: String?) -> Bool {
+    private func canBeOverwritten(name: String?) -> Bool {
         guard let name = name else { return true }
 
-        return realmService.getPrograms().contains(where: { $0.name == name })
+        return !realmService.getPrograms().contains(where: { $0.name == name && !$0.remoteId.isEmpty })
     }
 }

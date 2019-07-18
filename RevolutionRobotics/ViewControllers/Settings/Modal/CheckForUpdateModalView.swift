@@ -9,8 +9,15 @@
 import UIKit
 
 final class CheckForUpdateModalView: UIView {
+    // MARK: - Status
+    enum Status {
+        case initial
+        case updateNeeded(String)
+        case updated
+    }
+
     // MARK: - Outlets
-    @IBOutlet private weak var checkForUpdatesButton: RRButton!
+    @IBOutlet private weak var button: RRButton!
     @IBOutlet private weak var brainIDLabel: UILabel!
     @IBOutlet private weak var versionLabel: UILabel!
     @IBOutlet private weak var updateView: UIView!
@@ -26,10 +33,8 @@ final class CheckForUpdateModalView: UIView {
     @IBOutlet private weak var mainBatteryLabel: UILabel!
     @IBOutlet private weak var motorBatteryLabel: UILabel!
 
-    var checkForUpdateCallback: Callback?
-    var downloadAndUpdataCallback: Callback?
-
-    private var foundUpdate = false
+    // MARK: - Callback
+    var buttonHandler: CallbackType<Status>?
 
     // MARK: - Properties
     var brainId: String = "" {
@@ -37,44 +42,58 @@ final class CheckForUpdateModalView: UIView {
             brainIDLabel.text = brainId
         }
     }
+
     var firmwareVersion: String = "" {
         didSet {
             versionLabel.text = ModalKeys.FirmwareUpdate.currentVersion.translate(args: firmwareVersion)
         }
     }
+
     var hardwareVersion: String = "" {
         didSet {
             hardwareVersionLabel.text = ModalKeys.FirmwareUpdate.hardwareVersion.translate(args: hardwareVersion)
         }
     }
+
     var modelNumber: String = "" {
         didSet {
             modelNumberLabel.text = ModalKeys.FirmwareUpdate.modelNumber.translate(args: modelNumber)
         }
     }
+
     var softwareVersion: String = "" {
         didSet {
             softwareVersionLabel.text = ModalKeys.FirmwareUpdate.softwareVersion.translate(args: softwareVersion)
         }
     }
+
     var serialNumber: String = "" {
         didSet {
             serialNumberLabel.text = ModalKeys.FirmwareUpdate.serialNumber.translate(args: serialNumber)
         }
     }
+
     var manufacturerName: String = "" {
         didSet {
             manufacturerNameLabel.text = ModalKeys.FirmwareUpdate.manufacturerName.translate(args: manufacturerName)
         }
     }
+
     var mainBattery: Int = 0 {
         didSet {
             mainBatteryLabel.text = ModalKeys.FirmwareUpdate.mainBattery.translate(args: "\(mainBattery)")
         }
     }
+
     var motorBattery: Int = 0 {
         didSet {
             motorBatteryLabel.text = ModalKeys.FirmwareUpdate.motorBattery.translate(args: "\(motorBattery)")
+        }
+    }
+
+    var status = Status.initial {
+        didSet {
+            handleStatusChange()
         }
     }
 }
@@ -83,45 +102,42 @@ final class CheckForUpdateModalView: UIView {
 extension CheckForUpdateModalView {
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        checkForUpdatesButton.setBorder(fillColor: .clear, strokeColor: .white)
-        checkForUpdatesButton.setTitle(ModalKeys.FirmwareUpdate.checkForUpdates.translate(), for: .normal)
-        checkForUpdatesButton.setImage(Image.retryIcon, for: .normal)
-        brainIDLabel.text = ModalKeys.FirmwareUpdate.loading.translate()
+        handleStatusChange()
     }
 }
 
 // MARK: - Public methods
 extension CheckForUpdateModalView {
-    func updateFound(version: String) {
-        loadingIndicator.isHidden = true
-        devInfoView.isHidden = true
-        updateView.isHidden = false
-        updateLabel.text = ModalKeys.FirmwareUpdate.downloadReady.translate(args: version)
-        checkForUpdatesButton.setTitle(ModalKeys.FirmwareUpdate.downloadUpdate.translate(), for: .normal)
-        checkForUpdatesButton.setImage(Image.downloadIcon, for: .normal)
-        foundUpdate = true
-    }
+    private func handleStatusChange() {
+        switch status {
+        case .initial:
+            button.setBorder(fillColor: .clear, strokeColor: .white)
+            button.setTitle(ModalKeys.FirmwareUpdate.checkForUpdates.translate(), for: .normal)
+            button.setImage(Image.retryIcon, for: .normal)
+            brainIDLabel.text = ModalKeys.FirmwareUpdate.loading.translate()
 
-    func upToDate() {
-        loadingIndicator.isHidden = true
-        devInfoView.isHidden = true
-        updateView.isHidden = false
-        updateLabel.text = ModalKeys.FirmwareUpdate.upToDateVersion.translate()
-        checkForUpdatesButton.setTitle(ModalKeys.FirmwareUpdate.done.translate(), for: .normal)
-        checkForUpdatesButton.setImage(Image.tickIcon, for: .normal)
+        case .updateNeeded(let version):
+            loadingIndicator.isHidden = true
+            devInfoView.isHidden = true
+            updateView.isHidden = false
+            updateLabel.text = ModalKeys.FirmwareUpdate.downloadReady.translate(args: version)
+            button.setTitle(ModalKeys.FirmwareUpdate.downloadUpdate.translate(), for: .normal)
+            button.setImage(Image.downloadIcon, for: .normal)
+
+        case .updated:
+            loadingIndicator.isHidden = true
+            devInfoView.isHidden = true
+            updateView.isHidden = false
+            updateLabel.text = ModalKeys.FirmwareUpdate.upToDateVersion.translate()
+            button.setTitle(ModalKeys.FirmwareUpdate.done.translate(), for: .normal)
+            button.setImage(Image.tickIcon, for: .normal)
+        }
     }
 }
 
 // MARK: - Actions
 extension CheckForUpdateModalView {
-    @IBAction private func checkForUpdatesTapped(_ sender: Any) {
-        if foundUpdate {
-            loadingIndicator.isHidden = true
-            downloadAndUpdataCallback?()
-        } else {
-            loadingIndicator.isHidden = false
-            checkForUpdateCallback?()
-        }
+    @IBAction private func buttonTapped(_ sender: RRButton) {
+        buttonHandler?(status)
     }
 }

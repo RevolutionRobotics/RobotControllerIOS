@@ -11,11 +11,18 @@ import SideMenu
 import os
 
 final class SensorConfigViewController: BaseViewController {
+    // MARK: - Constants
+    private enum Constants {
+        static let iPhoneSEScreenHeight: CGFloat = 320
+        static let iPhoneSETopConstraintConstant: CGFloat = 8
+    }
+
     // MARK: - Outlets
     @IBOutlet private weak var buttonContainer: UIStackView!
     @IBOutlet private weak var nameInputField: RRInputField!
     @IBOutlet private weak var testButton: RRButton!
     @IBOutlet private weak var doneButton: RRButton!
+    @IBOutlet private weak var topConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
     private let emptyButton = PortConfigurationItemView.instatiate()
@@ -32,12 +39,28 @@ final class SensorConfigViewController: BaseViewController {
     var portNumber = 0
     var bumperSensorCounts: Int!
     var distanceSensorCounts: Int!
-    var name: String?
+    var name: String? {
+        didSet {
+            if name != nil {
+                switch selectedSensorType {
+                case .bumper:
+                    customBumperName = name ?? ""
+                case .distance:
+                    customDistanceName = name ?? ""
+                case .empty:
+                    customDistanceName = ""
+                    customBumperName = ""
+                }
+            }
+        }
+    }
     var prohibitedNames: [String] = []
     var doneButtonTapped: CallbackType<SensorConfigViewModel>?
     var testButtonTapped: CallbackType<SensorConfigViewModel>?
     var screenDismissed: Callback?
     var testCodeService: PortTestCodeServiceInterface!
+    private var customBumperName = ""
+    private var customDistanceName = ""
     private var shouldCallDismiss = true
     private var shouldRunTestScriptOnConnection = false
 
@@ -46,15 +69,21 @@ final class SensorConfigViewController: BaseViewController {
     }
 
     private var nameInputFieldText: String? {
-        if let name = name, name.contains(selectedSensorType.rawValue) { return name }
-
         switch selectedSensorType {
         case .bumper:
-            let bumperCountString = bumperSensorCounts == 0 ? "" : "\(bumperSensorCounts + 1)"
-            return selectedSensorType.rawValue + bumperCountString
+            if customBumperName.isEmpty {
+                let bumperCountString = bumperSensorCounts == 0 ? "" : "\(bumperSensorCounts + 1)"
+                return selectedSensorType.rawValue + bumperCountString
+            } else {
+                return customBumperName
+            }
         case .distance:
-            let distanceCountString = distanceSensorCounts == 0 ? "" : "\(distanceSensorCounts + 1)"
-            return selectedSensorType.rawValue + distanceCountString
+            if customDistanceName.isEmpty {
+                let distanceCountString = distanceSensorCounts == 0 ? "" : "\(distanceSensorCounts + 1)"
+                return selectedSensorType.rawValue + distanceCountString
+            } else {
+                return customDistanceName
+            }
         default:
             return nil
         }
@@ -71,6 +100,10 @@ extension SensorConfigViewController {
         handleSelectionChange()
         validateActionButtons()
         nameInputField.text = name
+
+        if UIScreen.main.bounds.size.height == Constants.iPhoneSEScreenHeight {
+            topConstraint.constant = Constants.iPhoneSETopConstraintConstant
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {

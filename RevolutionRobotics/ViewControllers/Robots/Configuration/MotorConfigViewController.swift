@@ -15,6 +15,8 @@ final class MotorConfigViewController: BaseViewController {
     private enum Constants {
         static let defaultDriveName = "drive"
         static let defaultMotorName = "motor"
+        static let iPhoneSEScreenHeight: CGFloat = 320
+        static let iPhoneSETopConstraintConstant: CGFloat = 8
     }
 
     // MARK: - Outlets
@@ -24,6 +26,7 @@ final class MotorConfigViewController: BaseViewController {
     @IBOutlet private weak var nameInputField: RRInputField!
     @IBOutlet private weak var testButton: RRButton!
     @IBOutlet private weak var doneButton: RRButton!
+    @IBOutlet private weak var topConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
     private let emptyButton = PortConfigurationItemView.instatiate()
@@ -46,9 +49,25 @@ final class MotorConfigViewController: BaseViewController {
     var doneButtonTapped: CallbackType<MotorConfigViewModel>?
     var testButtonTapped: CallbackType<MotorConfigViewModel>?
     var screenDismissed: Callback?
-    var name: String?
+    var name: String? {
+        didSet {
+            if name != nil {
+                switch selectedMotorState {
+                case .drive, .driveWithoutSide:
+                    customDriveName = name ?? ""
+                case .motor, .motorWithoutRotation:
+                    customMotorName = name ?? ""
+                case .empty:
+                    customDriveName = ""
+                    customMotorName = ""
+                }
+            }
+        }
+    }
     var prohibitedNames: [String] = []
     var testCodeService: PortTestCodeServiceInterface!
+    private var customMotorName = ""
+    private var customDriveName = ""
     private var shouldCallDismiss = true
     private var shouldRunTestScriptOnConnection = false
 }
@@ -58,11 +77,17 @@ extension MotorConfigViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        nameInputField.text = name
+
         setupTopButtonRow()
         setupRotationButtons()
         setupSideButtons()
         setupNameInputField()
         switchTo(state: selectedMotorState)
+
+        if UIScreen.main.bounds.size.height == Constants.iPhoneSEScreenHeight {
+            topConstraint.constant = Constants.iPhoneSETopConstraintConstant
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -158,15 +183,21 @@ extension MotorConfigViewController {
 
     private func nameInputFieldText(for state: MotorConfigViewModelState) -> String? {
         switch state {
-        case .motor, .motorWithoutRotation:
-            if let name = name, name.contains(Constants.defaultMotorName) { return name }
-            return "\(Constants.defaultMotorName)\(portNumber)"
-
-        case .drive, .driveWithoutSide:
-            if let name = name, name.contains(Constants.defaultDriveName) { return name }
-            return "\(Constants.defaultDriveName)\(portNumber)"
-
-        default: return nil
+        case .motorWithoutRotation:
+            if customMotorName.isEmpty {
+                if let name = name, name.contains(Constants.defaultMotorName) { return name }
+                return "\(Constants.defaultMotorName)\(portNumber)"
+            } else {
+                return customMotorName
+            }
+        case .driveWithoutSide:
+            if customDriveName.isEmpty {
+                if let name = name, name.contains(Constants.defaultDriveName) { return name }
+                return "\(Constants.defaultDriveName)\(portNumber)"
+            } else {
+                return customDriveName
+            }
+        default: return nameInputField.text
         }
     }
 

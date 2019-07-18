@@ -14,22 +14,37 @@ enum ConfigurationSegment: Int {
 }
 
 final class RRSegmentedControl: UIView {
+    // MARK: - Properties
+    var selectedSegment: ConfigurationSegment = .connections
+    var selectionCallback: CallbackType<ConfigurationSegment>?
     private let stackView = UIStackView()
     private var buttons: [SegmentedControlButton] = []
-    var selectedSegment: ConfigurationSegment = .connections
 
-    // MARK: - Selected callback
-    var selectionCallback: CallbackType<ConfigurationSegment>?
-
-    // MARK: - Inits
+    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+
+        if UserDefaults.standard.value(forKey: UserDefaults.Keys.robotConfigSegmentedControl) == nil {
+            UserDefaults.standard.set(ConfigurationSegment.connections.rawValue,
+                                      forKey: UserDefaults.Keys.robotConfigSegmentedControl)
+        } else {
+            let selected = UserDefaults.standard.integer(forKey: UserDefaults.Keys.shouldShowTutorial)
+            selectedSegment = ConfigurationSegment(rawValue: selected)!
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupView()
+
+        if UserDefaults.standard.value(forKey: UserDefaults.Keys.robotConfigSegmentedControl) == nil {
+            UserDefaults.standard.set(ConfigurationSegment.connections.rawValue,
+                                      forKey: UserDefaults.Keys.robotConfigSegmentedControl)
+        } else {
+            let selected = UserDefaults.standard.integer(forKey: UserDefaults.Keys.robotConfigSegmentedControl)
+            selectedSegment = ConfigurationSegment(rawValue: selected)!
+        }
     }
 }
 
@@ -51,6 +66,7 @@ extension RRSegmentedControl {
             button.croppedCorners = croppedCorners
             button.setTitle(element, for: .normal)
             button.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
+            button.contentVerticalAlignment = .center
 
             buttons.append(button)
             stackView.addArrangedSubview(button)
@@ -69,6 +85,7 @@ extension RRSegmentedControl {
 
     private func setupStackView() {
         addSubview(stackView)
+        stackView.alignment = .center
         stackView.anchorToSuperview()
     }
 }
@@ -81,6 +98,7 @@ extension RRSegmentedControl {
         guard let segment = ConfigurationSegment(rawValue: index) else { return }
         selectionCallback?(segment)
         selectedSegment = segment
+        UserDefaults.standard.set(segment.rawValue, forKey: UserDefaults.Keys.robotConfigSegmentedControl)
     }
 
     @objc private func buttonTapped(sender: SegmentedControlButton) {
@@ -88,6 +106,8 @@ extension RRSegmentedControl {
         sender.isSelected = true
         selectionCallback?(sender.selectedSegment)
         selectedSegment = sender.selectedSegment
+        UserDefaults.standard.set(sender.selectedSegment.rawValue,
+                                  forKey: UserDefaults.Keys.robotConfigSegmentedControl)
     }
 
     private func resetButtons() {

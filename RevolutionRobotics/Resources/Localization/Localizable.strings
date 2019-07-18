@@ -10,7 +10,7 @@
 "next" = "Next";
 "error_title" = "Error";
 "error_ok_button" = "Ok";
-"error_general" = "Something went wrong, please try again";
+"error_general" = "Something went wrong, please check your internet connection.";
 "error_test_code_upload" = "Test code upload error";
 "done" = "Done";
 "no" = "No";
@@ -266,3 +266,11 @@
 
 "error_bluetooth_description" = "Please check your bluetooth settings!";
 "error_bluetooth_settings" = "Settings";
+
+"framework_stop_confirmation_title" = "Would you like to cancel the firmware update?";
+"framework_confirmation_dialog_yes_button" = "Yes";
+"framework_confirmation_dialog_no_button" = "No";
+
+"program_leave_confirmation_dialog_leave_button" = "Save and leave";
+"dialog_load_program_confirm_button_negative" = "Leave";
+"dialog_load_program_confirm_button_positive" = "Save and open";
