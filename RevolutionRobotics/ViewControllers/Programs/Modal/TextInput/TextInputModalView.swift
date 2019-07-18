@@ -26,7 +26,6 @@ extension TextInputModalView {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        titleLabel.text = ModalKeys.Program.newVariableName.translate().uppercased()
         doneButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
         cancelButton.setBorder(fillColor: .clear, croppedCorners: [.bottomLeft])
     }
@@ -35,7 +34,12 @@ extension TextInputModalView {
 // MARK: - Setup
 extension TextInputModalView {
     func setup(inputHandler: InputHandler) {
-        inputField.setup(title: ModalKeys.Program.newVariableName.translate(), placeholder: nil, characterLimit: nil)
+        titleLabel.text = inputHandler.title.uppercased()
+        if inputHandler.subtitle != nil {
+            inputField.setup(title: inputHandler.subtitle!)
+        } else {
+            inputField.setup(title: inputHandler.title)
+        }
         inputField.text = inputHandler.defaultInput
     }
 }

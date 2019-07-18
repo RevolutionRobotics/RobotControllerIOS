@@ -114,6 +114,7 @@
 		2A0789ED2293393600CFFDD6 /* MultiTaskerConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0789EC2293393600CFFDD6 /* MultiTaskerConfigurationView.xib */; };
 		2A0789F2229339A400CFFDD6 /* DriverConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0789F1229339A400CFFDD6 /* DriverConfigurationView.swift */; };
 		2A18002D227AE5800082E801 /* ModalKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A18002C227AE5800082E801 /* ModalKeys.swift */; };
+		2A19F6F822DF1DCB0017CC5B /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A19F6F722DF1DCB0017CC5B /* String+Emoji.swift */; };
 		2A1C8AEF22A7E28D0023F08F /* DisconnectModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C8AEE22A7E28D0023F08F /* DisconnectModalView.swift */; };
 		2A1C8AF122A7E2A90023F08F /* DisconnectModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A1C8AF022A7E2A90023F08F /* DisconnectModalView.xib */; };
 		2A227C7622B396390032948B /* ControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A227C7522B396390032948B /* ControllerViewModel.swift */; };
@@ -477,6 +478,7 @@
 		2A0789EC2293393600CFFDD6 /* MultiTaskerConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultiTaskerConfigurationView.xib; sourceTree = "<group>"; };
 		2A0789F1229339A400CFFDD6 /* DriverConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverConfigurationView.swift; sourceTree = "<group>"; };
 		2A18002C227AE5800082E801 /* ModalKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalKeys.swift; sourceTree = "<group>"; };
+		2A19F6F722DF1DCB0017CC5B /* String+Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Emoji.swift"; sourceTree = "<group>"; };
 		2A1C8AEE22A7E28D0023F08F /* DisconnectModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectModalView.swift; sourceTree = "<group>"; };
 		2A1C8AF022A7E2A90023F08F /* DisconnectModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisconnectModalView.xib; sourceTree = "<group>"; };
 		2A227C7522B396390032948B /* ControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerViewModel.swift; sourceTree = "<group>"; };
@@ -1697,6 +1699,7 @@
 			children = (
 				099FF24522C360D500CD9104 /* String+Base64.swift */,
 				2ADE8C282270A61000ECEC72 /* String+Translate.swift */,
+				2A19F6F722DF1DCB0017CC5B /* String+Emoji.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -2424,6 +2427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A19F6F822DF1DCB0017CC5B /* String+Emoji.swift in Sources */,
 				2AB0521F22D499EB007B42F8 /* DeleteModalView.swift in Sources */,
 				2AB0522122D49D22007B42F8 /* ChallengeFinishedModalView.swift in Sources */,
 				2A5A07EE22DDE207002B3EE3 /* Reachability.swift in Sources */,

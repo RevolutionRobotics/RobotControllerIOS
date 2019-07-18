@@ -14,13 +14,14 @@ final class SliderInputModalView: UIView {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var sliderMaxValueLabel: UILabel!
     @IBOutlet private weak var slider: UISlider!
-    @IBOutlet private weak var valueLabel: UILabel!
     @IBOutlet private weak var doneButton: RRButton!
 
     // MARK: - Properties
     private var valueSelected: CallbackType<String>?
+}
 
-    // MARK: - Lifecycle
+// MARK: - View lifecycle
+extension SliderInputModalView {
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -47,7 +48,7 @@ extension SliderInputModalView {
     }
 
     @objc private func updateValueLabel(for slider: UISlider) {
-        valueLabel.text = "\(Int(slider.value.rounded()))"
+        sliderMaxValueLabel.text = "\(Int(slider.value.rounded()))"
     }
 }
 

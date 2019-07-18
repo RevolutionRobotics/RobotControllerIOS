@@ -25,7 +25,7 @@ extension OptionSelectorButton {
         self.option = option
         self.optionSelected = optionSelected
 
-        label.text = option.value
+        label.text = option.value.isEmoji ? nil : option.value
         button.backgroundColor = isSelected ? Color.blackTwo : Color.black
         button.setBorder(fillColor: .clear, strokeColor: isSelected ? .white : Color.blackTwo)
         button.setImage(UIImage(named: option.key), for: .normal)

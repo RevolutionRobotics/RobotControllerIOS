@@ -31,7 +31,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="aGi-eA-ZD0">
-                    <rect key="frame" x="30" y="105" width="345.5" height="31"/>
+                    <rect key="frame" x="30" y="105" width="360" height="31"/>
                     <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="maximumTrackTintColor" name="White40"/>
                     <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,15 +50,12 @@
                         <action selector="doneButtonTapped:" destination="lde-uL-R23" eventType="touchUpInside" id="uPV-UN-1Tx"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ko9-WY-SwW">
-                    <rect key="frame" x="389.5" y="110.5" width="38.5" height="19"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="170" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ko9-WY-SwW">
+                    <rect key="frame" x="404" y="110.5" width="24" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="8Zp-YG-P3n"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="16"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCK-YG-gSx">
-                    <rect key="frame" x="213" y="69" width="34" height="17"/>
-                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -75,9 +72,7 @@
                 <constraint firstItem="l4h-R5-D84" firstAttribute="leading" secondItem="lde-uL-R23" secondAttribute="leading" constant="32" id="dcV-KB-dPX"/>
                 <constraint firstAttribute="trailing" secondItem="Ko9-WY-SwW" secondAttribute="trailing" constant="32" id="eRr-K0-QOi"/>
                 <constraint firstItem="l4h-R5-D84" firstAttribute="top" secondItem="lde-uL-R23" secondAttribute="top" constant="32" id="gIK-5H-GVK"/>
-                <constraint firstItem="ZCK-YG-gSx" firstAttribute="centerX" secondItem="l4h-R5-D84" secondAttribute="centerX" id="ilu-iB-887"/>
                 <constraint firstAttribute="bottom" secondItem="5ws-SJ-Rta" secondAttribute="bottom" constant="4" id="n2g-MQ-aiq"/>
-                <constraint firstItem="ZCK-YG-gSx" firstAttribute="top" secondItem="l4h-R5-D84" secondAttribute="bottom" constant="16" id="su6-Ma-yPb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -85,7 +80,6 @@
                 <outlet property="slider" destination="aGi-eA-ZD0" id="IRQ-zg-UqS"/>
                 <outlet property="sliderMaxValueLabel" destination="Ko9-WY-SwW" id="baa-hI-9kN"/>
                 <outlet property="titleLabel" destination="l4h-R5-D84" id="AvM-ZT-LCI"/>
-                <outlet property="valueLabel" destination="ZCK-YG-gSx" id="xGK-ZH-zg0"/>
             </connections>
             <point key="canvasLocation" x="24.637681159420293" y="84.375"/>
         </view>

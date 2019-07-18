@@ -275,5 +275,5 @@
 "framework_confirmation_dialog_no_button" = "No";
 
 "program_leave_confirmation_dialog_leave_button" = "Save and leave";
-"dialog_load_program_confirm_button_negative" = "Discard changes";
+"dialog_load_program_confirm_button_negative" = "Leave";
 "dialog_load_program_confirm_button_positive" = "Save and open";

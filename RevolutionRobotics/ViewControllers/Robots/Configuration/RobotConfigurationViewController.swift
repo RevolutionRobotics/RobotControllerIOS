@@ -351,8 +351,9 @@ extension RobotConfigurationViewController {
                                       RobotsKeys.Configure.controllerTabTitle.translate()])
         segmentedControl.selectionCallback = { [weak self] selectedSegment in
             self?.segmentSelected(selectedSegment)
+            guard let configuration = self?.configuration else { return }
             if selectedSegment == .controllers {
-                if (self?.configuration?.controller.isEmpty)! {
+                if configuration.controller.isEmpty {
                     let controllersViewController =
                         AppContainer.shared.container.unwrappedResolve(ControllerLayoutSelectorViewController.self)
                     controllersViewController.configurationId = self?.configuration?.id
