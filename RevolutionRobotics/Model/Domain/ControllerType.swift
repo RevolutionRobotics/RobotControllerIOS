@@ -10,12 +10,15 @@ import Foundation
 import UIKit
 
 enum ControllerType: String {
+    case new
     case gamer
     case multiTasker
     case driver
 
     var image: UIImage? {
         switch self {
+        case .new:
+            return UIImage(named: "AddIcon")
         case .gamer:
             return Image.Controller.gamer
         case .multiTasker:
@@ -27,6 +30,8 @@ enum ControllerType: String {
 
     var displayName: String {
         switch self {
+        case .new:
+            return ControllerKeys.new.translate()
         case .gamer:
             return ControllerKeys.gamer.translate()
         case .multiTasker:

@@ -59,6 +59,8 @@ extension PlayControllerViewController {
                 return
         }
         switch type {
+        case .new:
+            return
         case .gamer:
             padView = GamerPadView.instatiate()
         case .driver:

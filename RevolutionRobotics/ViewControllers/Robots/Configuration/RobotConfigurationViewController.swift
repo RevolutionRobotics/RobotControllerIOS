@@ -12,6 +12,8 @@ import os
 final class RobotConfigurationViewController: BaseViewController {
     // MARK: - Constants
     private enum Constants {
+        static let newCellNib = "ControllerCollectionViewCell"
+        static let newCellReuseId = "cell_new"
         static let defaultRobotImage = "defaultRobotImage"
         static let cellRatio: CGFloat = 213 / 190
     }
@@ -49,7 +51,6 @@ final class RobotConfigurationViewController: BaseViewController {
     @IBOutlet private weak var rightButton: UIButton!
     @IBOutlet private weak var collectionView: RRCollectionView!
     @IBOutlet private weak var controllerCollectionView: UIView!
-    @IBOutlet private weak var createNewButton: SideButton!
     @IBOutlet private weak var leftButtonLeadingConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
@@ -57,14 +58,23 @@ final class RobotConfigurationViewController: BaseViewController {
     var firebaseService: FirebaseServiceInterface!
     var viewModel: ViewModel!
     private let photoModal = PhotoModalView.instatiate()
+    private let newControllerModel = ControllerDataModel(
+        id: "",
+        configurationId: "",
+        type: ControllerType.new.rawValue,
+        mapping: ControllerButtonMappingDataModel()
+    )
+
     private var robotImage: UIImage?
     private var shouldPrefillConfiguration = false
     private var controllers: [ControllerDataModel] = [] {
         didSet {
             var controllerTitle = RobotsKeys.Configure.controllerTabTitle.translate()
             if !controllers.isEmpty {
-                self.collectionView.reloadSections(IndexSet(integer: 0))
-                self.collectionView.refreshCollectionView()
+                collectionView.reloadSections(IndexSet(integer: 0))
+                collectionView.refreshCollectionView(callback: { [weak self] in
+                    self?.collectionView.selectCell(at: 1)
+                })
             } else {
                 if controllers.isEmpty {
                     controllerTitle += " ⚠️"
@@ -105,13 +115,6 @@ extension RobotConfigurationViewController {
         if shouldPrefillConfiguration {
             refreshConfigurationData()
         }
-        createNewButton.title = ControllerKeys.createNew.translate()
-        createNewButton.selectionHandler = { [weak self] in
-            let controllersViewController =
-                AppContainer.shared.container.unwrappedResolve(ControllerLayoutSelectorViewController.self)
-            controllersViewController.configurationId = self?.configuration?.id
-            self?.navigationController?.pushViewController(controllersViewController, animated: true)
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -122,10 +125,11 @@ extension RobotConfigurationViewController {
         }
 
         collectionView.setupLayout()
-        if UIView.notchSize > CGFloat.zero {
+        if UIView.notchSize > .zero {
             leftButtonLeadingConstraint.constant = UIView.actualNotchSize
         }
-        controllers = realmService.getControllers()
+
+        controllers = [newControllerModel] + realmService.getControllers()
             .filter({ $0.configurationId == configuration!.id })
             .sorted(by: { $0.lastModified > $1.lastModified })
     }
@@ -139,7 +143,20 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: ControllerCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        let cell: ControllerCollectionViewCell
+        if controllers[indexPath.row].type == ControllerType.new.rawValue {
+            guard let newCell = collectionView
+                .dequeueReusableCell(withReuseIdentifier: Constants.newCellReuseId, for: indexPath)
+                as? ControllerCollectionViewCell
+            else {
+                fatalError("Failed to dequeue new controller cell")
+            }
+
+            cell = newCell
+        } else {
+            cell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        }
+
         cell.indexPath = indexPath
         cell.setup(with: controllers[indexPath.row])
         cell.isControllerSelected = configuration?.controller == controllers[indexPath.row].id
@@ -214,6 +231,11 @@ extension RobotConfigurationViewController: UICollectionViewDataSource {
 // MARK: - RRCollectionViewDelegate
 extension RobotConfigurationViewController: RRCollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.item > 0 else {
+            navigateToNewController()
+            return
+        }
+
         guard let cell = collectionView.cellForItem(at: indexPath) as? ControllerCollectionViewCell,
             lastSelectedIndexPath != indexPath else { return }
 
@@ -222,7 +244,7 @@ extension RobotConfigurationViewController: RRCollectionViewDelegate {
             return
         }
 
-        for index in 0...collectionView.numberOfItems(inSection: 0) {
+        for index in 0..<collectionView.numberOfItems(inSection: 0) {
             let cell =
                 collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? ControllerCollectionViewCell
             cell?.isControllerSelected = false
@@ -350,15 +372,19 @@ extension RobotConfigurationViewController {
         segmentedControl.setup(with: [RobotsKeys.Configure.connectionTabTitle.translate(),
                                       RobotsKeys.Configure.controllerTabTitle.translate()])
         segmentedControl.selectionCallback = { [weak self] selectedSegment in
-            self?.segmentSelected(selectedSegment)
-            guard let configuration = self?.configuration else { return }
+            guard let `self` = self else { return }
+
+            self.segmentSelected(selectedSegment)
+            guard let configuration = self.configuration else { return }
             if selectedSegment == .controllers {
                 if configuration.controller.isEmpty {
                     let controllersViewController =
                         AppContainer.shared.container.unwrappedResolve(ControllerLayoutSelectorViewController.self)
-                    controllersViewController.configurationId = self?.configuration?.id
-                    self?.navigationController?.pushViewController(controllersViewController, animated: true)
+                    controllersViewController.configurationId = self.configuration?.id
+                    self.navigationController?.pushViewController(controllersViewController, animated: true)
                 }
+            } else {
+                self.collectionView.selectCell(at: 1)
             }
         }
         segmentedControl.setSelectedIndex(segmentedControl.selectedSegment.rawValue)
@@ -369,7 +395,7 @@ extension RobotConfigurationViewController {
         controllerCollectionView.isHidden = segment == .connections
         if segment == .controllers {
             collectionView.reloadSections(IndexSet(integer: 0))
-            if !controllers.isEmpty {
+            if controllers.count > 1 {
                 collectionView.refreshCollectionView()
             }
         }
@@ -382,9 +408,12 @@ extension RobotConfigurationViewController {
     }
 
     private func setupCollectionView() {
+        let newCellNib = UINib(nibName: Constants.newCellNib, bundle: nil)
+
         collectionView.rrDelegate = self
         collectionView.dataSource = self
         collectionView.register(ControllerCollectionViewCell.self)
+        collectionView.register(newCellNib, forCellWithReuseIdentifier: Constants.newCellReuseId)
         collectionView.cellRatio = Constants.cellRatio
     }
 }
@@ -425,6 +454,13 @@ extension RobotConfigurationViewController {
         realmService.saveRobot(robot, shouldUpdate: true)
         realmService.saveConfigurations([configuration])
         selectedRobot = robot
+    }
+
+    private func navigateToNewController() {
+        let controllersViewController = AppContainer.shared.container
+            .unwrappedResolve(ControllerLayoutSelectorViewController.self)
+        controllersViewController.configurationId = configuration?.id
+        navigationController?.pushViewController(controllersViewController, animated: true)
     }
 
     private func updateConfiguration(on robot: UserRobot, name: String, description: String?) {

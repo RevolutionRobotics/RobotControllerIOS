@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YourRobotsViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
-                <outlet property="buildNewButton" destination="RzR-w5-NTv" id="Oqh-2j-Jgp"/>
                 <outlet property="collectionView" destination="CbJ-Mi-Gfm" id="w7x-ye-zAJ"/>
                 <outlet property="emptyStateImageView" destination="cQA-Lh-BeE" id="k2g-VA-P3a"/>
                 <outlet property="leftButton" destination="H8J-XN-649" id="hIy-L8-kBe"/>
@@ -50,14 +49,6 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RzR-w5-NTv" userLabel="sideButton" customClass="SideButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="787" y="333" width="109" height="52"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="109" id="hUM-Pg-PHj"/>
-                        <constraint firstAttribute="height" constant="52" id="prJ-vl-SQx"/>
-                    </constraints>
-                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejH-0k-pKe">
                     <rect key="frame" x="871" y="182" width="25" height="50"/>
                     <state key="normal" image="RightButton"/>
@@ -91,9 +82,7 @@
                 <constraint firstItem="cQA-Lh-BeE" firstAttribute="top" secondItem="wMT-cF-hD1" secondAttribute="bottom" constant="32" id="frj-lt-4oY"/>
                 <constraint firstAttribute="bottom" secondItem="cQA-Lh-BeE" secondAttribute="bottom" constant="54" id="gh0-6B-Wa5"/>
                 <constraint firstItem="wMT-cF-hD1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lBT-jk-2Tj"/>
-                <constraint firstItem="ES3-7Z-Wkg" firstAttribute="bottom" secondItem="RzR-w5-NTv" secondAttribute="bottom" constant="8" id="qLf-bL-eka"/>
                 <constraint firstItem="wMT-cF-hD1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rPq-Fk-ku8"/>
-                <constraint firstAttribute="trailing" secondItem="RzR-w5-NTv" secondAttribute="trailing" id="s8o-e9-KOa"/>
                 <constraint firstItem="CbJ-Mi-Gfm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uVb-Bh-f2E"/>
                 <constraint firstAttribute="bottom" secondItem="0I6-N1-gZz" secondAttribute="bottom" id="xr3-je-lNa"/>
             </constraints>

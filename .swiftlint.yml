@@ -102,7 +102,6 @@ legacy_nsgeometry_functions:
   severity: error
 line_length:
   - 120 #warning
-  - 120 #error
 mark:
   severity: error
 nimble_operator:
@@ -136,7 +135,7 @@ trailing_newline:
 trailing_semicolon:
   severity: error
 trailing_whitespace:
-  severity: error
+  severity: warning
 type_name:
   severity: error
 unused_closure_parameter:
@@ -147,7 +146,7 @@ identifier_name:
 vertical_parameter_alignment:
   severity: error
 vertical_whitespace:
-  severity: error
+  severity: warning
 void_return:
   severity: error
 weak_delegate:

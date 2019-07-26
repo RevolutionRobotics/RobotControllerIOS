@@ -293,6 +293,8 @@ extension PadConfigurationViewController {
     private func instantiateConfigurationView() {
         guard let controllerType = controllerType else { return }
         switch controllerType {
+        case .new:
+            return
         case .gamer:
             configurationView = GamerConfigurationView.instatiate()
         case .driver:

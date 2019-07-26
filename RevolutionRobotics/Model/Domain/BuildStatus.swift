@@ -9,7 +9,8 @@
 import Foundation
 
 enum BuildStatus: Int {
-    case initial = 0
+    case new = 0
+    case initial
     case inProgress
     case completed
     case invalidConfiguration

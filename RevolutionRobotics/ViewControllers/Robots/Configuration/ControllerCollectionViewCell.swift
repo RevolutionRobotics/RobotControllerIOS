@@ -37,10 +37,11 @@ final class ControllerCollectionViewCell: ResizableCell {
     private var baseDescriptionFontSize: CGFloat = 0
     private var baseLastModifiedFontSize: CGFloat = 0
     private var baseSelectedFontSize: CGFloat = 0
+    private var isNewControllerCard: Bool = false
 
     override var isCentered: Bool {
         didSet {
-            selectedView.isHidden = !isCentered
+            selectedView.isHidden = !isCentered || isNewControllerCard
             setState()
         }
     }
@@ -75,9 +76,20 @@ extension ControllerCollectionViewCell {
 // MARK: - Setup
 extension ControllerCollectionViewCell {
     func setup(with controller: ControllerDataModel) {
-        nameLabel.text = controller.name
+        isNewControllerCard = controller.type == ControllerType.new.rawValue
+
+        nameLabel.text = isNewControllerCard ? ControllerType.new.displayName : controller.name
         controllerImageView.image = ControllerType(rawValue: controller.type)?.image
         lastModifiedLabel.text = DateFormatter.string(from: controller.lastModified, format: .yearMonthDay)
+
+        guard isNewControllerCard else {
+            return
+        }
+
+        NSLayoutConstraint.activate([
+            controllerImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            selectedLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+        ])
     }
 }
 
@@ -99,10 +111,17 @@ extension ControllerCollectionViewCell {
 // MARK: - Private methods
 extension ControllerCollectionViewCell {
     private func setState() {
-        infoButton.isUserInteractionEnabled = isCentered
-        deleteButton.isUserInteractionEnabled = isCentered
-        modifyButton.isUserInteractionEnabled = isCentered
-        if isControllerSelected {
+        let buttonsEnabled = isCentered && !isNewControllerCard
+
+        infoButton.isUserInteractionEnabled = buttonsEnabled
+        deleteButton.isUserInteractionEnabled = buttonsEnabled
+        modifyButton.isUserInteractionEnabled = buttonsEnabled
+
+        if isNewControllerCard {
+            selectedLabel.text = ControllerKeys.create.translate()
+            backgroundImageView.image = isCentered ? Image.BuildRobot.cellRedBorder : Image.BuildRobot.cellWhiteBorder
+            return
+        } else if isControllerSelected {
             selectedLabel.text = RobotsKeys.Controllers.controllerSelected.translate()
             backgroundImageView.image =
                 isCentered ? Image.Configuration.Controllers.cellRedBorderSelected :
