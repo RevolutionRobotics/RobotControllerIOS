@@ -9,15 +9,9 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Barlow-Regular.ttf">
-            <string>Barlow-Regular</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WhoToBuildViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
-                <outlet property="buildYourOwnButton" destination="ONa-fq-Gt8" id="NfM-s2-daN"/>
                 <outlet property="collectionView" destination="Khj-tZ-cCT" id="PCS-GE-39m"/>
                 <outlet property="leftButton" destination="mzB-FK-UOJ" id="CKf-SO-KL2"/>
                 <outlet property="leftButtonLeadingConstraint" destination="P8o-gD-OoZ" id="GTr-1r-DTg"/>
@@ -37,27 +31,9 @@
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDH-Vx-iGI" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="896" height="71"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONa-fq-Gt8" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="686" y="8" width="156" height="29"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="156" id="fR2-qj-AJS"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="15"/>
-                            <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="build your own" image="AddIcon">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <connections>
-                                <action selector="builYourOwnButtonTapped:" destination="-1" eventType="touchUpInside" id="kww-mp-yYy"/>
-                            </connections>
-                        </button>
-                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="ONa-fq-Gt8" secondAttribute="trailing" constant="54" id="Bld-22-3tZ"/>
                         <constraint firstAttribute="height" constant="71" id="KT3-D7-MaS"/>
-                        <constraint firstItem="ONa-fq-Gt8" firstAttribute="top" secondItem="cDH-Vx-iGI" secondAttribute="top" constant="8" id="yMS-cn-WMC"/>
                     </constraints>
                 </view>
                 <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Khj-tZ-cCT" customClass="RRCollectionView" customModule="RevolutionRobotics" customModuleProvider="target">
@@ -113,7 +89,6 @@
         </view>
     </objects>
     <resources>
-        <image name="AddIcon" width="30" height="29"/>
         <image name="GlowBackground" width="568" height="320"/>
         <image name="LeftButton" width="25" height="50"/>
         <image name="RightButton" width="25" height="50"/>
