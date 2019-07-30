@@ -387,7 +387,7 @@ extension RobotConfigurationViewController {
                 self.collectionView.selectCell(at: 1)
             }
         }
-        segmentedControl.setSelectedIndex(segmentedControl.selectedSegment.rawValue)
+        segmentedControl.setSelectedIndex(0)
     }
 
     private func segmentSelected(_ segment: ConfigurationSegment) {
