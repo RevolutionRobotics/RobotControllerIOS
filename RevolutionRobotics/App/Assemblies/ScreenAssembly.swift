@@ -47,6 +47,7 @@ extension ScreenAssembly {
             .initCompleted { (resolver, viewController) in
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
+                viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
             }
             .inObjectScope(.weak)
     }

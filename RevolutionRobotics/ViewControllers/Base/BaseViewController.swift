@@ -14,7 +14,7 @@ class BaseViewController: UIViewController, RRNavigationBarDelegate {
     // MARK: - Constants
     private enum Constants {
         static let menuFadeStrength: CGFloat = 0.65
-        static let menuWidth: CGFloat = UIScreen.main.bounds.width / 3 < 215.0 ? 215.0 : UIScreen.main.bounds.width / 3
+        static let menuWidth: CGFloat = max(UIScreen.main.bounds.width / 3, 215.0)
         static let communityURL: URL = URL(string: "https://revolutionrobotics.discourse.group")!
         static let keyboardTopSpace: CGFloat = 20
     }

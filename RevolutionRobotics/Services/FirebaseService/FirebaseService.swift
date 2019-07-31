@@ -25,6 +25,7 @@ final class FirebaseService {
 // MARK: - FirebaseServiceInterface
 extension FirebaseService: FirebaseServiceInterface {
     func prefetchData(onError: CallbackType<Error>?) {
+        getMinVersion(completion: nil)
         getRobots(completion: { [weak self] result in
             switch result {
             case .success(let robots):
@@ -50,6 +51,10 @@ extension FirebaseService: FirebaseServiceInterface {
                 onError?(error)
             }
         })
+    }
+
+    func getMinVersion(completion: CallbackType<Result<Version, FirebaseError>>?) {
+        getData(Version.self, completion: completion)
     }
 
     func getConfiguration(id: String, completion: CallbackType<Result<Configuration?, FirebaseError>>?) {
