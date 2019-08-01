@@ -143,6 +143,14 @@ extension YourRobotsViewController: UICollectionViewDataSource {
         }
     }
 
+    private func presentRobotOptionsModal(with indexPath: IndexPath) {
+        let robot = robots[indexPath.item]
+        let modifyView = RobotOptionsModalView.instatiate()
+        setupHandlers(on: modifyView, with: robot, for: indexPath)
+        modifyView.robot = robot
+        presentModal(with: modifyView)
+    }
+
     private func setupHandlers(on view: RobotOptionsModalView, with robot: UserRobot?, for indexPath: IndexPath) {
         view.deleteHandler = { [weak self] in
             guard let robot = robot else { return }
@@ -157,6 +165,9 @@ extension YourRobotsViewController: UICollectionViewDataSource {
                 self?.dismissModalViewController()
             }
             self?.presentModal(with: deleteView)
+        }
+        view.editHandler = { [weak self] in
+            self?.presentRobotConfiguration(with: indexPath)
         }
         view.duplicateHandler = { [weak self] in
             guard let robot = robot else { return }
