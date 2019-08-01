@@ -151,20 +151,24 @@ extension YourRobotsViewController: UICollectionViewDataSource {
         presentModal(with: modifyView)
     }
 
+    private func presentDeleteModal(with indexPath: IndexPath) {
+        let robot = robots[indexPath.item]
+        dismissModalViewController()
+        let deleteView = DeleteModalView.instatiate()
+        deleteView.title = ModalKeys.DeleteRobot.description.translate()
+        deleteView.deleteButtonHandler = { [weak self] in
+            self?.deleteRobot(robot)
+            self?.dismissModalViewController()
+        }
+        deleteView.cancelButtonHandler = { [weak self] in
+            self?.dismissModalViewController()
+        }
+        presentModal(with: deleteView)
+    }
+
     private func setupHandlers(on view: RobotOptionsModalView, with robot: UserRobot?, for indexPath: IndexPath) {
         view.deleteHandler = { [weak self] in
-            guard let robot = robot else { return }
-            self?.dismissModalViewController()
-            let deleteView = DeleteModalView.instatiate()
-            deleteView.title = ModalKeys.DeleteRobot.description.translate()
-            deleteView.deleteButtonHandler = { [weak self] in
-                self?.deleteRobot(robot)
-                self?.dismissModalViewController()
-            }
-            deleteView.cancelButtonHandler = { [weak self] in
-                self?.dismissModalViewController()
-            }
-            self?.presentModal(with: deleteView)
+            self?.presentDeleteModal(with: indexPath)
         }
         view.editHandler = { [weak self] in
             self?.presentRobotConfiguration(with: indexPath)
@@ -253,6 +257,13 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
         configuration.saveCallback = { [weak self] in
             self?.collectionView.reloadData()
         }
+        configuration.duplicateCallback = { [weak self] in
+            self?.duplicate(robot)
+        }
+        configuration.deleteCallback = { [weak self] in
+            self?.deleteRobot(robot)
+        }
+
         navigationController?.pushViewController(configuration, animated: true)
     }
 }

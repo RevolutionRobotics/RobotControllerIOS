@@ -51,7 +51,7 @@ extension WhoToBuildCollectionViewCell {
         buildTimeLabel.text = robot.buildTime
         robotImageView.downloadImage(googleStorageURL: robot.coverImageGSURL)
     }
-    
+
     func configureNew() {
         clockImageView.isHidden = true
         robotNameLabel.text = "Build your own"
