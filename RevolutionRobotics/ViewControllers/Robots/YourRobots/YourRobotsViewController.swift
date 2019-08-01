@@ -12,7 +12,6 @@ import os
 final class YourRobotsViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet private weak var navigationBar: RRNavigationBar!
-    @IBOutlet private weak var buildNewButton: SideButton!
     @IBOutlet private weak var rightButton: UIButton!
     @IBOutlet private weak var leftButton: UIButton!
     @IBOutlet private weak var collectionView: RRCollectionView!
@@ -24,7 +23,7 @@ final class YourRobotsViewController: BaseViewController {
     var firebaseService: FirebaseServiceInterface!
     private var robots: [UserRobot] = [] {
         didSet {
-            robots = robots.sorted(by: { $0.lastModified > $1.lastModified })
+            robots = [newRobot] + robots.sorted(by: { $0.lastModified > $1.lastModified })
             collectionView.reloadSections(IndexSet(integer: 0))
             if !robots.isEmpty {
                 self.collectionView.refreshCollectionView()
@@ -32,6 +31,19 @@ final class YourRobotsViewController: BaseViewController {
         }
     }
     private var selectedIndexPath: IndexPath?
+    private let newCellNib = "YourRobotsCollectionViewCell"
+    private let newCellReuseId = "robot_new"
+    private let newRobot = UserRobot(
+        id: "",
+        remoteId: "",
+        buildStatus: .new,
+        actualBuildStep: 0,
+        lastModified: Date(),
+        configId: "",
+        customName: RobotsKeys.YourRobots.newRobotName.translate(),
+        customImage: nil,
+        customDescription: ""
+    )
 }
 
 // MARK: - View lifecycle
@@ -41,21 +53,18 @@ extension YourRobotsViewController {
 
         navigationBar.setup(title: RobotsKeys.YourRobots.title.translate(), delegate: self)
         navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
-        buildNewButton.title = RobotsKeys.YourRobots.buildNewButtonTitle.translate()
-        buildNewButton.selectionHandler = { [weak self] in
-            let whoToBuildViewController = AppContainer.shared.container.unwrappedResolve(WhoToBuildViewController.self)
-            self?.navigationController?.pushViewController(whoToBuildViewController, animated: true)
-        }
         setupCollectionView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.setupLayout()
-        if UIView.notchSize > CGFloat.zero {
+        if UIView.notchSize > .zero {
             leftButtonLeadingConstraint.constant = UIView.actualNotchSize
         }
         robots = realmService.getRobots()
+        collectionView.selectCell(at: 1)
+
         guard let indexPath = selectedIndexPath else {
             return
         }
@@ -64,9 +73,12 @@ extension YourRobotsViewController {
     }
 
     private func setupCollectionView() {
+        let newRobotNib = UINib(nibName: newCellNib, bundle: nil)
+
         collectionView.rrDelegate = self
         collectionView.dataSource = self
         collectionView.register(YourRobotsCollectionViewCell.self)
+        collectionView.register(newRobotNib, forCellWithReuseIdentifier: newCellReuseId)
     }
 }
 
@@ -92,6 +104,18 @@ extension YourRobotsViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard robots[indexPath.item].buildStatus != BuildStatus.new.rawValue else {
+            guard let newCell = collectionView.dequeueReusableCell(withReuseIdentifier: newCellReuseId, for: indexPath)
+                as? YourRobotsCollectionViewCell else {
+                fatalError("Failed to dequeue new robot cell")
+            }
+
+            newCell.indexPath = indexPath
+            newCell.configure(with: newRobot)
+            newCell.optionsButtonHandler = navigateToNewRobot
+            return newCell
+        }
+
         let cell: YourRobotsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.indexPath = indexPath
         cell.configure(with: robots[indexPath.item])
@@ -125,15 +149,22 @@ extension YourRobotsViewController: UICollectionViewDataSource {
             self?.presentModal(with: deleteView)
         }
         view.editHandler = { [weak self] in
-            guard let robot = robot, let robotStatus = BuildStatus(rawValue: robot.buildStatus) else { return }
-            self?.selectedIndexPath = indexPath
-            self?.dismissModalViewController()
+            guard
+                let `self` = self,
+                let robot = robot,
+                let robotStatus = BuildStatus(rawValue: robot.buildStatus)
+            else { return }
+
+            self.selectedIndexPath = indexPath
+            self.dismissModalViewController()
 
             switch robotStatus {
             case .initial, .inProgress:
-                self?.navigateToBuildYourRobotViewController(with: robot)
+                self.navigateToBuildYourRobotViewController(with: robot)
             case .invalidConfiguration, .completed:
-                self?.navigateToConfiguration(with: robot)
+                self.navigateToConfiguration(with: robot)
+            default:
+                fatalError("Unknown build status")
             }
         }
         view.duplicateHandler = { [weak self] in
@@ -147,6 +178,11 @@ extension YourRobotsViewController: UICollectionViewDataSource {
         robots = realmService.getRobots()
         collectionView.reloadData()
         dismissModalViewController()
+    }
+
+    private func navigateToNewRobot() {
+        let whoToBuildViewController = AppContainer.shared.container.unwrappedResolve(WhoToBuildViewController.self)
+        navigationController?.pushViewController(whoToBuildViewController, animated: true)
     }
 
     private func deleteRobot(_ robot: UserRobot) {
@@ -163,15 +199,18 @@ extension YourRobotsViewController: UICollectionViewDataSource {
 // MARK: - RRCollectionViewDelegate
 extension YourRobotsViewController: RRCollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let status = BuildStatus(rawValue: robots[indexPath.item].buildStatus) else { return }
+        let selectedIndex = indexPath.item
+        guard let status = BuildStatus(rawValue: robots[selectedIndex].buildStatus) else { return }
         selectedIndexPath = indexPath
         switch status {
+        case .new:
+            navigateToNewRobot()
         case .completed:
-            navigateToPlayControllerViewController(with: robots[indexPath.item])
+            navigateToPlayControllerViewController(with: robots[selectedIndex])
         case .initial, .inProgress:
-            navigateToBuildYourRobotViewController(with: robots[indexPath.item])
+            navigateToBuildYourRobotViewController(with: robots[selectedIndex])
         case .invalidConfiguration:
-            navigateToConfiguration(with: robots[indexPath.item])
+            navigateToConfiguration(with: robots[selectedIndex])
         }
     }
 

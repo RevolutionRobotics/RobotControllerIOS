@@ -31,6 +31,17 @@ final class YourRobotsCollectionViewCell: ResizableCell {
 
     override var isCentered: Bool {
         didSet {
+            guard statusImageView.image != nil else {
+                backgroundImageView.image =
+                    isCentered ? Image.BuildRobot.cellRedBorder :
+                    Image.BuildRobot.cellWhiteBorder
+
+                    NSLayoutConstraint.activate([
+                        actionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+                    ])
+                return
+            }
+
             backgroundImageView.image =
                 isCentered ? Image.YourRobots.cellRedBorderEditable :
                 Image.YourRobots.cellWhiteBorderEditable
@@ -58,7 +69,12 @@ extension YourRobotsCollectionViewCell {
 extension YourRobotsCollectionViewCell {
     func configure(with robot: UserRobot) {
         nameLabel.text = robot.customName
+        descriptionLabel.text = robot.customDescription
+
         switch robot.buildStatus {
+        case BuildStatus.new.rawValue:
+            configureNewCard()
+            return
         case BuildStatus.inProgress.rawValue, BuildStatus.initial.rawValue:
             actionLabel.text = RobotsKeys.YourRobots.continueBuilding.translate()
         case BuildStatus.completed.rawValue:
@@ -68,7 +84,7 @@ extension YourRobotsCollectionViewCell {
         default:
             break
         }
-        descriptionLabel.text = robot.customDescription
+
         let isCompleted = robot.buildStatus == BuildStatus.completed.rawValue
         statusImageView.image = isCompleted ? Image.Common.calendar : Image.Common.underConstruction
         lastModifiedLabel.text = isCompleted ?
@@ -83,6 +99,17 @@ extension YourRobotsCollectionViewCell {
                 robotImageView.image = Image.Common.imagePlaceholder
             }
         }
+    }
+
+    private func configureNewCard() {
+        actionLabel.text = RobotsKeys.YourRobots.create.translate()
+        robotImageView.image = UIImage(named: "AddIcon")
+        statusImageView.image = nil
+        lastModifiedLabel.text = nil
+
+        NSLayoutConstraint.activate([
+            robotImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
     }
 
     override func set(multiplier: CGFloat) {

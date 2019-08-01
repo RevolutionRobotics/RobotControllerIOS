@@ -26,6 +26,7 @@ final class WhoToBuildCollectionViewCell: ResizableCell {
     @IBOutlet private weak var buildTimeLabel: UILabel!
     @IBOutlet private weak var robotImageView: UIImageView!
     @IBOutlet private weak var robotNameLabel: UILabel!
+    @IBOutlet private weak var clockImageView: UIImageView!
     @IBOutlet private weak var clockImageLeadingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var clockImageBottomConstraint: NSLayoutConstraint!
 
@@ -49,6 +50,18 @@ extension WhoToBuildCollectionViewCell {
         robotNameLabel.text = robot.name.text
         buildTimeLabel.text = robot.buildTime
         robotImageView.downloadImage(googleStorageURL: robot.coverImageGSURL)
+    }
+    
+    func configureNew() {
+        clockImageView.isHidden = true
+        robotNameLabel.text = "Build your own"
+        robotImageView.image = UIImage(named: "AddIcon")
+        buildTimeLabel.text = nil
+
+        NSLayoutConstraint.activate([
+            robotImageView.heightAnchor.constraint(equalToConstant: 60.0),
+            robotImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
     }
 
     override func set(multiplier: CGFloat) {

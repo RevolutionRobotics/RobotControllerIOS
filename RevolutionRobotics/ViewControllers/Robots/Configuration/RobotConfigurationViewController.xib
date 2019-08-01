@@ -15,7 +15,6 @@
                 <outlet property="collectionView" destination="WVt-Oi-mfz" id="Byt-fz-mf6"/>
                 <outlet property="configurationView" destination="R0b-BO-qaQ" id="LHe-85-74R"/>
                 <outlet property="controllerCollectionView" destination="mYC-o0-2cD" id="zim-pb-SNy"/>
-                <outlet property="createNewButton" destination="Pr2-V4-VDh" id="o1Q-GI-O3e"/>
                 <outlet property="leftButton" destination="t8S-aZ-NOv" id="c1L-O5-XT0"/>
                 <outlet property="leftButtonLeadingConstraint" destination="7uc-jL-dNt" id="BdB-5l-OP0"/>
                 <outlet property="navigationBar" destination="oyj-RX-Rpw" id="CUl-UR-9sA"/>
@@ -102,22 +101,12 @@
                             <rect key="frame" x="0.0" y="15" width="414" height="232"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pr2-V4-VDh" userLabel="sideButton" customClass="SideButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="305" y="204" width="109" height="52"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="109" id="7qG-M0-8ci"/>
-                                <constraint firstAttribute="height" constant="52" id="PX6-W4-KYB"/>
-                            </constraints>
-                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="Pr2-V4-VDh" secondAttribute="bottom" constant="6" id="Chd-Pt-39J"/>
                         <constraint firstAttribute="bottom" secondItem="WVt-Oi-mfz" secondAttribute="bottom" constant="15" id="NXO-qW-eu3"/>
                         <constraint firstItem="WVt-Oi-mfz" firstAttribute="top" secondItem="mYC-o0-2cD" secondAttribute="top" constant="15" id="QuN-T3-PMK"/>
                         <constraint firstItem="WVt-Oi-mfz" firstAttribute="leading" secondItem="mYC-o0-2cD" secondAttribute="leading" id="gKv-hH-sAl"/>
-                        <constraint firstAttribute="trailing" secondItem="Pr2-V4-VDh" secondAttribute="trailing" id="tiY-Sq-6To"/>
                         <constraint firstAttribute="trailing" secondItem="WVt-Oi-mfz" secondAttribute="trailing" id="zzZ-oK-8Ei"/>
                     </constraints>
                 </view>

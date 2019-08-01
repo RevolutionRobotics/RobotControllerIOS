@@ -20,7 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WhoToBuildCollectionViewCell" id="gTV-IL-0wX" userLabel="WhoToBuildCollectionViewCell" customClass="WhoToBuildCollectionViewCell" customModule="RevolutionRobotics" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" userLabel="WhoToBuildCollectionViewCell" customClass="WhoToBuildCollectionViewCell" customModule="RevolutionRobotics" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="217" height="206"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -81,6 +81,7 @@
                 <outlet property="buildTimeLabel" destination="JeS-qf-oG6" id="cSj-rW-ZxS"/>
                 <outlet property="clockImageBottomConstraint" destination="6Ad-U5-4gR" id="ITD-kZ-kbR"/>
                 <outlet property="clockImageLeadingConstraint" destination="gSC-6q-Vhs" id="3dv-Vv-24x"/>
+                <outlet property="clockImageView" destination="umV-bW-z6B" id="eFa-RA-TGT"/>
                 <outlet property="robotImageView" destination="v1o-zG-JRy" id="RaG-S7-8M1"/>
                 <outlet property="robotNameLabel" destination="Ve1-vd-p6q" id="IO5-fp-LlQ"/>
             </connections>

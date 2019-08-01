@@ -15,4 +15,6 @@ enum ControllerKeys {
     static let configureTitle = "controller_setup_screen_title"
     static let configureEmpty = "controller_setup_empty"
     static let drive = "controller_setup_drive"
+    static let new = "controller_new"
+    static let create = "card_create"
 }
