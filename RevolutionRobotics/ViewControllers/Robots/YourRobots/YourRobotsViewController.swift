@@ -79,6 +79,13 @@ extension YourRobotsViewController {
         collectionView.dataSource = self
         collectionView.register(YourRobotsCollectionViewCell.self)
         collectionView.register(newRobotNib, forCellWithReuseIdentifier: newCellReuseId)
+
+        let longPressGesture = UILongPressGestureRecognizer(target: self,
+                                                            action: #selector(handleCellLongPress(recognizer:)))
+        longPressGesture.minimumPressDuration = 0.5
+        longPressGesture.delaysTouchesBegan = true
+
+        collectionView.addGestureRecognizer(longPressGesture)
     }
 }
 
@@ -90,6 +97,13 @@ extension YourRobotsViewController {
 
     @IBAction private func rightButtonTapped(_ sender: Any) {
         collectionView.rightStep()
+    }
+
+    @objc private func handleCellLongPress(recognizer: UILongPressGestureRecognizer) {
+        let point = recognizer.location(in: collectionView)
+        if let indexPath = collectionView.indexPathForItem(at: point) {
+            presentRobotOptionsModal(with: indexPath)
+        }
     }
 }
 
