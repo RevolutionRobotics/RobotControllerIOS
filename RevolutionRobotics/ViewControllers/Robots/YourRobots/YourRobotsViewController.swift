@@ -120,9 +120,27 @@ extension YourRobotsViewController: UICollectionViewDataSource {
         cell.indexPath = indexPath
         cell.configure(with: robots[indexPath.item])
         cell.optionsButtonHandler = { [weak self] in
-            self?.presentRobotOptionsModal(with: indexPath)
+            self?.presentRobotConfiguration(with: indexPath)
         }
         return cell
+    }
+
+    private func presentRobotConfiguration(with indexPath: IndexPath) {
+        let robot = robots[indexPath.item]
+        guard let buildStatus = BuildStatus(rawValue: robot.buildStatus) else {
+            return
+        }
+
+        selectedIndexPath = indexPath
+
+        switch buildStatus {
+        case .initial, .inProgress:
+            self.navigateToBuildYourRobotViewController(with: robot)
+        case .invalidConfiguration, .completed:
+            self.navigateToConfiguration(with: robot)
+        default:
+            fatalError("Unknown build status")
+        }
     }
 
     private func presentRobotOptionsModal(with indexPath: IndexPath) {
@@ -149,23 +167,7 @@ extension YourRobotsViewController: UICollectionViewDataSource {
             self?.presentModal(with: deleteView)
         }
         view.editHandler = { [weak self] in
-            guard
-                let `self` = self,
-                let robot = robot,
-                let robotStatus = BuildStatus(rawValue: robot.buildStatus)
-            else { return }
-
-            self.selectedIndexPath = indexPath
-            self.dismissModalViewController()
-
-            switch robotStatus {
-            case .initial, .inProgress:
-                self.navigateToBuildYourRobotViewController(with: robot)
-            case .invalidConfiguration, .completed:
-                self.navigateToConfiguration(with: robot)
-            default:
-                fatalError("Unknown build status")
-            }
+            self?.presentRobotConfiguration(with: indexPath)
         }
         view.duplicateHandler = { [weak self] in
             guard let robot = robot else { return }
