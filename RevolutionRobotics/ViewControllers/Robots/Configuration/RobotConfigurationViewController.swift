@@ -90,6 +90,8 @@ final class RobotConfigurationViewController: BaseViewController {
         }
     }
     var configuration: ConfigurationDataModel?
+    var deleteCallback: Callback?
+    var duplicateCallback: Callback?
     var saveCallback: Callback?
 
     override func backButtonDidTap() {
@@ -317,33 +319,19 @@ extension RobotConfigurationViewController {
 
     private func updateMotorPort(_ motor: MotorConfigViewModel?, on port: Int) {
         guard let motor = motor else { return }
-        if motor.state == .empty {
-            realmService.updateObject(closure: { [weak self] in
-                self?.configuration?.mapping?.set(motor: nil, to: port)
-            })
-        } else {
-            let config = MotorDataModel(viewModel: motor)
-            realmService.updateObject(closure: { [weak self] in
-                self?.configuration?.mapping?.set(motor: config, to: port)
-            })
-        }
-
+        let config = motor.state == .empty ? nil : MotorDataModel(viewModel: motor)
+        realmService.updateObject(closure: { [weak self] in
+            self?.configuration?.mapping?.set(motor: config, to: port)
+        })
         refreshConfigurationData()
     }
 
     private func updateSensorPort(_ sensor: SensorConfigViewModel?, on port: Int) {
         guard let sensor = sensor else { return }
-        if sensor.type == .empty {
-            realmService.updateObject(closure: { [weak self] in
-                self?.configuration?.mapping?.set(sensor: nil, to: port)
-            })
-        } else {
-            let config = SensorDataModel(viewModel: sensor)
-            realmService.updateObject(closure: { [weak self] in
-                self?.configuration?.mapping?.set(sensor: config, to: port)
-            })
-        }
-
+        let config = sensor.type == .empty ? nil : SensorDataModel(viewModel: sensor)
+        realmService.updateObject(closure: { [weak self] in
+            self?.configuration?.mapping?.set(sensor: config, to: port)
+        })
         refreshConfigurationData()
     }
 
@@ -418,6 +406,27 @@ extension RobotConfigurationViewController {
 
 // MARK: - Actions
 extension RobotConfigurationViewController {
+    @IBAction private func deleteTapped(_ sender: Any) {
+        dismissModalViewController()
+        let deleteView = DeleteModalView.instatiate()
+        deleteView.title = ModalKeys.DeleteRobot.description.translate()
+        deleteView.deleteButtonHandler = { [weak self] in
+            guard let `self` = self else { return }
+            self.deleteCallback?()
+            self.dismissModalViewController()
+            self.navigationController?.popViewController(animated: true)
+        }
+        deleteView.cancelButtonHandler = { [weak self] in
+            self?.dismissModalViewController()
+        }
+        presentModal(with: deleteView)
+    }
+
+    @IBAction private func duplicateTapped(_ sender: Any) {
+        duplicateCallback?()
+        navigationController?.popViewController(animated: true)
+    }
+
     @IBAction private func saveTapped(_ sender: Any) {
         guard let robot = selectedRobot else { return }
 
@@ -509,36 +518,16 @@ extension RobotConfigurationViewController: UIImagePickerControllerDelegate, UIN
 
     private func refreshConfigurationData() {
         guard let mapping = configuration?.mapping else { return }
-        let m1State = mapping.m1 != nil ? PortButton.PortState.selected : PortButton.PortState.normal
-        let m1Type = PortButton.PortType(string: mapping.m1?.type)
-        configurationView.set(state: m1State, on: ConfigurationView.Constants.m1PortNumber, type: m1Type)
-        let m2State = mapping.m2 != nil ? PortButton.PortState.selected : PortButton.PortState.normal
-        let m2Type = PortButton.PortType(string: mapping.m2?.type)
-        configurationView.set(state: m2State, on: ConfigurationView.Constants.m2PortNumber, type: m2Type)
-        let m3State = mapping.m3 != nil ? PortButton.PortState.selected : PortButton.PortState.normal
-        let m3Type = PortButton.PortType(string: mapping.m3?.type)
-        configurationView.set(state: m3State, on: ConfigurationView.Constants.m3PortNumber, type: m3Type)
-        let m4State = mapping.m4 != nil ? PortButton.PortState.selected : PortButton.PortState.normal
-        let m4Type = PortButton.PortType(string: mapping.m4?.type)
-        configurationView.set(state: m4State, on: ConfigurationView.Constants.m4PortNumber, type: m4Type)
-        let m5State = mapping.m5 != nil ? PortButton.PortState.selected : PortButton.PortState.normal
-        let m5Type = PortButton.PortType(string: mapping.m5?.type)
-        configurationView.set(state: m5State, on: ConfigurationView.Constants.m5PortNumber, type: m5Type)
-        let m6State = mapping.m6 != nil ? PortButton.PortState.selected : PortButton.PortState.normal
-        let m6Type = PortButton.PortType(string: mapping.m6?.type)
-        configurationView.set(state: m6State, on: ConfigurationView.Constants.m6PortNumber, type: m6Type)
-        let s1State = mapping.s1 != nil ? PortButton.PortState.selected : PortButton.PortState.normal
-        let s1Type = PortButton.PortType(string: mapping.s1?.type)
-        configurationView.set(state: s1State, on: ConfigurationView.Constants.s1PortNumber, type: s1Type)
-        let s2State = mapping.s2 != nil ? PortButton.PortState.selected : PortButton.PortState.normal
-        let s2Type = PortButton.PortType(string: mapping.s2?.type)
-        configurationView.set(state: s2State, on: ConfigurationView.Constants.s2PortNumber, type: s2Type)
-        let s3State = mapping.s3 != nil ? PortButton.PortState.selected : PortButton.PortState.normal
-        let s3Type = PortButton.PortType(string: mapping.s3?.type)
-        configurationView.set(state: s3State, on: ConfigurationView.Constants.s3PortNumber, type: s3Type)
-        let s4State = mapping.s4 != nil ? PortButton.PortState.selected : PortButton.PortState.normal
-        let s4Type = PortButton.PortType(string: mapping.s4?.type)
-        configurationView.set(state: s4State, on: ConfigurationView.Constants.s4PortNumber, type: s4Type)
+        mapping.motors.enumerated().forEach({ index, motor in
+            let motorState = motor != nil ? PortButton.PortState.selected : PortButton.PortState.normal
+            let motorType = PortButton.PortType(string: motor?.type)
+            configurationView.set(state: motorState, on: index + 1, type: motorType)
+        })
+        mapping.sensors.enumerated().forEach({ index, sensor in
+            let sensorState = sensor != nil ? PortButton.PortState.selected : PortButton.PortState.normal
+            let sensorType = PortButton.PortType(string: sensor?.type)
+            configurationView.set(state: sensorState, on: mapping.motors.count + index + 1, type: sensorType)
+        })
     }
 }
 
