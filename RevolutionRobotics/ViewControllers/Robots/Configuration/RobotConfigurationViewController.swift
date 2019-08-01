@@ -76,9 +76,7 @@ final class RobotConfigurationViewController: BaseViewController {
                     self?.collectionView.selectCell(at: 1)
                 })
             } else {
-                if controllers.isEmpty {
-                    controllerTitle += " ⚠️"
-                }
+                controllerTitle += " ⚠️"
             }
             segmentedControl.updateControllersSegment(with: controllerTitle)
         }
