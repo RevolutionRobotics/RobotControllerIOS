@@ -120,17 +120,27 @@ extension YourRobotsViewController: UICollectionViewDataSource {
         cell.indexPath = indexPath
         cell.configure(with: robots[indexPath.item])
         cell.optionsButtonHandler = { [weak self] in
-            self?.presentRobotOptionsModal(with: indexPath)
+            self?.presentRobotConfiguration(with: indexPath)
         }
         return cell
     }
 
-    private func presentRobotOptionsModal(with indexPath: IndexPath) {
+    private func presentRobotConfiguration(with indexPath: IndexPath) {
         let robot = robots[indexPath.item]
-        let modifyView = RobotOptionsModalView.instatiate()
-        setupHandlers(on: modifyView, with: robot, for: indexPath)
-        modifyView.robot = robot
-        presentModal(with: modifyView)
+        guard let buildStatus = BuildStatus(rawValue: robot.buildStatus) else {
+            return
+        }
+
+        selectedIndexPath = indexPath
+
+        switch buildStatus {
+        case .initial, .inProgress:
+            self.navigateToBuildYourRobotViewController(with: robot)
+        case .invalidConfiguration, .completed:
+            self.navigateToConfiguration(with: robot)
+        default:
+            fatalError("Unknown build status")
+        }
     }
 
     private func setupHandlers(on view: RobotOptionsModalView, with robot: UserRobot?, for indexPath: IndexPath) {
@@ -147,25 +157,6 @@ extension YourRobotsViewController: UICollectionViewDataSource {
                 self?.dismissModalViewController()
             }
             self?.presentModal(with: deleteView)
-        }
-        view.editHandler = { [weak self] in
-            guard
-                let `self` = self,
-                let robot = robot,
-                let robotStatus = BuildStatus(rawValue: robot.buildStatus)
-            else { return }
-
-            self.selectedIndexPath = indexPath
-            self.dismissModalViewController()
-
-            switch robotStatus {
-            case .initial, .inProgress:
-                self.navigateToBuildYourRobotViewController(with: robot)
-            case .invalidConfiguration, .completed:
-                self.navigateToConfiguration(with: robot)
-            default:
-                fatalError("Unknown build status")
-            }
         }
         view.duplicateHandler = { [weak self] in
             guard let robot = robot else { return }
