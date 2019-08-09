@@ -12,9 +12,6 @@ import os
 final class RobotConfigurationViewController: BaseViewController {
     // MARK: - Constants
     private enum Constants {
-        static let newCellNib = "ControllerCollectionViewCell"
-        static let newCellReuseId = "cell_new"
-        static let defaultRobotImage = "defaultRobotImage"
         static let cellRatio: CGFloat = 213 / 190
     }
 
@@ -49,7 +46,6 @@ final class RobotConfigurationViewController: BaseViewController {
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var leftButton: UIButton!
     @IBOutlet private weak var rightButton: UIButton!
-    @IBOutlet private weak var collectionView: RRCollectionView!
     @IBOutlet private weak var controllerCollectionView: UIView!
     @IBOutlet private weak var leftButtonLeadingConstraint: NSLayoutConstraint!
 
@@ -57,31 +53,15 @@ final class RobotConfigurationViewController: BaseViewController {
     var realmService: RealmServiceInterface!
     var firebaseService: FirebaseServiceInterface!
     var viewModel: ViewModel!
+
     private let photoModal = PhotoModalView.instatiate()
-    private let newControllerModel = ControllerDataModel(
-        id: "",
-        configurationId: "",
-        type: ControllerType.new.rawValue,
-        mapping: ControllerButtonMappingDataModel()
-    )
+    private let padConfiguration = PadConfigurationViewController()
 
     private var robotImage: UIImage?
     private var shouldPrefillConfiguration = false
-    private var controllers: [ControllerDataModel] = [] {
-        didSet {
-            var controllerTitle = RobotsKeys.Configure.controllerTabTitle.translate()
-            if !controllers.isEmpty {
-                collectionView.reloadSections(IndexSet(integer: 0))
-                collectionView.refreshCollectionView(callback: { [weak self] in
-                    self?.collectionView.selectCell(at: 1)
-                })
-            } else {
-                controllerTitle += " ⚠️"
-            }
-            segmentedControl.updateControllersSegment(with: controllerTitle)
-        }
-    }
+    private var controller: ControllerDataModel?
     private var lastSelectedIndexPath: IndexPath?
+
     var selectedRobot: UserRobot? {
         didSet {
             configuration = realmService.getConfiguration(id: selectedRobot?.configId)
@@ -104,164 +84,28 @@ extension RobotConfigurationViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.setup(title: selectedRobot?.customName ?? RobotsKeys.Configure.title.translate(), delegate: self)
-        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
-
-        setupSegmentedControl()
-        setupRobotImageView()
-        setupCollectionView()
-        setupConfigurationView()
-        setupPhotoModal()
-        if shouldPrefillConfiguration {
-            refreshConfigurationData()
-        }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
         if selectedRobot == nil {
             createNewConfiguration()
         }
 
-        collectionView.setupLayout()
-        if UIView.notchSize > .zero {
-            leftButtonLeadingConstraint.constant = UIView.actualNotchSize
-        }
+        controller = ControllerDataModel(
+            id: configuration?.controller ?? UUID().uuidString,
+            configurationId: configuration?.id ?? UUID().uuidString,
+            type: controller?.type ?? ControllerType.gamer.rawValue,
+            mapping: ControllerButtonMappingDataModel()
+        )
 
-        controllers = [newControllerModel] + realmService.getControllers()
-            .filter({ $0.configurationId == configuration!.id })
-            .sorted(by: { $0.lastModified > $1.lastModified })
-    }
-}
+        navigationBar.setup(title: selectedRobot?.customName ?? RobotsKeys.Configure.title.translate(), delegate: self)
+        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
 
-// MARK: - UICollectionViewDataSource
-extension RobotConfigurationViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return controllers.count
-    }
+        setupPadConfiguration()
+        setupSegmentedControl()
+        setupRobotImageView()
+        setupConfigurationView()
+        setupPhotoModal()
 
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: ControllerCollectionViewCell
-        if controllers[indexPath.row].type == ControllerType.new.rawValue {
-            guard let newCell = collectionView
-                .dequeueReusableCell(withReuseIdentifier: Constants.newCellReuseId, for: indexPath)
-                as? ControllerCollectionViewCell
-            else {
-                fatalError("Failed to dequeue new controller cell")
-            }
-
-            cell = newCell
-        } else {
-            cell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        }
-
-        cell.indexPath = indexPath
-        cell.setup(with: controllers[indexPath.row])
-        cell.isControllerSelected = configuration?.controller == controllers[indexPath.row].id
-        cell.infoCallback = { [weak self] in
-            let controllerInfoView = ControllerInfoModalView.instatiate()
-            controllerInfoView.setup(
-                name: self?.controllers[indexPath.row].name,
-                description: self?.controllers[indexPath.row].controllerDescription,
-                date: self?.controllers[indexPath.row].lastModified,
-                callback: { [weak self] in
-                    self?.dismissModalViewController()
-            })
-            self?.presentModal(with: controllerInfoView)
-        }
-        cell.editCallback = { [weak self] in
-            let vc = AppContainer.shared.container.unwrappedResolve(PadConfigurationViewController.self)
-            vc.selectedControllerId = self?.controllers[indexPath.row].id
-            vc.configurationId = self?.configuration?.id
-            self?.navigationController?.pushViewController(vc, animated: true)
-        }
-        cell.deleteCallback = { [weak self] in
-            let deleteView = DeleteModalView.instatiate()
-            deleteView.title = ModalKeys.ControllerDelete.description.translate()
-            deleteView.deleteButtonHandler = { [weak self] in self?.handleControllerDeletion(on: indexPath) }
-            deleteView.cancelButtonHandler = { [weak self] in self?.dismissModalViewController() }
-            self?.presentModal(with: deleteView)
-        }
-        if let lastIndexPath = lastSelectedIndexPath {
-            cell.isControllerSelected = lastIndexPath == indexPath
-        }
-        return cell
-    }
-
-    private func handleControllerDeletion(on indexPath: IndexPath) {
-        guard let configuration = configuration else { return }
-        let controllerToDelete = controllers[indexPath.row]
-        let hasOnlyOneAvailableController =
-            realmService.getControllers().filter({ $0.configurationId == configuration.id }).count == 1
-        let isControllerToDeleteTheSelectedOne = controllerToDelete.id == configuration.controller
-        if isControllerToDeleteTheSelectedOne && hasOnlyOneAvailableController {
-            realmService.updateObject(closure: { [weak self] in
-                configuration.controller = ""
-                self?.selectedRobot?.buildStatus = BuildStatus.invalidConfiguration.rawValue
-            })
-            deleteController(controllerToDelete)
-            saveCallback?()
-        } else if isControllerToDeleteTheSelectedOne {
-            let controller = realmService.getControllers().first(where: { $0.configurationId == configuration.id &&
-                $0.id != controllerToDelete.id })!
-            realmService.updateObject(closure: {
-                configuration.controller = controller.id
-            })
-            deleteController(controllerToDelete)
-        } else {
-            deleteController(controllerToDelete)
-        }
-
-        collectionView.clearIndexPath()
-        controllers = realmService.getControllers()
-            .filter({ $0.configurationId == configuration.id })
-            .sorted(by: { $0.lastModified > $1.lastModified })
-        collectionView.reloadData()
-        dismissModalViewController()
-    }
-
-    private func deleteController(_ controller: ControllerDataModel?) {
-        guard let controller = controller else { return }
-        realmService.deleteController(controller)
-    }
-}
-
-// MARK: - RRCollectionViewDelegate
-extension RobotConfigurationViewController: RRCollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard indexPath.item > 0 else {
-            navigateToNewController()
-            return
-        }
-
-        guard let cell = collectionView.cellForItem(at: indexPath) as? ControllerCollectionViewCell,
-            lastSelectedIndexPath != indexPath else { return }
-
-        guard !cell.isControllerSelected else {
-            navigateToPlayControllerViewController(with: controllers[indexPath.row])
-            return
-        }
-
-        for index in 0..<collectionView.numberOfItems(inSection: 0) {
-            let cell =
-                collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? ControllerCollectionViewCell
-            cell?.isControllerSelected = false
-        }
-
-        cell.isControllerSelected = true
-
-        realmService.updateObject(closure: { [weak self] in
-            guard let id = self?.controllers[indexPath.item].id else { return }
-            self?.configuration?.controller = id
-        })
-    }
-
-    func setButtons(rightHidden: Bool, leftHidden: Bool) {
-        if segmentedControl.selectedSegment == .controllers {
-            leftButton.isHidden = leftHidden
-            rightButton.isHidden = rightHidden
+        if shouldPrefillConfiguration {
+            refreshConfigurationData()
         }
     }
 }
@@ -297,6 +141,28 @@ extension RobotConfigurationViewController {
         }
     }
 
+    private func setupPadConfiguration() {
+        padConfiguration.realmService = realmService
+        padConfiguration.configurationView = GamerConfigurationView.instatiate()
+        padConfiguration.configurationId = configuration?.id
+        padConfiguration.selectedControllerId = controller?.id
+
+        // Dummy comment here...
+        guard let configView = padConfiguration.view else { return }
+
+        addChild(padConfiguration)
+        view.addSubview(configView)
+        padConfiguration.didMove(toParent: self)
+
+        configView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            configView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor),
+            configView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            configView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            configView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+    }
+
     private func showMotorConfiguration(portNumber: Int) {
         let motorConfig = AppContainer.shared.container.unwrappedResolve(MotorConfigViewController.self)
         motorConfig.portNumber = portNumber
@@ -308,8 +174,9 @@ extension RobotConfigurationViewController {
         motorConfig.name = configuration?.mapping?.motor(for: portNumber)?.variableName
         motorConfig.prohibitedNames = configuration?.mapping?.variableNames.filter({ $0 != motorConfig.name }) ?? []
         motorConfig.doneButtonTapped = { [weak self] config in
-            self?.dismiss(animated: true, completion: nil)
-            self?.updateMotorPort(config, on: motorConfig.portNumber)
+            guard let `self` = self else { return }
+            self.dismiss(animated: true, completion: nil)
+            self.updateMotorPort(config, on: motorConfig.portNumber)
         }
         motorConfig.screenDismissed = { [weak self] in
             self?.refreshConfigurationData()
@@ -345,8 +212,9 @@ extension RobotConfigurationViewController {
         sensorConfig.distanceSensorCounts = configuration?.mapping?.distanceSensorCount ?? 0
         sensorConfig.prohibitedNames = configuration?.mapping?.variableNames.filter({ $0 != sensorConfig.name }) ?? []
         sensorConfig.doneButtonTapped = { [weak self] config in
-            self?.dismiss(animated: true, completion: nil)
-            self?.updateSensorPort(config, on: sensorConfig.portNumber)
+            guard let `self` = self else { return }
+            self.dismiss(animated: true, completion: nil)
+            self.updateSensorPort(config, on: sensorConfig.portNumber)
         }
         sensorConfig.screenDismissed = { [weak self] in
             self?.refreshConfigurationData()
@@ -369,8 +237,6 @@ extension RobotConfigurationViewController {
                     controllersViewController.configurationId = self.configuration?.id
                     self.navigationController?.pushViewController(controllersViewController, animated: true)
                 }
-            } else {
-                self.collectionView.selectCell(at: 1)
             }
         }
         segmentedControl.setSelectedIndex(0)
@@ -378,29 +244,13 @@ extension RobotConfigurationViewController {
 
     private func segmentSelected(_ segment: ConfigurationSegment) {
         configurationView.isHidden = segment == .controllers
-        controllerCollectionView.isHidden = segment == .connections
-        if segment == .controllers {
-            collectionView.reloadSections(IndexSet(integer: 0))
-            if controllers.count > 1 {
-                collectionView.refreshCollectionView()
-            }
-        }
+        padConfiguration.view.isHidden = segment == .connections
     }
 
     private func setupRobotImageView() {
         if robotImage != nil {
             photoModal.setImage(robotImage)
         }
-    }
-
-    private func setupCollectionView() {
-        let newCellNib = UINib(nibName: Constants.newCellNib, bundle: nil)
-
-        collectionView.rrDelegate = self
-        collectionView.dataSource = self
-        collectionView.register(ControllerCollectionViewCell.self)
-        collectionView.register(newCellNib, forCellWithReuseIdentifier: Constants.newCellReuseId)
-        collectionView.cellRatio = Constants.cellRatio
     }
 }
 
@@ -457,7 +307,25 @@ extension RobotConfigurationViewController {
             customName: nil,
             customImage: nil,
             customDescription: nil)
-        let configuration = ConfigurationDataModel(id: configId, controller: "", mapping: PortMappingDataModel())
+
+        let defaultMapping = ControllerButtonMappingDataModel(b1: nil, b2: nil, b3: nil, b4: nil, b5: nil, b6: nil)
+
+        let controllerId = UUID().uuidString
+        let controller = ControllerDataModel(
+            id: controllerId,
+            configurationId:
+            configId,
+            type: ControllerType.gamer.rawValue,
+            mapping: defaultMapping
+        )
+
+        let configuration = ConfigurationDataModel(
+            id: configId,
+            controller: controllerId,
+            mapping: PortMappingDataModel()
+        )
+
+        realmService.saveControllers([controller])
         realmService.saveRobot(robot, shouldUpdate: true)
         realmService.saveConfigurations([configuration])
         selectedRobot = robot
@@ -475,14 +343,6 @@ extension RobotConfigurationViewController {
             self?.selectedRobot?.customName = name
             self?.selectedRobot?.customDescription = description
         })
-    }
-
-    @IBAction private func leftButtonTapped(_ sender: Any) {
-        collectionView.leftStep()
-    }
-
-    @IBAction private func rightButtonTapped(_ sender: Any) {
-        collectionView.rightStep()
     }
 }
 

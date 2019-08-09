@@ -19,7 +19,6 @@ final class PadConfigurationViewController: BaseViewController {
     }
 
     // MARK: - Outlets
-    @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var nextButton: RRButton!
     @IBOutlet private weak var containerView: UIView!
 
@@ -59,8 +58,6 @@ extension PadConfigurationViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
-        navigationBar.setup(title: ControllerKeys.configureTitle.translate(), delegate: self)
         fetchSelectedController()
         setupConfigurationView()
         fetchPrograms()
@@ -277,7 +274,7 @@ extension PadConfigurationViewController {
 // MARK: - Setups
 extension PadConfigurationViewController {
     private func setupNextButton() {
-        nextButton.setTitle(CommonKeys.next.translate(), for: .normal)
+        nextButton.setTitle(RobotsKeys.YourRobots.play.translate(), for: .normal)
         nextButton.titleLabel?.font = Constants.nextButtonFont
         nextButton.setBorder(strokeColor: .white)
     }
@@ -293,9 +290,7 @@ extension PadConfigurationViewController {
     private func instantiateConfigurationView() {
         guard let controllerType = controllerType else { return }
         switch controllerType {
-        case .new:
-            return
-        case .gamer:
+        case .new, .gamer:
             configurationView = GamerConfigurationView.instatiate()
         case .driver:
             configurationView = DriverConfigurationView.instatiate()
@@ -314,7 +309,7 @@ extension PadConfigurationViewController {
         viewModel.customDesctiprion = selectedController?.controllerDescription ?? ""
         viewModel.id = selectedController?.id ?? UUID().uuidString
         viewModel.configurationId = configurationId ?? ""
-        viewModel.type = controllerType ?? ControllerType(rawValue: (selectedController?.type)!)
+        viewModel.type = controllerType ?? .gamer
         viewModel.isNewlyCreated = selectedController == nil
     }
 
@@ -362,18 +357,5 @@ extension PadConfigurationViewController {
     private func selectedProgram(of buttonState: ControllerButton.ControllerButtonState) -> ProgramDataModel? {
         guard case .selected(let program) = buttonState else { return nil }
         return program
-    }
-}
-
-// MARK: - Bluetooth connection
-extension PadConfigurationViewController {
-    override func connected() {
-        super.connected()
-        navigationBar.bluetoothButtonState = .connected
-    }
-
-    override func disconnected() {
-        super.disconnected()
-        navigationBar.bluetoothButtonState = .notConnected
     }
 }

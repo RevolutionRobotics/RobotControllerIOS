@@ -12,31 +12,25 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RobotConfigurationViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="WVt-Oi-mfz" id="Byt-fz-mf6"/>
                 <outlet property="configurationView" destination="R0b-BO-qaQ" id="LHe-85-74R"/>
-                <outlet property="controllerCollectionView" destination="mYC-o0-2cD" id="zim-pb-SNy"/>
-                <outlet property="leftButton" destination="t8S-aZ-NOv" id="c1L-O5-XT0"/>
-                <outlet property="leftButtonLeadingConstraint" destination="7uc-jL-dNt" id="BdB-5l-OP0"/>
                 <outlet property="navigationBar" destination="oyj-RX-Rpw" id="CUl-UR-9sA"/>
-                <outlet property="rightButton" destination="aIp-Ql-FYR" id="lVi-VW-Z7A"/>
                 <outlet property="segmentedControl" destination="849-Dt-fTu" id="4wB-7V-652"/>
                 <outlet property="view" destination="HeV-pd-fdw" id="GCH-ya-DXb"/>
-                <outletCollection property="controllerCollectionView" destination="mYC-o0-2cD" collectionClass="NSMutableArray" id="aR3-0U-kHa"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="HeV-pd-fdw">
-            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GlowBackground" translatesAutoresizingMaskIntoConstraints="NO" id="dqD-V3-qDN">
-                    <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ynx-ue-Ua9">
-                    <rect key="frame" x="328" y="71" width="240" height="94"/>
+                    <rect key="frame" x="87" y="71" width="240" height="563"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="849-Dt-fTu" customClass="RRSegmentedControl" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="29" width="240" height="36"/>
+                            <rect key="frame" x="0.0" y="263.5" width="240" height="36"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" placeholder="YES" id="UwZ-Q9-xbH"/>
@@ -52,10 +46,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyj-RX-Rpw" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="896" height="71"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zW7-n8-Bql" userLabel="saveButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="794" y="0.0" width="40" height="40"/>
+                            <rect key="frame" x="312" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="BgN-Wi-FXb"/>
                                 <constraint firstAttribute="width" constant="40" id="fy7-Cl-Nr7"/>
@@ -66,7 +60,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmE-pX-ILZ" userLabel="cameraButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="742" y="0.0" width="40" height="40"/>
+                            <rect key="frame" x="260" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="Gnn-AN-iIu"/>
                                 <constraint firstAttribute="height" constant="40" id="jPU-zw-PKB"/>
@@ -77,7 +71,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gor-hD-oVh" userLabel="duplicateButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="690" y="0.0" width="40" height="40"/>
+                            <rect key="frame" x="208" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="5pA-nh-INw"/>
                                 <constraint firstAttribute="width" constant="40" id="M7E-8O-4bL"/>
@@ -88,7 +82,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgK-ag-qoz" userLabel="deleteButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="638" y="0.0" width="40" height="40"/>
+                            <rect key="frame" x="156" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="XRK-bG-7xk"/>
                                 <constraint firstAttribute="width" constant="40" id="eDf-mQ-zQU"/>
@@ -113,54 +107,20 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0b-BO-qaQ" userLabel="configurationView" customClass="ConfigurationView" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="227" y="165" width="442" height="228"/>
+                    <rect key="frame" x="-14" y="634" width="442" height="228"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="442" id="8y4-l3-tFv"/>
                         <constraint firstAttribute="height" constant="228" id="zhV-DF-V4V"/>
                     </constraints>
                 </view>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYC-o0-2cD">
-                    <rect key="frame" x="0.0" y="165" width="896" height="249"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVt-Oi-mfz" customClass="RRCollectionView" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="15" width="896" height="219"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="WVt-Oi-mfz" secondAttribute="bottom" constant="15" id="NXO-qW-eu3"/>
-                        <constraint firstItem="WVt-Oi-mfz" firstAttribute="top" secondItem="mYC-o0-2cD" secondAttribute="top" constant="15" id="QuN-T3-PMK"/>
-                        <constraint firstItem="WVt-Oi-mfz" firstAttribute="leading" secondItem="mYC-o0-2cD" secondAttribute="leading" id="gKv-hH-sAl"/>
-                        <constraint firstAttribute="trailing" secondItem="WVt-Oi-mfz" secondAttribute="trailing" id="zzZ-oK-8Ei"/>
-                    </constraints>
-                </view>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIp-Ql-FYR">
-                    <rect key="frame" x="871" y="264.5" width="25" height="50"/>
-                    <state key="normal" image="RightButton"/>
-                    <connections>
-                        <action selector="rightButtonTapped:" destination="-1" eventType="touchUpInside" id="gyb-Ho-O1B"/>
-                    </connections>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8S-aZ-NOv">
-                    <rect key="frame" x="0.0" y="264.5" width="25" height="50"/>
-                    <state key="normal" image="LeftButton"/>
-                    <connections>
-                        <action selector="leftButtonTapped:" destination="-1" eventType="touchUpInside" id="xeQ-Em-Jz0"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="dqD-V3-qDN" secondAttribute="trailing" id="3aD-Ff-8lY"/>
-                <constraint firstAttribute="trailing" secondItem="mYC-o0-2cD" secondAttribute="trailing" id="4Eh-A4-g1B"/>
                 <constraint firstItem="R0b-BO-qaQ" firstAttribute="bottom" secondItem="qje-Yl-IXm" secondAttribute="bottom" id="4ug-g6-S5S"/>
-                <constraint firstItem="t8S-aZ-NOv" firstAttribute="leading" secondItem="HeV-pd-fdw" secondAttribute="leading" id="7uc-jL-dNt"/>
                 <constraint firstItem="dqD-V3-qDN" firstAttribute="leading" secondItem="HeV-pd-fdw" secondAttribute="leading" id="EQx-4R-ATI"/>
                 <constraint firstItem="oyj-RX-Rpw" firstAttribute="leading" secondItem="HeV-pd-fdw" secondAttribute="leading" id="FTZ-ga-aGT"/>
-                <constraint firstItem="aIp-Ql-FYR" firstAttribute="centerY" secondItem="mYC-o0-2cD" secondAttribute="centerY" id="GiJ-by-YV6"/>
-                <constraint firstItem="mYC-o0-2cD" firstAttribute="leading" secondItem="HeV-pd-fdw" secondAttribute="leading" id="H0r-Hl-Nmj"/>
                 <constraint firstItem="Ynx-ue-Ua9" firstAttribute="centerX" secondItem="HeV-pd-fdw" secondAttribute="centerX" id="N2R-yy-5hU"/>
                 <constraint firstAttribute="bottom" secondItem="dqD-V3-qDN" secondAttribute="bottom" id="O8o-Jg-2pF"/>
                 <constraint firstItem="oyj-RX-Rpw" firstAttribute="top" secondItem="HeV-pd-fdw" secondAttribute="top" id="Ra5-e6-man"/>
@@ -168,11 +128,7 @@
                 <constraint firstAttribute="trailing" secondItem="oyj-RX-Rpw" secondAttribute="trailing" id="cVi-QO-K5I"/>
                 <constraint firstItem="Ynx-ue-Ua9" firstAttribute="top" secondItem="oyj-RX-Rpw" secondAttribute="bottom" id="eyJ-3P-8vO"/>
                 <constraint firstItem="R0b-BO-qaQ" firstAttribute="top" secondItem="Ynx-ue-Ua9" secondAttribute="bottom" id="lQT-Km-duk"/>
-                <constraint firstItem="t8S-aZ-NOv" firstAttribute="centerY" secondItem="mYC-o0-2cD" secondAttribute="centerY" id="m7j-hw-Ygd"/>
-                <constraint firstAttribute="trailing" secondItem="aIp-Ql-FYR" secondAttribute="trailing" id="mTw-CT-oKG"/>
                 <constraint firstItem="R0b-BO-qaQ" firstAttribute="centerX" secondItem="HeV-pd-fdw" secondAttribute="centerX" id="sUh-bf-szg"/>
-                <constraint firstAttribute="bottom" secondItem="mYC-o0-2cD" secondAttribute="bottom" id="vhe-aN-5vy"/>
-                <constraint firstItem="mYC-o0-2cD" firstAttribute="top" secondItem="Ynx-ue-Ua9" secondAttribute="bottom" id="yoR-VS-uEv"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="qje-Yl-IXm"/>
             <point key="canvasLocation" x="138.61607142857142" y="152.17391304347828"/>
@@ -182,8 +138,6 @@
         <image name="Duplicate" width="16" height="16"/>
         <image name="EditRobot" width="16" height="16"/>
         <image name="GlowBackground" width="568" height="320"/>
-        <image name="LeftButton" width="25" height="50"/>
-        <image name="RightButton" width="25" height="50"/>
         <image name="camera" width="25" height="25"/>
         <image name="deleteIcon" width="16" height="16"/>
     </resources>

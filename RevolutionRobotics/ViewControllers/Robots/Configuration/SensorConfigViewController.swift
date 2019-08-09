@@ -41,16 +41,16 @@ final class SensorConfigViewController: BaseViewController {
     var distanceSensorCounts: Int!
     var name: String? {
         didSet {
-            if name != nil {
-                switch selectedSensorType {
-                case .bumper:
-                    customBumperName = name ?? ""
-                case .distance:
-                    customDistanceName = name ?? ""
-                case .empty:
-                    customDistanceName = ""
-                    customBumperName = ""
-                }
+            guard let name = name else { return }
+
+            switch selectedSensorType {
+            case .bumper:
+                customBumperName = name
+            case .distance:
+                customDistanceName = name
+            case .empty:
+                customDistanceName = ""
+                customBumperName = ""
             }
         }
     }

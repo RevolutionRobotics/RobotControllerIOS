@@ -13,7 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PadConfigurationViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="containerView" destination="Jl6-PZ-f5S" id="Zxe-3G-ft0"/>
-                <outlet property="navigationBar" destination="IVc-Ep-nZJ" id="Mnb-1O-GoK"/>
                 <outlet property="nextButton" destination="NTj-mz-ehY" id="ieI-M1-7SQ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="v3F-px-qfI"/>
             </connections>
@@ -23,18 +22,8 @@
             <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GlowBackground" translatesAutoresizingMaskIntoConstraints="NO" id="DGx-6m-A0L" userLabel="glowImageView">
-                    <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVc-Ep-nZJ" userLabel="navigationBar" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="568" height="71"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="71" id="5uq-Lf-E0U"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jl6-PZ-f5S" userLabel="containerView">
-                    <rect key="frame" x="0.0" y="75" width="568" height="174"/>
+                    <rect key="frame" x="0.0" y="30" width="568" height="219"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTj-mz-ehY" userLabel="nextButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
@@ -51,27 +40,18 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="NTj-mz-ehY" secondAttribute="bottom" constant="4" id="041-MI-6Z8"/>
                 <constraint firstItem="Jl6-PZ-f5S" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="2qK-Cc-glL"/>
-                <constraint firstItem="Jl6-PZ-f5S" firstAttribute="top" secondItem="IVc-Ep-nZJ" secondAttribute="bottom" constant="4" id="7Kx-DY-WXw"/>
-                <constraint firstItem="DGx-6m-A0L" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="EMg-Oe-F7d"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Jl6-PZ-f5S" secondAttribute="trailing" id="KLC-eB-YJP"/>
                 <constraint firstItem="NTj-mz-ehY" firstAttribute="top" secondItem="Jl6-PZ-f5S" secondAttribute="bottom" constant="21" id="M6G-wj-CFE"/>
-                <constraint firstAttribute="bottom" secondItem="DGx-6m-A0L" secondAttribute="bottom" id="UaR-LA-2uj"/>
-                <constraint firstAttribute="leading" secondItem="IVc-Ep-nZJ" secondAttribute="leading" id="Zd8-JS-T3s"/>
-                <constraint firstAttribute="trailing" secondItem="DGx-6m-A0L" secondAttribute="trailing" id="iuV-yP-I9L"/>
-                <constraint firstItem="DGx-6m-A0L" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lHn-Ak-JBS"/>
-                <constraint firstItem="IVc-Ep-nZJ" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="p7x-z2-RUQ"/>
+                <constraint firstItem="Jl6-PZ-f5S" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="faG-pl-X5u"/>
                 <constraint firstAttribute="trailing" secondItem="NTj-mz-ehY" secondAttribute="trailing" constant="4" id="s9N-wf-hc0"/>
-                <constraint firstItem="IVc-Ep-nZJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tZ9-y0-39a"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
     </objects>
     <resources>
-        <image name="GlowBackground" width="568" height="320"/>
         <image name="NextIcon" width="6" height="10"/>
     </resources>
 </document>

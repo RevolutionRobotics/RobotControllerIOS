@@ -288,11 +288,9 @@ extension BuildRobotViewController {
         let localConfiguration = ConfigurationDataModel(id: configId, remoteConfiguration: remoteConfiguration)
 
         let controllers = remoteControllers
-            .filter({ $0.configurationId == remoteConfiguration.id })
             .map({ ControllerDataModel(controller: $0, localConfigurationId: localConfiguration.id) })
 
-        localConfiguration.controller =
-            (controllers.first(where: { $0.remoteId == remoteConfiguration.controller })?.id)!
+        localConfiguration.controller = controllers.first(where: { $0.type == ControllerType.gamer.rawValue })?.id ?? ""
 
         realmService.saveControllers(controllers)
         realmService.saveConfigurations([localConfiguration])
