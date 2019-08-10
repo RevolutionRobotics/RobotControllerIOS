@@ -44,10 +44,7 @@ final class RobotConfigurationViewController: BaseViewController {
     @IBOutlet private weak var configurationView: ConfigurationView!
     @IBOutlet private weak var segmentedControl: RRSegmentedControl!
     @IBOutlet private weak var navigationBar: RRNavigationBar!
-    @IBOutlet private weak var leftButton: UIButton!
-    @IBOutlet private weak var rightButton: UIButton!
-    @IBOutlet private weak var controllerCollectionView: UIView!
-    @IBOutlet private weak var leftButtonLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var controllerButton: RRButton!
 
     // MARK: - Properties
     var realmService: RealmServiceInterface!
@@ -146,6 +143,18 @@ extension RobotConfigurationViewController {
         padConfiguration.configurationView = GamerConfigurationView.instatiate()
         padConfiguration.configurationId = configuration?.id
         padConfiguration.selectedControllerId = controller?.id
+        padConfiguration.nextPressedCallback = { [weak self] in
+            guard
+                let configId = self?.configuration?.id,
+                let controller = self?.realmService.getController(id: configId)
+            else {
+                return
+            }
+
+            let playController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
+            playController.controllerDataModel = controller
+            self?.navigationController?.pushViewController(playController, animated: true)
+        }
 
         // Dummy comment here...
         guard let configView = padConfiguration.view else { return }
@@ -245,6 +254,7 @@ extension RobotConfigurationViewController {
     private func segmentSelected(_ segment: ConfigurationSegment) {
         configurationView.isHidden = segment == .controllers
         padConfiguration.view.isHidden = segment == .connections
+        controllerButton.isHidden = segment == .connections
     }
 
     private func setupRobotImageView() {
@@ -277,6 +287,21 @@ extension RobotConfigurationViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    @IBAction private func controllerButtonTapped(_ sender: Any) {
+        let toggledType: ControllerType = controller?.type == ControllerType.gamer.rawValue ? .multiTasker : .gamer
+        
+        controller?.type = toggledType.rawValue
+        padConfiguration.configurationView = controller?.type == ControllerType.gamer.rawValue
+            ? MultiTaskerConfigurationView.instatiate() : GamerConfigurationView.instatiate()
+    }
+
+    @IBAction private func backgroundProgramsTapped(_ sender: Any) {
+        let vc = AppContainer.shared.container.unwrappedResolve(ButtonlessProgramsViewController.self)
+        vc.configurationId = padConfiguration.configurationId
+        vc.controllerViewModel = padConfiguration.viewModel
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction private func saveTapped(_ sender: Any) {
         guard let robot = selectedRobot else { return }
 

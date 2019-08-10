@@ -23,12 +23,21 @@ final class PadConfigurationViewController: BaseViewController {
     @IBOutlet private weak var containerView: UIView!
 
     // MARK: - Properties
-    var controllerType: ControllerType?
+    var controllerType: ControllerType? {
+        didSet {
+            guard let controllerType = controllerType else { return }
+            viewModel.type = controllerType
+            
+            print("CONTROLLER TYPE: \(controllerType.rawValue)")
+        }
+    }
     var configurationView: ConfigurableControllerView!
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
     var configurationId: String?
     var selectedControllerId: String?
+    var nextPressedCallback: Callback?
+    
     private var programs: [ProgramDataModel] = []
     private var selectedButtonIndex: Int?
     private var selectedButtonState: ControllerButton.ControllerButtonState?
@@ -40,16 +49,17 @@ final class PadConfigurationViewController: BaseViewController {
             }
         }
     }
-    private let viewModel = ControllerViewModel()
+    let viewModel = ControllerViewModel()
 }
 
 // MARK: - Actions
 extension PadConfigurationViewController {
     @IBAction private func nextButtonTapped(_ sender: Any) {
-        let vc = AppContainer.shared.container.unwrappedResolve(ButtonlessProgramsViewController.self)
-        vc.configurationId = configurationId
-        vc.controllerViewModel = viewModel
-        navigationController?.pushViewController(vc, animated: true)
+        nextPressedCallback?()
+//        let vc = AppContainer.shared.container.unwrappedResolve(ButtonlessProgramsViewController.self)
+//        vc.configurationId = configurationId
+//        vc.controllerViewModel = viewModel
+//        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
