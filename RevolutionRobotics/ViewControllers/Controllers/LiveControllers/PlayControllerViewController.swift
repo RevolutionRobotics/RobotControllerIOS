@@ -17,6 +17,8 @@ final class PlayControllerViewController: BaseViewController {
     // MARK: - Properties
     var realmService: RealmServiceInterface!
     var controllerDataModel: ControllerDataModel?
+    var robotName: String?
+    
     private var padView: PlayablePadView!
     private var programs: [ProgramDataModel?] = [] {
         didSet {
@@ -31,7 +33,7 @@ extension PlayControllerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.setup(title: controllerDataModel?.name ?? RobotsKeys.Controllers.Play.screenTitle.translate(),
+        navigationBar.setup(title: robotName ?? RobotsKeys.Controllers.Play.screenTitle.translate(),
                             delegate: self)
         setupPadView()
         fetchPrograms()

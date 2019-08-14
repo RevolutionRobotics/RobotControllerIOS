@@ -242,6 +242,7 @@ extension YourRobotsViewController: RRCollectionViewDelegate {
 
         let playController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
         playController.controllerDataModel = controller
+        playController.robotName = robot.customName
         navigationController?.pushViewController(playController, animated: true)
     }
 
