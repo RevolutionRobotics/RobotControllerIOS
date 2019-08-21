@@ -18,7 +18,6 @@ final class ProgramPriorityViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var programsTableView: UITableView!
-    @IBOutlet private weak var doneButton: UIButton!
 
     // MARK: - Properties
     var realmService: RealmServiceInterface!
@@ -45,7 +44,6 @@ extension ProgramPriorityViewController {
         navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
 
         navigationBar.setup(title: ProgramsKeys.Priority.title.translate(), delegate: self)
-        doneButton.setTitle(CommonKeys.done.translate(), for: .normal)
         programsTableView.dataSource = self
         programsTableView.dragDelegate = self
         programsTableView.dropDelegate = self
@@ -59,9 +57,16 @@ extension ProgramPriorityViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        doneButton.setBorder(fillColor: .clear, strokeColor: .white)
         programsTableView.reloadData()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let name = (controllerViewModel?.name ?? "").isEmpty ?
+            controllerViewModel?.type.displayName : controllerViewModel?.name
+        let description = controllerViewModel?.customDesctiprion ?? ""
+
+        saveController(name: name, description: description)
     }
 }
 
@@ -184,19 +189,21 @@ extension ProgramPriorityViewController {
         realmService.saveProgramBindings((controllerViewModel?.backgroundProgramBindings)!)
 
         realmService.updateObject(closure: { [weak self] in
-            controller.name = name!
+            guard let `self` = self else { return }
+
+            controller.name = name ?? ""
             controller.controllerDescription = description ?? ""
             controller.lastModified = Date()
             controller.joystickPriority =
-                (self?.orderedPrograms.firstIndex(of: (self?.drivePlaceholder)!))!
+                (self.orderedPrograms.firstIndex(of: (self.drivePlaceholder)!))!
 
-            let viewModel = self?.controllerViewModel
-            self?.updateButtonProgramPriority(on: viewModel?.b1Binding, controller: controller, buttonIndex: 1)
-            self?.updateButtonProgramPriority(on: viewModel?.b2Binding, controller: controller, buttonIndex: 2)
-            self?.updateButtonProgramPriority(on: viewModel?.b3Binding, controller: controller, buttonIndex: 3)
-            self?.updateButtonProgramPriority(on: viewModel?.b4Binding, controller: controller, buttonIndex: 4)
-            self?.updateButtonProgramPriority(on: viewModel?.b5Binding, controller: controller, buttonIndex: 5)
-            self?.updateButtonProgramPriority(on: viewModel?.b6Binding, controller: controller, buttonIndex: 6)
+            let viewModel = self.controllerViewModel
+            self.updateButtonProgramPriority(on: viewModel?.b1Binding, controller: controller, buttonIndex: 1)
+            self.updateButtonProgramPriority(on: viewModel?.b2Binding, controller: controller, buttonIndex: 2)
+            self.updateButtonProgramPriority(on: viewModel?.b3Binding, controller: controller, buttonIndex: 3)
+            self.updateButtonProgramPriority(on: viewModel?.b4Binding, controller: controller, buttonIndex: 4)
+            self.updateButtonProgramPriority(on: viewModel?.b5Binding, controller: controller, buttonIndex: 5)
+            self.updateButtonProgramPriority(on: viewModel?.b6Binding, controller: controller, buttonIndex: 6)
             controller.backgroundProgramBindings.removeAll()
             viewModel?.backgroundProgramBindings.forEach { [weak self] backgroundProgramBinding in
                 self?.updatePriority(of: backgroundProgramBinding)
@@ -286,15 +293,10 @@ extension ProgramPriorityViewController {
     @IBAction private func doneButtonTapped(_ sender: Any) {
         let saveModal = SaveModalView.instatiate()
         saveModal.type = .controller
-        let name = (controllerViewModel?.name)!.isEmpty ?
+        let name = (controllerViewModel?.name ?? "").isEmpty ?
             controllerViewModel?.type.displayName : controllerViewModel?.name
         saveModal.name = name
         saveModal.descriptionTitle = controllerViewModel?.customDesctiprion
-        saveModal.saveCallback = { [weak self] (data: SaveModalView.SaveData) in
-            self?.saveController(name: data.name, description: data.description)
-            self?.dismissModalViewController()
-            self?.navigationController?.pop(to: RobotConfigurationViewController.self)
-        }
         presentModal(with: saveModal)
     }
 }

@@ -93,13 +93,16 @@
                                 <action selector="deleteTapped:" destination="-1" eventType="touchUpInside" id="paI-Wi-RoM"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYe-8C-QvG" userLabel="orderButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYe-8C-QvG" userLabel="priorityButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="108" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="1es-sX-E9Z"/>
                                 <constraint firstAttribute="width" constant="40" id="LVG-PH-aNB"/>
                             </constraints>
                             <state key="normal" image="OrderIcon"/>
+                            <connections>
+                                <action selector="priorityButtonTapped:" destination="-1" eventType="touchUpInside" id="rJI-qe-exh"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlw-2Y-63m" userLabel="backgroundProgramButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                             <rect key="frame" x="60" y="0.0" width="40" height="40"/>

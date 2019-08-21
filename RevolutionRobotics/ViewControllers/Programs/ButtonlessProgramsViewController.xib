@@ -11,9 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Barlow-Medium.ttf">
-            <string>Barlow-Medium</string>
-        </array>
         <array key="Barlow-Regular.ttf">
             <string>Barlow-Regular</string>
         </array>
@@ -25,7 +22,6 @@
                 <outlet property="dateButton" destination="VSg-8H-vKD" id="zuC-jI-zFT"/>
                 <outlet property="nameButton" destination="Q8z-sc-5oT" id="pfB-wd-kCH"/>
                 <outlet property="navigationBar" destination="5Gv-M5-tim" id="sVQ-D1-Is7"/>
-                <outlet property="nextButton" destination="jcK-3x-tDG" id="XbU-4n-qAg"/>
                 <outlet property="noProgramsLabel" destination="i6M-rG-eyh" id="O1N-by-Cjj"/>
                 <outlet property="programsTableView" destination="IRQ-pz-Qx6" id="tdb-fH-lee"/>
                 <outlet property="selectAllButton" destination="3EZ-aU-cDR" id="fXJ-C3-xM9"/>
@@ -51,22 +47,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLr-c1-aNj">
                     <rect key="frame" x="0.0" y="266" width="568" height="54"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcK-3x-tDG" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="461" y="4" width="103" height="46"/>
-                            <color key="backgroundColor" name="BlackTwo"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="103" id="EVw-JU-Vae"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
-                            <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Next" image="PlayIcon"/>
-                            <connections>
-                                <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="zr9-ng-mMB"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSg-8H-vKD">
-                            <rect key="frame" x="405" y="7" width="40" height="40"/>
+                            <rect key="frame" x="520" y="7" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="WDq-Ku-hfU"/>
                                 <constraint firstAttribute="height" constant="40" id="yUB-OM-Jit"/>
@@ -77,7 +59,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8z-sc-5oT">
-                            <rect key="frame" x="365" y="7" width="40" height="40"/>
+                            <rect key="frame" x="480" y="7" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="EL1-oN-uOz"/>
                                 <constraint firstAttribute="width" constant="40" id="dQf-cG-aLU"/>
@@ -100,7 +82,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoK-Ps-U9O">
-                            <rect key="frame" x="152" y="19" width="183" height="16"/>
+                            <rect key="frame" x="152" y="19" width="298" height="16"/>
                             <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
                             <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Show all compatible programs" image="CompatibleIcon"/>
@@ -114,16 +96,13 @@
                         <constraint firstItem="3EZ-aU-cDR" firstAttribute="centerY" secondItem="iLr-c1-aNj" secondAttribute="centerY" id="6cP-ue-1RO"/>
                         <constraint firstItem="QoK-Ps-U9O" firstAttribute="leading" secondItem="iLr-c1-aNj" secondAttribute="leading" constant="152" id="CSa-no-syc"/>
                         <constraint firstItem="VSg-8H-vKD" firstAttribute="centerY" secondItem="iLr-c1-aNj" secondAttribute="centerY" id="End-sE-uu0"/>
-                        <constraint firstAttribute="trailing" secondItem="jcK-3x-tDG" secondAttribute="trailing" constant="4" id="Enk-m6-YpI"/>
+                        <constraint firstAttribute="trailing" secondItem="VSg-8H-vKD" secondAttribute="trailing" constant="8" id="GB7-SW-ECE"/>
                         <constraint firstItem="Q8z-sc-5oT" firstAttribute="centerY" secondItem="iLr-c1-aNj" secondAttribute="centerY" id="HYH-pA-9xw"/>
                         <constraint firstItem="Q8z-sc-5oT" firstAttribute="leading" secondItem="QoK-Ps-U9O" secondAttribute="trailing" constant="30" id="N2S-dj-WZn"/>
                         <constraint firstItem="QoK-Ps-U9O" firstAttribute="leading" secondItem="3EZ-aU-cDR" secondAttribute="trailing" constant="40" id="T9z-Gl-h3a"/>
-                        <constraint firstItem="jcK-3x-tDG" firstAttribute="top" secondItem="iLr-c1-aNj" secondAttribute="top" constant="4" id="Tty-BC-bz7"/>
                         <constraint firstItem="VSg-8H-vKD" firstAttribute="leading" secondItem="Q8z-sc-5oT" secondAttribute="trailing" id="XnF-Xm-rhx"/>
                         <constraint firstAttribute="height" constant="54" id="cH8-T3-qVF"/>
                         <constraint firstItem="3EZ-aU-cDR" firstAttribute="leading" secondItem="iLr-c1-aNj" secondAttribute="leading" constant="24" id="cO5-xZ-tfj"/>
-                        <constraint firstAttribute="bottom" secondItem="jcK-3x-tDG" secondAttribute="bottom" constant="4" id="drS-Ym-0GK"/>
-                        <constraint firstItem="jcK-3x-tDG" firstAttribute="leading" secondItem="VSg-8H-vKD" secondAttribute="trailing" constant="16" id="lhh-hK-gCl"/>
                         <constraint firstItem="QoK-Ps-U9O" firstAttribute="centerY" secondItem="iLr-c1-aNj" secondAttribute="centerY" id="msF-cJ-JvJ"/>
                     </constraints>
                 </view>
@@ -178,7 +157,6 @@ Let's build one under Programs!</string>
     <resources>
         <image name="CheckboxNotChecked" width="16" height="16"/>
         <image name="CompatibleIcon" width="16" height="16"/>
-        <image name="PlayIcon" width="16" height="16"/>
         <image name="SortDateDown" width="20" height="20"/>
         <image name="SortNameUpSelected" width="20" height="20"/>
         <namedColor name="BlackTwo">

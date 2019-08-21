@@ -13,7 +13,6 @@ final class ButtonlessProgramsViewController: BaseViewController {
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var programsTableView: UITableView!
     @IBOutlet private weak var noProgramsLabel: UILabel!
-    @IBOutlet private weak var nextButton: RRButton!
     @IBOutlet private weak var dateButton: UIButton!
     @IBOutlet private weak var nameButton: UIButton!
     @IBOutlet private weak var compatibleButton: UIButton!
@@ -44,8 +43,10 @@ final class ButtonlessProgramsViewController: BaseViewController {
     private let programSorter = ProgramSorter()
     private var programSortingOptions = ProgramSorter.Options(field: .date, order: .descending) {
         didSet {
-            filteredAndOrderedPrograms = programSorter.sort(programs: filteredAndOrderedPrograms,
-                                                            options: programSortingOptions)
+            filteredAndOrderedPrograms = programSorter.sort(
+                programs: filteredAndOrderedPrograms,
+                options: programSortingOptions
+            )
         }
     }
 }
@@ -64,9 +65,13 @@ extension ButtonlessProgramsViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        nextButton.setBorder(fillColor: .clear, strokeColor: .white)
         fetchPrograms()
         updateEmptyStateVisibility()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        saveController(name: controllerViewModel?.name, description: controllerViewModel?.customDesctiprion)
     }
 }
 
@@ -74,7 +79,6 @@ extension ButtonlessProgramsViewController {
 extension ButtonlessProgramsViewController {
     private func setupButtons() {
         setupSelectAllButton()
-        setupNextButton()
         setupCompatibleButton()
         setupDateButton()
         setupNameButton()
@@ -93,12 +97,6 @@ extension ButtonlessProgramsViewController {
         compatibleButton.setTitle(ProgramsKeys.Buttonless.showCompatible.translate(), for: .normal)
         compatibleButton.setImage(Image.Programs.Buttonless.CompatibleIcon, for: .normal)
         compatibleButton.isSelected = true
-    }
-
-    private func setupNextButton() {
-        nextButton.setTitle(CommonKeys.next.translate(), for: .normal)
-        nextButton.superview?.setNeedsLayout()
-        nextButton.superview?.layoutIfNeeded()
     }
 
     private func setupInitialSorting() {
@@ -143,6 +141,44 @@ extension ButtonlessProgramsViewController {
 
 // MARK: - Program
 extension ButtonlessProgramsViewController {
+    private func saveController(name: String?, description: String?) {
+        guard let controller = realmService.getController(id: controllerViewModel?.id) else {
+            let newController = ControllerDataModel(
+                id: controllerViewModel?.id,
+                configurationId: controllerViewModel!.configurationId,
+                type: controllerViewModel?.type.rawValue ?? ControllerType.gamer.rawValue,
+                mapping: ControllerButtonMappingDataModel()
+            )
+            realmService.saveControllers([newController])
+            saveController(name: name, description: description)
+            return
+        }
+
+        let compatiblePrograms = selectedPrograms.filter(isProgramCompatible)
+        realmService.updateObject(closure: { [weak self] in
+            guard let viewModel = self?.controllerViewModel else { return }
+            viewModel.backgroundPrograms = compatiblePrograms
+            controller.backgroundProgramBindings.removeAll()
+            viewModel.backgroundProgramBindings.forEach({ binding in
+                controller.backgroundProgramBindings.append(binding)
+            })
+        })
+
+        if let configuration = realmService.getConfiguration(id: controllerViewModel?.configurationId),
+            configuration.controller.isEmpty {
+            realmService.updateObject(closure: {
+                configuration.controller = controller.id
+            })
+        }
+
+        if let robot = realmService.getRobots().first(where: { $0.configId == controllerViewModel?.configurationId }),
+            robot.buildStatus != BuildStatus.completed.rawValue {
+            realmService.updateObject(closure: {
+                robot.buildStatus = BuildStatus.completed.rawValue
+            })
+        }
+    }
+
     private func fetchPrograms() {
         let programs = Set(realmService.getPrograms())
         let prohibited = Set(controllerViewModel?.buttonPrograms ?? [])

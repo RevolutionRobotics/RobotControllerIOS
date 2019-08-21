@@ -23,21 +23,14 @@ final class PadConfigurationViewController: BaseViewController {
     @IBOutlet private weak var containerView: UIView!
 
     // MARK: - Properties
-    var controllerType: ControllerType? {
-        didSet {
-            guard let controllerType = controllerType else { return }
-            viewModel.type = controllerType
-            
-            print("CONTROLLER TYPE: \(controllerType.rawValue)")
-        }
-    }
+    var controllerType: ControllerType?
     var configurationView: ConfigurableControllerView!
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
     var configurationId: String?
     var selectedControllerId: String?
     var nextPressedCallback: Callback?
-    
+
     private var programs: [ProgramDataModel] = []
     private var selectedButtonIndex: Int?
     private var selectedButtonState: ControllerButton.ControllerButtonState?
@@ -45,7 +38,7 @@ final class PadConfigurationViewController: BaseViewController {
     private var selectedController: ControllerDataModel? {
         didSet {
             if let selectedController = selectedController {
-                self.controllerType = ControllerType(rawValue: selectedController.type)!
+                self.controllerType = ControllerType(rawValue: selectedController.type)
             }
         }
     }
@@ -165,6 +158,8 @@ extension PadConfigurationViewController {
     }
 
     private func programSelected(_ program: ProgramDataModel?, on buttonNumber: Int) {
+        guard let selectedController = selectedController else { return }
+
         if let program = program {
             configurationView.set(state: .selected(program), on: buttonNumber)
         } else {
@@ -172,6 +167,27 @@ extension PadConfigurationViewController {
         }
 
         viewModel.programSelected(program, on: buttonNumber)
+        realmService.updateObject(closure: { [weak self] in
+            guard let `self` = self else { return }
+
+            selectedController.lastModified = Date()
+            switch buttonNumber {
+            case 1:
+                selectedController.mapping?.b1 = self.viewModel.b1Binding
+            case 2:
+                selectedController.mapping?.b2 = self.viewModel.b2Binding
+            case 3:
+                selectedController.mapping?.b3 = self.viewModel.b3Binding
+            case 4:
+                selectedController.mapping?.b4 = self.viewModel.b4Binding
+            case 5:
+                selectedController.mapping?.b5 = self.viewModel.b5Binding
+            case 6:
+                selectedController.mapping?.b6 = self.viewModel.b6Binding
+            default:
+                break
+            }
+        })
 
         dismissModalViewController()
     }

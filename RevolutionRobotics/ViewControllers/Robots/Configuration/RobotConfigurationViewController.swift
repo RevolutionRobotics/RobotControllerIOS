@@ -138,9 +138,12 @@ extension RobotConfigurationViewController {
         }
     }
 
-    private func setupPadConfiguration() {
+    private func setupPadConfiguration(with type: ControllerType? = nil) {
         padConfiguration.realmService = realmService
-        padConfiguration.configurationView = GamerConfigurationView.instatiate()
+        padConfiguration.configurationView = (type?.rawValue ?? controller?.type) == ControllerType.gamer.rawValue
+            ? GamerConfigurationView.instatiate()
+            : MultiTaskerConfigurationView.instatiate()
+
         padConfiguration.configurationId = configuration?.id
         padConfiguration.selectedControllerId = controller?.id
         padConfiguration.nextPressedCallback = { [weak self] in
@@ -156,7 +159,6 @@ extension RobotConfigurationViewController {
             self?.navigationController?.pushViewController(playController, animated: true)
         }
 
-        // Dummy comment here...
         guard let configView = padConfiguration.view else { return }
 
         addChild(padConfiguration)
@@ -288,11 +290,6 @@ extension RobotConfigurationViewController {
     }
 
     @IBAction private func controllerButtonTapped(_ sender: Any) {
-        let toggledType: ControllerType = controller?.type == ControllerType.gamer.rawValue ? .multiTasker : .gamer
-        
-        controller?.type = toggledType.rawValue
-        padConfiguration.configurationView = controller?.type == ControllerType.gamer.rawValue
-            ? MultiTaskerConfigurationView.instatiate() : GamerConfigurationView.instatiate()
     }
 
     @IBAction private func backgroundProgramsTapped(_ sender: Any) {
@@ -301,7 +298,7 @@ extension RobotConfigurationViewController {
         vc.controllerViewModel = padConfiguration.viewModel
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @IBAction private func saveTapped(_ sender: Any) {
         guard let robot = selectedRobot else { return }
 
@@ -310,14 +307,35 @@ extension RobotConfigurationViewController {
         modal.name = robot.customName
         modal.descriptionTitle = robot.customDescription
         modal.saveCallback = { [weak self] data in
-            self?.updateConfiguration(on: robot, name: data.name, description: data.description)
-            FileManager.default.save(self?.robotImage, as: robot.id)
-            self?.dismissModalViewController()
-            self?.navigationBar.setup(title: self?.selectedRobot?.customName ?? RobotsKeys.Configure.title.translate(),
-                                      delegate: self)
-            self?.saveCallback?()
+            guard let `self` = self else { return }
+
+            self.updateConfiguration(name: data.name, description: data.description)
+            FileManager.default.save(self.robotImage, as: robot.id)
+            self.dismissModalViewController()
+            self.navigationBar.setup(
+                title: self.selectedRobot?.customName ?? RobotsKeys.Configure.title.translate(),
+                delegate: self
+            )
+            self.saveCallback?()
         }
         presentModal(with: modal)
+    }
+
+    @IBAction private func priorityButtonTapped(_ sender: Any) {
+        let vc = AppContainer.shared.container.unwrappedResolve(ProgramPriorityViewController.self)
+        vc.controllerViewModel = padConfiguration.viewModel
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    private func isProgramCompatible(_ program: ProgramDataModel) -> Bool {
+        let variableNames = realmService.getConfiguration(id: configuration?.id)?.mapping?.variableNames ?? []
+        return Set(program.variableNames).isSubset(of: Set(variableNames))
+    }
+
+    private func fetchBackgroundPrograms() -> [ProgramDataModel] {
+        let programs = Set(realmService.getPrograms())
+        let prohibited = Set(padConfiguration.viewModel.buttonPrograms)
+        return Array(programs.subtracting(prohibited))
     }
 
     private func createNewConfiguration() {
@@ -363,10 +381,12 @@ extension RobotConfigurationViewController {
         navigationController?.pushViewController(controllersViewController, animated: true)
     }
 
-    private func updateConfiguration(on robot: UserRobot, name: String, description: String?) {
+    private func updateConfiguration(name: String, description: String?) {
         realmService.updateObject(closure: { [weak self] in
-            self?.selectedRobot?.customName = name
-            self?.selectedRobot?.customDescription = description
+            guard let selectedRobot = self?.selectedRobot else { return }
+
+            selectedRobot.customName = name
+            selectedRobot.customDescription = description
         })
     }
 }
@@ -404,12 +424,12 @@ extension RobotConfigurationViewController: UIImagePickerControllerDelegate, UIN
     private func refreshConfigurationData() {
         guard let mapping = configuration?.mapping else { return }
         mapping.motors.enumerated().forEach({ index, motor in
-            let motorState = motor != nil ? PortButton.PortState.selected : PortButton.PortState.normal
+            let motorState: PortButton.PortState = motor != nil ? .selected : .normal
             let motorType = PortButton.PortType(string: motor?.type)
             configurationView.set(state: motorState, on: index + 1, type: motorType)
         })
         mapping.sensors.enumerated().forEach({ index, sensor in
-            let sensorState = sensor != nil ? PortButton.PortState.selected : PortButton.PortState.normal
+            let sensorState: PortButton.PortState = sensor != nil ? .selected : .normal
             let sensorType = PortButton.PortType(string: sensor?.type)
             configurationView.set(state: sensorState, on: mapping.motors.count + index + 1, type: sensorType)
         })

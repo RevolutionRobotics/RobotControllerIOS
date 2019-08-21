@@ -26,7 +26,7 @@
                     <rect key="frame" x="0.0" y="30" width="568" height="219"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTj-mz-ehY" userLabel="nextButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTj-mz-ehY" userLabel="nextButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="461" y="270" width="103" height="46"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="lnI-WX-kZ1"/>
