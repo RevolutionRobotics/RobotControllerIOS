@@ -51,16 +51,16 @@ final class MotorConfigViewController: BaseViewController {
     var screenDismissed: Callback?
     var name: String? {
         didSet {
-            if name != nil {
-                switch selectedMotorState {
-                case .drive, .driveWithoutSide:
-                    customDriveName = name ?? ""
-                case .motor, .motorWithoutRotation:
-                    customMotorName = name ?? ""
-                case .empty:
-                    customDriveName = ""
-                    customMotorName = ""
-                }
+            guard let name = name else { return }
+
+            switch selectedMotorState {
+            case .drive, .driveWithoutSide:
+                customDriveName = name
+            case .motor, .motorWithoutRotation:
+                customMotorName = name
+            case .empty:
+                customDriveName = ""
+                customMotorName = ""
             }
         }
     }

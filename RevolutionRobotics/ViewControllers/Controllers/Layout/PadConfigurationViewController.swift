@@ -19,7 +19,6 @@ final class PadConfigurationViewController: BaseViewController {
     }
 
     // MARK: - Outlets
-    @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var nextButton: RRButton!
     @IBOutlet private weak var containerView: UIView!
 
@@ -30,6 +29,8 @@ final class PadConfigurationViewController: BaseViewController {
     var realmService: RealmServiceInterface!
     var configurationId: String?
     var selectedControllerId: String?
+    var nextPressedCallback: Callback?
+
     private var programs: [ProgramDataModel] = []
     private var selectedButtonIndex: Int?
     private var selectedButtonState: ControllerButton.ControllerButtonState?
@@ -37,20 +38,21 @@ final class PadConfigurationViewController: BaseViewController {
     private var selectedController: ControllerDataModel? {
         didSet {
             if let selectedController = selectedController {
-                self.controllerType = ControllerType(rawValue: selectedController.type)!
+                self.controllerType = ControllerType(rawValue: selectedController.type)
             }
         }
     }
-    private let viewModel = ControllerViewModel()
+    let viewModel = ControllerViewModel()
 }
 
 // MARK: - Actions
 extension PadConfigurationViewController {
     @IBAction private func nextButtonTapped(_ sender: Any) {
-        let vc = AppContainer.shared.container.unwrappedResolve(ButtonlessProgramsViewController.self)
-        vc.configurationId = configurationId
-        vc.controllerViewModel = viewModel
-        navigationController?.pushViewController(vc, animated: true)
+        nextPressedCallback?()
+//        let vc = AppContainer.shared.container.unwrappedResolve(ButtonlessProgramsViewController.self)
+//        vc.configurationId = configurationId
+//        vc.controllerViewModel = viewModel
+//        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -59,8 +61,6 @@ extension PadConfigurationViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
-        navigationBar.setup(title: ControllerKeys.configureTitle.translate(), delegate: self)
         fetchSelectedController()
         setupConfigurationView()
         fetchPrograms()
@@ -158,6 +158,8 @@ extension PadConfigurationViewController {
     }
 
     private func programSelected(_ program: ProgramDataModel?, on buttonNumber: Int) {
+        guard let selectedController = selectedController else { return }
+
         if let program = program {
             configurationView.set(state: .selected(program), on: buttonNumber)
         } else {
@@ -165,6 +167,27 @@ extension PadConfigurationViewController {
         }
 
         viewModel.programSelected(program, on: buttonNumber)
+        realmService.updateObject(closure: { [weak self] in
+            guard let `self` = self else { return }
+
+            selectedController.lastModified = Date()
+            switch buttonNumber {
+            case 1:
+                selectedController.mapping?.b1 = self.viewModel.b1Binding
+            case 2:
+                selectedController.mapping?.b2 = self.viewModel.b2Binding
+            case 3:
+                selectedController.mapping?.b3 = self.viewModel.b3Binding
+            case 4:
+                selectedController.mapping?.b4 = self.viewModel.b4Binding
+            case 5:
+                selectedController.mapping?.b5 = self.viewModel.b5Binding
+            case 6:
+                selectedController.mapping?.b6 = self.viewModel.b6Binding
+            default:
+                break
+            }
+        })
 
         dismissModalViewController()
     }
@@ -277,7 +300,7 @@ extension PadConfigurationViewController {
 // MARK: - Setups
 extension PadConfigurationViewController {
     private func setupNextButton() {
-        nextButton.setTitle(CommonKeys.next.translate(), for: .normal)
+        nextButton.setTitle(RobotsKeys.YourRobots.play.translate(), for: .normal)
         nextButton.titleLabel?.font = Constants.nextButtonFont
         nextButton.setBorder(strokeColor: .white)
     }
@@ -293,9 +316,7 @@ extension PadConfigurationViewController {
     private func instantiateConfigurationView() {
         guard let controllerType = controllerType else { return }
         switch controllerType {
-        case .new:
-            return
-        case .gamer:
+        case .new, .gamer:
             configurationView = GamerConfigurationView.instatiate()
         case .driver:
             configurationView = DriverConfigurationView.instatiate()
@@ -314,7 +335,7 @@ extension PadConfigurationViewController {
         viewModel.customDesctiprion = selectedController?.controllerDescription ?? ""
         viewModel.id = selectedController?.id ?? UUID().uuidString
         viewModel.configurationId = configurationId ?? ""
-        viewModel.type = controllerType ?? ControllerType(rawValue: (selectedController?.type)!)
+        viewModel.type = controllerType ?? .gamer
         viewModel.isNewlyCreated = selectedController == nil
     }
 
@@ -362,18 +383,5 @@ extension PadConfigurationViewController {
     private func selectedProgram(of buttonState: ControllerButton.ControllerButtonState) -> ProgramDataModel? {
         guard case .selected(let program) = buttonState else { return nil }
         return program
-    }
-}
-
-// MARK: - Bluetooth connection
-extension PadConfigurationViewController {
-    override func connected() {
-        super.connected()
-        navigationBar.bluetoothButtonState = .connected
-    }
-
-    override func disconnected() {
-        super.disconnected()
-        navigationBar.bluetoothButtonState = .notConnected
     }
 }

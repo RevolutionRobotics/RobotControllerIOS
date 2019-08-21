@@ -10,15 +10,9 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Barlow-Medium.ttf">
-            <string>Barlow-Medium</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgramPriorityViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
-                <outlet property="doneButton" destination="Cov-4M-mbj" id="whN-To-tyR"/>
                 <outlet property="navigationBar" destination="hmw-tk-d80" id="WQ6-5E-tT5"/>
                 <outlet property="programsTableView" destination="rOs-L4-d53" id="Y4F-En-L9X"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -30,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="52" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rOs-L4-d53">
-                    <rect key="frame" x="0.0" y="40" width="896" height="298"/>
+                    <rect key="frame" x="0.0" y="40" width="896" height="353"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmw-tk-d80" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
@@ -40,39 +34,12 @@
                         <constraint firstAttribute="height" constant="71" id="Q5f-yl-sbt"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vd-5x-HQI" userLabel="bottomBarBackgroundView">
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7vd-5x-HQI" userLabel="bottomBarBackgroundView">
                     <rect key="frame" x="0.0" y="339" width="896" height="75"/>
                     <color key="backgroundColor" name="BlackTwo"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXm-1J-TXG">
-                    <rect key="frame" x="0.0" y="339" width="896" height="54"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cov-4M-mbj" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="789" y="4" width="103" height="46"/>
-                            <color key="backgroundColor" name="BlackTwo"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="103" id="HgY-5a-rnk"/>
-                                <constraint firstAttribute="height" constant="46" id="kpR-JE-xw9"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
-                            <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Done" image="TickWhiteIcon"/>
-                            <connections>
-                                <action selector="doneButtonTapped:" destination="-1" eventType="touchUpInside" id="sqc-PK-8P2"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" name="BlackTwo"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Cov-4M-mbj" secondAttribute="trailing" constant="4" id="GKn-0E-8L1"/>
-                        <constraint firstItem="Cov-4M-mbj" firstAttribute="top" secondItem="DXm-1J-TXG" secondAttribute="top" constant="4" id="Iw7-kk-1Hi"/>
-                        <constraint firstAttribute="bottom" secondItem="Cov-4M-mbj" secondAttribute="bottom" constant="4" id="deQ-F3-5re"/>
-                        <constraint firstAttribute="height" constant="54" id="mnY-Xw-Vgi"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9HK-ND-dXM">
-                    <rect key="frame" x="0.0" y="338" width="896" height="1"/>
+                    <rect key="frame" x="0.0" y="393" width="896" height="1"/>
                     <color key="backgroundColor" name="BrownGrey"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="4GR-nS-eHC"/>
@@ -82,28 +49,22 @@
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="9HK-ND-dXM" firstAttribute="top" secondItem="rOs-L4-d53" secondAttribute="bottom" id="0PX-EL-GJ6"/>
-                <constraint firstItem="7vd-5x-HQI" firstAttribute="trailing" secondItem="DXm-1J-TXG" secondAttribute="trailing" id="6Na-pE-fjd"/>
-                <constraint firstItem="7vd-5x-HQI" firstAttribute="leading" secondItem="DXm-1J-TXG" secondAttribute="leading" id="9zr-LB-VdL"/>
-                <constraint firstItem="DXm-1J-TXG" firstAttribute="top" secondItem="9HK-ND-dXM" secondAttribute="bottom" id="FCs-Mo-Ch9"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="DXm-1J-TXG" secondAttribute="bottom" id="JRq-X1-umC"/>
                 <constraint firstItem="9HK-ND-dXM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R1g-1a-QJC"/>
                 <constraint firstItem="hmw-tk-d80" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RT6-Ky-dyN"/>
-                <constraint firstAttribute="trailing" secondItem="DXm-1J-TXG" secondAttribute="trailing" id="TZm-ZX-Oe7"/>
                 <constraint firstItem="rOs-L4-d53" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="TvS-Z6-JYg"/>
                 <constraint firstItem="hmw-tk-d80" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZAg-9D-1SD"/>
                 <constraint firstAttribute="trailing" secondItem="9HK-ND-dXM" secondAttribute="trailing" id="b4b-gM-H7U"/>
                 <constraint firstItem="rOs-L4-d53" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="c44-px-70m"/>
-                <constraint firstItem="DXm-1J-TXG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cee-Aq-9im"/>
                 <constraint firstAttribute="bottom" secondItem="7vd-5x-HQI" secondAttribute="bottom" id="iLm-Z0-kbm"/>
                 <constraint firstAttribute="trailing" secondItem="hmw-tk-d80" secondAttribute="trailing" id="lcu-EL-ZsO"/>
-                <constraint firstItem="7vd-5x-HQI" firstAttribute="top" secondItem="DXm-1J-TXG" secondAttribute="top" id="onp-zM-eWh"/>
+                <constraint firstItem="rOs-L4-d53" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="wUK-Jw-hnE"/>
                 <constraint firstAttribute="trailing" secondItem="rOs-L4-d53" secondAttribute="trailing" id="xVi-mk-2Kc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="22.767857142857142" y="76.811594202898561"/>
         </view>
     </objects>
     <resources>
-        <image name="TickWhiteIcon" width="16" height="12"/>
         <namedColor name="BlackTwo">
             <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
