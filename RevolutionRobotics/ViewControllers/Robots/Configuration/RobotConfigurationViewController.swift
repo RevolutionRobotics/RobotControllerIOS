@@ -112,6 +112,7 @@ extension RobotConfigurationViewController {
     private func navigateToPlayControllerViewController(with controller: ControllerDataModel) {
         let playController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
         playController.controllerDataModel = controller
+        playController.robotName = selectedRobot?.customName
         navigationController?.pushViewController(playController, animated: true)
     }
 
