@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>100</string>
+	<string>101</string>
 	<key>Environment</key>
 	<string>$(DisplayNamePrefix)</string>
 	<key>Fabric</key>
@@ -38,8 +38,14 @@
 	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Bluetooth is used for communicating with the robot</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We use your camera to let you take photos of your robots.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Location is used for BLE</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location is used for BLE</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Jura-Bold.ttf</string>

@@ -2753,7 +2753,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.dev.development.sc;
+				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.dev.development;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.revolutionrobotics.RevolutionRobotics.dev.development.sc";
 				SWIFT_VERSION = 5.0;
@@ -2833,7 +2833,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.dev.sc;
+				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Revolution Robotics DEV Enterprise";
 				SWIFT_VERSION = 5.0;
@@ -2985,7 +2985,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -DPROD";
-				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.development.sc;
+				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.development;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.revolutionrobotics.RevolutionRobotics.development.sc";
 				SWIFT_VERSION = 5.0;
@@ -3019,7 +3019,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -DPROD";
-				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics.sc;
+				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.RevolutionRobotics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Revolution Robotics PROD";
 				SWIFT_VERSION = 5.0;
