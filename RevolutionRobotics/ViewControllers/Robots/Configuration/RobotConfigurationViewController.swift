@@ -344,7 +344,7 @@ extension RobotConfigurationViewController {
         let robot = UserRobot(
             id: UUID().uuidString,
             remoteId: "",
-            buildStatus: .invalidConfiguration,
+            buildStatus: .completed,
             actualBuildStep: -1,
             lastModified: Date(),
             configId: configId,
