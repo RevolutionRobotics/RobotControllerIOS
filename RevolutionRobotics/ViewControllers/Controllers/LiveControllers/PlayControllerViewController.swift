@@ -18,7 +18,7 @@ final class PlayControllerViewController: BaseViewController {
     var realmService: RealmServiceInterface!
     var controllerDataModel: ControllerDataModel?
     var robotName: String?
-    
+
     private var padView: PlayablePadView!
     private var programs: [ProgramDataModel?] = [] {
         didSet {

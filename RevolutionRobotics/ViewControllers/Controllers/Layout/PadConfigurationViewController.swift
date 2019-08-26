@@ -23,7 +23,13 @@ final class PadConfigurationViewController: BaseViewController {
     @IBOutlet private weak var containerView: UIView!
 
     // MARK: - Properties
-    var controllerType: ControllerType?
+    var controllerType: ControllerType? {
+        didSet {
+            guard oldValue != nil else { return }
+            setupConfigurationView()
+            prefillData()
+        }
+    }
     var configurationView: ConfigurableControllerView!
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
