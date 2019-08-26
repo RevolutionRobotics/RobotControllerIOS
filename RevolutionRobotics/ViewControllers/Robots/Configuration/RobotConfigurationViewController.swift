@@ -224,7 +224,7 @@ extension RobotConfigurationViewController {
             SensorConfigViewModelType(dataModel: mapping?.sensor(for: portNumber))
         sensorConfig.name = mapping?.sensor(for: portNumber)?.variableName
         sensorConfig.bumperSensorCounts = mapping?.bumperSensorCount ?? 0
-        sensorConfig.distanceSensorCounts = configuration?.mapping?.distanceSensorCount ?? 0
+        sensorConfig.distanceSensorCounts = mapping?.distanceSensorCount ?? 0
         sensorConfig.prohibitedNames = mapping?.variableNames.filter({ $0 != sensorConfig.name }) ?? []
         sensorConfig.doneButtonTapped = { [weak self] config in
             guard let `self` = self else { return }
