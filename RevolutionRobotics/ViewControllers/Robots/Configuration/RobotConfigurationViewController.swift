@@ -85,10 +85,11 @@ extension RobotConfigurationViewController {
             createNewConfiguration()
         }
 
+        let controllerType = realmService.getController(id: configuration?.controller)?.type
         controller = ControllerDataModel(
             id: configuration?.controller ?? UUID().uuidString,
             configurationId: configuration?.id ?? UUID().uuidString,
-            type: controller?.type ?? ControllerType.gamer.rawValue,
+            type: controllerType ?? ControllerType.gamer.rawValue,
             mapping: ControllerButtonMappingDataModel()
         )
 
@@ -215,14 +216,16 @@ extension RobotConfigurationViewController {
     }
 
     private func showSensorConfiguration(portNumber: Int) {
+        let mapping = configuration?.mapping
         let sensorConfig = AppContainer.shared.container.unwrappedResolve(SensorConfigViewController.self)
+
         sensorConfig.portNumber = portNumber
         sensorConfig.selectedSensorType =
-            SensorConfigViewModelType(dataModel: configuration?.mapping?.sensor(for: portNumber))
-        sensorConfig.name = configuration?.mapping?.sensor(for: portNumber)?.variableName
-        sensorConfig.bumperSensorCounts = configuration?.mapping?.bumperSensorCount ?? 0
+            SensorConfigViewModelType(dataModel: mapping?.sensor(for: portNumber))
+        sensorConfig.name = mapping?.sensor(for: portNumber)?.variableName
+        sensorConfig.bumperSensorCounts = mapping?.bumperSensorCount ?? 0
         sensorConfig.distanceSensorCounts = configuration?.mapping?.distanceSensorCount ?? 0
-        sensorConfig.prohibitedNames = configuration?.mapping?.variableNames.filter({ $0 != sensorConfig.name }) ?? []
+        sensorConfig.prohibitedNames = mapping?.variableNames.filter({ $0 != sensorConfig.name }) ?? []
         sensorConfig.doneButtonTapped = { [weak self] config in
             guard let `self` = self else { return }
             self.dismiss(animated: true, completion: nil)
@@ -291,6 +294,24 @@ extension RobotConfigurationViewController {
     }
 
     @IBAction private func controllerButtonTapped(_ sender: Any) {
+        guard
+            let configurationView = padConfiguration.configurationView,
+            let controllerType = controller?.type
+        else { return }
+
+        let toggledType: ControllerType = controllerType == ControllerType.gamer.rawValue
+            ? .multiTasker
+            : .gamer
+
+        configurationView.removeFromSuperview()
+        padConfiguration.controllerType = toggledType
+
+        let savedController = realmService.getController(id: controller?.id)
+        realmService.updateObject(closure: {
+            savedController?.type = toggledType.rawValue
+        })
+
+        controller?.type = toggledType.rawValue
     }
 
     @IBAction private func backgroundProgramsTapped(_ sender: Any) {
