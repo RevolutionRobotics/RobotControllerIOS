@@ -16,4 +16,18 @@ extension UIView {
     func removeAllSubViews() {
         allSubviews().forEach({ $0.removeFromSuperview() })
     }
+
+    var visualEffectsSubview: UIVisualEffectView? {
+        if let visualEffectView = self as? UIVisualEffectView {
+            return visualEffectView
+        }
+
+        for subview in subviews {
+            if let visualEffectView = subview.visualEffectsSubview {
+                return visualEffectView
+            }
+        }
+
+        return nil
+    }
 }

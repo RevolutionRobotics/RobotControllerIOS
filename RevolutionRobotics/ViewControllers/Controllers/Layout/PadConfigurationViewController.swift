@@ -26,8 +26,7 @@ final class PadConfigurationViewController: BaseViewController {
     var controllerType: ControllerType? {
         didSet {
             guard oldValue != nil else { return }
-            setupConfigurationView()
-            prefillData()
+            refreshViewState()
         }
     }
     var configurationView: ConfigurableControllerView!
@@ -149,6 +148,11 @@ extension PadConfigurationViewController {
                     self?.realmService.getProgram(id: binding.programId) ??
                         self?.realmService.getProgram(remoteId: binding.programId)
                 }
+    }
+
+    func refreshViewState() {
+        setupConfigurationView()
+        prefillData()
     }
 }
 

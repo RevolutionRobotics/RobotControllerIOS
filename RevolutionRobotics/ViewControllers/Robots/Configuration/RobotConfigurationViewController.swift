@@ -260,7 +260,6 @@ extension RobotConfigurationViewController {
     private func segmentSelected(_ segment: ConfigurationSegment) {
         configurationView.isHidden = segment == .controllers
         padConfiguration.view.isHidden = segment == .connections
-        controllerButton.isHidden = segment == .connections
     }
 
     private func setupRobotImageView() {
@@ -285,6 +284,8 @@ extension RobotConfigurationViewController {
         deleteView.cancelButtonHandler = { [weak self] in
             self?.dismissModalViewController()
         }
+
+        reloadConfigurationView()
         presentModal(with: deleteView)
     }
 
@@ -294,6 +295,8 @@ extension RobotConfigurationViewController {
     }
 
     @IBAction private func controllerButtonTapped(_ sender: Any) {
+        reloadConfigurationView()
+
         guard
             let configurationView = padConfiguration.configurationView,
             let controllerType = controller?.type
@@ -321,7 +324,7 @@ extension RobotConfigurationViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    @IBAction private func saveTapped(_ sender: Any) {
+    @IBAction private func renameTapped(_ sender: Any) {
         guard let robot = selectedRobot else { return }
 
         let modal = SaveModalView.instatiate()
@@ -340,6 +343,8 @@ extension RobotConfigurationViewController {
             )
             self.saveCallback?()
         }
+
+        reloadConfigurationView()
         presentModal(with: modal)
     }
 
@@ -347,6 +352,65 @@ extension RobotConfigurationViewController {
         let vc = AppContainer.shared.container.unwrappedResolve(ProgramPriorityViewController.self)
         vc.controllerViewModel = padConfiguration.viewModel
         navigationController?.pushViewController(vc, animated: true)
+    }
+
+    @IBAction private func optionsTapped(_ sender: Any) {
+        let optionsMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        optionsMenu.addAction(UIAlertAction(
+            title: RobotsKeys.Configure.typeChange.translate(),
+            style: .default,
+            handler: controllerButtonTapped(_:)
+        ))
+        optionsMenu.addAction(UIAlertAction(
+            title: RobotsKeys.Configure.delete.translate(),
+            style: .destructive,
+            handler: deleteTapped(_:)
+        ))
+        optionsMenu.addAction(UIAlertAction(
+            title: RobotsKeys.Configure.duplicate.translate(),
+            style: .default,
+            handler: duplicateTapped(_:)
+        ))
+        optionsMenu.addAction(UIAlertAction(
+            title: RobotsKeys.Configure.rename.translate(),
+            style: .default,
+            handler: renameTapped(_:)
+        ))
+        optionsMenu.addAction(UIAlertAction(
+            title: RobotsKeys.Configure.changeImage.translate(),
+            style: .default,
+            handler: takePhotoTapped(_:)
+        ))
+
+        if let visualEffectView = optionsMenu.view.visualEffectsSubview {
+            visualEffectView.effect = UIBlurEffect(style: .dark)
+            optionsMenu.view.tintColor = .white
+        }
+
+        present(optionsMenu, animated: true, completion: { [weak self] in
+            guard
+                let `self` = self,
+                let subview = optionsMenu.view.superview?.subviews[1]
+            else { return }
+
+            subview.isUserInteractionEnabled = true
+            subview.addGestureRecognizer(UITapGestureRecognizer(
+                target: self,
+                action: #selector(self.tappedOutside)
+            ))
+        })
+    }
+
+    @objc private func tappedOutside(callback: Callback? = nil) {
+        dismiss(animated: true, completion: { [weak self] in
+            self?.reloadConfigurationView()
+        })
+    }
+
+    private func reloadConfigurationView() {
+        padConfiguration.configurationView.removeFromSuperview()
+        padConfiguration.refreshViewState()
     }
 
     private func isProgramCompatible(_ program: ProgramDataModel) -> Bool {
@@ -416,6 +480,8 @@ extension RobotConfigurationViewController {
 // MARK: - Image picker
 extension RobotConfigurationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBAction private func takePhotoTapped(_ sender: Any) {
+        reloadConfigurationView()
+
         if robotImage == nil {
             UIImagePickerController.show(with: self, on: self)
         } else {
