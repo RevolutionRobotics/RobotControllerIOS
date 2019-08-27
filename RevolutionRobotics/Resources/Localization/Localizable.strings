@@ -103,6 +103,11 @@
 "configure_motor_done_button_title" = "Done";
 "configure_sensor_bumper_button_title" = "Bumper";
 "configure_sensor_distance_button_title" = "Distance";
+"configure_controller_type_change" = "Change controller type";
+"configure_delete" = "Delete";
+"configure_duplicate" = "Duplicate";
+"configure_rename" = "Rename";
+"configure_image_change" = "Change image";
 
 // MARK: - Controller
 "controller_type_gamer" = "gamer";

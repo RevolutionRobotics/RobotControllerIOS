@@ -48,6 +48,11 @@ enum RobotsKeys {
         static let controllerTabTitle = "configure_controller_tab_title"
         static let variableError = "error_variable_already_in_use"
         static let variableEmpty = "error_variable_empty"
+        static let typeChange = "configure_controller_type_change"
+        static let delete = "configure_delete"
+        static let duplicate = "configure_duplicate"
+        static let rename = "configure_rename"
+        static let changeImage = "configure_image_change"
 
         enum Motor {
             static let emptyButton = "configure_motor_empty_button_title"
