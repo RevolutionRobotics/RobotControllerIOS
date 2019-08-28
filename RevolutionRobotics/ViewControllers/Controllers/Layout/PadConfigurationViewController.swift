@@ -19,7 +19,6 @@ final class PadConfigurationViewController: BaseViewController {
     }
 
     // MARK: - Outlets
-    @IBOutlet private weak var nextButton: RRButton!
     @IBOutlet private weak var containerView: UIView!
 
     // MARK: - Properties
@@ -34,7 +33,6 @@ final class PadConfigurationViewController: BaseViewController {
     var realmService: RealmServiceInterface!
     var configurationId: String?
     var selectedControllerId: String?
-    var nextPressedCallback: Callback?
 
     private var programs: [ProgramDataModel] = []
     private var selectedButtonIndex: Int?
@@ -48,17 +46,6 @@ final class PadConfigurationViewController: BaseViewController {
         }
     }
     let viewModel = ControllerViewModel()
-}
-
-// MARK: - Actions
-extension PadConfigurationViewController {
-    @IBAction private func nextButtonTapped(_ sender: Any) {
-        nextPressedCallback?()
-//        let vc = AppContainer.shared.container.unwrappedResolve(ButtonlessProgramsViewController.self)
-//        vc.configurationId = configurationId
-//        vc.controllerViewModel = viewModel
-//        navigationController?.pushViewController(vc, animated: true)
-    }
 }
 
 // MARK: - View lifecycle
@@ -76,7 +63,6 @@ extension PadConfigurationViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchPrograms()
-        setupNextButton()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -309,12 +295,6 @@ extension PadConfigurationViewController {
 
 // MARK: - Setups
 extension PadConfigurationViewController {
-    private func setupNextButton() {
-        nextButton.setTitle(RobotsKeys.YourRobots.play.translate(), for: .normal)
-        nextButton.titleLabel?.font = Constants.nextButtonFont
-        nextButton.setBorder(strokeColor: .white)
-    }
-
     private func setupConfigurationView() {
         instantiateConfigurationView()
         configurationView.selectionCallback = { [weak self] index in
