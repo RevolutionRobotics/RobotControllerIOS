@@ -13,7 +13,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RobotConfigurationViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="configurationView" destination="R0b-BO-qaQ" id="LHe-85-74R"/>
+                <outlet property="controllerContainerView" destination="c5x-ws-40H" id="vcn-4m-7XA"/>
                 <outlet property="navigationBar" destination="oyj-RX-Rpw" id="CUl-UR-9sA"/>
+                <outlet property="playButton" destination="kWF-Hf-1t3" id="ppR-1m-sWO"/>
                 <outlet property="segmentedControl" destination="849-Dt-fTu" id="4wB-7V-652"/>
                 <outlet property="view" destination="HeV-pd-fdw" id="GCH-ya-DXb"/>
             </connections>
@@ -96,6 +98,19 @@
                         <constraint firstItem="VYe-8C-QvG" firstAttribute="leading" secondItem="jlw-2Y-63m" secondAttribute="trailing" constant="8" id="rzm-n8-F2E"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWF-Hf-1t3" userLabel="playButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="777" y="359" width="65" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="gui-tw-zLd"/>
+                        <constraint firstAttribute="width" constant="65" id="iMF-tf-hPc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
+                    <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" image="NextIcon"/>
+                    <connections>
+                        <action selector="playButtonTapped:" destination="-1" eventType="touchUpInside" id="V7I-nE-Qbf"/>
+                    </connections>
+                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0b-BO-qaQ" userLabel="configurationView" customClass="ConfigurationView" customModule="RevolutionRobotics" customModuleProvider="target">
                     <rect key="frame" x="227" y="165" width="442" height="228"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -104,29 +119,39 @@
                         <constraint firstAttribute="height" constant="228" id="zhV-DF-V4V"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5x-ws-40H">
+                    <rect key="frame" x="119" y="111" width="658" height="282"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="dqD-V3-qDN" secondAttribute="trailing" id="3aD-Ff-8lY"/>
                 <constraint firstItem="R0b-BO-qaQ" firstAttribute="bottom" secondItem="qje-Yl-IXm" secondAttribute="bottom" id="4ug-g6-S5S"/>
+                <constraint firstAttribute="bottom" secondItem="kWF-Hf-1t3" secondAttribute="bottom" constant="10" id="73U-1A-Hg3"/>
                 <constraint firstItem="dqD-V3-qDN" firstAttribute="leading" secondItem="HeV-pd-fdw" secondAttribute="leading" id="EQx-4R-ATI"/>
                 <constraint firstItem="oyj-RX-Rpw" firstAttribute="leading" secondItem="HeV-pd-fdw" secondAttribute="leading" id="FTZ-ga-aGT"/>
+                <constraint firstItem="c5x-ws-40H" firstAttribute="bottom" secondItem="qje-Yl-IXm" secondAttribute="bottom" id="JJd-bk-DdY"/>
+                <constraint firstItem="qje-Yl-IXm" firstAttribute="trailing" secondItem="c5x-ws-40H" secondAttribute="trailing" constant="75" id="Klw-db-W5r"/>
                 <constraint firstItem="Ynx-ue-Ua9" firstAttribute="centerX" secondItem="HeV-pd-fdw" secondAttribute="centerX" id="N2R-yy-5hU"/>
                 <constraint firstAttribute="bottom" secondItem="dqD-V3-qDN" secondAttribute="bottom" id="O8o-Jg-2pF"/>
                 <constraint firstItem="oyj-RX-Rpw" firstAttribute="top" secondItem="HeV-pd-fdw" secondAttribute="top" id="Ra5-e6-man"/>
+                <constraint firstItem="c5x-ws-40H" firstAttribute="top" secondItem="oyj-RX-Rpw" secondAttribute="bottom" constant="40" id="agX-uR-15f"/>
                 <constraint firstItem="dqD-V3-qDN" firstAttribute="top" secondItem="HeV-pd-fdw" secondAttribute="top" id="bJG-nH-LiD"/>
                 <constraint firstAttribute="trailing" secondItem="oyj-RX-Rpw" secondAttribute="trailing" id="cVi-QO-K5I"/>
+                <constraint firstItem="qje-Yl-IXm" firstAttribute="trailing" secondItem="kWF-Hf-1t3" secondAttribute="trailing" constant="10" id="dy4-th-8Fd"/>
                 <constraint firstItem="Ynx-ue-Ua9" firstAttribute="top" secondItem="oyj-RX-Rpw" secondAttribute="bottom" id="eyJ-3P-8vO"/>
+                <constraint firstItem="c5x-ws-40H" firstAttribute="leading" secondItem="qje-Yl-IXm" secondAttribute="leading" constant="75" id="hBX-v3-huL"/>
                 <constraint firstItem="R0b-BO-qaQ" firstAttribute="top" secondItem="Ynx-ue-Ua9" secondAttribute="bottom" id="lQT-Km-duk"/>
                 <constraint firstItem="R0b-BO-qaQ" firstAttribute="centerX" secondItem="HeV-pd-fdw" secondAttribute="centerX" id="sUh-bf-szg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="qje-Yl-IXm"/>
-            <point key="canvasLocation" x="138.61607142857142" y="152.17391304347828"/>
+            <point key="canvasLocation" x="137.68115942028987" y="152.00892857142856"/>
         </view>
     </objects>
     <resources>
         <image name="CodeIcon" width="24" height="24"/>
         <image name="GlowBackground" width="568" height="320"/>
+        <image name="NextIcon" width="6" height="10"/>
         <image name="OrderIcon" width="25" height="25"/>
         <image name="SettingsIcon" width="22" height="22"/>
     </resources>

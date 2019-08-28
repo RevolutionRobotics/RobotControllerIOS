@@ -44,7 +44,8 @@ final class RobotConfigurationViewController: BaseViewController {
     @IBOutlet private weak var configurationView: ConfigurationView!
     @IBOutlet private weak var segmentedControl: RRSegmentedControl!
     @IBOutlet private weak var navigationBar: RRNavigationBar!
-    @IBOutlet private weak var controllerButton: RRButton!
+    @IBOutlet private weak var playButton: RRButton!
+    @IBOutlet private weak var controllerContainerView: UIView!
 
     // MARK: - Properties
     var realmService: RealmServiceInterface!
@@ -53,7 +54,6 @@ final class RobotConfigurationViewController: BaseViewController {
 
     private let photoModal = PhotoModalView.instatiate()
     private let padConfiguration = PadConfigurationViewController()
-
     private var robotImage: UIImage?
     private var shouldPrefillConfiguration = false
     private var controller: ControllerDataModel?
@@ -99,6 +99,7 @@ extension RobotConfigurationViewController {
         setupPadConfiguration()
         setupSegmentedControl()
         setupRobotImageView()
+        setupPlayButton()
         setupConfigurationView()
         setupPhotoModal()
 
@@ -110,6 +111,12 @@ extension RobotConfigurationViewController {
 
 // MARK: - Setups
 extension RobotConfigurationViewController {
+    private func setupPlayButton() {
+        playButton.setTitle(RobotsKeys.YourRobots.play.translate(), for: .normal)
+        playButton.titleLabel?.font = Font.barlow(size: 14.0, weight: .medium)
+        playButton.setBorder(strokeColor: .white)
+    }
+
     private func navigateToPlayControllerViewController(with controller: ControllerDataModel) {
         let playController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
         playController.controllerDataModel = controller
@@ -148,31 +155,19 @@ extension RobotConfigurationViewController {
 
         padConfiguration.configurationId = configuration?.id
         padConfiguration.selectedControllerId = controller?.id
-        padConfiguration.nextPressedCallback = { [weak self] in
-            guard
-                let configId = self?.configuration?.id,
-                let controller = self?.realmService.getController(id: configId)
-            else {
-                return
-            }
-
-            let playController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
-            playController.controllerDataModel = controller
-            self?.navigationController?.pushViewController(playController, animated: true)
-        }
 
         guard let configView = padConfiguration.view else { return }
 
         addChild(padConfiguration)
-        view.addSubview(configView)
+        controllerContainerView.addSubview(configView)
         padConfiguration.didMove(toParent: self)
 
         configView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            configView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor),
-            configView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            configView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            configView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            configView.topAnchor.constraint(equalTo: controllerContainerView.topAnchor),
+            configView.bottomAnchor.constraint(equalTo: controllerContainerView.bottomAnchor),
+            configView.leadingAnchor.constraint(equalTo: controllerContainerView.leadingAnchor),
+            configView.trailingAnchor.constraint(equalTo: controllerContainerView.trailingAnchor)
         ])
     }
 
@@ -271,7 +266,7 @@ extension RobotConfigurationViewController {
 
 // MARK: - Actions
 extension RobotConfigurationViewController {
-    @IBAction private func deleteTapped(_ sender: Any) {
+    private func deleteTapped(_ sender: Any) {
         dismissModalViewController()
         let deleteView = DeleteModalView.instatiate()
         deleteView.title = ModalKeys.DeleteRobot.description.translate()
@@ -289,12 +284,12 @@ extension RobotConfigurationViewController {
         presentModal(with: deleteView)
     }
 
-    @IBAction private func duplicateTapped(_ sender: Any) {
+    private func duplicateTapped(_ sender: Any) {
         duplicateCallback?()
         navigationController?.popViewController(animated: true)
     }
 
-    @IBAction private func controllerButtonTapped(_ sender: Any) {
+    private func controllerButtonTapped(_ sender: Any) {
         reloadConfigurationView()
 
         guard
@@ -324,7 +319,7 @@ extension RobotConfigurationViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    @IBAction private func renameTapped(_ sender: Any) {
+    private func renameTapped(_ sender: Any) {
         guard let robot = selectedRobot else { return }
 
         let modal = SaveModalView.instatiate()
@@ -348,6 +343,18 @@ extension RobotConfigurationViewController {
         presentModal(with: modal)
     }
 
+    @IBAction private func playButtonTapped(_ sender: Any) {
+        guard let configuration = realmService.getConfiguration(id: selectedRobot?.configId),
+            let controller = realmService.getController(id: configuration.controller) else {
+                return
+        }
+
+        let playController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
+        playController.controllerDataModel = controller
+        playController.robotName = selectedRobot?.customName
+        navigationController?.pushViewController(playController, animated: true)
+    }
+
     @IBAction private func priorityButtonTapped(_ sender: Any) {
         let vc = AppContainer.shared.container.unwrappedResolve(ProgramPriorityViewController.self)
         vc.controllerViewModel = padConfiguration.viewModel
@@ -360,27 +367,27 @@ extension RobotConfigurationViewController {
         optionsMenu.addAction(UIAlertAction(
             title: RobotsKeys.Configure.typeChange.translate(),
             style: .default,
-            handler: controllerButtonTapped(_:)
+            handler: controllerButtonTapped
         ))
         optionsMenu.addAction(UIAlertAction(
             title: RobotsKeys.Configure.delete.translate(),
             style: .destructive,
-            handler: deleteTapped(_:)
+            handler: deleteTapped
         ))
         optionsMenu.addAction(UIAlertAction(
             title: RobotsKeys.Configure.duplicate.translate(),
             style: .default,
-            handler: duplicateTapped(_:)
+            handler: duplicateTapped
         ))
         optionsMenu.addAction(UIAlertAction(
             title: RobotsKeys.Configure.rename.translate(),
             style: .default,
-            handler: renameTapped(_:)
+            handler: renameTapped
         ))
         optionsMenu.addAction(UIAlertAction(
             title: RobotsKeys.Configure.changeImage.translate(),
             style: .default,
-            handler: takePhotoTapped(_:)
+            handler: takePhotoTapped
         ))
 
         if let visualEffectView = optionsMenu.view.visualEffectsSubview {
@@ -479,7 +486,7 @@ extension RobotConfigurationViewController {
 
 // MARK: - Image picker
 extension RobotConfigurationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    @IBAction private func takePhotoTapped(_ sender: Any) {
+    private func takePhotoTapped(_ sender: Any) {
         reloadConfigurationView()
 
         if robotImage == nil {

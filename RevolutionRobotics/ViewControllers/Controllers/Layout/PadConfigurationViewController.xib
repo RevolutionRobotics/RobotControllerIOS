@@ -13,7 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PadConfigurationViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="containerView" destination="Jl6-PZ-f5S" id="Zxe-3G-ft0"/>
-                <outlet property="nextButton" destination="NTj-mz-ehY" id="ieI-M1-7SQ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="v3F-px-qfI"/>
             </connections>
         </placeholder>
@@ -23,35 +22,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jl6-PZ-f5S" userLabel="containerView">
-                    <rect key="frame" x="0.0" y="30" width="568" height="219"/>
+                    <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTj-mz-ehY" userLabel="nextButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="461" y="270" width="103" height="46"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="46" id="lnI-WX-kZ1"/>
-                        <constraint firstAttribute="width" constant="103" id="vz4-xP-q9b"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
-                    <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" image="NextIcon"/>
-                    <connections>
-                        <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="Tb6-kW-R4D"/>
-                    </connections>
-                </button>
             </subviews>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="NTj-mz-ehY" secondAttribute="bottom" constant="4" id="041-MI-6Z8"/>
                 <constraint firstItem="Jl6-PZ-f5S" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="2qK-Cc-glL"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Jl6-PZ-f5S" secondAttribute="trailing" id="KLC-eB-YJP"/>
-                <constraint firstItem="NTj-mz-ehY" firstAttribute="top" secondItem="Jl6-PZ-f5S" secondAttribute="bottom" constant="21" id="M6G-wj-CFE"/>
-                <constraint firstItem="Jl6-PZ-f5S" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="faG-pl-X5u"/>
-                <constraint firstAttribute="trailing" secondItem="NTj-mz-ehY" secondAttribute="trailing" constant="4" id="s9N-wf-hc0"/>
+                <constraint firstItem="Jl6-PZ-f5S" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="faG-pl-X5u"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Jl6-PZ-f5S" secondAttribute="bottom" id="rgY-4D-zQX"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
     </objects>
-    <resources>
-        <image name="NextIcon" width="6" height="10"/>
-    </resources>
 </document>
