@@ -30,6 +30,7 @@ extension RRCollectionView {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        self.bounces = false
         self.decelerationRate = .fast
         self.showsVerticalScrollIndicator = false
         self.showsHorizontalScrollIndicator = false
@@ -40,6 +41,11 @@ extension RRCollectionView {
 
 // MARK: - UICollectionViewDelegate
 extension RRCollectionView: UICollectionViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        isUserInteractionEnabled = true
+        centerCell()
+    }
+
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             centerCell()
@@ -89,9 +95,9 @@ extension RRCollectionView {
             guard let customCell = cell as? ResizableCell else {
                 continue
             }
-            let distaneFromLeft = self.convert(CGPoint(x: customCell.frame.midX, y: customCell.frame.midY),
-                                               to: self.superview).x
-            let multiplier = min(max(distaneFromLeft / self.frame.width, 0), 1)
+            let distanceFromLeft = self.convert(CGPoint(x: customCell.frame.midX, y: customCell.frame.midY),
+                                                to: self.superview).x
+            let multiplier = min(max(distanceFromLeft / self.frame.width, 0), 1)
             let sine = Constants.sineMultiplier * sin(multiplier * CGFloat(Double.pi)) + Constants.cellMaxSize
             if sine > highestSine, let indexPath = self.indexPath(for: customCell) {
                 indexPathOfCentermostCell = indexPath
