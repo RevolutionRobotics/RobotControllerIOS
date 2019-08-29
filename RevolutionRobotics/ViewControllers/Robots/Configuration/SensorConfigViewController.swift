@@ -159,8 +159,13 @@ extension SensorConfigViewController {
 // MARK: - Event handling
 extension SensorConfigViewController {
     private func handleSelectionChange() {
+        let typeIsEmpty = selectedSensorType == .empty
+
+        nameInputField.isUserInteractionEnabled = !typeIsEmpty
+        nameInputField.layer.opacity = typeIsEmpty ? 0.5 : 1.0
         nameInputField.text = nameInputFieldText
-        emptyButton.set(selected: selectedSensorType == .empty)
+
+        emptyButton.set(selected: typeIsEmpty)
         bumperButton.set(selected: selectedSensorType == .bumper)
         distanceButton.set(selected: selectedSensorType == .distance)
     }
