@@ -68,7 +68,13 @@ extension YourRobotsViewController {
         guard let indexPath = selectedIndexPath else {
             return
         }
-        collectionView.reloadItems(at: [indexPath])
+
+        if indexPath.row < robots.count {
+            collectionView.reloadItems(at: [indexPath])
+        } else {
+            collectionView.reloadData()
+        }
+
         selectedIndexPath = nil
     }
 
