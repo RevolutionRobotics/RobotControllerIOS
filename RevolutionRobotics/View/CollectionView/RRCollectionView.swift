@@ -40,11 +40,6 @@ extension RRCollectionView {
 
 // MARK: - UICollectionViewDelegate
 extension RRCollectionView: UICollectionViewDelegate {
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.isUserInteractionEnabled = true
-        centerCell()
-    }
-
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             centerCell()
