@@ -113,6 +113,10 @@ extension MotorConfigViewController {
             switchToMotorState(rotation: rotation)
         }
 
+        let stateIsEmpty = state == .empty
+
+        nameInputField.isUserInteractionEnabled = !stateIsEmpty
+        nameInputField.layer.opacity = stateIsEmpty ? 0.5 : 1.0
         nameInputField.text = nameInputFieldText(for: state)
     }
 
