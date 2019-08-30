@@ -159,6 +159,7 @@
 		2A9F52152265E97700F9F651 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9F52132265E97700F9F651 /* SettingsViewController.swift */; };
 		2A9F52162265E97700F9F651 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9F52142265E97700F9F651 /* SettingsViewController.xib */; };
 		2A9F52182265EC0500F9F651 /* Container+Unwrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9F52172265EC0500F9F651 /* Container+Unwrapped.swift */; };
+		2AA0751E230D8EB000631A62 /* String+Replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0751D230D8EB000631A62 /* String+Replace.swift */; };
 		2AA926D22271CB07000FAA98 /* RRSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA926D12271CB07000FAA98 /* RRSlider.swift */; };
 		2AA926D522773D95000FAA98 /* SideButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA926D422773D95000FAA98 /* SideButton.swift */; };
 		2AA926D722773DC1000FAA98 /* SideButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AA926D622773DC1000FAA98 /* SideButton.xib */; };
@@ -519,6 +520,7 @@
 		2A9F52132265E97700F9F651 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2A9F52142265E97700F9F651 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		2A9F52172265EC0500F9F651 /* Container+Unwrapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+Unwrapped.swift"; sourceTree = "<group>"; };
+		2AA0751D230D8EB000631A62 /* String+Replace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Replace.swift"; sourceTree = "<group>"; };
 		2AA926D12271CB07000FAA98 /* RRSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRSlider.swift; sourceTree = "<group>"; };
 		2AA926D422773D95000FAA98 /* SideButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideButton.swift; sourceTree = "<group>"; };
 		2AA926D622773DC1000FAA98 /* SideButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideButton.xib; sourceTree = "<group>"; };
@@ -1692,6 +1694,7 @@
 				099FF24522C360D500CD9104 /* String+Base64.swift */,
 				2ADE8C282270A61000ECEC72 /* String+Translate.swift */,
 				2A19F6F722DF1DCB0017CC5B /* String+Emoji.swift */,
+				2AA0751D230D8EB000631A62 /* String+Replace.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -2630,6 +2633,7 @@
 				09BD4C1722C117320046DB74 /* ConfirmModalView.swift in Sources */,
 				D001FCB722A951FC004C49F3 /* ChallengesCollectionViewOddCell.swift in Sources */,
 				D008E0392260979400089DC7 /* FirebaseData.swift in Sources */,
+				2AA0751E230D8EB000631A62 /* String+Replace.swift in Sources */,
 				2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */,
 				D06C32772289BAE9005534C0 /* CheckForUpdateModalView.swift in Sources */,
 				D0313332228D5CBA00704989 /* Challenge.swift in Sources */,
