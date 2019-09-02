@@ -67,6 +67,8 @@ extension BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.delegate = self
+
         setupSideMenuPreferences()
         registerObserver()
         subscribeForConnectionChange()
@@ -129,6 +131,14 @@ extension BaseViewController {
         viewController.modalTransitionStyle = transitionStyle
         viewController.modalPresentationStyle = presentationStyle
         present(viewController, animated: true, completion: nil)
+    }
+}
+
+// MARK: - UINavigationControllerDelegate
+extension BaseViewController: UINavigationControllerDelegate {
+    func navigationControllerSupportedInterfaceOrientations(_
+        navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+        return .landscapeRight
     }
 }
 
