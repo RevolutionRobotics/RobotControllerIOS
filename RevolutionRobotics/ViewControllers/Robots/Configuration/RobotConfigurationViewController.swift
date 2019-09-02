@@ -485,7 +485,7 @@ extension RobotConfigurationViewController {
 }
 
 // MARK: - Image picker
-extension RobotConfigurationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension RobotConfigurationViewController: UIImagePickerControllerDelegate {
     private func takePhotoTapped(_ sender: Any) {
         reloadConfigurationView()
 
