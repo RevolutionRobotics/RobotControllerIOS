@@ -20,6 +20,7 @@ final class ProgramsViewController: BaseViewController {
     // MARK: - Constants
     private enum Constants {
         static let defaultXMLCode = "<xml xmlns=\"http://www.w3.org/1999/xhtml\"></xml>"
+        static let blocklyElementIdRegex = "id=\"[^\"]*\""
     }
 
     // MARK: - Outlets
@@ -420,16 +421,30 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
                 return
             }
 
-            selectedProgram.xml.base64Decoded == xmlCode ? navigateBack() : confirmLeave()
+            let replaced =
+                selectedProgram.xml.base64Decoded!.replacingPattern(regexPattern: Constants.blocklyElementIdRegex)
+            let isXmlModified = replaced != xmlCode.replacingPattern(regexPattern: Constants.blocklyElementIdRegex)
 
+            if isXmlModified {
+                confirmLeave()
+            } else {
+                navigateBack()
+            }
         case .openProgram:
             guard let selectedProgram = selectedProgram else {
                 isDefaulProgram ? openProgramModal() : confirmLeave()
                 return
             }
 
-            selectedProgram.xml.base64Decoded == xmlCode ? openProgramModal() : confirmLeave()
+            let replaced =
+                selectedProgram.xml.base64Decoded!.replacingPattern(regexPattern: Constants.blocklyElementIdRegex)
+            let isXmlModified = replaced != xmlCode.replacingPattern(regexPattern: Constants.blocklyElementIdRegex)
 
+            if isXmlModified {
+                confirmLeave()
+            } else {
+                openProgramModal()
+            }
         case .edited:
             guard let program = selectedProgram else { return }
 
