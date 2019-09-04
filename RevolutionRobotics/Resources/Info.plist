@@ -19,23 +19,9 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>102</string>
+	<string>104</string>
 	<key>Environment</key>
 	<string>$(DisplayNamePrefix)</string>
-	<key>Fabric</key>
-	<dict>
-		<key>APIKey</key>
-		<string>67f938d8e574a4ead3786995193bd4fec3d43c01</string>
-		<key>Kits</key>
-		<array>
-			<dict>
-				<key>KitInfo</key>
-				<dict/>
-				<key>KitName</key>
-				<string>Crashlytics</string>
-			</dict>
-		</array>
-	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSBluetoothPeripheralUsageDescription</key>

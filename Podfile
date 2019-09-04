@@ -13,8 +13,8 @@ target 'RevolutionRobotics' do
   pod 'Swinject', '~> 2.6.0'
 
   # Release management
-  pod 'Fabric', '~> 1.9.0'
-  pod 'Crashlytics', '~> 3.12.0'
+  pod 'Fabric', '~> 1.10.2'
+  pod 'Crashlytics', '~> 3.13.4'
 
   # UI
   pod 'Kingfisher', '~> 5.3.1'
@@ -26,8 +26,9 @@ target 'RevolutionRobotics' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'Firebase/Analytics'
 
-  repoUrl = 'git@github.com:RevolutionRobotics/'
+  repoUrl = 'https://github.com/RevolutionRobotics/'
 
   # RevolutionRobotics
   pod 'RevolutionRoboticsBlockly', git: "#{repoUrl}RevolutionRoboticsBlocklyIOS", branch: 'handover', :submodules => true
