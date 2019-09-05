@@ -193,13 +193,13 @@ SPEC CHECKSUMS:
   PieCharts: 30e50dfa7dc19e5b84e9878d32089673ef5d0453
   Realm: 179c6706e3a49dbfe112e572fd3c03d3169bea35
   RealmSwift: 1797f272fb51c555b764fada32e82159a2c65247
-  RevolutionRoboticsBlockly: c4cae6ffa10d7f62a413fb799d0991f1e2043de6
-  RevolutionRoboticsBluetooth: ea9ca47a8c74cc59177c0c91ceecfa079206944b
-  SideMenu: b3aa6e33e2efd43e077bcf8432e84a35daa50bb6
+  RevolutionRoboticsBlockly: d44590882291ff155337656deb4bd0574e506a82
+  RevolutionRoboticsBluetooth: 2909c6ac96b6b3b47a279edea08b0cbd4beb0574
+  SideMenu: 92417cef5aa12b2784e82854406a0d3831ef7df3
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
 
 PODFILE CHECKSUM: 03f5716e49b0c93c190ba49f208ec7cee2d38ecb
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.6.1
