@@ -146,6 +146,7 @@ extension YourRobotsViewController: UICollectionViewDataSource {
     }
 
     private func presentRobotConfiguration(with indexPath: IndexPath) {
+        dismissModalViewController()
         let robot = robots[indexPath.item]
         guard let buildStatus = BuildStatus(rawValue: robot.buildStatus) else {
             return
