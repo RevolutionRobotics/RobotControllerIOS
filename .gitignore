@@ -31,6 +31,9 @@ Pods/
 *.xcworkspace
 !Podfile.lock
 
+## Firebase
+RevolutionRobotics/Resources/Firebase/*
+
 ## fastline scan output
 fastlane/report.xml
 fastlane/test_output/
