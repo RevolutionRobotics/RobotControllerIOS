@@ -155,6 +155,7 @@ extension RobotConfigurationViewController {
 
         padConfiguration.configurationId = configuration?.id
         padConfiguration.selectedControllerId = controller?.id
+        padConfiguration.bluetoothService = bluetoothService
 
         guard let configView = padConfiguration.view else { return }
 
