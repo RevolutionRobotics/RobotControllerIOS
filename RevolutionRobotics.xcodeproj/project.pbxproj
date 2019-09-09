@@ -248,6 +248,7 @@
 		D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E03B2260AAF500089DC7 /* UIViewController+NibLoadable.swift */; };
 		D008E79F22B92A5F00789B91 /* SaveProgramModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D008E79E22B92A5F00789B91 /* SaveProgramModalView.swift */; };
 		D008E7A122B9304000789B91 /* SaveProgramModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D008E7A022B9304000789B91 /* SaveProgramModalView.xib */; };
+		D0103F3C2326848D0089B3C7 /* NonRotatingImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0103F3B2326848D0089B3C7 /* NonRotatingImagePickerController.swift */; };
 		D0241A0222B1221B005E8DB2 /* ButtonlessProgramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0241A0022B1221B005E8DB2 /* ButtonlessProgramTableViewCell.swift */; };
 		D0241A0322B1221B005E8DB2 /* ButtonlessProgramTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0241A0122B1221B005E8DB2 /* ButtonlessProgramTableViewCell.xib */; };
 		D0241A0622B14011005E8DB2 /* ProgramPriorityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0241A0422B14011005E8DB2 /* ProgramPriorityViewController.swift */; };
@@ -618,6 +619,7 @@
 		D008E03B2260AAF500089DC7 /* UIViewController+NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NibLoadable.swift"; sourceTree = "<group>"; };
 		D008E79E22B92A5F00789B91 /* SaveProgramModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveProgramModalView.swift; sourceTree = "<group>"; };
 		D008E7A022B9304000789B91 /* SaveProgramModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SaveProgramModalView.xib; sourceTree = "<group>"; };
+		D0103F3B2326848D0089B3C7 /* NonRotatingImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonRotatingImagePickerController.swift; sourceTree = "<group>"; };
 		D0241A0022B1221B005E8DB2 /* ButtonlessProgramTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonlessProgramTableViewCell.swift; sourceTree = "<group>"; };
 		D0241A0122B1221B005E8DB2 /* ButtonlessProgramTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonlessProgramTableViewCell.xib; sourceTree = "<group>"; };
 		D0241A0422B14011005E8DB2 /* ProgramPriorityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPriorityViewController.swift; sourceTree = "<group>"; };
@@ -2089,6 +2091,7 @@
 				FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */,
 				0939A38C2278440A005EE307 /* SensorConfigViewController.swift */,
 				0939A38D2278440A005EE307 /* SensorConfigViewController.xib */,
+				D0103F3B2326848D0089B3C7 /* NonRotatingImagePickerController.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -2499,6 +2502,7 @@
 				2AB0522922D4AA75007B42F8 /* TurnOnBrainModalView.swift in Sources */,
 				09C3875A2270A7100097619D /* FirebaseError.swift in Sources */,
 				D075EA2422C4F0510003C183 /* ChallengeType.swift in Sources */,
+				D0103F3C2326848D0089B3C7 /* NonRotatingImagePickerController.swift in Sources */,
 				2AB7ACE022BB982F00309234 /* EmptyJSONObject.swift in Sources */,
 				094F9DD82264BE1900BE118B /* Color.swift in Sources */,
 				2AF8C76422806A1800CE1ACB /* RealmConnector.swift in Sources */,
