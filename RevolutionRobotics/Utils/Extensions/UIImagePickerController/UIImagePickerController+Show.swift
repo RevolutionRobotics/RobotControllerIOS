@@ -16,7 +16,7 @@ extension UIImagePickerController {
             os_log("Error: Camera is not available!")
             return
         }
-        let imagePicker = UIImagePickerController()
+        let imagePicker = NonRotatingImagePickerController()
         imagePicker.delegate = delegate
         imagePicker.sourceType = .camera
         imagePicker.modalPresentationStyle = .currentContext
