@@ -117,7 +117,7 @@ DEPENDENCIES:
   - Swinject (~> 2.6.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Crashlytics
     - CryptoSwift
     - Fabric
@@ -202,4 +202,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 03f5716e49b0c93c190ba49f208ec7cee2d38ecb
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.0.beta.2
