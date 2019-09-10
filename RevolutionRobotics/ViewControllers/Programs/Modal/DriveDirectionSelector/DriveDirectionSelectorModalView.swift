@@ -20,6 +20,7 @@ extension DriveDirectionSelectorModalView {
     func setup(optionSelector: OptionSelector, optionSelected: CallbackType<Option>?) {
         titleLabel.text = optionSelector.title?.uppercased()
 
+        let optionCount = optionSelector.options.count
         optionSelector.options.enumerated().forEach { [weak self] (index, option) in
             let button = OptionSelectorButton.instatiate()
             button.setup(
@@ -27,8 +28,10 @@ extension DriveDirectionSelectorModalView {
                 isSelected: option.key == optionSelector.defaultKey,
                 optionSelected: optionSelected
             )
+
+            let offset = optionCount <= 2 ? index * 2 : 0
             button.translatesAutoresizingMaskIntoConstraints = false
-            self?.buttonsContainer[index].addSubview(button)
+            self?.buttonsContainer[index + offset].addSubview(button)
             button.anchorToSuperview()
         }
     }
