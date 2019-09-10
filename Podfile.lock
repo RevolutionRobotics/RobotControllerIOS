@@ -3,19 +3,19 @@ PODS:
     - Fabric (~> 1.10.2)
   - CryptoSwift (1.0.0)
   - Fabric (1.10.2)
-  - Firebase/Analytics (6.8.0):
+  - Firebase/Analytics (6.8.1):
     - Firebase/Core
-  - Firebase/Core (6.8.0):
+  - Firebase/Core (6.8.1):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 6.1.1)
-  - Firebase/CoreOnly (6.8.0):
-    - FirebaseCore (= 6.2.2)
-  - Firebase/Database (6.8.0):
+  - Firebase/CoreOnly (6.8.1):
+    - FirebaseCore (= 6.2.3)
+  - Firebase/Database (6.8.1):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 6.1.0)
-  - Firebase/Storage (6.8.0):
+  - Firebase/Storage (6.8.1):
     - Firebase/CoreOnly
-    - FirebaseStorage (~> 3.4.0)
+    - FirebaseStorage (~> 3.4.1)
   - FirebaseAnalytics (6.1.1):
     - FirebaseCore (~> 6.2)
     - FirebaseInstanceID (~> 4.2)
@@ -26,7 +26,7 @@ PODS:
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (~> 0.3)
   - FirebaseAuthInterop (1.0.0)
-  - FirebaseCore (6.2.2):
+  - FirebaseCore (6.2.3):
     - FirebaseCoreDiagnostics (~> 1.0)
     - FirebaseCoreDiagnosticsInterop (~> 1.0)
     - GoogleUtilities/Environment (~> 6.2)
@@ -41,11 +41,11 @@ PODS:
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.0)
     - leveldb-library (~> 1.18)
-  - FirebaseInstanceID (4.2.4):
+  - FirebaseInstanceID (4.2.5):
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
-  - FirebaseStorage (3.4.0):
+  - FirebaseStorage (3.4.1):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.0)
     - GTMSessionFetcher/Core (~> 1.1)
@@ -117,7 +117,7 @@ DEPENDENCIES:
   - Swinject (~> 2.6.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Crashlytics
     - CryptoSwift
     - Fabric
@@ -159,7 +159,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   RevolutionRoboticsBlockly:
-    :commit: 191450402644d26b1c21ea2adf0c5447b93d2087
+    :commit: 2282918054c72bdfb122a08cfbb838e630483266
     :git: https://github.com/RevolutionRobotics/RevolutionRoboticsBlocklyIOS
     :submodules: true
   RevolutionRoboticsBluetooth:
@@ -173,15 +173,15 @@ SPEC CHECKSUMS:
   Crashlytics: 2dfd686bcb918dc10ee0e76f7f853fe42c7bd552
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
-  Firebase: c35912a5c160193dc423f260dac3f167a1a795ab
+  Firebase: 9cbe4e5b5eaafa05dc932be58b7c8c3820d71e88
   FirebaseAnalytics: 843c7f64a8f9c79f0d03281197ebe7bb1d58d477
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
-  FirebaseCore: 12422a2a2b79ed161b06ccad1edfe650de7a4b34
+  FirebaseCore: e9d9bd1dae61c1e82bc1e0e617a9d832392086a0
   FirebaseCoreDiagnostics: 4c04ae09d0ab027c30179828c6bb47764df1bd13
   FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
   FirebaseDatabase: 518cd94286de2ee999e19383a2a6ae04c81ce993
-  FirebaseInstanceID: 88932a31aba5a56cfd3a7541706436c71f7f4598
-  FirebaseStorage: 618dd8fd886b30adf6e5d1915b1f5c18cb5c3944
+  FirebaseInstanceID: 550df9be1f99f751d8fcde3ac342a1e21a0e6c42
+  FirebaseStorage: b7c6d00997bc21d4465453bdcc5cc65513110fed
   GoogleAppMeasurement: 86a82f0e1f20b8eedf8e20326530138fd71409de
   GoogleDataTransport: 8f9897b8e073687f24ca8d3c3a8013dec7d2d1cc
   GoogleDataTransportCCTSupport: 51134d81fca795c60cc247d1cb6af63c3d67b8d8
