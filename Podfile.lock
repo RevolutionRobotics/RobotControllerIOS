@@ -163,7 +163,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/RevolutionRobotics/RevolutionRoboticsBlocklyIOS
     :submodules: true
   RevolutionRoboticsBluetooth:
-    :commit: fa5796e1da3de9d9b0086e28abe68bd0e60e661f
+    :commit: 66f21466af13822fb3abdfe592efd00ec03cb5cc
     :git: https://github.com/RevolutionRobotics/RevolutionRoboticsBluetoothIOS.git
   SideMenu:
     :commit: ccd4b640063a721180b77a59d2a45039672ec95d
