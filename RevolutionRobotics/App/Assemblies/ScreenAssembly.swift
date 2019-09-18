@@ -37,10 +37,17 @@ final class ScreenAssembly: Assembly {
         registerButtonlessProgramsViewController(to: container)
         registerProgramsOrderViewController(to: container)
         registerCommunityViewController(to: container)
+        registerUserTypeSelectionViewController(to: container)
     }
 }
 
 extension ScreenAssembly {
+    private func registerUserTypeSelectionViewController(to container: Container) {
+        container
+            .register(UserTypeSelectionViewController.self, factory: { _ in return UserTypeSelectionViewController() })
+            .inObjectScope(.weak)
+    }
+
     private func registerMenuViewController(to container: Container) {
         container
             .register(MenuViewController.self, factory: { _ in return MenuViewController() })
