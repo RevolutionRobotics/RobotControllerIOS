@@ -90,6 +90,13 @@ extension BarcodeScannerViewController {
             Analytics.setUserProperty(value, forName: key)
         })
 
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(true, forKey: UserDefaults.Keys.userPropertiesSet)
+
+        if userProperties.keys.contains(UserProperty.robotId.rawValue) {
+            userDefaults.set(true, forKey: UserDefaults.Keys.robotRegistered)
+        }
+
         Analytics.logEvent(Constants.userTypeEvent, parameters: userProperties)
         navigationController?.popToRootViewController(animated: true)
     }
