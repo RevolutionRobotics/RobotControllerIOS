@@ -20,6 +20,7 @@ target 'RevolutionRobotics' do
   pod 'Kingfisher', '~> 5.3.1'
   pod 'SideMenu', :git => 'https://github.com/stelabouras/SideMenu.git', :branch => 'upgrade/xcode-10.2'
   pod 'PieCharts', '~> 0.0.7'
+  pod 'ZXingObjC', '~> 3.6'
 
   # Storage
   pod 'RealmSwift', '~> 3.14.1'

@@ -10,9 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Barlow-Medium.ttf">
-            <string>Barlow-Medium</string>
-        </array>
         <array key="Jura-Regular.ttf">
             <string>Jura-Regular</string>
         </array>
@@ -38,12 +35,11 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scN-VT-jeN" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="187.5" y="178" width="85" height="46"/>
+                    <rect key="frame" x="4" y="190" width="452" height="46"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="3uM-aY-F3l"/>
-                        <constraint firstAttribute="width" constant="85" id="sp2-sX-IGi"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="14"/>
                     <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Set" image="PlayIcon"/>
@@ -54,8 +50,10 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="scN-VT-jeN" secondAttribute="bottom" constant="16" id="0VE-PP-1AM"/>
+                <constraint firstAttribute="bottom" secondItem="scN-VT-jeN" secondAttribute="bottom" constant="4" id="0VE-PP-1AM"/>
                 <constraint firstItem="X96-Tj-f3r" firstAttribute="centerY" secondItem="nvX-qZ-Jcb" secondAttribute="centerY" id="6u5-2d-o0i"/>
+                <constraint firstItem="scN-VT-jeN" firstAttribute="leading" secondItem="nvX-qZ-Jcb" secondAttribute="leading" constant="4" id="GYH-Xu-KVS"/>
+                <constraint firstAttribute="trailing" secondItem="scN-VT-jeN" secondAttribute="trailing" constant="4" id="HlY-Fa-2ay"/>
                 <constraint firstAttribute="trailing" secondItem="A2X-pC-7Mb" secondAttribute="trailing" constant="30" id="LJc-w9-OEF"/>
                 <constraint firstItem="X96-Tj-f3r" firstAttribute="centerX" secondItem="nvX-qZ-Jcb" secondAttribute="centerX" id="QFq-11-GL9"/>
                 <constraint firstItem="scN-VT-jeN" firstAttribute="centerX" secondItem="nvX-qZ-Jcb" secondAttribute="centerX" id="UJ0-At-Hjh"/>

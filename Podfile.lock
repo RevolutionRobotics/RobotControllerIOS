@@ -99,6 +99,9 @@ PODS:
   - SwiftLint (0.31.0)
   - Swinject (2.6.2)
   - WKWebViewJavascriptBridge (1.2.0)
+  - ZXingObjC (3.6.5):
+    - ZXingObjC/All (= 3.6.5)
+  - ZXingObjC/All (3.6.5)
 
 DEPENDENCIES:
   - Crashlytics (~> 3.13.4)
@@ -115,6 +118,7 @@ DEPENDENCIES:
   - SideMenu (from `https://github.com/stelabouras/SideMenu.git`, branch `upgrade/xcode-10.2`)
   - SwiftLint (~> 0.31.0)
   - Swinject (~> 2.6.0)
+  - ZXingObjC (~> 3.6)
 
 SPEC REPOS:
   trunk:
@@ -144,6 +148,7 @@ SPEC REPOS:
     - SwiftLint
     - Swinject
     - WKWebViewJavascriptBridge
+    - ZXingObjC
 
 EXTERNAL SOURCES:
   RevolutionRoboticsBlockly:
@@ -199,7 +204,8 @@ SPEC CHECKSUMS:
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
+  ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb
 
-PODFILE CHECKSUM: 03f5716e49b0c93c190ba49f208ec7cee2d38ecb
+PODFILE CHECKSUM: 35eb9e6aa9130585cdd7cbfa6b4d701eca6f1c86
 
 COCOAPODS: 1.8.0.beta.2
