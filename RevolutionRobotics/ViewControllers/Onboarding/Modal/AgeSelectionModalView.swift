@@ -94,11 +94,12 @@ extension AgeSelectionModalView {
     private func setupYearSelector() {
         yearSelectionField.setup(title: "Year", placeholder: "\(currentYear)", characterLimit: 4)
         yearSelectionField.text = "\(currentYear)"
-
+        
         guard let textField = getTextField(in: yearSelectionField) else {
             return
         }
 
+        textField.font = Font.jura(size: 16.0)
         textField.tintColor = .clear
         textField.textAlignment = .center
 

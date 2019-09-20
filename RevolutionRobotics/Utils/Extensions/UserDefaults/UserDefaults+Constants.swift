@@ -13,5 +13,7 @@ extension UserDefaults {
         static let robotConfigSegmentedControl = "segmentedcontrol"
         static let shouldShowTutorial = "tutorial"
         static let minVersion = "minVersion"
+        static let userPropertiesSet = "userPropertiesSet"
+        static let robotRegistered = "robotRegistered"
     }
 }

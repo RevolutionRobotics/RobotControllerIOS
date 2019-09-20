@@ -7,19 +7,18 @@
 //
 
 import UIKit
-import Firebase
+
+enum UserProperty: String {
+    case userType = "user_type"
+    case yearOfBirth = "year_of_birth"
+    case robotId = "robot_id"
+}
 
 final class UserTypeSelectionViewController: BaseViewController {
 
     // MARK: - Constants
     enum UserType: String {
         case student, parent, teacher = "teacher_mentor", hobbyist
-    }
-
-    enum UserProperty: String {
-        case userType = "user_type"
-        case yearOfBirth = "year_of_birth"
-        case robotId = "robot_id"
     }
 
     // MARK: - Properties
@@ -55,26 +54,19 @@ extension UserTypeSelectionViewController {
     }
 
     private func scanBarcode() {
-        updateUserType()
-    }
-
-    private func updateUserType() {
         guard let userType = selectedUserType else { return }
 
-        var logParams = [
+        let qrScanner = AppContainer.shared.container.unwrappedResolve(BarcodeScannerViewController.self)
+        var userProperties = [
             UserProperty.userType.rawValue: userType.rawValue
         ]
 
         if let birthYear = birthYear {
-            logParams[UserProperty.yearOfBirth.rawValue] = "\(birthYear)"
+            userProperties[UserProperty.yearOfBirth.rawValue] = "\(birthYear)"
         }
 
-        for (key, value) in logParams {
-            Analytics.setUserProperty(value, forName: key)
-        }
-
-        Analytics.logEvent("selected_user_type", parameters: logParams)
-        navigationController?.popViewController(animated: true)
+        qrScanner.userProperties = userProperties
+        navigationController?.pushViewController(qrScanner, animated: true)
     }
 }
 
