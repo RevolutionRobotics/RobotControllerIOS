@@ -56,26 +56,26 @@ PODS:
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (~> 0.3)
   - GoogleDataTransport (1.2.0)
-  - GoogleDataTransportCCTSupport (1.0.3):
+  - GoogleDataTransportCCTSupport (1.0.4):
     - GoogleDataTransport (~> 1.2)
     - nanopb
-  - GoogleUtilities/AppDelegateSwizzler (6.2.5):
+  - GoogleUtilities/AppDelegateSwizzler (6.3.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.2.5)
-  - GoogleUtilities/Logger (6.2.5):
+  - GoogleUtilities/Environment (6.3.0)
+  - GoogleUtilities/Logger (6.3.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.2.5):
+  - GoogleUtilities/MethodSwizzler (6.3.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.2.5):
+  - GoogleUtilities/Network (6.3.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.2.5)"
-  - GoogleUtilities/Reachability (6.2.5):
+  - "GoogleUtilities/NSData+zlib (6.3.0)"
+  - GoogleUtilities/Reachability (6.3.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.2.5):
+  - GoogleUtilities/UserDefaults (6.3.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.2)
   - Kingfisher (5.3.1)
@@ -86,11 +86,11 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - PieCharts (0.0.7)
-  - Realm (3.14.2):
-    - Realm/Headers (= 3.14.2)
-  - Realm/Headers (3.14.2)
-  - RealmSwift (3.14.2):
-    - Realm (= 3.14.2)
+  - Realm (3.18.0):
+    - Realm/Headers (= 3.18.0)
+  - Realm/Headers (3.18.0)
+  - RealmSwift (3.18.0):
+    - Realm (= 3.18.0)
   - RevolutionRoboticsBlockly (0.1.2):
     - WKWebViewJavascriptBridge (~> 1.2.0)
   - RevolutionRoboticsBluetooth (0.1.0):
@@ -112,7 +112,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - Kingfisher (~> 5.3.1)
   - PieCharts (~> 0.0.7)
-  - RealmSwift (~> 3.14.1)
+  - RealmSwift (~> 3.18.0)
   - RevolutionRoboticsBlockly (from `https://github.com/RevolutionRobotics/RevolutionRoboticsBlocklyIOS`, branch `handover`)
   - RevolutionRoboticsBluetooth (from `https://github.com/RevolutionRobotics/RevolutionRoboticsBluetoothIOS.git`, branch `development`)
   - SideMenu (from `https://github.com/stelabouras/SideMenu.git`, branch `upgrade/xcode-10.2`)
@@ -168,7 +168,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/RevolutionRobotics/RevolutionRoboticsBlocklyIOS
     :submodules: true
   RevolutionRoboticsBluetooth:
-    :commit: fa5796e1da3de9d9b0086e28abe68bd0e60e661f
+    :commit: 66f21466af13822fb3abdfe592efd00ec03cb5cc
     :git: https://github.com/RevolutionRobotics/RevolutionRoboticsBluetoothIOS.git
   SideMenu:
     :commit: ccd4b640063a721180b77a59d2a45039672ec95d
@@ -189,15 +189,15 @@ SPEC CHECKSUMS:
   FirebaseStorage: b7c6d00997bc21d4465453bdcc5cc65513110fed
   GoogleAppMeasurement: 86a82f0e1f20b8eedf8e20326530138fd71409de
   GoogleDataTransport: 8f9897b8e073687f24ca8d3c3a8013dec7d2d1cc
-  GoogleDataTransportCCTSupport: 51134d81fca795c60cc247d1cb6af63c3d67b8d8
-  GoogleUtilities: e7dc37039b19df7fe543479d3e4a02ac8d11bb69
+  GoogleDataTransportCCTSupport: 7455d07b98851aa63e4c05a34dad356ca588479e
+  GoogleUtilities: 9c2c544202301110b29f7974a82e77fdcf12bf51
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   PieCharts: 30e50dfa7dc19e5b84e9878d32089673ef5d0453
-  Realm: 179c6706e3a49dbfe112e572fd3c03d3169bea35
-  RealmSwift: 1797f272fb51c555b764fada32e82159a2c65247
+  Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
+  RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
   RevolutionRoboticsBlockly: c4cae6ffa10d7f62a413fb799d0991f1e2043de6
   RevolutionRoboticsBluetooth: ea9ca47a8c74cc59177c0c91ceecfa079206944b
   SideMenu: b3aa6e33e2efd43e077bcf8432e84a35daa50bb6
@@ -206,6 +206,6 @@ SPEC CHECKSUMS:
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
   ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb
 
-PODFILE CHECKSUM: 35eb9e6aa9130585cdd7cbfa6b4d701eca6f1c86
+PODFILE CHECKSUM: d34e6d94f7f5eb7250065a3ffa88c2e89ac2fd86
 
 COCOAPODS: 1.8.0.beta.2

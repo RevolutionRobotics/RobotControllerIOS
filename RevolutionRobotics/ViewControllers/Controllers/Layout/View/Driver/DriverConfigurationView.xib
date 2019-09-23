@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -63,6 +61,7 @@
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="rD5-sV-cnP" userLabel="B1Imageview">
                     <rect key="frame" x="115" y="85" width="20" height="20"/>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="dHD-cu-5J5"/>
                         <constraint firstAttribute="width" constant="20" id="dLU-40-cUk"/>
@@ -100,6 +99,7 @@
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="w1E-jh-GoH" userLabel="B2Imageview">
                     <rect key="frame" x="147" y="85" width="20" height="20"/>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="XCc-yr-hhZ"/>
                         <constraint firstAttribute="height" constant="20" id="nbc-0Q-oFc"/>
@@ -152,6 +152,7 @@
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fXg-Vs-Qtd" userLabel="B3Imageview">
                     <rect key="frame" x="179" y="85" width="20" height="20"/>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="b4t-7q-RUu"/>
                         <constraint firstAttribute="height" constant="20" id="jiV-Ig-bcF"/>
@@ -257,6 +258,7 @@
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="H0V-pn-4Xr" userLabel="B4Imageview">
                     <rect key="frame" x="115" y="117" width="20" height="20"/>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Q9e-MK-pGD"/>
                         <constraint firstAttribute="width" constant="20" id="tdH-EY-GzM"/>
@@ -301,6 +303,7 @@
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="NeC-aL-ZCq" userLabel="B5Imageview">
                     <rect key="frame" x="147" y="117" width="20" height="20"/>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="cw5-UV-pKT"/>
                         <constraint firstAttribute="width" constant="20" id="nJ8-39-Dng"/>
@@ -361,6 +364,7 @@
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ControllerButtonUnassignedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="rsv-4Q-gfr" userLabel="B6Imageview">
                     <rect key="frame" x="179" y="117" width="20" height="20"/>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Gk4-ug-SGC"/>
                         <constraint firstAttribute="width" constant="20" id="oaS-6Q-Ubk"/>
@@ -560,6 +564,7 @@
                 <outletCollection property="rightDrivetrainDashedView" destination="enQ-EG-0Gq" collectionClass="NSMutableArray" id="45f-GY-IMd"/>
                 <outletCollection property="rightDrivetrainDashedView" destination="FZ8-rS-WFF" collectionClass="NSMutableArray" id="73G-R8-asp"/>
             </connections>
+            <point key="canvasLocation" x="93" y="155"/>
         </view>
     </objects>
     <resources>

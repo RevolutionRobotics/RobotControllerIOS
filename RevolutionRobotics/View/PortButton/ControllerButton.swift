@@ -40,7 +40,11 @@ final class ControllerButton: UIButton {
             highlighterView.backgroundColor = borderColor
         }
     }
-    var dotImageView: UIImageView!
+    var dotImageView: UIImageView! {
+        didSet {
+            setupDotState(for: buttonState != .normal)
+        }
+    }
 
     // MARK: - Initialization
     override init(frame: CGRect) {
