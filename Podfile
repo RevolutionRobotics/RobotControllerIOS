@@ -23,7 +23,7 @@ target 'RevolutionRobotics' do
   pod 'ZXingObjC', '~> 3.6'
 
   # Storage
-  pod 'RealmSwift', '~> 3.14.1'
+  pod 'RealmSwift', '~> 3.18.0'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
