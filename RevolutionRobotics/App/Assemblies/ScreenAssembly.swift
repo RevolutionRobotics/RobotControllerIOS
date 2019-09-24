@@ -39,6 +39,7 @@ final class ScreenAssembly: Assembly {
         registerCommunityViewController(to: container)
         registerUserTypeSelectionViewController(to: container)
         registerBarcodeScannerViewController(to: container)
+        registerBuildCarbyViewController(to: container)
     }
 }
 
@@ -52,6 +53,14 @@ extension ScreenAssembly {
     private func registerBarcodeScannerViewController(to container: Container) {
         container
             .register(BarcodeScannerViewController.self, factory: { _ in return BarcodeScannerViewController() })
+            .inObjectScope(.weak)
+    }
+
+    private func registerBuildCarbyViewController(to container: Container) {
+        container
+            .register(BuildCarbyViewController.self, factory: { _ in return
+                BuildCarbyViewController()
+            })
             .inObjectScope(.weak)
     }
 

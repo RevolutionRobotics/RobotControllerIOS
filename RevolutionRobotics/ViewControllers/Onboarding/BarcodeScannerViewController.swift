@@ -98,7 +98,8 @@ extension BarcodeScannerViewController {
         }
 
         Analytics.logEvent(Constants.userTypeEvent, parameters: userProperties)
-        navigationController?.popToRootViewController(animated: true)
+        let buildCarby = AppContainer.shared.container.unwrappedResolve(BuildCarbyViewController.self)
+        navigationController?.pushViewController(buildCarby, animated: true)
     }
 }
 
