@@ -151,7 +151,7 @@ extension RobotConfigurationViewController {
         padConfiguration.realmService = realmService
         padConfiguration.configurationView = (type?.rawValue ?? controller?.type) == ControllerType.gamer.rawValue
             ? GamerConfigurationView.instatiate()
-            : MultiTaskerConfigurationView.instatiate()
+            : DriverConfigurationView.instatiate()
 
         padConfiguration.configurationId = configuration?.id
         padConfiguration.selectedControllerId = controller?.id
@@ -298,9 +298,7 @@ extension RobotConfigurationViewController {
             let controllerType = controller?.type
         else { return }
 
-        let toggledType: ControllerType = controllerType == ControllerType.gamer.rawValue
-            ? .multiTasker
-            : .gamer
+        let toggledType: ControllerType = controllerType == ControllerType.gamer.rawValue ? .driver : .gamer
 
         configurationView.removeFromSuperview()
         padConfiguration.controllerType = toggledType

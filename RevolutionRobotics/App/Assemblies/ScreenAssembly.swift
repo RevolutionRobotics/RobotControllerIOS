@@ -61,6 +61,10 @@ extension ScreenAssembly {
             .register(BuildCarbyViewController.self, factory: { _ in return
                 BuildCarbyViewController()
             })
+            .initCompleted({ (resolver, viewController) in
+                viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
+                viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
+            })
             .inObjectScope(.weak)
     }
 
