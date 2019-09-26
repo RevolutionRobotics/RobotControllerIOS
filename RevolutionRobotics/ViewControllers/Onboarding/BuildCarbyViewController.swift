@@ -84,7 +84,7 @@ extension BuildCarbyViewController {
     }
 
     private func createNewRobot(using dataModel: Robot) {
-        firebaseService.getConfigurations(completion: { [weak self] result in
+        firebaseService.getConfigurations { [weak self] result in
             switch result {
             case .success(let remoteConfigurations):
                 self?.firebaseService.getControllers(completion: { [weak self] result in
@@ -101,7 +101,7 @@ extension BuildCarbyViewController {
             case .failure:
                 os_log("Failed to retrieve configurations!")
             }
-        })
+        }
     }
 
     private func saveCarbyDataModel(
@@ -171,6 +171,7 @@ extension BuildCarbyViewController {
             guard let `self` = self else { return }
 
             let buildCarby = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
+            buildCarby.onboardingInProgress = true
             buildCarby.firebaseService = self.firebaseService
             buildCarby.realmService = self.realmService
 

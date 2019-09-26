@@ -25,6 +25,7 @@ class BuildRobotViewController: BaseViewController {
             fetchBuildSteps()
         }
     }
+    var onboardingInProgress = false
     var storedRobotDataModel: UserRobot?
     private var steps: [BuildStep] = []
     private var currentStep: BuildStep?
@@ -33,7 +34,12 @@ class BuildRobotViewController: BaseViewController {
     private var milestone: Milestone?
 
     override func backButtonDidTap() {
-        navigationController?.pop(to: YourRobotsViewController.self)
+        guard onboardingInProgress else {
+            navigationController?.pop(to: YourRobotsViewController.self)
+            return
+        }
+
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -134,6 +140,11 @@ extension BuildRobotViewController {
         let playViewController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
         playViewController.controllerDataModel = controller
         playViewController.robotName = storedRobotDataModel?.customName
+
+        guard !onboardingInProgress else {
+            navigationController?.pushViewController(playViewController, animated: true)
+            return
+        }
 
         var viewControllers = [navigationController!.viewControllers[0]]
         viewControllers.append(playViewController)
