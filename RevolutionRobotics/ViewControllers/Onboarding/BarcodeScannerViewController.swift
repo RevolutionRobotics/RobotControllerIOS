@@ -97,8 +97,12 @@ extension BarcodeScannerViewController {
             userDefaults.set(true, forKey: UserDefaults.Keys.robotRegistered)
         }
 
-        Analytics.logEvent(Constants.userTypeEvent, parameters: userProperties)
-        navigationController?.popToRootViewController(animated: true)
+        if !userProperties.keys.isEmpty {
+            Analytics.logEvent(Constants.userTypeEvent, parameters: userProperties)
+        }
+
+        let buildCarby = AppContainer.shared.container.unwrappedResolve(BuildCarbyViewController.self)
+        navigationController?.pushViewController(buildCarby, animated: true)
     }
 }
 

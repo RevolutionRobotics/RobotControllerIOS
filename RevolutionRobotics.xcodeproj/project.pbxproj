@@ -275,6 +275,8 @@
 		D031333B228DD3C100704989 /* SaveModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D031333A228DD3C100704989 /* SaveModalView.xib */; };
 		D031333E228EA66100704989 /* MostRecentProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031333C228EA66100704989 /* MostRecentProgramsViewController.swift */; };
 		D031333F228EA66100704989 /* MostRecentProgramsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D031333D228EA66100704989 /* MostRecentProgramsViewController.xib */; };
+		D037D915233A07D800DF76E9 /* BuildCarbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D037D914233A07D800DF76E9 /* BuildCarbyViewController.swift */; };
+		D037D917233A086900DF76E9 /* BuildCarbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D037D916233A086900DF76E9 /* BuildCarbyViewController.xib */; };
 		D03BA8532276F323005B3E33 /* PartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8512276F323005B3E33 /* PartView.swift */; };
 		D03BA8542276F323005B3E33 /* PartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8522276F323005B3E33 /* PartView.xib */; };
 		D03BA85C2277384A005B3E33 /* ConnectionModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8562277384A005B3E33 /* ConnectionModalView.swift */; };
@@ -652,6 +654,8 @@
 		D031333A228DD3C100704989 /* SaveModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SaveModalView.xib; sourceTree = "<group>"; };
 		D031333C228EA66100704989 /* MostRecentProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostRecentProgramsViewController.swift; sourceTree = "<group>"; };
 		D031333D228EA66100704989 /* MostRecentProgramsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MostRecentProgramsViewController.xib; sourceTree = "<group>"; };
+		D037D914233A07D800DF76E9 /* BuildCarbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildCarbyViewController.swift; sourceTree = "<group>"; };
+		D037D916233A086900DF76E9 /* BuildCarbyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuildCarbyViewController.xib; sourceTree = "<group>"; };
 		D03BA8512276F323005B3E33 /* PartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartView.swift; sourceTree = "<group>"; };
 		D03BA8522276F323005B3E33 /* PartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartView.xib; sourceTree = "<group>"; };
 		D03BA8562277384A005B3E33 /* ConnectionModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionModalView.swift; sourceTree = "<group>"; };
@@ -1924,6 +1928,8 @@
 				D05DBA50232935BD00508D1F /* UserTypeSelectionViewController.xib */,
 				D0DBD45923326DE700BC8CA3 /* BarcodeScannerViewController.swift */,
 				D0DBD45B2333991B00BC8CA3 /* BarcodeScannerViewController.xib */,
+				D037D914233A07D800DF76E9 /* BuildCarbyViewController.swift */,
+				D037D916233A086900DF76E9 /* BuildCarbyViewController.xib */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -2295,6 +2301,7 @@
 				0938897522B24DD900292B32 /* siren.mp3 in Resources */,
 				2A3A75942293FB7B00ED9A1D /* DriverConfigurationView.xib in Resources */,
 				D0313323228C602100704989 /* ControllerLayoutSelectorViewController.xib in Resources */,
+				D037D917233A086900DF76E9 /* BuildCarbyViewController.xib in Resources */,
 				D0A11096227B23F20064FBB6 /* RRInputField.xib in Resources */,
 				196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */,
 				0938897422B24DD900292B32 /* ta_da.mp3 in Resources */,
@@ -2505,6 +2512,7 @@
 				D075EA2D22C4FB600003C183 /* ChallengeDetailZoomableContent.swift in Sources */,
 				D05C64CE225F578A00B7BF4F /* BuildStep.swift in Sources */,
 				D05C64D9225F58E200B7BF4F /* Side.swift in Sources */,
+				D037D915233A07D800DF76E9 /* BuildCarbyViewController.swift in Sources */,
 				2AB0522922D4AA75007B42F8 /* TurnOnBrainModalView.swift in Sources */,
 				09C3875A2270A7100097619D /* FirebaseError.swift in Sources */,
 				D075EA2422C4F0510003C183 /* ChallengeType.swift in Sources */,
