@@ -40,12 +40,9 @@ extension MenuViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let shouldShowTutorial = UserDefaults.standard.bool(forKey: UserDefaults.Keys.shouldShowTutorial)
 
         checkMinVersion(with: { [weak self] in
-            if shouldShowTutorial {
-                self?.showTutorial()
-            }
+            self?.showOnboarding()
         })
     }
 
@@ -95,10 +92,23 @@ extension MenuViewController {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 
-    private func showTutorial() {
-        let vc = AppContainer.shared.container.unwrappedResolve(MenuTutorialViewController.self)
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: false, completion: nil)
+    private func showOnboarding() {
+        let userDefaults = UserDefaults.standard
+        var onboarding: UIViewController?
+
+        if !userDefaults.bool(forKey: UserDefaults.Keys.userPropertiesSet) {
+            onboarding = AppContainer.shared.container
+                .unwrappedResolve(UserTypeSelectionViewController.self)
+        } else if !userDefaults.bool(forKey: UserDefaults.Keys.robotRegistered) {
+            let onboarding = AppContainer.shared.container.unwrappedResolve(BarcodeScannerViewController.self)
+            onboarding.userProperties = [:]
+        } else if !userDefaults.bool(forKey: UserDefaults.Keys.buildCarbyPromptVisited) {
+            onboarding = AppContainer.shared.container.unwrappedResolve(BuildCarbyViewController.self)
+        }
+
+        if let unwrappedOnboarding = onboarding {
+            navigationController?.pushViewController(unwrappedOnboarding, animated: true)
+        }
     }
 }
 
