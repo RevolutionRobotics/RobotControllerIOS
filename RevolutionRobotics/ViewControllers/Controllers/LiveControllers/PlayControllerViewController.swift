@@ -18,6 +18,7 @@ final class PlayControllerViewController: BaseViewController {
     var realmService: RealmServiceInterface!
     var controllerDataModel: ControllerDataModel?
     var robotName: String?
+    var onboardingInProgress = false
 
     private var padView: PlayablePadView!
     private var programs: [ProgramDataModel?] = [] {
@@ -36,6 +37,7 @@ extension PlayControllerViewController {
         navigationBar.setup(title: robotName ?? RobotsKeys.Controllers.Play.screenTitle.translate(),
                             delegate: self)
         setupPadView()
+        setupOnboardingReadyButton()
         fetchPrograms()
         if bluetoothService.connectedDevice != nil {
             navigationBar.bluetoothButtonState = .connected
@@ -89,6 +91,34 @@ extension PlayControllerViewController {
         padView.buttonTapped = { [weak self] pressedPadButton in
             self?.bluetoothService.changeButtonState(index: pressedPadButton.index)
         }
+    }
+
+    private func setupOnboardingReadyButton() {
+        guard let gamerPadView = padView as? GamerPadView, onboardingInProgress else {
+            return
+        }
+
+        gamerPadView.onboardingReadyCallback = { [weak self] in
+            self?.showCompletedModal()
+        }
+    }
+}
+
+// MARK: - Onboarding
+extension PlayControllerViewController {
+    private func showCompletedModal() {
+        let modal = OnboardingCompletedModalView.instatiate()
+        modal.startPressedCallback = { [weak self] in
+            guard let `self` = self else { return }
+            self.dismissModalViewController()
+
+            let challengesViewController = AppContainer.shared.container
+                .unwrappedResolve(ChallengeCategoriesViewController.self)
+            challengesViewController.onboardingInProgress = true
+            self.navigationController?.pushViewController(challengesViewController, animated: true)
+        }
+
+        presentModal(with: modal, closeHidden: true)
     }
 }
 

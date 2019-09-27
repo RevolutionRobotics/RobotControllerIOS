@@ -16,10 +16,21 @@ final class ChallengeCategoriesViewController: BaseViewController {
     // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
+    var onboardingInProgress = false
+
     private var challengeCategories: [ChallengeCategory] = [] {
         didSet {
             challengesCollectionView.reloadData()
         }
+    }
+
+    override func backButtonDidTap() {
+        guard onboardingInProgress else {
+            super.backButtonDidTap()
+            return
+        }
+
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 

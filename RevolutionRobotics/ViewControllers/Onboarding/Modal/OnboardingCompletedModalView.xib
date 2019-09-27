@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+        <array key="Jura-Regular.ttf">
+            <string>Jura-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mRZ-K8-bfj" userLabel="Onboarding Completed Modal View" customClass="OnboardingCompletedModalView" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25q-iK-4ea" userLabel="Start Button" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="4" y="190" width="452" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="5TD-oN-LUC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Start" image="PlayIcon"/>
+                    <connections>
+                        <action selector="startButtonTapped:" destination="mRZ-K8-bfj" eventType="touchUpInside" id="hpt-gN-Ncd"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bh3-yX-LcK" userLabel="container">
+                    <rect key="frame" x="4" y="4" width="452" height="178"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new-product" translatesAutoresizingMaskIntoConstraints="NO" id="nzm-CF-Dmd">
+                            <rect key="frame" x="30" y="30" width="100" height="118"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="RnI-De-btb"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="CONGRATULATIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1x-MJ-MnZ">
+                            <rect key="frame" x="155" y="30" width="267" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="Mph-gM-0el"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="24"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We have plenty of challenges that you can start right now!" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6o-V6-caY">
+                            <rect key="frame" x="155" y="62" width="267" height="86"/>
+                            <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="g1x-MJ-MnZ" firstAttribute="leading" secondItem="nzm-CF-Dmd" secondAttribute="trailing" constant="25" id="02u-UQ-aUx"/>
+                        <constraint firstAttribute="bottom" secondItem="Z6o-V6-caY" secondAttribute="bottom" constant="30" id="2UR-IU-zDz"/>
+                        <constraint firstItem="g1x-MJ-MnZ" firstAttribute="top" secondItem="bh3-yX-LcK" secondAttribute="top" constant="30" id="5Nc-2G-MoT"/>
+                        <constraint firstItem="nzm-CF-Dmd" firstAttribute="top" secondItem="bh3-yX-LcK" secondAttribute="top" constant="30" id="6TI-sK-6dt"/>
+                        <constraint firstAttribute="trailing" secondItem="g1x-MJ-MnZ" secondAttribute="trailing" constant="30" id="HnT-Sb-UU1"/>
+                        <constraint firstItem="nzm-CF-Dmd" firstAttribute="leading" secondItem="bh3-yX-LcK" secondAttribute="leading" constant="30" id="fZN-uh-DbS"/>
+                        <constraint firstAttribute="trailing" secondItem="Z6o-V6-caY" secondAttribute="trailing" constant="30" id="hri-OD-D7m"/>
+                        <constraint firstItem="Z6o-V6-caY" firstAttribute="leading" secondItem="nzm-CF-Dmd" secondAttribute="trailing" constant="25" id="jMP-5X-gzb"/>
+                        <constraint firstAttribute="bottom" secondItem="nzm-CF-Dmd" secondAttribute="bottom" constant="30" id="kVx-mi-gbf"/>
+                        <constraint firstItem="Z6o-V6-caY" firstAttribute="top" secondItem="g1x-MJ-MnZ" secondAttribute="bottom" constant="8" id="zhL-GK-AMZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="25q-iK-4ea" firstAttribute="centerX" secondItem="mRZ-K8-bfj" secondAttribute="centerX" id="0TF-Gt-8vs"/>
+                <constraint firstAttribute="bottom" secondItem="25q-iK-4ea" secondAttribute="bottom" constant="4" id="0sF-hh-J0U"/>
+                <constraint firstItem="25q-iK-4ea" firstAttribute="leading" secondItem="mRZ-K8-bfj" secondAttribute="leading" constant="4" id="Ck9-32-ibG"/>
+                <constraint firstItem="RDI-Ln-AWc" firstAttribute="trailing" secondItem="bh3-yX-LcK" secondAttribute="trailing" constant="4" id="c9v-zA-H7k"/>
+                <constraint firstItem="25q-iK-4ea" firstAttribute="top" secondItem="bh3-yX-LcK" secondAttribute="bottom" constant="8" id="cK0-z6-3aQ"/>
+                <constraint firstAttribute="trailing" secondItem="25q-iK-4ea" secondAttribute="trailing" constant="4" id="dmH-4p-xTH"/>
+                <constraint firstItem="bh3-yX-LcK" firstAttribute="leading" secondItem="RDI-Ln-AWc" secondAttribute="leading" constant="4" id="duA-1B-qdb"/>
+                <constraint firstAttribute="trailing" secondItem="25q-iK-4ea" secondAttribute="trailing" priority="750" constant="4" id="dvw-f1-fmT"/>
+                <constraint firstItem="bh3-yX-LcK" firstAttribute="top" secondItem="mRZ-K8-bfj" secondAttribute="top" constant="4" id="jpT-kN-put"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="RDI-Ln-AWc"/>
+            <connections>
+                <outlet property="startButton" destination="25q-iK-4ea" id="gNY-l8-suv"/>
+            </connections>
+            <point key="canvasLocation" x="88.405797101449281" y="153.34821428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="PlayIcon" width="16" height="16"/>
+        <image name="new-product" width="80" height="80"/>
+    </resources>
+</document>

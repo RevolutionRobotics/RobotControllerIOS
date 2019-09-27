@@ -15,6 +15,7 @@ extension UserDefaults {
         static let minVersion = "minVersion"
         static let userPropertiesSet = "userPropertiesSet"
         static let robotRegistered = "robotRegistered"
-        static let buildCarbyPromptVisited = "buildCarbyPromptVisited"
+        static let buildRevvyPromptVisited = "buildRevvyPromptVisited"
+        static let revvyBuilt = "revvyBuilt"
     }
 }

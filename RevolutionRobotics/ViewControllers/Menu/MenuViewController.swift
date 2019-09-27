@@ -102,8 +102,8 @@ extension MenuViewController {
         } else if !userDefaults.bool(forKey: UserDefaults.Keys.robotRegistered) {
             let onboarding = AppContainer.shared.container.unwrappedResolve(BarcodeScannerViewController.self)
             onboarding.userProperties = [:]
-        } else if !userDefaults.bool(forKey: UserDefaults.Keys.buildCarbyPromptVisited) {
-            onboarding = AppContainer.shared.container.unwrappedResolve(BuildCarbyViewController.self)
+        } else if !userDefaults.bool(forKey: UserDefaults.Keys.buildRevvyPromptVisited) {
+            onboarding = AppContainer.shared.container.unwrappedResolve(BuildRevvyViewController.self)
         }
 
         if let unwrappedOnboarding = onboarding {

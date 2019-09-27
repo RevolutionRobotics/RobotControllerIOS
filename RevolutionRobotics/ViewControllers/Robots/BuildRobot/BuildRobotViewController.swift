@@ -140,6 +140,7 @@ extension BuildRobotViewController {
         let playViewController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
         playViewController.controllerDataModel = controller
         playViewController.robotName = storedRobotDataModel?.customName
+        playViewController.onboardingInProgress = onboardingInProgress
 
         guard !onboardingInProgress else {
             navigationController?.pushViewController(playViewController, animated: true)
@@ -320,6 +321,10 @@ extension BuildRobotViewController {
             customDescription: remoteRobotDataModel?.customDescription.text)
 
         realmService.saveRobot(storedRobotDataModel!, shouldUpdate: true)
+
+        if onboardingInProgress {
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.revvyBuilt)
+        }
     }
 
     private func createNewRobot(step: Int) {

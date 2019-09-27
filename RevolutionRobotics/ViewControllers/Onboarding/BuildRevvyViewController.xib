@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jura-Regular.ttf">
+            <string>Jura-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuildRevvyViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+            <connections>
+                <outlet property="noButton" destination="2Ob-tA-KVU" id="rhM-5J-TQW"/>
+                <outlet property="skipButton" destination="ezZ-d2-u1i" id="GAU-kH-TZr"/>
+                <outlet property="view" destination="iN0-l3-epB" id="qk4-BU-Cla"/>
+                <outlet property="yesButton" destination="0cd-Qm-2Ga" id="5oz-CR-W2R"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4E0-4X-6f4" userLabel="content">
+                    <rect key="frame" x="60" y="20" width="776" height="315"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AKJ-Fd-2cd" userLabel="card">
+                            <rect key="frame" x="8" y="78" width="258.5" height="159"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="revvy" translatesAutoresizingMaskIntoConstraints="NO" id="0Ix-7c-rzG">
+                                    <rect key="frame" x="20" y="20" width="218.5" height="118"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="card-border" translatesAutoresizingMaskIntoConstraints="NO" id="4Vn-8y-uhx">
+                                    <rect key="frame" x="0.0" y="0.0" width="258.5" height="158"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                            </subviews>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRY-Gz-BTh" userLabel="prompt">
+                            <rect key="frame" x="276.5" y="78" width="499.5" height="159"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6aF-d8-yDA">
+                                    <rect key="frame" x="0.0" y="99" width="499.5" height="60"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cd-Qm-2Ga" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="60"/>
+                                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                            <state key="normal" title="Yes" image="CheckIcon">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="yesButtonTapped:" destination="-1" eventType="touchUpInside" id="LtA-Qg-agc"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ob-tA-KVU" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                                            <rect key="frame" x="260" y="0.0" width="239.5" height="60"/>
+                                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                            <state key="normal" title="No" image="CloseIcon">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="noButtonTapped:" destination="-1" eventType="touchUpInside" id="AkT-6Z-fqr"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="myh-oq-dZ2"/>
+                                    </constraints>
+                                </stackView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have you already built Revvy, the basic robot?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LF0-GW-H8U">
+                                    <rect key="frame" x="8" y="8" width="483.5" height="26.5"/>
+                                    <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="22"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="LF0-GW-H8U" firstAttribute="leading" secondItem="wRY-Gz-BTh" secondAttribute="leading" constant="8" id="0h1-yr-4pV"/>
+                                <constraint firstAttribute="trailing" secondItem="LF0-GW-H8U" secondAttribute="trailing" constant="8" id="KbW-F5-Nnk"/>
+                                <constraint firstAttribute="bottom" secondItem="6aF-d8-yDA" secondAttribute="bottom" id="UoL-k7-Dp0"/>
+                                <constraint firstItem="6aF-d8-yDA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="LF0-GW-H8U" secondAttribute="bottom" constant="8" id="bQC-6P-EmW"/>
+                                <constraint firstItem="6aF-d8-yDA" firstAttribute="leading" secondItem="wRY-Gz-BTh" secondAttribute="leading" id="bV1-jF-LYr"/>
+                                <constraint firstAttribute="trailing" secondItem="6aF-d8-yDA" secondAttribute="trailing" id="gHf-Kz-ies"/>
+                                <constraint firstItem="LF0-GW-H8U" firstAttribute="top" secondItem="wRY-Gz-BTh" secondAttribute="top" constant="8" id="qBG-J1-jEY"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="AKJ-Fd-2cd" firstAttribute="width" secondItem="4E0-4X-6f4" secondAttribute="width" multiplier="1:3" id="Cbp-jm-Xxf"/>
+                        <constraint firstItem="AKJ-Fd-2cd" firstAttribute="leading" secondItem="4E0-4X-6f4" secondAttribute="leading" constant="8" id="K23-DZ-wJI"/>
+                        <constraint firstItem="AKJ-Fd-2cd" firstAttribute="bottom" secondItem="wRY-Gz-BTh" secondAttribute="bottom" id="Zv1-6L-mxb"/>
+                        <constraint firstItem="wRY-Gz-BTh" firstAttribute="leading" secondItem="AKJ-Fd-2cd" secondAttribute="trailing" constant="10" id="gEk-wr-e50"/>
+                        <constraint firstItem="AKJ-Fd-2cd" firstAttribute="top" secondItem="4E0-4X-6f4" secondAttribute="top" constant="78" id="jgS-TU-cnC"/>
+                        <constraint firstAttribute="trailing" secondItem="wRY-Gz-BTh" secondAttribute="trailing" id="k08-ca-Hpi"/>
+                        <constraint firstItem="AKJ-Fd-2cd" firstAttribute="centerY" secondItem="4E0-4X-6f4" secondAttribute="centerY" id="sKC-Xi-YpP"/>
+                        <constraint firstItem="wRY-Gz-BTh" firstAttribute="top" secondItem="AKJ-Fd-2cd" secondAttribute="top" id="wrf-UR-FWi"/>
+                        <constraint firstItem="AKJ-Fd-2cd" firstAttribute="centerY" secondItem="4E0-4X-6f4" secondAttribute="centerY" id="ycL-nY-28y"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezZ-d2-u1i">
+                    <rect key="frame" x="385" y="351" width="126" height="32"/>
+                    <fontDescription key="fontDescription" name="Arial-Black" family="Arial Black" pointSize="17"/>
+                    <state key="normal" title="Skip onboarding">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                            <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="17"/>
+                        </preferredSymbolConfiguration>
+                    </state>
+                    <connections>
+                        <action selector="skipButtonTapped:" destination="-1" eventType="touchUpInside" id="Jt4-Hq-BjO"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4E0-4X-6f4" secondAttribute="trailing" constant="16" id="3c3-Mf-Dxu"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ezZ-d2-u1i" secondAttribute="bottom" constant="10" id="D0F-bo-c6l"/>
+                <constraint firstItem="ezZ-d2-u1i" firstAttribute="top" secondItem="4E0-4X-6f4" secondAttribute="bottom" constant="16" id="H9S-kk-OqC"/>
+                <constraint firstItem="ezZ-d2-u1i" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JDC-8a-Avp"/>
+                <constraint firstItem="4E0-4X-6f4" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="bix-hX-7Lw"/>
+                <constraint firstItem="4E0-4X-6f4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="rOx-di-VGt"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.61607142857142" y="153.62318840579712"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CheckIcon" width="16" height="16"/>
+        <image name="CloseIcon" width="14" height="14"/>
+        <image name="card-border" width="189" height="138"/>
+        <image name="revvy" width="156" height="115"/>
+    </resources>
+</document>
