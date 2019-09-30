@@ -16,6 +16,7 @@ final class ChallengeCategoriesViewController: BaseViewController {
     // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
+
     private var challengeCategories: [ChallengeCategory] = [] {
         didSet {
             challengesCollectionView.reloadData()

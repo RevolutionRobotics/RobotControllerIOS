@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jura-Regular.ttf">
+            <string>Jura-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -104,19 +107,38 @@
                         <constraint firstAttribute="bottom" secondItem="QBc-tB-H5o" secondAttribute="bottom" id="qJm-p4-Qik"/>
                     </constraints>
                 </view>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vs1-Tk-bT5" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                    <rect key="frame" x="315" y="83.5" width="120" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="YQC-hr-NC5"/>
+                        <constraint firstAttribute="height" constant="40" id="hMq-jq-UEV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="18"/>
+                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                    <state key="normal" title="Ready" image="SkipIcon">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="readyButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ld6-ij-lfS"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="i63-lc-3dm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="0IX-8o-Fod"/>
+                <constraint firstItem="Vs1-Tk-bT5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="35p-Nn-K4T"/>
                 <constraint firstAttribute="bottom" secondItem="jWm-WD-k67" secondAttribute="bottom" constant="24" id="Mq9-0H-kix"/>
                 <constraint firstItem="yJr-C3-YMf" firstAttribute="centerY" secondItem="i63-lc-3dm" secondAttribute="centerY" id="Uvh-HJ-rnp"/>
                 <constraint firstAttribute="trailing" secondItem="yJr-C3-YMf" secondAttribute="trailing" constant="34" id="aVs-5O-WGC"/>
                 <constraint firstAttribute="bottom" secondItem="i63-lc-3dm" secondAttribute="bottom" constant="40" id="dku-HF-d99"/>
                 <constraint firstItem="jWm-WD-k67" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eK3-OV-woK"/>
+                <constraint firstItem="Vs1-Tk-bT5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="2:3" id="fs1-l9-dxR"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="joystickContainer" destination="i63-lc-3dm" id="nNw-Rw-Jak"/>
+                <outlet property="readyButton" destination="Vs1-Tk-bT5" id="21X-vz-zuc"/>
                 <outletCollection property="buttons" destination="oSf-t6-vxz" collectionClass="NSMutableArray" id="IdP-b7-Q9c"/>
                 <outletCollection property="buttons" destination="xdj-S2-Spz" collectionClass="NSMutableArray" id="0tf-QY-7tv"/>
                 <outletCollection property="buttons" destination="bq0-Fg-QhF" collectionClass="NSMutableArray" id="TvH-hU-bBZ"/>
@@ -127,4 +149,7 @@
             <point key="canvasLocation" x="48.883928571428569" y="81.884057971014499"/>
         </view>
     </objects>
+    <resources>
+        <image name="SkipIcon" width="16" height="16"/>
+    </resources>
 </document>

@@ -39,7 +39,7 @@ final class ScreenAssembly: Assembly {
         registerCommunityViewController(to: container)
         registerUserTypeSelectionViewController(to: container)
         registerBarcodeScannerViewController(to: container)
-        registerBuildCarbyViewController(to: container)
+        registerBuildRevvyViewController(to: container)
     }
 }
 
@@ -56,10 +56,10 @@ extension ScreenAssembly {
             .inObjectScope(.weak)
     }
 
-    private func registerBuildCarbyViewController(to container: Container) {
+    private func registerBuildRevvyViewController(to container: Container) {
         container
-            .register(BuildCarbyViewController.self, factory: { _ in return
-                BuildCarbyViewController()
+            .register(BuildRevvyViewController.self, factory: { _ in return
+                BuildRevvyViewController()
             })
             .initCompleted({ (resolver, viewController) in
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!

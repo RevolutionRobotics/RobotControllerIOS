@@ -1,5 +1,5 @@
 //
-//  BuildCarbyViewController.swift
+//  BuildRevvyViewController.swift
 //  RevolutionRobotics
 //
 //  Created by Pável Áron on 2019. 09. 24..
@@ -9,10 +9,10 @@
 import UIKit
 import os
 
-final class BuildCarbyViewController: BaseViewController {
+final class BuildRevvyViewController: BaseViewController {
     // MARK: - Constants
     enum Constants {
-        static let carbyId = "2d9b67e-804e-4022-8cae-5a26071fa275"
+        static let revvyId = "c92b9a90-e069-11e9-9d36-2a2ae2dbcce4"
     }
 
     // MARK: - Outlets
@@ -26,7 +26,7 @@ final class BuildCarbyViewController: BaseViewController {
 }
 
 // MARK: - View lifecycle
-extension BuildCarbyViewController {
+extension BuildRevvyViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPromptButtons()
@@ -35,7 +35,7 @@ extension BuildCarbyViewController {
 }
 
 // MARK: - Private methods
-extension BuildCarbyViewController {
+extension BuildRevvyViewController {
     private func setupPromptButtons() {
         let buttonAttributes: [NSAttributedString.Key: Any] = [
             .font: Font.jura(size: 17.0)
@@ -64,21 +64,21 @@ extension BuildCarbyViewController {
 
     private func savePromptVisited() {
         let userDefaults = UserDefaults.standard
-        userDefaults.set(true, forKey: UserDefaults.Keys.buildCarbyPromptVisited)
+        userDefaults.set(true, forKey: UserDefaults.Keys.buildRevvyPromptVisited)
     }
 
-    private func getCarbyDataModel(completion: @escaping CallbackType<Robot>) {
+    private func getRevvyDataModel(completion: @escaping CallbackType<Robot>) {
         firebaseService.getRobots { result in
             switch result {
             case .success(let robots):
-                guard let carby = robots.first(where: { $0.id == Constants.carbyId }) else {
-                    os_log("Error: Failed to fetch Carby from Firebase!")
+                guard let revvy = robots.first(where: { $0.id == Constants.revvyId }) else {
+                    os_log("Error: Failed to fetch Revvy from Firebase!")
                     return
                 }
 
-                completion(carby)
+                completion(revvy)
             case .failure:
-                os_log("Error: Failed to fetch Carby from Firebase!")
+                os_log("Error: Failed to fetch Revvy from Firebase!")
             }
         }
     }
@@ -90,7 +90,7 @@ extension BuildCarbyViewController {
                 self?.firebaseService.getControllers(completion: { [weak self] result in
                     switch result {
                     case .success(let remoteControllers):
-                        self?.saveCarbyDataModel(
+                        self?.saveRevvyDataModel(
                             using: dataModel,
                             remoteConfigurations: remoteConfigurations,
                             remoteControllers: remoteControllers)
@@ -104,12 +104,12 @@ extension BuildCarbyViewController {
         }
     }
 
-    private func saveCarbyDataModel(
+    private func saveRevvyDataModel(
         using dataModel: Robot,
         remoteConfigurations: [Configuration],
         remoteControllers: [Controller]
     ) {
-        let carbyDataModel = UserRobot(
+        let revvyDataModel = UserRobot(
             id: UUID().uuidString,
             remoteId: dataModel.id,
             buildStatus: .completed,
@@ -125,34 +125,41 @@ extension BuildCarbyViewController {
         }) else { return }
 
         let localConfiguration = ConfigurationDataModel(
-            id: carbyDataModel.configId,
+            id: revvyDataModel.configId,
             remoteConfiguration: remoteConfiguration)
         let controllers = remoteControllers
             .map({ ControllerDataModel(controller: $0, localConfigurationId: localConfiguration.id) })
 
         localConfiguration.controller = controllers.first(where: { $0.type == ControllerType.gamer.rawValue })?.id ?? ""
 
-        realmService.saveControllers(controllers)
-        realmService.saveConfigurations([localConfiguration])
+        let userDefaults = UserDefaults.standard
+        let revvyBuiltKey = UserDefaults.Keys.revvyBuilt
 
-        guard let selectedController = controllers.first(where: {
+        if !userDefaults.bool(forKey: revvyBuiltKey) {
+            realmService.saveControllers(controllers)
+            realmService.saveConfigurations([localConfiguration])
+            realmService.saveRobot(revvyDataModel, shouldUpdate: true)
+            userDefaults.set(true, forKey: revvyBuiltKey)
+        }
+
+        if let selectedController = controllers.first(where: {
             $0.id == localConfiguration.controller
-        }) else { return }
-
-        realmService.saveRobot(carbyDataModel, shouldUpdate: true)
-        navigateToPlayController(with: carbyDataModel, controller: selectedController)
+        }) {
+             navigateToPlayController(with: revvyDataModel, controller: selectedController)
+        }
     }
 
     private func navigateToPlayController(with robot: UserRobot, controller: ControllerDataModel) {
         let playController = AppContainer.shared.container.unwrappedResolve(PlayControllerViewController.self)
         playController.controllerDataModel = controller
         playController.robotName = robot.customName
+        playController.onboardingInProgress = true
         navigationController?.pushViewController(playController, animated: true)
     }
 }
 
 // MARK: - Actions
-extension BuildCarbyViewController {
+extension BuildRevvyViewController {
     @IBAction private func skipButtonTapped(_ sender: Any) {
         savePromptVisited()
         navigationController?.popToRootViewController(animated: true)
@@ -160,23 +167,23 @@ extension BuildCarbyViewController {
 
     @IBAction private func yesButtonTapped(_ sender: Any) {
         savePromptVisited()
-        getCarbyDataModel(completion: { [weak self] carby in
-            self?.createNewRobot(using: carby)
+        getRevvyDataModel(completion: { [weak self] revvy in
+            self?.createNewRobot(using: revvy)
         })
     }
 
     @IBAction private func noButtonTapped(_ sender: Any) {
         savePromptVisited()
-        getCarbyDataModel(completion: { [weak self] carby in
+        getRevvyDataModel(completion: { [weak self] revvy in
             guard let `self` = self else { return }
 
-            let buildCarby = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
-            buildCarby.onboardingInProgress = true
-            buildCarby.firebaseService = self.firebaseService
-            buildCarby.realmService = self.realmService
+            let buildRevvy = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
+            buildRevvy.onboardingInProgress = true
+            buildRevvy.firebaseService = self.firebaseService
+            buildRevvy.realmService = self.realmService
 
-            buildCarby.remoteRobotDataModel = carby
-            self.navigationController?.pushViewController(buildCarby, animated: true)
+            buildRevvy.remoteRobotDataModel = revvy
+            self.navigationController?.pushViewController(buildRevvy, animated: true)
         })
     }
 }
