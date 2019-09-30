@@ -99,26 +99,15 @@ extension PlayControllerViewController {
         }
 
         gamerPadView.onboardingReadyCallback = { [weak self] in
-            self?.showCompletedModal()
+            guard
+                let `self` = self,
+                let menu = self.navigationController?.viewControllers.first(where: {
+                    $0 is MenuViewController
+                }) as? MenuViewController else { return }
+
+            menu.onboardingInProgress = true
+            self.navigationController?.popToViewController(menu, animated: true)
         }
-    }
-}
-
-// MARK: - Onboarding
-extension PlayControllerViewController {
-    private func showCompletedModal() {
-        let modal = OnboardingCompletedModalView.instatiate()
-        modal.startPressedCallback = { [weak self] in
-            guard let `self` = self else { return }
-            self.dismissModalViewController()
-
-            let challengesViewController = AppContainer.shared.container
-                .unwrappedResolve(ChallengeCategoriesViewController.self)
-            challengesViewController.onboardingInProgress = true
-            self.navigationController?.pushViewController(challengesViewController, animated: true)
-        }
-
-        presentModal(with: modal, closeHidden: true)
     }
 }
 

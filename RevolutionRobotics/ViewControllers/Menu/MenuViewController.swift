@@ -12,6 +12,11 @@ import SafariServices
 import os
 
 final class MenuViewController: BaseViewController {
+    // MARK: - Constants
+    enum Constants {
+        static let onboardingChallengeId = "ef504b31-d64f-4bfb-bd4b-5b96a9a0489f"
+    }
+
     // MARK: - Outlets
     @IBOutlet private weak var menuItemContainer: UIView!
     @IBOutlet private weak var robotsTitleLabel: UILabel!
@@ -22,6 +27,7 @@ final class MenuViewController: BaseViewController {
     // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
+    var onboardingInProgress = false
 
     private let updateViewController = AppContainer.shared.container.unwrappedResolve(ModalViewController.self)
 }
@@ -43,6 +49,43 @@ extension MenuViewController {
 
         checkMinVersion(with: { [weak self] in
             self?.showOnboarding()
+        })
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard onboardingInProgress else { return }
+
+        let modal = OnboardingCompletedModalView.instatiate()
+        modal.startPressedCallback = { [weak self] in
+            guard let `self` = self else { return }
+
+            self.dismissModalViewController()
+            self.navigateToChallenge()
+        }
+
+        onboardingInProgress = false
+        presentModal(with: modal)
+    }
+}
+
+// MARK: - Private methods
+extension MenuViewController {
+    private func navigateToChallenge() {
+        let challengesViewController =
+        AppContainer.shared.container.unwrappedResolve(ChallengesViewController.self)
+
+        firebaseService.getChallengeCategories(completion: { [weak self] result in
+            switch result {
+            case .success(let challengeCategories):
+                guard let onboardingChallenge = challengeCategories.first(where: {
+                    $0.id == Constants.onboardingChallengeId
+                }) else { return }
+                self?.navigationController?.pushViewController(challengesViewController, animated: true)
+                challengesViewController.setup(with: onboardingChallenge)
+            case .failure:
+                os_log("Error: Failed to fetch challenge categories from Firebase!")
+            }
         })
     }
 
