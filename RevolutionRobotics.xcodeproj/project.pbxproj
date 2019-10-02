@@ -2775,11 +2775,11 @@
 			baseConfigurationReference = 6580994D81024CCF29BD1923 /* Pods-RevolutionRobotics.debug dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 107;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = TP6VZ3G227;
+				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Dev ";
 				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2788,7 +2788,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.dev.development;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development org.revolutionrobotics.RevolutionRobotics.dev.development.sc";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2856,10 +2856,10 @@
 			baseConfigurationReference = 755D287203AB31DEF1C3C453 /* Pods-RevolutionRobotics.release dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TP6VZ3G227;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 107;
+				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Dev ";
 				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2868,7 +2868,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Revolution Robotics DEV Enterprise";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2998,11 +2998,11 @@
 			baseConfigurationReference = 2B39E5F8B094B00B188CBF30 /* Pods-RevolutionRobotics.debug prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 107;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = TP6VZ3G227;
+				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -3020,7 +3020,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -DPROD";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.development;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development org.revolutionrobotics.RevolutionRobotics.development.sc";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3032,10 +3032,10 @@
 			baseConfigurationReference = 5E046D70402D059CCC0D1898 /* Pods-RevolutionRobotics.release prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TP6VZ3G227;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 107;
+				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -3054,7 +3054,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -DPROD";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Revolution Robotics PROD";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
