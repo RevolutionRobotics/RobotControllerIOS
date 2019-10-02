@@ -11,6 +11,7 @@ enum ProgramsKeys {
 
     enum Main {
         static let title = "programs_screen_title"
+        static let untitled = "programs_screen_untitled"
     }
 
     enum MostRecent {
@@ -72,5 +73,12 @@ enum ProgramsKeys {
         static let title = "dialog_load_program_confirm_title"
         static let subtitle = "dialog_load_program_confirm_description"
         static let positive = "dialog_load_program_confirm_button_positive"
+    }
+
+    enum ConfirmNew {
+        static let title = "dialog_new_program_confirm_title"
+        static let subtitle = "dialog_new_program_confirm_description"
+        static let positive = "dialog_new_program_confirm_button_positive"
+        static let negative = "dialog_new_program_confirm_button_negative"
     }
 }
