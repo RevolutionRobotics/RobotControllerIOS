@@ -120,6 +120,7 @@
 "controller_setup_drive" = "drive";
 
 // MARK: - Programs
+"programs_screen_untitled" = "Untitled program";
 "programs_screen_title" = "Programs";
 "program_selector_title" = "Choose a program!";
 "program_selector_order_by_name" = "Name";
@@ -145,6 +146,10 @@
 "dialog_save_program_name_hint" = "Tap here to name it!";
 "dialog_save_program_description" = "Description";
 "dialog_save_program_description_hint" = "Tap here and add a hint to remember when to use it!";
+"dialog_new_program_confirm_title" = "Would you like to create a new program?";
+"dialog_new_program_confirm_description" = "All your unsaved changes will be lost";
+"dialog_new_program_confirm_button_positive" = "Save and create";
+"dialog_new_program_confirm_button_negative" = "Create";
 "dialog_load_program_confirm_title" = "Would you like to load another program?";
 "dialog_load_program_confirm_description" = "All your unsaved changes will be lost";
 "dialog_load_program_confirm_button_positive" = "Open programs";

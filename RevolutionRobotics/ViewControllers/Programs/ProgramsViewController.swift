@@ -11,6 +11,7 @@ import RevolutionRoboticsBlockly
 
 final class ProgramsViewController: BaseViewController {
     private enum ProgramSaveReason {
+        case newProgram
         case edited
         case navigateBack
         case openProgram
@@ -26,6 +27,7 @@ final class ProgramsViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet private weak var programNameButton: RRButton!
     @IBOutlet private weak var programCodeButton: RRButton!
+    @IBOutlet private weak var newProgramButton: RRButton!
     @IBOutlet private weak var saveProgramButton: RRButton!
     @IBOutlet private weak var openProgramButton: RRButton!
     @IBOutlet private weak var containerView: UIView!
@@ -79,6 +81,7 @@ extension ProgramsViewController {
     private func setupButtons() {
         programNameButton.setBorder(fillColor: .clear)
         programCodeButton.setBorder(fillColor: .clear)
+        newProgramButton.setBorder(fillColor: .clear)
         saveProgramButton.setBorder(fillColor: .clear)
         openProgramButton.setBorder(fillColor: .clear)
     }
@@ -173,6 +176,19 @@ extension ProgramsViewController {
                     self?.openProgramModal()
                 }
             }
+        case .newProgram:
+            confirmModal.setup(title: ProgramsKeys.ConfirmNew.title.translate(),
+                               subtitle: ProgramsKeys.ConfirmNew.subtitle.translate(),
+                               negativeButtonTitle: ProgramsKeys.ConfirmNew.negative.translate(),
+                               positiveButtonTitle: ProgramsKeys.ConfirmNew.positive.translate())
+            confirmModal.confirmSelected = { [weak self] confirmed in
+                self?.dismissModalViewController()
+                if confirmed {
+                    self?.initiateSave(shouldNavigateBack: false, shouldOpenPrograms: false)
+                } else {
+                    self?.displayNew()
+                }
+            }
         default:
             return
         }
@@ -184,10 +200,33 @@ extension ProgramsViewController {
         let programsView = ProgramListModalView.instatiate()
         programsView.setup(with: realmService.getPrograms())
         programsView.selectedProgramCallback = { [weak self] program in
-            self?.dismissModalViewController()
-            self?.open(program: program)
+            guard let `self` = self else { return }
+
+            self.dismissModalViewController()
+            self.open(program: program)
         }
         presentModal(with: programsView)
+    }
+
+    private func displayNew() {
+        selectedProgram = nil
+        blocklyViewController.clearWorkspace()
+        programNameButton.setTitle(ProgramsKeys.Main.untitled.translate(), for: .normal)
+    }
+
+    private func onSavePromptDismissed(xmlCode: String, callback: Callback) {
+        let isDefaultProgram = xmlCode == Constants.defaultXMLCode
+
+        guard let selectedProgram = selectedProgram else {
+            (isDefaultProgram ? callback : confirmLeave)()
+            return
+        }
+
+        let replaced =
+            selectedProgram.xml.base64Decoded?.replacingPattern(regexPattern: Constants.blocklyElementIdRegex)
+        let isXmlModified = replaced != xmlCode.replacingPattern(regexPattern: Constants.blocklyElementIdRegex)
+
+        (isXmlModified ? confirmLeave : callback)()
     }
 }
 
@@ -412,39 +451,13 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
     }
 
     func onXMLProgramSaved(xmlCode: String) {
-        let isDefaulProgram = xmlCode == Constants.defaultXMLCode
-
         switch programSaveReason {
         case .navigateBack:
-            guard let selectedProgram = selectedProgram else {
-                isDefaulProgram ? navigateBack() : confirmLeave()
-                return
-            }
-
-            let replaced =
-                selectedProgram.xml.base64Decoded!.replacingPattern(regexPattern: Constants.blocklyElementIdRegex)
-            let isXmlModified = replaced != xmlCode.replacingPattern(regexPattern: Constants.blocklyElementIdRegex)
-
-            if isXmlModified {
-                confirmLeave()
-            } else {
-                navigateBack()
-            }
+            onSavePromptDismissed(xmlCode: xmlCode, callback: navigateBack)
+        case .newProgram:
+            onSavePromptDismissed(xmlCode: xmlCode, callback: displayNew)
         case .openProgram:
-            guard let selectedProgram = selectedProgram else {
-                isDefaulProgram ? openProgramModal() : confirmLeave()
-                return
-            }
-
-            let replaced =
-                selectedProgram.xml.base64Decoded!.replacingPattern(regexPattern: Constants.blocklyElementIdRegex)
-            let isXmlModified = replaced != xmlCode.replacingPattern(regexPattern: Constants.blocklyElementIdRegex)
-
-            if isXmlModified {
-                confirmLeave()
-            } else {
-                openProgramModal()
-            }
+            onSavePromptDismissed(xmlCode: xmlCode, callback: openProgramModal)
         case .edited:
             guard let program = selectedProgram else { return }
 
@@ -474,6 +487,14 @@ extension ProgramsViewController {
 
     @IBAction private func programCodeButtonTapped(_ sender: UIButton) {
         programSaveReason = .showCode
+    }
+
+    @IBAction private func newProgramButtonTapped(_ sender: UIButton) {
+        programSaveReason = .newProgram
+    }
+
+    @IBAction private func openProgramButtonTapped(_ sender: UIButton) {
+        programSaveReason = .openProgram
     }
 
     @IBAction private func saveProgramButtonTapped(_ sender: UIButton) {
@@ -511,10 +532,6 @@ extension ProgramsViewController {
             }
         }
         presentModal(with: saveModal)
-    }
-
-    @IBAction private func openProgramButtonTapped(_ sender: UIButton) {
-        programSaveReason = .openProgram
     }
 }
 
