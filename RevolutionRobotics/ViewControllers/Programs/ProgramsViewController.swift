@@ -35,7 +35,13 @@ final class ProgramsViewController: BaseViewController {
     // MARK: - Properties
     var realmService: RealmServiceInterface!
     var programCompatibilityValidator: ProgramCompatibilityValidator!
-    var selectedProgram: ProgramDataModel?
+    var selectedProgram: ProgramDataModel? {
+        didSet {
+            guard let selectedProgram = selectedProgram else { return }
+            UserDefaults.standard.set(selectedProgram.id, forKey: UserDefaults.Keys.mostRecentProgram)
+        }
+    }
+
     var shouldDismissAfterSave = false
     private let blocklyViewController = BlocklyViewController()
     private var programSaveReason = ProgramSaveReason.edited {
@@ -54,6 +60,7 @@ extension ProgramsViewController {
         super.viewDidLoad()
         programCompatibilityValidator = ProgramCompatibilityValidator(realmService: realmService)
         setupBlocklyViewController()
+        loadMostRecentProgram()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +83,18 @@ extension ProgramsViewController {
         blocklyViewController.view.anchorToSuperview()
         addChild(blocklyViewController)
         blocklyViewController.didMove(toParent: self)
+    }
+
+    private func loadMostRecentProgram() {
+        let mostRecentProgramId = UserDefaults.standard
+            .string(forKey: UserDefaults.Keys.mostRecentProgram)
+
+        if let program = realmService.getProgram(id: mostRecentProgramId) {
+            selectedProgram = program
+            blocklyViewController.loadProgram(xml: program.xml.base64Decoded ?? "")
+            prefillProgram()
+            setupButtons()
+        }
     }
 
     private func setupButtons() {

@@ -17,5 +17,6 @@ extension UserDefaults {
         static let robotRegistered = "robotRegistered"
         static let buildRevvyPromptVisited = "buildRevvyPromptVisited"
         static let revvyBuilt = "revvyBuilt"
+        static let mostRecentProgram = "mostRecentProgram"
     }
 }
