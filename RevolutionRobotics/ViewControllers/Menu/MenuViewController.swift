@@ -181,6 +181,7 @@ extension MenuViewController {
 
     @IBAction private func programsButtonTapped(_ sender: UIButton) {
         let programsViewController = AppContainer.shared.container.unwrappedResolve(ProgramsViewController.self)
+        programsViewController.openedFromMenu = true
         navigationController?.pushViewController(programsViewController, animated: true)
     }
 
