@@ -42,6 +42,7 @@ final class ProgramsViewController: BaseViewController {
         }
     }
 
+    var openedFromMenu = false
     var shouldDismissAfterSave = false
     private let blocklyViewController = BlocklyViewController()
     private var programSaveReason = ProgramSaveReason.edited {
@@ -100,9 +101,20 @@ extension ProgramsViewController {
     private func setupButtons() {
         programNameButton.setBorder(fillColor: .clear)
         programCodeButton.setBorder(fillColor: .clear)
-        newProgramButton.setBorder(fillColor: .clear)
         saveProgramButton.setBorder(fillColor: .clear)
-        openProgramButton.setBorder(fillColor: .clear)
+
+        guard !openedFromMenu else {
+            newProgramButton.setBorder(fillColor: .clear)
+            openProgramButton.setBorder(fillColor: .clear)
+            return
+        }
+
+        newProgramButton.isHidden = true
+        openProgramButton.isHidden = true
+
+        NSLayoutConstraint.activate([
+            saveProgramButton.trailingAnchor.constraint(equalTo: newProgramButton.trailingAnchor)
+        ])
     }
 
     private func prefillProgram() {
