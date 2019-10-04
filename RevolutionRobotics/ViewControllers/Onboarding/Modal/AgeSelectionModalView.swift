@@ -92,8 +92,9 @@ extension AgeSelectionModalView {
     }
 
     private func setupYearSelector() {
-        yearSelectionField.setup(title: "Year", placeholder: "\(currentYear)", characterLimit: 4)
-        yearSelectionField.text = "\(currentYear)"
+        let tenYearsAgo = currentYear - 10
+        yearSelectionField.setup(title: "Year", placeholder: "\(tenYearsAgo)", characterLimit: 4)
+        yearSelectionField.text = "\(tenYearsAgo)"
 
         guard let textField = getTextField(in: yearSelectionField) else {
             return
