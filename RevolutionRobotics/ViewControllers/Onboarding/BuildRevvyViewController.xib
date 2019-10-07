@@ -27,27 +27,35 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4E0-4X-6f4" userLabel="content">
-                    <rect key="frame" x="60" y="20" width="776" height="315"/>
+                    <rect key="frame" x="60" y="20" width="776" height="311"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AKJ-Fd-2cd" userLabel="card">
-                            <rect key="frame" x="8" y="78" width="258.5" height="159"/>
+                            <rect key="frame" x="8" y="78" width="258.5" height="155"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="revvy" translatesAutoresizingMaskIntoConstraints="NO" id="0Ix-7c-rzG">
-                                    <rect key="frame" x="20" y="20" width="218.5" height="118"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="revvy" translatesAutoresizingMaskIntoConstraints="NO" id="0Ix-7c-rzG">
+                                    <rect key="frame" x="20" y="20" width="218.5" height="115"/>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="card-border" translatesAutoresizingMaskIntoConstraints="NO" id="4Vn-8y-uhx">
-                                    <rect key="frame" x="0.0" y="0.0" width="258.5" height="158"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card-border" translatesAutoresizingMaskIntoConstraints="NO" id="4Vn-8y-uhx">
+                                    <rect key="frame" x="0.0" y="0.0" width="258.5" height="155"/>
                                 </imageView>
                             </subviews>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="4Vn-8y-uhx" firstAttribute="leading" secondItem="AKJ-Fd-2cd" secondAttribute="leading" id="CUH-Rq-Fv9"/>
+                                <constraint firstAttribute="bottom" secondItem="0Ix-7c-rzG" secondAttribute="bottom" constant="20" id="KL4-o1-k5l"/>
+                                <constraint firstAttribute="trailing" secondItem="0Ix-7c-rzG" secondAttribute="trailing" constant="20" id="Qng-Cc-raj"/>
+                                <constraint firstItem="0Ix-7c-rzG" firstAttribute="leading" secondItem="AKJ-Fd-2cd" secondAttribute="leading" constant="20" id="deL-Mo-l4D"/>
+                                <constraint firstAttribute="trailing" secondItem="4Vn-8y-uhx" secondAttribute="trailing" id="eRg-zH-XwU"/>
+                                <constraint firstAttribute="bottom" secondItem="4Vn-8y-uhx" secondAttribute="bottom" id="ero-3I-VQn"/>
+                                <constraint firstItem="0Ix-7c-rzG" firstAttribute="top" secondItem="AKJ-Fd-2cd" secondAttribute="top" constant="20" id="jxR-eC-tRN"/>
+                                <constraint firstItem="4Vn-8y-uhx" firstAttribute="top" secondItem="AKJ-Fd-2cd" secondAttribute="top" id="wbH-xH-DGd"/>
+                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRY-Gz-BTh" userLabel="prompt">
-                            <rect key="frame" x="276.5" y="78" width="499.5" height="159"/>
+                            <rect key="frame" x="276.5" y="78" width="499.5" height="155"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6aF-d8-yDA">
-                                    <rect key="frame" x="0.0" y="99" width="499.5" height="60"/>
+                                    <rect key="frame" x="0.0" y="95" width="499.5" height="60"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cd-Qm-2Ga" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="60"/>
@@ -107,7 +115,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezZ-d2-u1i">
-                    <rect key="frame" x="385" y="351" width="126" height="32"/>
+                    <rect key="frame" x="385" y="347" width="126" height="36"/>
                     <fontDescription key="fontDescription" name="Arial-Black" family="Arial Black" pointSize="17"/>
                     <state key="normal" title="Skip onboarding">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
