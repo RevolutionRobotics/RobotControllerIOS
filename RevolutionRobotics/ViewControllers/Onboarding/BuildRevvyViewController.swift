@@ -27,8 +27,8 @@ final class BuildRevvyViewController: BaseViewController {
 
 // MARK: - View lifecycle
 extension BuildRevvyViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         setupPromptButtons()
         setupSkipButton()
     }
