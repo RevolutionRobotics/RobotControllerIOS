@@ -256,7 +256,9 @@ extension BaseViewController {
         bluetoothService.stopDiscovery()
 
         let topViewController = navigationController?.topViewController
-        if topViewController == self || topViewController is RobotConfigurationViewController {
+        let robotConfig = topViewController as? RobotConfigurationViewController
+
+        if topViewController == self || (robotConfig?.shouldCloseConnectionModal ?? false) {
             dismissModalViewController()
             let connectionModal = ConnectionModalView.instatiate()
             presentModal(with: connectionModal.successful, closeHidden: true)
