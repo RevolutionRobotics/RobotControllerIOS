@@ -51,6 +51,7 @@ final class RobotConfigurationViewController: BaseViewController {
     var realmService: RealmServiceInterface!
     var firebaseService: FirebaseServiceInterface!
     var viewModel: ViewModel!
+    var shouldCloseConnectionModal: Bool = true
 
     private let photoModal = PhotoModalView.instatiate()
     private let padConfiguration = PadConfigurationViewController()
@@ -184,12 +185,19 @@ extension RobotConfigurationViewController {
         motorConfig.prohibitedNames = configuration?.mapping?.variableNames.filter({ $0 != motorConfig.name }) ?? []
         motorConfig.doneButtonTapped = { [weak self] config in
             guard let `self` = self else { return }
+
+            self.shouldCloseConnectionModal = true
             self.dismiss(animated: true, completion: nil)
             self.updateMotorPort(config, on: motorConfig.portNumber)
         }
         motorConfig.screenDismissed = { [weak self] in
-            self?.refreshConfigurationData()
+            guard let `self` = self else { return }
+
+            self.shouldCloseConnectionModal = true
+            self.refreshConfigurationData()
         }
+
+        shouldCloseConnectionModal = false
         present(viewController: motorConfig, onSide: .right)
     }
 
@@ -224,12 +232,19 @@ extension RobotConfigurationViewController {
         sensorConfig.prohibitedNames = mapping?.variableNames.filter({ $0 != sensorConfig.name }) ?? []
         sensorConfig.doneButtonTapped = { [weak self] config in
             guard let `self` = self else { return }
+
+            self.shouldCloseConnectionModal = true
             self.dismiss(animated: true, completion: nil)
             self.updateSensorPort(config, on: sensorConfig.portNumber)
         }
         sensorConfig.screenDismissed = { [weak self] in
-            self?.refreshConfigurationData()
+            guard let `self` = self else { return }
+
+            self.shouldCloseConnectionModal = true
+            self.refreshConfigurationData()
         }
+
+        shouldCloseConnectionModal = false
         present(viewController: sensorConfig, onSide: .left)
     }
 
