@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,6 +46,9 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnderConstructionBg" translatesAutoresizingMaskIntoConstraints="NO" id="wvH-5B-wBH">
+                        <rect key="frame" x="2" y="148" width="209" height="37"/>
+                    </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CalendarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="baB-yQ-wnU">
                         <rect key="frame" x="18" y="155" width="16" height="16"/>
                     </imageView>
@@ -86,6 +87,7 @@
             <constraints>
                 <constraint firstItem="baB-yQ-wnU" firstAttribute="leading" secondItem="u76-hq-HP7" secondAttribute="leading" constant="18" id="1AD-lc-0Zv"/>
                 <constraint firstItem="u76-hq-HP7" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="2LJ-Gi-spT"/>
+                <constraint firstItem="wvH-5B-wBH" firstAttribute="height" secondItem="baB-yQ-wnU" secondAttribute="height" multiplier="2.3" id="2R9-vN-bdQ"/>
                 <constraint firstItem="TCB-zL-eiC" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="3at-jc-2xG"/>
                 <constraint firstItem="Z3O-CF-ILH" firstAttribute="top" secondItem="u76-hq-HP7" secondAttribute="top" constant="24" id="5RD-Ab-PKs"/>
                 <constraint firstItem="EUD-tB-1Po" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.25" id="EsN-Lo-yrw"/>
@@ -93,16 +95,19 @@
                 <constraint firstItem="DOZ-1A-0H7" firstAttribute="top" secondItem="baB-yQ-wnU" secondAttribute="bottom" constant="15" identifier="asdasd" id="PK3-K8-sPZ"/>
                 <constraint firstAttribute="trailing" secondItem="EUD-tB-1Po" secondAttribute="trailing" constant="3" id="QTc-Ev-ya6"/>
                 <constraint firstItem="EUD-tB-1Po" firstAttribute="leading" secondItem="DOZ-1A-0H7" secondAttribute="trailing" constant="8" id="R3a-sa-jTS"/>
+                <constraint firstItem="wvH-5B-wBH" firstAttribute="top" secondItem="XhF-Su-8hc" secondAttribute="bottom" constant="3" id="TSe-7y-szZ"/>
                 <constraint firstItem="Z3O-CF-ILH" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Tni-Vg-ddF"/>
                 <constraint firstItem="baB-yQ-wnU" firstAttribute="top" secondItem="XhF-Su-8hc" secondAttribute="bottom" constant="10" id="UrK-9b-1R9"/>
                 <constraint firstItem="EUD-tB-1Po" firstAttribute="height" secondItem="u76-hq-HP7" secondAttribute="height" multiplier="0.15625" id="VSG-oG-kwl"/>
                 <constraint firstItem="TCB-zL-eiC" firstAttribute="top" secondItem="Z3O-CF-ILH" secondAttribute="bottom" constant="11" id="WHe-Dc-3Fv"/>
                 <constraint firstItem="DOZ-1A-0H7" firstAttribute="height" secondItem="EUD-tB-1Po" secondAttribute="height" id="Y4c-91-3f4"/>
+                <constraint firstItem="wvH-5B-wBH" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Ywc-bs-Lfb"/>
                 <constraint firstItem="XhF-Su-8hc" firstAttribute="leading" secondItem="u76-hq-HP7" secondAttribute="leading" constant="18" id="gFq-Iu-Wbx"/>
                 <constraint firstItem="DOZ-1A-0H7" firstAttribute="leading" secondItem="u76-hq-HP7" secondAttribute="leading" constant="3" id="grb-H4-s9j"/>
                 <constraint firstItem="2pC-Rl-Fr1" firstAttribute="leading" secondItem="baB-yQ-wnU" secondAttribute="trailing" constant="8" id="h3H-Mc-35J"/>
                 <constraint firstItem="TCB-zL-eiC" firstAttribute="leading" secondItem="u76-hq-HP7" secondAttribute="leading" constant="16" id="hB1-lb-Iht"/>
                 <constraint firstItem="u76-hq-HP7" firstAttribute="trailing" secondItem="XhF-Su-8hc" secondAttribute="trailing" constant="18" id="kca-tw-Jx8"/>
+                <constraint firstItem="wvH-5B-wBH" firstAttribute="width" secondItem="u76-hq-HP7" secondAttribute="width" multiplier="0.98" id="kd0-W2-fSJ"/>
                 <constraint firstItem="u76-hq-HP7" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="l6A-IT-JxC"/>
                 <constraint firstItem="u76-hq-HP7" firstAttribute="bottom" secondItem="DOZ-1A-0H7" secondAttribute="bottom" constant="3" id="lOU-Yf-3Jc"/>
                 <constraint firstAttribute="bottom" secondItem="EUD-tB-1Po" secondAttribute="bottom" constant="3" id="o4U-aa-TfV"/>
@@ -126,6 +131,7 @@
                 <outlet property="optionsButton" destination="EUD-tB-1Po" id="Wxr-rj-gzg"/>
                 <outlet property="robotImageView" destination="TCB-zL-eiC" id="LbV-tN-NQU"/>
                 <outlet property="statusImageView" destination="baB-yQ-wnU" id="6Wo-gQ-0sb"/>
+                <outlet property="underConstructionBg" destination="wvH-5B-wBH" id="GIK-mS-W9j"/>
             </connections>
             <point key="canvasLocation" x="136.95652173913044" y="110.49107142857143"/>
         </collectionViewCell>
@@ -133,6 +139,7 @@
     <resources>
         <image name="CalendarIcon" width="16" height="16"/>
         <image name="RobotPlaceholder" width="70" height="92"/>
+        <image name="UnderConstructionBg" width="216" height="32"/>
         <image name="YourRobotsEditableWhiteCell" width="213" height="224"/>
     </resources>
 </document>
