@@ -32,7 +32,7 @@ target 'RevolutionRobotics' do
   repoUrl = 'https://github.com/RevolutionRobotics/'
 
   # RevolutionRobotics
-  pod 'RevolutionRoboticsBlockly', git: "#{repoUrl}RevolutionRoboticsBlocklyIOS", branch: 'handover', :submodules => true
+  pod 'RevolutionRoboticsBlockly', git: "#{repoUrl}RevolutionRoboticsBlocklyIOS", branch: 'development', :submodules => true
   pod 'RevolutionRoboticsBluetooth', git: "#{repoUrl}RevolutionRoboticsBluetoothIOS.git", branch: 'development'
 end
 
