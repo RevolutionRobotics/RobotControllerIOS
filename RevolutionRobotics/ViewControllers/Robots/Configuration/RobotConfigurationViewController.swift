@@ -434,11 +434,6 @@ extension RobotConfigurationViewController {
         padConfiguration.refreshViewState()
     }
 
-    private func isProgramCompatible(_ program: ProgramDataModel) -> Bool {
-        let variableNames = realmService.getConfiguration(id: configuration?.id)?.mapping?.variableNames ?? []
-        return Set(program.variableNames).isSubset(of: Set(variableNames))
-    }
-
     private func fetchBackgroundPrograms() -> [ProgramDataModel] {
         let programs = Set(realmService.getPrograms())
         let prohibited = Set(padConfiguration.viewModel.buttonPrograms)

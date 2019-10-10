@@ -19,6 +19,7 @@ final class YourRobotsCollectionViewCell: ResizableCell {
     @IBOutlet private weak var statusImageView: UIImageView!
     @IBOutlet private weak var actionLabel: UILabel!
     @IBOutlet private weak var robotImageView: UIImageView!
+    @IBOutlet private weak var underConstructionBg: UIImageView!
     @IBOutlet private weak var optionsButton: UIButton!
 
     // MARK: - Properties
@@ -86,6 +87,7 @@ extension YourRobotsCollectionViewCell {
         }
 
         let isCompleted = robot.buildStatus == BuildStatus.completed.rawValue
+        underConstructionBg.isHidden = isCompleted
         statusImageView.image = isCompleted ? Image.Common.calendar : Image.Common.underConstruction
         lastModifiedLabel.text = isCompleted ?
             DateFormatter.string(from: robot.lastModified, format: .yearMonthDay) :
