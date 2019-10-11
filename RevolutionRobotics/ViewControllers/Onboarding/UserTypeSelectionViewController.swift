@@ -21,6 +21,13 @@ final class UserTypeSelectionViewController: BaseViewController {
         case student, parent, teacher = "teacher_mentor", hobbyist
     }
 
+    // MARK: - Outlets
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var studentCardLabel: UILabel!
+    @IBOutlet private weak var parentCardLabel: UILabel!
+    @IBOutlet private weak var teacherCardLabel: UILabel!
+    @IBOutlet private weak var hobbyistCardLabel: UILabel!
+
     // MARK: - Properties
     private var birthYear: Int?
     private var selectedUserType: UserType? {
@@ -34,11 +41,19 @@ final class UserTypeSelectionViewController: BaseViewController {
 extension UserTypeSelectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLabels()
     }
 }
 
 // MARK: - Private methods
 extension UserTypeSelectionViewController {
+    private func setupLabels() {
+        titleLabel.text = OnboardingKeys.UserType.title.translate()
+        studentCardLabel.text = OnboardingKeys.UserType.typeStudent.translate()
+        parentCardLabel.text = OnboardingKeys.UserType.typeParent.translate()
+        teacherCardLabel.text = OnboardingKeys.UserType.typeTeacher.translate()
+        hobbyistCardLabel.text = OnboardingKeys.UserType.typeHobbyist.translate()
+    }
 
     private func showAgeModal() {
         let modal = AgeSelectionModalView.instatiate()

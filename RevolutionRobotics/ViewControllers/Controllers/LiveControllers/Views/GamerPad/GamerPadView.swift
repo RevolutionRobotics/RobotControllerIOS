@@ -41,6 +41,7 @@ extension GamerPadView {
         guard onboardingReadyCallback != nil else { return }
         readyButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.bottomLeft, .topRight])
 
+        readyButton.setTitle(ControllerKeys.ready.translate(), for: .normal)
         readyButton.isHidden = false
     }
 }

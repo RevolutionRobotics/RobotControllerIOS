@@ -17,6 +17,7 @@
             <connections>
                 <outlet property="noButton" destination="2Ob-tA-KVU" id="rhM-5J-TQW"/>
                 <outlet property="skipButton" destination="ezZ-d2-u1i" id="GAU-kH-TZr"/>
+                <outlet property="titleLabel" destination="LF0-GW-H8U" id="1MR-0t-teS"/>
                 <outlet property="view" destination="iN0-l3-epB" id="qk4-BU-Cla"/>
                 <outlet property="yesButton" destination="0cd-Qm-2Ga" id="5oz-CR-W2R"/>
             </connections>

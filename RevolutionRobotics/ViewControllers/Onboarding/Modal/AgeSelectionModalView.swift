@@ -16,6 +16,7 @@ final class AgeSelectionModalView: UIView {
     }
 
     // MARK: - Outlets
+    @IBOutlet private weak var yearSelectionTitle: UILabel!
     @IBOutlet private weak var yearSelectionField: RRInputField!
     @IBOutlet private weak var setButton: RRButton!
 
@@ -32,7 +33,11 @@ final class AgeSelectionModalView: UIView {
         toolBar.tintColor = .black
         toolBar.sizeToFit()
 
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissSelector))
+        let doneButton = UIBarButtonItem(
+            title: OnboardingKeys.AgeSelection.inputDone.translate(),
+            style: .plain,
+            target: self,
+            action: #selector(dismissSelector))
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 
         toolBar.setItems([ space, doneButton], animated: false)
@@ -47,6 +52,7 @@ extension AgeSelectionModalView {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        setupTitleLabel()
         setupConfirmButton()
         setupYearSelector()
     }
@@ -87,13 +93,21 @@ extension AgeSelectionModalView {
         return parentView.allSubviews().first(where: { $0 is UITextField }) as? UITextField
     }
 
+    private func setupTitleLabel() {
+        yearSelectionTitle.text = OnboardingKeys.AgeSelection.title.translate()
+    }
+
     private func setupConfirmButton() {
+        setButton.setTitle(OnboardingKeys.AgeSelection.confirm.translate(), for: .normal)
         setButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.bottomLeft, .topRight])
     }
 
     private func setupYearSelector() {
         let tenYearsAgo = currentYear - 10
-        yearSelectionField.setup(title: "Year", placeholder: "\(tenYearsAgo)", characterLimit: 4)
+        yearSelectionField.setup(
+            title: OnboardingKeys.AgeSelection.inputLabel.translate(),
+            placeholder: "\(tenYearsAgo)",
+            characterLimit: 4)
         yearSelectionField.text = "\(tenYearsAgo)"
 
         guard let textField = getTextField(in: yearSelectionField) else {

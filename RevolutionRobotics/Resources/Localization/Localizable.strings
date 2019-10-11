@@ -17,6 +17,24 @@
 "cancel" = "Cancel";
 "card_create" = "Create!";
 
+// MARK: - Onboarding
+"onboarding_user_type_title" = "What kind of superhero are you?";
+"onboarding_user_type_student" = "Student";
+"onboarding_user_type_parent" = "Parent";
+"onboarding_user_type_teacher" = "Teacher";
+"onboarding_user_type_hobbyist" = "Hobbyist";
+"onboarding_age_select_title" = "What's your date of birth?";
+"onboarding_age_select_input_label" = "Year";
+"onboarding_age_select_input_done" = "Done";
+"onboarding_age_select_confirm" = "Set";
+"onboarding_prompt_build_title" = "Have you already built Revvy, the basic robot?";
+"onboarding_prompt_build_yes" = "Yes";
+"onboarding_prompt_build_no" = "No";
+"onboarding_prompt_build_skip" = "Skip onboarding";
+"onboarding_completed_title" = "CONGRATULATIONS";
+"onboarding_completed_message" = "We have plenty of challenges that you can start right now!";
+"onboarding_completed_start" = "Start";
+
 // MARK: - Menu
 "menu_robots_title" = "robots";
 "menu_programs_title" = "programs";
@@ -118,6 +136,7 @@
 "controller_new" = "New Controller";
 "controller_setup_empty" = "empty";
 "controller_setup_drive" = "drive";
+"controller_onboarding_ready" = "Ready";
 
 // MARK: - Programs
 "programs_screen_untitled" = "Untitled program";
