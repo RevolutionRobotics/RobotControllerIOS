@@ -372,6 +372,7 @@
 		D0E3F88F22B7B0B300B4D9F2 /* BlockContextMenuModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3F88E22B7B0B300B4D9F2 /* BlockContextMenuModalView.xib */; };
 		D0E3F89222B7D71A00B4D9F2 /* ProgramDescriptionModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3F89122B7D71A00B4D9F2 /* ProgramDescriptionModalView.swift */; };
 		D0E3F89422B7D99A00B4D9F2 /* ProgramDescriptionModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3F89322B7D99A00B4D9F2 /* ProgramDescriptionModalView.xib */; };
+		D0EAE2D6235077300015F626 /* OnboardingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EAE2D5235077300015F626 /* OnboardingKeys.swift */; };
 		D0FFE7A8232BCEE9009DA8A0 /* AgeSelectionModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FFE7A7232BCEE9009DA8A0 /* AgeSelectionModalView.swift */; };
 		D0FFE7AA232BCF27009DA8A0 /* AgeSelectionModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0FFE7A9232BCF27009DA8A0 /* AgeSelectionModalView.xib */; };
 		FE4B16182277202600CAA083 /* RobotConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */; };
@@ -757,6 +758,7 @@
 		D0E3F88E22B7B0B300B4D9F2 /* BlockContextMenuModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlockContextMenuModalView.xib; sourceTree = "<group>"; };
 		D0E3F89122B7D71A00B4D9F2 /* ProgramDescriptionModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDescriptionModalView.swift; sourceTree = "<group>"; };
 		D0E3F89322B7D99A00B4D9F2 /* ProgramDescriptionModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramDescriptionModalView.xib; sourceTree = "<group>"; };
+		D0EAE2D5235077300015F626 /* OnboardingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingKeys.swift; sourceTree = "<group>"; };
 		D0FFE7A7232BCEE9009DA8A0 /* AgeSelectionModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeSelectionModalView.swift; sourceTree = "<group>"; };
 		D0FFE7A9232BCF27009DA8A0 /* AgeSelectionModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgeSelectionModalView.xib; sourceTree = "<group>"; };
 		FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RobotConfigurationViewController.xib; sourceTree = "<group>"; };
@@ -1669,6 +1671,7 @@
 				2ADE8C352270A79300ECEC72 /* ProgramsKeys.swift */,
 				2ADE8C332270A78600ECEC72 /* RobotsKeys.swift */,
 				2ADE8C372270A79E00ECEC72 /* SettingsKeys.swift */,
+				D0EAE2D5235077300015F626 /* OnboardingKeys.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -2659,6 +2662,7 @@
 				0938898422B26E9300292B32 /* ColorSelectorModalView.swift in Sources */,
 				2A50DA2C2292CF9A00B3D74C /* GamerConfigurationView.swift in Sources */,
 				2AD858DE2295AE940082CDC0 /* UIAlertController+Error.swift in Sources */,
+				D0EAE2D6235077300015F626 /* OnboardingKeys.swift in Sources */,
 				2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */,
 				2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */,
 				2A4C930E228C15890029AE07 /* SensorConfigViewModel.swift in Sources */,

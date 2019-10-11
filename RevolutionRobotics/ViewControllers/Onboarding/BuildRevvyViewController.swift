@@ -16,6 +16,7 @@ final class BuildRevvyViewController: BaseViewController {
     }
 
     // MARK: - Outlets
+    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var yesButton: RRButton!
     @IBOutlet private weak var noButton: RRButton!
     @IBOutlet private weak var skipButton: UIButton!
@@ -29,6 +30,7 @@ final class BuildRevvyViewController: BaseViewController {
 extension BuildRevvyViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        setupTitleLabel()
         setupPromptButtons()
         setupSkipButton()
     }
@@ -36,13 +38,21 @@ extension BuildRevvyViewController {
 
 // MARK: - Private methods
 extension BuildRevvyViewController {
+    private func setupTitleLabel() {
+        titleLabel.text = OnboardingKeys.BuildRevvy.title.translate()
+    }
+
     private func setupPromptButtons() {
         let buttonAttributes: [NSAttributedString.Key: Any] = [
             .font: Font.jura(size: 17.0)
         ]
 
-        yesButton.titleLabel?.attributedText = NSMutableAttributedString(string: "Yes", attributes: buttonAttributes)
-        noButton.titleLabel?.attributedText = NSMutableAttributedString(string: "No", attributes: buttonAttributes)
+        yesButton.titleLabel?.attributedText = NSMutableAttributedString(
+            string: OnboardingKeys.BuildRevvy.yes.translate(),
+            attributes: buttonAttributes)
+        noButton.titleLabel?.attributedText = NSMutableAttributedString(
+            string: OnboardingKeys.BuildRevvy.no.translate(),
+            attributes: buttonAttributes)
 
         for button in [yesButton, noButton] {
             button?.setBorder(
@@ -59,7 +69,7 @@ extension BuildRevvyViewController {
         ]
 
         skipButton.titleLabel?.attributedText =
-            NSMutableAttributedString(string: "Skip onboarding", attributes: attributes)
+            NSMutableAttributedString(string: OnboardingKeys.BuildRevvy.skip.translate(), attributes: attributes)
     }
 
     private func savePromptVisited() {

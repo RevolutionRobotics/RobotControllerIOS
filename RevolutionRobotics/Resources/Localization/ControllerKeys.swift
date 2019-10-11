@@ -17,4 +17,5 @@ enum ControllerKeys {
     static let drive = "controller_setup_drive"
     static let new = "controller_new"
     static let create = "card_create"
+    static let ready = "controller_onboarding_ready"
 }

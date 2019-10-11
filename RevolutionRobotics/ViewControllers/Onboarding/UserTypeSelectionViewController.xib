@@ -19,6 +19,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserTypeSelectionViewController" customModule="RevolutionRobotics" customModuleProvider="target">
             <connections>
+                <outlet property="hobbyistCardLabel" destination="kJf-dp-RlA" id="tnh-Np-DgK"/>
+                <outlet property="parentCardLabel" destination="1PT-HJ-IYz" id="8yd-nL-xQu"/>
+                <outlet property="studentCardLabel" destination="Pjt-5s-xlb" id="tsV-0u-YXM"/>
+                <outlet property="teacherCardLabel" destination="DNe-vx-rx7" id="XzX-Pj-mlv"/>
+                <outlet property="titleLabel" destination="7s2-g0-zbX" id="M9r-wh-oza"/>
                 <outlet property="view" destination="iN0-l3-epB" id="SE2-rU-ZFa"/>
             </connections>
         </placeholder>

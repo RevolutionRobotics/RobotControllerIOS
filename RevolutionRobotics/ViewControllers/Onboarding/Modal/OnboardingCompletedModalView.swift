@@ -10,6 +10,8 @@ import UIKit
 
 final class OnboardingCompletedModalView: UIView {
     // MARK: - Outlets
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var startButton: RRButton!
     var startPressedCallback: Callback!
 }
@@ -18,13 +20,20 @@ final class OnboardingCompletedModalView: UIView {
 extension OnboardingCompletedModalView {
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupLabels()
         setupStartButton()
     }
 }
 
 // MARK: - Private methods
 extension OnboardingCompletedModalView {
+    private func setupLabels() {
+        titleLabel.text = OnboardingKeys.CompletedModal.title.translate()
+        messageLabel.text = OnboardingKeys.CompletedModal.message.translate()
+    }
+
     private func setupStartButton() {
+        startButton.setTitle(OnboardingKeys.CompletedModal.start.translate(), for: .normal)
         startButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.bottomLeft, .topRight])
     }
 }
