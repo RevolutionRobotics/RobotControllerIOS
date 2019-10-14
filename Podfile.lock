@@ -1,7 +1,7 @@
 PODS:
   - Crashlytics (3.13.4):
     - Fabric (~> 1.10.2)
-  - CryptoSwift (1.1.1)
+  - CryptoSwift (1.1.2)
   - Fabric (1.10.2)
   - Firebase/Analytics (6.10.0):
     - Firebase/Core
@@ -115,7 +115,7 @@ DEPENDENCIES:
   - PieCharts (~> 0.0.7)
   - RealmSwift (~> 3.18.0)
   - RevolutionRoboticsBlockly (~> 0.1.4)
-  - RevolutionRoboticsBluetooth (from `https://github.com/RevolutionRobotics/RevolutionRoboticsBluetoothIOS.git`, branch `development`)
+  - RevolutionRoboticsBluetooth (~> 0.1.0)
   - SideMenu (from `https://github.com/stelabouras/SideMenu.git`, branch `upgrade/xcode-10.2`)
   - SwiftLint (~> 0.31.0)
   - Swinject (~> 2.6.0)
@@ -147,30 +147,25 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - RevolutionRoboticsBlockly
+    - RevolutionRoboticsBluetooth
     - SwiftLint
     - Swinject
     - WKWebViewJavascriptBridge
     - ZXingObjC
 
 EXTERNAL SOURCES:
-  RevolutionRoboticsBluetooth:
-    :branch: development
-    :git: https://github.com/RevolutionRobotics/RevolutionRoboticsBluetoothIOS.git
   SideMenu:
     :branch: upgrade/xcode-10.2
     :git: https://github.com/stelabouras/SideMenu.git
 
 CHECKOUT OPTIONS:
-  RevolutionRoboticsBluetooth:
-    :commit: 66f21466af13822fb3abdfe592efd00ec03cb5cc
-    :git: https://github.com/RevolutionRobotics/RevolutionRoboticsBluetoothIOS.git
   SideMenu:
     :commit: ccd4b640063a721180b77a59d2a45039672ec95d
     :git: https://github.com/stelabouras/SideMenu.git
 
 SPEC CHECKSUMS:
   Crashlytics: 2dfd686bcb918dc10ee0e76f7f853fe42c7bd552
-  CryptoSwift: 86c0a1f9c0445e98aad163bcf853e33e64c5dcf9
+  CryptoSwift: 31dacd1f13427439ddae5b5cbaae4c8dbc43047e
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   Firebase: 5e6b7b12bf9adb90986688edc06b156c37e109cd
   FirebaseAnalytics: 0e3ecff2c5d86070f7d4325e21f1edabfbd558dc
@@ -193,13 +188,13 @@ SPEC CHECKSUMS:
   Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
   RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
   RevolutionRoboticsBlockly: 5b9a412b433ea65b063dcf48fe769d89619904c9
-  RevolutionRoboticsBluetooth: ea9ca47a8c74cc59177c0c91ceecfa079206944b
+  RevolutionRoboticsBluetooth: c7bf0ec4ededdf7a21a3395c398410de04b3c8b0
   SideMenu: b3aa6e33e2efd43e077bcf8432e84a35daa50bb6
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
   ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb
 
-PODFILE CHECKSUM: 9f6c34817a571526022f9211186f7ec08fd08dce
+PODFILE CHECKSUM: d51896c114a785ff0470da2ec843248bc9d7bb4c
 
 COCOAPODS: 1.8.3

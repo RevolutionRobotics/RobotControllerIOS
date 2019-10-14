@@ -29,11 +29,9 @@ target 'RevolutionRobotics' do
   pod 'Firebase/Storage'
   pod 'Firebase/Analytics'
 
-  repoUrl = 'https://github.com/RevolutionRobotics/'
-
   # RevolutionRobotics
   pod 'RevolutionRoboticsBlockly', '~> 0.1.4'
-  pod 'RevolutionRoboticsBluetooth', git: "#{repoUrl}RevolutionRoboticsBluetoothIOS.git", branch: 'development'
+  pod 'RevolutionRoboticsBluetooth', '~> 0.1.0'
 end
 
 post_install do |installer|
