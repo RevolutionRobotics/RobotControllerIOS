@@ -1,7 +1,7 @@
 PODS:
   - Crashlytics (3.13.4):
     - Fabric (~> 1.10.2)
-  - CryptoSwift (1.0.0)
+  - CryptoSwift (1.1.1)
   - Fabric (1.10.2)
   - Firebase/Analytics (6.10.0):
     - Firebase/Core
@@ -92,7 +92,7 @@ PODS:
   - Realm/Headers (3.18.0)
   - RealmSwift (3.18.0):
     - Realm (= 3.18.0)
-  - RevolutionRoboticsBlockly (0.1.2):
+  - RevolutionRoboticsBlockly (0.1.4):
     - WKWebViewJavascriptBridge (~> 1.2.0)
   - RevolutionRoboticsBluetooth (0.1.0):
     - CryptoSwift (~> 1.0)
@@ -114,7 +114,7 @@ DEPENDENCIES:
   - Kingfisher (~> 5.3.1)
   - PieCharts (~> 0.0.7)
   - RealmSwift (~> 3.18.0)
-  - RevolutionRoboticsBlockly (from `https://github.com/RevolutionRobotics/RevolutionRoboticsBlocklyIOS`, branch `development`)
+  - RevolutionRoboticsBlockly (~> 0.1.4)
   - RevolutionRoboticsBluetooth (from `https://github.com/RevolutionRobotics/RevolutionRoboticsBluetoothIOS.git`, branch `development`)
   - SideMenu (from `https://github.com/stelabouras/SideMenu.git`, branch `upgrade/xcode-10.2`)
   - SwiftLint (~> 0.31.0)
@@ -146,16 +146,13 @@ SPEC REPOS:
     - PieCharts
     - Realm
     - RealmSwift
+    - RevolutionRoboticsBlockly
     - SwiftLint
     - Swinject
     - WKWebViewJavascriptBridge
     - ZXingObjC
 
 EXTERNAL SOURCES:
-  RevolutionRoboticsBlockly:
-    :branch: development
-    :git: https://github.com/RevolutionRobotics/RevolutionRoboticsBlocklyIOS
-    :submodules: true
   RevolutionRoboticsBluetooth:
     :branch: development
     :git: https://github.com/RevolutionRobotics/RevolutionRoboticsBluetoothIOS.git
@@ -164,10 +161,6 @@ EXTERNAL SOURCES:
     :git: https://github.com/stelabouras/SideMenu.git
 
 CHECKOUT OPTIONS:
-  RevolutionRoboticsBlockly:
-    :commit: 9a95cf16d3199deb2eba1d03f61244236a042cf3
-    :git: https://github.com/RevolutionRobotics/RevolutionRoboticsBlocklyIOS
-    :submodules: true
   RevolutionRoboticsBluetooth:
     :commit: 66f21466af13822fb3abdfe592efd00ec03cb5cc
     :git: https://github.com/RevolutionRobotics/RevolutionRoboticsBluetoothIOS.git
@@ -177,7 +170,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Crashlytics: 2dfd686bcb918dc10ee0e76f7f853fe42c7bd552
-  CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
+  CryptoSwift: 86c0a1f9c0445e98aad163bcf853e33e64c5dcf9
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   Firebase: 5e6b7b12bf9adb90986688edc06b156c37e109cd
   FirebaseAnalytics: 0e3ecff2c5d86070f7d4325e21f1edabfbd558dc
@@ -199,7 +192,7 @@ SPEC CHECKSUMS:
   PieCharts: 30e50dfa7dc19e5b84e9878d32089673ef5d0453
   Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
   RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
-  RevolutionRoboticsBlockly: c4cae6ffa10d7f62a413fb799d0991f1e2043de6
+  RevolutionRoboticsBlockly: 5b9a412b433ea65b063dcf48fe769d89619904c9
   RevolutionRoboticsBluetooth: ea9ca47a8c74cc59177c0c91ceecfa079206944b
   SideMenu: b3aa6e33e2efd43e077bcf8432e84a35daa50bb6
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
@@ -207,6 +200,6 @@ SPEC CHECKSUMS:
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
   ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb
 
-PODFILE CHECKSUM: bd1e46f9a2a31f66e6c73815eaf0501746e93f69
+PODFILE CHECKSUM: 9f6c34817a571526022f9211186f7ec08fd08dce
 
 COCOAPODS: 1.8.3
