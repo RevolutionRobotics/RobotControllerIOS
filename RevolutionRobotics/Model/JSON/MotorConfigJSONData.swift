@@ -15,8 +15,8 @@ final class MotorConfigJSONData: JSONRepresentable {
         }
 
         enum Direction: Int {
-            case clockwise = 0
-            case counterClockwise = 1
+            case forward = 0
+            case reversed = 1
         }
 
         enum Side: Int {
@@ -35,11 +35,15 @@ final class MotorConfigJSONData: JSONRepresentable {
     init?(with dataModel: MotorDataModel?) {
         guard let dataModel = dataModel else { return nil }
         self.name = dataModel.variableName
-        self.type = dataModel.type == MotorDataModel.Constants.drive ?
-            Constants.MotorType.drive.rawValue : Constants.MotorType.motor.rawValue
-        self.direction = dataModel.rotation == Rotation.clockwise.rawValue ?
-            Constants.Direction.clockwise.rawValue : Constants.Direction.counterClockwise.rawValue
-        self.side = dataModel.side == Side.left.rawValue ? Constants.Side.left.rawValue : Constants.Side.right.rawValue
+        self.type = dataModel.type == MotorDataModel.Constants.drive
+            ? Constants.MotorType.drive.rawValue
+            : Constants.MotorType.motor.rawValue
+        self.direction = dataModel.rotation == Rotation.forward.rawValue
+            ? Constants.Direction.forward.rawValue
+            : Constants.Direction.reversed.rawValue
+        self.side = dataModel.side == Side.left.rawValue
+            ? Constants.Side.left.rawValue
+            : Constants.Side.right.rawValue
     }
 
     // MARK: - Encodable

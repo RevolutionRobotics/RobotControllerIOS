@@ -23,8 +23,8 @@ final class PortTestCodeService {
         static let motorSidePlaceholder = "{MOTOR_SIDE}"
         static let left = "left"
         static let right = "right"
-        static let clockwise = "cw"
-        static let counterclockwise = "ccw"
+        static let forward = "fw"
+        static let reversed = "bw"
     }
 }
 //swiftlint:enable convenience_type
@@ -59,7 +59,7 @@ extension PortTestCodeService: PortTestCodeServiceInterface {
                                               ofType: Constants.pythonExtension) else { return "" }
         do {
             let code = try String(contentsOfFile: codePath)
-            let replacedDirection = direction == .clockwise ? Constants.clockwise : Constants.counterclockwise
+            let replacedDirection = direction == .forward ? Constants.forward : Constants.reversed
             return code
                 .replacingOccurrences(of: Constants.motorPortPlaceholder, with: "\(portNumber)")
                 .replacingOccurrences(of: Constants.motorDirectionPlaceholder, with: "\(replacedDirection)")
@@ -74,7 +74,7 @@ extension PortTestCodeService: PortTestCodeServiceInterface {
                                               ofType: Constants.pythonExtension) else { return "" }
         do {
             let code = try String(contentsOfFile: codePath)
-            let replacedDirection = direction == .clockwise ? Constants.clockwise : Constants.counterclockwise
+            let replacedDirection = direction == .forward ? Constants.forward : Constants.reversed
             let replacedSide = side == .left ? Constants.left : Constants.right
             return code
                 .replacingOccurrences(of: Constants.motorPortPlaceholder, with: "\(portNumber)")
