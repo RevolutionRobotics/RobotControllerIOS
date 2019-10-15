@@ -32,10 +32,11 @@ final class MotorConfigViewController: BaseViewController {
     private let emptyButton = PortConfigurationItemView.instatiate()
     private let driveButton = PortConfigurationItemView.instatiate()
     private let motorButton = PortConfigurationItemView.instatiate()
-    private let clockwiseButton = PortConfigurationItemView.instatiate()
-    private let counterclockwiseButton = PortConfigurationItemView.instatiate()
     private let leftButton = PortConfigurationItemView.instatiate()
     private let rightButton = PortConfigurationItemView.instatiate()
+    private let reverseSwitch = UISwitch()
+    private let reverseLabel = UILabel()
+
     var selectedMotorState: MotorConfigViewModelState = .empty {
         didSet {
             if isViewLoaded {
@@ -80,9 +81,9 @@ extension MotorConfigViewController {
         nameInputField.text = name
 
         setupTopButtonRow()
-        setupRotationButtons()
         setupSideButtons()
         setupNameInputField()
+        setupReverseRow()
         switchTo(state: selectedMotorState)
 
         if UIScreen.main.bounds.size.height == Constants.iPhoneSEScreenHeight {
@@ -145,39 +146,46 @@ extension MotorConfigViewController {
             middleButtonContainer.addArrangedSubview(leftButton)
             middleButtonContainer.addArrangedSubview(rightButton)
         }
-        bottomButtonContainer.addArrangedSubview(counterclockwiseButton)
-        bottomButtonContainer.addArrangedSubview(clockwiseButton)
+
+        bottomButtonContainer.addArrangedSubview(reverseSwitch)
+        bottomButtonContainer.addArrangedSubview(reverseLabel)
+
         bottomButtonContainer.isHidden = false
         leftButton.set(selected: side == .left)
         rightButton.set(selected: side == .right)
-        clockwiseButton.set(selected: rotation == .clockwise)
-        counterclockwiseButton.set(selected: rotation == .counterclockwise)
+
+        reverseSwitch.isOn = rotation == .reversed
+
+        NSLayoutConstraint.activate([
+            reverseLabel.topAnchor.constraint(equalTo: reverseSwitch.topAnchor),
+            reverseLabel.bottomAnchor.constraint(equalTo: reverseSwitch.bottomAnchor)
+        ])
     }
 
     private func switchToMotorWithoutRotationState() {
         resetButtons()
         motorButton.set(selected: true)
         middleButtonContainer.removeAllArrangedSubviews()
-        middleButtonContainer.addArrangedSubview(counterclockwiseButton)
-        middleButtonContainer.addArrangedSubview(clockwiseButton)
         middleButtonContainer.isHidden = false
         bottomButtonContainer.isHidden = true
     }
 
     private func switchToMotorState(rotation: Rotation) {
         motorButton.set(selected: true)
-        middleButtonContainer.isHidden = false
-        if !middleButtonContainer.arrangedSubviews.contains(clockwiseButton) {
-            middleButtonContainer.addArrangedSubview(counterclockwiseButton)
-            middleButtonContainer.addArrangedSubview(clockwiseButton)
-        }
-        clockwiseButton.set(selected: rotation == .clockwise)
-        counterclockwiseButton.set(selected: rotation == .counterclockwise)
+        middleButtonContainer.isHidden = true
     }
 }
 
 // MARK: - Setup
 extension MotorConfigViewController {
+    private func setupReverseRow() {
+        reverseLabel.text = "Reversed"
+        reverseLabel.font = Font.jura(size: 14.0)
+        reverseLabel.textColor = .white
+
+        reverseSwitch.addTarget(self, action: #selector(reverseSwitchTapped), for: .valueChanged)
+    }
+
     private func setupNameInputField() {
         nameInputField.setup(title: RobotsKeys.Configure.Motor.nameInputfield.translate(args: "M\(portNumber)"))
         nameInputField.textFieldResigned = { [weak self] _ in
@@ -234,24 +242,6 @@ extension MotorConfigViewController {
         topButtonContainer.addArrangedSubview(motorButton)
     }
 
-    private func setupRotationButtons() {
-        clockwiseButton.configure(options: PortConfigurationItemView.Options(
-            title: RobotsKeys.Configure.Motor.clockwiseButton.translate(),
-            selectedImage: Image.Configure.clockwiseSelected,
-            unselectedImage: Image.Configure.clockwiseUnselected) { [weak self] in
-                self?.handleRotationChange(to: .clockwise)
-            }
-        )
-
-        counterclockwiseButton.configure(options: PortConfigurationItemView.Options(
-            title: RobotsKeys.Configure.Motor.counterclockwiseButton.translate(),
-            selectedImage: Image.Configure.counterclockwiseSelected,
-            unselectedImage: Image.Configure.counterclockwiseUnselected) { [weak self] in
-                self?.handleRotationChange(to: .counterclockwise)
-            }
-        )
-    }
-
     private func setupSideButtons() {
         leftButton.configure(options: PortConfigurationItemView.Options(
             title: RobotsKeys.Configure.Motor.leftButton.translate(),
@@ -293,7 +283,7 @@ extension MotorConfigViewController {
     private func handleSideChange(to side: Side) {
         switch selectedMotorState {
         case .driveWithoutSide:
-            selectedMotorState = .drive(side, side == .left ? .counterclockwise : .clockwise)
+            selectedMotorState = .drive(side, .forward)
         case .drive(_, let rotation):
             selectedMotorState = .drive(side, rotation)
         default: return
@@ -306,8 +296,6 @@ extension MotorConfigViewController {
         motorButton.set(selected: false)
         leftButton.set(selected: false)
         rightButton.set(selected: false)
-        clockwiseButton.set(selected: false)
-        counterclockwiseButton.set(selected: false)
     }
 
     private func presentTestingModal() {
@@ -414,6 +402,10 @@ extension MotorConfigViewController {
         }
         shouldCallDismiss = false
         doneButtonTapped?(MotorConfigViewModel(portName: nameInputField.text, state: selectedMotorState))
+    }
+
+    @objc private func reverseSwitchTapped(_ sender: UISwitch) {
+        handleRotationChange(to: sender.isOn ? .reversed : .forward)
     }
 }
 

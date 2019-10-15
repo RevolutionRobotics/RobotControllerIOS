@@ -6,9 +6,6 @@
 //  Copyright © 2019. Revolution Robotics. All rights reserved.
 //
 
-import Foundation
-
 enum Rotation: String {
-    case clockwise
-    case counterclockwise
+    case forward, reversed
 }
