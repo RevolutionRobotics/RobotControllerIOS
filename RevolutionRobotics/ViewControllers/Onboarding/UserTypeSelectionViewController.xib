@@ -102,7 +102,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puzzle" translatesAutoresizingMaskIntoConstraints="NO" id="HHY-Nt-mdf">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hobbyist" translatesAutoresizingMaskIntoConstraints="NO" id="HHY-Nt-mdf">
                                     <rect key="frame" x="25" y="35" width="80" height="65"/>
                                 </imageView>
                             </subviews>
@@ -229,9 +229,9 @@
     </objects>
     <resources>
         <image name="card-bg_1" width="111" height="142"/>
+        <image name="hobbyist" width="65" height="74"/>
         <image name="parents" width="67" height="66"/>
         <image name="professor" width="67" height="68"/>
-        <image name="puzzle" width="65" height="66"/>
         <image name="student" width="48" height="69"/>
         <namedColor name="Black">
             <color red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
