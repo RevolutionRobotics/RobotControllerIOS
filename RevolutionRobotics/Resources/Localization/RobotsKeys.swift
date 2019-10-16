@@ -53,6 +53,8 @@ enum RobotsKeys {
         static let duplicate = "configure_duplicate"
         static let rename = "configure_rename"
         static let changeImage = "configure_image_change"
+        static let cameraPermissionTitle = "configure_camera_permission_title"
+        static let cameraPermissionMessage = "configure_camera_permission_message"
 
         enum Motor {
             static let emptyButton = "configure_motor_empty_button_title"
