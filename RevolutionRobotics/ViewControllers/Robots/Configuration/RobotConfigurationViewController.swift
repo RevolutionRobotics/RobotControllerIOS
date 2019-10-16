@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 import os
 
 final class RobotConfigurationViewController: BaseViewController {
@@ -127,13 +128,54 @@ extension RobotConfigurationViewController {
 
     private func setupPhotoModal() {
         photoModal.showImagePicker = { [weak self] in
-            UIImagePickerController.show(with: self!, on: (self?.presentedViewController)!)
+            guard let presentedViewController = self?.presentedViewController else {
+                return
+            }
+            self?.showPhotoController(on: presentedViewController)
         }
         photoModal.deleteHandler = { [weak self] in
             FileManager.default.delete(name: self?.selectedRobot?.id)
             self?.robotImage = nil
             self?.dismiss(animated: true)
         }
+    }
+
+    private func showPhotoController(on parent: UIViewController) {
+        if AVCaptureDevice.authorizationStatus(for: .video) == .authorized {
+            UIImagePickerController.show(with: self, on: parent)
+        } else {
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { [weak self] granted in
+                guard let `self` = self else { return }
+                if granted {
+                    UIImagePickerController.show(with: self, on: parent)
+                } else {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.showPermissionAlert()
+                    }
+                }
+            })
+        }
+    }
+
+    private func showPermissionAlert() {
+        let alertTitle = RobotsKeys.Configure.cameraPermissionTitle.translate()
+        let alertMessage = RobotsKeys.Configure.cameraPermissionMessage.translate()
+
+        let alertController = UIAlertController(title: alertTitle,
+                                                message: alertMessage,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: CommonKeys.errorOk.translate(),
+                                                style: .default,
+                                                handler: { _ in self.showAppSettings() }))
+        alertController.addAction(UIAlertAction(title: CommonKeys.cancel.translate(),
+                                                style: .cancel,
+                                                handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+
+    private func showAppSettings() {
+        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 
     private func setupConfigurationView() {
@@ -497,9 +539,8 @@ extension RobotConfigurationViewController {
 extension RobotConfigurationViewController: UIImagePickerControllerDelegate {
     private func takePhotoTapped(_ sender: Any) {
         reloadConfigurationView()
-
         if robotImage == nil {
-            UIImagePickerController.show(with: self, on: self)
+            showPhotoController(on: self)
         } else {
             presentModal(with: photoModal)
         }

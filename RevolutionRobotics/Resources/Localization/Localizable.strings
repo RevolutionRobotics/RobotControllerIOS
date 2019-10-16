@@ -109,6 +109,8 @@
 "connection_failed_try_again_button_title" = "Try again";
 
 // MARK: - Configure
+"configure_camera_permission_title" = "Permission for camera usage required";
+"configure_camera_permission_message" = "Please enable it from the app settings.";
 "configure_motor_empty_button_title" = "Empty";
 "configure_motor_drive_button_title" = "Drive";
 "configure_motor_motor_button_title" = "Motor";
