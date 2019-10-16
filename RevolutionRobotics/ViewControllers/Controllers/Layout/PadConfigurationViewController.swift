@@ -52,17 +52,15 @@ final class PadConfigurationViewController: BaseViewController {
 extension PadConfigurationViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
         fetchSelectedController()
-        setupConfigurationView()
-        fetchPrograms()
-        setupViewModel()
-        prefillData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchPrograms()
+        setupViewModel()
+        configurationView.removeFromSuperview()
+        refreshViewState()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
