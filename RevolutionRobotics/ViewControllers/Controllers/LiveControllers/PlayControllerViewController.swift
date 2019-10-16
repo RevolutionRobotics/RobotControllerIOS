@@ -27,6 +27,20 @@ final class PlayControllerViewController: BaseViewController {
         }
     }
     private var configurationAlreadySent: Bool = false
+
+    override func backButtonDidTap() {
+        guard onboardingInProgress else {
+            super.backButtonDidTap()
+            return
+        }
+
+        guard let menu = navigationController?.viewControllers
+            .first(where: { $0 is MenuViewController }) as? MenuViewController
+        else { return }
+
+        menu.onboardingInProgress = true
+        self.navigationController?.popToViewController(menu, animated: true)
+    }
 }
 
 // MARK: View lifecycle
@@ -37,7 +51,6 @@ extension PlayControllerViewController {
         navigationBar.setup(title: robotName ?? RobotsKeys.Controllers.Play.screenTitle.translate(),
                             delegate: self)
         setupPadView()
-        setupOnboardingReadyButton()
         fetchPrograms()
         if bluetoothService.connectedDevice != nil {
             navigationBar.bluetoothButtonState = .connected
@@ -90,23 +103,6 @@ extension PlayControllerViewController {
 
         padView.buttonTapped = { [weak self] pressedPadButton in
             self?.bluetoothService.changeButtonState(index: pressedPadButton.index)
-        }
-    }
-
-    private func setupOnboardingReadyButton() {
-        guard let gamerPadView = padView as? GamerPadView, onboardingInProgress else {
-            return
-        }
-
-        gamerPadView.onboardingReadyCallback = { [weak self] in
-            guard
-                let `self` = self,
-                let menu = self.navigationController?.viewControllers.first(where: {
-                    $0 is MenuViewController
-                }) as? MenuViewController else { return }
-
-            menu.onboardingInProgress = true
-            self.navigationController?.popToViewController(menu, animated: true)
         }
     }
 }
