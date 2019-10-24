@@ -257,6 +257,18 @@ extension PadConfigurationViewController {
                 self.configurationView.set(state: selectedButtonState, on: selectedButtonIndex)
             }
         }
+        programBottomBar.programLongTapped = { [weak self] program in
+            guard
+                let `self` = self,
+                let selectedButtonState = self.selectedButtonState,
+                let selectedButtonIndex = self.selectedButtonIndex
+            else { return }
+
+            self.dismissModalViewController()
+            self.showProgramInfoModal(program: program, onDismissed: { [weak self] in
+                self?.configurationView.set(state: selectedButtonState, on: selectedButtonIndex)
+            })
+        }
         programBottomBar.dismissed = { [weak self] in
             self?.bottomBarDismissed()
         }

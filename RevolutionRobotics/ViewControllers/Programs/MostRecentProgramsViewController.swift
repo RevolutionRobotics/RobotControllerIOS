@@ -27,6 +27,7 @@ final class MostRecentProgramsViewController: BaseViewController, Dismissable {
 
     // MARK: - Properties
     var programSelected: CallbackType<ProgramDataModel>?
+    var programLongTapped: CallbackType<ProgramDataModel>?
     var dismissed: Callback?
     var showMoreTapped: Callback?
     private var programs: [ProgramDataModel] = []
@@ -88,11 +89,15 @@ extension MostRecentProgramsViewController {
             return
         }
         programs.enumerated().forEach { (index, program) in
+            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(buttonLongTapped))
+            longPress.minimumPressDuration = 1.0
+
             let button = buttons[index]
             button.setBorder(fillColor: .clear, croppedCorners: [.bottomLeft, .bottomRight, .topRight, .topLeft])
             button.setTitle(program.name, for: .normal)
             button.titleLabel?.numberOfLines = 3
             button.titleLabel?.textAlignment = .center
+            button.addGestureRecognizer(longPress)
         }
 
         if programs.count < buttons.count {
@@ -123,6 +128,15 @@ extension MostRecentProgramsViewController {
     @IBAction private func buttonTapped(_ sender: RRButton) {
         guard let buttonIndex = buttons.firstIndex(of: sender) else { return }
         programSelected?(programs[buttonIndex])
+    }
+
+    @objc private func buttonLongTapped(_ gesture: UILongPressGestureRecognizer) {
+        guard gesture.state == .began,
+            let longTappedButton = gesture.view as? RRButton,
+            let longTappedIndex = buttons.firstIndex(of: longTappedButton)
+        else { return }
+
+        programLongTapped?(programs[longTappedIndex])
     }
 
     @IBAction private func showMoreTapped(_ sender: Any) {
