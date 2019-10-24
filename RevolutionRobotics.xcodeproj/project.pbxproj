@@ -363,8 +363,6 @@
 		D0BF25732283101000F08C9C /* CommunityModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF25722283100F00F08C9C /* CommunityModalViewController.swift */; };
 		D0D00FE822AFA84C00274241 /* ButtonlessProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D00FE622AFA84C00274241 /* ButtonlessProgramsViewController.swift */; };
 		D0D00FE922AFA84C00274241 /* ButtonlessProgramsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D00FE722AFA84C00274241 /* ButtonlessProgramsViewController.xib */; };
-		D0DBD45A23326DE700BC8CA3 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBD45923326DE700BC8CA3 /* BarcodeScannerViewController.swift */; };
-		D0DBD45C2333991B00BC8CA3 /* BarcodeScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0DBD45B2333991B00BC8CA3 /* BarcodeScannerViewController.xib */; };
 		D0E3F88422B3E9ED00B4D9F2 /* TextInputModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3F88322B3E9ED00B4D9F2 /* TextInputModalView.xib */; };
 		D0E3F88822B786B800B4D9F2 /* ProgramListModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3F88722B786B800B4D9F2 /* ProgramListModalView.swift */; };
 		D0E3F88A22B786BF00B4D9F2 /* ProgramListModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3F88922B786BF00B4D9F2 /* ProgramListModalView.xib */; };
@@ -749,8 +747,6 @@
 		D0BF25722283100F00F08C9C /* CommunityModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityModalViewController.swift; sourceTree = "<group>"; };
 		D0D00FE622AFA84C00274241 /* ButtonlessProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonlessProgramsViewController.swift; sourceTree = "<group>"; };
 		D0D00FE722AFA84C00274241 /* ButtonlessProgramsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonlessProgramsViewController.xib; sourceTree = "<group>"; };
-		D0DBD45923326DE700BC8CA3 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
-		D0DBD45B2333991B00BC8CA3 /* BarcodeScannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarcodeScannerViewController.xib; sourceTree = "<group>"; };
 		D0E3F88322B3E9ED00B4D9F2 /* TextInputModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextInputModalView.xib; sourceTree = "<group>"; };
 		D0E3F88722B786B800B4D9F2 /* ProgramListModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramListModalView.swift; sourceTree = "<group>"; };
 		D0E3F88922B786BF00B4D9F2 /* ProgramListModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramListModalView.xib; sourceTree = "<group>"; };
@@ -1933,8 +1929,6 @@
 				D0B75F8D2329340100FD1048 /* Modal */,
 				D0B75F8B2329302800FD1048 /* UserTypeSelectionViewController.swift */,
 				D05DBA50232935BD00508D1F /* UserTypeSelectionViewController.xib */,
-				D0DBD45923326DE700BC8CA3 /* BarcodeScannerViewController.swift */,
-				D0DBD45B2333991B00BC8CA3 /* BarcodeScannerViewController.xib */,
 				D037D914233A07D800DF76E9 /* BuildRevvyViewController.swift */,
 				D037D916233A086900DF76E9 /* BuildRevvyViewController.xib */,
 			);
@@ -2244,7 +2238,6 @@
 				D0B2A736227C7CF1004473EC /* ControllerCollectionViewCell.xib in Resources */,
 				D03BA8612277384A005B3E33 /* ConnectionModalView.xib in Resources */,
 				D03BA85D2277384A005B3E33 /* TestingModalView.xib in Resources */,
-				D0DBD45C2333991B00BC8CA3 /* BarcodeScannerViewController.xib in Resources */,
 				D075EA2F22C4FCB80003C183 /* ChallengeDetailVerticalContent.xib in Resources */,
 				D0E3F88F22B7B0B300B4D9F2 /* BlockContextMenuModalView.xib in Resources */,
 				D03BA85F2277384A005B3E33 /* ChapterFinishedModalView.xib in Resources */,
@@ -2462,7 +2455,6 @@
 				2A5A07EE22DDE207002B3EE3 /* Reachability.swift in Sources */,
 				2A3A759622953F2900ED9A1D /* TipsModalView.swift in Sources */,
 				D0B2A735227C7CF1004473EC /* ControllerCollectionViewCell.swift in Sources */,
-				D0DBD45A23326DE700BC8CA3 /* BarcodeScannerViewController.swift in Sources */,
 				2A7DDB1A22859B2900891DA6 /* CommonKeys.swift in Sources */,
 				D031333E228EA66100704989 /* MostRecentProgramsViewController.swift in Sources */,
 				D0899C6F22A6BCB900DB6F97 /* ChallengeCategoryCollectionViewCell.swift in Sources */,
@@ -2781,7 +2773,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 109;
+				CURRENT_PROJECT_VERSION = 110;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Dev ";
@@ -2862,7 +2854,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 109;
+				CURRENT_PROJECT_VERSION = 110;
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Dev ";
 				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
@@ -3004,7 +2996,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 109;
+				CURRENT_PROJECT_VERSION = 110;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "";
@@ -3038,7 +3030,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 109;
+				CURRENT_PROJECT_VERSION = 110;
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (

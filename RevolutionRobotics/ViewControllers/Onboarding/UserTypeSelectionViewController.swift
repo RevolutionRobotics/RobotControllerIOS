@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 enum UserProperty: String {
     case userType = "user_type"
@@ -17,7 +18,11 @@ enum UserProperty: String {
 final class UserTypeSelectionViewController: BaseViewController {
 
     // MARK: - Constants
-    enum UserType: String {
+    private enum Constants {
+        static let userTypeEvent = "selected_user_type"
+    }
+
+    private enum UserType: String {
         case student, parent, teacher = "teacher_mentor", hobbyist
     }
 
@@ -32,7 +37,7 @@ final class UserTypeSelectionViewController: BaseViewController {
     private var birthYear: Int?
     private var selectedUserType: UserType? {
         didSet {
-            (selectedUserType == .student ? showAgeModal : scanBarcode)()
+            (selectedUserType == .student ? showAgeModal : promptBuildRevvy)()
         }
     }
 }
@@ -62,16 +67,15 @@ extension UserTypeSelectionViewController {
 
             self.birthYear = birthYear
             self.dismissModalViewController()
-            self.scanBarcode()
+            self.promptBuildRevvy()
         }
 
         presentModal(with: modal, closeHidden: true)
     }
 
-    private func scanBarcode() {
+    private func promptBuildRevvy() {
         guard let userType = selectedUserType else { return }
 
-        let qrScanner = AppContainer.shared.container.unwrappedResolve(BarcodeScannerViewController.self)
         var userProperties = [
             UserProperty.userType.rawValue: userType.rawValue
         ]
@@ -80,8 +84,19 @@ extension UserTypeSelectionViewController {
             userProperties[UserProperty.yearOfBirth.rawValue] = "\(birthYear)"
         }
 
-        qrScanner.userProperties = userProperties
-        navigationController?.pushViewController(qrScanner, animated: true)
+        userProperties.forEach({ (key, value) in
+            Analytics.setUserProperty(value, forName: key)
+        })
+
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(true, forKey: UserDefaults.Keys.userPropertiesSet)
+
+        if !userProperties.keys.isEmpty {
+            Analytics.logEvent(Constants.userTypeEvent, parameters: userProperties)
+        }
+
+        let buildRevvy = AppContainer.shared.container.unwrappedResolve(BuildRevvyViewController.self)
+        navigationController?.pushViewController(buildRevvy, animated: true)
     }
 }
 
