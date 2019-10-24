@@ -238,12 +238,24 @@ extension PadConfigurationViewController {
         }
         programBottomBar.setup(programs: displayablePrograms, selectedProgram: selectedButtonProgram)
         programBottomBar.programSelected = { [weak self] program in
-            self?.dismissModalViewController()
-            self?.showProgramInfoModal(program: program,
-                                       onDismissed: { [weak self] in
-                                        self?.configurationView.set(state: (self?.selectedButtonState)!,
-                                                                    on: (self?.selectedButtonIndex)!)
-            })
+            guard
+                let `self` = self,
+                let selectedButtonState = self.selectedButtonState,
+                let selectedButtonIndex = self.selectedButtonIndex
+            else { return }
+
+            self.dismissModalViewController()
+            self.configurationView.set(state: selectedButtonState, on: selectedButtonIndex)
+
+            let shouldDisplayRemove = self.selectedProgram(of: selectedButtonState) != nil
+                && self.selectedProgram(of: selectedButtonState) == program
+
+            if self.isProgramCompatible(program) {
+                self.programSelected(shouldDisplayRemove ? nil: program, on: selectedButtonIndex)
+            } else {
+                self.dismissModalViewController()
+                self.configurationView.set(state: selectedButtonState, on: selectedButtonIndex)
+            }
         }
         programBottomBar.dismissed = { [weak self] in
             self?.bottomBarDismissed()
