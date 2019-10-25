@@ -28,7 +28,7 @@ final class MotorConfigJSONData: JSONRepresentable {
     // MARK: - Properties
     let name: String
     let type: Int
-    let direction: Int
+    let reversed: Int
     let side: Int
 
     // MARK: - Initialization
@@ -38,7 +38,7 @@ final class MotorConfigJSONData: JSONRepresentable {
         self.type = dataModel.type == MotorDataModel.Constants.drive
             ? Constants.MotorType.drive.rawValue
             : Constants.MotorType.motor.rawValue
-        self.direction = dataModel.rotation == Rotation.forward.rawValue
+        self.reversed = dataModel.rotation == Rotation.forward.rawValue
             ? Constants.Direction.forward.rawValue
             : Constants.Direction.reversed.rawValue
         self.side = dataModel.side == Side.left.rawValue
@@ -50,7 +50,7 @@ final class MotorConfigJSONData: JSONRepresentable {
     enum CodingKeys: String, CodingKey {
         case name
         case type
-        case direction
+        case reversed
         case side
     }
 
@@ -58,7 +58,7 @@ final class MotorConfigJSONData: JSONRepresentable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: CodingKeys.name)
         try container.encode(type, forKey: CodingKeys.type)
-        try container.encode(direction, forKey: CodingKeys.direction)
+        try container.encode(reversed, forKey: CodingKeys.reversed)
         try container.encode(side, forKey: CodingKeys.side)
     }
 }
