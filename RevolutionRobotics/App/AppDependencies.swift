@@ -22,18 +22,24 @@ struct AppDependencies {
 // MARK: - Setup
 extension AppDependencies {
     private func setupFirebase() {
-        let path: String
-        #if PROD
-        path = Bundle.main.path(forResource: "GoogleService-Info", ofType: ".plist")!
-        Fabric.sharedSDK().debug = false
+        #if TEST
+        initFirebase(with: "GoogleService-Info-test", debug: true)
+        #elseif DEV
+        initFirebase(with: "GoogleService-Info-dev", debug: true)
         #else
-        path = Bundle.main.path(forResource: "GoogleService-Info-dev", ofType: ".plist")!
-        Fabric.sharedSDK().debug = true
+        initFirebase(with: "GoogleService-Info", debug: false)
         #endif
-        guard let options = FirebaseOptions(contentsOfFile: path) else {
+    }
+
+    private func initFirebase(with info: String, debug: Bool) {
+        guard
+            let path = Bundle.main.path(forResource: info, ofType: ".plist"),
+            let options = FirebaseOptions(contentsOfFile: path)
+        else {
             os_log("Failed to load Firebase options!")
             return
         }
+
         FirebaseApp.configure(options: options)
     }
 
