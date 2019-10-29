@@ -197,12 +197,10 @@ extension PadConfigurationViewController {
         programSelector.configurationVariableNames =
             realmService.getConfiguration(id: configurationId)?.mapping?.variableNames ?? []
         programSelector.programSelected = { [weak self] program in
-            self?.navigationController?.popViewController(animated: true)
-            self?.showProgramInfoModal(
-                program: program,
-                onDismissed: {
-                    self?.configurationView.set(state: (self?.selectedButtonState!)!, on: (self?.selectedButtonIndex)!)
-            })
+            guard let `self` = self else { return }
+
+            self.navigationController?.popViewController(animated: true)
+            self.handleProgramSelection(with: program)
         }
         programSelector.dismissedCallback = { [weak self] in
             self?.configurationView.set(state: (self?.selectedButtonState!)!, on: (self?.selectedButtonIndex)!)
@@ -224,6 +222,26 @@ extension PadConfigurationViewController {
         return Set(program.variableNames).isSubset(of: Set(variableNames))
     }
 
+    private func handleProgramSelection(with program: ProgramDataModel) {
+        guard
+            let selectedButtonState = selectedButtonState,
+            let selectedButtonIndex = selectedButtonIndex
+        else { return }
+
+        dismissModalViewController()
+        configurationView.set(state: selectedButtonState, on: selectedButtonIndex)
+
+        let shouldDisplayRemove = selectedProgram(of: selectedButtonState) != nil
+            && selectedProgram(of: selectedButtonState) == program
+
+        if isProgramCompatible(program) {
+            programSelected(shouldDisplayRemove ? nil: program, on: selectedButtonIndex)
+        } else {
+            dismissModalViewController()
+            configurationView.set(state: selectedButtonState, on: selectedButtonIndex)
+        }
+    }
+
     private func showMostRecentProgramSelector() {
         let programBottomBar = AppContainer.shared.container.unwrappedResolve(MostRecentProgramsViewController.self)
         var displayablePrograms: [ProgramDataModel] = []
@@ -238,24 +256,7 @@ extension PadConfigurationViewController {
         }
         programBottomBar.setup(programs: displayablePrograms, selectedProgram: selectedButtonProgram)
         programBottomBar.programSelected = { [weak self] program in
-            guard
-                let `self` = self,
-                let selectedButtonState = self.selectedButtonState,
-                let selectedButtonIndex = self.selectedButtonIndex
-            else { return }
-
-            self.dismissModalViewController()
-            self.configurationView.set(state: selectedButtonState, on: selectedButtonIndex)
-
-            let shouldDisplayRemove = self.selectedProgram(of: selectedButtonState) != nil
-                && self.selectedProgram(of: selectedButtonState) == program
-
-            if self.isProgramCompatible(program) {
-                self.programSelected(shouldDisplayRemove ? nil: program, on: selectedButtonIndex)
-            } else {
-                self.dismissModalViewController()
-                self.configurationView.set(state: selectedButtonState, on: selectedButtonIndex)
-            }
+            self?.handleProgramSelection(with: program)
         }
         programBottomBar.programLongTapped = { [weak self] program in
             guard
