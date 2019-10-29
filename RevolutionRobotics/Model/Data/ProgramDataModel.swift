@@ -16,6 +16,7 @@ final class ProgramDataModel: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var customDescription: String = ""
     @objc dynamic var lastModified: Date = Date()
+    @objc dynamic var robotId: String = ""
     @objc dynamic var xml: String = ""
     @objc dynamic var python: String = ""
     var variableNames: List<String> = List<String>()
@@ -27,6 +28,7 @@ final class ProgramDataModel: Object {
         self.name = program.name.text
         self.customDescription = program.description.text
         self.lastModified = Date(timeIntervalSince1970: program.lastModified)
+        self.robotId = program.robotId
         self.xml = program.xml
         self.python = program.python
 

@@ -19,6 +19,7 @@ struct Program: FirebaseData, Equatable, Hashable {
         static let description = "description"
         static let variables = "variables"
         static let lastModified = "lastModified"
+        static let robotId = "robotId"
     }
 
     // MARK: - Path
@@ -32,6 +33,7 @@ struct Program: FirebaseData, Equatable, Hashable {
     var description: LocalizedText
     var variables: [String]
     var lastModified: Double
+    var robotId: String
 
     // MARK: - Initialization
     init?(snapshot: DataSnapshot) {
@@ -39,8 +41,10 @@ struct Program: FirebaseData, Equatable, Hashable {
             let id = dictionary[Constants.id] as? String,
             let xml = dictionary[Constants.xml] as? String,
             let python = dictionary[Constants.python] as? String,
-            let lastModified = dictionary[Constants.lastModified] as? Double else {
-                return nil
+            let lastModified = dictionary[Constants.lastModified] as? Double,
+            let robotId = dictionary[Constants.robotId] as? String
+        else {
+            return nil
         }
 
         self.id = id
@@ -49,6 +53,7 @@ struct Program: FirebaseData, Equatable, Hashable {
         self.python = python
         self.description = LocalizedText(snapshot: snapshot.childSnapshot(forPath: Constants.description))!
         self.lastModified = lastModified
+        self.robotId = robotId
 
         let variables = snapshot.childSnapshot(forPath: Constants.variables)
             .children.compactMap { $0 as? DataSnapshot }

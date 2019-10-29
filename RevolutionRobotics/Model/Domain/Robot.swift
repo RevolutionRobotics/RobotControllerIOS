@@ -18,7 +18,6 @@ struct Robot: FirebaseData, FirebaseOrderable {
         static let coverImage = "coverImage"
         static let buildTime = "buildTime"
         static let configurationId = "configurationId"
-        static let defaultProgram = "defaultProgram"
         static let order = "order"
     }
 
@@ -32,7 +31,6 @@ struct Robot: FirebaseData, FirebaseOrderable {
     var coverImageGSURL: String
     var buildTime: String
     var configurationId: String
-    var defaultProgram: String
     var order: Int
 
     // MARK: - Initialization
@@ -42,9 +40,9 @@ struct Robot: FirebaseData, FirebaseOrderable {
             let coverImage = dictionary[Constants.coverImage] as? String,
             let buildTime = dictionary[Constants.buildTime] as? String,
             let configurationId = dictionary[Constants.configurationId] as? String,
-            let order = dictionary[Constants.order] as? Int,
-            let defaultProgram = dictionary[Constants.defaultProgram] as? String else {
-                return nil
+            let order = dictionary[Constants.order] as? Int
+        else {
+            return nil
         }
 
         self.id = id
@@ -53,7 +51,6 @@ struct Robot: FirebaseData, FirebaseOrderable {
         self.coverImageGSURL = coverImage
         self.buildTime = buildTime
         self.configurationId = configurationId
-        self.defaultProgram = defaultProgram
         self.order = order
     }
 }
