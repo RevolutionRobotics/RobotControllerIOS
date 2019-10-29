@@ -358,17 +358,14 @@ extension MotorConfigViewController {
 // MARK: - Button validation
 extension MotorConfigViewController {
     private func validateActionButtons() {
-        testButton.isEnabled = selectedMotorState != .empty &&
-            selectedMotorState != .driveWithoutSide &&
-            selectedMotorState != .motorWithoutRotation
+        testButton.isEnabled = selectedMotorState != .empty
+            && selectedMotorState != .driveWithoutSide
         guard let name = nameInputField.text else {
             doneButton.isEnabled = selectedMotorState == .empty
             return
         }
 
-        doneButton.isEnabled =
-            (selectedMotorState != .driveWithoutSide
-            && selectedMotorState != .motorWithoutRotation
+        doneButton.isEnabled = (selectedMotorState != .driveWithoutSide
             && !name.isEmpty)
             || selectedMotorState == .empty
     }

@@ -19,12 +19,10 @@ final class PortTestCodeService {
         static let driveTestCodeFileName = "driveTest"
         static let sensorPortPlaceholder = "{SENSOR}"
         static let motorPortPlaceholder = "{MOTOR}"
-        static let motorDirectionPlaceholder = "{MOTOR_DIR}"
+        static let motorReversedPlaceholder = "{MOTOR_REVERSED}"
         static let motorSidePlaceholder = "{MOTOR_SIDE}"
         static let left = "left"
         static let right = "right"
-        static let forward = "fw"
-        static let reversed = "bw"
     }
 }
 //swiftlint:enable convenience_type
@@ -55,14 +53,15 @@ extension PortTestCodeService: PortTestCodeServiceInterface {
     }
 
     func motorTestCode(for portNumber: Int, direction: Rotation) -> String {
-        guard let codePath = Bundle.main.path(forResource: Constants.motorTestCodeFileName,
-                                              ofType: Constants.pythonExtension) else { return "" }
+        guard let codePath = Bundle.main.path(
+            forResource: Constants.motorTestCodeFileName,
+            ofType: Constants.pythonExtension)
+        else { return "" }
+
         do {
             let code = try String(contentsOfFile: codePath)
-            let replacedDirection = direction == .forward ? Constants.forward : Constants.reversed
             return code
                 .replacingOccurrences(of: Constants.motorPortPlaceholder, with: "\(portNumber)")
-                .replacingOccurrences(of: Constants.motorDirectionPlaceholder, with: "\(replacedDirection)")
         } catch {
             os_log("Error: Failed to load motor test code!")
             return ""
@@ -70,15 +69,18 @@ extension PortTestCodeService: PortTestCodeServiceInterface {
     }
 
     func drivatrainTestCode(for portNumber: Int, direction: Rotation, side: Side) -> String {
-        guard let codePath = Bundle.main.path(forResource: Constants.driveTestCodeFileName,
-                                              ofType: Constants.pythonExtension) else { return "" }
+        guard let codePath = Bundle.main.path(
+            forResource: Constants.driveTestCodeFileName,
+            ofType: Constants.pythonExtension)
+        else { return "" }
+
         do {
             let code = try String(contentsOfFile: codePath)
-            let replacedDirection = direction == .forward ? Constants.forward : Constants.reversed
+            let replacedReversedBool = direction == .reversed
             let replacedSide = side == .left ? Constants.left : Constants.right
             return code
                 .replacingOccurrences(of: Constants.motorPortPlaceholder, with: "\(portNumber)")
-                .replacingOccurrences(of: Constants.motorDirectionPlaceholder, with: "\(replacedDirection)")
+                .replacingOccurrences(of: Constants.motorReversedPlaceholder, with: "\(replacedReversedBool)")
                 .replacingOccurrences(of: Constants.motorSidePlaceholder, with: "\(replacedSide)")
         } catch {
             os_log("Error: Failed to load drive test code!")
