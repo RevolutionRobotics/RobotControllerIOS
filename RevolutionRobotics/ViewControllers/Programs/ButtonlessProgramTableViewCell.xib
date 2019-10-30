@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,28 +20,28 @@
             <rect key="frame" x="0.0" y="0.0" width="568" height="52"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="568" height="51.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="568" height="52"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIm-YX-hog">
-                        <rect key="frame" x="52" y="6" width="492" height="39.5"/>
+                        <rect key="frame" x="52" y="6" width="492" height="40"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jZ-oQ-BtQ">
-                                <rect key="frame" x="0.0" y="0.0" width="6" height="39.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="6" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="6" id="Yh7-0I-3DC"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="knq-Zp-yoH">
-                                <rect key="frame" x="451" y="0.0" width="1" height="39.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="knq-Zp-yoH" userLabel="separatorEdit">
+                                <rect key="frame" x="451" y="0.0" width="1" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="7Et-y9-3QA"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezT-SP-X6L">
-                                <rect key="frame" x="344" y="0.0" width="1" height="39.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezT-SP-X6L" userLabel="separatorName">
+                                <rect key="frame" x="283" y="0.0" width="1" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="iuF-KT-7sb"/>
@@ -55,43 +53,62 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3M-9M-cjP">
-                                <rect key="frame" x="464" y="9" width="16" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3M-9M-cjP" userLabel="infoButton">
+                                <rect key="frame" x="407" y="4" width="32" height="32"/>
                                 <state key="normal" image="InfoIcon"/>
                                 <connections>
                                     <action selector="infoButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Rrv-OU-hW5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNl-V8-LVt" userLabel="editButton">
+                                <rect key="frame" x="448" y="4" width="32" height="32"/>
+                                <state key="normal" image="EditRobot"/>
+                                <connections>
+                                    <action selector="editButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5sE-yD-YoJ"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEV-46-i99">
-                                <rect key="frame" x="362" y="11.5" width="34" height="17"/>
+                                <rect key="frame" x="301" y="11.5" width="34" height="17"/>
                                 <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kwz-Vv-l2T" userLabel="separatorInfo">
+                                <rect key="frame" x="394" y="0.0" width="1" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="TcV-OW-xc4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="BrownGrey"/>
                         <constraints>
-                            <constraint firstItem="knq-Zp-yoH" firstAttribute="leading" secondItem="ezT-SP-X6L" secondAttribute="trailing" constant="106" id="9df-9o-qrN"/>
+                            <constraint firstItem="h3M-9M-cjP" firstAttribute="leading" secondItem="kwz-Vv-l2T" secondAttribute="trailing" constant="12" id="4fc-cu-jCN"/>
+                            <constraint firstItem="kwz-Vv-l2T" firstAttribute="leading" secondItem="ezT-SP-X6L" secondAttribute="trailing" constant="110" id="9df-9o-qrN"/>
                             <constraint firstAttribute="bottom" secondItem="ezT-SP-X6L" secondAttribute="bottom" id="I56-Nh-EVW"/>
                             <constraint firstItem="ezT-SP-X6L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mp0-rK-mJG" secondAttribute="trailing" constant="18" id="JP3-Bm-8RA"/>
                             <constraint firstItem="knq-Zp-yoH" firstAttribute="top" secondItem="ZIm-YX-hog" secondAttribute="top" id="JWQ-5k-jAb"/>
+                            <constraint firstItem="kwz-Vv-l2T" firstAttribute="bottom" secondItem="knq-Zp-yoH" secondAttribute="bottom" id="KhQ-DJ-Olz"/>
                             <constraint firstItem="Mp0-rK-mJG" firstAttribute="centerY" secondItem="ZIm-YX-hog" secondAttribute="centerY" id="NW6-Tq-B2g"/>
                             <constraint firstItem="ezT-SP-X6L" firstAttribute="top" secondItem="ZIm-YX-hog" secondAttribute="top" id="NqV-Hd-JvX"/>
                             <constraint firstAttribute="trailing" secondItem="knq-Zp-yoH" secondAttribute="trailing" constant="40" id="PGP-jf-6fX"/>
                             <constraint firstItem="h3M-9M-cjP" firstAttribute="centerY" secondItem="ZIm-YX-hog" secondAttribute="centerY" id="W41-om-P1J"/>
                             <constraint firstAttribute="bottom" secondItem="3jZ-oQ-BtQ" secondAttribute="bottom" id="YfP-Ow-8aL"/>
+                            <constraint firstAttribute="trailing" secondItem="RNl-V8-LVt" secondAttribute="trailing" constant="12" id="bSz-el-W2Y"/>
                             <constraint firstItem="3jZ-oQ-BtQ" firstAttribute="leading" secondItem="ZIm-YX-hog" secondAttribute="leading" id="buZ-Ea-2C2"/>
-                            <constraint firstAttribute="trailing" secondItem="h3M-9M-cjP" secondAttribute="trailing" constant="12" id="ffj-MF-Tof"/>
+                            <constraint firstItem="knq-Zp-yoH" firstAttribute="leading" secondItem="h3M-9M-cjP" secondAttribute="trailing" constant="12" id="ffj-MF-Tof"/>
                             <constraint firstItem="TEV-46-i99" firstAttribute="centerY" secondItem="ZIm-YX-hog" secondAttribute="centerY" id="k49-3l-cZw"/>
                             <constraint firstItem="TEV-46-i99" firstAttribute="leading" secondItem="ezT-SP-X6L" secondAttribute="trailing" constant="17" id="n1A-XD-6Lq"/>
                             <constraint firstItem="Mp0-rK-mJG" firstAttribute="leading" secondItem="3jZ-oQ-BtQ" secondAttribute="trailing" constant="16" id="ogh-Oo-hF1"/>
-                            <constraint firstItem="knq-Zp-yoH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TEV-46-i99" secondAttribute="trailing" constant="2" id="pw7-Bw-3Wh"/>
+                            <constraint firstItem="kwz-Vv-l2T" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TEV-46-i99" secondAttribute="trailing" constant="2" id="pw7-Bw-3Wh"/>
                             <constraint firstAttribute="bottom" secondItem="knq-Zp-yoH" secondAttribute="bottom" id="qaM-JW-pFq"/>
+                            <constraint firstItem="kwz-Vv-l2T" firstAttribute="top" secondItem="knq-Zp-yoH" secondAttribute="top" id="uKP-13-sNt"/>
+                            <constraint firstItem="RNl-V8-LVt" firstAttribute="centerY" secondItem="ZIm-YX-hog" secondAttribute="centerY" id="uqE-Q5-O3d"/>
                             <constraint firstItem="3jZ-oQ-BtQ" firstAttribute="top" secondItem="ZIm-YX-hog" secondAttribute="top" id="vwn-6x-stb"/>
                         </constraints>
                     </view>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFY-Uf-8n7">
-                        <rect key="frame" x="24" y="15" width="16" height="22"/>
+                        <rect key="frame" x="24" y="10" width="32" height="32"/>
                         <state key="normal" image="CheckboxNotChecked"/>
                     </button>
                 </subviews>
@@ -115,12 +132,14 @@
                 <outletCollection property="separatorViews" destination="knq-Zp-yoH" collectionClass="NSMutableArray" id="CNE-SU-ATr"/>
                 <outletCollection property="separatorViews" destination="ezT-SP-X6L" collectionClass="NSMutableArray" id="Q7O-W5-axg"/>
                 <outletCollection property="separatorViews" destination="3jZ-oQ-BtQ" collectionClass="NSMutableArray" id="Orp-UD-NV8"/>
+                <outletCollection property="separatorViews" destination="kwz-Vv-l2T" collectionClass="NSMutableArray" id="QuC-8Y-0pe"/>
             </connections>
             <point key="canvasLocation" x="50.724637681159422" y="34.821428571428569"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="CheckboxNotChecked" width="16" height="16"/>
+        <image name="EditRobot" width="16" height="16"/>
         <image name="InfoIcon" width="16" height="16"/>
         <namedColor name="BrownGrey">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

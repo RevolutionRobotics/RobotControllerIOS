@@ -25,6 +25,7 @@ final class ButtonlessProgramTableViewCell: UITableViewCell {
 
     // MARK: - Properties
     var infoCallback: Callback?
+    var editCallback: Callback?
     var state: State = .incompatible
 }
 
@@ -83,5 +84,9 @@ extension ButtonlessProgramTableViewCell {
 extension ButtonlessProgramTableViewCell {
     @IBAction private func infoButtonTapped(_ sender: Any) {
         infoCallback?()
+    }
+
+    @IBAction private func editButtonTapped(_ sender: Any) {
+        editCallback?()
     }
 }

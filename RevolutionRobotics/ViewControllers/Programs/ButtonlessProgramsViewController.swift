@@ -197,6 +197,13 @@ extension ButtonlessProgramsViewController {
         let variableNames = realmService.getConfiguration(id: configurationId)?.mapping?.variableNames ?? []
         return Set(program.variableNames).isSubset(of: Set(variableNames))
     }
+
+    private func showEditProgram(with program: ProgramDataModel) {
+        let vc = AppContainer.shared.container.unwrappedResolve(ProgramsViewController.self)
+        vc.selectedProgram = program
+        vc.shouldDismissAfterSave = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -211,22 +218,26 @@ extension ButtonlessProgramsViewController: UITableViewDataSource {
         let program = filteredAndOrderedPrograms[indexPath.row]
         cell.setup(with: program)
         cell.infoCallback = { [weak self] in
+            guard let `self` = self else { return }
+
             let modal = ProgramInfoModalView.instatiate()
-            let isCompatible = (self?.isProgramCompatible(program))!
+            let isCompatible = self.isProgramCompatible(program)
             modal.configure(
                 program: program,
                 infoType: .incompatible,
                 issue: isCompatible ? nil : ModalKeys.Program.compatibilityIssue.translate(),
                 editButtonHandler: { [weak self] in
-                    self?.dismissModalViewController()
-                    let vc = AppContainer.shared.container.unwrappedResolve(ProgramsViewController.self)
-                    vc.selectedProgram = program
-                    vc.shouldDismissAfterSave = true
-                    self?.navigationController?.pushViewController(vc, animated: true)
+                    guard let `self` = self else { return }
+
+                    self.dismissModalViewController()
+                    self.showEditProgram(with: program)
                 }, actionButtonHandler: { [weak self] _ in
                     self?.dismissModalViewController()
             })
-            self?.presentModal(with: modal)
+            self.presentModal(with: modal)
+        }
+        cell.editCallback = { [weak self] in
+            self?.showEditProgram(with: program)
         }
         if !isProgramCompatible(program) {
             cell.update(state: .incompatible)
