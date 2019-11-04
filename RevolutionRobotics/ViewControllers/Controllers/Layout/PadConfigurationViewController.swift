@@ -194,6 +194,7 @@ extension PadConfigurationViewController {
     private func showMoreSelected() {
         let programSelector = AppContainer.shared.container.unwrappedResolve(ProgramSelectorViewController.self)
         programSelector.prohibitedPrograms = viewModel.programs
+        programSelector.configurationId = configurationId
         programSelector.configurationVariableNames =
             realmService.getConfiguration(id: configurationId)?.mapping?.variableNames ?? []
         programSelector.programSelected = { [weak self] program in
