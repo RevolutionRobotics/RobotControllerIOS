@@ -43,6 +43,7 @@ final class ProgramSelectorViewController: BaseViewController {
 
     var realmService: RealmServiceInterface!
     var programSelected: CallbackType<ProgramDataModel>?
+    var configurationId: String?
     var dismissedCallback: Callback?
     var configurationVariableNames: [String] = []
     var prohibitedPrograms: [ProgramDataModel] = []
@@ -124,6 +125,18 @@ extension ProgramSelectorViewController {
             filteredAndOrderedPrograms = programSorter.sort(programs: allPrograms, options: programSortingOptions)
         }
     }
+
+    private func isProgramCompatible(_ program: ProgramDataModel) -> Bool {
+        let variableNames = realmService.getConfiguration(id: configurationId)?.mapping?.variableNames ?? []
+        return Set(program.variableNames).isSubset(of: Set(variableNames))
+    }
+
+    private func showEditProgram(with program: ProgramDataModel) {
+        let vc = AppContainer.shared.container.unwrappedResolve(ProgramsViewController.self)
+        vc.selectedProgram = program
+        vc.shouldDismissAfterSave = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -140,8 +153,39 @@ extension ProgramSelectorViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let program = filteredAndOrderedPrograms[indexPath.row]
         let cell: ProgramSelectorTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.configure(program: filteredAndOrderedPrograms[indexPath.row])
+        cell.configure(program: program)
+
+        cell.infoButtonCallback = { [weak self] in
+            guard let `self` = self else { return }
+
+            let modal = ProgramInfoModalView.instatiate()
+            let isCompatible = self.isProgramCompatible(program)
+            modal.configure(
+                program: program,
+                infoType: isCompatible ? .add : .incompatible,
+                issue: isCompatible ? nil : ModalKeys.Program.compatibilityIssue.translate(),
+                editButtonHandler: { [weak self] in
+                    guard let `self` = self else { return }
+
+                    self.dismissModalViewController()
+                    self.showEditProgram(with: program)
+                }, actionButtonHandler: { [weak self] _ in
+                    guard let `self` = self else { return }
+
+                    self.dismissModalViewController()
+                    if isCompatible {
+                        self.programSelected?(program)
+                    }
+            })
+            self.presentModal(with: modal)
+        }
+
+        cell.editButtonCallback = { [weak self] in
+            self?.showEditProgram(with: program)
+        }
+
         return cell
     }
 }

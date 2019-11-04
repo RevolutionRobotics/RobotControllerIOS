@@ -15,6 +15,10 @@ final class ProgramSelectorTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
 
+    // MARK: - Properties
+    var infoButtonCallback: Callback?
+    var editButtonCallback: Callback?
+
     // MARK: - Lifecycle
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -29,5 +33,16 @@ extension ProgramSelectorTableViewCell {
     func configure(program: ProgramDataModel) {
         nameLabel.text = program.name
         dateLabel.text = DateFormatter.string(from: program.lastModified, format: .yearMonthDay)
+    }
+}
+
+// MARK: - Actions
+extension ProgramSelectorTableViewCell {
+    @IBAction private func infoButtonTapped(_ sender: Any) {
+        infoButtonCallback?()
+    }
+
+    @IBAction private func editButtonTapped(_ sender: Any) {
+        editButtonCallback?()
     }
 }
