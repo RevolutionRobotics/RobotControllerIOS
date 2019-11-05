@@ -295,6 +295,8 @@ extension BuildRobotViewController {
     }
 
     private func createNewRobot(remoteConfigurations: [Configuration], remoteControllers: [Controller], step: Int) {
+        guard let remoteId = remoteRobotDataModel?.id else { return }
+
         let robotId = UUID().uuidString
         let configId = UUID().uuidString
         let remoteConfiguration =
@@ -306,12 +308,26 @@ extension BuildRobotViewController {
 
         localConfiguration.controller = controllers.first(where: { $0.type == ControllerType.gamer.rawValue })?.id ?? ""
 
+        let savedPrograms = realmService.getPrograms()
+        firebaseService.getRobotPrograms(for: remoteId, completion: { [weak self] result in
+            switch result {
+            case .success(let programs):
+                let fetchedPrograms: [ProgramDataModel] = programs.compactMap({ program in
+                    guard let program = program else { return nil }
+                    return ProgramDataModel(program: program)
+                })
+                self?.realmService.savePrograms(programs: savedPrograms + fetchedPrograms)
+            case .failure:
+                os_log("Error: Failed to fetch programs from Firebase!")
+            }
+        })
+
         realmService.saveControllers(controllers)
         realmService.saveConfigurations([localConfiguration])
 
         storedRobotDataModel = UserRobot(
             id: robotId,
-            remoteId: remoteRobotDataModel!.id,
+            remoteId: remoteId,
             buildStatus: .inProgress,
             actualBuildStep: step,
             lastModified: Date(),

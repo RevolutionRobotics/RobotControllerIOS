@@ -69,7 +69,7 @@ extension BuildProgressBar {
 // MARK: - Actions
 extension BuildProgressBar {
     @IBAction private func sliderValueChanged(_ sender: RRSlider) {
-        sender.setValue(sender.value.rounded(), animated: true)
+        sender.setValue(sender.value.rounded(), animated: false)
         guard previousStep != Int(sender.value) else { return }
         previousStep = Int(sender.value)
         setupNextButton(step: sender.value)
