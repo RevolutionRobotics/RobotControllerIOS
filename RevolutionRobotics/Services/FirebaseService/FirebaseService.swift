@@ -40,17 +40,6 @@ extension FirebaseService: FirebaseServiceInterface {
         getConfigurations(completion: nil)
         getControllers(completion: nil)
         getChallengeCategories(completion: nil)
-        getPrograms(completion: { result in
-            switch result {
-            case .success(let programs):
-                let realmService = AppContainer.shared.container.unwrappedResolve(RealmServiceInterface.self)
-                if realmService.getPrograms().isEmpty {
-                    realmService.savePrograms(programs: programs.map({ ProgramDataModel(program: $0) }))
-                }
-            case .failure(let error):
-                onError?(error)
-            }
-        })
     }
 
     func getMinVersion(completion: CallbackType<Result<Version, FirebaseError>>?) {
@@ -146,6 +135,18 @@ extension FirebaseService: FirebaseServiceInterface {
             }
         })
 
+    }
+
+    func getRobotPrograms(for robotRemoteId: String, completion: CallbackType<Result<[Program?], FirebaseError>>?) {
+        getDataArray(Program.self, completion: { (result: Result<[Program], FirebaseError>) in
+            switch result {
+            case .success(let programs):
+                let programs = programs.filter({ $0.robotRemoteId == robotRemoteId })
+                completion?(.success(programs))
+            case .failure(let error):
+                completion?(.failure(error))
+            }
+        })
     }
 
     func getChallengeCategories(completion: CallbackType<Result<[ChallengeCategory], FirebaseError>>?) {

@@ -31,6 +31,7 @@ final class PadConfigurationViewController: BaseViewController {
     var configurationView: ConfigurableControllerView!
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
+    var robotId: String?
     var configurationId: String?
     var selectedControllerId: String?
 
@@ -192,8 +193,9 @@ extension PadConfigurationViewController {
     }
 
     private func showMoreSelected() {
+        let unboundPrograms = programs.filter({ $0.robotId != robotId })
         let programSelector = AppContainer.shared.container.unwrappedResolve(ProgramSelectorViewController.self)
-        programSelector.prohibitedPrograms = viewModel.programs
+        programSelector.prohibitedPrograms = viewModel.programs + unboundPrograms
         programSelector.configurationId = configurationId
         programSelector.configurationVariableNames =
             realmService.getConfiguration(id: configurationId)?.mapping?.variableNames ?? []
@@ -214,7 +216,8 @@ extension PadConfigurationViewController {
 // MARK: - Presentation
 extension PadConfigurationViewController {
     private func isProgramCompatible(_ program: ProgramDataModel) -> Bool {
-        guard let variableNames = realmService.getConfiguration(id: configurationId)?.mapping?.variableNames else {
+        guard let variableNames = realmService.getConfiguration(id: configurationId)?.mapping?.variableNames
+        else {
             return false
         }
         if variableNames.isEmpty {
@@ -255,7 +258,9 @@ extension PadConfigurationViewController {
         } else {
             displayablePrograms = Array(Set(programs).subtracting(Set(viewModel.programs)))
         }
-        programBottomBar.setup(programs: displayablePrograms, selectedProgram: selectedButtonProgram)
+
+        let robotPrograms = displayablePrograms.filter({ $0.robotId == robotId })
+        programBottomBar.setup(programs: robotPrograms, selectedProgram: selectedButtonProgram)
         programBottomBar.programSelected = { [weak self] program in
             self?.handleProgramSelection(with: program)
         }

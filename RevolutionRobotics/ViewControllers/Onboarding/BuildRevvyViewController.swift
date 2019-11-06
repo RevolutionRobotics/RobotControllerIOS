@@ -100,10 +100,13 @@ extension BuildRevvyViewController {
                 self?.firebaseService.getControllers(completion: { [weak self] result in
                     switch result {
                     case .success(let remoteControllers):
-                        self?.saveRevvyDataModel(
-                            using: dataModel,
-                            remoteConfigurations: remoteConfigurations,
-                            remoteControllers: remoteControllers)
+                        self?.fetchPrograms(for: dataModel.id, callback: { [weak self] programs in
+                            self?.saveRevvyDataModel(
+                                using: dataModel,
+                                remoteConfigurations: remoteConfigurations,
+                                remoteControllers: remoteControllers,
+                                programs: programs)
+                        })
                     case .failure:
                         os_log("Failed to retrieve controllers!")
                     }
@@ -114,10 +117,22 @@ extension BuildRevvyViewController {
         }
     }
 
+    private func fetchPrograms(for robotId: String, callback: @escaping CallbackType<[Program]>) {
+        firebaseService.getRobotPrograms(for: robotId, completion: { result in
+            switch result {
+            case .success(let programs):
+                callback(programs.compactMap({ $0 }))
+            case .failure:
+                os_log("Failed to retrieve programs for robot!")
+            }
+        })
+    }
+
     private func saveRevvyDataModel(
         using dataModel: Robot,
         remoteConfigurations: [Configuration],
-        remoteControllers: [Controller]
+        remoteControllers: [Controller],
+        programs: [Program]
     ) {
         let revvyDataModel = UserRobot(
             id: UUID().uuidString,
@@ -144,10 +159,13 @@ extension BuildRevvyViewController {
 
         let userDefaults = UserDefaults.standard
         let revvyBuiltKey = UserDefaults.Keys.revvyBuilt
+        let allPrograms = realmService.getPrograms()
+            + programs.map({ ProgramDataModel(program: $0, robotId: revvyDataModel.id) })
 
         if !userDefaults.bool(forKey: revvyBuiltKey) {
             realmService.saveControllers(controllers)
             realmService.saveConfigurations([localConfiguration])
+            realmService.savePrograms(programs: allPrograms)
             realmService.saveRobot(revvyDataModel, shouldUpdate: true)
             userDefaults.set(true, forKey: revvyBuiltKey)
         }

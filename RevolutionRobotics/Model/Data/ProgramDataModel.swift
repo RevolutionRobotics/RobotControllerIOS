@@ -21,14 +21,14 @@ final class ProgramDataModel: Object {
     @objc dynamic var python: String = ""
     var variableNames: List<String> = List<String>()
 
-    convenience init(program: Program) {
+    convenience init(program: Program, robotId: String) {
         self.init()
         self.id = UUID().uuidString
         self.remoteId = program.id
         self.name = program.name.text
         self.customDescription = program.description.text
         self.lastModified = Date(timeIntervalSince1970: program.lastModified)
-        self.robotId = program.robotId
+        self.robotId = robotId
         self.xml = program.xml
         self.python = program.python
 
