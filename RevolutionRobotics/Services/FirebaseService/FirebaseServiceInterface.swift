@@ -19,7 +19,7 @@ protocol FirebaseServiceInterface {
     func getControllers(completion: CallbackType<Result<[Controller], FirebaseError>>?)
     func getPrograms(completion: CallbackType<Result<[Program], FirebaseError>>?)
     func getPrograms(for controllerId: String, completion: CallbackType<Result<[Program?], FirebaseError>>?)
-    func getRobotPrograms(for robotId: String, completion: CallbackType<Result<[Program?], FirebaseError>>?)
+    func getRobotPrograms(for robotRemoteId: String, completion: CallbackType<Result<[Program?], FirebaseError>>?)
     func getChallengeCategories(completion: CallbackType<Result<[ChallengeCategory], FirebaseError>>?)
     func getFirmwareUpdate(completion: CallbackType<Result<[FirmwareUpdate], FirebaseError>>?)
     func downloadFirmwareUpdate(resourceURL: String, completion: CallbackType<Result<Data, FirebaseError>>?)

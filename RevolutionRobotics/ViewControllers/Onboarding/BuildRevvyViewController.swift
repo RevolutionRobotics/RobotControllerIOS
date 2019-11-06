@@ -159,7 +159,8 @@ extension BuildRevvyViewController {
 
         let userDefaults = UserDefaults.standard
         let revvyBuiltKey = UserDefaults.Keys.revvyBuilt
-        let allPrograms = realmService.getPrograms() + programs.map({ ProgramDataModel(program: $0) })
+        let allPrograms = realmService.getPrograms()
+            + programs.map({ ProgramDataModel(program: $0, robotId: revvyDataModel.id) })
 
         if !userDefaults.bool(forKey: revvyBuiltKey) {
             realmService.saveControllers(controllers)

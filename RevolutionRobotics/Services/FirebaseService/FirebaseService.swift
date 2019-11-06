@@ -137,11 +137,11 @@ extension FirebaseService: FirebaseServiceInterface {
 
     }
 
-    func getRobotPrograms(for robotId: String, completion: CallbackType<Result<[Program?], FirebaseError>>?) {
+    func getRobotPrograms(for robotRemoteId: String, completion: CallbackType<Result<[Program?], FirebaseError>>?) {
         getDataArray(Program.self, completion: { (result: Result<[Program], FirebaseError>) in
             switch result {
             case .success(let programs):
-                let programs = programs.filter({ $0.robotId == robotId })
+                let programs = programs.filter({ $0.robotRemoteId == robotRemoteId })
                 completion?(.success(programs))
             case .failure(let error):
                 completion?(.failure(error))

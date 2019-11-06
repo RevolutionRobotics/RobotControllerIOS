@@ -314,7 +314,7 @@ extension BuildRobotViewController {
             case .success(let programs):
                 let fetchedPrograms: [ProgramDataModel] = programs.compactMap({ program in
                     guard let program = program else { return nil }
-                    return ProgramDataModel(program: program)
+                    return ProgramDataModel(program: program, robotId: robotId)
                 })
                 self?.realmService.savePrograms(programs: savedPrograms + fetchedPrograms)
             case .failure:
