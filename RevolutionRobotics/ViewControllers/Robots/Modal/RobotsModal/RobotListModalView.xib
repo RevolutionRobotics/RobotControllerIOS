@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f4i-vh-yOQ" customClass="RobotListModalView" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w12-Ll-LA3">
+                    <rect key="frame" x="32" y="73" width="396" height="167"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROBOTS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihH-qw-5Fo">
+                    <rect key="frame" x="194" y="32" width="72.5" height="21"/>
+                    <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="ihH-qw-5Fo" firstAttribute="centerX" secondItem="f4i-vh-yOQ" secondAttribute="centerX" id="HfO-Bs-H28"/>
+                <constraint firstItem="w12-Ll-LA3" firstAttribute="leading" secondItem="f4i-vh-yOQ" secondAttribute="leading" constant="32" id="XUY-FD-q3F"/>
+                <constraint firstItem="ihH-qw-5Fo" firstAttribute="top" secondItem="f4i-vh-yOQ" secondAttribute="top" constant="32" id="c3r-rs-PKt"/>
+                <constraint firstAttribute="bottom" secondItem="w12-Ll-LA3" secondAttribute="bottom" id="iZF-VN-sex"/>
+                <constraint firstAttribute="trailing" secondItem="w12-Ll-LA3" secondAttribute="trailing" constant="32" id="pA6-PV-OPU"/>
+                <constraint firstItem="w12-Ll-LA3" firstAttribute="top" secondItem="f4i-vh-yOQ" secondAttribute="top" constant="73" id="pqe-o2-wOU"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="g56-JO-Z1g"/>
+            <connections>
+                <outlet property="robotsTableView" destination="w12-Ll-LA3" id="Dbe-wX-BpE"/>
+                <outlet property="titleLabel" destination="ihH-qw-5Fo" id="hLk-M3-DMi"/>
+            </connections>
+            <point key="canvasLocation" x="87" y="155"/>
+        </view>
+    </objects>
+</document>

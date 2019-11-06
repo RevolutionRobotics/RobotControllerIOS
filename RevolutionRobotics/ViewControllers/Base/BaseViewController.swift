@@ -108,6 +108,15 @@ extension BaseViewController {
             presentationStyle: .overFullScreen
         )
     }
+    
+    func presentUndismissableModal(with contentView: UIView, animated: Bool) {
+        presentModal(
+            with: contentView,
+            animated: animated,
+            closeHidden: true,
+            onDismissed: nil,
+            shouldDismissOnBackgroundTap: false)
+    }
 
     func openSafari(presentationFinished: Callback?, url: URL? = nil) {
         if self.presentedViewController != nil {

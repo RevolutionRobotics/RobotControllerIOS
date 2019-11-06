@@ -345,6 +345,10 @@
 		D09184F822DDD06600AF9274 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09184F722DDD06600AF9274 /* Version.swift */; };
 		D09184FE22DF1F4F00AF9274 /* UpdateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09184FD22DF1F4E00AF9274 /* UpdateModalView.swift */; };
 		D091850022DF1F6E00AF9274 /* UpdateModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D09184FF22DF1F6E00AF9274 /* UpdateModalView.xib */; };
+		D097C8CD237318C1003048B5 /* RobotListModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097C8CC237318C1003048B5 /* RobotListModalView.swift */; };
+		D097C8CF237318DE003048B5 /* RobotListModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D097C8CE237318DE003048B5 /* RobotListModalView.xib */; };
+		D097C8D223731A4B003048B5 /* RobotSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097C8D123731A4B003048B5 /* RobotSelectorTableViewCell.swift */; };
+		D097C8D423731A64003048B5 /* RobotSelectorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D097C8D323731A64003048B5 /* RobotSelectorTableViewCell.xib */; };
 		D0A1107D227870040064FBB6 /* YourRobotsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */; };
 		D0A1107E227870040064FBB6 /* YourRobotsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0A1107C227870040064FBB6 /* YourRobotsCollectionViewCell.xib */; };
 		D0A11084227B0BEB0064FBB6 /* ResizableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */; };
@@ -731,6 +735,10 @@
 		D09184F722DDD06600AF9274 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		D09184FD22DF1F4E00AF9274 /* UpdateModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UpdateModalView.swift; path = ../../Controllers/Modal/UpdateModalView.swift; sourceTree = "<group>"; };
 		D09184FF22DF1F6E00AF9274 /* UpdateModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UpdateModalView.xib; path = ../../Controllers/Modal/UpdateModalView.xib; sourceTree = "<group>"; };
+		D097C8CC237318C1003048B5 /* RobotListModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotListModalView.swift; sourceTree = "<group>"; };
+		D097C8CE237318DE003048B5 /* RobotListModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RobotListModalView.xib; sourceTree = "<group>"; };
+		D097C8D123731A4B003048B5 /* RobotSelectorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotSelectorTableViewCell.swift; sourceTree = "<group>"; };
+		D097C8D323731A64003048B5 /* RobotSelectorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RobotSelectorTableViewCell.xib; sourceTree = "<group>"; };
 		D0A1107B227870040064FBB6 /* YourRobotsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRobotsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0A1107C227870040064FBB6 /* YourRobotsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourRobotsCollectionViewCell.xib; sourceTree = "<group>"; };
 		D0A11083227B0BEB0064FBB6 /* ResizableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableCell.swift; sourceTree = "<group>"; };
@@ -1188,6 +1196,8 @@
 		09FB0D66226761E900735B74 /* Robots */ = {
 			isa = PBXGroup;
 			children = (
+				D097C8D52373249E003048B5 /* Modal */,
+				D097C8D0237319FF003048B5 /* RobotSelector */,
 				096479832268773700F68456 /* BuildRobot */,
 				FE4B161422771FC000CAA083 /* Configuration */,
 				09FB0D6D2267762700735B74 /* WhoToBuild */,
@@ -2040,6 +2050,32 @@
 			path = Modal;
 			sourceTree = "<group>";
 		};
+		D097C8CB23731883003048B5 /* RobotsModal */ = {
+			isa = PBXGroup;
+			children = (
+				D097C8CC237318C1003048B5 /* RobotListModalView.swift */,
+				D097C8CE237318DE003048B5 /* RobotListModalView.xib */,
+			);
+			path = RobotsModal;
+			sourceTree = "<group>";
+		};
+		D097C8D0237319FF003048B5 /* RobotSelector */ = {
+			isa = PBXGroup;
+			children = (
+				D097C8D123731A4B003048B5 /* RobotSelectorTableViewCell.swift */,
+				D097C8D323731A64003048B5 /* RobotSelectorTableViewCell.xib */,
+			);
+			path = RobotSelector;
+			sourceTree = "<group>";
+		};
+		D097C8D52373249E003048B5 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				D097C8CB23731883003048B5 /* RobotsModal */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
 		D0A11089227B18110064FBB6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -2251,6 +2287,7 @@
 				09ED1BAB225247E2009CF262 /* MenuViewController.xib in Resources */,
 				2A9F52122265E96B00F9F651 /* ProgramsViewController.xib in Resources */,
 				0952387722A57161001C1CE1 /* OptionSelectorButton.xib in Resources */,
+				D097C8D423731A64003048B5 /* RobotSelectorTableViewCell.xib in Resources */,
 				D06C326922857107005534C0 /* ResetTutorialModalView.xib in Resources */,
 				096333F82289B9B80029D87B /* PadButton.xib in Resources */,
 				2ADE8C412270AFFD00ECEC72 /* Localizable.strings in Resources */,
@@ -2291,6 +2328,7 @@
 				094D0DD622AFA94A00B9B74E /* SliderInputModalView.xib in Resources */,
 				2AC7619122D33A09005FED04 /* Barlow-BoldItalic.ttf in Resources */,
 				D001FCB822A951FC004C49F3 /* ChallengesCollectionViewOddCell.xib in Resources */,
+				D097C8CF237318DE003048B5 /* RobotListModalView.xib in Resources */,
 				0938897222B24DD900292B32 /* cat.mp3 in Resources */,
 				0938894C22B12CB200292B32 /* SoundPickerModalView.xib in Resources */,
 				2AC7619022D33A09005FED04 /* Barlow-Italic.ttf in Resources */,
@@ -2467,6 +2505,7 @@
 				D031333E228EA66100704989 /* MostRecentProgramsViewController.swift in Sources */,
 				D0899C6F22A6BCB900DB6F97 /* ChallengeCategoryCollectionViewCell.swift in Sources */,
 				2A77320A2264A32D00D7F38D /* ServiceAssembly.swift in Sources */,
+				D097C8D223731A4B003048B5 /* RobotSelectorTableViewCell.swift in Sources */,
 				09105AA02280581F00AB7B72 /* PortConfigurationItemView.swift in Sources */,
 				D075EA2B22C4FB510003C183 /* ChallengeDetailPartListContent.swift in Sources */,
 				2AB7ACD922BA64B300309234 /* ConfigurationJSONData.swift in Sources */,
@@ -2550,6 +2589,7 @@
 				D0A1108C227B18480064FBB6 /* ControllerInfoModalView.swift in Sources */,
 				094FC5DF228C3CF60085B407 /* DriverPadView.swift in Sources */,
 				D001FCAE22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.swift in Sources */,
+				D097C8CD237318C1003048B5 /* RobotListModalView.swift in Sources */,
 				094F9DDC2264BEE600BE118B /* Font.swift in Sources */,
 				D0A8C74822C9EECE00F7F12B /* UIView+Notch.swift in Sources */,
 				2AB0522322D4A9CC007B42F8 /* BuildFinishedModalView.swift in Sources */,

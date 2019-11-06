@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="Nt0-xB-DZZ" customClass="RobotSelectorTableViewCell" customModule="RevolutionRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="571" height="54"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nt0-xB-DZZ" id="sdc-7w-gmg">
+                <rect key="frame" x="0.0" y="0.0" width="571" height="54"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qm5-h6-XV9">
+                        <rect key="frame" x="1" y="7" width="569" height="40"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4O-g6-RHs">
+                                <rect key="frame" x="0.0" y="0.0" width="6" height="40"/>
+                                <color key="backgroundColor" name="BrownGrey"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="6" id="APf-lW-ZGX"/>
+                                    <constraint firstAttribute="height" priority="750" constant="40" id="ZA9-5P-6EL"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvm-XJ-9ly">
+                                <rect key="frame" x="18" y="11.5" width="533" height="17"/>
+                                <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="f4O-g6-RHs" firstAttribute="leading" secondItem="qm5-h6-XV9" secondAttribute="leading" id="1nC-Kw-8ri"/>
+                            <constraint firstItem="Lvm-XJ-9ly" firstAttribute="leading" secondItem="f4O-g6-RHs" secondAttribute="trailing" constant="12" id="3a1-Jh-5t3"/>
+                            <constraint firstAttribute="bottom" secondItem="f4O-g6-RHs" secondAttribute="bottom" id="Hcy-KV-lqN"/>
+                            <constraint firstAttribute="trailing" secondItem="Lvm-XJ-9ly" secondAttribute="trailing" constant="18" id="k1D-xa-dXJ"/>
+                            <constraint firstItem="f4O-g6-RHs" firstAttribute="top" secondItem="qm5-h6-XV9" secondAttribute="top" id="kbh-71-Mcf"/>
+                            <constraint firstItem="Lvm-XJ-9ly" firstAttribute="centerY" secondItem="f4O-g6-RHs" secondAttribute="centerY" id="z5a-8d-g7a"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="qm5-h6-XV9" secondAttribute="trailing" constant="1" id="44M-DI-6LY"/>
+                    <constraint firstItem="qm5-h6-XV9" firstAttribute="top" secondItem="sdc-7w-gmg" secondAttribute="top" constant="7" id="59g-fP-1To"/>
+                    <constraint firstAttribute="bottom" secondItem="qm5-h6-XV9" secondAttribute="bottom" constant="7" id="5Z5-FF-kGM"/>
+                    <constraint firstItem="qm5-h6-XV9" firstAttribute="leading" secondItem="sdc-7w-gmg" secondAttribute="leading" constant="1" id="9fp-q0-bTm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="TJw-kM-yC8"/>
+            <connections>
+                <outlet property="borderView" destination="qm5-h6-XV9" id="xoy-aM-gyp"/>
+                <outlet property="nameLabel" destination="Lvm-XJ-9ly" id="c2j-Ex-p8m"/>
+            </connections>
+            <point key="canvasLocation" x="319.56521739130437" y="156.69642857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BrownGrey">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

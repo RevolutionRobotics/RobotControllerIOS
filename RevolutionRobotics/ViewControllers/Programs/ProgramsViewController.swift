@@ -39,12 +39,14 @@ final class ProgramsViewController: BaseViewController {
         didSet {
             guard let selectedProgram = selectedProgram else { return }
             UserDefaults.standard.set(selectedProgram.id, forKey: UserDefaults.Keys.mostRecentProgram)
+            selectedProgramRobotId = selectedProgram.robotId
         }
     }
 
     var openedFromMenu = false
     var shouldDismissAfterSave = false
     private let blocklyViewController = BlocklyViewController()
+    private var selectedProgramRobotId: String?
     private var programSaveReason = ProgramSaveReason.edited {
         didSet {
             blocklyViewController.saveProgram()
@@ -95,6 +97,8 @@ extension ProgramsViewController {
             blocklyViewController.loadProgram(xml: program.xml.base64Decoded ?? "")
             prefillProgram()
             setupButtons()
+        } else {
+            selectRobot()
         }
     }
 
@@ -123,7 +127,7 @@ extension ProgramsViewController {
     }
 }
 
-// MARK: - Private functions
+// MARK: - Private methods
 extension ProgramsViewController {
     private func saveProgram() {
         guard let program = selectedProgram else {
@@ -241,6 +245,7 @@ extension ProgramsViewController {
 
     private func displayNew() {
         selectedProgram = nil
+        selectRobot()
         blocklyViewController.clearWorkspace()
         programNameButton.setTitle(ProgramsKeys.Main.untitled.translate(), for: .normal)
     }
@@ -258,6 +263,24 @@ extension ProgramsViewController {
         let isXmlModified = replaced != xmlCode.replacingPattern(regexPattern: Constants.blocklyElementIdRegex)
 
         (isXmlModified ? confirmLeave : callback)()
+    }
+
+    private func canBeOverwritten(name: String?) -> Bool {
+        guard let name = name else { return true }
+
+        return !realmService.getPrograms().contains(where: { $0.name == name && !$0.remoteId.isEmpty })
+    }
+
+    private func selectRobot() {
+        let robotsView = RobotListModalView.instatiate()
+        robotsView.setup(with: realmService.getRobots())
+        robotsView.selectedRobotCallback = { [weak self] robot in
+            guard let `self` = self else { return }
+
+            self.dismissModalViewController()
+            self.selectedProgramRobotId = robot.id
+        }
+        presentUndismissableModal(with: robotsView, animated: true)
     }
 }
 
@@ -563,14 +586,5 @@ extension ProgramsViewController {
             }
         }
         presentModal(with: saveModal)
-    }
-}
-
-// MARK: - Private methods
-extension ProgramsViewController {
-    private func canBeOverwritten(name: String?) -> Bool {
-        guard let name = name else { return true }
-
-        return !realmService.getPrograms().contains(where: { $0.name == name && !$0.remoteId.isEmpty })
     }
 }
