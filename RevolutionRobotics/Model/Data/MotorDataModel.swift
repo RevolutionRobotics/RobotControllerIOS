@@ -54,6 +54,9 @@ final class MotorDataModel: Object {
             self.rotation = rotation.rawValue
             self.type = Constants.motor
             self.side = nil
+        case .motorWithoutRotation:
+            self.type = Constants.motor
+            self.side = nil
         default:
             fatalError("Invalid motor configuration view model!")
         }

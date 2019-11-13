@@ -12,6 +12,7 @@ protocol RealmServiceInterface: class {
     func updateObject(closure: (() -> Void)?)
 
     func getRobots() -> [UserRobot]
+    func getRobot(_ id: String) -> UserRobot?
     func saveRobot(_ robot: UserRobot, shouldUpdate: Bool)
     func deleteRobot(_ robot: UserRobot)
     func deepCopyRobot(_ robot: UserRobot)

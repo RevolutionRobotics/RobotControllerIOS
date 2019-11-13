@@ -108,7 +108,7 @@ extension BaseViewController {
             presentationStyle: .overFullScreen
         )
     }
-    
+
     func presentUndismissableModal(with contentView: UIView, animated: Bool) {
         presentModal(
             with: contentView,

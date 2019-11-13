@@ -81,4 +81,10 @@ enum ProgramsKeys {
         static let positive = "dialog_new_program_confirm_button_positive"
         static let negative = "dialog_new_program_confirm_button_negative"
     }
+
+    enum InputSelectionDialog {
+        static let noMotor = "dialog_selector_no_motor_error"
+        static let noSensor = "dialog_selector_no_sensor_configured"
+        static let noBumper = "dialog_selector_no_bumper_configured"
+    }
 }

@@ -23,7 +23,13 @@ enum MotorConfigViewModelState: Equatable {
         guard let dataModel = dataModel else { self = .empty; return }
         switch dataModel.type {
         case MotorDataModel.Constants.motor:
-            guard let raw = dataModel.rotation, let rotation = Rotation(rawValue: raw) else { self = .empty; return }
+            guard
+                let rawRotation = dataModel.rotation,
+                let rotation = Rotation(rawValue: rawRotation)
+            else {
+                self = .motorWithoutRotation
+                return
+            }
             self = .motor(rotation)
         case MotorDataModel.Constants.drive:
             guard let rotationRaw = dataModel.rotation,

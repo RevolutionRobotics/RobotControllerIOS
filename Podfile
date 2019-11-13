@@ -29,8 +29,10 @@ target 'RevolutionRobotics' do
   pod 'Firebase/Analytics'
 
   # RevolutionRobotics
-  pod 'RevolutionRoboticsBlockly', '~> 0.1.4'
+  pod 'RevolutionRoboticsBlockly', '~> 0.1.5'
   pod 'RevolutionRoboticsBluetooth', '~> 0.1.0'
+#  pod 'RevolutionRoboticsBlockly', :path => '../RevolutionRoboticsBlocklyIOS'
+#  pod 'RevolutionRoboticsBluetooth', :path => '../RevolutionRoboticsBluetoothIOS'
 end
 
 post_install do |installer|
