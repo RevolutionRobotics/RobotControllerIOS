@@ -59,7 +59,16 @@ extension PlayControllerViewController {
             navigationBar.bluetoothButtonState = .notConnected
             presentBluetoothModal()
         }
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.isIdleTimerDisabled = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.shared.isIdleTimerDisabled = false
     }
 
     override func viewDidDisappear(_ animated: Bool) {
