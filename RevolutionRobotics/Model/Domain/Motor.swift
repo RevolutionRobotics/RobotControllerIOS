@@ -15,7 +15,7 @@ struct Motor: Port {
         static let variableName = "variableName"
         static let type = "type"
         static let side = "side"
-        static let rotation = "rotation"
+        static let reversed = "reversed"
     }
 
     // MARK: - Properties
@@ -29,9 +29,10 @@ struct Motor: Port {
         guard let dictionary = snapshot.value as? NSDictionary,
             let variableName = dictionary[Constants.variableName] as? String,
             let type = dictionary[Constants.type] as? String,
-            let tempRotation = dictionary[Constants.rotation] as? String,
-            let rotation = Rotation(rawValue: tempRotation) else {
-                return nil
+            let tempRotation = dictionary[Constants.reversed] as? Bool,
+            let rotation: Rotation = tempRotation ? .reversed : .forward
+        else {
+            return nil
         }
 
         self.variableName = variableName
