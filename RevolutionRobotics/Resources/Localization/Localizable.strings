@@ -179,6 +179,9 @@
 "program_confirm_description" = "All your unsaved changes will be lost.";
 "program_confirm_positive" = "Leave";
 "priority_drivetrain_item" = "Drive";
+"dialog_selector_no_motor_error" = "This robot doesn’t have any non-drivetrain motors configured";
+"dialog_selector_no_sensor_configured" = "This robot doesn’t have a distance sensor configured";
+"dialog_selector_no_bumper_configured" = "This robot doesn’t have a bumper configured";
 
 // MARK: - Settings
 "settings_screen_title" = "Settings";

@@ -288,6 +288,10 @@
 		D03BA8652277385E005B3E33 /* TipsModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8632277385E005B3E33 /* TipsModalView.xib */; };
 		D03BA86B22773DCA005B3E33 /* RRCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */; };
 		D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA87522783D17005B3E33 /* RRCollectionViewDelegate.swift */; };
+		D04F9A8A237AC69300D82D24 /* PeripheralSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F9A89237AC69300D82D24 /* PeripheralSelector.swift */; };
+		D04F9A8C237AC6A900D82D24 /* PeripheralSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04F9A8B237AC6A900D82D24 /* PeripheralSelector.xib */; };
+		D04F9A8E237AE65C00D82D24 /* PeripheralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F9A8D237AE65C00D82D24 /* PeripheralTableViewCell.swift */; };
+		D04F9A90237AEB5A00D82D24 /* PeripheralTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04F9A8F237AEB5A00D82D24 /* PeripheralTableViewCell.xib */; };
 		D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA78226769E900624438 /* NSLayoutConstraint+Multiplier.swift */; };
 		D05BAA7B226769F300624438 /* UICollectionView+CellReuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA7A226769F300624438 /* UICollectionView+CellReuse.swift */; };
 		D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA7C22676A0C00624438 /* UIView+NibLoadable.swift */; };
@@ -676,6 +680,10 @@
 		D03BA8632277385E005B3E33 /* TipsModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipsModalView.xib; sourceTree = "<group>"; };
 		D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRCollectionView.swift; sourceTree = "<group>"; };
 		D03BA87522783D17005B3E33 /* RRCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		D04F9A89237AC69300D82D24 /* PeripheralSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralSelector.swift; sourceTree = "<group>"; };
+		D04F9A8B237AC6A900D82D24 /* PeripheralSelector.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeripheralSelector.xib; sourceTree = "<group>"; };
+		D04F9A8D237AE65C00D82D24 /* PeripheralTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralTableViewCell.swift; sourceTree = "<group>"; };
+		D04F9A8F237AEB5A00D82D24 /* PeripheralTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeripheralTableViewCell.xib; sourceTree = "<group>"; };
 		D05BAA78226769E900624438 /* NSLayoutConstraint+Multiplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Multiplier.swift"; sourceTree = "<group>"; };
 		D05BAA7A226769F300624438 /* UICollectionView+CellReuse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+CellReuse.swift"; sourceTree = "<group>"; };
 		D05BAA7C22676A0C00624438 /* UIView+NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadable.swift"; sourceTree = "<group>"; };
@@ -1069,6 +1077,7 @@
 				09BD4C1A22C11A1C0046DB74 /* Confirm */,
 				0965766022AFEE5D00A50C8E /* DialpadInput */,
 				0972843D22B3950D007A7FE1 /* DriveDirectionSelector */,
+				D04F9A86237AC18D00D82D24 /* PeripheralSelector */,
 				099DA56F22B78698005DCD60 /* LEDSelector */,
 				0952387222A57131001C1CE1 /* OptionSelector */,
 				D0E3F89022B7D70000B4D9F2 /* ProgramDescription */,
@@ -1989,6 +1998,17 @@
 			path = Modal;
 			sourceTree = "<group>";
 		};
+		D04F9A86237AC18D00D82D24 /* PeripheralSelector */ = {
+			isa = PBXGroup;
+			children = (
+				D04F9A89237AC69300D82D24 /* PeripheralSelector.swift */,
+				D04F9A8B237AC6A900D82D24 /* PeripheralSelector.xib */,
+				D04F9A8D237AE65C00D82D24 /* PeripheralTableViewCell.swift */,
+				D04F9A8F237AEB5A00D82D24 /* PeripheralTableViewCell.xib */,
+			);
+			path = PeripheralSelector;
+			sourceTree = "<group>";
+		};
 		D05C64C6225F56C400B7BF4F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -2360,6 +2380,7 @@
 				2A50DA2E2292CFB000B3D74C /* GamerConfigurationView.xib in Resources */,
 				096479872268776200F68456 /* BuildRobotViewController.xib in Resources */,
 				2A78388622C0BF8700423991 /* motorTest.py in Resources */,
+				D04F9A8C237AC6A900D82D24 /* PeripheralSelector.xib in Resources */,
 				0938897922B24DD900292B32 /* uh_oh.mp3 in Resources */,
 				2ABDAF2622C4BD7200705756 /* GoogleService-Info.plist in Resources */,
 				0972844A22B3C520007A7FE1 /* VariableContextCell.xib in Resources */,
@@ -2387,6 +2408,7 @@
 				D0BF256C2282C6C100F08C9C /* BuildFinishedModalView.xib in Resources */,
 				2ABCB648229E912D0081B51B /* MenuTutorialViewController.xib in Resources */,
 				09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */,
+				D04F9A90237AEB5A00D82D24 /* PeripheralTableViewCell.xib in Resources */,
 				2A78388422C0BF6700423991 /* distanceTest.py in Resources */,
 				099DA57322B786B7005DCD60 /* LEDSelectorModalView.xib in Resources */,
 				0964798122686DE000F68456 /* WhoToBuildViewController.xib in Resources */,
@@ -2668,6 +2690,7 @@
 				091B98A8229830B500DCEEF4 /* DateFormatter.swift in Sources */,
 				2A7732082264A32200D7F38D /* ScreenAssembly.swift in Sources */,
 				D05C64DF225F5C4E00B7BF4F /* Rotation.swift in Sources */,
+				D04F9A8A237AC69300D82D24 /* PeripheralSelector.swift in Sources */,
 				D075EA3D22C602060003C183 /* ChallengeDetailContentProtocol.swift in Sources */,
 				D03BA85C2277384A005B3E33 /* ConnectionModalView.swift in Sources */,
 				D0A11084227B0BEB0064FBB6 /* ResizableCell.swift in Sources */,
@@ -2679,6 +2702,7 @@
 				2AFD41D222B90C3C00E29F74 /* FirmwareUpdate.swift in Sources */,
 				094FC5CE228C35E90085B407 /* GamerPadView.swift in Sources */,
 				0941075E2297E889000A658A /* ProgramSelectorViewController.swift in Sources */,
+				D04F9A8E237AE65C00D82D24 /* PeripheralTableViewCell.swift in Sources */,
 				D0BF25702282C6E000F08C9C /* PlayControllerViewController.swift in Sources */,
 				D0E3F89222B7D71A00B4D9F2 /* ProgramDescriptionModalView.swift in Sources */,
 				099FF24622C360D500CD9104 /* String+Base64.swift in Sources */,

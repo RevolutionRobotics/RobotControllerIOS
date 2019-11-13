@@ -11,11 +11,7 @@ import RevolutionRoboticsBlockly
 
 final class ProgramsViewController: BaseViewController {
     private enum ProgramSaveReason {
-        case newProgram
-        case edited
-        case navigateBack
-        case openProgram
-        case showCode
+        case newProgram, edited, navigateBack, openProgram, showCode
     }
 
     // MARK: - Constants
@@ -39,14 +35,13 @@ final class ProgramsViewController: BaseViewController {
         didSet {
             guard let selectedProgram = selectedProgram else { return }
             UserDefaults.standard.set(selectedProgram.id, forKey: UserDefaults.Keys.mostRecentProgram)
-            selectedProgramRobotId = selectedProgram.robotId
         }
     }
 
     var openedFromMenu = false
     var shouldDismissAfterSave = false
     private let blocklyViewController = BlocklyViewController()
-    private var selectedProgramRobotId: String?
+    private var selectedProgramRobot: UserRobot?
     private var programSaveReason = ProgramSaveReason.edited {
         didSet {
             blocklyViewController.saveProgram()
@@ -68,11 +63,9 @@ extension ProgramsViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         if selectedProgram != nil {
             prefillProgram()
         }
-
         setupButtons()
     }
 }
@@ -81,7 +74,6 @@ extension ProgramsViewController {
 extension ProgramsViewController {
     private func setupBlocklyViewController() {
         blocklyViewController.setup(blocklyBridgeDelegate: self)
-
         containerView.addSubview(blocklyViewController.view)
         blocklyViewController.view.anchorToSuperview()
         addChild(blocklyViewController)
@@ -91,22 +83,22 @@ extension ProgramsViewController {
     private func loadMostRecentProgram() {
         let mostRecentProgramId = UserDefaults.standard
             .string(forKey: UserDefaults.Keys.mostRecentProgram)
-
-        if let program = realmService.getProgram(id: mostRecentProgramId) {
-            selectedProgram = program
-            blocklyViewController.loadProgram(xml: program.xml.base64Decoded ?? "")
-            prefillProgram()
-            setupButtons()
-        } else {
+        guard let program = realmService.getProgram(id: mostRecentProgramId) else {
             selectRobot()
+            return
         }
+
+        selectedProgramRobot = realmService.getRobot(program.robotId)
+        selectedProgram = program
+        blocklyViewController.loadProgram(xml: program.xml.base64Decoded ?? "")
+        prefillProgram()
+        setupButtons()
     }
 
     private func setupButtons() {
         programNameButton.setBorder(fillColor: .clear)
         programCodeButton.setBorder(fillColor: .clear)
         saveProgramButton.setBorder(fillColor: .clear)
-
         guard !openedFromMenu else {
             newProgramButton.setBorder(fillColor: .clear)
             openProgramButton.setBorder(fillColor: .clear)
@@ -115,7 +107,6 @@ extension ProgramsViewController {
 
         newProgramButton.isHidden = true
         openProgramButton.isHidden = true
-
         NSLayoutConstraint.activate([
             saveProgramButton.trailingAnchor.constraint(equalTo: newProgramButton.trailingAnchor)
         ])
@@ -124,15 +115,17 @@ extension ProgramsViewController {
     private func prefillProgram() {
         guard let program = selectedProgram else { return }
         programNameButton.setTitle(program.name, for: .normal)
+        selectedProgramRobot = realmService.getRobot(program.robotId)
     }
 }
 
 // MARK: - Private methods
 extension ProgramsViewController {
     private func saveProgram() {
-        guard let program = selectedProgram else {
-            return
-        }
+        guard
+            let program = selectedProgram,
+            let robotId = selectedProgramRobot?.id
+        else { return }
 
         if let programDataModel = realmService.getProgram(id: program.id) {
             realmService.updateObject {
@@ -141,11 +134,12 @@ extension ProgramsViewController {
                 programDataModel.customDescription = program.customDescription
                 programDataModel.xml = program.xml
                 programDataModel.python = program.python
+                programDataModel.robotId = robotId
             }
         } else {
+            program.robotId = robotId
             realmService.savePrograms(programs: [program])
         }
-
         prefillProgram()
         setupButtons()
     }
@@ -227,7 +221,6 @@ extension ProgramsViewController {
         default:
             return
         }
-
         presentModal(with: confirmModal)
     }
 
@@ -252,22 +245,18 @@ extension ProgramsViewController {
 
     private func onSavePromptDismissed(xmlCode: String, callback: Callback) {
         let isDefaultProgram = xmlCode == Constants.defaultXMLCode
-
         guard let selectedProgram = selectedProgram else {
             (isDefaultProgram ? callback : confirmLeave)()
             return
         }
-
         let replaced =
             selectedProgram.xml.base64Decoded?.replacingPattern(regexPattern: Constants.blocklyElementIdRegex)
         let isXmlModified = replaced != xmlCode.replacingPattern(regexPattern: Constants.blocklyElementIdRegex)
-
         (isXmlModified ? confirmLeave : callback)()
     }
 
     private func canBeOverwritten(name: String?) -> Bool {
         guard let name = name else { return true }
-
         return !realmService.getPrograms().contains(where: { $0.name == name && !$0.remoteId.isEmpty })
     }
 
@@ -278,7 +267,7 @@ extension ProgramsViewController {
             guard let `self` = self else { return }
 
             self.dismissModalViewController()
-            self.selectedProgramRobotId = robot.id
+            self.selectedProgramRobot = robot
         }
         presentUndismissableModal(with: robotsView, animated: true)
     }
@@ -286,14 +275,57 @@ extension ProgramsViewController {
 
 // MARK: - BlocklyBridgeDelegate
 extension ProgramsViewController: BlocklyBridgeDelegate {
+    func motorSelector(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
+        let mapping = realmService.getConfiguration(id: selectedProgramRobot?.configId)?.mapping
+        guard let motors = mapping?.motors.filter({ $0?.type == MotorDataModel.Constants.motor }) else {
+            callback?(inputHandler.defaultInput)
+            return
+        }
+        let motorSelector = PeripheralSelector.instatiate()
+        motorSelector.items = motors.compactMap({ $0?.variableName })
+        motorSelector.selectedIndex = motorSelector.items?.firstIndex(where: { $0 == inputHandler.defaultInput })
+        motorSelector.setup(
+            titled: inputHandler.title,
+            emptyText: ProgramsKeys.InputSelectionDialog.noMotor.translate())
+        motorSelector.callback = { [weak self] motorIndex in
+            callback?(motors[motorIndex]?.variableName)
+            self?.dismiss(animated: true, completion: nil)
+        }
+        presentModal(with: motorSelector, onDismissed: { callback?(nil) })
+    }
+
+    func sensorSelector(_ inputHandler: InputHandler, isBumper: Bool, callback: ((String?) -> Void)?) {
+        let mapping = realmService.getConfiguration(id: selectedProgramRobot?.configId)?.mapping
+        guard let sensors = mapping?.sensors.compactMap({ $0 }) else {
+            callback?(inputHandler.defaultInput)
+            return
+        }
+        let sensorSelectorSelector = PeripheralSelector.instatiate()
+        let bumperType = SensorDataModel.Constants.bumper
+        sensorSelectorSelector.items = sensors
+            .filter({ ($0.type == bumperType && isBumper)
+                || ($0.type != bumperType && !isBumper) })
+            .map({ $0.variableName })
+        sensorSelectorSelector.selectedIndex = sensorSelectorSelector.items?.firstIndex(where: {
+            $0 == inputHandler.defaultInput
+        })
+        let strings = ProgramsKeys.InputSelectionDialog.self
+        sensorSelectorSelector.setup(
+            titled: inputHandler.title,
+            emptyText: (isBumper ? strings.noBumper : strings.noSensor).translate())
+        sensorSelectorSelector.callback = { [weak self] sensorIndex in
+            callback?(sensors[sensorIndex].variableName)
+            self?.dismiss(animated: true, completion: nil)
+        }
+        presentModal(with: sensorSelectorSelector, onDismissed: { callback?(nil) })
+    }
+
     func alert(message: String, callback: (() -> Void)?) {
         let alertView = AlertModalView.instatiate()
-
         alertView.setup(message: message) { [weak self] in
             callback?()
             self?.dismiss(animated: true, completion: nil)
         }
-
         presentModal(with: alertView, onDismissed: { callback?() })
     }
 
@@ -305,40 +337,33 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
             callback?(confirmed)
             self?.dismiss(animated: true, completion: nil)
         }
-
         presentModal(with: confirmView, onDismissed: { callback?(false) })
     }
 
     func optionSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
         let optionSelectorView = OptionSelectorModalView.instatiate()
-
         optionSelectorView.setup(optionSelector: optionSelector) { [weak self] option in
             callback?(option.key)
             self?.dismiss(animated: true, completion: nil)
         }
-
         presentModal(with: optionSelectorView, onDismissed: { callback?(nil) })
     }
 
     func driveDirectionSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
         let driveDirectionSelectorView = DriveDirectionSelectorModalView.instatiate()
-
         driveDirectionSelectorView.setup(optionSelector: optionSelector) { [weak self] option in
             callback?(option.key)
             self?.dismiss(animated: true, completion: nil)
         }
-
         presentModal(with: driveDirectionSelectorView, onDismissed: { callback?(nil) })
     }
 
     func sliderHandler(_ sliderHandler: SliderHandler, callback: ((String?) -> Void)?) {
         let sliderInputView = SliderInputModalView.instatiate()
-
         sliderInputView.setup(sliderHandler: sliderHandler) { [weak self] value in
             callback?(value)
             self?.dismiss(animated: true, completion: nil)
         }
-
         presentModal(with: sliderInputView, onDismissed: { callback?(nil) })
     }
 
@@ -350,7 +375,6 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
             callback?(led)
             self?.dismiss(animated: true, completion: nil)
         }
-
         presentModal(with: ledSelectorView, onDismissed: { callback?(nil) })
     }
 
@@ -362,41 +386,34 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
             callback?(leds)
             self?.dismiss(animated: true, completion: nil)
         }
-
         presentModal(with: ledSelectorView, onDismissed: { callback?(nil) })
     }
 
     func colorSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
         let colorSelector = ColorSelectorModalView.instatiate()
-
         colorSelector.setup(optionSelector: optionSelector) { [weak self] color in
             callback?(color)
             self?.dismiss(animated: true, completion: nil)
         }
-
         presentModal(with: colorSelector, onDismissed: { callback?(nil) })
     }
 
     func audioSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
         let soundPicker = SoundPickerModalView.instatiate()
-
         soundPicker.setup(optionSelector: optionSelector) { [weak self] sound in
             callback?(sound)
             self?.dismiss(animated: true, completion: nil)
         }
-
         presentModal(with: soundPicker, onDismissed: { callback?(nil) })
     }
 
     func numberInput(_ inputHandler: InputHandler, callback: ((String?) -> Void)?) {
         let dialpadInputViewController = AppContainer.shared.container.unwrappedResolve(DialpadInputViewController.self)
-
         presentViewControllerModally(
             dialpadInputViewController,
             transitionStyle: .crossDissolve,
             presentationStyle: .overFullScreen
         )
-
         dialpadInputViewController.setup(inputHandler: inputHandler) { [weak self] text in
             callback?(text)
             self?.dismiss(animated: true, completion: nil)
@@ -432,7 +449,6 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
             self?.dismiss(animated: true, completion: nil)
             callback?(HelpAction())
         }
-
         presentModal(with: blockContext, onDismissed: {
             callback?(AddCommentAction(payload: blockContext.comment))
         })
@@ -440,18 +456,15 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
 
     func variableContext(_ optionSelector: OptionSelector, callback: ((VariableContextAction?) -> Void)?) {
         let variableContextView = VariableContextModalView.instatiate()
-
         variableContextView.setup(optionSelector: optionSelector) { [weak self] variableAction in
             callback?(variableAction)
             self?.dismiss(animated: true, completion: nil)
         }
-
         presentModal(with: variableContextView, onDismissed: { callback?(nil) })
     }
 
     func onBlocklyLoaded() {
         guard let program = selectedProgram, let xml = program.xml.base64Decoded else { return }
-
         blocklyViewController.loadProgram(xml: xml)
     }
 
@@ -465,14 +478,12 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
                 programDataModel.variableNames.append(objectsIn: variableList)
             }
             programCompatibilityValidator.validate(program: programDataModel)
-
         } else {
             program.variableNames.removeAll()
             program.variableNames.append(objectsIn: variableList)
             saveProgram()
             programCompatibilityValidator.validate(program: program)
         }
-
     }
 
     func onPythonProgramSaved(pythonCode: String) {
@@ -486,7 +497,6 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
             presentModal(with: codeView)
         case .edited:
             guard let program = selectedProgram else { return }
-
             realmService.updateObject {
                 program.lastModified = Date()
                 program.python = pythonCode.base64Encoded ?? ""
@@ -494,7 +504,6 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
         default:
             return
         }
-
         isPythonExported = true
         if isXMLExported && isPythonExported && shouldDismissAfterSave {
             isXMLExported = false
@@ -522,7 +531,6 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
         default:
             return
         }
-
         isXMLExported = true
         if isXMLExported && isPythonExported && shouldDismissAfterSave {
             isXMLExported = false

@@ -101,6 +101,10 @@ extension RealmService: RealmServiceInterface {
         return robots
     }
 
+    func getRobot(_ id: String) -> UserRobot? {
+        return getRobots().first(where: { $0.id == id })
+    }
+
     func saveRobot(_ robot: UserRobot, shouldUpdate: Bool = true) {
         realmConnector.save(object: robot, shouldUpdate: shouldUpdate)
     }

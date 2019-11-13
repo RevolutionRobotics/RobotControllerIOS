@@ -22,8 +22,15 @@ final class ChallengeDetailHorizontalContent: UIView {
 // MARK: - ChallengeDetailContent
 extension ChallengeDetailHorizontalContent: ChallengeDetailContentProtocol {
     func setup(with step: ChallengeStep) {
-        descriptionLabel.attributedText = NSAttributedString.attributedString(from: step.description.text,
-                                                                              fontSize: Constants.fontSize)
+        guard let data = step.description.text.data(using: .utf8) else { return }
+
+        do {
+            try descriptionLabel.attributedText = NSAttributedString(data: data, options: [:], documentAttributes: nil)
+            descriptionLabel.font = UIFont(name: descriptionLabel.font.familyName, size: Constants.fontSize)
+        } catch let err {
+            fatalError(err.localizedDescription)
+        }
+
         challengeImageView.downloadImage(googleStorageURL: step.image)
     }
 }
