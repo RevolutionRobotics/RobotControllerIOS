@@ -292,6 +292,8 @@
 		D04F9A8C237AC6A900D82D24 /* PeripheralSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04F9A8B237AC6A900D82D24 /* PeripheralSelector.xib */; };
 		D04F9A8E237AE65C00D82D24 /* PeripheralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F9A8D237AE65C00D82D24 /* PeripheralTableViewCell.swift */; };
 		D04F9A90237AEB5A00D82D24 /* PeripheralTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04F9A8F237AEB5A00D82D24 /* PeripheralTableViewCell.xib */; };
+		D04F9A92237C311E00D82D24 /* ProgramListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F9A91237C311E00D82D24 /* ProgramListTableViewCell.swift */; };
+		D04F9A94237C35E600D82D24 /* ProgramListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04F9A93237C35E500D82D24 /* ProgramListTableViewCell.xib */; };
 		D05BAA79226769E900624438 /* NSLayoutConstraint+Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA78226769E900624438 /* NSLayoutConstraint+Multiplier.swift */; };
 		D05BAA7B226769F300624438 /* UICollectionView+CellReuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA7A226769F300624438 /* UICollectionView+CellReuse.swift */; };
 		D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05BAA7C22676A0C00624438 /* UIView+NibLoadable.swift */; };
@@ -684,6 +686,8 @@
 		D04F9A8B237AC6A900D82D24 /* PeripheralSelector.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeripheralSelector.xib; sourceTree = "<group>"; };
 		D04F9A8D237AE65C00D82D24 /* PeripheralTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralTableViewCell.swift; sourceTree = "<group>"; };
 		D04F9A8F237AEB5A00D82D24 /* PeripheralTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeripheralTableViewCell.xib; sourceTree = "<group>"; };
+		D04F9A91237C311E00D82D24 /* ProgramListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramListTableViewCell.swift; sourceTree = "<group>"; };
+		D04F9A93237C35E500D82D24 /* ProgramListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramListTableViewCell.xib; sourceTree = "<group>"; };
 		D05BAA78226769E900624438 /* NSLayoutConstraint+Multiplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Multiplier.swift"; sourceTree = "<group>"; };
 		D05BAA7A226769F300624438 /* UICollectionView+CellReuse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+CellReuse.swift"; sourceTree = "<group>"; };
 		D05BAA7C22676A0C00624438 /* UIView+NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadable.swift"; sourceTree = "<group>"; };
@@ -2162,6 +2166,8 @@
 			children = (
 				D0E3F88722B786B800B4D9F2 /* ProgramListModalView.swift */,
 				D0E3F88922B786BF00B4D9F2 /* ProgramListModalView.xib */,
+				D04F9A91237C311E00D82D24 /* ProgramListTableViewCell.swift */,
+				D04F9A93237C35E500D82D24 /* ProgramListTableViewCell.xib */,
 			);
 			path = ProgramsModal;
 			sourceTree = "<group>";
@@ -2358,6 +2364,7 @@
 				09105AA12280581F00AB7B72 /* PortConfigurationItemView.xib in Resources */,
 				D0E3F88422B3E9ED00B4D9F2 /* TextInputModalView.xib in Resources */,
 				0938897822B24DD900292B32 /* bell.mp3 in Resources */,
+				D04F9A94237C35E600D82D24 /* ProgramListTableViewCell.xib in Resources */,
 				096479892268797F00F68456 /* Barlow-Bold.ttf in Resources */,
 				D0049A432270ABA1007FA256 /* AvailableRobotsTableViewCell.xib in Resources */,
 				2AC7619222D33A09005FED04 /* Barlow-MediumItalic.ttf in Resources */,
@@ -2654,6 +2661,7 @@
 				D0B75F8C2329302800FD1048 /* UserTypeSelectionViewController.swift in Sources */,
 				D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */,
 				2AD858E02296B9EB0082CDC0 /* ControllerDataModel.swift in Sources */,
+				D04F9A92237C311E00D82D24 /* ProgramListTableViewCell.swift in Sources */,
 				D0E3F88822B786B800B4D9F2 /* ProgramListModalView.swift in Sources */,
 				2AF8C75F2280659000CE1ACB /* FileManager+Documents.swift in Sources */,
 				D0D00FE822AFA84C00274241 /* ButtonlessProgramsViewController.swift in Sources */,

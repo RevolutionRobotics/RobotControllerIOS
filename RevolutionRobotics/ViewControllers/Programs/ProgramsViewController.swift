@@ -226,7 +226,7 @@ extension ProgramsViewController {
 
     private func openProgramModal() {
         let programsView = ProgramListModalView.instatiate()
-        programsView.setup(with: realmService.getPrograms())
+        programsView.setup(with: realmService.getPrograms(), robots: realmService.getRobots())
         programsView.selectedProgramCallback = { [weak self] program in
             guard let `self` = self else { return }
 

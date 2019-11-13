@@ -20,11 +20,8 @@ final class ProgramListModalView: UIView {
 
     // MARK: - Variables
     var selectedProgramCallback: CallbackType<ProgramDataModel>?
-    private var programs: [ProgramDataModel] = [] {
-        didSet {
-            programsTableView.reloadData()
-        }
-    }
+    private var robots: [UserRobot] = []
+    private var programs: [ProgramDataModel] = []
 }
 
 // MARK: - View lifecycle
@@ -34,7 +31,7 @@ extension ProgramListModalView {
 
         programsTableView.delegate = self
         programsTableView.dataSource = self
-        programsTableView.register(ProgramSelectorTableViewCell.self)
+        programsTableView.register(ProgramListTableViewCell.self)
         titleLabel.text = ProgramsKeys.Main.title.translate().uppercased()
         addShadow()
     }
@@ -42,9 +39,12 @@ extension ProgramListModalView {
 
 // MARK: - Setup
 extension ProgramListModalView {
-    func setup(with programs: [ProgramDataModel]) {
+    func setup(with programs: [ProgramDataModel], robots: [UserRobot]) {
         let asd = programs.sorted(by: { $0.lastModified > $1.lastModified })
         self.programs = asd
+        self.robots = robots
+
+        programsTableView.reloadData()
     }
 }
 
@@ -70,8 +70,11 @@ extension ProgramListModalView: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: ProgramSelectorTableViewCell = programsTableView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.configure(program: programs[indexPath.row])
+        let cell: ProgramListTableViewCell = programsTableView.dequeueReusableCell(forIndexPath: indexPath)
+        let currentProgram = programs[indexPath.row]
+        let currentRobot = robots.first(where: { $0.id == currentProgram.robotId })
+        cell.setup(with: currentProgram.name, robotName: currentRobot?.customName)
+
         return cell
     }
 }
