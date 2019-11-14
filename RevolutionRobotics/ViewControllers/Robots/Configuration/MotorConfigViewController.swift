@@ -318,13 +318,15 @@ extension MotorConfigViewController {
     }
 
     private func startPortTest() {
-        var testCode = ""
+        let testCode: String
         switch selectedMotorState {
         case .motor(let rotation):
             testCode = testCodeService.motorTestCode(for: portNumber, direction: rotation)
+        case .motorWithoutRotation:
+            testCode = testCodeService.motorTestCode(for: portNumber, direction: nil)
         case .drive(let side, let rotation):
             testCode = testCodeService.drivatrainTestCode(for: portNumber, direction: rotation, side: side)
-        default: break
+        default: testCode = ""
         }
 
         bluetoothService.testKit(data: testCode, onCompleted: nil)

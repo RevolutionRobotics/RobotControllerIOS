@@ -9,6 +9,6 @@
 protocol PortTestCodeServiceInterface {
     func bumperTestCode(for portNumber: Int) -> String
     func distanceTestCode(for portNumber: Int) -> String
-    func motorTestCode(for portNumber: Int, direction: Rotation) -> String
+    func motorTestCode(for portNumber: Int, direction: Rotation?) -> String
     func drivatrainTestCode(for portNumber: Int, direction: Rotation, side: Side) -> String
 }
