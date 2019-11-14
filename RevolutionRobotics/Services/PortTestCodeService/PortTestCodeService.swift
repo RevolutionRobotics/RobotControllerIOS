@@ -52,7 +52,7 @@ extension PortTestCodeService: PortTestCodeServiceInterface {
         }
     }
 
-    func motorTestCode(for portNumber: Int, direction: Rotation) -> String {
+    func motorTestCode(for portNumber: Int, direction: Rotation?) -> String {
         guard let codePath = Bundle.main.path(
             forResource: Constants.motorTestCodeFileName,
             ofType: Constants.pythonExtension)
