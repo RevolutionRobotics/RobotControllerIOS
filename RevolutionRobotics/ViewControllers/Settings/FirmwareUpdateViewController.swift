@@ -21,16 +21,15 @@ final class FirmwareUpdateViewController: BaseViewController {
 
     // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
-    private let checkForUpdatesModal = CheckForUpdateModalView.instatiate()
     private var currentFirmware: String = ""
     private var updateURL: String = ""
     private var updateVersion: String = ""
+    private var brainId: String = ""
     private var writeInterrupted = false
 }
 
 // MARK: - View lifecycle
 extension FirmwareUpdateViewController {
-    // swiftlint:disable cyclomatic_complexity
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,43 +44,46 @@ extension FirmwareUpdateViewController {
 
         if bluetoothService.connectedDevice != nil {
             bluetoothService.getSystemId(onCompleted: { [weak self] result in
+                guard let `self` = self else { return }
                 switch result {
                 case .success(let systemId):
-                    self?.brainIDTitleLabel.text = systemId
-                    self?.checkForUpdatesModal.brainId = systemId
-                    self?.connectedBrainView.isHidden = false
+                    self.brainIDTitleLabel.text = systemId
+                    self.brainId = systemId
+                    self.connectedBrainView.isHidden = false
                 case .failure:
                     os_log("Error: Failed to fetch system ID from robot via bluetooth!")
                 }
             })
         }
+    }
 
-        checkForUpdatesModal.buttonHandler = { [weak self] status in
+    private func addButtonHandler(to modal: CheckForUpdateModalView) {
+        modal.buttonHandler = { [weak self] status in
+            guard let `self` = self else { return }
             switch status {
             case .initial:
                 if Reachability.isConnectedToNetwork() {
-                    self?.firebaseService.getFirmwareUpdate(completion: { result in
+                    self.firebaseService.getFirmwareUpdate(completion: { result in
                         switch result {
                         case .success(let updates):
-                            if self?.currentFirmware != updates.first?.fileName {
-                                self?.checkForUpdatesModal.status = .updateNeeded((updates.first?.fileName)!)
-                                self?.updateURL = (updates.first?.url)!
-                                self?.updateVersion = (updates.first?.fileName)!
+                            if self.currentFirmware != updates.first?.fileName {
+                                modal.status = .updateNeeded((updates.first?.fileName)!)
+                                self.updateURL = (updates.first?.url)!
+                                self.updateVersion = (updates.first?.fileName)!
                             } else {
-                                self?.checkForUpdatesModal.status = .updated
+                                modal.status = .updated
                             }
                         case .failure:
                             os_log("Error while getting firmware update!")
                         }
                     })
                 } else {
-                    self?.presentedViewController?.present(UIAlertController.errorAlert(type: .network), animated: true)
-
+                    self.presentedViewController?.present(UIAlertController.errorAlert(type: .network), animated: true)
                 }
             case .updateNeeded:
-                self?.firebaseService.downloadFirmwareUpdate(
-                    resourceURL: (self?.updateURL)!,
-                    completion: { result in
+                self.firebaseService.downloadFirmwareUpdate(
+                    resourceURL: (self.updateURL),
+                    completion: { [weak self] result in
                         switch result {
                         case .success(let data):
                             self?.uploadFramework(data: data)
@@ -90,7 +92,7 @@ extension FirmwareUpdateViewController {
                         }
                 })
             case .updated:
-                self?.dismissModalViewController()
+                self.dismissModalViewController()
             }
         }
     }
@@ -111,15 +113,16 @@ extension FirmwareUpdateViewController {
                 data: data,
                 version: self.updateVersion,
                 onCompleted: { [weak self] result in
+                    guard let `self` = self else { return }
                     switch result {
                     case .success:
-                        self?.dismissModalViewController()
-                        if !(self?.writeInterrupted)! {
+                        self.dismissModalViewController()
+                        if !self.writeInterrupted {
                             let successModalView = SuccessfulUpdateModalView.instatiate()
                             successModalView.doneCallback = { [weak self] in
                                 self?.dismissModalViewController()
                             }
-                            self?.presentModal(with: successModalView)
+                            self.presentModal(with: successModalView)
                         }
                     case .failure:
                         os_log("Error while sending firmware update to the robot!")
@@ -135,11 +138,12 @@ extension FirmwareUpdateViewController {
                            negativeButtonTitle: ModalKeys.FirmwareUpdate.frameworkStopConfirmNo.translate(),
                            positiveButtonTitle: ModalKeys.FirmwareUpdate.frameworkStopConfirmYes.translate())
         confirmModal.confirmSelected = { [weak self] positive in
+            guard let `self` = self else { return }
             if positive {
-                self?.writeInterrupted = true
-                self?.bluetoothService.stopWrite()
+                self.writeInterrupted = true
+                self.bluetoothService.stopWrite()
             } else {
-                self?.dismiss(animated: true, completion: {
+                self.dismiss(animated: true, completion: { [weak self] in
                     let downloadView = UpdatingFirmwareModalView.instatiate()
                     self?.presentModal(
                         with: downloadView,
@@ -161,13 +165,11 @@ extension FirmwareUpdateViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         UIApplication.shared.isIdleTimerDisabled = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
         UIApplication.shared.isIdleTimerDisabled = false
     }
 }
@@ -188,7 +190,7 @@ extension FirmwareUpdateViewController {
                 switch result {
                 case .success(let systemId):
                     self?.brainIDTitleLabel.text = systemId
-                    self?.checkForUpdatesModal.brainId = systemId
+                    self?.brainId = systemId
                 case .failure:
                     os_log("Error: Failed to fetch system ID from robot via bluetooth!")
                 }
@@ -235,61 +237,65 @@ extension FirmwareUpdateViewController {
 // MARK: - Actions
 extension FirmwareUpdateViewController {
     @IBAction private func checkForUpdatesButtonTapped(_ sender: Any) {
-        getDeviceInfo()
+        let checkForUpdatesModal = CheckForUpdateModalView.instatiate()
+        checkForUpdatesModal.brainId = brainId
+        addButtonHandler(to: checkForUpdatesModal)
+        getDeviceInfo(for: checkForUpdatesModal)
+
         presentModal(with: checkForUpdatesModal)
     }
 }
 
 extension FirmwareUpdateViewController {
-    private func getDeviceInfo() {
-        getSerialNumber()
-        getManufacturerName()
-        getHardwareRevision()
-        getSoftwareRevision()
-        getModelNumber()
-        getPrimaryBatteryPercentage()
-        getMotorBatteryPercentage()
+    private func getDeviceInfo(for modal: CheckForUpdateModalView) {
+        getSerialNumber(for: modal)
+        getManufacturerName(for: modal)
+        getHardwareRevision(for: modal)
+        getSoftwareRevision(for: modal)
+        getModelNumber(for: modal)
+        getPrimaryBatteryPercentage(for: modal)
+        getMotorBatteryPercentage(for: modal)
     }
 
-    private func getSerialNumber() {
-        bluetoothService.getSerialNumber(onCompleted: { [weak self] result in
+    private func getSerialNumber(for modal: CheckForUpdateModalView) {
+        bluetoothService.getSerialNumber(onCompleted: { result in
             switch result {
             case .success(let serialNumber):
-                self?.checkForUpdatesModal.serialNumber = serialNumber
+                modal.serialNumber = serialNumber
             case .failure:
                 os_log("Error: Failed to fetch serial number from robot via bluetooth!")
             }
         })
     }
 
-    private func getManufacturerName() {
-        bluetoothService.getManufacturerName(onCompleted: { [weak self] result in
+    private func getManufacturerName(for modal: CheckForUpdateModalView) {
+        bluetoothService.getManufacturerName(onCompleted: { result in
             switch result {
             case .success(let manufacturerName):
-                self?.checkForUpdatesModal.manufacturerName = manufacturerName
+                modal.manufacturerName = manufacturerName
             case .failure:
                 os_log("Error: Failed to fetch manufacturer name from robot via bluetooth!")
             }
         })
     }
 
-    private func getHardwareRevision() {
-        bluetoothService.getHardwareRevision(onCompleted: { [weak self] result in
+    private func getHardwareRevision(for modal: CheckForUpdateModalView) {
+        bluetoothService.getHardwareRevision(onCompleted: { result in
             switch result {
             case .success(let hardwareRevision):
-                self?.checkForUpdatesModal.hardwareVersion = hardwareRevision
+                modal.hardwareVersion = hardwareRevision
             case .failure:
                 os_log("Error: Failed to fetch hardware revision from robot via bluetooth!")
             }
         })
     }
 
-    private func getSoftwareRevision() {
+    private func getSoftwareRevision(for modal: CheckForUpdateModalView) {
         bluetoothService.getSoftwareRevision(onCompleted: { [weak self] result in
             switch result {
             case .success(let softwareRevision):
-                self?.checkForUpdatesModal.softwareVersion = softwareRevision
-                self?.checkForUpdatesModal.firmwareVersion = softwareRevision
+                modal.softwareVersion = softwareRevision
+                modal.firmwareVersion = softwareRevision
                 self?.currentFirmware = softwareRevision
             case .failure:
                 os_log("Error: Failed to fetch software revision from robot via bluetooth!")
@@ -297,33 +303,33 @@ extension FirmwareUpdateViewController {
         })
     }
 
-    private func getModelNumber() {
-        bluetoothService.getModelNumber(onCompleted: { [weak self] result in
+    private func getModelNumber(for modal: CheckForUpdateModalView) {
+        bluetoothService.getModelNumber(onCompleted: { result in
             switch result {
             case .success(let modelNumber):
-                self?.checkForUpdatesModal.modelNumber = modelNumber
+                modal.modelNumber = modelNumber
             case .failure:
                 os_log("Error: Failed to fetch model number from robot via bluetooth!")
             }
         })
     }
 
-    private func getPrimaryBatteryPercentage() {
-        bluetoothService.getPrimaryBatteryPercentage(onCompleted: { [weak self] result in
+    private func getPrimaryBatteryPercentage(for modal: CheckForUpdateModalView) {
+        bluetoothService.getPrimaryBatteryPercentage(onCompleted: { result in
             switch result {
             case .success(let percentage):
-                self?.checkForUpdatesModal.mainBattery = percentage
+                modal.mainBattery = percentage
             case .failure:
                 os_log("Error: Failed to fetch primary battery percentage from robot via bluetooth!")
             }
         })
     }
 
-    private func getMotorBatteryPercentage() {
-        bluetoothService.getMotorBatteryPercentage(onCompleted: { [weak self] result in
+    private func getMotorBatteryPercentage(for modal: CheckForUpdateModalView) {
+        bluetoothService.getMotorBatteryPercentage(onCompleted: { result in
             switch result {
             case .success(let percentage):
-                self?.checkForUpdatesModal.motorBattery = percentage
+                modal.motorBattery = percentage
             case .failure:
                 os_log("Error: Failed to fetch motor battery percentage from robot via bluetooth!")
             }
