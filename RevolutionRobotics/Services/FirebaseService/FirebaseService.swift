@@ -13,12 +13,25 @@ final class FirebaseService {
     // MARK: - Properties
     private let databaseRef: DatabaseReference
     private let storageRef: StorageReference
+    private var connectionState: ConnectionState = .offline
+
+    // MARK: - Connection state
+    enum ConnectionState {
+        case online, offline
+    }
 
     init() {
-        Database.database().isPersistenceEnabled = true
-        databaseRef = Database.database().reference()
+        let database = Database.database()
+        database.isPersistenceEnabled = true
+        databaseRef = database.reference()
         databaseRef.keepSynced(true)
         storageRef = Storage.storage().reference()
+
+        database.reference(withPath: ".info/connected")
+            .observe(.value, with: { [weak self] snapshot in
+                let isOnline = snapshot.value as? Bool ?? false
+                self?.connectionState = isOnline ? .online : .offline
+            })
     }
 }
 
@@ -40,6 +53,10 @@ extension FirebaseService: FirebaseServiceInterface {
         getConfigurations(completion: nil)
         getControllers(completion: nil)
         getChallengeCategories(completion: nil)
+    }
+
+    func getConnectionState() -> ConnectionState {
+        return connectionState
     }
 
     func getMinVersion(completion: CallbackType<Result<Version, FirebaseError>>?) {
