@@ -108,6 +108,10 @@ extension RobotConfigurationViewController {
         if shouldPrefillConfiguration {
             refreshConfigurationData()
         }
+
+        if (selectedRobot?.customName ?? "").isEmpty {
+            renameTapped(self)
+        }
     }
 }
 
@@ -350,14 +354,12 @@ extension RobotConfigurationViewController {
 
     private func controllerButtonTapped(_ sender: Any) {
         reloadConfigurationView()
-
         guard
             let configurationView = padConfiguration.configurationView,
             let controllerType = controller?.type
         else { return }
 
         let toggledType: ControllerType = controllerType == ControllerType.gamer.rawValue ? .driver : .gamer
-
         configurationView.removeFromSuperview()
         padConfiguration.controllerType = toggledType
 
@@ -378,7 +380,6 @@ extension RobotConfigurationViewController {
 
     private func renameTapped(_ sender: Any) {
         guard let robot = selectedRobot else { return }
-
         let modal = SaveModalView.instatiate()
         modal.type = .configuration
         modal.name = robot.customName
@@ -495,9 +496,7 @@ extension RobotConfigurationViewController {
             customName: nil,
             customImage: nil,
             customDescription: nil)
-
         let defaultMapping = ControllerButtonMappingDataModel(b1: nil, b2: nil, b3: nil, b4: nil, b5: nil, b6: nil)
-
         let controllerId = UUID().uuidString
         let controller = ControllerDataModel(
             id: controllerId,
@@ -529,7 +528,6 @@ extension RobotConfigurationViewController {
     private func updateConfiguration(name: String, description: String?) {
         realmService.updateObject(closure: { [weak self] in
             guard let selectedRobot = self?.selectedRobot else { return }
-
             selectedRobot.customName = name
             selectedRobot.customDescription = description
         })
