@@ -10,6 +10,7 @@ import Foundation
 
 protocol FirebaseServiceInterface {
     func prefetchData(onError: CallbackType<Error>?)
+    func getConnectionState() -> FirebaseService.ConnectionState
     func getRobots(completion: CallbackType<Result<[Robot], FirebaseError>>?)
     func getBuildSteps(for robotId: String?, completion: CallbackType<Result<[BuildStep], FirebaseError>>?)
     func getMinVersion(completion: CallbackType<Result<Version, FirebaseError>>?)

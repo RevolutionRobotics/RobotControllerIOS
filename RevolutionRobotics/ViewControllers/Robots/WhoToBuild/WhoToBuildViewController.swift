@@ -43,16 +43,28 @@ final class WhoToBuildViewController: BaseViewController {
 // MARK: - Private methods
 extension WhoToBuildViewController {
     private func fetchRobots() {
+        guard firebaseService.getConnectionState() == .online else {
+            robots = []
+            hideLoading()
+            return
+        }
+
         firebaseService.getRobots { [weak self] result in
+            guard let `self` = self else { return }
+
             switch result {
             case .success(let robots):
-                self?.robots = robots
-                self?.loadingIndicator.stopAnimating()
-                self?.collectionView.isHidden = false
+                self.robots = robots
+                self.hideLoading()
             case .failure:
                 os_log("Error: Failed to fetch robots from Firebase!")
             }
         }
+    }
+
+    private func hideLoading() {
+        loadingIndicator.stopAnimating()
+        collectionView.isHidden = false
     }
 }
 
