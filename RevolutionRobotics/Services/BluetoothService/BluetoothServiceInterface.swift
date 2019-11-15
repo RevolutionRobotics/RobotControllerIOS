@@ -15,8 +15,9 @@ extension Notification.Name {
     static let robotConnectionError = Notification.Name("robotConnectionError")
 }
 
-protocol BluetoothServiceInterface {
+protocol BluetoothServiceInterface: class {
     // MARK: - Properties
+    var firebaseService: FirebaseServiceInterface! { get set }
     var connectedDevice: Device? { get set }
     var isBluetoothPoweredOn: Bool { get }
 

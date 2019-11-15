@@ -43,6 +43,9 @@ extension ServiceAssembly {
     private func registerBluetoothService(to container: Container) {
         container
             .register(BluetoothServiceInterface.self, factory: { _ in return BluetoothService() })
+            .initCompleted({ (resolver, service) in
+                service.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
+            })
             .inObjectScope(.container)
     }
 

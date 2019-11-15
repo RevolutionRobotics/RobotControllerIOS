@@ -12,6 +12,7 @@ import CoreBluetooth
 
 final class BluetoothService: BluetoothServiceInterface {
     // MARK: - Properties
+    var firebaseService: FirebaseServiceInterface!
     var connectedDevice: Device?
     var isBluetoothPoweredOn: Bool {
         return discoverer.bluetoothRadioState == .poweredOn
@@ -41,9 +42,11 @@ final class BluetoothService: BluetoothServiceInterface {
         connector.connect(
             to: device,
             onConnected: { [weak self] in
+                guard let `self` = self else { return }
                 NotificationCenter.default.post(name: .robotConnected, object: nil)
-                self?.connectedDevice = device
-                self?.mostRecentlyConnectedDevice = device
+                self.connectedDevice = device
+                self.mostRecentlyConnectedDevice = device
+                self.firebaseService.registerDevice(named: device.name)
             },
             onDisconnected: { [weak self] in
                 NotificationCenter.default.post(name: .robotDisconnected, object: nil)

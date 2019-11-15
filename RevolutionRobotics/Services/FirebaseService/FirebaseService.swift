@@ -10,15 +10,20 @@ import Foundation
 import Firebase
 
 final class FirebaseService {
-    // MARK: - Properties
-    private let databaseRef: DatabaseReference
-    private let storageRef: StorageReference
-    private var connectionState: ConnectionState = .offline
+    // MARK: - Constants
+    enum Constants {
+        static let deviceNameKey = "robot_id"
+    }
 
     // MARK: - Connection state
     enum ConnectionState {
         case online, offline
     }
+
+    // MARK: - Properties
+    private let databaseRef: DatabaseReference
+    private let storageRef: StorageReference
+    private var connectionState: ConnectionState = .offline
 
     init() {
         let database = Database.database()
@@ -184,6 +189,10 @@ extension FirebaseService: FirebaseServiceInterface {
                 completion?(.failure(.invalidImageURL))
             }
         })
+    }
+
+    func registerDevice(named name: String) {
+        Analytics.setUserProperty(name, forName: Constants.deviceNameKey)
     }
 }
 
