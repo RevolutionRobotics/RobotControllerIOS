@@ -17,7 +17,7 @@ final class VariableContextCell: UITableViewCell {
 
     override var isSelected: Bool {
         didSet {
-            isSelected ? selectedViewState() : normalViewState()
+            updateViewCell()
         }
     }
 }
@@ -38,5 +38,17 @@ extension VariableContextCell {
         checkboxImageView.image = Image.Programs.Buttonless.checkboxNotChecked
         borderView.setBorder(fillColor: .clear, strokeColor: Color.brownishGrey)
         croppedView.backgroundColor = Color.brownishGrey
+    }
+
+    private func updateViewCell() {
+        (isSelected ? selectedViewState : normalViewState)()
+    }
+}
+
+// MARK: - View lifecycle
+extension VariableContextCell {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        updateViewCell()
     }
 }
