@@ -24,4 +24,5 @@ protocol FirebaseServiceInterface {
     func getChallengeCategories(completion: CallbackType<Result<[ChallengeCategory], FirebaseError>>?)
     func getFirmwareUpdate(completion: CallbackType<Result<[FirmwareUpdate], FirebaseError>>?)
     func downloadFirmwareUpdate(resourceURL: String, completion: CallbackType<Result<Data, FirebaseError>>?)
+    func registerDevice(named name: String)
 }
