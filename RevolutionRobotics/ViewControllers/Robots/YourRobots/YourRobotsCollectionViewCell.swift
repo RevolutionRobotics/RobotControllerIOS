@@ -105,11 +105,18 @@ extension YourRobotsCollectionViewCell {
 
     private func configureNewCard() {
         actionLabel.text = RobotsKeys.YourRobots.create.translate()
-        robotImageView.image = UIImage(named: "AddIcon")
+        robotImageView.translatesAutoresizingMaskIntoConstraints = false
+        robotImageView.image = UIImage(named: "build-new")
         statusImageView.image = nil
         lastModifiedLabel.text = nil
 
+        let scale: CGFloat = 2.0
+        let scaledWidth = robotImageView.frame.size.width * scale
+        let scaledHeight = robotImageView.frame.size.height * scale
+
         NSLayoutConstraint.activate([
+            robotImageView.widthAnchor.constraint(equalToConstant: scaledWidth),
+            robotImageView.heightAnchor.constraint(equalToConstant: scaledHeight),
             robotImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }

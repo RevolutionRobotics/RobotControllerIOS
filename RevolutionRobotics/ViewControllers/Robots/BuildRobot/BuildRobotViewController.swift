@@ -300,7 +300,7 @@ extension BuildRobotViewController {
         let robotId = UUID().uuidString
         let configId = UUID().uuidString
         let remoteConfiguration =
-            remoteConfigurations.first(where: { $0.id == (remoteRobotDataModel?.configurationId)! })!
+            remoteConfigurations.first(where: { $0.id == remoteRobotDataModel?.configurationId })!
         let localConfiguration = ConfigurationDataModel(id: configId, remoteConfiguration: remoteConfiguration)
 
         let controllers = remoteControllers

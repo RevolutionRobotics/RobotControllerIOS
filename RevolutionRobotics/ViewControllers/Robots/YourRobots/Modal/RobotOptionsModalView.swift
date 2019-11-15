@@ -79,7 +79,7 @@ extension RobotOptionsModalView {
     }
 
     private func setupRobotDetails() {
-        titleLabel.text = robot?.customName
+        titleLabel.text = robot?.customName ?? RobotsKeys.YourRobots.unnamed.translate()
         descriptionLabel.text = robot?.customDescription
         dateLabel.text = DateFormatter.string(from: robot?.lastModified, format: .yearMonthDay)
 

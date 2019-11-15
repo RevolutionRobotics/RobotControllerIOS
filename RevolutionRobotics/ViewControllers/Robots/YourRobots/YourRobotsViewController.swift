@@ -108,6 +108,7 @@ extension YourRobotsViewController {
     @objc private func handleCellLongPress(recognizer: UILongPressGestureRecognizer) {
         let point = recognizer.location(in: collectionView)
         if let indexPath = collectionView.indexPathForItem(at: point) {
+            guard indexPath.item != 0 else { return }
             presentRobotOptionsModal(with: indexPath)
         }
     }

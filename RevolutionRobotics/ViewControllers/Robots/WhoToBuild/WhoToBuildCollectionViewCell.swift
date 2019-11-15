@@ -54,14 +54,9 @@ extension WhoToBuildCollectionViewCell {
 
     func configureNew() {
         clockImageView.isHidden = true
-        robotNameLabel.text = "Build your own"
-        robotImageView.image = UIImage(named: "AddIcon")
+        robotNameLabel.text = RobotsKeys.Configure.title.translate()
+        robotImageView.image = UIImage(named: "build-your-own")?.rescaleContent(to: 0.75)
         buildTimeLabel.text = nil
-
-        NSLayoutConstraint.activate([
-            robotImageView.heightAnchor.constraint(equalToConstant: 60.0),
-            robotImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-        ])
     }
 
     override func set(multiplier: CGFloat) {

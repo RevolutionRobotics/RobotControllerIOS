@@ -17,6 +17,7 @@ enum RobotsKeys {
         static let continueEditing = "your_robots_continue_editing"
         static let underConstruction = "your_robots_under_construction"
         static let select = "your_robots_select"
+        static let unnamed = "your_robots_unnamed"
     }
 
     enum WhoToBuild {
