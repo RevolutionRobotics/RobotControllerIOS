@@ -327,6 +327,7 @@
 		D06F01D2228AFFA600AF73E5 /* FirmwareDownloadModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModalView.xib */; };
 		D06F01D7228B0B5B00AF73E5 /* SuccessfulUpdateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModalView.swift */; };
 		D06F01D9228B0B6300AF73E5 /* SuccessfulUpdateModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModalView.xib */; };
+		D0714445237EDD3C00ADB612 /* UIImage+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0714444237EDD3C00ADB612 /* UIImage+Size.swift */; };
 		D075EA2422C4F0510003C183 /* ChallengeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075EA2322C4F0510003C183 /* ChallengeType.swift */; };
 		D075EA2722C4FB160003C183 /* ChallengeDetailHorizontalContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075EA2622C4FB160003C183 /* ChallengeDetailHorizontalContent.swift */; };
 		D075EA2B22C4FB510003C183 /* ChallengeDetailPartListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075EA2A22C4FB510003C183 /* ChallengeDetailPartListContent.swift */; };
@@ -721,6 +722,7 @@
 		D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareDownloadModalView.xib; sourceTree = "<group>"; };
 		D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulUpdateModalView.swift; sourceTree = "<group>"; };
 		D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessfulUpdateModalView.xib; sourceTree = "<group>"; };
+		D0714444237EDD3C00ADB612 /* UIImage+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Size.swift"; sourceTree = "<group>"; };
 		D075EA2322C4F0510003C183 /* ChallengeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeType.swift; sourceTree = "<group>"; };
 		D075EA2622C4FB160003C183 /* ChallengeDetailHorizontalContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailHorizontalContent.swift; sourceTree = "<group>"; };
 		D075EA2A22C4FB510003C183 /* ChallengeDetailPartListContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailPartListContent.swift; sourceTree = "<group>"; };
@@ -1734,6 +1736,7 @@
 			isa = PBXGroup;
 			children = (
 				2AFAA11122663111002BE0A2 /* UIImage+Color.swift */,
+				D0714444237EDD3C00ADB612 /* UIImage+Size.swift */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -2552,6 +2555,7 @@
 				D0049A422270ABA1007FA256 /* AvailableRobotsTableViewCell.swift in Sources */,
 				D0241A1422B3BDCD005E8DB2 /* CodePreviewModalView.swift in Sources */,
 				2A18002D227AE5800082E801 /* ModalKeys.swift in Sources */,
+				D0714445237EDD3C00ADB612 /* UIImage+Size.swift in Sources */,
 				096333F32289A3F20029D87B /* JoystickScene.swift in Sources */,
 				2A3A759822954A6700ED9A1D /* RobotConfigurationViewController.swift in Sources */,
 				FE82435A2278968000DFDF67 /* RRNavigationController.swift in Sources */,

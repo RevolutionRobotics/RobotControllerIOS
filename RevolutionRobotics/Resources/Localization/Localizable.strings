@@ -75,6 +75,7 @@
 "your_robots_continue_editing" = "Continue editing";
 "your_robots_under_construction" = "under construction";
 "your_robots_select" = "Select Robot";
+"your_robots_unnamed" = "Unnamed Robot";
 
 // MARK: - Who to build
 "who_to_build_screen_title" = "Choose your robot to build!";
