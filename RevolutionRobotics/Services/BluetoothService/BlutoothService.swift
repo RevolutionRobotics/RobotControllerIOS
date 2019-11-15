@@ -53,6 +53,7 @@ final class BluetoothService: BluetoothServiceInterface {
                 self?.connectedDevice = nil
             },
             onError: { error in
+                error.report()
                 NotificationCenter.default.post(name: .robotConnectionError, object: error)
         })
     }
@@ -75,6 +76,7 @@ final class BluetoothService: BluetoothServiceInterface {
                 onCompleted?(.success("Success"))
         },
             onError: { error in
+                error.report()
                 onCompleted?(.failure(error))
         })
     }
@@ -82,17 +84,23 @@ final class BluetoothService: BluetoothServiceInterface {
     // MARK: - Device info
     func getPrimaryBatteryPercentage(onCompleted: CallbackType<Result<Int, Error>>?) {
         batteryInfo.getPrimaryBatteryPercentage(onComplete: { onCompleted?(.success($0)) },
-                                                onError: { onCompleted?(.failure($0)) })
+                                                onError: { error in
+                                                    error.report()
+                                                    onCompleted?(.failure(error)) })
     }
 
     func getMotorBatteryPercentage(onCompleted: CallbackType<Result<Int, Error>>?) {
         batteryInfo.getMotorBatteryPercentage(onComplete: { onCompleted?(.success($0)) },
-                                              onError: { onCompleted?(.failure($0)) })
+                                              onError: { error in
+                                                error.report()
+                                                onCompleted?(.failure(error)) })
     }
 
     func getSerialNumber(onCompleted: CallbackType<Result<String, Error>>?) {
         deviceInfo.getSerialNumber(onCompleted: { onCompleted?(.success($0)) },
-                                   onError: { onCompleted?(.failure($0)) })
+                                   onError: { error in
+                                    error.report()
+                                    onCompleted?(.failure(error)) })
     }
 
     func getManufacturerName(onCompleted: CallbackType<Result<String, Error>>?) {
@@ -102,22 +110,30 @@ final class BluetoothService: BluetoothServiceInterface {
 
     func getHardwareRevision(onCompleted: CallbackType<Result<String, Error>>?) {
         deviceInfo.getHardwareRevision(onCompleted: { onCompleted?(.success($0)) },
-                                       onError: { onCompleted?(.failure($0)) })
+                                       onError: { error in
+                                        error.report()
+                                        onCompleted?(.failure(error)) })
     }
 
     func getSoftwareRevision(onCompleted: CallbackType<Result<String, Error>>?) {
         deviceInfo.getSoftwareRevision(onCompleted: { onCompleted?(.success($0)) },
-                                       onError: { onCompleted?(.failure($0)) })
+                                       onError: { error in
+                                        error.report()
+                                        onCompleted?(.failure(error)) })
     }
 
     func getFirmwareRevision(onCompleted: CallbackType<Result<String, Error>>?) {
         deviceInfo.getFirmwareRevision(onCompleted: { onCompleted?(.success($0)) },
-                                       onError: { onCompleted?(.failure($0)) })
+                                       onError: { error in
+                                        error.report()
+                                        onCompleted?(.failure(error)) })
     }
 
     func getSystemId(onCompleted: CallbackType<Result<String, Error>>?) {
         deviceInfo.getSystemId(onCompleted: { onCompleted?(.success($0)) },
-                               onError: { onCompleted?(.failure($0)) })
+                               onError: { error in
+                                error.report()
+                                onCompleted?(.failure(error)) })
     }
 
     func getModelNumber(onCompleted: CallbackType<Result<String, Error>>?) {
@@ -129,6 +145,7 @@ final class BluetoothService: BluetoothServiceInterface {
         configuration.updateFramework(with: data,
                                       onSuccess: { onCompleted?(.success("Success")) },
                                       onError: { error in
+                                        error.report()
                                         onCompleted?(.failure(error))
         })
     }
@@ -165,6 +182,7 @@ final class BluetoothService: BluetoothServiceInterface {
                 onCompleted?(.success("Success"))
         },
             onError: { error in
+                error.report()
                 onCompleted?(.failure(error))
         })
     }
