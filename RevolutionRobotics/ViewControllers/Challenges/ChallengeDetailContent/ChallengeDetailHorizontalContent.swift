@@ -28,6 +28,7 @@ extension ChallengeDetailHorizontalContent: ChallengeDetailContentProtocol {
             try descriptionLabel.attributedText = NSAttributedString(data: data, options: [:], documentAttributes: nil)
             descriptionLabel.font = UIFont(name: descriptionLabel.font.familyName, size: Constants.fontSize)
         } catch let err {
+            err.report()
             fatalError(err.localizedDescription)
         }
 

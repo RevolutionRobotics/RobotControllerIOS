@@ -45,6 +45,7 @@ extension UIImageView {
         Storage.storage().reference(forURL: googleStorageURL).downloadURL { url, error in
             guard error == nil else {
                 completion?(.failure(FirebaseError.imageURLDownloadFailed(error!.localizedDescription)))
+                error?.report()
                 return
             }
 

@@ -328,6 +328,7 @@
 		D06F01D7228B0B5B00AF73E5 /* SuccessfulUpdateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModalView.swift */; };
 		D06F01D9228B0B6300AF73E5 /* SuccessfulUpdateModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModalView.xib */; };
 		D0714445237EDD3C00ADB612 /* UIImage+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0714444237EDD3C00ADB612 /* UIImage+Size.swift */; };
+		D0714448237F03E200ADB612 /* Error+Crashlytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0714447237F03E200ADB612 /* Error+Crashlytics.swift */; };
 		D075EA2422C4F0510003C183 /* ChallengeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075EA2322C4F0510003C183 /* ChallengeType.swift */; };
 		D075EA2722C4FB160003C183 /* ChallengeDetailHorizontalContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075EA2622C4FB160003C183 /* ChallengeDetailHorizontalContent.swift */; };
 		D075EA2B22C4FB510003C183 /* ChallengeDetailPartListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075EA2A22C4FB510003C183 /* ChallengeDetailPartListContent.swift */; };
@@ -723,6 +724,7 @@
 		D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulUpdateModalView.swift; sourceTree = "<group>"; };
 		D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessfulUpdateModalView.xib; sourceTree = "<group>"; };
 		D0714444237EDD3C00ADB612 /* UIImage+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Size.swift"; sourceTree = "<group>"; };
+		D0714447237F03E200ADB612 /* Error+Crashlytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Crashlytics.swift"; sourceTree = "<group>"; };
 		D075EA2322C4F0510003C183 /* ChallengeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeType.swift; sourceTree = "<group>"; };
 		D075EA2622C4FB160003C183 /* ChallengeDetailHorizontalContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailHorizontalContent.swift; sourceTree = "<group>"; };
 		D075EA2A22C4FB510003C183 /* ChallengeDetailPartListContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailPartListContent.swift; sourceTree = "<group>"; };
@@ -1923,6 +1925,7 @@
 		D008E03A2260AAF500089DC7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D0714446237F03BC00ADB612 /* Error */,
 				D06C326E2289955F005534C0 /* Bundle */,
 				2ADE8C302270A6BB00ECEC72 /* Container */,
 				091B98A9229830BC00DCEEF4 /* DateFormatter */,
@@ -2050,6 +2053,14 @@
 				D06C326F22899574005534C0 /* Bundle+Version.swift */,
 			);
 			path = Bundle;
+			sourceTree = "<group>";
+		};
+		D0714446237F03BC00ADB612 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				D0714447237F03E200ADB612 /* Error+Crashlytics.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		D075EA2522C4FAF30003C183 /* ChallengeDetailContent */ = {
@@ -2647,6 +2658,7 @@
 				2ABEF0E4228EF91300AF87AC /* BluetoothConnectionModalPresenter.swift in Sources */,
 				2AB0521722D48A2B007B42F8 /* ControllerButtonMappingDataModel.swift in Sources */,
 				D06C3267228570FF005534C0 /* ResetTutorialModalView.swift in Sources */,
+				D0714448237F03E200ADB612 /* Error+Crashlytics.swift in Sources */,
 				0985495C2271D44500A7C2DC /* UIImageView+GoogleStorage.swift in Sources */,
 				D008E79F22B92A5F00789B91 /* SaveProgramModalView.swift in Sources */,
 				2ABCB646229E91000081B51B /* MenuTutorialViewController.swift in Sources */,

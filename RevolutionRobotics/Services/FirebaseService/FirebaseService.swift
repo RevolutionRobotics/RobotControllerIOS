@@ -51,6 +51,7 @@ extension FirebaseService: FirebaseServiceInterface {
                     self?.getBuildSteps(for: robot.id, completion: nil)
                 })
             case .failure(let error):
+                error.report()
                 onError?(error)
             }
         })
@@ -74,6 +75,7 @@ extension FirebaseService: FirebaseServiceInterface {
             case .success(let configurations):
                 completion?(.success(configurations.first(where: { "\($0.id)" == id })))
             case .failure(let error):
+                error.report()
                 completion?(.failure(error))
             }
         })
@@ -94,6 +96,7 @@ extension FirebaseService: FirebaseServiceInterface {
             case .success(let steps):
                 completion?(.success(steps.filter({ $0.robotId == robotId })))
             case .failure(let error):
+                error.report()
                 completion?(.failure(error))
             }
         })
@@ -121,6 +124,7 @@ extension FirebaseService: FirebaseServiceInterface {
                     }
                 })
             case .failure(let error):
+                error.report()
                 completion?(.failure(error))
             }
         })
@@ -149,10 +153,12 @@ extension FirebaseService: FirebaseServiceInterface {
                         })
                         completion?(.success(programs))
                     case .failure(let error):
+                        error.report()
                         completion?(.failure(error))
                     }
                 })
             case .failure(let error):
+                error.report()
                 completion?(.failure(error))
             }
         })
@@ -166,6 +172,7 @@ extension FirebaseService: FirebaseServiceInterface {
                 let programs = programs.filter({ $0.robotRemoteId == robotRemoteId })
                 completion?(.success(programs))
             case .failure(let error):
+                error.report()
                 completion?(.failure(error))
             }
         })
@@ -181,7 +188,10 @@ extension FirebaseService: FirebaseServiceInterface {
 
     func downloadFirmwareUpdate(resourceURL: String, completion: CallbackType<Result<Data, FirebaseError>>?) {
         Storage.storage().reference(forURL: resourceURL).downloadURL(completion: { (url, error) in
-            guard error == nil, let url = url else { return }
+            guard error == nil, let url = url else {
+                error?.report()
+                return
+            }
             do {
                 let data = try Data(contentsOf: url)
                 completion?(.success(data))
