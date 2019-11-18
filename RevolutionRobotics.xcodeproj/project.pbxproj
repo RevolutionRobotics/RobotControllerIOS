@@ -107,7 +107,6 @@
 		09FB0D69226761E900735B74 /* YourRobotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FB0D67226761E900735B74 /* YourRobotsViewController.swift */; };
 		09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09FB0D68226761E900735B74 /* YourRobotsViewController.xib */; };
 		09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09FB0D6B2267735800735B74 /* Barlow-Regular.ttf */; };
-		0DB50C788CDC759B39ADDE27 /* Pods_RevolutionRobotics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26EF7436A9D98B5E2710B894 /* Pods_RevolutionRobotics.framework */; };
 		196C152151CF8CD40BC3FBEF /* Pods-RevolutionRobotics-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43BC08A3B14DC91EF1DFAB7E /* Pods-RevolutionRobotics-metadata.plist */; };
 		2A0789E9229321FD00CFFDD6 /* ConfigurableControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0789E8229321FD00CFFDD6 /* ConfigurableControllerView.swift */; };
 		2A0789EB2293245400CFFDD6 /* MultiTaskerConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0789EA2293245400CFFDD6 /* MultiTaskerConfigurationView.swift */; };
@@ -229,6 +228,9 @@
 		2AFAA11222663111002BE0A2 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAA11122663111002BE0A2 /* UIImage+Color.swift */; };
 		2AFD41D222B90C3C00E29F74 /* FirmwareUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD41D122B90C3C00E29F74 /* FirmwareUpdate.swift */; };
 		2BAD40C81EC39D61AE2D9BA4 /* Pods-RevolutionRobotics-settings-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */; };
+		38733DB19AED86F1D93E6A0F /* Pods_RevoRobotics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5CF3127A8A8C33138F4CC6 /* Pods_RevoRobotics.framework */; };
+		3FEF6B4D20725E70D227ABF4 /* Pods-RevoRobotics-settings-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 61CDAB482526C4A37BCA9304 /* Pods-RevoRobotics-settings-metadata.plist */; };
+		9F502F3D6AFBCB075234856E /* Pods-RevoRobotics-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 299416FDDA3E69E34723261C /* Pods-RevoRobotics-metadata.plist */; };
 		D001FCAA22A7DDE9004C49F3 /* ChallengeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D001FCA822A7DDE9004C49F3 /* ChallengeDetailViewController.swift */; };
 		D001FCAB22A7DDE9004C49F3 /* ChallengeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D001FCA922A7DDE9004C49F3 /* ChallengeDetailViewController.xib */; };
 		D001FCAE22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D001FCAC22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.swift */; };
@@ -496,7 +498,8 @@
 		09FB0D67226761E900735B74 /* YourRobotsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourRobotsViewController.swift; sourceTree = "<group>"; };
 		09FB0D68226761E900735B74 /* YourRobotsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YourRobotsViewController.xib; sourceTree = "<group>"; };
 		09FB0D6B2267735800735B74 /* Barlow-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Regular.ttf"; sourceTree = "<group>"; };
-		26EF7436A9D98B5E2710B894 /* Pods_RevolutionRobotics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutionRobotics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		107FFC75081634BC7CF8944E /* Pods-RevoRobotics.test dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevoRobotics.test dev.xcconfig"; path = "Target Support Files/Pods-RevoRobotics/Pods-RevoRobotics.test dev.xcconfig"; sourceTree = "<group>"; };
+		299416FDDA3E69E34723261C /* Pods-RevoRobotics-metadata.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RevoRobotics-metadata.plist"; sourceTree = "<group>"; };
 		2A0789E8229321FD00CFFDD6 /* ConfigurableControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableControllerView.swift; sourceTree = "<group>"; };
 		2A0789EA2293245400CFFDD6 /* MultiTaskerConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiTaskerConfigurationView.swift; sourceTree = "<group>"; };
 		2A0789EC2293393600CFFDD6 /* MultiTaskerConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultiTaskerConfigurationView.xib; sourceTree = "<group>"; };
@@ -618,12 +621,18 @@
 		2AFD41D122B90C3C00E29F74 /* FirmwareUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdate.swift; sourceTree = "<group>"; };
 		2B39E5F8B094B00B188CBF30 /* Pods-RevolutionRobotics.debug prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug prod.xcconfig"; sourceTree = "<group>"; };
 		2CF65C7356324D304B0D7D00 /* Pods-RevolutionRobotics-settings-metadata.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Pods-RevolutionRobotics-settings-metadata.plist"; path = "../RevolutionRobotics/Resources/Settings/Settings.bundle/Pods-RevolutionRobotics-settings-metadata.plist"; sourceTree = "<group>"; };
+		32E1B3AB667653922727B0C7 /* Pods-RevoRobotics.debug prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevoRobotics.debug prod.xcconfig"; path = "Target Support Files/Pods-RevoRobotics/Pods-RevoRobotics.debug prod.xcconfig"; sourceTree = "<group>"; };
 		43BC08A3B14DC91EF1DFAB7E /* Pods-RevolutionRobotics-metadata.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RevolutionRobotics-metadata.plist"; sourceTree = "<group>"; };
+		581CBA9642CE75C65B522727 /* Pods-RevoRobotics.test prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevoRobotics.test prod.xcconfig"; path = "Target Support Files/Pods-RevoRobotics/Pods-RevoRobotics.test prod.xcconfig"; sourceTree = "<group>"; };
 		5E046D70402D059CCC0D1898 /* Pods-RevolutionRobotics.release prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.release prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.release prod.xcconfig"; sourceTree = "<group>"; };
+		61CDAB482526C4A37BCA9304 /* Pods-RevoRobotics-settings-metadata.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Pods-RevoRobotics-settings-metadata.plist"; path = "../RevolutionRobotics/Resources/Settings/Settings.bundle/Pods-RevoRobotics-settings-metadata.plist"; sourceTree = "<group>"; };
 		6580994D81024CCF29BD1923 /* Pods-RevolutionRobotics.debug dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.debug dev.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.debug dev.xcconfig"; sourceTree = "<group>"; };
 		6AF32E46B15BC68A36FE410E /* Pods-RevolutionRobotics.test prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.test prod.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.test prod.xcconfig"; sourceTree = "<group>"; };
 		755D287203AB31DEF1C3C453 /* Pods-RevolutionRobotics.release dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.release dev.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.release dev.xcconfig"; sourceTree = "<group>"; };
+		ACE4AEAA8192614B7645A5EC /* Pods-RevoRobotics.debug dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevoRobotics.debug dev.xcconfig"; path = "Target Support Files/Pods-RevoRobotics/Pods-RevoRobotics.debug dev.xcconfig"; sourceTree = "<group>"; };
 		B17E50B71ECD38787A6E9393 /* Pods-RevolutionRobotics.test dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutionRobotics.test dev.xcconfig"; path = "Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics.test dev.xcconfig"; sourceTree = "<group>"; };
+		CB0A950400A6D86C5386466B /* Pods-RevoRobotics.release dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevoRobotics.release dev.xcconfig"; path = "Target Support Files/Pods-RevoRobotics/Pods-RevoRobotics.release dev.xcconfig"; sourceTree = "<group>"; };
+		CB5CF3127A8A8C33138F4CC6 /* Pods_RevoRobotics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevoRobotics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D001FCA822A7DDE9004C49F3 /* ChallengeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewController.swift; sourceTree = "<group>"; };
 		D001FCA922A7DDE9004C49F3 /* ChallengeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailViewController.xib; sourceTree = "<group>"; };
 		D001FCAC22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -785,6 +794,7 @@
 		D0EAE2D5235077300015F626 /* OnboardingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingKeys.swift; sourceTree = "<group>"; };
 		D0FFE7A7232BCEE9009DA8A0 /* AgeSelectionModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeSelectionModalView.swift; sourceTree = "<group>"; };
 		D0FFE7A9232BCF27009DA8A0 /* AgeSelectionModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgeSelectionModalView.xib; sourceTree = "<group>"; };
+		E68E31FB9F9D67ECA21C17D4 /* Pods-RevoRobotics.release prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevoRobotics.release prod.xcconfig"; path = "Target Support Files/Pods-RevoRobotics/Pods-RevoRobotics.release prod.xcconfig"; sourceTree = "<group>"; };
 		FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RobotConfigurationViewController.xib; sourceTree = "<group>"; };
 		FE4B161B2277219C00CAA083 /* DashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedView.swift; sourceTree = "<group>"; };
 		FE4B161D227721C700CAA083 /* PortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortButton.swift; sourceTree = "<group>"; };
@@ -799,7 +809,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DB50C788CDC759B39ADDE27 /* Pods_RevolutionRobotics.framework in Frameworks */,
+				38733DB19AED86F1D93E6A0F /* Pods_RevoRobotics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1876,7 +1886,7 @@
 		41DE700EE2865CEEDAF81578 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				26EF7436A9D98B5E2710B894 /* Pods_RevolutionRobotics.framework */,
+				CB5CF3127A8A8C33138F4CC6 /* Pods_RevoRobotics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1892,6 +1902,14 @@
 				755D287203AB31DEF1C3C453 /* Pods-RevolutionRobotics.release dev.xcconfig */,
 				6AF32E46B15BC68A36FE410E /* Pods-RevolutionRobotics.test prod.xcconfig */,
 				B17E50B71ECD38787A6E9393 /* Pods-RevolutionRobotics.test dev.xcconfig */,
+				32E1B3AB667653922727B0C7 /* Pods-RevoRobotics.debug prod.xcconfig */,
+				581CBA9642CE75C65B522727 /* Pods-RevoRobotics.test prod.xcconfig */,
+				ACE4AEAA8192614B7645A5EC /* Pods-RevoRobotics.debug dev.xcconfig */,
+				107FFC75081634BC7CF8944E /* Pods-RevoRobotics.test dev.xcconfig */,
+				E68E31FB9F9D67ECA21C17D4 /* Pods-RevoRobotics.release prod.xcconfig */,
+				CB0A950400A6D86C5386466B /* Pods-RevoRobotics.release dev.xcconfig */,
+				299416FDDA3E69E34723261C /* Pods-RevoRobotics-metadata.plist */,
+				61CDAB482526C4A37BCA9304 /* Pods-RevoRobotics-settings-metadata.plist */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -2251,9 +2269,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2ADF1F70224AB3B400CC721F /* RevolutionRobotics */ = {
+		2ADF1F70224AB3B400CC721F /* RevoRobotics */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2ADF1F83224AB3B600CC721F /* Build configuration list for PBXNativeTarget "RevolutionRobotics" */;
+			buildConfigurationList = 2ADF1F83224AB3B600CC721F /* Build configuration list for PBXNativeTarget "RevoRobotics" */;
 			buildPhases = (
 				C629F0EBDFDDB835D1BB390E /* [CP] Check Pods Manifest.lock */,
 				2ABD61812250052E00587F1C /* ShellScript */,
@@ -2267,7 +2285,7 @@
 			);
 			dependencies = (
 			);
-			name = RevolutionRobotics;
+			name = RevoRobotics;
 			productName = RevolutionRobotics;
 			productReference = 2ADF1F71224AB3B400CC721F /* RevolutionRobotics.app */;
 			productType = "com.apple.product-type.application";
@@ -2300,7 +2318,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2ADF1F70224AB3B400CC721F /* RevolutionRobotics */,
+				2ADF1F70224AB3B400CC721F /* RevoRobotics */,
 			);
 		};
 /* End PBXProject section */
@@ -2450,6 +2468,8 @@
 				0938897722B24DD900292B32 /* car_horn.mp3 in Resources */,
 				094F9DE02264CA7000BE118B /* RRNavigationBar.xib in Resources */,
 				2A78389122C106C000423991 /* UpdatingFirmwareModalView.xib in Resources */,
+				9F502F3D6AFBCB075234856E /* Pods-RevoRobotics-metadata.plist in Resources */,
+				3FEF6B4D20725E70D227ABF4 /* Pods-RevoRobotics-settings-metadata.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2462,15 +2482,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RevoRobotics/Pods-RevoRobotics-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RevoRobotics/Pods-RevoRobotics-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RevolutionRobotics/Pods-RevolutionRobotics-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RevoRobotics/Pods-RevoRobotics-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2ABD61812250052E00587F1C /* ShellScript */ = {
@@ -2524,7 +2544,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RevolutionRobotics-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RevoRobotics-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2864,12 +2884,12 @@
 		};
 		2ABD61862250AB1300587F1C /* Debug Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6580994D81024CCF29BD1923 /* Pods-RevolutionRobotics.debug dev.xcconfig */;
+			baseConfigurationReference = ACE4AEAA8192614B7645A5EC /* Pods-RevoRobotics.debug dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 113;
+				CURRENT_PROJECT_VERSION = 115;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Dev ";
@@ -2946,12 +2966,12 @@
 		};
 		2ABD61882250AB2800587F1C /* Release Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 755D287203AB31DEF1C3C453 /* Pods-RevolutionRobotics.release dev.xcconfig */;
+			baseConfigurationReference = CB0A950400A6D86C5386466B /* Pods-RevoRobotics.release dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 113;
+				CURRENT_PROJECT_VERSION = 115;
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Prod ";
 				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
@@ -3088,12 +3108,12 @@
 		};
 		2ADF1F84224AB3B600CC721F /* Debug Prod */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B39E5F8B094B00B188CBF30 /* Pods-RevolutionRobotics.debug prod.xcconfig */;
+			baseConfigurationReference = 32E1B3AB667653922727B0C7 /* Pods-RevoRobotics.debug prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 113;
+				CURRENT_PROJECT_VERSION = 115;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Dev ";
@@ -3122,12 +3142,12 @@
 		};
 		2ADF1F85224AB3B600CC721F /* Release Prod */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5E046D70402D059CCC0D1898 /* Pods-RevolutionRobotics.release prod.xcconfig */;
+			baseConfigurationReference = E68E31FB9F9D67ECA21C17D4 /* Pods-RevoRobotics.release prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 113;
+				CURRENT_PROJECT_VERSION = 115;
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -3218,12 +3238,12 @@
 		};
 		D0A18E3D2367299E00E45064 /* Test Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B17E50B71ECD38787A6E9393 /* Pods-RevolutionRobotics.test dev.xcconfig */;
+			baseConfigurationReference = 107FFC75081634BC7CF8944E /* Pods-RevoRobotics.test dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 113;
+				CURRENT_PROJECT_VERSION = 115;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Test ";
@@ -3306,12 +3326,12 @@
 		};
 		D0A18E3F236729AC00E45064 /* Test Prod */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6AF32E46B15BC68A36FE410E /* Pods-RevolutionRobotics.test prod.xcconfig */;
+			baseConfigurationReference = 581CBA9642CE75C65B522727 /* Pods-RevoRobotics.test prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 113;
+				CURRENT_PROJECT_VERSION = 115;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Test ";
@@ -3354,7 +3374,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Debug Dev";
 		};
-		2ADF1F83224AB3B600CC721F /* Build configuration list for PBXNativeTarget "RevolutionRobotics" */ = {
+		2ADF1F83224AB3B600CC721F /* Build configuration list for PBXNativeTarget "RevoRobotics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2ADF1F84224AB3B600CC721F /* Debug Prod */,

@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2ADF1F70224AB3B400CC721F"
-               BuildableName = "RevolutionRobotics.app"
-               BlueprintName = "RevolutionRobotics"
+               BuildableName = "RevoRobotics.app"
+               BlueprintName = "RevoRobotics"
                ReferencedContainer = "container:RevolutionRobotics.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2ADF1F70224AB3B400CC721F"
-            BuildableName = "RevolutionRobotics.app"
-            BlueprintName = "RevolutionRobotics"
+            BuildableName = "RevoRobotics.app"
+            BlueprintName = "RevoRobotics"
             ReferencedContainer = "container:RevolutionRobotics.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2ADF1F70224AB3B400CC721F"
-            BuildableName = "RevolutionRobotics.app"
-            BlueprintName = "RevolutionRobotics"
+            BuildableName = "RevoRobotics.app"
+            BlueprintName = "RevoRobotics"
             ReferencedContainer = "container:RevolutionRobotics.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

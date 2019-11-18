@@ -3,7 +3,7 @@ platform :ios, '11.0'
 # Ignore all warnings from all pods
 inhibit_all_warnings!
 
-target 'RevolutionRobotics' do
+target 'RevoRobotics' do
   use_frameworks!
 
   # Development tools
