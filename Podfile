@@ -29,7 +29,7 @@ target 'RevoRobotics' do
   pod 'Firebase/Analytics'
 
   # RevolutionRobotics
-  pod 'RevolutionRoboticsBlockly', '~> 0.1.5'
+  pod 'RevolutionRoboticsBlockly', '~> 0.1.6'
   pod 'RevolutionRoboticsBluetooth', '~> 0.1.0'
 #  pod 'RevolutionRoboticsBlockly', :path => '../RevolutionRoboticsBlocklyIOS'
 #  pod 'RevolutionRoboticsBluetooth', :path => '../RevolutionRoboticsBluetoothIOS'

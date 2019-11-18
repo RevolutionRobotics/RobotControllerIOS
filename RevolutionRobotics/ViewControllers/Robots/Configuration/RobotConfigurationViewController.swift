@@ -202,7 +202,7 @@ extension RobotConfigurationViewController {
 
         padConfiguration.configurationId = configuration?.id
         padConfiguration.selectedControllerId = controller?.id
-        padConfiguration.robotId = selectedRobot?.remoteId
+        padConfiguration.robotId = selectedRobot?.id
         padConfiguration.bluetoothService = bluetoothService
 
         guard let configView = padConfiguration.view else { return }

@@ -606,7 +606,7 @@
 		2ADE8C402270AFFD00ECEC72 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2ADE8C432271A6B000ECEC72 /* BuildProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildProgressBar.swift; sourceTree = "<group>"; };
 		2ADE8C452271A6B900ECEC72 /* BuildProgressBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuildProgressBar.xib; sourceTree = "<group>"; };
-		2ADF1F71224AB3B400CC721F /* RevolutionRobotics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevolutionRobotics.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ADF1F71224AB3B400CC721F /* RevolutionRobotics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = RevolutionRobotics.app; path = RevoRobotics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADF1F74224AB3B400CC721F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ADF1F7B224AB3B600CC721F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2ADF1F80224AB3B600CC721F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2889,7 +2889,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 115;
+				CURRENT_PROJECT_VERSION = 117;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Dev ";
@@ -2971,7 +2971,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 115;
+				CURRENT_PROJECT_VERSION = 117;
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Prod ";
 				INFOPLIST_FILE = RevolutionRobotics/Resources/Info.plist;
@@ -3113,7 +3113,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 115;
+				CURRENT_PROJECT_VERSION = 117;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Dev ";
@@ -3147,7 +3147,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 115;
+				CURRENT_PROJECT_VERSION = 117;
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -3243,7 +3243,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 115;
+				CURRENT_PROJECT_VERSION = 117;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Test ";
@@ -3331,7 +3331,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 115;
+				CURRENT_PROJECT_VERSION = 117;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Test ";
