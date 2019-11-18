@@ -43,7 +43,12 @@ extension SettingsViewController {
         let modal = ResetTutorialModalView.instatiate()
         modal.setup(with: SettingsKeys.Tutorial.successfulReset.translate().uppercased())
         presentModal(with: modal, closeHidden: true)
-        UserDefaults.standard.set(true, forKey: UserDefaults.Keys.shouldShowTutorial)
+        let defaults = UserDefaults.standard
+        let keys = UserDefaults.Keys.self
+
+        defaults.set(false, forKey: keys.userPropertiesSet)
+        defaults.set(false, forKey: keys.buildRevvyPromptVisited)
+        defaults.set(false, forKey: keys.revvyBuilt)
 
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
             self?.dismissModalViewController()
