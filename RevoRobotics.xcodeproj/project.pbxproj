@@ -2266,8 +2266,8 @@
 				2ADF1F6D224AB3B400CC721F /* Sources */,
 				2ADF1F6E224AB3B400CC721F /* Frameworks */,
 				2ADF1F6F224AB3B400CC721F /* Resources */,
-				2ABD618222500F2F00587F1C /* Fabric */,
 				8F532CC45FD0401A79796CAE /* [CP] Embed Pods Frameworks */,
+				2ABD618222500F2F00587F1C /* Fabric */,
 			);
 			buildRules = (
 			);
