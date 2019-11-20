@@ -32,7 +32,7 @@ Pods/
 !Podfile.lock
 
 ## Firebase
-RevolutionRobotics/Resources/Firebase/*
+RevoRobotics/Resources/Firebase/*
 
 ## fastline scan output
 fastlane/report.xml

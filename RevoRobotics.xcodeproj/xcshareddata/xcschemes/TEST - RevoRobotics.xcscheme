@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -17,30 +17,21 @@
                BlueprintIdentifier = "2ADF1F70224AB3B400CC721F"
                BuildableName = "RevoRobotics.app"
                BlueprintName = "RevoRobotics"
-               ReferencedContainer = "container:RevolutionRobotics.xcodeproj">
+               ReferencedContainer = "container:RevoRobotics.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug Dev"
+      buildConfiguration = "Test Dev"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2ADF1F70224AB3B400CC721F"
-            BuildableName = "RevoRobotics.app"
-            BlueprintName = "RevoRobotics"
-            ReferencedContainer = "container:RevolutionRobotics.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug Dev"
+      buildConfiguration = "Test Dev"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -56,12 +47,12 @@
             BlueprintIdentifier = "2ADF1F70224AB3B400CC721F"
             BuildableName = "RevoRobotics.app"
             BlueprintName = "RevoRobotics"
-            ReferencedContainer = "container:RevolutionRobotics.xcodeproj">
+            ReferencedContainer = "container:RevoRobotics.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Debug Prod"
+      buildConfiguration = "Test Prod"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -73,15 +64,15 @@
             BlueprintIdentifier = "2ADF1F70224AB3B400CC721F"
             BuildableName = "RevoRobotics.app"
             BlueprintName = "RevoRobotics"
-            ReferencedContainer = "container:RevolutionRobotics.xcodeproj">
+            ReferencedContainer = "container:RevoRobotics.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug Dev">
+      buildConfiguration = "Test Dev">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Debug Prod"
+      buildConfiguration = "Test Prod"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
