@@ -27,9 +27,12 @@ target 'RevoRobotics' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'Firebase/Analytics'
+  
+  # Parental gate
+  pod 'PMParentalGate'
 
   # RevolutionRobotics
-  pod 'RevolutionRoboticsBlockly', '~> 0.1.6'
+  pod 'RevolutionRoboticsBlockly', '~> 0.1.8'
   pod 'RevolutionRoboticsBluetooth', '~> 0.1.0'
 #  pod 'RevolutionRoboticsBlockly', :path => '../RevolutionRoboticsBlocklyIOS'
 #  pod 'RevolutionRoboticsBluetooth', :path => '../RevolutionRoboticsBluetoothIOS'

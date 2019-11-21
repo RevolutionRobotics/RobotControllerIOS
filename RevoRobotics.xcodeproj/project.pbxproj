@@ -382,6 +382,7 @@
 		D0F997AA2385940F005E358D /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0F997A72385940F005E358D /* GoogleService-Info-dev.plist */; };
 		D0F997AB2385940F005E358D /* GoogleService-Info-test.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0F997A82385940F005E358D /* GoogleService-Info-test.plist */; };
 		D0F997AC2385940F005E358D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0F997A92385940F005E358D /* GoogleService-Info.plist */; };
+		D0F997B023868C41005E358D /* UIViewController+ParentalGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F997AF23868C41005E358D /* UIViewController+ParentalGate.swift */; };
 		D0FFE7A8232BCEE9009DA8A0 /* AgeSelectionModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FFE7A7232BCEE9009DA8A0 /* AgeSelectionModalView.swift */; };
 		D0FFE7AA232BCF27009DA8A0 /* AgeSelectionModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0FFE7A9232BCF27009DA8A0 /* AgeSelectionModalView.xib */; };
 		EC9A30137A1513E5BA27DC5B /* Pods_RevoRobotics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1386454734BF0008E406926A /* Pods_RevoRobotics.framework */; };
@@ -784,6 +785,7 @@
 		D0F997A72385940F005E358D /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
 		D0F997A82385940F005E358D /* GoogleService-Info-test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-test.plist"; sourceTree = "<group>"; };
 		D0F997A92385940F005E358D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D0F997AF23868C41005E358D /* UIViewController+ParentalGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ParentalGate.swift"; sourceTree = "<group>"; };
 		D0FFE7A7232BCEE9009DA8A0 /* AgeSelectionModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeSelectionModalView.swift; sourceTree = "<group>"; };
 		D0FFE7A9232BCF27009DA8A0 /* AgeSelectionModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgeSelectionModalView.xib; sourceTree = "<group>"; };
 		D6C065F1DCFDE40D1653368B /* Pods-RevoRobotics.test dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevoRobotics.test dev.xcconfig"; path = "Target Support Files/Pods-RevoRobotics/Pods-RevoRobotics.test dev.xcconfig"; sourceTree = "<group>"; };
@@ -1725,6 +1727,7 @@
 			isa = PBXGroup;
 			children = (
 				D008E03B2260AAF500089DC7 /* UIViewController+NibLoadable.swift */,
+				D0F997AF23868C41005E358D /* UIViewController+ParentalGate.swift */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -2722,6 +2725,7 @@
 				D05C64DF225F5C4E00B7BF4F /* Rotation.swift in Sources */,
 				D04F9A8A237AC69300D82D24 /* PeripheralSelector.swift in Sources */,
 				D075EA3D22C602060003C183 /* ChallengeDetailContentProtocol.swift in Sources */,
+				D0F997B023868C41005E358D /* UIViewController+ParentalGate.swift in Sources */,
 				D03BA85C2277384A005B3E33 /* ConnectionModalView.swift in Sources */,
 				D0A11084227B0BEB0064FBB6 /* ResizableCell.swift in Sources */,
 				099FF24822C36E2C00CD9104 /* ProgramCompatibilityValidator.swift in Sources */,
@@ -2875,7 +2879,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 117;
+				CURRENT_PROJECT_VERSION = 120;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Dev ";
@@ -2884,6 +2888,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DDEV";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2957,7 +2962,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 117;
+				CURRENT_PROJECT_VERSION = 120;
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Prod ";
 				INFOPLIST_FILE = "$(SRCROOT)/RevoRobotics/Resources/Info.plist";
@@ -2965,6 +2970,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3099,7 +3105,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 117;
+				CURRENT_PROJECT_VERSION = 120;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Dev ";
@@ -3116,6 +3122,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DDEV";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3133,7 +3140,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 117;
+				CURRENT_PROJECT_VERSION = 120;
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -3150,6 +3157,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3229,7 +3237,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 117;
+				CURRENT_PROJECT_VERSION = 120;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Test ";
@@ -3238,6 +3246,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3317,7 +3326,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 117;
+				CURRENT_PROJECT_VERSION = 120;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F8K84XL22Z;
 				DisplayNamePrefix = "Test ";
@@ -3334,6 +3343,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";

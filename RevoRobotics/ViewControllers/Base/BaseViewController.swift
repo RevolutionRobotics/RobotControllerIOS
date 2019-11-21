@@ -119,17 +119,20 @@ extension BaseViewController {
     }
 
     func openSafari(presentationFinished: Callback?, url: URL? = nil) {
-        if self.presentedViewController != nil {
-            dismiss(animated: true, completion: {
-                UIApplication.shared.open(url ?? Constants.communityURL, options: [:], completionHandler: { (_) in
+        showParentalGate(then: { [weak self] in
+            guard let `self` = self else { return }
+            if self.presentedViewController != nil {
+                self.dismiss(animated: true, completion: {
+                    UIApplication.shared.open(url ?? Constants.communityURL, options: [:], completionHandler: { _ in
+                        presentationFinished?()
+                    })
+                })
+            } else {
+                UIApplication.shared.open(url ?? Constants.communityURL, options: [:], completionHandler: { _ in
                     presentationFinished?()
                 })
-            })
-        } else {
-            UIApplication.shared.open(url ?? Constants.communityURL, options: [:], completionHandler: { (_) in
-                presentationFinished?()
-            })
-        }
+            }
+        })
     }
 
     func presentViewControllerModally(

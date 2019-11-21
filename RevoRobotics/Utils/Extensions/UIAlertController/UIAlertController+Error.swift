@@ -15,6 +15,7 @@ extension UIAlertController {
         case variableNameEmpty
         case variableNameAlreadyInUse
         case programAlreadyExists
+        case parentalGateFailed
     }
 
     static func errorAlert(type: ErrorType) -> UIAlertController {
@@ -29,6 +30,8 @@ extension UIAlertController {
             return variableNameAlreadyInUseAlert()
         case .programAlreadyExists:
             return programAlreadyExistsAlert()
+        case .parentalGateFailed:
+            return parentalGateFailedAlert()
         }
     }
 
@@ -93,6 +96,17 @@ extension UIAlertController {
         alertController.addAction(UIAlertAction(title: CommonKeys.errorOk.translate(),
                                                 style: .default,
                                                 handler: nil))
+        return alertController
+    }
+
+    private static func parentalGateFailedAlert() -> UIAlertController {
+        let alertController = UIAlertController(title: CommonKeys.errorTitle.translate(),
+                                                message: CommonKeys.parentalGateFailed.translate(),
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: CommonKeys.errorOk.translate(), style: .default, handler: { _ in
+            alertController.dismiss(animated: true, completion: nil)
+        })
+        alertController.addAction(okAction)
         return alertController
     }
 }

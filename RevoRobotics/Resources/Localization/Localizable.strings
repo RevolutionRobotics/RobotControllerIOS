@@ -12,6 +12,8 @@
 "error_ok_button" = "Ok";
 "error_general" = "Something went wrong, please check your internet connection.";
 "error_test_code_upload" = "Test code upload error";
+"error_parental_gate_failed" = "Parental gate failed";
+"parental_gate_title" = "Enter result:";
 "done" = "Done";
 "no" = "No";
 "cancel" = "Cancel";

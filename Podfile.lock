@@ -87,12 +87,13 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - PieCharts (0.0.7)
+  - PMParentalGate (1.0)
   - Realm (3.18.0):
     - Realm/Headers (= 3.18.0)
   - Realm/Headers (3.18.0)
   - RealmSwift (3.18.0):
     - Realm (= 3.18.0)
-  - RevolutionRoboticsBlockly (0.1.6):
+  - RevolutionRoboticsBlockly (0.1.8):
     - WKWebViewJavascriptBridge (~> 1.2.0)
   - RevolutionRoboticsBluetooth (0.1.0):
     - CryptoSwift (~> 1.0)
@@ -110,8 +111,9 @@ DEPENDENCIES:
   - Firebase/Storage
   - Kingfisher (~> 5.3.1)
   - PieCharts (~> 0.0.7)
+  - PMParentalGate
   - RealmSwift (~> 3.18.0)
-  - RevolutionRoboticsBlockly (~> 0.1.6)
+  - RevolutionRoboticsBlockly (~> 0.1.8)
   - RevolutionRoboticsBluetooth (~> 0.1.0)
   - SideMenu (from `https://github.com/stelabouras/SideMenu.git`, branch `upgrade/xcode-10.2`)
   - SwiftLint (~> 0.31.0)
@@ -140,6 +142,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PieCharts
+    - PMParentalGate
     - Realm
     - RealmSwift
     - RevolutionRoboticsBlockly
@@ -180,15 +183,16 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PieCharts: 30e50dfa7dc19e5b84e9878d32089673ef5d0453
+  PMParentalGate: 9cf253ba14edcd9ff283677b70b1be9e56d7acef
   Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
   RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
-  RevolutionRoboticsBlockly: fa16946535d6291fa2d288abfb2a85201c292e34
+  RevolutionRoboticsBlockly: 52912c996dfbd37487b5e8486377b35c2c52c269
   RevolutionRoboticsBluetooth: c7bf0ec4ededdf7a21a3395c398410de04b3c8b0
   SideMenu: b3aa6e33e2efd43e077bcf8432e84a35daa50bb6
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
 
-PODFILE CHECKSUM: 5b038265f65d8db97f8853c108d02b8d189dcfe9
+PODFILE CHECKSUM: c3ba7d384a79be1e45cb7da5395386785ffff8f6
 
 COCOAPODS: 1.8.4
