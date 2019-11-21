@@ -146,7 +146,6 @@ extension ProgramsViewController {
 
     private func save(description: String) {
         guard let program = selectedProgram else { return }
-
         if let programDataModel = realmService.getProgram(id: program.id) {
             realmService.updateObject {
                 programDataModel.customDescription = description
@@ -176,7 +175,6 @@ extension ProgramsViewController {
 
     private func confirmLeave() {
         let confirmModal = ConfirmModalView.instatiate()
-
         switch programSaveReason {
         case .navigateBack:
             confirmModal.setup(title: ProgramsKeys.NavigateBack.title.translate(),
@@ -199,11 +197,9 @@ extension ProgramsViewController {
                                positiveButtonTitle: ProgramsKeys.NavigateBack.programOpenConfirmPositive.translate())
             confirmModal.confirmSelected = { [weak self] confirmed in
                 self?.dismissModalViewController()
-                if confirmed {
-                    self?.initiateSave(shouldNavigateBack: false, shouldOpenPrograms: true)
-                } else {
-                    self?.openProgramModal()
-                }
+                confirmed
+                    ? self?.initiateSave(shouldNavigateBack: false, shouldOpenPrograms: true)
+                    : self?.openProgramModal()
             }
         case .newProgram:
             confirmModal.setup(title: ProgramsKeys.ConfirmNew.title.translate(),
@@ -212,14 +208,11 @@ extension ProgramsViewController {
                                positiveButtonTitle: ProgramsKeys.ConfirmNew.positive.translate())
             confirmModal.confirmSelected = { [weak self] confirmed in
                 self?.dismissModalViewController()
-                if confirmed {
-                    self?.initiateSave(shouldNavigateBack: false, shouldOpenPrograms: false)
-                } else {
-                    self?.displayNew()
-                }
+                confirmed
+                    ? self?.initiateSave(shouldNavigateBack: false, shouldOpenPrograms: false)
+                    : self?.displayNew()
             }
-        default:
-            return
+        default: return
         }
         presentModal(with: confirmModal)
     }
@@ -261,11 +254,23 @@ extension ProgramsViewController {
     }
 
     private func selectRobot() {
+        let robotList = realmService.getRobots()
+        guard !robotList.isEmpty else {
+            let alert = UIAlertController.errorAlert(type: .robotListEmpty)
+            alert.addAction(UIAlertAction(
+                title: CommonKeys.errorOk.translate(),
+                style: .default,
+                handler: { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+
         let robotsView = RobotListModalView.instatiate()
-        robotsView.setup(with: realmService.getRobots())
+        robotsView.setup(with: robotList)
         robotsView.selectedRobotCallback = { [weak self] robot in
             guard let `self` = self else { return }
-
             self.dismissModalViewController()
             self.selectedProgramRobot = robot
         }
@@ -523,13 +528,11 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
             onSavePromptDismissed(xmlCode: xmlCode, callback: openProgramModal)
         case .edited:
             guard let program = selectedProgram else { return }
-
             realmService.updateObject {
                 program.lastModified = Date()
                 program.xml = xmlCode.base64Encoded ?? ""
             }
-        default:
-            return
+        default: return
         }
         isXMLExported = true
         if isXMLExported && isPythonExported && shouldDismissAfterSave {
@@ -546,19 +549,15 @@ extension ProgramsViewController {
     @IBAction private func backButtonTapped(_ sender: UIButton) {
         programSaveReason = .navigateBack
     }
-
     @IBAction private func programCodeButtonTapped(_ sender: UIButton) {
         programSaveReason = .showCode
     }
-
     @IBAction private func newProgramButtonTapped(_ sender: UIButton) {
         programSaveReason = .newProgram
     }
-
     @IBAction private func openProgramButtonTapped(_ sender: UIButton) {
         programSaveReason = .openProgram
     }
-
     @IBAction private func saveProgramButtonTapped(_ sender: UIButton) {
         initiateSave(shouldNavigateBack: false, shouldOpenPrograms: false)
     }
