@@ -30,10 +30,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="BrainPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="9xn-Ks-Iav">
-                    <rect key="frame" x="97" y="32" width="266.5" height="62"/>
+                    <rect key="frame" x="-36.5" y="32" width="533" height="62"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to take control, switch the brain on" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aG0-AV-zPq">
-                    <rect key="frame" x="69" y="110" width="322.5" height="24"/>
+                    <rect key="frame" x="75" y="110" width="310.5" height="24"/>
                     <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
