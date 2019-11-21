@@ -109,7 +109,9 @@ extension AboutViewController {
 extension AboutViewController {
     private func open(socialNetwork: SocialNetwork) {
         if UIApplication.shared.canOpenURL(socialNetwork.appBaseUrl) {
-            UIApplication.shared.open(socialNetwork.appBaseUrl, options: [:], completionHandler: nil)
+            showParentalGate(then: {
+                UIApplication.shared.open(socialNetwork.appBaseUrl, options: [:], completionHandler: nil)
+            })
         } else {
             openSafari(presentationFinished: nil, url: socialNetwork.appWebUrl)
         }
@@ -142,7 +144,10 @@ extension AboutViewController {
         guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
             return
         }
-        UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
+
+        showParentalGate(then: {
+            UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
+        })
     }
 }
 
