@@ -45,29 +45,6 @@
 "menu_update_message" = "The application version you are using is no longer supported. Please update from the App Store!";
 "menu_button_update" = "Update";
 
-"tutorial_robots_title" = "Under robots, you can…";
-"tutorial_robots_description" = "- Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
-- Per graece denique invidunt ei. Case ullum euripidis duo e
-- Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.";
-"tutorial_programs_title" = "Under programs, you can…";
-"tutorial_programs_description" = "- Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
-- Per graece denique invidunt ei. Case ullum euripidis duo e
-- Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.";
-"tutorial_challenges_title" = "Under challanges, you can…";
-"tutorial_challenges_description" = "- Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
-- Per graece denique invidunt ei. Case ullum euripidis duo e
-- Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.";
-"tutorial_settings_title" = "Under settings…";
-"tutorial_settings_description" = "- Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
-- Per graece denique invidunt ei. Case ullum euripidis duo e
-- Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.";
-"tutorial_community_title" = "Under community...";
-"tutorial_community_description" = "- Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.
-- Per graece denique invidunt ei. Case ullum euripidis duo e
-- Eos meis quidam omnesque et. Essent blandit ius ut, no ius melius sanctus.";
-"tutorial_button_skip" = "Skip";
-"tutorial_button_finish" = "Finish";
-
 // MARK: - Your robots
 "your_robots_screen_title" = "Your robots";
 "your_robots_build_new_button_title" = "build new";
@@ -225,7 +202,7 @@
 
 "tips_dialog_title" = "Tips";
 "tips_dialog_sub_title" = "Try to…";
-"tips_dialog_tips" = "Lorem ipsum dolor sit amet, eu commodo numquam comprehensam vel. Quo cu alia placerat.";
+"tips_dialog_tips" = "If you have any problems with your robot, please check the Community forum for help.";
 "tips_dialog_button_reconfigure" = "Reconfigure";
 "tips_dialog_button_skip_testing" = "Skip testing";
 "tips_dialog_button_community" = "Community";
