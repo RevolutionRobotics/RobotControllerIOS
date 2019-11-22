@@ -12,7 +12,6 @@ import RevolutionRoboticsBlockly
 final class ScreenAssembly: Assembly {
     func assemble(container: Container) {
         registerMenuViewController(to: container)
-        registerMenuTutorialViewController(to: container)
         registerBlocklyViewController(to: container)
         registerChallengeCategoriesViewController(to: container)
         registerChallengesViewController(to: container)
@@ -69,12 +68,6 @@ extension ScreenAssembly {
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
                 viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
             }
-            .inObjectScope(.weak)
-    }
-
-    private func registerMenuTutorialViewController(to container: Container) {
-        container
-            .register(MenuTutorialViewController.self, factory: { _ in return MenuTutorialViewController() })
             .inObjectScope(.weak)
     }
 

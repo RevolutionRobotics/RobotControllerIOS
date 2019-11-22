@@ -187,10 +187,6 @@
 		2AB8F95122888AD300D7D93C /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB8F95022888AD300D7D93C /* ConfigurationView.swift */; };
 		2AB8F95322888AF300D7D93C /* ConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB8F95222888AF300D7D93C /* ConfigurationView.xib */; };
 		2AB8F9562288933100D7D93C /* UIImagePickerController+Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB8F9552288933100D7D93C /* UIImagePickerController+Show.swift */; };
-		2ABCB646229E91000081B51B /* MenuTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCB645229E91000081B51B /* MenuTutorialViewController.swift */; };
-		2ABCB648229E912D0081B51B /* MenuTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABCB647229E912D0081B51B /* MenuTutorialViewController.xib */; };
-		2ABCB64E229EC6760081B51B /* TutorialProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCB64D229EC6760081B51B /* TutorialProgressView.swift */; };
-		2ABCB650229EC6900081B51B /* TutorialProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABCB64F229EC6900081B51B /* TutorialProgressView.xib */; };
 		2ABD618422500F7C00587F1C /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABD618322500F7C00587F1C /* AppDependencies.swift */; };
 		2ABEF0DD228EA0FA00AF87AC /* BluetoothServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0DC228EA0FA00AF87AC /* BluetoothServiceInterface.swift */; };
 		2ABEF0DF228EA19E00AF87AC /* BlutoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEF0DE228EA19E00AF87AC /* BlutoothService.swift */; };
@@ -285,6 +281,8 @@
 		D03BA8652277385E005B3E33 /* TipsModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8632277385E005B3E33 /* TipsModalView.xib */; };
 		D03BA86B22773DCA005B3E33 /* RRCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */; };
 		D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA87522783D17005B3E33 /* RRCollectionViewDelegate.swift */; };
+		D049871C2387E5B300136AC8 /* UpdateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049871A2387E5B300136AC8 /* UpdateModalView.swift */; };
+		D049871D2387E5B300136AC8 /* UpdateModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D049871B2387E5B300136AC8 /* UpdateModalView.xib */; };
 		D04F9A8A237AC69300D82D24 /* PeripheralSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F9A89237AC69300D82D24 /* PeripheralSelector.swift */; };
 		D04F9A8C237AC6A900D82D24 /* PeripheralSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04F9A8B237AC6A900D82D24 /* PeripheralSelector.xib */; };
 		D04F9A8E237AE65C00D82D24 /* PeripheralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F9A8D237AE65C00D82D24 /* PeripheralTableViewCell.swift */; };
@@ -347,8 +345,6 @@
 		D08C1CE2226478200052EE1F /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CE1226478200052EE1F /* FirebaseService.swift */; };
 		D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C1CEF22648F990052EE1F /* UIView+Crop.swift */; };
 		D09184F822DDD06600AF9274 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09184F722DDD06600AF9274 /* Version.swift */; };
-		D09184FE22DF1F4F00AF9274 /* UpdateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09184FD22DF1F4E00AF9274 /* UpdateModalView.swift */; };
-		D091850022DF1F6E00AF9274 /* UpdateModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D09184FF22DF1F6E00AF9274 /* UpdateModalView.xib */; };
 		D097C8CD237318C1003048B5 /* RobotListModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097C8CC237318C1003048B5 /* RobotListModalView.swift */; };
 		D097C8CF237318DE003048B5 /* RobotListModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D097C8CE237318DE003048B5 /* RobotListModalView.xib */; };
 		D097C8D223731A4B003048B5 /* RobotSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097C8D123731A4B003048B5 /* RobotSelectorTableViewCell.swift */; };
@@ -579,10 +575,6 @@
 		2AB8F95022888AD300D7D93C /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
 		2AB8F95222888AF300D7D93C /* ConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationView.xib; sourceTree = "<group>"; };
 		2AB8F9552288933100D7D93C /* UIImagePickerController+Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Show.swift"; sourceTree = "<group>"; };
-		2ABCB645229E91000081B51B /* MenuTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTutorialViewController.swift; sourceTree = "<group>"; };
-		2ABCB647229E912D0081B51B /* MenuTutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTutorialViewController.xib; sourceTree = "<group>"; };
-		2ABCB64D229EC6760081B51B /* TutorialProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialProgressView.swift; sourceTree = "<group>"; };
-		2ABCB64F229EC6900081B51B /* TutorialProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialProgressView.xib; sourceTree = "<group>"; };
 		2ABD618322500F7C00587F1C /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		2ABEF0DC228EA0FA00AF87AC /* BluetoothServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothServiceInterface.swift; sourceTree = "<group>"; };
 		2ABEF0DE228EA19E00AF87AC /* BlutoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlutoothService.swift; sourceTree = "<group>"; };
@@ -685,6 +677,8 @@
 		D03BA8632277385E005B3E33 /* TipsModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipsModalView.xib; sourceTree = "<group>"; };
 		D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRCollectionView.swift; sourceTree = "<group>"; };
 		D03BA87522783D17005B3E33 /* RRCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		D049871A2387E5B300136AC8 /* UpdateModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateModalView.swift; sourceTree = "<group>"; };
+		D049871B2387E5B300136AC8 /* UpdateModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateModalView.xib; sourceTree = "<group>"; };
 		D04F9A89237AC69300D82D24 /* PeripheralSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralSelector.swift; sourceTree = "<group>"; };
 		D04F9A8B237AC6A900D82D24 /* PeripheralSelector.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeripheralSelector.xib; sourceTree = "<group>"; };
 		D04F9A8D237AE65C00D82D24 /* PeripheralTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralTableViewCell.swift; sourceTree = "<group>"; };
@@ -749,8 +743,6 @@
 		D08C1CE1226478200052EE1F /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D08C1CEF22648F990052EE1F /* UIView+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Crop.swift"; sourceTree = "<group>"; };
 		D09184F722DDD06600AF9274 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
-		D09184FD22DF1F4E00AF9274 /* UpdateModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UpdateModalView.swift; path = ../../Controllers/Modal/UpdateModalView.swift; sourceTree = "<group>"; };
-		D09184FF22DF1F6E00AF9274 /* UpdateModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UpdateModalView.xib; path = ../../Controllers/Modal/UpdateModalView.xib; sourceTree = "<group>"; };
 		D097C8CC237318C1003048B5 /* RobotListModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotListModalView.swift; sourceTree = "<group>"; };
 		D097C8CE237318DE003048B5 /* RobotListModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RobotListModalView.xib; sourceTree = "<group>"; };
 		D097C8D123731A4B003048B5 /* RobotSelectorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotSelectorTableViewCell.swift; sourceTree = "<group>"; };
@@ -1135,13 +1127,9 @@
 		09D41808225B861C000E2CE7 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				D091850422DF4F0200AF9274 /* Modal */,
-				2ABCB645229E91000081B51B /* MenuTutorialViewController.swift */,
-				2ABCB647229E912D0081B51B /* MenuTutorialViewController.xib */,
+				D04987192387E55600136AC8 /* Modal */,
 				09ED1BA8225247B1009CF262 /* MenuViewController.swift */,
 				09ED1BAA225247E2009CF262 /* MenuViewController.xib */,
-				2ABCB64D229EC6760081B51B /* TutorialProgressView.swift */,
-				2ABCB64F229EC6900081B51B /* TutorialProgressView.xib */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -2017,6 +2005,15 @@
 			path = Modal;
 			sourceTree = "<group>";
 		};
+		D04987192387E55600136AC8 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				D049871A2387E5B300136AC8 /* UpdateModalView.swift */,
+				D049871B2387E5B300136AC8 /* UpdateModalView.xib */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
 		D04F9A86237AC18D00D82D24 /* PeripheralSelector */ = {
 			isa = PBXGroup;
 			children = (
@@ -2086,15 +2083,6 @@
 				D075EA3422C4FCDE0003C183 /* ChallengeDetailZoomableContent.xib */,
 			);
 			path = ChallengeDetailContent;
-			sourceTree = "<group>";
-		};
-		D091850422DF4F0200AF9274 /* Modal */ = {
-			isa = PBXGroup;
-			children = (
-				D09184FD22DF1F4E00AF9274 /* UpdateModalView.swift */,
-				D09184FF22DF1F6E00AF9274 /* UpdateModalView.xib */,
-			);
-			path = Modal;
 			sourceTree = "<group>";
 		};
 		D097C8CB23731883003048B5 /* RobotsModal */ = {
@@ -2357,7 +2345,6 @@
 				0972844622B3BDEF007A7FE1 /* VariableContextModalView.xib in Resources */,
 				D0899C6A22A6BCB900DB6F97 /* ChallengeCategoriesViewController.xib in Resources */,
 				D0A1108E227B18510064FBB6 /* ControllerInfoModalView.xib in Resources */,
-				2ABCB650229EC6900081B51B /* TutorialProgressView.xib in Resources */,
 				2AB8F95322888AF300D7D93C /* ConfigurationView.xib in Resources */,
 				2ADE8C462271A6B900ECEC72 /* BuildProgressBar.xib in Resources */,
 				D05DBA51232935BD00508D1F /* UserTypeSelectionViewController.xib in Resources */,
@@ -2379,6 +2366,7 @@
 				D097C8CF237318DE003048B5 /* RobotListModalView.xib in Resources */,
 				0938897222B24DD900292B32 /* cat.mp3 in Resources */,
 				0938894C22B12CB200292B32 /* SoundPickerModalView.xib in Resources */,
+				D049871D2387E5B300136AC8 /* UpdateModalView.xib in Resources */,
 				2AC7619022D33A09005FED04 /* Barlow-Italic.ttf in Resources */,
 				2ADF1F7C224AB3B600CC721F /* Images.xcassets in Resources */,
 				2A1C8AF122A7E2A90023F08F /* DisconnectModalView.xib in Resources */,
@@ -2434,7 +2422,6 @@
 				D031333B228DD3C100704989 /* SaveModalView.xib in Resources */,
 				0938897322B24DD900292B32 /* engine_revving.mp3 in Resources */,
 				D0BF256C2282C6C100F08C9C /* BuildFinishedModalView.xib in Resources */,
-				2ABCB648229E912D0081B51B /* MenuTutorialViewController.xib in Resources */,
 				09FB0D6A226761E900735B74 /* YourRobotsViewController.xib in Resources */,
 				D04F9A90237AEB5A00D82D24 /* PeripheralTableViewCell.xib in Resources */,
 				2A78388422C0BF6700423991 /* distanceTest.py in Resources */,
@@ -2449,7 +2436,6 @@
 				D0241A1622B3BDD6005E8DB2 /* CodePreviewModalView.xib in Resources */,
 				0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */,
 				D0F997AA2385940F005E358D /* GoogleService-Info-dev.plist in Resources */,
-				D091850022DF1F6E00AF9274 /* UpdateModalView.xib in Resources */,
 				0938897D22B24DD900292B32 /* oh_no.mp3 in Resources */,
 				D075EA3322C4FCD30003C183 /* ChallengeDetailPartListContent.xib in Resources */,
 				D0A1107E227870040064FBB6 /* YourRobotsCollectionViewCell.xib in Resources */,
@@ -2583,7 +2569,6 @@
 				D06C326C22857A80005534C0 /* AboutViewController.swift in Sources */,
 				D05C64D4225F585500B7BF4F /* BuildStatus.swift in Sources */,
 				09C38758226F58260097619D /* RRCustomView.swift in Sources */,
-				D09184FE22DF1F4F00AF9274 /* UpdateModalView.swift in Sources */,
 				0965766322AFEEA400A50C8E /* DialpadInputViewController.swift in Sources */,
 				D0241A0E22B29352005E8DB2 /* CommunityViewController.swift in Sources */,
 				D031332F228D5CBA00704989 /* Controller.swift in Sources */,
@@ -2670,17 +2655,16 @@
 				D0714448237F03E200ADB612 /* Error+Crashlytics.swift in Sources */,
 				0985495C2271D44500A7C2DC /* UIImageView+GoogleStorage.swift in Sources */,
 				D008E79F22B92A5F00789B91 /* SaveProgramModalView.swift in Sources */,
-				2ABCB646229E91000081B51B /* MenuTutorialViewController.swift in Sources */,
 				2ADE8C3C2270A80F00ECEC72 /* MenuKeys.swift in Sources */,
 				2A7DDB1422856FD000891DA6 /* SensorDataModel.swift in Sources */,
 				2AB8F95122888AD300D7D93C /* ConfigurationView.swift in Sources */,
 				2AB7ACE622BB98A700309234 /* AnalogControllerAssignmentItemJSONData.swift in Sources */,
 				0972844922B3C520007A7FE1 /* VariableContextCell.swift in Sources */,
+				D049871C2387E5B300136AC8 /* UpdateModalView.swift in Sources */,
 				2A78388B22C0C08700423991 /* PortTestServiceInterface.swift in Sources */,
 				2AF8C75422801D9D00CE1ACB /* RRZoomableImageView.swift in Sources */,
 				2A9F52112265E96B00F9F651 /* ProgramsViewController.swift in Sources */,
 				D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */,
-				2ABCB64E229EC6760081B51B /* TutorialProgressView.swift in Sources */,
 				0938894A22B12C9000292B32 /* SoundPickerModalView.swift in Sources */,
 				0972844422B3BDCB007A7FE1 /* VariableContextModalView.swift in Sources */,
 				D0B75F8C2329302800FD1048 /* UserTypeSelectionViewController.swift in Sources */,
