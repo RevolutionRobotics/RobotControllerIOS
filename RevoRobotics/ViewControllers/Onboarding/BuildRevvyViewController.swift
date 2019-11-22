@@ -17,6 +17,7 @@ final class BuildRevvyViewController: BaseViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var buttonContainer: UIView!
     @IBOutlet private weak var yesButton: RRButton!
     @IBOutlet private weak var noButton: RRButton!
     @IBOutlet private weak var skipButton: UIButton!
@@ -43,28 +44,27 @@ extension BuildRevvyViewController {
     }
 
     private func setupPromptButtons() {
-        let buttonAttributes: [NSAttributedString.Key: Any] = [
-            .font: Font.jura(size: 17.0)
-        ]
+        yesButton.titleLabel?.text = OnboardingKeys.BuildRevvy.yes.translate()
+        noButton.titleLabel?.text = OnboardingKeys.BuildRevvy.no.translate()
 
-        yesButton.titleLabel?.attributedText = NSMutableAttributedString(
-            string: OnboardingKeys.BuildRevvy.yes.translate(),
-            attributes: buttonAttributes)
-        noButton.titleLabel?.attributedText = NSMutableAttributedString(
-            string: OnboardingKeys.BuildRevvy.no.translate(),
-            attributes: buttonAttributes)
-
-        for button in [yesButton, noButton] {
-            button?.setBorder(
+        var constraints: [NSLayoutConstraint] = []
+        for button in [yesButton, noButton].compactMap({ $0 }) {
+            button.setBorder(
                 fillColor: .clear,
                 strokeColor: .white,
                 croppedCorners: [.bottomLeft, .topRight])
+
+            constraints.append(button.widthAnchor.constraint(
+                equalTo: buttonContainer.widthAnchor,
+                multiplier: 0.5,
+                constant: -10.0))
         }
+
+        NSLayoutConstraint.activate(constraints)
     }
 
     private func setupSkipButton() {
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: Font.jura(size: 17.0),
             .underlineStyle: NSUnderlineStyle.single.rawValue
         ]
 
