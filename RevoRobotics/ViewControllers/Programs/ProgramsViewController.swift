@@ -234,6 +234,7 @@ extension ProgramsViewController {
         selectRobot()
         blocklyViewController.clearWorkspace()
         programNameButton.setTitle(ProgramsKeys.Main.untitled.translate(), for: .normal)
+        programNameButton.setBorder(fillColor: .clear)
     }
 
     private func onSavePromptDismissed(xmlCode: String, callback: Callback) {
