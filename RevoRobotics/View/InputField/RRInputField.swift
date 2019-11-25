@@ -49,6 +49,10 @@ extension RRInputField {
         textField.placeholder = placeholder
         self.characterLimit = characterLimit
     }
+    
+    func setKeyboardAppearance(to appearance: UIKeyboardAppearance) {
+        textField.keyboardAppearance = appearance
+    }
 }
 
 // MARK: - UITextViewDelegate

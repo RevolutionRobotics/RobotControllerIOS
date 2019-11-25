@@ -38,6 +38,8 @@ final class AgeSelectionModalView: UIView {
             style: .plain,
             target: self,
             action: #selector(dismissSelector))
+        doneButton.tintColor = .white
+
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 
         toolBar.setItems([ space, doneButton], animated: false)
@@ -104,6 +106,7 @@ extension AgeSelectionModalView {
 
     private func setupYearSelector() {
         let tenYearsAgo = currentYear - 10
+        yearSelectionField.setKeyboardAppearance(to: .dark)
         yearSelectionField.setup(
             title: OnboardingKeys.AgeSelection.inputLabel.translate(),
             placeholder: "\(tenYearsAgo)",
