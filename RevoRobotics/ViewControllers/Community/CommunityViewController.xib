@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +20,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommunityViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommunityViewController" customModule="RevoRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="beginButton" destination="cae-N2-ble" id="4IH-AB-kFr"/>
                 <outlet property="descriptionLabel" destination="vh4-1c-iED" id="OjW-fo-pTD"/>
@@ -46,7 +44,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cae-N2-ble" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cae-N2-ble" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
                     <rect key="frame" x="171" y="250" width="226" height="46"/>
                     <color key="backgroundColor" name="BlackTwo"/>
                     <constraints>
@@ -67,13 +65,13 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of the forum with benefits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vh4-1c-iED">
-                    <rect key="frame" x="185.5" y="115" width="197" height="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of the forum with benefits" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vh4-1c-iED">
+                    <rect key="frame" x="30" y="115" width="508" height="14.5"/>
                     <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpr-br-aoj" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpr-br-aoj" customClass="RRNavigationBar" customModule="RevoRobotics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="568" height="71"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -90,6 +88,8 @@
                 <constraint firstItem="htu-k4-tnf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MvX-kl-TDK"/>
                 <constraint firstItem="OFb-kz-OFD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ohl-sU-4t8"/>
                 <constraint firstItem="vpr-br-aoj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RGD-2j-WUd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vh4-1c-iED" secondAttribute="trailing" constant="30" id="Rre-Jc-583"/>
+                <constraint firstItem="vh4-1c-iED" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="Tpw-5A-BoN"/>
                 <constraint firstItem="vh4-1c-iED" firstAttribute="top" secondItem="OFb-kz-OFD" secondAttribute="bottom" constant="17" id="YIr-Iu-gff"/>
                 <constraint firstItem="cae-N2-ble" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dCo-BN-UxN"/>
                 <constraint firstItem="OFb-kz-OFD" firstAttribute="top" secondItem="vpr-br-aoj" secondAttribute="bottom" constant="6" id="eLv-pD-8MB"/>
@@ -101,6 +101,7 @@
                 <constraint firstAttribute="trailing" secondItem="htu-k4-tnf" secondAttribute="trailing" id="weU-eb-j8s"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="135" y="156"/>
         </view>
     </objects>
     <resources>

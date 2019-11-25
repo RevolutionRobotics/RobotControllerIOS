@@ -32,6 +32,7 @@ extension CommunityViewController {
         super.viewWillAppear(animated)
 
         beginButton.setBorder(fillColor: .clear, strokeColor: .white)
+        beginButton.setTitle(CommunityKeys.beginButton.translate().uppercased(), for: .normal)
     }
 }
 
