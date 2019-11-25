@@ -11,8 +11,8 @@ import UIKit
 final class AboutViewController: BaseViewController {
     // MARK: - Constants
     enum Constants {
-        static let termsAndConditions = URL(string: "https://www.revolutionrobotics.org/termsandconditions")!
-        static let privacyPolicy = URL(string: "https://www.revolutionrobotics.org/privacypolicy")!
+        static let termsAndConditions = URL(string: "https://revolutionrobotics.org/pages/terms-and-conditions")!
+        static let privacyPolicy = URL(string: "https://revolutionrobotics.org/pages/privacy-policy")!
         static let website = URL(string: "https://www.revolutionrobotics.org/")!
 
         static let lineWidth: CGFloat = 2.0
