@@ -738,8 +738,6 @@
 		D0899C6622A6BCB800DB6F97 /* ChallengesCollectionViewEvenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengesCollectionViewEvenCell.swift; sourceTree = "<group>"; };
 		D0899C6722A6BCB800DB6F97 /* ChallengeCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0899C6822A6BCB900DB6F97 /* ChallengesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChallengesViewController.xib; sourceTree = "<group>"; };
-		D0899C7122A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		D0899C7222A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChallengeCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		D08C1CE1226478200052EE1F /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D08C1CEF22648F990052EE1F /* UIView+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Crop.swift"; sourceTree = "<group>"; };
 		D09184F722DDD06600AF9274 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
@@ -1530,8 +1528,6 @@
 				D001FCB022A92F5D004C49F3 /* Modal */,
 				D0899C6422A6BCB800DB6F97 /* ChallengeCategoriesViewController.swift */,
 				D0899C6222A6BCB700DB6F97 /* ChallengeCategoriesViewController.xib */,
-				D0899C7122A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.swift */,
-				D0899C7222A6BF5700DB6F97 /* ChallengeCategoryCollectionViewCell.xib */,
 				D001FCAC22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.swift */,
 				D001FCAD22A8116D004C49F3 /* ChallengeDetailCollectionViewCell.xib */,
 				D001FCA822A7DDE9004C49F3 /* ChallengeDetailViewController.swift */,
