@@ -186,9 +186,9 @@
 
 // MARK: - Community
 "screen_title" = "Community";
-"content_title" = "Share or get help";
-"content_description" = "Description of the forum with benefits";
-"begin_button" = "Begin!";
+"content_title" = "Welcome to our community forum!";
+"content_description" = "Share your robot creations with our community of robotics enthusiasts! Need help, found a bug, or have questions about how to build, code, or create? Click to enter our forum below to find questions to your answers!";
+"begin_button" = "Let's go";
 
 // MARK: - Modal
 "camera_dialog_title" = "ROBOTS PROFILE'S PICTURE";
