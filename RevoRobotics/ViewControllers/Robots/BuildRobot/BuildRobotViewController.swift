@@ -15,7 +15,7 @@ class BuildRobotViewController: BaseViewController {
     @IBOutlet private weak var progressLabel: RRProgressLabel!
     @IBOutlet private weak var partStackView: UIStackView!
     @IBOutlet private weak var buildProgressBar: BuildProgressBar!
-    @IBOutlet private weak var zoomableImageView: RRZoomableImageView!
+    @IBOutlet private weak var pagerView: PagerView!
 
     // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
@@ -66,7 +66,6 @@ extension BuildRobotViewController {
 
         guard !steps.isEmpty else { return }
         if storedRobotDataModel == nil { updateStoredRobot(step: 0) }
-        zoomableImageView.resizeImageView()
         setupProgressBar()
     }
 }
@@ -92,19 +91,32 @@ extension BuildRobotViewController {
     }
 
     private func setupProgressBar() {
+        let storedBuildStep = storedRobotDataModel?.actualBuildStep ?? 0
         buildProgressBar.numberOfSteps = steps.count - 1
-        buildProgressBar.currentStep = storedRobotDataModel?.actualBuildStep ?? 0
+        buildProgressBar.currentStep = storedBuildStep
+        pagerView.items = steps.map({ $0.image })
+        pagerView.selectItem(at: storedBuildStep, animated: false)
+        pagerView.pageSelectedCallback = { [weak self] index in
+            guard let `self` = self else { return }
+            self.buildProgressBar.currentStep = index
+            self.progressLabel.currentStep = index + 1
+        }
+
         buildProgressBar.markers = steps
             .filter({ $0.milestone != nil })
             .map({ steps.firstIndex(of: $0) })
             .compactMap({ $0 })
         buildProgressBar.valueDidChange = { [weak self] currentStepIndex in
-            guard self?.currentStep != self?.steps[currentStepIndex] else { return }
-            self?.currentStep = self?.steps[currentStepIndex]
-            self?.progressLabel.currentStep = currentStepIndex + 1
-            self?.zoomableImageView.imageView.downloadImage(googleStorageURL: self?.currentStep?.image)
-            self?.setupPartsView()
-            self?.updateStoredRobot(step: currentStepIndex)
+            guard let `self` = self else { return }
+            guard self.currentStep != self.steps[currentStepIndex] else {
+                return
+            }
+            self.currentStep = self.steps[currentStepIndex]
+            self.pagerView.selectItem(at: currentStepIndex)
+            self.progressLabel.currentStep = currentStepIndex + 1
+
+            self.setupPartsView()
+            self.updateStoredRobot(step: currentStepIndex)
         }
         buildProgressBar.buildFinished = { [weak self] in
             let buildFinishedModal = BuildFinishedModalView.instatiate()
@@ -379,8 +391,6 @@ extension BuildRobotViewController {
 
     private func refreshViews() {
         setupComponents()
-        let imagePath = steps[storedRobotDataModel?.actualBuildStep ?? 0].image
-        zoomableImageView.imageView.downloadImage(googleStorageURL: imagePath)
     }
 }
 

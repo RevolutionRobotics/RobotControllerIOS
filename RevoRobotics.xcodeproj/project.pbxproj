@@ -281,6 +281,8 @@
 		D03BA8652277385E005B3E33 /* TipsModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8632277385E005B3E33 /* TipsModalView.xib */; };
 		D03BA86B22773DCA005B3E33 /* RRCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */; };
 		D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA87522783D17005B3E33 /* RRCollectionViewDelegate.swift */; };
+		D0489346238D63CE000FC5A2 /* PagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489345238D63CE000FC5A2 /* PagerView.swift */; };
+		D0489348238EACBD000FC5A2 /* PagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489347238EACBD000FC5A2 /* PagerViewCell.swift */; };
 		D049871C2387E5B300136AC8 /* UpdateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049871A2387E5B300136AC8 /* UpdateModalView.swift */; };
 		D049871D2387E5B300136AC8 /* UpdateModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D049871B2387E5B300136AC8 /* UpdateModalView.xib */; };
 		D04F9A8A237AC69300D82D24 /* PeripheralSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F9A89237AC69300D82D24 /* PeripheralSelector.swift */; };
@@ -677,6 +679,8 @@
 		D03BA8632277385E005B3E33 /* TipsModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipsModalView.xib; sourceTree = "<group>"; };
 		D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRCollectionView.swift; sourceTree = "<group>"; };
 		D03BA87522783D17005B3E33 /* RRCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		D0489345238D63CE000FC5A2 /* PagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerView.swift; sourceTree = "<group>"; };
+		D0489347238EACBD000FC5A2 /* PagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewCell.swift; sourceTree = "<group>"; };
 		D049871A2387E5B300136AC8 /* UpdateModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateModalView.swift; sourceTree = "<group>"; };
 		D049871B2387E5B300136AC8 /* UpdateModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateModalView.xib; sourceTree = "<group>"; };
 		D04F9A89237AC69300D82D24 /* PeripheralSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralSelector.swift; sourceTree = "<group>"; };
@@ -893,6 +897,8 @@
 			children = (
 				D03BA8512276F323005B3E33 /* PartView.swift */,
 				D03BA8522276F323005B3E33 /* PartView.xib */,
+				D0489345238D63CE000FC5A2 /* PagerView.swift */,
+				D0489347238EACBD000FC5A2 /* PagerViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2649,6 +2655,7 @@
 				2AB0521722D48A2B007B42F8 /* ControllerButtonMappingDataModel.swift in Sources */,
 				D06C3267228570FF005534C0 /* ResetTutorialModalView.swift in Sources */,
 				D0714448237F03E200ADB612 /* Error+Crashlytics.swift in Sources */,
+				D0489348238EACBD000FC5A2 /* PagerViewCell.swift in Sources */,
 				0985495C2271D44500A7C2DC /* UIImageView+GoogleStorage.swift in Sources */,
 				D008E79F22B92A5F00789B91 /* SaveProgramModalView.swift in Sources */,
 				2ADE8C3C2270A80F00ECEC72 /* MenuKeys.swift in Sources */,
@@ -2732,6 +2739,7 @@
 				D05C64DB225F590100B7BF4F /* Port.swift in Sources */,
 				D05BAA7E22676A0C00624438 /* UIView+NibLoadable.swift in Sources */,
 				2ADE60B722AA65C000622C84 /* ProgramDataModel.swift in Sources */,
+				D0489346238D63CE000FC5A2 /* PagerView.swift in Sources */,
 				2AB7ACE222BB984E00309234 /* SensorConfigJSONData.swift in Sources */,
 				2AA926D522773D95000FAA98 /* SideButton.swift in Sources */,
 				D05BAA7B226769F300624438 /* UICollectionView+CellReuse.swift in Sources */,
