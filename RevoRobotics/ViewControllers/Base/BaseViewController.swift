@@ -265,7 +265,7 @@ extension BaseViewController {
     }
 
     @objc func connected() {
-        bluetoothService.stopDiscovery()
+        (bluetoothService as? BluetoothService)?.stopDiscovery()
 
         let topViewController = navigationController?.topViewController
         let robotConfig = topViewController as? RobotConfigurationViewController
