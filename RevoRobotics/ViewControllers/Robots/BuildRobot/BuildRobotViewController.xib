@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,14 +13,14 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuildRobotViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuildRobotViewController" customModule="RevoRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="buildProgressBar" destination="TTV-yz-alA" id="jLG-lk-B5H"/>
                 <outlet property="navigationBar" destination="IxG-51-Oet" id="HKX-6k-zjx"/>
+                <outlet property="pagerView" destination="64v-l1-Gp7" id="OhG-Ud-ycA"/>
                 <outlet property="partStackView" destination="5uw-FO-bon" id="zdG-nV-fJM"/>
                 <outlet property="progressLabel" destination="sYq-fd-hML" id="NFv-v9-lX3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="zoomableImageView" destination="sjN-3g-Kcz" id="aTH-xS-faU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -33,14 +31,10 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GlowBackground" translatesAutoresizingMaskIntoConstraints="NO" id="UXT-Hc-TIW">
                     <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                 </imageView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sjN-3g-Kcz" customClass="RRZoomableImageView" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
-                    <viewLayoutGuide key="safeArea" id="84e-T7-lRU"/>
-                </scrollView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxG-51-Oet" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxG-51-Oet" customClass="RRNavigationBar" customModule="RevoRobotics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="812" height="71"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYq-fd-hML" userLabel="progressLabel" customClass="RRProgressLabel" customModule="RevolutionRobotics" customModuleProvider="target">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYq-fd-hML" userLabel="progressLabel" customClass="RRProgressLabel" customModule="RevoRobotics" customModuleProvider="target">
                             <rect key="frame" x="728" y="13" width="30" height="18"/>
                             <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -58,7 +52,7 @@
                         <constraint firstItem="JHd-YH-4xv" firstAttribute="trailing" secondItem="sYq-fd-hML" secondAttribute="trailing" id="bwa-nN-ZHp"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTV-yz-alA" userLabel="buildProgressBar" customClass="BuildProgressBar" customModule="RevolutionRobotics" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTV-yz-alA" userLabel="buildProgressBar" customClass="BuildProgressBar" customModule="RevoRobotics" customModuleProvider="target">
                     <rect key="frame" x="52" y="310" width="708" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -68,24 +62,27 @@
                 <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="200" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5uw-FO-bon">
                     <rect key="frame" x="688" y="44" width="110" height="200"/>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64v-l1-Gp7" customClass="PagerView" customModule="RevoRobotics" customModuleProvider="target">
+                    <rect key="frame" x="44" y="71" width="724" height="239"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="IxG-51-Oet" firstAttribute="trailing" secondItem="sYq-fd-hML" secondAttribute="trailing" constant="54" id="02l-rK-Haf"/>
                 <constraint firstItem="UXT-Hc-TIW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="39U-y2-JzF"/>
-                <constraint firstItem="sjN-3g-Kcz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6nK-Xx-TX9"/>
                 <constraint firstItem="IxG-51-Oet" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AZn-Um-Hvk"/>
-                <constraint firstItem="sjN-3g-Kcz" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="DMx-cc-wze"/>
-                <constraint firstAttribute="bottom" secondItem="sjN-3g-Kcz" secondAttribute="bottom" id="DpJ-zT-edi"/>
                 <constraint firstItem="5uw-FO-bon" firstAttribute="top" secondItem="JHd-YH-4xv" secondAttribute="bottom" constant="2" id="ISN-dL-d97"/>
+                <constraint firstItem="64v-l1-Gp7" firstAttribute="top" secondItem="IxG-51-Oet" secondAttribute="bottom" id="Mwj-dQ-nlx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="TTV-yz-alA" secondAttribute="leading" constant="-8" id="OUs-3m-AO5"/>
                 <constraint firstAttribute="bottom" secondItem="UXT-Hc-TIW" secondAttribute="bottom" id="QIG-7Y-eEh"/>
                 <constraint firstItem="5uw-FO-bon" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="44" id="QMF-YV-ffP"/>
                 <constraint firstItem="UXT-Hc-TIW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Qn9-uh-l79"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="sjN-3g-Kcz" secondAttribute="leading" id="RG9-5U-S3Z"/>
+                <constraint firstItem="64v-l1-Gp7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Rae-bU-E7f"/>
                 <constraint firstAttribute="trailing" secondItem="UXT-Hc-TIW" secondAttribute="trailing" id="UCe-Cc-pR0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="64v-l1-Gp7" secondAttribute="trailing" id="VxT-FQ-MzJ"/>
                 <constraint firstAttribute="trailing" secondItem="IxG-51-Oet" secondAttribute="trailing" id="WmF-gH-8z7"/>
                 <constraint firstItem="5uw-FO-bon" firstAttribute="centerX" secondItem="JHd-YH-4xv" secondAttribute="centerX" id="XIm-aE-HUv"/>
+                <constraint firstItem="TTV-yz-alA" firstAttribute="top" secondItem="64v-l1-Gp7" secondAttribute="bottom" id="c3T-Af-8pE"/>
                 <constraint firstAttribute="bottomMargin" secondItem="TTV-yz-alA" secondAttribute="bottom" id="oM6-u9-1lV"/>
                 <constraint firstItem="TTV-yz-alA" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-8" id="t0N-m2-4dB"/>
                 <constraint firstItem="IxG-51-Oet" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="v2R-8s-qwe"/>
