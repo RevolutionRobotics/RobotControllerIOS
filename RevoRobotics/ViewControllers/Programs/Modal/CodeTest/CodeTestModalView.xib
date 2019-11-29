@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+        <array key="Jura-Regular.ttf">
+            <string>Jura-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CodeTestModalView" customModule="RevoRobotics" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9ji-wv-BcN" customClass="CodeTestModalView" customModule="RevoRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmd-cg-7m6" userLabel="Stop Button" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
+                    <rect key="frame" x="4" y="190" width="452" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="gDq-1K-qRh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Stop" image="CloseIcon"/>
+                    <connections>
+                        <action selector="stopButtonPressed:" destination="9ji-wv-BcN" eventType="touchUpInside" id="9b3-H9-ASc"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVM-hl-8DS" userLabel="container">
+                    <rect key="frame" x="4" y="4" width="452" height="178"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="UPLOADING" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVT-0J-qRd">
+                            <rect key="frame" x="30" y="144" width="392" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="Lc0-GS-KnS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="24"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestModalIcon" translatesAutoresizingMaskIntoConstraints="NO" id="iiW-8h-jnu">
+                            <rect key="frame" x="106" y="20" width="240" height="104"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="240" id="Czr-vH-s3H"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="qVT-0J-qRd" firstAttribute="leading" secondItem="cVM-hl-8DS" secondAttribute="leading" constant="30" id="6nL-Ew-bqx"/>
+                        <constraint firstAttribute="trailing" secondItem="qVT-0J-qRd" secondAttribute="trailing" constant="30" id="KNR-lz-U9k"/>
+                        <constraint firstAttribute="bottom" secondItem="qVT-0J-qRd" secondAttribute="bottom" constant="10" id="Otk-0E-jZp"/>
+                        <constraint firstItem="iiW-8h-jnu" firstAttribute="top" secondItem="cVM-hl-8DS" secondAttribute="top" constant="20" id="Wk6-D6-xcC"/>
+                        <constraint firstItem="qVT-0J-qRd" firstAttribute="top" secondItem="iiW-8h-jnu" secondAttribute="bottom" constant="20" id="mc3-m2-yoJ"/>
+                        <constraint firstItem="iiW-8h-jnu" firstAttribute="centerX" secondItem="cVM-hl-8DS" secondAttribute="centerX" id="zJm-kT-cVO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="qmd-cg-7m6" secondAttribute="trailing" priority="750" constant="4" id="4HO-u1-Dd7"/>
+                <constraint firstItem="cVM-hl-8DS" firstAttribute="leading" secondItem="1Xh-QB-t7e" secondAttribute="leading" constant="4" id="6oC-yK-tUu"/>
+                <constraint firstAttribute="bottom" secondItem="qmd-cg-7m6" secondAttribute="bottom" constant="4" id="Cvv-A4-pTv"/>
+                <constraint firstItem="qmd-cg-7m6" firstAttribute="centerX" secondItem="9ji-wv-BcN" secondAttribute="centerX" id="HqK-5N-vHQ"/>
+                <constraint firstItem="qmd-cg-7m6" firstAttribute="leading" secondItem="9ji-wv-BcN" secondAttribute="leading" constant="4" id="K0s-3o-piz"/>
+                <constraint firstItem="qmd-cg-7m6" firstAttribute="top" secondItem="cVM-hl-8DS" secondAttribute="bottom" constant="8" id="dRK-Wh-sEY"/>
+                <constraint firstItem="cVM-hl-8DS" firstAttribute="top" secondItem="9ji-wv-BcN" secondAttribute="top" constant="4" id="mZf-89-C77"/>
+                <constraint firstItem="1Xh-QB-t7e" firstAttribute="trailing" secondItem="cVM-hl-8DS" secondAttribute="trailing" constant="4" id="uPl-Qq-9tX"/>
+                <constraint firstAttribute="trailing" secondItem="qmd-cg-7m6" secondAttribute="trailing" constant="4" id="zdg-a6-Ebd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="1Xh-QB-t7e"/>
+            <connections>
+                <outlet property="stopButton" destination="qmd-cg-7m6" id="Qop-TS-KUY"/>
+                <outlet property="testStatusLabel" destination="qVT-0J-qRd" id="ZCx-Zj-3Zt"/>
+            </connections>
+            <point key="canvasLocation" x="88.405797101449281" y="153.34821428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CloseIcon" width="14" height="14"/>
+        <image name="TestModalIcon" width="512" height="512"/>
+    </resources>
+</document>

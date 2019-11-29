@@ -114,6 +114,7 @@ extension ScreenAssembly {
             .register(ProgramsViewController.self, factory: { _ in return ProgramsViewController() })
             .initCompleted { (resolver, viewController) in
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
+                viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
             }
             .inObjectScope(.weak)
     }
