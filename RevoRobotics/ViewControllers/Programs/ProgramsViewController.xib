@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgramsViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgramsViewController" customModule="RevoRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="containerView" destination="1pp-7Y-TxJ" id="ndt-Wd-SLp"/>
                 <outlet property="newProgramButton" destination="bik-lY-4eS" id="e46-s7-16n"/>
@@ -44,7 +44,7 @@
                                 <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="aO7-qe-laD"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4f-g9-nir" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4f-g9-nir" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
                             <rect key="frame" x="547" y="8" width="48" height="40"/>
                             <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
@@ -56,7 +56,7 @@
                                 <action selector="openProgramButtonTapped:" destination="-1" eventType="touchUpInside" id="Nxl-x4-DOl"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kc-sJ-21m" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kc-sJ-21m" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
                             <rect key="frame" x="491" y="8" width="48" height="40"/>
                             <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
@@ -68,7 +68,7 @@
                                 <action selector="saveProgramButtonTapped:" destination="-1" eventType="touchUpInside" id="98T-nT-kBk"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flb-lY-xZT" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flb-lY-xZT" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
                             <rect key="frame" x="435" y="8" width="48" height="40"/>
                             <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
@@ -80,7 +80,7 @@
                                 <action selector="programCodeButtonTapped:" destination="-1" eventType="touchUpInside" id="14N-mu-a0M"/>
                             </connections>
                         </button>
-                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1w9-Zy-8Ed" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1w9-Zy-8Ed" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
                             <rect key="frame" x="282" y="8" width="145" height="40"/>
                             <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
@@ -90,7 +90,7 @@
                             <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="12" maxY="0.0"/>
                             <state key="normal" title="Untitled program"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bik-lY-4eS" userLabel="New Program Button" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bik-lY-4eS" userLabel="New Program Button" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
                             <rect key="frame" x="605" y="8" width="48" height="40"/>
                             <color key="backgroundColor" name="BlackTwo"/>
                             <constraints>
@@ -98,7 +98,7 @@
                                 <constraint firstAttribute="width" constant="48" id="VxS-SO-XTr"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="11" minY="7" maxX="11" maxY="7"/>
-                            <state key="normal" image="NewIcon"/>
+                            <state key="normal" image="plus16"/>
                             <connections>
                                 <action selector="newProgramButtonTapped:" destination="-1" eventType="touchUpInside" id="sOL-Cq-nMe"/>
                             </connections>
@@ -144,8 +144,8 @@
         <image name="BackIcon" width="13" height="22"/>
         <image name="CodeIcon" width="24" height="24"/>
         <image name="FolderIcon" width="24" height="24"/>
-        <image name="NewIcon" width="36" height="36"/>
         <image name="floppy" width="25" height="25"/>
+        <image name="plus16" width="16" height="16"/>
         <namedColor name="BlackTwo">
             <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
