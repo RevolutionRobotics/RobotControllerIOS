@@ -368,6 +368,14 @@ open class TLAnalogJoystick: SKNode {
         }
     }
 
+    private func isInStickyZone(location: CGPoint) -> Bool {
+        let angle = -atan2(location.x, location.y)
+        let absoluteAngle = CGFloat(abs(angle))
+        let zoneAngle = CGFloat.pi / 2 * 0.4
+        
+        return absoluteAngle < zoneAngle || CGFloat.pi - absoluteAngle < zoneAngle
+    }
+
     @discardableResult
     public func on(_ event: TLAnalogJoystickEventType, _ handler: @escaping TLAnalogJoystickEventHandler) -> TLAnalogJoystickHandlerID {
         let handlerID = getHandlerID()
@@ -410,15 +418,18 @@ open class TLAnalogJoystick: SKNode {
     }
 
     open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard tracking else {
+        guard let touch = touches.first, tracking else {
             return
         }
 
-        let touch = touches.first!
-        let location = touch.location(in: self)
+        let touchLocation = touch.location(in: self)
+        let location = isInStickyZone(location: touchLocation)
+            ? CGPoint(x: 0, y: touchLocation.y)
+            : touchLocation
+
         let baseRadius = base.radius
         let distance = sqrt(pow(location.x, 2) + pow(location.y, 2))
-        let    distanceDiff = distance - baseRadius
+        let distanceDiff = distance - baseRadius
 
         if distanceDiff > 0 {
             let handlePosition = CGPoint(x: location.x / distance * baseRadius, y: location.y / distance * baseRadius)
