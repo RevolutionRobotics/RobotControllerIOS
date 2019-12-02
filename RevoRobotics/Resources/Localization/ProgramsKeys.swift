@@ -12,6 +12,10 @@ enum ProgramsKeys {
     enum Main {
         static let title = "programs_screen_title"
         static let untitled = "programs_screen_untitled"
+        static let test = "programs_screen_test"
+        static let testUploading = "programs_screen_test_uploading"
+        static let testRunning = "programs_screen_test_running"
+        static let testStop = "programs_screen_test_stop"
     }
 
     enum MostRecent {

@@ -124,6 +124,10 @@
 // MARK: - Programs
 "programs_screen_untitled" = "Untitled program";
 "programs_screen_title" = "Programs";
+"programs_screen_test" = "Test";
+"programs_screen_test_uploading" = "Uploading";
+"programs_screen_test_running" = "Running";
+"programs_screen_test_stop" = "Stop";
 "program_selector_title" = "Choose a program!";
 "program_selector_order_by_name" = "Name";
 "program_selector_order_by_date" = "Modified";
