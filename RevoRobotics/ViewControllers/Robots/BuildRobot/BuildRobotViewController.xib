@@ -31,6 +31,9 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GlowBackground" translatesAutoresizingMaskIntoConstraints="NO" id="UXT-Hc-TIW">
                     <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64v-l1-Gp7" customClass="PagerView" customModule="RevoRobotics" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxG-51-Oet" customClass="RRNavigationBar" customModule="RevoRobotics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="812" height="71"/>
                     <subviews>
@@ -62,9 +65,6 @@
                 <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="200" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5uw-FO-bon">
                     <rect key="frame" x="688" y="44" width="110" height="200"/>
                 </stackView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64v-l1-Gp7" customClass="PagerView" customModule="RevoRobotics" customModuleProvider="target">
-                    <rect key="frame" x="44" y="71" width="724" height="239"/>
-                </view>
             </subviews>
             <color key="backgroundColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -72,17 +72,17 @@
                 <constraint firstItem="UXT-Hc-TIW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="39U-y2-JzF"/>
                 <constraint firstItem="IxG-51-Oet" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AZn-Um-Hvk"/>
                 <constraint firstItem="5uw-FO-bon" firstAttribute="top" secondItem="JHd-YH-4xv" secondAttribute="bottom" constant="2" id="ISN-dL-d97"/>
-                <constraint firstItem="64v-l1-Gp7" firstAttribute="top" secondItem="IxG-51-Oet" secondAttribute="bottom" id="Mwj-dQ-nlx"/>
+                <constraint firstItem="64v-l1-Gp7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Mwj-dQ-nlx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="TTV-yz-alA" secondAttribute="leading" constant="-8" id="OUs-3m-AO5"/>
                 <constraint firstAttribute="bottom" secondItem="UXT-Hc-TIW" secondAttribute="bottom" id="QIG-7Y-eEh"/>
                 <constraint firstItem="5uw-FO-bon" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="44" id="QMF-YV-ffP"/>
                 <constraint firstItem="UXT-Hc-TIW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Qn9-uh-l79"/>
-                <constraint firstItem="64v-l1-Gp7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Rae-bU-E7f"/>
+                <constraint firstItem="64v-l1-Gp7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Rae-bU-E7f"/>
                 <constraint firstAttribute="trailing" secondItem="UXT-Hc-TIW" secondAttribute="trailing" id="UCe-Cc-pR0"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="64v-l1-Gp7" secondAttribute="trailing" id="VxT-FQ-MzJ"/>
+                <constraint firstAttribute="trailing" secondItem="64v-l1-Gp7" secondAttribute="trailing" id="VxT-FQ-MzJ"/>
                 <constraint firstAttribute="trailing" secondItem="IxG-51-Oet" secondAttribute="trailing" id="WmF-gH-8z7"/>
                 <constraint firstItem="5uw-FO-bon" firstAttribute="centerX" secondItem="JHd-YH-4xv" secondAttribute="centerX" id="XIm-aE-HUv"/>
-                <constraint firstItem="TTV-yz-alA" firstAttribute="top" secondItem="64v-l1-Gp7" secondAttribute="bottom" id="c3T-Af-8pE"/>
+                <constraint firstAttribute="bottom" secondItem="64v-l1-Gp7" secondAttribute="bottom" id="c3T-Af-8pE"/>
                 <constraint firstAttribute="bottomMargin" secondItem="TTV-yz-alA" secondAttribute="bottom" id="oM6-u9-1lV"/>
                 <constraint firstItem="TTV-yz-alA" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-8" id="t0N-m2-4dB"/>
                 <constraint firstItem="IxG-51-Oet" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="v2R-8s-qwe"/>

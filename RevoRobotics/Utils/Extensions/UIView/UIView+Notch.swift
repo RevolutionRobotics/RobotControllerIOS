@@ -9,6 +9,13 @@
 import UIKit
 
 extension UIView {
-    static let notchSize = UIApplication.shared.keyWindow?.safeAreaInsets.left ?? 0.0
+    static let notchSize = getSafeAreaInsets().left
+    static let safeAreaRight = getSafeAreaInsets().right
+    static let safeAreaTop = getSafeAreaInsets().top
+    static let safeAreaBottom = getSafeAreaInsets().bottom
     static let actualNotchSize = notchSize - 14
+
+    static func getSafeAreaInsets() -> UIEdgeInsets {
+        return UIApplication.shared.keyWindow?.safeAreaInsets ?? .zero
+    }
 }
