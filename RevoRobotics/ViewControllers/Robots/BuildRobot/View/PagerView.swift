@@ -15,6 +15,7 @@ final class PagerView: UIView {
     }
 
     // MARK: - Properties
+    var imageInsets: UIEdgeInsets?
     var pageSelectedCallback: CallbackType<Int>?
     var items: [String] = [] {
         didSet {
@@ -88,7 +89,7 @@ extension PagerView: UICollectionViewDataSource {
             for: indexPath) as? PagerViewCell else {
                 fatalError("Failed to dequeue pager view cell")
         }
-        cell.setup(with: items[indexPath.row])
+        cell.setup(with: items[indexPath.row], imageInsets: imageInsets)
 
         return cell
     }

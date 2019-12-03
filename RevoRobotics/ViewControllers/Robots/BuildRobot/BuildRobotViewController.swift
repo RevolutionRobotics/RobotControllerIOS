@@ -95,6 +95,13 @@ extension BuildRobotViewController {
         buildProgressBar.numberOfSteps = steps.count - 1
         buildProgressBar.currentStep = storedBuildStep
         pagerView.items = steps.map({ $0.image })
+
+        pagerView.imageInsets = UIEdgeInsets(
+            top: navigationBar.frame.size.height,
+            left: 0,
+            bottom: buildProgressBar.frame.size.height,
+            right: 0)
+
         pagerView.selectItem(at: storedBuildStep, animated: false)
         pagerView.pageSelectedCallback = { [weak self] index in
             guard let `self` = self else { return }

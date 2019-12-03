@@ -12,11 +12,11 @@ final class PagerViewCell: UICollectionViewCell {
     // MARK: - Properties
     private let zoomableImageView = RRZoomableImageView()
 
+    // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .clear
         zoomableImageView.frame = contentView.frame
-        zoomableImageView.imageView.frame = contentView.frame
         addSubview(zoomableImageView)
     }
 
@@ -27,8 +27,27 @@ final class PagerViewCell: UICollectionViewCell {
 
 // MARK: - Setup
 extension PagerViewCell {
-    func setup(with url: String) {
+    func setup(with url: String, imageInsets: UIEdgeInsets?) {
         zoomableImageView.resetZoom()
         zoomableImageView.imageView.downloadImage(googleStorageURL: url)
+
+        let parentFrame = zoomableImageView.frame
+        let insets = imageInsets ?? .zero
+
+        zoomableImageView.imageView.frame = CGRect(
+            x: parentFrame.minX + insets.left + UIView.notchSize,
+            y: parentFrame.minY + insets.top,
+            width: parentFrame.width
+                - insets.left
+                - insets.right
+                - UIView.notchSize
+                - UIView.safeAreaRight,
+            height: parentFrame.height
+                - insets.top
+                - insets.bottom
+                - UIView.safeAreaTop
+                - UIView.safeAreaBottom)
+
+        zoomableImageView.setNeedsLayout()
     }
 }
