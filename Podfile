@@ -14,7 +14,7 @@ target 'RevoRobotics' do
 
   # Release management
   pod 'Fabric', '~> 1.10.2'
-  pod 'Crashlytics', '~> 3.13.4'
+  pod 'Crashlytics', '~> 3.14.0'
 
   # UI
   pod 'Kingfisher', '~> 5.3.1'
@@ -32,7 +32,7 @@ target 'RevoRobotics' do
   pod 'PMParentalGate'
 
   # RevolutionRobotics
-  pod 'RevolutionRoboticsBlockly', '~> 0.1.9'
+  pod 'RevolutionRoboticsBlockly', '~> 0.2.0'
   pod 'RevolutionRoboticsBluetooth', '~> 0.1.0'
 #  pod 'RevolutionRoboticsBlockly', :path => '../RevolutionRoboticsBlocklyIOS'
 #  pod 'RevolutionRoboticsBluetooth', :path => '../RevolutionRoboticsBluetoothIOS'

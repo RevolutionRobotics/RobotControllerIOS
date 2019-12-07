@@ -24,7 +24,6 @@ final class ProgramsViewController: BaseViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var programNameButton: RRButton!
-    @IBOutlet private weak var programCodeButton: RRButton!
     @IBOutlet private weak var newProgramButton: RRButton!
     @IBOutlet private weak var saveProgramButton: RRButton!
     @IBOutlet private weak var openProgramButton: RRButton!
@@ -110,7 +109,6 @@ extension ProgramsViewController {
 
     private func setupButtons() {
         programNameButton.setBorder(fillColor: .clear)
-        programCodeButton.setBorder(fillColor: .clear)
         saveProgramButton.setBorder(fillColor: .clear)
         testButton.setBorder(fillColor: .clear)
         testButton.setTitle(ProgramsKeys.Main.test.translate(), for: .normal)
@@ -386,10 +384,6 @@ extension ProgramsViewController {
 extension ProgramsViewController {
     @IBAction private func backButtonTapped(_ sender: UIButton) {
         programSaveReason = .navigateBack
-    }
-
-    @IBAction private func programCodeButtonTapped(_ sender: UIButton) {
-        programSaveReason = .showCode
     }
 
     @IBAction private func newProgramButtonTapped(_ sender: UIButton) {
