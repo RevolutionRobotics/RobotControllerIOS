@@ -1,5 +1,5 @@
 PODS:
-  - Crashlytics (3.13.4):
+  - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
   - CryptoSwift (1.2.0)
   - Fabric (1.10.2)
@@ -93,7 +93,7 @@ PODS:
   - Realm/Headers (3.18.0)
   - RealmSwift (3.18.0):
     - Realm (= 3.18.0)
-  - RevolutionRoboticsBlockly (0.1.9):
+  - RevolutionRoboticsBlockly (0.2.0):
     - WKWebViewJavascriptBridge (~> 1.2.0)
   - RevolutionRoboticsBluetooth (0.1.0):
     - CryptoSwift (~> 1.0)
@@ -103,7 +103,7 @@ PODS:
   - WKWebViewJavascriptBridge (1.2.0)
 
 DEPENDENCIES:
-  - Crashlytics (~> 3.13.4)
+  - Crashlytics (~> 3.14.0)
   - Fabric (~> 1.10.2)
   - Firebase/Analytics
   - Firebase/Core
@@ -113,7 +113,7 @@ DEPENDENCIES:
   - PieCharts (~> 0.0.7)
   - PMParentalGate
   - RealmSwift (~> 3.18.0)
-  - RevolutionRoboticsBlockly (~> 0.1.9)
+  - RevolutionRoboticsBlockly (~> 0.2.0)
   - RevolutionRoboticsBluetooth (~> 0.1.0)
   - SideMenu (from `https://github.com/stelabouras/SideMenu.git`, branch `upgrade/xcode-10.2`)
   - SwiftLint (~> 0.31.0)
@@ -162,7 +162,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/stelabouras/SideMenu.git
 
 SPEC CHECKSUMS:
-  Crashlytics: 2dfd686bcb918dc10ee0e76f7f853fe42c7bd552
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   CryptoSwift: 40e374e45291d8dceedcb0d6184da94533eaabdf
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
@@ -186,13 +186,13 @@ SPEC CHECKSUMS:
   PMParentalGate: 9cf253ba14edcd9ff283677b70b1be9e56d7acef
   Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
   RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
-  RevolutionRoboticsBlockly: e9eef6f7883022fa127fe8b9ee9961fc224d4e88
+  RevolutionRoboticsBlockly: 583953a3c7b42b0e9830de0198df7146e1cb78e4
   RevolutionRoboticsBluetooth: c7bf0ec4ededdf7a21a3395c398410de04b3c8b0
   SideMenu: b3aa6e33e2efd43e077bcf8432e84a35daa50bb6
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
 
-PODFILE CHECKSUM: 5509ca208cbf86936c1c6a8a66be2bf3fd77deea
+PODFILE CHECKSUM: b0bfd7a167eb092be336d2502e5fbccd7bad46a5
 
 COCOAPODS: 1.8.4
