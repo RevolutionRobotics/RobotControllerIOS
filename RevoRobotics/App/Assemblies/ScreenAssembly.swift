@@ -45,6 +45,9 @@ extension ScreenAssembly {
     private func registerUserTypeSelectionViewController(to container: Container) {
         container
             .register(UserTypeSelectionViewController.self, factory: { _ in return UserTypeSelectionViewController() })
+            .initCompleted { (_, viewController) in
+                viewController.screenName = "User type selection"
+            }
             .inObjectScope(.weak)
     }
 
@@ -53,10 +56,10 @@ extension ScreenAssembly {
             .register(BuildRevvyViewController.self, factory: { _ in return
                 BuildRevvyViewController()
             })
-            .initCompleted({ (resolver, viewController) in
+            .initCompleted { (resolver, viewController) in
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
                 viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
-            })
+            }
             .inObjectScope(.weak)
     }
 
@@ -64,6 +67,7 @@ extension ScreenAssembly {
         container
             .register(MenuViewController.self, factory: { _ in return MenuViewController() })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "Main menu"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
                 viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
@@ -83,6 +87,7 @@ extension ScreenAssembly {
                 return ChallengeCategoriesViewController()
             })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "Challenge group"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
                 viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
@@ -94,6 +99,7 @@ extension ScreenAssembly {
         container
             .register(ChallengesViewController.self, factory: { _ in return ChallengesViewController() })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "Challenge list"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
             }
@@ -104,6 +110,7 @@ extension ScreenAssembly {
         container
             .register(ChallengeDetailViewController.self, factory: { _ in return ChallengeDetailViewController() })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "Challenge details"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
             }
             .inObjectScope(.weak)
@@ -113,6 +120,7 @@ extension ScreenAssembly {
         container
             .register(ProgramsViewController.self, factory: { _ in return ProgramsViewController() })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "Coding"
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
             }
@@ -123,6 +131,7 @@ extension ScreenAssembly {
         container
             .register(SettingsViewController.self, factory: { _ in return SettingsViewController() })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "Settings"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
             }
             .inObjectScope(.weak)
@@ -132,6 +141,7 @@ extension ScreenAssembly {
         container
             .register(WhoToBuildViewController.self, factory: { _ in return WhoToBuildViewController() })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "Create new robot"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
                 viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
@@ -143,6 +153,7 @@ extension ScreenAssembly {
         container
             .register(YourRobotsViewController.self, factory: { _ in return YourRobotsViewController() })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "My robots"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
                 viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
@@ -154,6 +165,7 @@ extension ScreenAssembly {
         container
             .register(BuildRobotViewController.self, factory: { _ in return BuildRobotViewController() })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "Build instructions"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
                 viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
@@ -204,6 +216,7 @@ extension ScreenAssembly {
         container
             .register(PlayControllerViewController.self, factory: { _ in return PlayControllerViewController() })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "Play"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
             }
@@ -214,6 +227,7 @@ extension ScreenAssembly {
         container
             .register(FirmwareUpdateViewController.self, factory: { _ in return FirmwareUpdateViewController() })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "Firmware update"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
                 viewController.firebaseService = resolver.resolve(FirebaseServiceInterface.self)!
             }
@@ -224,6 +238,7 @@ extension ScreenAssembly {
         container
             .register(AboutViewController.self, factory: { _ in return AboutViewController() })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "About"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
             }
             .inObjectScope(.weak)
@@ -265,6 +280,7 @@ extension ScreenAssembly {
                 return ProgramSelectorViewController()
             })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "Program selector"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
             }
@@ -285,6 +301,7 @@ extension ScreenAssembly {
                 return ButtonlessProgramsViewController()
             })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "Background programs"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
             }
@@ -295,6 +312,7 @@ extension ScreenAssembly {
         container
             .register(ProgramPriorityViewController.self, factory: { _ in return ProgramPriorityViewController() })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "Program priority"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
                 viewController.realmService = resolver.resolve(RealmServiceInterface.self)!
             }
@@ -305,6 +323,7 @@ extension ScreenAssembly {
         container
             .register(CommunityViewController.self, factory: { _ in return CommunityViewController() })
             .initCompleted { (resolver, viewController) in
+                viewController.screenName = "Community"
                 viewController.bluetoothService = resolver.resolve(BluetoothServiceInterface.self)!
             }
             .inObjectScope(.weak)
