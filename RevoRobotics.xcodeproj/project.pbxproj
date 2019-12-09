@@ -291,6 +291,7 @@
 		D04F9A90237AEB5A00D82D24 /* PeripheralTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04F9A8F237AEB5A00D82D24 /* PeripheralTableViewCell.xib */; };
 		D04F9A92237C311E00D82D24 /* ProgramListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F9A91237C311E00D82D24 /* ProgramListTableViewCell.swift */; };
 		D04F9A94237C35E600D82D24 /* ProgramListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04F9A93237C35E500D82D24 /* ProgramListTableViewCell.xib */; };
+		D056DDE2239E5CA6005D1B43 /* RobotConfigurationViewControllerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056DDE1239E5CA6005D1B43 /* RobotConfigurationViewControllerActions.swift */; };
 		D058288923913E2C00AF42B1 /* ProgramsViewController+BlocklyBridgeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D058288823913E2C00AF42B1 /* ProgramsViewController+BlocklyBridgeDelegate.swift */; };
 		D058288C23916F6600AF42B1 /* CodeTestModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D058288B23916F6600AF42B1 /* CodeTestModalView.swift */; };
 		D058288E23916F7C00AF42B1 /* CodeTestModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D058288D23916F7C00AF42B1 /* CodeTestModalView.xib */; };
@@ -692,6 +693,7 @@
 		D04F9A8F237AEB5A00D82D24 /* PeripheralTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeripheralTableViewCell.xib; sourceTree = "<group>"; };
 		D04F9A91237C311E00D82D24 /* ProgramListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramListTableViewCell.swift; sourceTree = "<group>"; };
 		D04F9A93237C35E500D82D24 /* ProgramListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramListTableViewCell.xib; sourceTree = "<group>"; };
+		D056DDE1239E5CA6005D1B43 /* RobotConfigurationViewControllerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotConfigurationViewControllerActions.swift; sourceTree = "<group>"; };
 		D058288823913E2C00AF42B1 /* ProgramsViewController+BlocklyBridgeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramsViewController+BlocklyBridgeDelegate.swift"; sourceTree = "<group>"; };
 		D058288B23916F6600AF42B1 /* CodeTestModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTestModalView.swift; sourceTree = "<group>"; };
 		D058288D23916F7C00AF42B1 /* CodeTestModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CodeTestModalView.xib; sourceTree = "<group>"; };
@@ -2238,6 +2240,7 @@
 				09105A9A2280581F00AB7B72 /* MotorConfigViewController.swift */,
 				09105A992280581E00AB7B72 /* MotorConfigViewController.xib */,
 				2A3A759722954A6700ED9A1D /* RobotConfigurationViewController.swift */,
+				D056DDE1239E5CA6005D1B43 /* RobotConfigurationViewControllerActions.swift */,
 				FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */,
 				0939A38C2278440A005EE307 /* SensorConfigViewController.swift */,
 				0939A38D2278440A005EE307 /* SensorConfigViewController.xib */,
@@ -2778,6 +2781,7 @@
 				D0EAE2D6235077300015F626 /* OnboardingKeys.swift in Sources */,
 				2A77320F2264A79900D7F38D /* FirebaseServiceInterface.swift in Sources */,
 				2ADE8C322270A77200ECEC72 /* ChallengesKeys.swift in Sources */,
+				D056DDE2239E5CA6005D1B43 /* RobotConfigurationViewControllerActions.swift in Sources */,
 				2A4C930E228C15890029AE07 /* SensorConfigViewModel.swift in Sources */,
 				2AF8C75C22805EFA00CE1ACB /* RealmServiceInterface.swift in Sources */,
 				2A4C930C228ABA9E0029AE07 /* MotorConfigViewModel.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenu
+import Firebase
 import os
 
 class BaseViewController: UIViewController, RRNavigationBarDelegate {
@@ -24,6 +25,8 @@ class BaseViewController: UIViewController, RRNavigationBarDelegate {
     private var shouldDismissOnBackgroundTap: Bool = true
     private let modalPresenter = BluetoothConnectionModalPresenter()
     var bluetoothService: BluetoothServiceInterface!
+    var screenName: String?
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscapeRight
     }
@@ -78,6 +81,12 @@ extension BaseViewController {
         super.viewWillAppear(animated)
         view.setNeedsLayout()
         view.layoutIfNeeded()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard let screenName = screenName else { return }
+        Analytics.setScreenName(screenName, screenClass: classForCoder.description())
     }
 }
 
