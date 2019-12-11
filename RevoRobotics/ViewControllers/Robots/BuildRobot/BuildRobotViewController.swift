@@ -55,8 +55,6 @@ extension BuildRobotViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presentBluetoothConnectionModal(buttonTapped: false)
-
         guard !steps.isEmpty else { return }
         refreshViews()
     }
