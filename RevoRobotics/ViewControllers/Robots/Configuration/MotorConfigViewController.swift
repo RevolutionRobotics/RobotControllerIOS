@@ -389,6 +389,7 @@ extension MotorConfigViewController {
         guard selectedMotorState != .empty else {
             shouldCallDismiss = false
             doneButtonTapped?(MotorConfigViewModel(portName: nameInputField.text, state: selectedMotorState))
+            logEvent(named: "remove_motor")
             return
         }
         guard let name = nameInputField.text, !name.isEmpty else {
@@ -401,6 +402,7 @@ extension MotorConfigViewController {
         }
         shouldCallDismiss = false
         doneButtonTapped?(MotorConfigViewModel(portName: nameInputField.text, state: selectedMotorState))
+        logEvent(named: "add_motor")
     }
 
     @objc private func reverseSwitchTapped(_ sender: UISwitch) {

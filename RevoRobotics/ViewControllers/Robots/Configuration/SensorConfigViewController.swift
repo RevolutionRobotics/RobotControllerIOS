@@ -249,6 +249,7 @@ extension SensorConfigViewController {
         guard selectedSensorType != .empty else {
             shouldCallDismiss = false
             doneButtonTapped?(SensorConfigViewModel(portName: nameInputField.text, type: selectedSensorType))
+            logEvent(named: "remove_sensor")
             return
         }
         guard let name = nameInputField.text, !name.isEmpty else {
@@ -261,6 +262,7 @@ extension SensorConfigViewController {
         }
         shouldCallDismiss = false
         doneButtonTapped?(SensorConfigViewModel(portName: nameInputField.text, type: selectedSensorType))
+        logEvent(named: "add_sensor")
     }
 }
 

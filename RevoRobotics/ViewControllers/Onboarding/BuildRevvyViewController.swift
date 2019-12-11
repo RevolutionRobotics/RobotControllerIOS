@@ -191,6 +191,7 @@ extension BuildRevvyViewController {
     @IBAction private func skipButtonTapped(_ sender: Any) {
         savePromptVisited()
         navigationController?.popToRootViewController(animated: true)
+        logEvent(named: "skip_onboarding")
     }
 
     @IBAction private func yesButtonTapped(_ sender: Any) {
@@ -198,6 +199,7 @@ extension BuildRevvyViewController {
         getRevvyDataModel(completion: { [weak self] revvy in
             self?.createNewRobot(using: revvy)
         })
+        logEvent(named: "build_basic_robot_offline")
     }
 
     @IBAction private func noButtonTapped(_ sender: Any) {
@@ -213,5 +215,6 @@ extension BuildRevvyViewController {
             buildRevvy.remoteRobotDataModel = revvy
             self.navigationController?.pushViewController(buildRevvy, animated: true)
         })
+        logEvent(named: "build_basic_robot_online")
     }
 }

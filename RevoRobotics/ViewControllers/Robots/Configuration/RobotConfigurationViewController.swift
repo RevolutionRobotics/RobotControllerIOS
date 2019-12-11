@@ -345,16 +345,18 @@ extension RobotConfigurationViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         var newImage: UIImage
-        if let possibleImage = info[.editedImage] as? UIImage {
-            newImage = possibleImage
-        } else if let possibleImage = info[.originalImage] as? UIImage {
-            newImage = possibleImage
+        if let unwrappedImage = info[.editedImage] as? UIImage {
+            newImage = unwrappedImage
+        } else if let unwrappedImage = info[.originalImage] as? UIImage {
+            newImage = unwrappedImage
         } else {
             return
         }
 
         photoModal.setImage(newImage)
         robotImage = newImage
+        logEvent(named: "change_robot_image")
+
         if let robotId = selectedRobot?.id {
             FileManager.default.save(robotImage, as: robotId)
         }

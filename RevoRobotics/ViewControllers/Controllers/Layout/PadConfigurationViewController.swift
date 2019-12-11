@@ -185,6 +185,7 @@ extension PadConfigurationViewController {
         })
 
         dismissModalViewController()
+        logEvent(named: "assign_program_to_button")
     }
 
     private func bottomBarDismissed() {

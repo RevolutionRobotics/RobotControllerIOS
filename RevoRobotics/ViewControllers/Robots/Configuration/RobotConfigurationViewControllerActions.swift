@@ -19,6 +19,7 @@ extension RobotConfigurationViewController {
             self.deleteCallback?()
             self.dismissModalViewController()
             self.navigationController?.popViewController(animated: true)
+            self.logEvent(named: "delete_robot")
         }
         deleteView.cancelButtonHandler = { [weak self] in
             self?.dismissModalViewController()
@@ -30,6 +31,7 @@ extension RobotConfigurationViewController {
 
     private func duplicateTapped(_ sender: Any) {
         duplicateCallback?()
+        logEvent(named: "duplicate_robot")
         navigationController?.popViewController(animated: true)
     }
 
@@ -50,6 +52,7 @@ extension RobotConfigurationViewController {
         })
 
         controller?.type = toggledType.rawValue
+        logEvent(named: "change_controller_type")
     }
 
     @IBAction private func backgroundProgramsTapped(_ sender: Any) {
@@ -57,6 +60,7 @@ extension RobotConfigurationViewController {
         vc.configurationId = padConfiguration.configurationId
         vc.controllerViewModel = padConfiguration.viewModel
         navigationController?.pushViewController(vc, animated: true)
+        logEvent(named: "add_background_program")
     }
 
     @IBAction private func playButtonTapped(_ sender: Any) {
@@ -75,6 +79,7 @@ extension RobotConfigurationViewController {
         let vc = AppContainer.shared.container.unwrappedResolve(ProgramPriorityViewController.self)
         vc.controllerViewModel = padConfiguration.viewModel
         navigationController?.pushViewController(vc, animated: true)
+        logEvent(named: "click_priority_button")
     }
 
     @IBAction private func optionsTapped(_ sender: Any) {
@@ -122,6 +127,8 @@ extension RobotConfigurationViewController {
                 target: self,
                 action: #selector(self.tappedOutside)
             ))
+
+            self.logEvent(named: "open_overflow_menu")
         })
     }
 
@@ -162,6 +169,7 @@ extension RobotConfigurationViewController {
             guard let `self` = self else { return }
 
             self.updateConfiguration(name: data.name, description: data.description)
+            self.logEvent(named: "rename_robot")
             FileManager.default.save(self.robotImage, as: robot.id)
             self.dismissModalViewController()
             self.updateNavigationBar()
@@ -209,5 +217,7 @@ extension RobotConfigurationViewController {
         realmService.saveRobot(robot, shouldUpdate: true)
         realmService.saveConfigurations([configuration])
         selectedRobot = robot
+        
+        logEvent(named: "create_custom_robot")
     }
 }

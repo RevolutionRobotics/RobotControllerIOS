@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
     var window: UIWindow?
+    var currentScreenName: String?
+
     private var shouldReconnect = false
     private var navigationController: RRNavigationController!
     private let dependencies = AppDependencies()
@@ -37,6 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         shouldReconnect = true
         let bluetoothService = AppContainer.shared.container.unwrappedResolve(BluetoothServiceInterface.self)
         bluetoothService.disconnect(shouldReconnect: shouldReconnect)
+
+        Analytics.logEvent("leave_app", parameters: [
+            "screen": currentScreenName ?? "Unknown"
+        ])
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
