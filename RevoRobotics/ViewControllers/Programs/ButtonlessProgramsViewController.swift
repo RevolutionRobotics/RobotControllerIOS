@@ -261,6 +261,7 @@ extension ButtonlessProgramsViewController: UITableViewDelegate {
         if cell.state == .available {
             cell.update(state: .selected)
             selectedPrograms.append(filteredAndOrderedPrograms[indexPath.row])
+            logEvent(named: "add_background_program")
         } else {
             cell.update(state: .available)
             selectedPrograms.removeAll(where: { $0 == filteredAndOrderedPrograms[indexPath.row] })

@@ -85,8 +85,24 @@ extension BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard let screenName = screenName else { return }
+        setScreenName()
+    }
+}
+
+// MARK: - Firebase Analytics
+extension BaseViewController {
+    private func setScreenName() {
+        guard
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+            let screenName = screenName
+        else { return }
+        
+        appDelegate.currentScreenName = screenName
         Analytics.setScreenName(screenName, screenClass: classForCoder.description())
+    }
+
+    func logEvent(named name: String, params: [String: Any]? = nil) {
+        Analytics.logEvent(name, parameters: params)
     }
 }
 
@@ -131,15 +147,11 @@ extension BaseViewController {
         showParentalGate(then: { [weak self] in
             guard let `self` = self else { return }
             if self.presentedViewController != nil {
-                self.dismiss(animated: true, completion: {
-                    UIApplication.shared.open(url ?? Constants.communityURL, options: [:], completionHandler: { _ in
-                        presentationFinished?()
-                    })
+                self.dismiss(animated: true, completion: { [weak self] in
+                    self?.presentSafari(with: url, callback: presentationFinished)
                 })
             } else {
-                UIApplication.shared.open(url ?? Constants.communityURL, options: [:], completionHandler: { _ in
-                    presentationFinished?()
-                })
+                self.presentSafari(with: url, callback: presentationFinished)
             }
         })
     }
@@ -152,6 +164,16 @@ extension BaseViewController {
         viewController.modalTransitionStyle = transitionStyle
         viewController.modalPresentationStyle = presentationStyle
         present(viewController, animated: true, completion: nil)
+    }
+
+    private func presentSafari(with url: URL?, callback: Callback?) {
+        if url == nil || url == Constants.communityURL {
+            logEvent(named: "open_forum")
+        }
+
+        UIApplication.shared.open(url ?? Constants.communityURL, options: [:], completionHandler: { _ in
+            callback?()
+        })
     }
 }
 
@@ -223,7 +245,8 @@ extension BaseViewController {
             on: self,
             isBluetoothPoweredOn: bluetoothService.isBluetoothPoweredOn,
             startDiscoveryHandler: { [weak self] in
-                self?.bluetoothService.startDiscovery(onScanResult: { result in
+                guard let `self` = self else { return }
+                self.bluetoothService.startDiscovery(onScanResult: { result in
                     switch result {
                     case .success(let devices):
                         modalPresenter.discoveredDevices = devices
@@ -231,7 +254,7 @@ extension BaseViewController {
                         os_log("Error: Failed to discover peripherals!")
                     }
                 })
-
+                self.logEvent(named: "open_bt_device_list")
             },
             deviceSelectionHandler: { [weak self] device in
                 self?.bluetoothService.connect(to: device)
@@ -239,6 +262,7 @@ extension BaseViewController {
             onDismissed: { [weak self] in
                 self?.bluetoothService.stopDiscovery()
         })
+        logEvent(named: "open_bt_connect_dialog")
     }
 
     private func presentDisconnectModal() {
@@ -288,6 +312,8 @@ extension BaseViewController {
                 self?.dismissModalViewController()
             }
         }
+
+        logEvent(named: "connect_to_brain")
     }
 
     @objc func disconnected() { }

@@ -50,6 +50,7 @@ extension SettingsViewController {
         defaults.set(false, forKey: keys.buildRevvyPromptVisited)
         defaults.set(false, forKey: keys.revvyBuilt)
 
+        logEvent(named: "reset_tutorial")
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
             self?.dismissModalViewController()
         }

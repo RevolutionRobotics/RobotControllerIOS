@@ -203,6 +203,7 @@ extension FirebaseService: FirebaseServiceInterface {
 
     func registerDevice(named name: String) {
         Analytics.setUserProperty(name, forName: Constants.deviceNameKey)
+        Analytics.logEvent("register_robot", parameters: nil)
     }
 }
 

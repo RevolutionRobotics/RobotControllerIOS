@@ -123,6 +123,9 @@ extension FirmwareUpdateViewController {
                                 self?.dismissModalViewController()
                             }
                             self.presentModal(with: successModalView)
+                            
+                            self.logEvent(named: "upload_to_brain")
+                            self.logEvent(named: "update_firmware")
                         }
                     case .failure:
                         os_log("Error while sending firmware update to the robot!")

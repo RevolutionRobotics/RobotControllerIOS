@@ -49,9 +49,11 @@ extension ChallengesViewController {
         self.challengeCategory = challengeCategory
         if let category = realmService.getChallengeCategory(id: challengeCategory.id) {
             progress = category.progress
+            logEvent(named: "continue_challenge")
         } else {
             let category = ChallengeCategoryDataModel(id: challengeCategory.id, progress: 0)
             realmService.saveChallengeCategory(category)
+            logEvent(named: "start_new_challenge")
         }
     }
 
@@ -100,8 +102,13 @@ extension ChallengesViewController {
         navigationController?.pushViewController(challengeDetailViewController, animated: true)
         challengeDetailViewController.setup(with: challenge, needsReload: true)
         challengeDetailViewController.challengeFinished = { [weak self] in
-            self?.setupModal()
+            self?.challengeFinished()
         }
+    }
+
+    private func challengeFinished() {
+        setupModal()
+        logEvent(named: "finish_challenge")
     }
 }
 
@@ -115,7 +122,7 @@ extension ChallengesViewController: UICollectionViewDelegate {
         navigationController?.pushViewController(challengeDetailViewController, animated: true)
         challengeDetailViewController.setup(with: challenge)
         challengeDetailViewController.challengeFinished = { [weak self] in
-            self?.setupModal()
+            self?.challengeFinished()
         }
     }
 }

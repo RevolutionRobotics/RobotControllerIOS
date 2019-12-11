@@ -117,6 +117,7 @@ extension ProgramPriorityViewController: UITableViewDropDelegate {
         moveItem(from: sourceIndexPath, to: destinationIndexPath)
         guard let cell = tableView.cellForRow(at: destinationIndexPath) as? ProgramsOrderTableViewCell else { return }
         cell.setSelectedState(false)
+        logEvent(named: "change_priority")
     }
 
     func tableView(_ tableView: UITableView,

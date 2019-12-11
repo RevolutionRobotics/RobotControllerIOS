@@ -141,6 +141,7 @@ extension BuildRobotViewController {
                 self?.navigateToPlayViewController()
             }
             self?.presentModal(with: buildFinishedModal, closeHidden: true)
+            self?.logEvent(named: "finish_basic_robot")
         }
         buildProgressBar.showMilestone = { [weak self] in
             guard let milestone = self?.currentStep?.milestone else {
@@ -314,12 +315,14 @@ extension BuildRobotViewController {
     }
 
     private func createNewRobot(remoteConfigurations: [Configuration], remoteControllers: [Controller], step: Int) {
-        guard let remoteId = remoteRobotDataModel?.id else { return }
+        guard
+            let remoteId = remoteRobotDataModel?.id,
+            let remoteConfiguration =
+            remoteConfigurations.first(where: { $0.id == remoteRobotDataModel?.configurationId })
+        else { return }
 
         let robotId = UUID().uuidString
         let configId = UUID().uuidString
-        let remoteConfiguration =
-            remoteConfigurations.first(where: { $0.id == remoteRobotDataModel?.configurationId })!
         let localConfiguration = ConfigurationDataModel(id: configId, remoteConfiguration: remoteConfiguration)
 
         let controllers = remoteControllers
@@ -356,6 +359,7 @@ extension BuildRobotViewController {
             customDescription: remoteRobotDataModel?.customDescription.text)
 
         realmService.saveRobot(storedRobotDataModel!, shouldUpdate: true)
+        logEvent(named: "start_basic_robot")
 
         if onboardingInProgress {
             UserDefaults.standard.set(true, forKey: UserDefaults.Keys.revvyBuilt)

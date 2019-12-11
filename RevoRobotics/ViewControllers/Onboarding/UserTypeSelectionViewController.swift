@@ -38,6 +38,7 @@ final class UserTypeSelectionViewController: BaseViewController {
     private var selectedUserType: UserType? {
         didSet {
             (selectedUserType == .student ? showAgeModal : promptBuildRevvy)()
+            logEvent(named: "select_user_type")
         }
     }
 }
@@ -68,6 +69,7 @@ extension UserTypeSelectionViewController {
             self.birthYear = birthYear
             self.dismissModalViewController()
             self.promptBuildRevvy()
+            self.logEvent(named: "select_year_of_birth")
         }
 
         presentModal(with: modal, closeHidden: true)

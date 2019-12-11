@@ -151,15 +151,17 @@ extension ProgramsViewController {
         let descriptionModal = ProgramDescriptionModalView.instatiate()
         descriptionModal.setup(with: program)
         descriptionModal.loadCallback = { [weak self] in
-            self?.dismissModalViewController()
-            self?.selectedProgram = program
-            self?.blocklyViewController.loadProgram(xml: program.xml.base64Decoded ?? "")
-            self?.prefillProgram()
-            self?.setupButtons()
+            guard let `self` = self else { return }
+            self.dismissModalViewController()
+            self.selectedProgram = program
+            self.blocklyViewController.loadProgram(xml: program.xml.base64Decoded ?? "")
+            self.prefillProgram()
+            self.setupButtons()
         }
         descriptionModal.deleteCallback = { [weak self] in
-            self?.dismissModalViewController()
-            self?.realmService.deleteProgram(program)
+            guard let `self` = self else { return }
+            self.dismissModalViewController()
+            self.realmService.deleteProgram(program)
         }
         presentModal(with: descriptionModal)
     }
@@ -290,6 +292,7 @@ extension ProgramsViewController {
             guard let `self` = self else { return }
             self.dismissModalViewController()
             self.open(program: program)
+            self.logEvent(named: "open_program")
         }
         presentModal(with: programsView)
     }
@@ -300,6 +303,7 @@ extension ProgramsViewController {
         blocklyViewController.clearWorkspace()
         programNameButton.setTitle(ProgramsKeys.Main.untitled.translate(), for: .normal)
         programNameButton.setBorder(fillColor: .clear)
+        logEvent(named: "create_new_program")
     }
 
     internal func onSavePromptDismissed(xmlCode: String, callback: Callback) {
