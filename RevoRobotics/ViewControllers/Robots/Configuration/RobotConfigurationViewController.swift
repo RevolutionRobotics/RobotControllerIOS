@@ -377,7 +377,7 @@ extension RobotConfigurationViewController: UIImagePickerControllerDelegate {
             configurationView.set(state: sensorState, on: mapping.motors.count + index + 1, type: sensorType)
         })
     }
- 
+
     internal func takePhotoTapped(_ sender: Any) {
         reloadConfigurationView()
         if robotImage == nil {

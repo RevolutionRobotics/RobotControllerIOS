@@ -59,7 +59,7 @@ extension PlayControllerViewController {
             navigationBar.bluetoothButtonState = .notConnected
             presentBluetoothModal()
         }
-        
+
         if onboardingInProgress {
             logEvent(named: "drive_basic_robot")
         }
