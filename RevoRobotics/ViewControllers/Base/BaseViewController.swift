@@ -82,7 +82,7 @@ extension BaseViewController {
         view.setNeedsLayout()
         view.layoutIfNeeded()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setScreenName()
@@ -96,7 +96,7 @@ extension BaseViewController {
             let appDelegate = UIApplication.shared.delegate as? AppDelegate,
             let screenName = screenName
         else { return }
-        
+
         appDelegate.currentScreenName = screenName
         Analytics.setScreenName(screenName, screenClass: classForCoder.description())
     }

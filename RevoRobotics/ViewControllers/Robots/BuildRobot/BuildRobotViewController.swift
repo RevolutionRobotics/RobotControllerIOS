@@ -326,7 +326,8 @@ extension BuildRobotViewController {
         let controllers = remoteControllers
             .map({ ControllerDataModel(controller: $0, localConfigurationId: localConfiguration.id) })
 
-        localConfiguration.controller = controllers.first(where: { $0.type == ControllerType.gamer.rawValue })?.id ?? ""
+        localConfiguration.controller = controllers.first(where: {
+            $0.remoteId == remoteConfiguration.controller })?.id ?? ""
 
         let savedPrograms = realmService.getPrograms()
         firebaseService.getRobotPrograms(for: remoteId, completion: { [weak self] result in

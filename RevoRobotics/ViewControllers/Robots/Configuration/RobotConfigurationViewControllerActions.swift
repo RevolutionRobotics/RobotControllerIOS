@@ -217,7 +217,7 @@ extension RobotConfigurationViewController {
         realmService.saveRobot(robot, shouldUpdate: true)
         realmService.saveConfigurations([configuration])
         selectedRobot = robot
-        
+
         logEvent(named: "create_custom_robot")
     }
 }
