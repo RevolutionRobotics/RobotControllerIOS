@@ -62,39 +62,47 @@ extension FirmwareUpdateViewController {
             guard let `self` = self else { return }
             switch status {
             case .initial:
-                if Reachability.isConnectedToNetwork() {
-                    self.firebaseService.getFirmwareUpdate(completion: { result in
-                        switch result {
-                        case .success(let updates):
-                            if self.currentFirmware != updates.first?.fileName {
-                                modal.status = .updateNeeded((updates.first?.fileName)!)
-                                self.updateURL = (updates.first?.url)!
-                                self.updateVersion = (updates.first?.fileName)!
-                            } else {
-                                modal.status = .updated
-                            }
-                        case .failure:
-                            os_log("Error while getting firmware update!")
-                        }
-                    })
-                } else {
-                    self.presentedViewController?.present(UIAlertController.errorAlert(type: .network), animated: true)
-                }
+                self.getFirmwareUpdate(in: modal)
             case .updateNeeded:
-                self.firebaseService.downloadFirmwareUpdate(
-                    resourceURL: (self.updateURL),
-                    completion: { [weak self] result in
-                        switch result {
-                        case .success(let data):
-                            self?.uploadFramework(data: data)
-                        case .failure:
-                            os_log("Error while downloading firmware update!")
-                        }
-                })
+                self.downloadFirwareUpdate()
             case .updated:
                 self.dismissModalViewController()
             }
         }
+    }
+
+    private func getFirmwareUpdate(in modal: CheckForUpdateModalView) {
+        if Reachability.isConnectedToNetwork() {
+            self.firebaseService.getFirmwareUpdate(completion: { result in
+                switch result {
+                case .success(let updates):
+                    if self.currentFirmware != updates.first?.fileName {
+                        modal.status = .updateNeeded((updates.first?.fileName)!)
+                        self.updateURL = (updates.first?.url)!
+                        self.updateVersion = (updates.first?.fileName)!
+                    } else {
+                        modal.status = .updated
+                    }
+                case .failure:
+                    os_log("Error while getting firmware update!")
+                }
+            })
+        } else {
+            self.presentedViewController?.present(UIAlertController.errorAlert(type: .network), animated: true)
+        }
+    }
+
+    private func downloadFirwareUpdate() {
+        firebaseService.downloadFirmwareUpdate(
+            resourceURL: (self.updateURL),
+            completion: { [weak self] result in
+                switch result {
+                case .success(let data):
+                    self?.uploadFramework(data: data)
+                case .failure:
+                    os_log("Error while downloading firmware update!")
+                }
+        })
     }
 
     private func uploadFramework(data: Data) {
@@ -123,7 +131,7 @@ extension FirmwareUpdateViewController {
                                 self?.dismissModalViewController()
                             }
                             self.presentModal(with: successModalView)
-                            
+
                             self.logEvent(named: "upload_to_brain")
                             self.logEvent(named: "update_firmware")
                         }
