@@ -59,6 +59,7 @@ extension RobotConfigurationViewController {
         let vc = AppContainer.shared.container.unwrappedResolve(ButtonlessProgramsViewController.self)
         vc.configurationId = padConfiguration.configurationId
         vc.controllerViewModel = padConfiguration.viewModel
+        vc.selectedRobotId = selectedRobot?.id
         navigationController?.pushViewController(vc, animated: true)
         logEvent(named: "add_background_program")
     }
