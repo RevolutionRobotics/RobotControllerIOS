@@ -21,6 +21,7 @@ final class ButtonlessProgramsViewController: BaseViewController {
     // MARK: - Variables
     var realmService: RealmServiceInterface!
     var configurationId: String?
+    var selectedRobotId: String?
     var controllerViewModel: ControllerViewModel? {
         didSet {
             selectedPrograms = controllerViewModel?.backgroundPrograms ?? []
@@ -186,7 +187,7 @@ extension ButtonlessProgramsViewController {
     }
 
     private func updatePrograms(_ programs: [ProgramDataModel]) {
-        allPrograms = programs
+        allPrograms = programs.filter { $0.robotId == selectedRobotId }
         filteredAndOrderedPrograms = programSorter.sort(
             programs: compatibleButton.isSelected ? compatiblePrograms : allPrograms,
             options: programSortingOptions
