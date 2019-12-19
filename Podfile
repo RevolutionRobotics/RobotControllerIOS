@@ -24,9 +24,12 @@ target 'RevoRobotics' do
   # Storage
   pod 'RealmSwift', '~> 3.18.0'
   pod 'Firebase/Core'
-  pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'Firebase/Analytics'
+  
+  # API communication
+  pod 'Alamofire', '5.0.0-rc.3'
+  pod 'SwiftyJSON', '~> 5.0'
   
   # Parental gate
   pod 'PMParentalGate'

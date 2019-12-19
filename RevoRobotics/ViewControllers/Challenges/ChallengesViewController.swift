@@ -96,7 +96,7 @@ extension ChallengesViewController {
 
     private func showNextChallenge() {
         currentChallenge += 1
-        guard let challenge = challengeCategory?.challenges[currentChallenge] else { return }
+        guard let challenge = findChallenge(in: challengeCategory, index: currentChallenge) else { return }
         let challengeDetailViewController =
             AppContainer.shared.container.unwrappedResolve(ChallengeDetailViewController.self)
         navigationController?.pushViewController(challengeDetailViewController, animated: true)
@@ -110,12 +110,25 @@ extension ChallengesViewController {
         setupModal()
         logEvent(named: "finish_challenge")
     }
+
+    private func findChallenge(in category: ChallengeCategory?, index: Int) -> Challenge? {
+        guard let challenges = category?.challenges,
+            let challengeKey = challenges.keys
+            .first(where: { challenges[$0]?.order == index + 1 }) else {
+                return nil
+        }
+
+        return challenges[challengeKey]
+    }
 }
 
 // MARK: - UICollectionViewDelegate
 extension ChallengesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let challenge = challengeCategory?.challenges[indexPath.row], progress >= indexPath.row else { return }
+        guard progress >= indexPath.row,
+            let challenge = findChallenge(
+                in: challengeCategory,
+                index: indexPath.row) else { return }
         currentChallenge = indexPath.row
         let challengeDetailViewController =
             AppContainer.shared.container.unwrappedResolve(ChallengeDetailViewController.self)
@@ -146,9 +159,11 @@ extension ChallengesViewController: UICollectionViewDataSource {
                 if progress > indexPath.row {
                     cell.progress = .completed
                 }
-                cell.setup(with: category.challenges[indexPath.row],
-                           index: indexPath.row + 1)
-                cell.isFirstItem = indexPath.row == 0
+
+                if let challenge = findChallenge(in: category, index: indexPath.row) {
+                    cell.setup(with: challenge, index: indexPath.row + 1)
+                    cell.isFirstItem = indexPath.row == 0
+                }
             }
             return cell
         } else {
@@ -161,9 +176,12 @@ extension ChallengesViewController: UICollectionViewDataSource {
                 if progress > indexPath.row {
                     cell.progress = .completed
                 }
-                cell.setup(with: category.challenges[indexPath.row],
-                           index: indexPath.row + 1)
-                cell.isFirstItem = indexPath.row == 0
+
+                if let challenge = findChallenge(in: category, index: indexPath.row) {
+                    cell.setup(with: challenge,
+                               index: indexPath.row + 1)
+                    cell.isFirstItem = indexPath.row == 0
+                }
             }
             return cell
         }

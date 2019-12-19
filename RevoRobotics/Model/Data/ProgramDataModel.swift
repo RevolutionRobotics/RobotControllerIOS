@@ -33,7 +33,7 @@ final class ProgramDataModel: Object {
         self.python = program.python
 
         let list = List<String>()
-        program.variables.forEach { variable in
+        program.variables?.forEach { variable in
             list.append(variable)
         }
         variableNames = list

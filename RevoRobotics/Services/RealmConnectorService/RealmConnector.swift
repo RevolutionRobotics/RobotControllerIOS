@@ -65,7 +65,11 @@ extension RealmConnector: RealmConnectorInterface {
         realm.refresh()
         do {
             try self.realm.write {
-                realm.add(object, update: shouldUpdate)
+                if shouldUpdate {
+                    realm.add(object, update: .all)
+                } else {
+                    realm.add(object)
+                }
             }
         } catch {
             os_log("Error: Could not save object to the local database!")
@@ -76,7 +80,11 @@ extension RealmConnector: RealmConnectorInterface {
         realm.refresh()
         do {
             try self.realm.write {
-                realm.add(objects, update: shouldUpdate)
+                if shouldUpdate {
+                    realm.add(objects, update: .all)
+                } else {
+                    realm.add(objects)
+                }
             }
         } catch {
             os_log("Error: Could not save objects to the local database!")
