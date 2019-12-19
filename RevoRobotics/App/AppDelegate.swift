@@ -31,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dependencies.setup()
         setupUserDefaults()
         setupWindowAndRootViewController()
-        fetchFirebaseData()
 
         return true
     }
@@ -60,6 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let bluetoothService = AppContainer.shared.container.unwrappedResolve(BluetoothServiceInterface.self)
             bluetoothService.reconnect()
         }
+        fetchFirebaseData()
     }
 }
 
