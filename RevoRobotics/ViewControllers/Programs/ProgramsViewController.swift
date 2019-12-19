@@ -351,7 +351,9 @@ extension ProgramsViewController {
             configurationId: configId,
             type: ControllerType.gamer.rawValue,
             mapping: ControllerButtonMappingDataModel())
+
         controller.backgroundProgramBindings.append(binding)
+        controller.joystickPriority = 100
 
         let data = ConfigurationJSONData(
             configuration: config,
