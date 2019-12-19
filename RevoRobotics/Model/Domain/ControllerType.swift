@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-enum ControllerType: String {
+enum ControllerType: String, Decodable {
     case new
     case gamer
     case multiTasker
     case driver
 
-    var image: UIImage? {
+    func image() -> UIImage? {
         switch self {
         case .new:
             return UIImage(named: "AddIcon")
@@ -28,7 +28,7 @@ enum ControllerType: String {
         }
     }
 
-    var displayName: String {
+    func displayName() -> String {
         switch self {
         case .new:
             return ControllerKeys.new.translate()

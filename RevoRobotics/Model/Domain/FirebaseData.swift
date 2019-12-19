@@ -6,16 +6,6 @@
 //  Copyright © 2019. Revolution Robotics. All rights reserved.
 //
 
-import Foundation
-import Firebase
-
-protocol FirebaseData {
-    // MARK: - Initialization
-    init?(snapshot: DataSnapshot)
-
-    static var firebasePath: String { get }
-}
-
 protocol FirebaseOrderable {
     var order: Int { get set }
 }

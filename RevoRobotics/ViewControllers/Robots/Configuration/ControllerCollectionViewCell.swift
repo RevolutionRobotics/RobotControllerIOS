@@ -78,8 +78,8 @@ extension ControllerCollectionViewCell {
     func setup(with controller: ControllerDataModel) {
         isNewControllerCard = controller.type == ControllerType.new.rawValue
 
-        nameLabel.text = isNewControllerCard ? ControllerType.new.displayName : controller.name
-        controllerImageView.image = ControllerType(rawValue: controller.type)?.image
+        nameLabel.text = isNewControllerCard ? ControllerType.new.displayName() : controller.name
+        controllerImageView.image = ControllerType(rawValue: controller.type)?.image()
         lastModifiedLabel.text = DateFormatter.string(from: controller.lastModified, format: .yearMonthDay)
 
         guard isNewControllerCard else {

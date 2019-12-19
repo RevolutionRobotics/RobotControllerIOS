@@ -49,8 +49,20 @@ extension ChallengeDetailViewController {
         progressBar.buildFinished = challengeFinished
     }
 
+    private func findChallengeStep(at index: Int) -> ChallengeStep? {
+        guard
+            let steps = challenge?.challengeSteps,
+            let stepKey = steps.keys.first(where: {
+                steps[$0]?.order == index + 1 })
+        else {
+            return nil
+        }
+
+        return steps[stepKey]
+    }
+
     private func setupContent(for step: Int) {
-        guard let challengeStep = challenge?.challengeSteps[step] else { return }
+        guard let challengeStep = findChallengeStep(at: step) else { return }
         switch challengeStep.challengeType {
         case .horizontal:
             setupDetailContent(with: challengeStep, on: ChallengeDetailHorizontalContent.instatiate())

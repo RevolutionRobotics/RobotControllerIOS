@@ -142,8 +142,8 @@ extension BuildRevvyViewController {
             lastModified: Date(),
             configId: UUID().uuidString,
             customName: dataModel.name.text,
-            customImage: dataModel.coverImageGSURL,
-            customDescription: dataModel.customDescription.text)
+            customImage: dataModel.coverImage,
+            customDescription: dataModel.description.text)
 
         guard let remoteConfiguration = remoteConfigurations.first(where: {
             $0.id == dataModel.configurationId

@@ -6,9 +6,7 @@
 //  Copyright © 2019. Revolution Robotics. All rights reserved.
 //
 
-import Foundation
-
-enum Side: String {
+enum Side: String, Decodable {
     case left
     case right
 }

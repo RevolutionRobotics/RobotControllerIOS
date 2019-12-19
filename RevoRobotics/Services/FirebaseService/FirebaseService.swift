@@ -8,11 +8,20 @@
 
 import Foundation
 import Firebase
+import Alamofire
+import SwiftyJSON
 
 final class FirebaseService {
     // MARK: - Constants
     enum Constants {
         static let deviceNameKey = "robot_id"
+        #if TEST
+        static let apiUrl = "https://revolutionrobotics-afeb5.firebaseio.com/.json"
+        #elseif DEV
+        static let apiUrl = "https://revolutionroboticsdev.firebaseio.com/.json"
+        #else
+        static let apiUrl = "https://revolutionroboticsprod.firebaseio.com/.json"
+        #endif
     }
 
     // MARK: - Connection state
@@ -21,28 +30,46 @@ final class FirebaseService {
     }
 
     // MARK: - Properties
-    private let databaseRef: DatabaseReference
     private let storageRef: StorageReference
+    private let decoder = JSONDecoder()
+
     private var connectionState: ConnectionState = .offline
+    private var jsonData: JSON?
 
     init() {
-        let database = Database.database()
-        database.isPersistenceEnabled = true
-        databaseRef = database.reference()
-        databaseRef.keepSynced(true)
         storageRef = Storage.storage().reference()
-
-        database.reference(withPath: ".info/connected")
-            .observe(.value, with: { [weak self] snapshot in
-                let isOnline = snapshot.value as? Bool ?? false
-                self?.connectionState = isOnline ? .online : .offline
-            })
     }
 }
 
 // MARK: - FirebaseServiceInterface
 extension FirebaseService: FirebaseServiceInterface {
     func prefetchData(onError: CallbackType<Error>?) {
+        let queue = DispatchQueue(label: "api", qos: .background, attributes: .concurrent)
+
+        let userDefaults = UserDefaults.standard
+        let jsonKey = UserDefaults.Keys.jsonCache
+
+        if let json = userDefaults.string(forKey: jsonKey) {
+            jsonData = JSON(parseJSON: json)
+            parseData(onError: onError)
+        }
+
+        AF.request(Constants.apiUrl).validate().responseJSON(queue: queue) { [weak self] response in
+            guard let `self` = self else { return }
+
+            switch response.result {
+            case .success(let data):
+                self.jsonData = JSON(data)
+                self.connectionState = .online
+                self.parseData(onError: onError)
+                userDefaults.set(self.jsonData?.rawString(), forKey: jsonKey)
+            case .failure(let error):
+                error.report()
+            }
+        }
+    }
+
+    func parseData(onError: CallbackType<Error>?) {
         getMinVersion(completion: nil)
         getRobots(completion: { [weak self] result in
             switch result {
@@ -66,11 +93,13 @@ extension FirebaseService: FirebaseServiceInterface {
     }
 
     func getMinVersion(completion: CallbackType<Result<Version, FirebaseError>>?) {
-        getData(Version.self, completion: completion)
+        getData("minVersion", type: Version.self, completion: completion)
     }
 
     func getConfiguration(id: String, completion: CallbackType<Result<Configuration?, FirebaseError>>?) {
-        getDataArray(Configuration.self, completion: { (result: Result<[Configuration], FirebaseError>) in
+        getDataArray("configuration",
+                     type: Configuration.self,
+                     completion: { (result: Result<[Configuration], FirebaseError>) in
             switch result {
             case .success(let configurations):
                 completion?(.success(configurations.first(where: { "\($0.id)" == id })))
@@ -82,7 +111,7 @@ extension FirebaseService: FirebaseServiceInterface {
     }
 
     func getConfigurations(completion: CallbackType<Result<[Configuration], FirebaseError>>?) {
-        getDataArray(Configuration.self, completion: completion)
+        getDataArray("configuration", type: Configuration.self, completion: completion)
     }
 
     func getBuildSteps(for robotId: String?, completion: CallbackType<Result<[BuildStep], FirebaseError>>?) {
@@ -91,7 +120,7 @@ extension FirebaseService: FirebaseServiceInterface {
             return
         }
 
-        getDataArray(BuildStep.self, completion: { (result: Result<[BuildStep], FirebaseError>) in
+        getDataArray("buildStep", type: BuildStep.self, completion: { (result: Result<[BuildStep], FirebaseError>) in
             switch result {
             case .success(let steps):
                 completion?(.success(steps.filter({ $0.robotId == robotId })))
@@ -103,7 +132,7 @@ extension FirebaseService: FirebaseServiceInterface {
     }
 
     func getRobots(completion: CallbackType<Result<[Robot], FirebaseError>>?) {
-        getDataArray(Robot.self, completion: completion)
+        getDataArray("robot", type: Robot.self, completion: completion)
     }
 
     func getController(for configurationId: String, completion: CallbackType<Result<Controller, FirebaseError>>?) {
@@ -131,27 +160,31 @@ extension FirebaseService: FirebaseServiceInterface {
     }
 
     func getControllers(completion: CallbackType<Result<[Controller], FirebaseError>>?) {
-        getDataArray(Controller.self, completion: completion)
+        getDataArray("controller", type: Controller.self, completion: completion)
     }
 
     func getPrograms(completion: CallbackType<Result<[Program], FirebaseError>>?) {
-        getDataArray(Program.self, completion: completion)
+        getDataArray("program", type: Program.self, completion: completion)
     }
 
     func getPrograms(for controllerId: String, completion: CallbackType<Result<[Program?], FirebaseError>>?) {
-        getDataArray(Controller.self, completion: { [weak self] (result: Result<[Controller], FirebaseError>) in
+        getDataArray("controller",
+                     type: Controller.self,
+                     completion: { [weak self] (result: Result<[Controller], FirebaseError>) in
             switch result {
             case .success(let controllers):
                 let selectedController = controllers.first(where: { $0.id == controllerId })!
 
-                self?.getDataArray(Program.self, completion: { (result: Result<[Program], FirebaseError>) in
+                self?.getDataArray("program",
+                                   type: Program.self,
+                                   completion: { (result: Result<[Program], FirebaseError>) in
                     switch result {
                     case .success(let programs):
-                        let programs = selectedController.mapping.programIds.map({ id -> Program? in
+                        let programs = selectedController.mapping?.programIds().map({ id -> Program? in
                             guard let id = id else { return nil }
                             return programs.first(where: { $0.id == id })
                         })
-                        completion?(.success(programs))
+                        completion?(.success(programs ?? []))
                     case .failure(let error):
                         error.report()
                         completion?(.failure(error))
@@ -162,14 +195,13 @@ extension FirebaseService: FirebaseServiceInterface {
                 completion?(.failure(error))
             }
         })
-
     }
 
     func getRobotPrograms(for robotRemoteId: String, completion: CallbackType<Result<[Program?], FirebaseError>>?) {
-        getDataArray(Program.self, completion: { (result: Result<[Program], FirebaseError>) in
+        getDataArray("program", type: Program.self, completion: { (result: Result<[Program], FirebaseError>) in
             switch result {
             case .success(let programs):
-                let programs = programs.filter({ $0.robotRemoteId == robotRemoteId })
+                let programs = programs.filter({ $0.robotId == robotRemoteId })
                 completion?(.success(programs))
             case .failure(let error):
                 error.report()
@@ -179,11 +211,11 @@ extension FirebaseService: FirebaseServiceInterface {
     }
 
     func getChallengeCategories(completion: CallbackType<Result<[ChallengeCategory], FirebaseError>>?) {
-        getDataArray(ChallengeCategory.self, completion: completion)
+        getDataArray("challengeCategory", type: ChallengeCategory.self, completion: completion)
     }
 
     func getFirmwareUpdate(completion: CallbackType<Result<[FirmwareUpdate], FirebaseError>>?) {
-        getDataArray(FirmwareUpdate.self, completion: completion)
+        getDataArray("firmware", type: FirmwareUpdate.self, completion: completion)
     }
 
     func downloadFirmwareUpdate(resourceURL: String, completion: CallbackType<Result<Data, FirebaseError>>?) {
@@ -209,32 +241,70 @@ extension FirebaseService: FirebaseServiceInterface {
 
 // MARK: - Private
 extension FirebaseService {
-    private func getData<T: FirebaseData>(_ type: T.Type, completion: CallbackType<Result<T, FirebaseError>>?) {
-        databaseRef.child(type.firebasePath).observeSingleEvent(of: .value) { snapshot in
-            guard let data = T(snapshot: snapshot) else {
-                completion?(.failure(FirebaseError.decodeFailed("Failed to decode \(T.self) object")))
-                return
+    private func getData<T: Decodable>(
+        _ key: String,
+        type: T.Type,
+        completion: CallbackType<Result<T, FirebaseError>>?) {
+        do {
+            if let data = try jsonData?[key].rawData() {
+                let object = try decoder.decode(T.self, from: data)
+                completion?(.success(object))
             }
-
-            completion?(.success(data))
+        } catch {
+            completion?(.failure(
+                FirebaseError.decodeFailed("Failed to decode type \(T.self): \(error.localizedDescription)")))
         }
     }
 
-    private func getDataArray<T: FirebaseData>(_ type: T.Type, completion: CallbackType<Result<[T], FirebaseError>>?) {
-        databaseRef.child(type.firebasePath).observeSingleEvent(of: .value) { snapshot in
-            let models = snapshot.children.compactMap { $0 as? DataSnapshot }.map(T.init)
-            guard models.contains(where: { $0 != nil }) else {
-                completion?(.failure(FirebaseError.arrayDecodeFailed("Failed to decode array of \(T.self)")))
+    private func getDataArray<T: Decodable>
+        (_ key: String, type: T.Type, completion: CallbackType<Result<[T], FirebaseError>>?) {
+        let listKeys = jsonData?[key].dictionary?.keys
+        do {
+            let models: [T]? = try listKeys?.compactMap({ itemKey in
+                guard let data = try jsonData?[key][itemKey].rawData() else {
+                    return nil
+                }
+
+                return try decoder.decode(T.self, from: data)
+            })
+
+            guard
+                let orderableModels = models as? [FirebaseOrderable],
+                let ordered = orderableModels.sorted(by: {
+                    $0.order < $1.order }) as? [T]
+            else {
+                completion?(.success(models ?? []))
                 return
             }
 
-            guard let orderableModels = models as? [FirebaseOrderable?],
-                let ordered = orderableModels.compactMap({ $0 }).sorted(by: { $0.order < $1.order }) as? [T] else {
-                    completion?(.success(models.compactMap({ $0 })))
-                    return
-            }
-
             completion?(.success(ordered))
+        } catch {
+            handle(error: error, completion: completion)
         }
+    }
+
+    private func handle<T: Decodable>(
+        error: Error,
+        completion: CallbackType<Result<[T], FirebaseError>>?) {
+
+        switch error {
+        case DecodingError.dataCorrupted(let context):
+            print(context)
+        case DecodingError.keyNotFound(let key, let context):
+            print("Key '\(key)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        case DecodingError.valueNotFound(let value, let context):
+            print("Value '\(value)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        case DecodingError.typeMismatch(let type, let context):
+            print("Type '\(type)' mismatch:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        default:
+            print("error: ", error)
+        }
+
+        error.report()
+        completion?(.failure(
+            FirebaseError.arrayDecodeFailed("Failed to decode type [\(T.self)]: \(error.localizedDescription)")))
     }
 }

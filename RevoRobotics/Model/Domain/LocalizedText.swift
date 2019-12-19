@@ -6,10 +6,7 @@
 //  Copyright © 2019. Revolution Robotics. All rights reserved.
 //
 
-import Foundation
-import Firebase
-
-struct LocalizedText: Equatable {
+struct LocalizedText: Decodable, Equatable {
     // MARK: - Constants
     private enum Constants {
         static let en = "en"
@@ -17,18 +14,7 @@ struct LocalizedText: Equatable {
 
     // MARK: - Properties
     var en: String
-
     var text: String {
         return en
-    }
-
-    // MARK: - Initialization
-    init?(snapshot: DataSnapshot) {
-        guard let dictionary = snapshot.value as? NSDictionary,
-            let en = dictionary[Constants.en] as? String else {
-                return nil
-        }
-
-        self.en = en
     }
 }

@@ -49,7 +49,7 @@ extension WhoToBuildCollectionViewCell {
     func configure(with robot: Robot) {
         robotNameLabel.text = robot.name.text
         buildTimeLabel.text = robot.buildTime
-        robotImageView.downloadImage(googleStorageURL: robot.coverImageGSURL)
+        robotImageView.downloadImage(googleStorageURL: robot.coverImage)
     }
 
     func configureNew() {

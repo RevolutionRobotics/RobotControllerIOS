@@ -354,8 +354,8 @@ extension BuildRobotViewController {
             lastModified: Date(),
             configId: configId,
             customName: remoteRobotDataModel?.name.text,
-            customImage: remoteRobotDataModel?.coverImageGSURL,
-            customDescription: remoteRobotDataModel?.customDescription.text)
+            customImage: remoteRobotDataModel?.coverImage,
+            customDescription: remoteRobotDataModel?.description.text)
 
         realmService.saveRobot(storedRobotDataModel!, shouldUpdate: true)
         logEvent(named: "start_basic_robot")

@@ -33,9 +33,13 @@ final class ControllerDataModel: Object {
         self.joystickPriority = controller.joystickPriority
         self.controllerDescription = controller.description.text
         self.lastModified = Date(timeIntervalSince1970: controller.lastModified)
-        self.mapping = ControllerButtonMappingDataModel(mapping: controller.mapping)
+
+        if let controllerMapping = controller.mapping {
+            self.mapping = ControllerButtonMappingDataModel(mapping: controllerMapping)
+        }
+
         let list = List<ProgramBindingDataModel>()
-        controller.backgroundProgramBindings.forEach { binding in
+        controller.backgroundProgramBindings?.forEach { binding in
             guard let dataModel = ProgramBindingDataModel(binding: binding) else { return }
             list.append(dataModel)
         }

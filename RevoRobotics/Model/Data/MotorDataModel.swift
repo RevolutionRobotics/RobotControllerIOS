@@ -38,7 +38,12 @@ final class MotorDataModel: Object {
         self.init()
         self.variableName = remoteMotor.variableName
         self.type = remoteMotor.type
-        self.rotation = remoteMotor.rotation.rawValue
+
+        if let motorReversed = remoteMotor.reversed {
+            let rotation: Rotation = motorReversed ? .reversed : .forward
+            self.rotation = rotation.rawValue
+        }
+
         self.side = remoteMotor.side?.rawValue
     }
 

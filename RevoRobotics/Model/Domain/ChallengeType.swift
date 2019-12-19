@@ -6,7 +6,7 @@
 //  Copyright © 2019. Revolution Robotics. All rights reserved.
 //
 
-enum ChallengeType: String {
+enum ChallengeType: String, Decodable {
     case horizontal
     case vertical
     case zoomable

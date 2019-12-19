@@ -19,8 +19,22 @@ final class ChallengeDetailPartListContent: UIView {
 // MARK: - ChallengeDetailContent
 extension ChallengeDetailPartListContent: ChallengeDetailContentProtocol {
     func setup(with step: ChallengeStep) {
-        parts = step.parts
+        parts = sortParts(in: step)
         partsCollectionView.reloadData()
+    }
+}
+
+// MARK: - Private methods
+extension ChallengeDetailPartListContent {
+    private func sortParts(in step: ChallengeStep) -> [Part] {
+        guard let parts = step.parts else {
+            return []
+        }
+
+        let orderable: [FirebaseOrderable] = Array(parts.values)
+        let ordered = orderable.sorted(by: { $0.order < $1.order }) as? [Part]
+
+        return ordered ?? []
     }
 }
 

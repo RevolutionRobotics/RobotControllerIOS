@@ -98,7 +98,7 @@ extension MenuViewController {
         firebaseService.getMinVersion(completion: { [weak self] result in
             switch result {
             case .success(let version):
-                if version.build > buildNumber {
+                if version.ios > buildNumber {
                     self?.showUpdateNeeded()
                     return
                 }

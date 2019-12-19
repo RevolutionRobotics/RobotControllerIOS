@@ -6,9 +6,7 @@
 //  Copyright © 2019. Revolution Robotics. All rights reserved.
 //
 
-import Foundation
-
-enum BuildStatus: Int {
+enum BuildStatus: Int, Decodable {
     case new = 0
     case initial
     case inProgress

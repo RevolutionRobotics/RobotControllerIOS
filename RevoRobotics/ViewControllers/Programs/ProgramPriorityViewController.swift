@@ -63,7 +63,7 @@ extension ProgramPriorityViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         let name = (controllerViewModel?.name ?? "").isEmpty ?
-            controllerViewModel?.type.displayName : controllerViewModel?.name
+            controllerViewModel?.type.displayName() : controllerViewModel?.name
         let description = controllerViewModel?.customDesctiprion ?? ""
 
         saveController(name: name, description: description)
@@ -295,7 +295,7 @@ extension ProgramPriorityViewController {
         let saveModal = SaveModalView.instatiate()
         saveModal.type = .controller
         let name = (controllerViewModel?.name ?? "").isEmpty ?
-            controllerViewModel?.type.displayName : controllerViewModel?.name
+            controllerViewModel?.type.displayName() : controllerViewModel?.name
         saveModal.name = name
         saveModal.descriptionTitle = controllerViewModel?.customDesctiprion
         presentModal(with: saveModal)

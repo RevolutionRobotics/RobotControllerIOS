@@ -9,6 +9,6 @@
 import Foundation
 import Firebase
 
-enum MilestoneType: String {
+enum MilestoneType: String, Decodable {
     case na = "MilestoneType N/A"
 }
