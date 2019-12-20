@@ -14,6 +14,7 @@ import os
 final class MenuViewController: BaseViewController {
     // MARK: - Constants
     enum Constants {
+        static let onboardingCompletedProgress = 2
         static let onboardingChallengeId = "ef504b31-d64f-4bfb-bd4b-5b96a9a0489f"
     }
 
@@ -53,6 +54,14 @@ extension MenuViewController {
         super.viewDidAppear(animated)
         guard onboardingInProgress else { return }
 
+        if let onboarding = realmService.getChallengeCategory(id: Constants.onboardingChallengeId) {
+            if onboarding.progress < Constants.onboardingCompletedProgress {
+                setOnboardingCompletedProgress()
+            }
+        } else {
+            setOnboardingCompletedProgress()
+        }
+
         let modal = OnboardingCompletedModalView.instatiate()
         modal.startPressedCallback = { [weak self] in
             guard let `self` = self else { return }
@@ -84,6 +93,13 @@ extension MenuViewController {
                 os_log("Error: Failed to fetch challenge categories from Firebase!")
             }
         })
+    }
+
+    private func setOnboardingCompletedProgress() {
+        let onboardingCategory = ChallengeCategoryDataModel(
+            id: Constants.onboardingChallengeId,
+            progress: Constants.onboardingCompletedProgress)
+        realmService.saveChallengeCategory(onboardingCategory)
     }
 
     private func showOnboarding() {
