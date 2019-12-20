@@ -21,7 +21,8 @@ protocol PlayablePadView: UIView {
 
 extension PlayablePadView {
     func handlePositionChange(position: CGPoint) {
-        xAxisPositionChanged?(position.x)
+        let xDirectionOffset: CGFloat = 64.0
+        xAxisPositionChanged?(xDirectionOffset + position.x / 2.0)
         yAxisPositionChanged?(position.y)
     }
 
