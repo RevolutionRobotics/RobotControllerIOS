@@ -7,6 +7,6 @@
 //
 
 struct FirmwareUpdate: Decodable {
-    let fileName: String
+    let filename: String
     let url: String
 }
