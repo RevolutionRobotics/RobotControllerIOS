@@ -76,10 +76,10 @@ extension FirmwareUpdateViewController {
             self.firebaseService.getFirmwareUpdate(completion: { result in
                 switch result {
                 case .success(let updates):
-                    if self.currentFirmware != updates.first?.fileName {
-                        modal.status = .updateNeeded((updates.first?.fileName)!)
+                    if self.currentFirmware != updates.first?.filename {
+                        modal.status = .updateNeeded((updates.first?.filename)!)
                         self.updateURL = (updates.first?.url)!
-                        self.updateVersion = (updates.first?.fileName)!
+                        self.updateVersion = (updates.first?.filename)!
                     } else {
                         modal.status = .updated
                     }
