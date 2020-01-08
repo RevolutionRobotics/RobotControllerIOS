@@ -402,7 +402,29 @@ extension MotorConfigViewController {
         }
         shouldCallDismiss = false
         doneButtonTapped?(MotorConfigViewModel(portName: nameInputField.text, state: selectedMotorState))
-        logEvent(named: "add_motor")
+        
+        let motorType: String
+        let motorReversed: Bool
+        
+        switch selectedMotorState {
+        case .drive(_, let rotation):
+            motorType = "drive"
+            motorReversed = rotation == .reversed
+        case .driveWithoutSide:
+            motorType = "drive"
+            motorReversed = false
+        case .motor, .motorWithoutRotation:
+            motorType = "motor"
+            motorReversed = false
+        default:
+            motorType = "empty"
+            motorReversed = false
+        }
+        
+        logEvent(named: "add_motor", params: [
+            "type": motorType,
+            "reversed": motorReversed
+        ])
     }
 
     @objc private func reverseSwitchTapped(_ sender: UISwitch) {

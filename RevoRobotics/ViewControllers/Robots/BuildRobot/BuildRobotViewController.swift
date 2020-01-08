@@ -27,6 +27,7 @@ class BuildRobotViewController: BaseViewController {
     }
     var onboardingInProgress = false
     var storedRobotDataModel: UserRobot?
+    private var oneSitting = true
     private var steps: [BuildStep] = []
     private var currentStep: BuildStep?
     private let partView = PartView.instatiate()
@@ -82,6 +83,7 @@ extension BuildRobotViewController {
     private func setupProgressLabel() {
         if let actualBuildStep = storedRobotDataModel?.actualBuildStep {
             progressLabel.currentStep = actualBuildStep + 1
+            oneSitting = false
         } else {
             progressLabel.currentStep = 1
         }
@@ -124,6 +126,7 @@ extension BuildRobotViewController {
             self.updateStoredRobot(step: currentStepIndex)
         }
         buildProgressBar.buildFinished = { [weak self] in
+            guard let `self` = self else { return }
             let buildFinishedModal = BuildFinishedModalView.instatiate()
             buildFinishedModal.homeCallback = { [weak self] in
                 if let currentStep = self?.currentStep {
@@ -138,8 +141,11 @@ extension BuildRobotViewController {
                 self?.dismissModalViewController()
                 self?.navigateToPlayViewController()
             }
-            self?.presentModal(with: buildFinishedModal, closeHidden: true)
-            self?.logEvent(named: "finish_basic_robot")
+            self.presentModal(with: buildFinishedModal, closeHidden: true)
+            self.logEvent(named: "finish_basic_robot", params: [
+                "id": self.remoteRobotDataModel?.id ?? "Unknown",
+                "one_sitting": self.oneSitting
+            ])
         }
         buildProgressBar.showMilestone = { [weak self] in
             guard let milestone = self?.currentStep?.milestone else {
@@ -358,7 +364,9 @@ extension BuildRobotViewController {
             customDescription: remoteRobotDataModel?.description.text)
 
         realmService.saveRobot(storedRobotDataModel!, shouldUpdate: true)
-        logEvent(named: "start_basic_robot")
+        logEvent(named: "start_basic_robot", params: [
+            "id": robotId
+        ])
 
         if onboardingInProgress {
             UserDefaults.standard.set(true, forKey: UserDefaults.Keys.revvyBuilt)

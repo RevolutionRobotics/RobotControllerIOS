@@ -18,6 +18,7 @@ final class PlayControllerViewController: BaseViewController {
     var realmService: RealmServiceInterface!
     var controllerDataModel: ControllerDataModel?
     var robotName: String?
+    var startTime: Date?
     var onboardingInProgress = false
 
     private var padView: PlayablePadView!
@@ -59,10 +60,6 @@ extension PlayControllerViewController {
             navigationBar.bluetoothButtonState = .notConnected
             presentBluetoothModal()
         }
-
-        if onboardingInProgress {
-            logEvent(named: "drive_basic_robot")
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +70,20 @@ extension PlayControllerViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UIApplication.shared.isIdleTimerDisabled = false
+
+        if let startTime = startTime, onboardingInProgress {
+            let duration = round(Date().timeIntervalSince(startTime))
+            logEvent(named: "drive_basic_robot", params: [
+                "duration": duration
+            ])
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if onboardingInProgress {
+            startTime = Date()
+        }
     }
 
     override func viewDidDisappear(_ animated: Bool) {

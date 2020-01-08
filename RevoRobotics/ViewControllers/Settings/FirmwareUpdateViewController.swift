@@ -117,6 +117,7 @@ extension FirmwareUpdateViewController {
                 },
                 shouldDismissOnBackgroundTap: false)
 
+            let updateStartTime = Date()
             self.bluetoothService.updateFramework(
                 data: data,
                 version: self.updateVersion,
@@ -132,8 +133,18 @@ extension FirmwareUpdateViewController {
                             }
                             self.presentModal(with: successModalView)
 
-                            self.logEvent(named: "upload_to_brain")
-                            self.logEvent(named: "update_firmware")
+                            let size = data.bytes.count
+                            let elapsed = Date().timeIntervalSince(updateStartTime)
+
+                            self.logEvent(named: "upload_to_brain", params: [
+                                "name": "firmware",
+                                "size": size,
+                                "time": elapsed,
+                                "bytepersec": Double(size) / elapsed
+                            ])
+                            self.logEvent(named: "update_firmware", params: [
+                                "version": self.updateVersion
+                            ])
                         }
                     case .failure:
                         os_log("Error while sending firmware update to the robot!")

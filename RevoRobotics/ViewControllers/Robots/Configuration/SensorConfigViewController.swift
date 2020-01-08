@@ -262,7 +262,10 @@ extension SensorConfigViewController {
         }
         shouldCallDismiss = false
         doneButtonTapped?(SensorConfigViewModel(portName: nameInputField.text, type: selectedSensorType))
-        logEvent(named: "add_sensor")
+
+        logEvent(named: "add_sensor", params: [
+            "type": selectedSensorType.rawValue
+        ])
     }
 }
 
