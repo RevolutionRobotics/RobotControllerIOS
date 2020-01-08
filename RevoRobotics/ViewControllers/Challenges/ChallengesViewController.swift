@@ -22,6 +22,7 @@ final class ChallengesViewController: BaseViewController {
     // MARK: - Properties
     var realmService: RealmServiceInterface!
     private var challengeCategory: ChallengeCategory?
+    private var oneSitting = true
     private var progress: Int = 0
     private var currentChallenge: Int = 0
 }
@@ -49,11 +50,16 @@ extension ChallengesViewController {
         self.challengeCategory = challengeCategory
         if let category = realmService.getChallengeCategory(id: challengeCategory.id) {
             progress = category.progress
-            logEvent(named: "continue_challenge")
+            oneSitting = false
+            logEvent(named: "continue_challenge", params: [
+                "id": challengeCategory.id
+            ])
         } else {
             let category = ChallengeCategoryDataModel(id: challengeCategory.id, progress: 0)
             realmService.saveChallengeCategory(category)
-            logEvent(named: "start_new_challenge")
+            logEvent(named: "start_new_challenge", params: [
+                "id": challengeCategory.id
+            ])
         }
     }
 
@@ -108,7 +114,10 @@ extension ChallengesViewController {
 
     private func challengeFinished() {
         setupModal()
-        logEvent(named: "finish_challenge")
+        logEvent(named: "finish_challenge", params: [
+            "id": challengeCategory?.id ?? "Unknown",
+            "one_sitting": oneSitting
+        ])
     }
 
     private func findChallenge(in category: ChallengeCategory?, index: Int) -> Challenge? {

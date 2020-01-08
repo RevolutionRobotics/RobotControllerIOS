@@ -157,6 +157,9 @@ extension PadConfigurationViewController {
 
         if let program = program {
             configurationView.set(state: .selected(program), on: buttonNumber)
+            logEvent(named: "assign_program_to_button", params: [
+                "custom": program.remoteId.isEmpty
+            ])
         } else {
             configurationView.set(state: .normal, on: buttonNumber)
         }
@@ -185,7 +188,6 @@ extension PadConfigurationViewController {
         })
 
         dismissModalViewController()
-        logEvent(named: "assign_program_to_button")
     }
 
     private func bottomBarDismissed() {

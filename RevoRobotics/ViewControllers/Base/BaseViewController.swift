@@ -254,7 +254,9 @@ extension BaseViewController {
                         os_log("Error: Failed to discover peripherals!")
                     }
                 })
-                self.logEvent(named: "open_bt_device_list")
+                self.logEvent(named: "open_bt_device_list", params: [
+                    "screen": self.screenName ?? "Unknown"
+                ])
             },
             deviceSelectionHandler: { [weak self] device in
                 self?.bluetoothService.connect(to: device)
@@ -262,7 +264,9 @@ extension BaseViewController {
             onDismissed: { [weak self] in
                 self?.bluetoothService.stopDiscovery()
         })
-        logEvent(named: "open_bt_connect_dialog")
+        logEvent(named: "open_bt_connect_dialog", params: [
+            "screen": screenName ?? "Unknown"
+        ])
     }
 
     private func presentDisconnectModal() {
@@ -313,7 +317,9 @@ extension BaseViewController {
             }
         }
 
-        logEvent(named: "connect_to_brain")
+        logEvent(named: "connect_to_brain", params: [
+            "screen": screenName ?? "Unknown"
+        ])
     }
 
     @objc func disconnected() { }

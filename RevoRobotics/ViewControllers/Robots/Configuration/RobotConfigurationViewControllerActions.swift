@@ -61,7 +61,7 @@ extension RobotConfigurationViewController {
         vc.controllerViewModel = padConfiguration.viewModel
         vc.selectedRobotId = selectedRobot?.id
         navigationController?.pushViewController(vc, animated: true)
-        logEvent(named: "add_background_program")
+        logEvent(named: "click_background_programs")
     }
 
     @IBAction private func playButtonTapped(_ sender: Any) {
