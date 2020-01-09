@@ -73,14 +73,14 @@ final class SensorConfigViewController: BaseViewController {
         case .bumper:
             if customBumperName.isEmpty {
                 let bumperCountString = bumperSensorCounts == 0 ? "" : "\(bumperSensorCounts + 1)"
-                return selectedSensorType.rawValue + bumperCountString
+                return selectedSensorType.typeName + bumperCountString
             } else {
                 return customBumperName
             }
         case .distance:
             if customDistanceName.isEmpty {
                 let distanceCountString = distanceSensorCounts == 0 ? "" : "\(distanceSensorCounts + 1)"
-                return selectedSensorType.rawValue + distanceCountString
+                return selectedSensorType.typeName + distanceCountString
             } else {
                 return customDistanceName
             }

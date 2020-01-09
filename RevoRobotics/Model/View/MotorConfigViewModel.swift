@@ -41,4 +41,19 @@ enum MotorConfigViewModelState: Equatable {
             self = .empty
         }
     }
+
+    var typeName: String {
+        let key: String?
+
+        switch self {
+        case .empty:
+            key = nil
+        case .drive, .driveWithoutSide:
+            key = RobotsKeys.Configure.Motor.driveButton
+        case .motor, .motorWithoutRotation:
+            key = RobotsKeys.Configure.Motor.motorButton
+        }
+
+        return key?.translate().lowercased() ?? ""
+    }
 }

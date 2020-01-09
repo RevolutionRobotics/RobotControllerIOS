@@ -99,11 +99,12 @@
 "configure_motor_left_button_title" = "Left";
 "configure_motor_right_button_title" = "Right";
 "configure_motor_clockwise_button_title" = "Clockwise";
+"configure_motor_direction_reversed" = "Reversed";
 "configure_motor_counterclockwise_button_title" = "Counter\nclockwise";
 "configure_motor_name_inputfield_title" = "%@ - Name";
 "configure_motor_test_button_title" = "Test";
 "configure_motor_done_button_title" = "Done";
-"configure_sensor_bumper_button_title" = "Bumper";
+"configure_sensor_bumper_button_title" = "Button";
 "configure_sensor_distance_button_title" = "Distance";
 "configure_controller_type_change" = "Change controller type";
 "configure_delete" = "Delete";
@@ -166,7 +167,7 @@
 "priority_drivetrain_item" = "Drive";
 "dialog_selector_no_motor_error" = "This robot doesn’t have any non-drivetrain motors configured";
 "dialog_selector_no_sensor_configured" = "This robot doesn’t have a distance sensor configured";
-"dialog_selector_no_bumper_configured" = "This robot doesn’t have a bumper configured";
+"dialog_selector_no_bumper_configured" = "This robot doesn’t have a button configured";
 
 // MARK: - Settings
 "settings_screen_title" = "Settings";
