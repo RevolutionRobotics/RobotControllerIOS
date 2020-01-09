@@ -11,7 +11,7 @@ import UIKit
 final class ChallengeDetailVerticalContent: UIView {
     // MARK: - Constants
     private enum Constants {
-        static let fontSize: CGFloat = 12.0
+        static let fontSize: CGFloat = 18.0
     }
 
     // MARK: - Outlets
