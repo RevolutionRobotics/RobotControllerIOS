@@ -13,8 +13,6 @@ import os
 final class MotorConfigViewController: BaseViewController {
     // MARK: - Constants
     private enum Constants {
-        static let defaultDriveName = "drive"
-        static let defaultMotorName = "motor"
         static let iPhoneSEScreenHeight: CGFloat = 320
         static let iPhoneSETopConstraintConstant: CGFloat = 8
     }
@@ -179,7 +177,7 @@ extension MotorConfigViewController {
 // MARK: - Setup
 extension MotorConfigViewController {
     private func setupReverseRow() {
-        reverseLabel.text = "Reversed"
+        reverseLabel.text = RobotsKeys.Configure.Motor.reversed.translate()
         reverseLabel.font = Font.jura(size: 14.0)
         reverseLabel.textColor = .white
 
@@ -197,15 +195,15 @@ extension MotorConfigViewController {
         switch state {
         case .motorWithoutRotation:
             if customMotorName.isEmpty {
-                if let name = name, name.contains(Constants.defaultMotorName) { return name }
-                return "\(Constants.defaultMotorName)\(portNumber)"
+                if let name = name, name.contains(state.typeName) { return name }
+                return "\(state.typeName)\(portNumber)"
             } else {
                 return customMotorName
             }
         case .driveWithoutSide:
             if customDriveName.isEmpty {
-                if let name = name, name.contains(Constants.defaultDriveName) { return name }
-                return "\(Constants.defaultDriveName)\(portNumber)"
+                if let name = name, name.contains(state.typeName) { return name }
+                return "\(state.typeName)\(portNumber)"
             } else {
                 return customDriveName
             }
@@ -402,10 +400,10 @@ extension MotorConfigViewController {
         }
         shouldCallDismiss = false
         doneButtonTapped?(MotorConfigViewModel(portName: nameInputField.text, state: selectedMotorState))
-        
+
         let motorType: String
         let motorReversed: Bool
-        
+
         switch selectedMotorState {
         case .drive(_, let rotation):
             motorType = "drive"
@@ -420,7 +418,7 @@ extension MotorConfigViewController {
             motorType = "empty"
             motorReversed = false
         }
-        
+
         logEvent(named: "add_motor", params: [
             "type": motorType,
             "reversed": motorReversed

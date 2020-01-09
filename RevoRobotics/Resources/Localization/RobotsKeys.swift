@@ -65,6 +65,7 @@ enum RobotsKeys {
             static let motorButton = "configure_motor_motor_button_title"
             static let leftButton = "configure_motor_left_button_title"
             static let rightButton = "configure_motor_right_button_title"
+            static let reversed = "configure_motor_direction_reversed"
             static let clockwiseButton = "configure_motor_clockwise_button_title"
             static let counterclockwiseButton = "configure_motor_counterclockwise_button_title"
             static let nameInputfield = "configure_motor_name_inputfield_title"

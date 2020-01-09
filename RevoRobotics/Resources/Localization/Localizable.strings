@@ -99,6 +99,7 @@
 "configure_motor_left_button_title" = "Left";
 "configure_motor_right_button_title" = "Right";
 "configure_motor_clockwise_button_title" = "Clockwise";
+"configure_motor_direction_reversed" = "Reversed";
 "configure_motor_counterclockwise_button_title" = "Counter\nclockwise";
 "configure_motor_name_inputfield_title" = "%@ - Name";
 "configure_motor_test_button_title" = "Test";

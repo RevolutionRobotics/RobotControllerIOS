@@ -13,7 +13,7 @@ struct SensorConfigViewModel {
 
 enum SensorConfigViewModelType: String {
     case empty
-    case bumper = "button"
+    case bumper
     case distance
 
     // MARK: - Initialization
@@ -24,5 +24,20 @@ enum SensorConfigViewModelType: String {
         }
 
         self = type
+    }
+
+    var typeName: String {
+        let key: String?
+
+        switch self {
+        case .empty:
+            key = nil
+        case .bumper:
+            key = RobotsKeys.Configure.Sensor.bumperButton
+        case .distance:
+            key = RobotsKeys.Configure.Sensor.distanceButton
+        }
+
+        return key?.translate().lowercased() ?? ""
     }
 }
