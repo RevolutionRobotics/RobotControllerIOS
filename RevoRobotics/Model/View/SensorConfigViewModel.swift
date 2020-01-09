@@ -13,7 +13,7 @@ struct SensorConfigViewModel {
 
 enum SensorConfigViewModelType: String {
     case empty
-    case bumper
+    case bumper = "button"
     case distance
 
     // MARK: - Initialization
