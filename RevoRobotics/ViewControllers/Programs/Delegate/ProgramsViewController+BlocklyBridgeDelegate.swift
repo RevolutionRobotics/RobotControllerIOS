@@ -54,6 +54,21 @@ extension ProgramsViewController: BlocklyBridgeDelegate {
         presentModal(with: sensorSelectorSelector, onDismissed: { callback?(nil) })
     }
 
+    func listSelector(_ optionSelector: OptionSelector, callback: ((String?) -> Void)?) {
+        let listSelector = PeripheralSelector.instatiate()
+        listSelector.items = optionSelector.options.map({ $0.value })
+        listSelector.setup(titled: optionSelector.title ?? "", emptyText: "")
+        listSelector.selectedIndex = optionSelector.options
+            .firstIndex(where: { $0.key == optionSelector.defaultKey }) ?? 0
+
+        listSelector.callback = { [weak self] optionIndex in
+            callback?(optionSelector.options[optionIndex].value)
+            self?.dismiss(animated: true, completion: nil)
+        }
+
+        presentModal(with: listSelector, onDismissed: { callback?(nil) })
+    }
+
     func alert(message: String, callback: (() -> Void)?) {
         let alertView = AlertModalView.instatiate()
         alertView.setup(message: message) { [weak self] in

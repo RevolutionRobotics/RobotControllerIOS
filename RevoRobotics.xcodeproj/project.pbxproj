@@ -2908,7 +2908,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.1.5;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DDEV";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2990,7 +2990,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3142,7 +3142,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.1.5;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DDEV";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3177,7 +3177,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.1.5;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3266,7 +3266,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.1.5;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3363,7 +3363,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.1.5;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
