@@ -15,7 +15,11 @@ final class PeripheralSelector: UIView {
     }
 
     // MARK: - Properties
-    var items: [String]?
+    var items: [String]? {
+        didSet {
+            renderTableView()
+        }
+    }
     var selectedIndex: Int?
     var callback: CallbackType<Int>?
 
@@ -35,6 +39,13 @@ extension PeripheralSelector {
         tableView.dataSource = self
         tableView.delegate = self
 
+        renderTableView()
+    }
+}
+
+// MARK: - Private Methods
+extension PeripheralSelector {
+    private func renderTableView() {
         tableView.isHidden = (items ?? []).isEmpty
         emptyLabel.isHidden = !tableView.isHidden
     }

@@ -25,10 +25,24 @@ extension OptionSelectorButton {
         self.option = option
         self.optionSelected = optionSelected
 
-        label.text = option.value.isEmoji ? nil : option.value
         button.backgroundColor = isSelected ? Color.blackTwo : Color.black
         button.setBorder(fillColor: .clear, strokeColor: isSelected ? .white : Color.blackTwo)
-        button.setImage(UIImage(named: option.key), for: .normal)
+
+        if option.value.isEmoji {
+            button.setTitle(option.value, for: .normal)
+            label.text = nil
+        } else if let linkedImage = UIImage(named: option.key) {
+            let maxHeight: CGFloat = 35.0
+            let scaledWidth: CGFloat = linkedImage.size.width * (maxHeight / linkedImage.size.height)
+            let buttonImage = linkedImage.size.height >= maxHeight
+                ? linkedImage.resized(to: CGSize(width: scaledWidth, height: maxHeight))
+                : linkedImage
+
+            label.text = option.value
+            button.imageView?.contentMode = .scaleAspectFit
+            button.setImage(buttonImage, for: .normal)
+        }
+
         button.layoutIfNeeded()
     }
 }
