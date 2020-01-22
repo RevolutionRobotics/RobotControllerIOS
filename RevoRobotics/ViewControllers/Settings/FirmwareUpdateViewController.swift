@@ -21,6 +21,7 @@ final class FirmwareUpdateViewController: BaseViewController {
 
     // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
+    var robotUpdateNeeded = false
     private var currentFirmware: String = ""
     private var updateURL: String = ""
     private var updateVersion: String = ""
@@ -54,6 +55,13 @@ extension FirmwareUpdateViewController {
                     os_log("Error: Failed to fetch system ID from robot via bluetooth!")
                 }
             })
+
+            if robotUpdateNeeded {
+                let updateModal = CheckForUpdateModalView.instatiate()
+                updateModal.brainId = brainId
+                presentModal(with: updateModal)
+                getFirmwareUpdate(in: updateModal)
+            }
         }
     }
 

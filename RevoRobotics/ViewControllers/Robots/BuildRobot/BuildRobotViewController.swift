@@ -424,6 +424,10 @@ extension BuildRobotViewController {
     override func connected() {
         super.connected()
         navigationBar.bluetoothButtonState = .connected
+    }
+    
+    override func robotSoftwareApproved() {
+        super.robotSoftwareApproved()
         if let milestone = milestone {
             bluetoothService.testKit(
                 data: milestone.testCode.base64Decoded!,

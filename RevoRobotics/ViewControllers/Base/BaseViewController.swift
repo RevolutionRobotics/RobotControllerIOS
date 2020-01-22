@@ -302,18 +302,47 @@ extension BaseViewController {
     }
 
     @objc func connected() {
-        (bluetoothService as? BluetoothService)?.stopDiscovery()
+        guard let service = bluetoothService as? BluetoothService else {
+            return
+        }
+
+        service.stopDiscovery()
 
         let topViewController = navigationController?.topViewController
+        let isFirmwareUpdateScreen = topViewController is FirmwareUpdateViewController
         let robotConfig = topViewController as? RobotConfigurationViewController
 
         if topViewController == self || (robotConfig?.shouldCloseConnectionModal ?? false) {
             dismissModalViewController()
-            let connectionModal = ConnectionModalView.instatiate()
-            presentModal(with: connectionModal.successful, closeHidden: true)
+            if service.robotNeedsUpdate && !isFirmwareUpdateScreen {
+                let firmwareUpdateModal = FirmwareUpdateModalView.instatiate()
+                firmwareUpdateModal.updatePressedCallback = { [weak self] in
+                    guard let `self` = self else { return }
+                    self.dismissModalViewController()
 
-            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
-                self?.dismissModalViewController()
+                    let updateViewController = AppContainer
+                        .shared
+                        .container
+                        .unwrappedResolve(FirmwareUpdateViewController.self)
+                    updateViewController.robotUpdateNeeded = true
+
+                    self.navigationController?
+                        .pushViewController(updateViewController, animated: true)
+                }
+                firmwareUpdateModal.continuePressedCallback = { [weak self] in
+                    guard let `self` = self else { return }
+                    self.dismissModalViewController()
+                    self.robotSoftwareApproved()
+                }
+                presentModal(with: firmwareUpdateModal, closeHidden: true)
+            } else {
+                let connectionModal = ConnectionModalView.instatiate()
+                presentModal(with: connectionModal.successful, closeHidden: true)
+
+                robotSoftwareApproved()
+                Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
+                    self?.dismissModalViewController()
+                }
             }
         }
 
@@ -324,6 +353,7 @@ extension BaseViewController {
 
     @objc func disconnected() { }
     @objc func connectionError() { }
+    @objc func robotSoftwareApproved() { }
 }
 
 // MARK: Keyboard

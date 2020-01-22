@@ -281,6 +281,9 @@
 		D03BA8652277385E005B3E33 /* TipsModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8632277385E005B3E33 /* TipsModalView.xib */; };
 		D03BA86B22773DCA005B3E33 /* RRCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */; };
 		D03BA87622783D17005B3E33 /* RRCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA87522783D17005B3E33 /* RRCollectionViewDelegate.swift */; };
+		D03F1F8F23D741B1009AC6D6 /* FirmwareUpdateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F1F8E23D741B1009AC6D6 /* FirmwareUpdateModalView.swift */; };
+		D03F1F9123D741BC009AC6D6 /* FirmwareUpdateModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03F1F9023D741BC009AC6D6 /* FirmwareUpdateModalView.xib */; };
+		D03F1F9323D8A6AA009AC6D6 /* FirmwareUpdateKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F1F9223D8A6AA009AC6D6 /* FirmwareUpdateKeys.swift */; };
 		D0489346238D63CE000FC5A2 /* PagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489345238D63CE000FC5A2 /* PagerView.swift */; };
 		D0489348238EACBD000FC5A2 /* PagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489347238EACBD000FC5A2 /* PagerViewCell.swift */; };
 		D049871C2387E5B300136AC8 /* UpdateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049871A2387E5B300136AC8 /* UpdateModalView.swift */; };
@@ -683,6 +686,9 @@
 		D03BA8632277385E005B3E33 /* TipsModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipsModalView.xib; sourceTree = "<group>"; };
 		D03BA86A22773DCA005B3E33 /* RRCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRCollectionView.swift; sourceTree = "<group>"; };
 		D03BA87522783D17005B3E33 /* RRCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		D03F1F8E23D741B1009AC6D6 /* FirmwareUpdateModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateModalView.swift; sourceTree = "<group>"; };
+		D03F1F9023D741BC009AC6D6 /* FirmwareUpdateModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareUpdateModalView.xib; sourceTree = "<group>"; };
+		D03F1F9223D8A6AA009AC6D6 /* FirmwareUpdateKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateKeys.swift; sourceTree = "<group>"; };
 		D0489345238D63CE000FC5A2 /* PagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerView.swift; sourceTree = "<group>"; };
 		D0489347238EACBD000FC5A2 /* PagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewCell.swift; sourceTree = "<group>"; };
 		D049871A2387E5B300136AC8 /* UpdateModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateModalView.swift; sourceTree = "<group>"; };
@@ -1494,6 +1500,7 @@
 		2A9F52042265E1D500F9F651 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				D03F1F8D23D74172009AC6D6 /* Modal */,
 				2A9F52052265E31C00F9F651 /* BaseViewController.swift */,
 			);
 			path = Base;
@@ -1705,6 +1712,7 @@
 				2ADE8C332270A78600ECEC72 /* RobotsKeys.swift */,
 				2ADE8C372270A79E00ECEC72 /* SettingsKeys.swift */,
 				D0EAE2D5235077300015F626 /* OnboardingKeys.swift */,
+				D03F1F9223D8A6AA009AC6D6 /* FirmwareUpdateKeys.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -2013,6 +2021,15 @@
 				D03BA8572277384A005B3E33 /* TestingModalView.xib */,
 				D03BA8622277385E005B3E33 /* TipsModalView.swift */,
 				D03BA8632277385E005B3E33 /* TipsModalView.xib */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		D03F1F8D23D74172009AC6D6 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				D03F1F8E23D741B1009AC6D6 /* FirmwareUpdateModalView.swift */,
+				D03F1F9023D741BC009AC6D6 /* FirmwareUpdateModalView.xib */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -2385,6 +2402,7 @@
 				09FB0D6C2267735800735B74 /* Barlow-Regular.ttf in Resources */,
 				2A0789ED2293393600CFFDD6 /* MultiTaskerConfigurationView.xib in Resources */,
 				0938897B22B24DD900292B32 /* buzzer.mp3 in Resources */,
+				D03F1F9123D741BC009AC6D6 /* FirmwareUpdateModalView.xib in Resources */,
 				2A78388222C0BF5600423991 /* bumperTest.py in Resources */,
 				D0899C7022A6BCB900DB6F97 /* ChallengesViewController.xib in Resources */,
 				D0F997AC2385940F005E358D /* GoogleService-Info.plist in Resources */,
@@ -2622,6 +2640,7 @@
 				D0FFE7A8232BCEE9009DA8A0 /* AgeSelectionModalView.swift in Sources */,
 				0952386F22A57045001C1CE1 /* OptionSelectorModalView.swift in Sources */,
 				2AB7ACF222BB995600309234 /* BlocklyListAnalogElementJSONData.swift in Sources */,
+				D03F1F9323D8A6AA009AC6D6 /* FirmwareUpdateKeys.swift in Sources */,
 				096333FA2289BBA40029D87B /* UIView+Rounded.swift in Sources */,
 				D0313333228D5CBA00704989 /* ProgramBinding.swift in Sources */,
 				2A0789E9229321FD00CFFDD6 /* ConfigurableControllerView.swift in Sources */,
@@ -2710,6 +2729,7 @@
 				D0241A1922B3E93E005E8DB2 /* TextInputModalView.swift in Sources */,
 				D05C64E1225F5C9900B7BF4F /* Motor.swift in Sources */,
 				FE4B16202277406D00CAA083 /* RRSegmentedControl.swift in Sources */,
+				D03F1F8F23D741B1009AC6D6 /* FirmwareUpdateModalView.swift in Sources */,
 				D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */,
 				2A9F52022265DAC900F9F651 /* AppContainer.swift in Sources */,
 				2AB8F9562288933100D7D93C /* UIImagePickerController+Show.swift in Sources */,
