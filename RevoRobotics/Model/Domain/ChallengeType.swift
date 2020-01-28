@@ -11,4 +11,5 @@ enum ChallengeType: String, Decodable {
     case vertical
     case zoomable
     case partList
+    case button
 }

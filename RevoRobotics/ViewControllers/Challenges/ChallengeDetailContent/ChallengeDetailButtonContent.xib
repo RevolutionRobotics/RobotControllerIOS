@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5nw-qs-5jt" customClass="ChallengeDetailButtonContent" customModule="RevoRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5Q-j0-F6P">
+                    <rect key="frame" x="40" y="80" width="816" height="14.5"/>
+                    <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGk-Q8-Hgx" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
+                    <rect key="frame" x="428" y="292" width="40" height="38"/>
+                    <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="challengeButtonTapped:" destination="5nw-qs-5jt" eventType="touchUpInside" id="S2m-TL-Mgf"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fGk-Q8-Hgx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="F5Q-j0-F6P" secondAttribute="bottom" constant="40" id="1IX-h3-m8y"/>
+                <constraint firstAttribute="trailing" secondItem="F5Q-j0-F6P" secondAttribute="trailing" constant="40" id="NjB-3m-OKA"/>
+                <constraint firstItem="fGk-Q8-Hgx" firstAttribute="centerX" secondItem="5nw-qs-5jt" secondAttribute="centerX" id="Pm9-wE-QFb"/>
+                <constraint firstItem="F5Q-j0-F6P" firstAttribute="leading" secondItem="5nw-qs-5jt" secondAttribute="leading" constant="40" id="Uk8-XB-mGP"/>
+                <constraint firstItem="F5Q-j0-F6P" firstAttribute="centerX" secondItem="5nw-qs-5jt" secondAttribute="centerX" id="Yte-jB-WWt"/>
+                <constraint firstItem="PDB-z0-DTG" firstAttribute="bottom" secondItem="fGk-Q8-Hgx" secondAttribute="bottom" constant="50" id="asK-Je-93F"/>
+                <constraint firstItem="F5Q-j0-F6P" firstAttribute="top" secondItem="5nw-qs-5jt" secondAttribute="top" constant="80" id="rix-TL-gx2"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="PDB-z0-DTG"/>
+            <connections>
+                <outlet property="challengeDetailButton" destination="fGk-Q8-Hgx" id="ttH-zw-mIk"/>
+                <outlet property="descriptionLabel" destination="F5Q-j0-F6P" id="6My-O3-nu6"/>
+            </connections>
+            <point key="canvasLocation" x="81" y="155"/>
+        </view>
+    </objects>
+</document>

@@ -72,6 +72,16 @@ extension ChallengeDetailViewController {
             setupDetailContent(with: challengeStep, on: ChallengeDetailZoomableContent.instatiate())
         case .partList:
             setupDetailContent(with: challengeStep, on: ChallengeDetailPartListContent.instatiate())
+        case .button:
+            let challengeButtonContent = ChallengeDetailButtonContent.instatiate()
+            challengeButtonContent.buttonPressedCallback = { [weak self] in
+                guard
+                    let buttonUrlString = challengeStep.buttonUrl,
+                    let buttonUrl = URL(string: buttonUrlString)
+                else { return }
+                self?.openSafari(presentationFinished: nil, url: buttonUrl)
+            }
+            setupDetailContent(with: challengeStep, on: challengeButtonContent)
         }
     }
 
