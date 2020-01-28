@@ -13,5 +13,7 @@ struct ChallengeStep: Decodable, FirebaseOrderable {
     let image: String
     let parts: [String: Part]?
     let challengeType: ChallengeType
+    let buttonText: LocalizedText?
+    let buttonUrl: String?
     var order: Int
 }

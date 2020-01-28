@@ -272,6 +272,8 @@
 		D031333F228EA66100704989 /* MostRecentProgramsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D031333D228EA66100704989 /* MostRecentProgramsViewController.xib */; };
 		D037D915233A07D800DF76E9 /* BuildRevvyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D037D914233A07D800DF76E9 /* BuildRevvyViewController.swift */; };
 		D037D917233A086900DF76E9 /* BuildRevvyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D037D916233A086900DF76E9 /* BuildRevvyViewController.xib */; };
+		D03B824323D607F8002AE192 /* ChallengeDetailButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03B824223D607F8002AE192 /* ChallengeDetailButtonContent.swift */; };
+		D03B824523D60811002AE192 /* ChallengeDetailButtonContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03B824423D60811002AE192 /* ChallengeDetailButtonContent.xib */; };
 		D03BA8532276F323005B3E33 /* PartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8512276F323005B3E33 /* PartView.swift */; };
 		D03BA8542276F323005B3E33 /* PartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03BA8522276F323005B3E33 /* PartView.xib */; };
 		D03BA85C2277384A005B3E33 /* ConnectionModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8562277384A005B3E33 /* ConnectionModalView.swift */; };
@@ -676,6 +678,8 @@
 		D031333D228EA66100704989 /* MostRecentProgramsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MostRecentProgramsViewController.xib; sourceTree = "<group>"; };
 		D037D914233A07D800DF76E9 /* BuildRevvyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildRevvyViewController.swift; sourceTree = "<group>"; };
 		D037D916233A086900DF76E9 /* BuildRevvyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuildRevvyViewController.xib; sourceTree = "<group>"; };
+		D03B824223D607F8002AE192 /* ChallengeDetailButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailButtonContent.swift; sourceTree = "<group>"; };
+		D03B824423D60811002AE192 /* ChallengeDetailButtonContent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailButtonContent.xib; sourceTree = "<group>"; };
 		D03BA8512276F323005B3E33 /* PartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartView.swift; sourceTree = "<group>"; };
 		D03BA8522276F323005B3E33 /* PartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartView.xib; sourceTree = "<group>"; };
 		D03BA8562277384A005B3E33 /* ConnectionModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionModalView.swift; sourceTree = "<group>"; };
@@ -2127,6 +2131,8 @@
 				D075EA2E22C4FCB80003C183 /* ChallengeDetailVerticalContent.xib */,
 				D075EA2C22C4FB600003C183 /* ChallengeDetailZoomableContent.swift */,
 				D075EA3422C4FCDE0003C183 /* ChallengeDetailZoomableContent.xib */,
+				D03B824223D607F8002AE192 /* ChallengeDetailButtonContent.swift */,
+				D03B824423D60811002AE192 /* ChallengeDetailButtonContent.xib */,
 			);
 			path = ChallengeDetailContent;
 			sourceTree = "<group>";
@@ -2394,6 +2400,7 @@
 				D0899C6A22A6BCB900DB6F97 /* ChallengeCategoriesViewController.xib in Resources */,
 				D0A1108E227B18510064FBB6 /* ControllerInfoModalView.xib in Resources */,
 				2AB8F95322888AF300D7D93C /* ConfigurationView.xib in Resources */,
+				D03B824523D60811002AE192 /* ChallengeDetailButtonContent.xib in Resources */,
 				2ADE8C462271A6B900ECEC72 /* BuildProgressBar.xib in Resources */,
 				D05DBA51232935BD00508D1F /* UserTypeSelectionViewController.xib in Resources */,
 				D075EA3122C4FCC50003C183 /* ChallengeDetailHorizontalContent.xib in Resources */,
@@ -2622,6 +2629,7 @@
 				D0241A0E22B29352005E8DB2 /* CommunityViewController.swift in Sources */,
 				D031332F228D5CBA00704989 /* Controller.swift in Sources */,
 				2A0789EB2293245400CFFDD6 /* MultiTaskerConfigurationView.swift in Sources */,
+				D03B824323D607F8002AE192 /* ChallengeDetailButtonContent.swift in Sources */,
 				D0241A0A22B14337005E8DB2 /* ProgramsOrderTableViewCell.swift in Sources */,
 				2A227C7622B396390032948B /* ControllerViewModel.swift in Sources */,
 				0921710C22C20D7100F773B5 /* AlertModalView.swift in Sources */,
