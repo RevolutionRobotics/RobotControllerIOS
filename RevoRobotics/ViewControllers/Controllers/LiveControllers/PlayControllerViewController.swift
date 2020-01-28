@@ -78,7 +78,7 @@ extension PlayControllerViewController {
             ])
         }
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if onboardingInProgress {
@@ -119,7 +119,7 @@ extension PlayControllerViewController {
 
         padView.xAxisPositionChanged = { [weak self] xPosition in
             self?.bluetoothService.updateXDirection(Int(xPosition.nextDown.rounded(.down)))
-        } 
+        }
 
         padView.yAxisPositionChanged = { [weak self] yPosition in
             self?.bluetoothService.updateYDirection(Int(yPosition.nextDown.rounded(.toNearestOrAwayFromZero)))
@@ -220,6 +220,10 @@ extension PlayControllerViewController {
         super.connected()
         bluetoothService.stopDiscovery()
         navigationBar.bluetoothButtonState = .connected
+    }
+
+    override func robotSoftwareApproved() {
+        super.robotSoftwareApproved()
         Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false) { [weak self] _ in
             self?.sendConfiguration()
         }

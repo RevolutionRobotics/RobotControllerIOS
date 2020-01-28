@@ -90,6 +90,11 @@
 "connection_failed_tips_button_title" = "Tips";
 "connection_failed_try_again_button_title" = "Try again";
 
+// MARK: - Firmware update
+"firmware_update_needed_title" = "Please update your robot in order to use it with the current app version";
+"firmware_update_update_button" = "Update";
+"firmware_update_continue_button" = "Not now";
+
 // MARK: - Configure
 "configure_camera_permission_title" = "Permission for camera usage required";
 "configure_camera_permission_message" = "Please enable it from the app settings.";

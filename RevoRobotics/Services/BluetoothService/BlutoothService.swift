@@ -11,9 +11,15 @@ import RevolutionRoboticsBluetooth
 import CoreBluetooth
 
 final class BluetoothService: BluetoothServiceInterface {
+    // MARK: - Constants
+    enum Constants {
+        static let minSoftwareRevision = "0.1.957"
+    }
+
     // MARK: - Properties
     var firebaseService: FirebaseServiceInterface!
     var connectedDevice: Device?
+    var robotNeedsUpdate = false
     var isBluetoothPoweredOn: Bool {
         return discoverer.bluetoothRadioState == .poweredOn
     }
@@ -43,18 +49,33 @@ final class BluetoothService: BluetoothServiceInterface {
             to: device,
             onConnected: { [weak self] in
                 guard let `self` = self else { return }
-                NotificationCenter.default.post(name: .robotConnected, object: nil)
+                self.getSoftwareRevision(onCompleted: { result in
+                    switch result {
+                    case .success(let revision):
+                        self.robotNeedsUpdate = Constants.minSoftwareRevision
+                            .compare(revision, options: .numeric) == .orderedDescending
+
+                        NotificationCenter.default.post(name: .robotConnected, object: nil)
+                    case .failure(let error):
+                        self.robotNeedsUpdate = false
+                        error.report()
+                        NotificationCenter.default.post(name: .robotConnectionError, object: error)
+                    }
+                })
                 self.connectedDevice = device
                 self.mostRecentlyConnectedDevice = device
                 self.firebaseService.registerDevice(named: device.name)
             },
             onDisconnected: { [weak self] in
+                guard let `self` = self else { return }
                 NotificationCenter.default.post(name: .robotDisconnected, object: nil)
-                self?.connectedDevice = nil
+                self.connectedDevice = nil
+                self.robotNeedsUpdate = false
             },
             onError: { error in
                 error.report()
                 NotificationCenter.default.post(name: .robotConnectionError, object: error)
+                self.robotNeedsUpdate = false
         })
     }
 
@@ -67,6 +88,7 @@ final class BluetoothService: BluetoothServiceInterface {
         guard connectedDevice != nil else { return }
         connector.disconnect()
         self.shouldReconnect = shouldReconnect
+        self.robotNeedsUpdate = false
     }
 
     func sendConfigurationData(_ data: Data, onCompleted: CallbackType<Result<String, Error>>?) {
