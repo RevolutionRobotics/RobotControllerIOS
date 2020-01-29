@@ -286,6 +286,7 @@
 		D03F1F8F23D741B1009AC6D6 /* FirmwareUpdateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F1F8E23D741B1009AC6D6 /* FirmwareUpdateModalView.swift */; };
 		D03F1F9123D741BC009AC6D6 /* FirmwareUpdateModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03F1F9023D741BC009AC6D6 /* FirmwareUpdateModalView.xib */; };
 		D03F1F9323D8A6AA009AC6D6 /* FirmwareUpdateKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F1F9223D8A6AA009AC6D6 /* FirmwareUpdateKeys.swift */; };
+		D03F1F9523E18693009AC6D6 /* FirmwareVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F1F9423E18693009AC6D6 /* FirmwareVersion.swift */; };
 		D0489346238D63CE000FC5A2 /* PagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489345238D63CE000FC5A2 /* PagerView.swift */; };
 		D0489348238EACBD000FC5A2 /* PagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489347238EACBD000FC5A2 /* PagerViewCell.swift */; };
 		D049871C2387E5B300136AC8 /* UpdateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049871A2387E5B300136AC8 /* UpdateModalView.swift */; };
@@ -693,6 +694,7 @@
 		D03F1F8E23D741B1009AC6D6 /* FirmwareUpdateModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateModalView.swift; sourceTree = "<group>"; };
 		D03F1F9023D741BC009AC6D6 /* FirmwareUpdateModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareUpdateModalView.xib; sourceTree = "<group>"; };
 		D03F1F9223D8A6AA009AC6D6 /* FirmwareUpdateKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateKeys.swift; sourceTree = "<group>"; };
+		D03F1F9423E18693009AC6D6 /* FirmwareVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareVersion.swift; sourceTree = "<group>"; };
 		D0489345238D63CE000FC5A2 /* PagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerView.swift; sourceTree = "<group>"; };
 		D0489347238EACBD000FC5A2 /* PagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewCell.swift; sourceTree = "<group>"; };
 		D049871A2387E5B300136AC8 /* UpdateModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateModalView.swift; sourceTree = "<group>"; };
@@ -1480,6 +1482,7 @@
 				D05C64D8225F58E200B7BF4F /* Side.swift */,
 				2A5A07EA22DDC9B3002B3EE3 /* LocalizedText.swift */,
 				D09184F722DDD06600AF9274 /* Version.swift */,
+				D03F1F9423E18693009AC6D6 /* FirmwareVersion.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -2777,6 +2780,7 @@
 				D0899C6B22A6BCB900DB6F97 /* ChallengesViewController.swift in Sources */,
 				2ADE8C382270A79E00ECEC72 /* SettingsKeys.swift in Sources */,
 				2A78388D22C0C10100423991 /* PortTestCodeService.swift in Sources */,
+				D03F1F9523E18693009AC6D6 /* FirmwareVersion.swift in Sources */,
 				0938898822B26ED400292B32 /* UIColor+HEX.swift in Sources */,
 				2AFD41D222B90C3C00E29F74 /* FirmwareUpdate.swift in Sources */,
 				094FC5CE228C35E90085B407 /* GamerPadView.swift in Sources */,
@@ -2936,7 +2940,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.2.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DDEV";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3018,7 +3022,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3170,7 +3174,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.2.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DDEV";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3205,7 +3209,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.2.0;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3294,7 +3298,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.2.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3391,7 +3395,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.2.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = org.revolutionrobotics.robotcontroller.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";

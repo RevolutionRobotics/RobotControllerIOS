@@ -13,7 +13,7 @@ import CoreBluetooth
 final class BluetoothService: BluetoothServiceInterface {
     // MARK: - Constants
     enum Constants {
-        static let minSoftwareRevision = "0.1.957"
+        static let minSoftwareRevision = FirmwareVersion(major: 0, minor: 1, patch: 957)
     }
 
     // MARK: - Properties
@@ -52,8 +52,9 @@ final class BluetoothService: BluetoothServiceInterface {
                 self.getSoftwareRevision(onCompleted: { result in
                     switch result {
                     case .success(let revision):
-                        self.robotNeedsUpdate = Constants.minSoftwareRevision
-                            .compare(revision, options: .numeric) == .orderedDescending
+                        if let firmwareVersion = FirmwareVersion(from: revision) {
+                            self.robotNeedsUpdate = Constants.minSoftwareRevision > firmwareVersion
+                        }
 
                         NotificationCenter.default.post(name: .robotConnected, object: nil)
                     case .failure(let error):
