@@ -47,8 +47,9 @@ final class ProgramsViewController: BaseViewController {
 
     internal let blocklyViewController = BlocklyViewController()
     internal var selectedProgramRobot: UserRobot?
-    internal var programSaveReason = ProgramSaveReason.edited {
+    internal var programSaveReason: ProgramSaveReason? = .edited {
         didSet {
+            guard programSaveReason != nil else { return }
             blocklyViewController.saveProgram()
         }
     }
@@ -290,6 +291,7 @@ extension ProgramsViewController {
         programsView.setup(with: realmService.getPrograms(), robots: realmService.getRobots())
         programsView.selectedProgramCallback = { [weak self] program in
             guard let `self` = self else { return }
+            self.programSaveReason = nil
             self.dismissModalViewController()
             self.open(program: program)
             self.logEvent(named: "open_program")
@@ -299,6 +301,7 @@ extension ProgramsViewController {
 
     internal func displayNew() {
         selectedProgram = nil
+        programSaveReason = nil
         selectRobot()
         blocklyViewController.clearWorkspace()
         programNameButton.setTitle(ProgramsKeys.Main.untitled.translate(), for: .normal)
