@@ -91,8 +91,9 @@ extension BluetoothConnectionModalPresenter {
 
     private func setupStartDiscoveryHandler(on modal: TurnOnBrainModalView) {
         modal.startHandler = { [weak self] in
-            self?.presenter.dismiss(animated: true, completion: nil)
-            self?.showBluetoothDiscovery()
+            guard let `self` = self else { return }
+            self.presenter.dismiss(animated: true, completion: nil)
+            self.showBluetoothDiscovery()
         }
     }
 
