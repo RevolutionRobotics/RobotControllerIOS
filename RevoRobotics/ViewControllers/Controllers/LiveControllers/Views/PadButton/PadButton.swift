@@ -34,7 +34,15 @@ extension PadButton {
 
 // MARK: - Actions
 extension PadButton {
-    @IBAction private func buttonTapped(_ sender: Any) {
-        pressed.toggle()
+    @IBAction private func buttonTouchStart(_ sender: Any) {
+        pressed = true
+    }
+
+    @IBAction private func buttonTouchEnd(_ sender: Any) {
+        pressed = false
+    }
+
+    @IBAction private func buttonTouchCancel(_ sender: Any) {
+        pressed = false
     }
 }

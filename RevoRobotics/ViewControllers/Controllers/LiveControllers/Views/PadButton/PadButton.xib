@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -14,7 +12,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PadButton" customModule="RevolutionRobotics" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PadButton" customModule="RevoRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="button" destination="uEF-Sc-Hr2" id="bcg-l3-fcN"/>
                 <outlet property="label" destination="uOn-65-Sxs" id="tpR-O6-VG1"/>
@@ -32,7 +30,9 @@
                     </constraints>
                     <state key="normal" backgroundImage="PadButtonCircle"/>
                     <connections>
-                        <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="eC6-0v-khz"/>
+                        <action selector="buttonTouchCancel:" destination="-1" eventType="touchCancel" id="jXt-F2-g38"/>
+                        <action selector="buttonTouchEnd:" destination="-1" eventType="touchUpInside" id="pUp-8d-DAn"/>
+                        <action selector="buttonTouchStart:" destination="-1" eventType="touchDown" id="Jtk-1D-GwC"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOn-65-Sxs">

@@ -126,7 +126,7 @@ extension PlayControllerViewController {
         }
 
         padView.buttonTapped = { [weak self] pressedPadButton in
-            self?.bluetoothService.changeButtonState(index: pressedPadButton.index)
+            self?.bluetoothService.changeButtonState(index: pressedPadButton.index, pressed: pressedPadButton.pressed)
         }
     }
 }
