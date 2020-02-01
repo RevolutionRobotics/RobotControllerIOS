@@ -36,7 +36,7 @@ target 'RevoRobotics' do
 
   # RevolutionRobotics
   pod 'RevolutionRoboticsBlockly', '~> 0.2.3'
-  pod 'RevolutionRoboticsBluetooth', '~> 0.1.0'
+  pod 'RevolutionRoboticsBluetooth', '~> 0.1.1'
 #  pod 'RevolutionRoboticsBlockly', :path => '../RevolutionRoboticsBlocklyIOS'
 #  pod 'RevolutionRoboticsBluetooth', :path => '../RevolutionRoboticsBluetoothIOS'
 end

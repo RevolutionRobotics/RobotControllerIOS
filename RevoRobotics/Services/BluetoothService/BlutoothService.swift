@@ -194,8 +194,8 @@ final class BluetoothService: BluetoothServiceInterface {
         liveController.updateYDirection(y: yDirection)
     }
 
-    func changeButtonState(index: Int) {
-        liveController.changeButtonState(index: index, pressed: true)
+    func changeButtonState(index: Int, pressed: Bool) {
+        liveController.changeButtonState(index: index, pressed: pressed)
     }
 
     func testKit(data: String, onCompleted: CallbackType<Result<String, Error>>?) {

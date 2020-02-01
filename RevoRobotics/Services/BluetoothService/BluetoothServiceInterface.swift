@@ -50,5 +50,5 @@ protocol BluetoothServiceInterface: class {
     func stopKeepalive()
     func updateXDirection(_ xDirection: Int)
     func updateYDirection(_ yDirection: Int)
-    func changeButtonState(index: Int)
+    func changeButtonState(index: Int, pressed: Bool)
 }
