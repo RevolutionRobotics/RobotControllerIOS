@@ -324,7 +324,6 @@ extension BaseViewController {
                         .shared
                         .container
                         .unwrappedResolve(FirmwareUpdateViewController.self)
-                    updateViewController.robotUpdateNeeded = true
 
                     self.navigationController?
                         .pushViewController(updateViewController, animated: true)
