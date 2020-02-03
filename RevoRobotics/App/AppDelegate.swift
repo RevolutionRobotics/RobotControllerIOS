@@ -88,7 +88,9 @@ extension AppDelegate {
             let firebaseService = AppContainer.shared.container.unwrappedResolve(FirebaseServiceInterface.self)
             firebaseService.prefetchData(onError: nil)
             DispatchQueue.main.async { [weak self] in
+                #if !targetEnvironment(simulator)
                 self?.checkMinVersion(using: firebaseService)
+                #endif
             }
         }
     }

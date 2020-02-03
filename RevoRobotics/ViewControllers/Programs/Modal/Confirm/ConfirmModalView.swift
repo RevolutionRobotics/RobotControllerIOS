@@ -43,15 +43,23 @@ extension ConfirmModalView {
         positiveButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
         negativeButton.setBorder(fillColor: Color.black26, strokeColor: Color.blackTwo, croppedCorners: [.bottomLeft])
     }
+
+    private func disableButtons() {
+        for button in subviews where button is RRButton {
+            button.isUserInteractionEnabled = false
+        }
+    }
 }
 
 // MARK: - Action
 extension ConfirmModalView {
     @IBAction private func okButtonTapped(_ sender: Any) {
+        disableButtons()
         confirmSelected?(true)
     }
 
     @IBAction private func cancelButtonTapped(_ sender: Any) {
+        disableButtons()
         confirmSelected?(false)
     }
 }
