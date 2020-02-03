@@ -31,6 +31,7 @@ final class ProgramsViewController: BaseViewController {
     @IBOutlet private weak var containerView: UIView!
 
     // MARK: - Properties
+    private var shouldRunTest = false
     var realmService: RealmServiceInterface!
     var programCompatibilityValidator: ProgramCompatibilityValidator!
     var selectedProgram: ProgramDataModel? {
@@ -78,7 +79,9 @@ extension ProgramsViewController {
     override func connected() {
         bluetoothService.stopDiscovery()
         dismiss(animated: true, completion: { [weak self] in
-            self?.testButtonTapped(UIButton())
+            guard let `self` = self, self.shouldRunTest else { return }
+            self.shouldRunTest = false
+            self.testButtonTapped(UIButton())
         })
     }
 }
@@ -381,11 +384,13 @@ extension ProgramsViewController {
     }
 
     internal func testPythonCode(with code: String) {
-        guard bluetoothService.connectedDevice != nil else {
-            presentConnectModal()
+        guard bluetoothService.connectedDevice == nil else {
+            sendConfiguration(thenRun: code)
             return
         }
-        sendConfiguration(thenRun: code)
+
+        shouldRunTest = true
+        presentConnectModal()
     }
 }
 
