@@ -35,7 +35,7 @@ target 'RevoRobotics' do
   pod 'PMParentalGate'
 
   # RevolutionRobotics
-  pod 'RevolutionRoboticsBlockly', '~> 0.2.3'
+  pod 'RevolutionRoboticsBlockly', '~> 0.2.4'
   pod 'RevolutionRoboticsBluetooth', '~> 0.1.1'
 #  pod 'RevolutionRoboticsBlockly', :path => '../RevolutionRoboticsBlocklyIOS'
 #  pod 'RevolutionRoboticsBluetooth', :path => '../RevolutionRoboticsBluetoothIOS'
