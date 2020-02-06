@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -14,7 +12,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RRNavigationBar" customModule="RevoRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="backButton" destination="M9M-8p-KAY" id="e12-jV-573"/>
                 <outlet property="bluetoothButton" destination="i60-SE-gmU" id="1fO-Ts-krA"/>
@@ -41,13 +39,13 @@
                         <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="VUC-8M-R9L"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAQ-Kd-tmk">
-                    <rect key="frame" x="63" y="24" width="0.0" height="0.0"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAQ-Kd-tmk">
+                    <rect key="frame" x="63" y="24" width="519" height="0.0"/>
                     <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i60-SE-gmU" userLabel="bluetoothButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i60-SE-gmU" userLabel="bluetoothButton" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
                     <rect key="frame" x="591" y="1" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="44" id="8ew-n1-LWc"/>
@@ -63,6 +61,7 @@
             <constraints>
                 <constraint firstItem="fAQ-Kd-tmk" firstAttribute="centerY" secondItem="M9M-8p-KAY" secondAttribute="centerY" id="0Va-9A-ypf"/>
                 <constraint firstItem="hsI-v2-QvQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8QG-UG-wXC"/>
+                <constraint firstItem="fAQ-Kd-tmk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Bku-lh-uWx"/>
                 <constraint firstAttribute="trailing" secondItem="hsI-v2-QvQ" secondAttribute="trailing" id="Ilf-Y1-JTI"/>
                 <constraint firstItem="M9M-8p-KAY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="9" id="R0U-LO-PLZ"/>
                 <constraint firstItem="i60-SE-gmU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="1" id="fbH-G0-dKp"/>
