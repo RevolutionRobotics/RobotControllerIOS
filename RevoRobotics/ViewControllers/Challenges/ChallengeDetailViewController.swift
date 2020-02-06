@@ -13,10 +13,10 @@ final class ChallengeDetailViewController: BaseViewController {
     @IBOutlet private weak var navigationBar: RRNavigationBar!
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var progressBar: BuildProgressBar!
+    @IBOutlet private weak var progressLabel: RRProgressLabel!
 
     // MARK: - Properties
     private var challenge: Challenge?
-    private var parts: [Part] = []
     var challengeFinished: Callback?
 }
 
@@ -44,9 +44,17 @@ extension ChallengeDetailViewController {
             self?.progressBar.milestoneFinished()
         }
         progressBar.valueDidChange = { [weak self] challengeStep in
-            self?.setupContent(for: challengeStep)
+            guard let `self` = self else { return }
+            self.setupContent(for: challengeStep)
+            self.progressLabel.currentStep = challengeStep + 1
         }
         progressBar.buildFinished = challengeFinished
+        setupProgressLabel(with: challenge.challengeSteps.count)
+    }
+
+    private func setupProgressLabel(with challengeStepCount: Int) {
+        progressLabel.currentStep = progressBar.currentStep + 1
+        progressLabel.numberOfSteps = challengeStepCount
     }
 
     private func findChallengeStep(at index: Int) -> ChallengeStep? {
