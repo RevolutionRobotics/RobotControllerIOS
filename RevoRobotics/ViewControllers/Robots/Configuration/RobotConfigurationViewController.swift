@@ -112,7 +112,7 @@ extension RobotConfigurationViewController {
         }
 
         if (selectedRobot?.customName ?? "").isEmpty {
-            renameTapped(self)
+            renameTapped()
         }
     }
 }
@@ -378,7 +378,7 @@ extension RobotConfigurationViewController: UIImagePickerControllerDelegate {
         })
     }
 
-    internal func takePhotoTapped(_ sender: Any) {
+    internal func takePhotoTapped() {
         reloadConfigurationView()
         if robotImage == nil {
             showPhotoController(on: self)

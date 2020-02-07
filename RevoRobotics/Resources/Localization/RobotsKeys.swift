@@ -51,6 +51,8 @@ enum RobotsKeys {
         static let controllerTabTitle = "configure_controller_tab_title"
         static let variableError = "error_variable_already_in_use"
         static let variableEmpty = "error_variable_empty"
+        static let backgroundPrograms = "configure_background_programs"
+        static let programPriorities = "configure_program_priorities"
         static let typeChange = "configure_controller_type_change"
         static let delete = "configure_delete"
         static let duplicate = "configure_duplicate"

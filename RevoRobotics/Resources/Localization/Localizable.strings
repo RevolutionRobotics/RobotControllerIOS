@@ -111,6 +111,8 @@
 "configure_motor_done_button_title" = "Done";
 "configure_sensor_bumper_button_title" = "Button";
 "configure_sensor_distance_button_title" = "Distance";
+"configure_background_programs" = "Background programs";
+"configure_program_priorities" = "Program priorities";
 "configure_controller_type_change" = "Change controller type";
 "configure_delete" = "Delete";
 "configure_duplicate" = "Duplicate";
