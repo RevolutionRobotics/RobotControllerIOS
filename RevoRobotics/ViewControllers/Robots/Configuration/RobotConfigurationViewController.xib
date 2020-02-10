@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RobotConfigurationViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RobotConfigurationViewController" customModule="RevoRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="configurationView" destination="R0b-BO-qaQ" id="LHe-85-74R"/>
                 <outlet property="controllerContainerView" destination="c5x-ws-40H" id="vcn-4m-7XA"/>
@@ -26,10 +26,10 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GlowBackground" translatesAutoresizingMaskIntoConstraints="NO" id="dqD-V3-qDN">
                     <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyj-RX-Rpw" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyj-RX-Rpw" customClass="RRNavigationBar" customModule="RevoRobotics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="896" height="71"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zW7-n8-Bql" userLabel="optionsButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zW7-n8-Bql" userLabel="optionsButton" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
                             <rect key="frame" x="794" y="0.0" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="BgN-Wi-FXb"/>
@@ -40,44 +40,15 @@
                                 <action selector="optionsTapped:" destination="-1" eventType="touchUpInside" id="Rko-Sz-LPi"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYe-8C-QvG" userLabel="priorityButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="746" y="0.0" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="1es-sX-E9Z"/>
-                                <constraint firstAttribute="width" constant="40" id="LVG-PH-aNB"/>
-                            </constraints>
-                            <state key="normal" image="OrderIcon"/>
-                            <connections>
-                                <action selector="priorityButtonTapped:" destination="-1" eventType="touchUpInside" id="rJI-qe-exh"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlw-2Y-63m" userLabel="backgroundProgramButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="698" y="0.0" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="9gc-12-Pv4"/>
-                                <constraint firstAttribute="width" constant="40" id="fgZ-j1-1JM"/>
-                            </constraints>
-                            <state key="normal" image="CodeIcon"/>
-                            <connections>
-                                <action selector="backgroundProgramsTapped:" destination="-1" eventType="touchUpInside" id="WuO-kx-pEd"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="jlw-2Y-63m" firstAttribute="top" secondItem="oyj-RX-Rpw" secondAttribute="top" id="1kf-yH-CqJ"/>
-                        <constraint firstItem="VYe-8C-QvG" firstAttribute="top" secondItem="oyj-RX-Rpw" secondAttribute="top" id="E2H-Sd-wPe"/>
                         <constraint firstAttribute="trailing" secondItem="zW7-n8-Bql" secondAttribute="trailing" constant="62" id="S49-H6-rPR"/>
-                        <constraint firstItem="jlw-2Y-63m" firstAttribute="top" secondItem="oyj-RX-Rpw" secondAttribute="top" id="UmA-cR-RS7"/>
-                        <constraint firstItem="zW7-n8-Bql" firstAttribute="leading" secondItem="VYe-8C-QvG" secondAttribute="trailing" constant="8" id="VAu-n9-nLl"/>
-                        <constraint firstItem="VYe-8C-QvG" firstAttribute="top" secondItem="oyj-RX-Rpw" secondAttribute="top" id="Zas-uz-i9q"/>
                         <constraint firstAttribute="height" constant="71" id="bTo-ib-oNg"/>
-                        <constraint firstItem="VYe-8C-QvG" firstAttribute="leading" secondItem="jlw-2Y-63m" secondAttribute="trailing" constant="8" id="hJp-hC-IG6"/>
                         <constraint firstItem="zW7-n8-Bql" firstAttribute="top" secondItem="oyj-RX-Rpw" secondAttribute="top" id="pEE-zT-lmr"/>
-                        <constraint firstItem="VYe-8C-QvG" firstAttribute="leading" secondItem="jlw-2Y-63m" secondAttribute="trailing" constant="8" id="rzm-n8-F2E"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWF-Hf-1t3" userLabel="playButton" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWF-Hf-1t3" userLabel="playButton" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
                     <rect key="frame" x="777" y="359" width="65" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="gui-tw-zLd"/>
@@ -96,7 +67,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ynx-ue-Ua9">
                     <rect key="frame" x="328" y="71" width="240" height="94"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="849-Dt-fTu" customClass="RRSegmentedControl" customModule="RevolutionRobotics" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="849-Dt-fTu" customClass="RRSegmentedControl" customModule="RevoRobotics" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="29" width="240" height="36"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -112,7 +83,7 @@
                         <constraint firstItem="849-Dt-fTu" firstAttribute="centerY" secondItem="Ynx-ue-Ua9" secondAttribute="centerY" id="sqm-71-tTg"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0b-BO-qaQ" userLabel="configurationView" customClass="ConfigurationView" customModule="RevolutionRobotics" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0b-BO-qaQ" userLabel="configurationView" customClass="ConfigurationView" customModule="RevoRobotics" customModuleProvider="target">
                     <rect key="frame" x="227" y="165" width="442" height="228"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -147,10 +118,8 @@
         </view>
     </objects>
     <resources>
-        <image name="CodeIcon" width="24" height="24"/>
         <image name="GlowBackground" width="568" height="320"/>
         <image name="NextIcon" width="6" height="10"/>
-        <image name="OrderIcon" width="25" height="25"/>
         <image name="SettingsIcon" width="22" height="22"/>
     </resources>
 </document>

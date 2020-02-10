@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import ContextMenu
 
 // MARK: - Actions
 extension RobotConfigurationViewController {
-    private func deleteTapped(_ sender: Any) {
+    private func deleteTapped() {
         dismissModalViewController()
         let deleteView = DeleteModalView.instatiate()
         deleteView.title = ModalKeys.DeleteRobot.description.translate()
@@ -29,13 +30,13 @@ extension RobotConfigurationViewController {
         presentModal(with: deleteView)
     }
 
-    private func duplicateTapped(_ sender: Any) {
+    private func duplicateTapped() {
         duplicateCallback?()
         logEvent(named: "duplicate_robot")
         navigationController?.popViewController(animated: true)
     }
 
-    private func controllerButtonTapped(_ sender: Any) {
+    private func controllerButtonTapped() {
         reloadConfigurationView()
         guard
             let configurationView = padConfiguration.configurationView,
@@ -55,13 +56,20 @@ extension RobotConfigurationViewController {
         logEvent(named: "change_controller_type")
     }
 
-    @IBAction private func backgroundProgramsTapped(_ sender: Any) {
+    private func backgroundProgramsTapped() {
         let vc = AppContainer.shared.container.unwrappedResolve(ButtonlessProgramsViewController.self)
         vc.configurationId = padConfiguration.configurationId
         vc.controllerViewModel = padConfiguration.viewModel
         vc.selectedRobotId = selectedRobot?.id
         navigationController?.pushViewController(vc, animated: true)
         logEvent(named: "click_background_programs")
+    }
+
+    private func priorityButtonTapped() {
+        let vc = AppContainer.shared.container.unwrappedResolve(ProgramPriorityViewController.self)
+        vc.controllerViewModel = padConfiguration.viewModel
+        navigationController?.pushViewController(vc, animated: true)
+        logEvent(named: "click_priority_button")
     }
 
     @IBAction private func playButtonTapped(_ sender: Any) {
@@ -76,61 +84,54 @@ extension RobotConfigurationViewController {
         navigationController?.pushViewController(playController, animated: true)
     }
 
-    @IBAction private func priorityButtonTapped(_ sender: Any) {
-        let vc = AppContainer.shared.container.unwrappedResolve(ProgramPriorityViewController.self)
-        vc.controllerViewModel = padConfiguration.viewModel
-        navigationController?.pushViewController(vc, animated: true)
-        logEvent(named: "click_priority_button")
-    }
+    @IBAction private func optionsTapped(_ sender: UIButton) {
+        let contextMenu = ContextMenuViewController()
+        contextMenu.rows = [
+            (
+                title: RobotsKeys.Configure.backgroundPrograms.translate(),
+                handler: backgroundProgramsTapped
+            ),
+            (
+                title: RobotsKeys.Configure.programPriorities.translate(),
+                handler: priorityButtonTapped
+            ),
+            (
+                title: RobotsKeys.Configure.typeChange.translate(),
+                handler: controllerButtonTapped
+            ),
+            (
+                title: RobotsKeys.Configure.delete.translate(),
+                handler: deleteTapped
+            ),
+            (
+                title: RobotsKeys.Configure.duplicate.translate(),
+                handler: duplicateTapped
+            ),
+            (
+                title: RobotsKeys.Configure.rename.translate(),
+                handler: renameTapped
+            ),
+            (
+                title: RobotsKeys.Configure.changeImage.translate(),
+                handler: takePhotoTapped
+            )
+        ]
 
-    @IBAction private func optionsTapped(_ sender: Any) {
-        let optionsMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let buttonSize = sender.frame.size
+        ContextMenu.shared.show(
+          sourceViewController: self,
+          viewController: contextMenu,
+          options: ContextMenu.Options(
+            containerStyle: ContextMenu.ContainerStyle(
+                xPadding: -buttonSize.width,
+                yPadding: -buttonSize.height + 5.0,
+                edgePadding: 0.0,
+                backgroundColor: Color.blackTwo),
+            menuStyle: .minimal),
+          sourceView: sender
+        )
 
-        optionsMenu.addAction(UIAlertAction(
-            title: RobotsKeys.Configure.typeChange.translate(),
-            style: .default,
-            handler: controllerButtonTapped
-        ))
-        optionsMenu.addAction(UIAlertAction(
-            title: RobotsKeys.Configure.delete.translate(),
-            style: .destructive,
-            handler: deleteTapped
-        ))
-        optionsMenu.addAction(UIAlertAction(
-            title: RobotsKeys.Configure.duplicate.translate(),
-            style: .default,
-            handler: duplicateTapped
-        ))
-        optionsMenu.addAction(UIAlertAction(
-            title: RobotsKeys.Configure.rename.translate(),
-            style: .default,
-            handler: renameTapped
-        ))
-        optionsMenu.addAction(UIAlertAction(
-            title: RobotsKeys.Configure.changeImage.translate(),
-            style: .default,
-            handler: takePhotoTapped
-        ))
-
-        if let visualEffectView = optionsMenu.view.visualEffectsSubview {
-            visualEffectView.effect = UIBlurEffect(style: .dark)
-            optionsMenu.view.tintColor = .white
-        }
-
-        present(optionsMenu, animated: true, completion: { [weak self] in
-            guard
-                let `self` = self,
-                let subview = optionsMenu.view.superview?.subviews[1]
-            else { return }
-
-            subview.isUserInteractionEnabled = true
-            subview.addGestureRecognizer(UITapGestureRecognizer(
-                target: self,
-                action: #selector(self.tappedOutside)
-            ))
-
-            self.logEvent(named: "open_overflow_menu")
-        })
+        logEvent(named: "open_overflow_menu")
     }
 
     @objc private func tappedOutside(callback: Callback? = nil) {
@@ -160,7 +161,7 @@ extension RobotConfigurationViewController {
         })
     }
 
-    internal func renameTapped(_ sender: Any) {
+    internal func renameTapped() {
         guard let robot = selectedRobot else { return }
         let modal = SaveModalView.instatiate()
         modal.type = .configuration

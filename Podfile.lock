@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.0.0-rc.3)
+  - ContextMenu (0.4.0)
   - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
   - CryptoSwift (1.3.0)
@@ -104,6 +105,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (= 5.0.0-rc.3)
+  - ContextMenu
   - Crashlytics (~> 3.14.0)
   - Fabric (~> 1.10.2)
   - Firebase/Analytics
@@ -123,6 +125,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - ContextMenu
     - Crashlytics
     - CryptoSwift
     - Fabric
@@ -166,6 +169,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
+  ContextMenu: f835e09a93f1c28c631b76ee94396d9570397fd1
   Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   CryptoSwift: 1283821600233bdbeb96d7b389c3288c3bf77211
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
@@ -198,6 +202,6 @@ SPEC CHECKSUMS:
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
 
-PODFILE CHECKSUM: 4d1003320e134904f8e9af6df4d2ed771800c15d
+PODFILE CHECKSUM: c5d0ed01662f6c06a664c9be3d1b189e9f1a0216
 
 COCOAPODS: 1.8.4
