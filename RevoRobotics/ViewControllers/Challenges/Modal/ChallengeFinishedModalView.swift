@@ -16,6 +16,7 @@ final class ChallengeFinishedModalView: UIView {
     @IBOutlet private weak var nextButton: RRButton!
 
     // MARK: - Properties
+    private let audioPlayer = AudioPlayer()
     var isLastChallenge: Bool = false {
         didSet {
             if isLastChallenge {
@@ -48,6 +49,11 @@ extension ChallengeFinishedModalView {
         nextButton.setBorder(fillColor: .clear, strokeColor: .white, croppedCorners: [.topRight])
         nextButton.setTitle(ModalKeys.Challenge.nextButton.translate(), for: .normal)
         finishedLabel.text = ModalKeys.Challenge.challengeFinished.translate().uppercased()
+    }
+
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        audioPlayer.playSound(name: "ta_da")
     }
 }
 
