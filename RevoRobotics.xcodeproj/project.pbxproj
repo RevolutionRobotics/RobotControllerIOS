@@ -319,7 +319,7 @@
 		D05C64E1225F5C9900B7BF4F /* Motor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64E0225F5C9900B7BF4F /* Motor.swift */; };
 		D05C64E5225F5DEE00B7BF4F /* PortMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64E4225F5DEE00B7BF4F /* PortMapping.swift */; };
 		D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64E6225F5E3600B7BF4F /* Configuration.swift */; };
-		D05DBA51232935BD00508D1F /* UserTypeSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D05DBA50232935BD00508D1F /* UserTypeSelectionViewController.xib */; };
+		D05DBA51232935BD00508D1F /* UserAgeSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D05DBA50232935BD00508D1F /* UserAgeSelectionViewController.xib */; };
 		D06C3267228570FF005534C0 /* ResetTutorialModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C3266228570FF005534C0 /* ResetTutorialModalView.swift */; };
 		D06C326922857107005534C0 /* ResetTutorialModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C326822857107005534C0 /* ResetTutorialModalView.xib */; };
 		D06C326C22857A80005534C0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C326A22857A80005534C0 /* AboutViewController.swift */; };
@@ -373,7 +373,7 @@
 		D0A8C74822C9EECE00F7F12B /* UIView+Notch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8C74722C9EECE00F7F12B /* UIView+Notch.swift */; };
 		D0B2A735227C7CF1004473EC /* ControllerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2A733227C7CF1004473EC /* ControllerCollectionViewCell.swift */; };
 		D0B2A736227C7CF1004473EC /* ControllerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B2A734227C7CF1004473EC /* ControllerCollectionViewCell.xib */; };
-		D0B75F8C2329302800FD1048 /* UserTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B75F8B2329302800FD1048 /* UserTypeSelectionViewController.swift */; };
+		D0B75F8C2329302800FD1048 /* UserAgeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B75F8B2329302800FD1048 /* UserAgeSelectionViewController.swift */; };
 		D0BBD99A22C0C040005A373A /* UIView+SubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBD99922C0C040005A373A /* UIView+SubViews.swift */; };
 		D0BF256C2282C6C100F08C9C /* BuildFinishedModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BF256A2282C6C100F08C9C /* BuildFinishedModalView.xib */; };
 		D0BF25702282C6E000F08C9C /* PlayControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF256E2282C6E000F08C9C /* PlayControllerViewController.swift */; };
@@ -392,8 +392,6 @@
 		D0F997AB2385940F005E358D /* GoogleService-Info-test.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0F997A82385940F005E358D /* GoogleService-Info-test.plist */; };
 		D0F997AC2385940F005E358D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0F997A92385940F005E358D /* GoogleService-Info.plist */; };
 		D0F997B023868C41005E358D /* UIViewController+ParentalGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F997AF23868C41005E358D /* UIViewController+ParentalGate.swift */; };
-		D0FFE7A8232BCEE9009DA8A0 /* AgeSelectionModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FFE7A7232BCEE9009DA8A0 /* AgeSelectionModalView.swift */; };
-		D0FFE7AA232BCF27009DA8A0 /* AgeSelectionModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0FFE7A9232BCF27009DA8A0 /* AgeSelectionModalView.xib */; };
 		EC9A30137A1513E5BA27DC5B /* Pods_RevoRobotics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1386454734BF0008E406926A /* Pods_RevoRobotics.framework */; };
 		FA02B4663C8F31587F1A2B00 /* Pods-RevoRobotics-settings-metadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1958257A8B2C5E2EA442F4FB /* Pods-RevoRobotics-settings-metadata.plist */; };
 		FE4B16182277202600CAA083 /* RobotConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */; };
@@ -728,7 +726,7 @@
 		D05C64E0225F5C9900B7BF4F /* Motor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motor.swift; sourceTree = "<group>"; };
 		D05C64E4225F5DEE00B7BF4F /* PortMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortMapping.swift; sourceTree = "<group>"; };
 		D05C64E6225F5E3600B7BF4F /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		D05DBA50232935BD00508D1F /* UserTypeSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTypeSelectionViewController.xib; sourceTree = "<group>"; };
+		D05DBA50232935BD00508D1F /* UserAgeSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserAgeSelectionViewController.xib; sourceTree = "<group>"; };
 		D06C3266228570FF005534C0 /* ResetTutorialModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetTutorialModalView.swift; sourceTree = "<group>"; };
 		D06C326822857107005534C0 /* ResetTutorialModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetTutorialModalView.xib; sourceTree = "<group>"; };
 		D06C326A22857A80005534C0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -782,7 +780,7 @@
 		D0A8C74722C9EECE00F7F12B /* UIView+Notch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Notch.swift"; sourceTree = "<group>"; };
 		D0B2A733227C7CF1004473EC /* ControllerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ControllerCollectionViewCell.swift; path = RevoRobotics/ViewControllers/Robots/Configuration/ControllerCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D0B2A734227C7CF1004473EC /* ControllerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ControllerCollectionViewCell.xib; path = RevoRobotics/ViewControllers/Robots/Configuration/ControllerCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
-		D0B75F8B2329302800FD1048 /* UserTypeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeSelectionViewController.swift; sourceTree = "<group>"; };
+		D0B75F8B2329302800FD1048 /* UserAgeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgeSelectionViewController.swift; sourceTree = "<group>"; };
 		D0BBD99922C0C040005A373A /* UIView+SubViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SubViews.swift"; sourceTree = "<group>"; };
 		D0BF256A2282C6C100F08C9C /* BuildFinishedModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuildFinishedModalView.xib; sourceTree = "<group>"; };
 		D0BF256D2282C6E000F08C9C /* PlayControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayControllerViewController.xib; sourceTree = "<group>"; };
@@ -802,8 +800,6 @@
 		D0F997A82385940F005E358D /* GoogleService-Info-test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-test.plist"; sourceTree = "<group>"; };
 		D0F997A92385940F005E358D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D0F997AF23868C41005E358D /* UIViewController+ParentalGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ParentalGate.swift"; sourceTree = "<group>"; };
-		D0FFE7A7232BCEE9009DA8A0 /* AgeSelectionModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeSelectionModalView.swift; sourceTree = "<group>"; };
-		D0FFE7A9232BCF27009DA8A0 /* AgeSelectionModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgeSelectionModalView.xib; sourceTree = "<group>"; };
 		D6C065F1DCFDE40D1653368B /* Pods-RevoRobotics.test dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevoRobotics.test dev.xcconfig"; path = "Target Support Files/Pods-RevoRobotics/Pods-RevoRobotics.test dev.xcconfig"; sourceTree = "<group>"; };
 		DA21EA1EA0F74B02CDEABA1B /* Pods-RevoRobotics.test prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevoRobotics.test prod.xcconfig"; path = "Target Support Files/Pods-RevoRobotics/Pods-RevoRobotics.test prod.xcconfig"; sourceTree = "<group>"; };
 		FE4B16162277202600CAA083 /* RobotConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RobotConfigurationViewController.xib; sourceTree = "<group>"; };
@@ -1990,8 +1986,8 @@
 			isa = PBXGroup;
 			children = (
 				D0B75F8D2329340100FD1048 /* Modal */,
-				D0B75F8B2329302800FD1048 /* UserTypeSelectionViewController.swift */,
-				D05DBA50232935BD00508D1F /* UserTypeSelectionViewController.xib */,
+				D0B75F8B2329302800FD1048 /* UserAgeSelectionViewController.swift */,
+				D05DBA50232935BD00508D1F /* UserAgeSelectionViewController.xib */,
 				D037D914233A07D800DF76E9 /* BuildRevvyViewController.swift */,
 				D037D916233A086900DF76E9 /* BuildRevvyViewController.xib */,
 			);
@@ -2202,8 +2198,6 @@
 		D0B75F8D2329340100FD1048 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				D0FFE7A7232BCEE9009DA8A0 /* AgeSelectionModalView.swift */,
-				D0FFE7A9232BCF27009DA8A0 /* AgeSelectionModalView.xib */,
 				D029AA88233E0ECE00313A8E /* OnboardingCompletedModalView.swift */,
 				D029AA8A233E0F7D00313A8E /* OnboardingCompletedModalView.xib */,
 			);
@@ -2408,7 +2402,7 @@
 				2AB8F95322888AF300D7D93C /* ConfigurationView.xib in Resources */,
 				D03B824523D60811002AE192 /* ChallengeDetailButtonContent.xib in Resources */,
 				2ADE8C462271A6B900ECEC72 /* BuildProgressBar.xib in Resources */,
-				D05DBA51232935BD00508D1F /* UserTypeSelectionViewController.xib in Resources */,
+				D05DBA51232935BD00508D1F /* UserAgeSelectionViewController.xib in Resources */,
 				D075EA3122C4FCC50003C183 /* ChallengeDetailHorizontalContent.xib in Resources */,
 				094FC5D0228C35F70085B407 /* GamerPadView.xib in Resources */,
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
@@ -2467,7 +2461,6 @@
 				09BD4C1922C117460046DB74 /* ConfirmModalView.xib in Resources */,
 				D06C32792289BAF1005534C0 /* CheckForUpdateModalView.xib in Resources */,
 				D031333F228EA66100704989 /* MostRecentProgramsViewController.xib in Resources */,
-				D0FFE7AA232BCF27009DA8A0 /* AgeSelectionModalView.xib in Resources */,
 				2A77320322648FB000D7F38D /* Settings.bundle in Resources */,
 				0921710D22C20D7100F773B5 /* AlertModalView.xib in Resources */,
 				09C38753226F38F40097619D /* Jura-Regular.ttf in Resources */,
@@ -2651,7 +2644,6 @@
 				2AB7ACF022BB993800309234 /* BlocklyListProgramElementJSONData.swift in Sources */,
 				D03BA8532276F323005B3E33 /* PartView.swift in Sources */,
 				2A90537122A3DA300047509D /* RobotOptionsModalView.swift in Sources */,
-				D0FFE7A8232BCEE9009DA8A0 /* AgeSelectionModalView.swift in Sources */,
 				0952386F22A57045001C1CE1 /* OptionSelectorModalView.swift in Sources */,
 				2AB7ACF222BB995600309234 /* BlocklyListAnalogElementJSONData.swift in Sources */,
 				D03F1F9323D8A6AA009AC6D6 /* FirmwareUpdateKeys.swift in Sources */,
@@ -2733,7 +2725,7 @@
 				D058288C23916F6600AF42B1 /* CodeTestModalView.swift in Sources */,
 				0938894A22B12C9000292B32 /* SoundPickerModalView.swift in Sources */,
 				0972844422B3BDCB007A7FE1 /* VariableContextModalView.swift in Sources */,
-				D0B75F8C2329302800FD1048 /* UserTypeSelectionViewController.swift in Sources */,
+				D0B75F8C2329302800FD1048 /* UserAgeSelectionViewController.swift in Sources */,
 				D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */,
 				2AD858E02296B9EB0082CDC0 /* ControllerDataModel.swift in Sources */,
 				D04F9A92237C311E00D82D24 /* ProgramListTableViewCell.swift in Sources */,

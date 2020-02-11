@@ -44,7 +44,7 @@ final class ScreenAssembly: Assembly {
 extension ScreenAssembly {
     private func registerUserTypeSelectionViewController(to container: Container) {
         container
-            .register(UserTypeSelectionViewController.self, factory: { _ in return UserTypeSelectionViewController() })
+            .register(UserAgeSelectionViewController.self, factory: { _ in return UserAgeSelectionViewController() })
             .initCompleted { (_, viewController) in
                 viewController.screenName = "User type selection"
             }
