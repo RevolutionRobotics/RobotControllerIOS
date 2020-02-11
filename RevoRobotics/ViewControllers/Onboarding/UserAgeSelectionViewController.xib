@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jura-Bold.ttf">
+            <string>Jura-Bold</string>
+        </array>
+        <array key="Jura-Regular.ttf">
+            <string>Jura-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserAgeSelectionViewController" customModule="RevoRobotics" customModuleProvider="target">
+            <connections>
+                <outlet property="nextButton" destination="pqY-3Q-w13" id="fEu-Xz-sHZ"/>
+                <outlet property="titleLabel" destination="7s2-g0-zbX" id="M9r-wh-oza"/>
+                <outlet property="view" destination="iN0-l3-epB" id="SE2-rU-ZFa"/>
+                <outlet property="yearSelectionField" destination="Ozh-AC-XyP" id="EqP-Z8-uUp"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your date of birth?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7s2-g0-zbX">
+                    <rect key="frame" x="44" y="10" width="808" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="kM2-OE-i6k"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzd-Pk-UQD" userLabel="container">
+                    <rect key="frame" x="60" y="78" width="776" height="267"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ozh-AC-XyP" customClass="RRInputField" customModule="RevoRobotics" customModuleProvider="target">
+                            <rect key="frame" x="268" y="103.5" width="240" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="240" id="B1l-SH-bxH"/>
+                                <constraint firstAttribute="height" constant="60" id="uva-BQ-7Qc"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Ozh-AC-XyP" firstAttribute="centerY" secondItem="hzd-Pk-UQD" secondAttribute="centerY" id="15A-nf-ez3"/>
+                        <constraint firstItem="Ozh-AC-XyP" firstAttribute="centerX" secondItem="hzd-Pk-UQD" secondAttribute="centerX" id="DQz-ew-BSw"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqY-3Q-w13" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
+                    <rect key="frame" x="408" y="337" width="80" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Kki-3E-Jjq"/>
+                        <constraint firstAttribute="width" constant="80" id="inQ-fI-u6t"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="17"/>
+                    <state key="normal" title="Set">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="eNo-Tz-GLI"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" name="Black"/>
+            <constraints>
+                <constraint firstItem="pqY-3Q-w13" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1hd-cU-8HZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7s2-g0-zbX" secondAttribute="trailing" id="bWp-Qk-v5F"/>
+                <constraint firstItem="7s2-g0-zbX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dO2-RK-pGy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="pqY-3Q-w13" secondAttribute="bottom" constant="16" id="ezl-QU-HRg"/>
+                <constraint firstItem="hzd-Pk-UQD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="ftH-gf-KEc"/>
+                <constraint firstItem="7s2-g0-zbX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="nh3-J0-tHU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hzd-Pk-UQD" secondAttribute="trailing" constant="16" id="sAm-0C-ubo"/>
+                <constraint firstItem="hzd-Pk-UQD" firstAttribute="top" secondItem="7s2-g0-zbX" secondAttribute="bottom" constant="8" id="syb-40-KR2"/>
+                <constraint firstItem="hzd-Pk-UQD" firstAttribute="bottom" secondItem="pqY-3Q-w13" secondAttribute="top" constant="8" id="yXg-8M-i8X"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="22.767857142857142" y="76.811594202898561"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Black">
+            <color red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

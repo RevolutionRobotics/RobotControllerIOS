@@ -108,7 +108,7 @@ extension MenuViewController {
 
         if !userDefaults.bool(forKey: UserDefaults.Keys.userPropertiesSet) {
             onboarding = AppContainer.shared.container
-                .unwrappedResolve(UserTypeSelectionViewController.self)
+                .unwrappedResolve(UserAgeSelectionViewController.self)
         } else if !userDefaults.bool(forKey: UserDefaults.Keys.buildRevvyPromptVisited) {
             onboarding = AppContainer.shared.container.unwrappedResolve(BuildRevvyViewController.self)
         }

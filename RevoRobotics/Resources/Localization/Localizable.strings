@@ -20,11 +20,6 @@
 "card_create" = "Create!";
 
 // MARK: - Onboarding
-"onboarding_user_type_title" = "What kind of superhero are you?";
-"onboarding_user_type_student" = "Student";
-"onboarding_user_type_parent" = "Parent";
-"onboarding_user_type_teacher" = "Teacher";
-"onboarding_user_type_hobbyist" = "Hobbyist";
 "onboarding_age_select_title" = "What's your date of birth?";
 "onboarding_age_select_input_label" = "Year";
 "onboarding_age_select_input_done" = "Done";

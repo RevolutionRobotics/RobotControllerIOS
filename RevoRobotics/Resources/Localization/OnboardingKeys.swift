@@ -7,14 +7,6 @@
 //
 
 enum OnboardingKeys {
-    enum UserType {
-        static let title = "onboarding_user_type_title"
-        static let typeStudent = "onboarding_user_type_student"
-        static let typeParent = "onboarding_user_type_parent"
-        static let typeTeacher = "onboarding_user_type_teacher"
-        static let typeHobbyist = "onboarding_user_type_hobbyist"
-    }
-
     enum AgeSelection {
         static let title = "onboarding_age_select_title"
         static let inputLabel = "onboarding_age_select_input_label"
