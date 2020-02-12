@@ -18,6 +18,8 @@ enum RobotsKeys {
         static let underConstruction = "your_robots_under_construction"
         static let select = "your_robots_select"
         static let unnamed = "your_robots_unnamed"
+        static let lastRobotTitle = "error_last_robot_title"
+        static let lastRobotMessage = "error_last_robot_message"
         static let noRobots = "error_no_robots"
     }
 

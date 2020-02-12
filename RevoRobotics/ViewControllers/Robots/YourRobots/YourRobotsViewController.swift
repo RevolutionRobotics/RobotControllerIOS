@@ -190,7 +190,12 @@ extension YourRobotsViewController: UICollectionViewDataSource {
 
     private func setupHandlers(on view: RobotOptionsModalView, with robot: UserRobot?, for indexPath: IndexPath) {
         view.deleteHandler = { [weak self] in
-            self?.presentDeleteModal(with: indexPath)
+            guard let `self` = self else { return }
+            if self.realmService.getRobots().count > 1 {
+                self.presentDeleteModal(with: indexPath)
+            } else {
+                self.presentDeleteError()
+            }
         }
         view.editHandler = { [weak self] in
             self?.presentRobotConfiguration(with: indexPath)
@@ -221,6 +226,11 @@ extension YourRobotsViewController: UICollectionViewDataSource {
         collectionView.performBatchUpdates(nil, completion: { [weak self] _ in
             self?.collectionView.refreshCollectionView(cellDeleted: true)
         })
+    }
+
+    private func presentDeleteError() {
+        dismissModalViewController()
+        present(UIAlertController.errorAlert(type: .deleteLastRobot), animated: true)
     }
 }
 

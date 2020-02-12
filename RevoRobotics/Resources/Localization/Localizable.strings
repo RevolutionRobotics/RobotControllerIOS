@@ -50,6 +50,8 @@
 "your_robots_under_construction" = "under construction";
 "your_robots_select" = "Select Robot";
 "your_robots_unnamed" = "Unnamed Robot";
+"error_last_robot_title" = "Cannot delete robot";
+"error_last_robot_message" = "You must have at least one robot left";
 "error_no_robots" = "You have no robots yet";
 
 // MARK: - Who to build
