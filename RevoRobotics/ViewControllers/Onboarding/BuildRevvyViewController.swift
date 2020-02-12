@@ -23,6 +23,7 @@ final class BuildRevvyViewController: BaseViewController {
     @IBOutlet private weak var skipButton: UIButton!
 
     // MARK: - Properties
+    private var skippedOnboarding = false
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
 }
@@ -173,7 +174,11 @@ extension BuildRevvyViewController {
         if let selectedController = controllers.first(where: {
             $0.id == localConfiguration.controller
         }) {
-             navigateToPlayController(with: revvyDataModel, controller: selectedController)
+            guard !skippedOnboarding else {
+                navigationController?.popToRootViewController(animated: true)
+                return
+            }
+            navigateToPlayController(with: revvyDataModel, controller: selectedController)
         }
     }
 
@@ -190,20 +195,24 @@ extension BuildRevvyViewController {
 extension BuildRevvyViewController {
     @IBAction private func skipButtonTapped(_ sender: Any) {
         savePromptVisited()
-        navigationController?.popToRootViewController(animated: true)
+        skippedOnboarding = true
         logEvent(named: "skip_onboarding")
+        getRevvyDataModel(completion: { [weak self] revvy in
+            self?.createNewRobot(using: revvy)
+        })
     }
 
     @IBAction private func yesButtonTapped(_ sender: Any) {
         savePromptVisited()
+        logEvent(named: "build_basic_robot_offline")
         getRevvyDataModel(completion: { [weak self] revvy in
             self?.createNewRobot(using: revvy)
         })
-        logEvent(named: "build_basic_robot_offline")
     }
 
     @IBAction private func noButtonTapped(_ sender: Any) {
         savePromptVisited()
+        logEvent(named: "build_basic_robot_online")
         getRevvyDataModel(completion: { [weak self] revvy in
             guard let `self` = self else { return }
 
@@ -215,6 +224,5 @@ extension BuildRevvyViewController {
             buildRevvy.remoteRobotDataModel = revvy
             self.navigationController?.pushViewController(buildRevvy, animated: true)
         })
-        logEvent(named: "build_basic_robot_online")
     }
 }
