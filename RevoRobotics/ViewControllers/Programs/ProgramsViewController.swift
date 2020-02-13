@@ -214,9 +214,16 @@ extension ProgramsViewController {
         presentModal(with: confirmModal)
     }
 
-    private func canBeOverwritten(name: String?) -> Bool {
-        guard let name = name else { return true }
-        return !realmService.getPrograms().contains(where: { $0.name == name && !$0.remoteId.isEmpty })
+    private func canBeOverwritten(name: String) -> Bool {
+        guard let existingProgram = realmService.getPrograms()
+            .first(where: {
+                $0.name == name && $0.robotId == selectedProgramRobot?.id
+            })
+        else {
+            return true
+        }
+
+        return existingProgram.name == selectedProgram?.name
     }
 
     private func selectRobot() {
