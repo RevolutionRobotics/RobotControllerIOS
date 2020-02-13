@@ -216,7 +216,10 @@ extension ProgramsViewController {
 
     private func canBeOverwritten(name: String) -> Bool {
         guard let existingProgram = realmService.getPrograms()
-            .first(where: { $0.name == name }) else {
+            .first(where: {
+                $0.name == name && $0.robotId == selectedProgramRobot?.id
+            })
+        else {
             return true
         }
 
