@@ -22,6 +22,7 @@ final class ChallengesViewController: BaseViewController {
     // MARK: - Properties
     var realmService: RealmServiceInterface!
     private var challengeCategory: ChallengeCategory?
+    private var challenges: [Challenge]?
     private var oneSitting = true
     private var progress: Int = 0
     private var currentChallenge: Int = 0
@@ -31,8 +32,10 @@ final class ChallengesViewController: BaseViewController {
 extension ChallengesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
         guard let category = challengeCategory else { return }
+
+        challenges = Array(category.challenges.values)
+            .sorted(by: { $0.order < $1.order })
         navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         navigationBar.setup(title: category.name.text, delegate: self)
         challengeDescription.attributedText = NSAttributedString.attributedString(from: category.description.text,
@@ -102,7 +105,7 @@ extension ChallengesViewController {
 
     private func showNextChallenge() {
         currentChallenge += 1
-        guard let challenge = findChallenge(in: challengeCategory, index: currentChallenge) else { return }
+        guard let challenge = challenges?[currentChallenge] else { return }
         let challengeDetailViewController =
             AppContainer.shared.container.unwrappedResolve(ChallengeDetailViewController.self)
         navigationController?.pushViewController(challengeDetailViewController, animated: true)
@@ -119,25 +122,13 @@ extension ChallengesViewController {
             "one_sitting": oneSitting
         ])
     }
-
-    private func findChallenge(in category: ChallengeCategory?, index: Int) -> Challenge? {
-        guard let challenges = category?.challenges,
-            let challengeKey = challenges.keys
-            .first(where: { challenges[$0]?.order == index + 1 }) else {
-                return nil
-        }
-
-        return challenges[challengeKey]
-    }
 }
 
 // MARK: - UICollectionViewDelegate
 extension ChallengesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard progress >= indexPath.row,
-            let challenge = findChallenge(
-                in: challengeCategory,
-                index: indexPath.row) else { return }
+            let challenge = challenges?[indexPath.row] else { return }
         currentChallenge = indexPath.row
         let challengeDetailViewController =
             AppContainer.shared.container.unwrappedResolve(ChallengeDetailViewController.self)
@@ -152,8 +143,7 @@ extension ChallengesViewController: UICollectionViewDelegate {
 // MARK: - UICollectionViewDataSource
 extension ChallengesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let category = challengeCategory else { return 0 }
-        return category.challenges.count
+        return challenges?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -161,36 +151,31 @@ extension ChallengesViewController: UICollectionViewDataSource {
         if indexPath.row % 2 != 0 {
             let cell: ChallengesCollectionViewEvenCell =
                 challengesCollectionView.dequeueReusableCell(forIndexPath: indexPath)
-            if let category = challengeCategory {
-                if progress == indexPath.row {
-                    cell.progress = .available
-                }
-                if progress > indexPath.row {
-                    cell.progress = .completed
-                }
+            if progress == indexPath.row {
+                cell.progress = .available
+            }
+            if progress > indexPath.row {
+                cell.progress = .completed
+            }
 
-                if let challenge = findChallenge(in: category, index: indexPath.row) {
-                    cell.setup(with: challenge, index: indexPath.row + 1)
-                    cell.isFirstItem = indexPath.row == 0
-                }
+            if let challenge = challenges?[indexPath.row] {
+                cell.setup(with: challenge, index: indexPath.row + 1)
+                cell.isFirstItem = indexPath.row == 0
             }
             return cell
         } else {
             let cell: ChallengesCollectionViewOddCell =
                 challengesCollectionView.dequeueReusableCell(forIndexPath: indexPath)
-            if let category = challengeCategory {
-                if progress == indexPath.row {
-                    cell.progress = .available
-                }
-                if progress > indexPath.row {
-                    cell.progress = .completed
-                }
+            if progress == indexPath.row {
+                cell.progress = .available
+            }
+            if progress > indexPath.row {
+                cell.progress = .completed
+            }
 
-                if let challenge = findChallenge(in: category, index: indexPath.row) {
-                    cell.setup(with: challenge,
-                               index: indexPath.row + 1)
-                    cell.isFirstItem = indexPath.row == 0
-                }
+            if let challenge = challenges?[indexPath.row] {
+                cell.setup(with: challenge, index: indexPath.row + 1)
+                cell.isFirstItem = indexPath.row == 0
             }
             return cell
         }
