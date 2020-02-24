@@ -29,14 +29,14 @@ target 'RevoRobotics' do
   pod 'Firebase/Analytics'
   
   # API communication
-  pod 'Alamofire', '5.0.0-rc.3'
+  pod 'Alamofire', '~> 5.0'
   pod 'SwiftyJSON', '~> 5.0'
   
   # Parental gate
   pod 'PMParentalGate'
 
   # RevolutionRobotics
-  pod 'RevolutionRoboticsBlockly', '~> 0.2.4'
+  pod 'RevolutionRoboticsBlockly', '~> 0.2.5'
   pod 'RevolutionRoboticsBluetooth', '~> 0.1.1'
 #  pod 'RevolutionRoboticsBlockly', :path => '../RevolutionRoboticsBlocklyIOS'
 #  pod 'RevolutionRoboticsBluetooth', :path => '../RevolutionRoboticsBluetoothIOS'
