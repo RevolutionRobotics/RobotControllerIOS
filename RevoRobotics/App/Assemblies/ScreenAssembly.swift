@@ -46,7 +46,7 @@ extension ScreenAssembly {
         container
             .register(UserAgeSelectionViewController.self, factory: { _ in return UserAgeSelectionViewController() })
             .initCompleted { (_, viewController) in
-                viewController.screenName = "User type selection"
+                viewController.screenName = "Year of birth selection"
             }
             .inObjectScope(.weak)
     }
