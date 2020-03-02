@@ -211,8 +211,10 @@ extension PadConfigurationViewController {
         programSelector.dismissedCallback = { [weak self] in
             self?.configurationView.set(state: (self?.selectedButtonState!)!, on: (self?.selectedButtonIndex)!)
         }
-        dismissModalViewController()
-        navigationController?.pushViewController(programSelector, animated: true)
+
+        presentedViewController?.dismiss(animated: true, completion: { [weak self] in
+            self?.navigationController?.pushViewController(programSelector, animated: true)
+        })
     }
 }
 
