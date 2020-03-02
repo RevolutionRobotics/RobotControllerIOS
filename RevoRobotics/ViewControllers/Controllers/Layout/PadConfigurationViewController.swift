@@ -195,7 +195,7 @@ extension PadConfigurationViewController {
         dismissModalViewController()
     }
 
-    private func showMoreSelected() {
+    private func showMoreSelected(from presentedVC: UIViewController) {
         let unboundPrograms = programs.filter({ $0.robotId != robotId })
         let programSelector = AppContainer.shared.container.unwrappedResolve(ProgramSelectorViewController.self)
         programSelector.prohibitedPrograms = viewModel.programs + unboundPrograms
@@ -211,8 +211,10 @@ extension PadConfigurationViewController {
         programSelector.dismissedCallback = { [weak self] in
             self?.configurationView.set(state: (self?.selectedButtonState!)!, on: (self?.selectedButtonIndex)!)
         }
-        dismissModalViewController()
-        navigationController?.pushViewController(programSelector, animated: true)
+
+        presentedVC.dismiss(animated: true, completion: { [weak self] in
+            self?.navigationController?.pushViewController(programSelector, animated: true)
+        })
     }
 }
 
@@ -283,7 +285,7 @@ extension PadConfigurationViewController {
             self?.bottomBarDismissed()
         }
         programBottomBar.showMoreTapped = { [weak self] in
-            self?.showMoreSelected()
+            self?.showMoreSelected(from: programBottomBar)
             if (self?.programs)!.isEmpty {
                 self?.configurationView.set(state: (self?.selectedButtonState)!, on: (self?.selectedButtonIndex)!)
             }
