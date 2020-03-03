@@ -308,18 +308,21 @@ extension PadConfigurationViewController {
             infoType: infoType,
             issue: isCompatible ? nil : ModalKeys.Program.compatibilityIssue.translate(),
             editButtonHandler: { [weak self] in
-                self?.dismissModalViewController()
-                let vc = AppContainer.shared.container.unwrappedResolve(ProgramsViewController.self)
-                vc.selectedProgram = program
-                vc.shouldDismissAfterSave = true
-                self?.navigationController?.pushViewController(vc, animated: true)
+                self?.presentedViewController?.dismiss(animated: true, completion: { [weak self] in
+                    guard let `self` = self else { return }
+                    let vc = AppContainer.shared.container.unwrappedResolve(ProgramsViewController.self)
+                    vc.selectedProgram = program
+                    vc.shouldDismissAfterSave = true
+                    self.navigationController?.pushViewController(vc, animated: true)
+                })
         },
             actionButtonHandler: { [weak self] _ in
+                guard let `self` = self else { return }
                 if isCompatible {
-                    self?.programSelected(shouldDisplayRemove ? nil: program, on: (self?.selectedButtonIndex)!)
+                    self.programSelected(shouldDisplayRemove ? nil: program, on: (self.selectedButtonIndex)!)
                 } else {
-                    self?.dismissModalViewController()
-                    self?.configurationView.set(state: (self?.selectedButtonState)!, on: (self?.selectedButtonIndex)!)
+                    self.dismissModalViewController()
+                    self.configurationView.set(state: (self.selectedButtonState)!, on: (self.selectedButtonIndex)!)
                 }
         })
 
