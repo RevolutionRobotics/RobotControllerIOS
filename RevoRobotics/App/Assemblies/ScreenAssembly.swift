@@ -36,21 +36,11 @@ final class ScreenAssembly: Assembly {
         registerButtonlessProgramsViewController(to: container)
         registerProgramsOrderViewController(to: container)
         registerCommunityViewController(to: container)
-        registerUserTypeSelectionViewController(to: container)
         registerBuildRevvyViewController(to: container)
     }
 }
 
 extension ScreenAssembly {
-    private func registerUserTypeSelectionViewController(to container: Container) {
-        container
-            .register(UserAgeSelectionViewController.self, factory: { _ in return UserAgeSelectionViewController() })
-            .initCompleted { (_, viewController) in
-                viewController.screenName = "Year of birth selection"
-            }
-            .inObjectScope(.weak)
-    }
-
     private func registerBuildRevvyViewController(to container: Container) {
         container
             .register(BuildRevvyViewController.self, factory: { _ in return

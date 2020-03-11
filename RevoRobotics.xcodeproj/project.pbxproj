@@ -319,7 +319,6 @@
 		D05C64E1225F5C9900B7BF4F /* Motor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64E0225F5C9900B7BF4F /* Motor.swift */; };
 		D05C64E5225F5DEE00B7BF4F /* PortMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64E4225F5DEE00B7BF4F /* PortMapping.swift */; };
 		D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64E6225F5E3600B7BF4F /* Configuration.swift */; };
-		D05DBA51232935BD00508D1F /* UserAgeSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D05DBA50232935BD00508D1F /* UserAgeSelectionViewController.xib */; };
 		D06C3267228570FF005534C0 /* ResetTutorialModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C3266228570FF005534C0 /* ResetTutorialModalView.swift */; };
 		D06C326922857107005534C0 /* ResetTutorialModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C326822857107005534C0 /* ResetTutorialModalView.xib */; };
 		D06C326C22857A80005534C0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C326A22857A80005534C0 /* AboutViewController.swift */; };
@@ -373,7 +372,6 @@
 		D0A8C74822C9EECE00F7F12B /* UIView+Notch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8C74722C9EECE00F7F12B /* UIView+Notch.swift */; };
 		D0B2A735227C7CF1004473EC /* ControllerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2A733227C7CF1004473EC /* ControllerCollectionViewCell.swift */; };
 		D0B2A736227C7CF1004473EC /* ControllerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B2A734227C7CF1004473EC /* ControllerCollectionViewCell.xib */; };
-		D0B75F8C2329302800FD1048 /* UserAgeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B75F8B2329302800FD1048 /* UserAgeSelectionViewController.swift */; };
 		D0BBD99A22C0C040005A373A /* UIView+SubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBD99922C0C040005A373A /* UIView+SubViews.swift */; };
 		D0BF256C2282C6C100F08C9C /* BuildFinishedModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BF256A2282C6C100F08C9C /* BuildFinishedModalView.xib */; };
 		D0BF25702282C6E000F08C9C /* PlayControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF256E2282C6E000F08C9C /* PlayControllerViewController.swift */; };
@@ -726,7 +724,6 @@
 		D05C64E0225F5C9900B7BF4F /* Motor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motor.swift; sourceTree = "<group>"; };
 		D05C64E4225F5DEE00B7BF4F /* PortMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortMapping.swift; sourceTree = "<group>"; };
 		D05C64E6225F5E3600B7BF4F /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		D05DBA50232935BD00508D1F /* UserAgeSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserAgeSelectionViewController.xib; sourceTree = "<group>"; };
 		D06C3266228570FF005534C0 /* ResetTutorialModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetTutorialModalView.swift; sourceTree = "<group>"; };
 		D06C326822857107005534C0 /* ResetTutorialModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetTutorialModalView.xib; sourceTree = "<group>"; };
 		D06C326A22857A80005534C0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -780,7 +777,6 @@
 		D0A8C74722C9EECE00F7F12B /* UIView+Notch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Notch.swift"; sourceTree = "<group>"; };
 		D0B2A733227C7CF1004473EC /* ControllerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ControllerCollectionViewCell.swift; path = RevoRobotics/ViewControllers/Robots/Configuration/ControllerCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D0B2A734227C7CF1004473EC /* ControllerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ControllerCollectionViewCell.xib; path = RevoRobotics/ViewControllers/Robots/Configuration/ControllerCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
-		D0B75F8B2329302800FD1048 /* UserAgeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgeSelectionViewController.swift; sourceTree = "<group>"; };
 		D0BBD99922C0C040005A373A /* UIView+SubViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SubViews.swift"; sourceTree = "<group>"; };
 		D0BF256A2282C6C100F08C9C /* BuildFinishedModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuildFinishedModalView.xib; sourceTree = "<group>"; };
 		D0BF256D2282C6E000F08C9C /* PlayControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayControllerViewController.xib; sourceTree = "<group>"; };
@@ -1986,8 +1982,6 @@
 			isa = PBXGroup;
 			children = (
 				D0B75F8D2329340100FD1048 /* Modal */,
-				D0B75F8B2329302800FD1048 /* UserAgeSelectionViewController.swift */,
-				D05DBA50232935BD00508D1F /* UserAgeSelectionViewController.xib */,
 				D037D914233A07D800DF76E9 /* BuildRevvyViewController.swift */,
 				D037D916233A086900DF76E9 /* BuildRevvyViewController.xib */,
 			);
@@ -2402,7 +2396,6 @@
 				2AB8F95322888AF300D7D93C /* ConfigurationView.xib in Resources */,
 				D03B824523D60811002AE192 /* ChallengeDetailButtonContent.xib in Resources */,
 				2ADE8C462271A6B900ECEC72 /* BuildProgressBar.xib in Resources */,
-				D05DBA51232935BD00508D1F /* UserAgeSelectionViewController.xib in Resources */,
 				D075EA3122C4FCC50003C183 /* ChallengeDetailHorizontalContent.xib in Resources */,
 				094FC5D0228C35F70085B407 /* GamerPadView.xib in Resources */,
 				2ADF1F7F224AB3B600CC721F /* LaunchScreen.storyboard in Resources */,
@@ -2725,7 +2718,6 @@
 				D058288C23916F6600AF42B1 /* CodeTestModalView.swift in Sources */,
 				0938894A22B12C9000292B32 /* SoundPickerModalView.swift in Sources */,
 				0972844422B3BDCB007A7FE1 /* VariableContextModalView.swift in Sources */,
-				D0B75F8C2329302800FD1048 /* UserAgeSelectionViewController.swift in Sources */,
 				D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */,
 				2AD858E02296B9EB0082CDC0 /* ControllerDataModel.swift in Sources */,
 				D04F9A92237C311E00D82D24 /* ProgramListTableViewCell.swift in Sources */,
