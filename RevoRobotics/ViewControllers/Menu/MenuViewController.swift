@@ -29,8 +29,6 @@ final class MenuViewController: BaseViewController {
     var firebaseService: FirebaseServiceInterface!
     var realmService: RealmServiceInterface!
     var onboardingInProgress = false
-
-    private let updateViewController = AppContainer.shared.container.unwrappedResolve(ModalViewController.self)
 }
 
 // MARK: - View lifecycle
@@ -43,11 +41,11 @@ extension MenuViewController {
         challengesTitleLabel.text = MenuKeys.challengesCellTitle.translate()
         navigationBar.setup(title: nil, delegate: self)
         navigationBar.shouldHideBackButton = true
-    }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        showOnboarding()
+        let userDefaults = UserDefaults.standard
+        if !userDefaults.bool(forKey: UserDefaults.Keys.buildRevvyPromptVisited) {
+            showOnboarding()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -65,9 +63,8 @@ extension MenuViewController {
         let modal = OnboardingCompletedModalView.instatiate()
         modal.startPressedCallback = { [weak self] in
             guard let `self` = self else { return }
-
-            self.dismissModalViewController()
-            self.navigateToChallenge()
+            self.presentedViewController?
+                .dismiss(animated: true, completion: self.navigateToChallenge)
         }
 
         onboardingInProgress = false
@@ -103,19 +100,8 @@ extension MenuViewController {
     }
 
     private func showOnboarding() {
-        let userDefaults = UserDefaults.standard
-        var onboarding: UIViewController?
-
-        if !userDefaults.bool(forKey: UserDefaults.Keys.userPropertiesSet) {
-            onboarding = AppContainer.shared.container
-                .unwrappedResolve(UserAgeSelectionViewController.self)
-        } else if !userDefaults.bool(forKey: UserDefaults.Keys.buildRevvyPromptVisited) {
-            onboarding = AppContainer.shared.container.unwrappedResolve(BuildRevvyViewController.self)
-        }
-
-        if let unwrappedOnboarding = onboarding {
-            navigationController?.pushViewController(unwrappedOnboarding, animated: true)
-        }
+        let onboarding = AppContainer.shared.container.unwrappedResolve(BuildRevvyViewController.self)
+        navigationController?.pushViewController(onboarding, animated: true)
     }
 }
 

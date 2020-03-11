@@ -14,6 +14,22 @@ final class SettingsViewController: BaseViewController {
     @IBOutlet private weak var resetButton: RRButton!
     @IBOutlet private weak var firmwareButton: RRButton!
     @IBOutlet private weak var aboutButton: RRButton!
+
+    // MARK: - Properties
+    private let defaults = UserDefaults.standard
+    private let keys = UserDefaults.Keys.self
+
+    override func backButtonDidTap() {
+        let navController = navigationController
+        navController?.popViewController(animated: true, completion: { [weak self] in
+            guard let `self` = self,
+                self.defaults.bool(forKey: self.keys.buildRevvyPromptVisited) != true
+            else { return }
+
+            let onboarding = AppContainer.shared.container.unwrappedResolve(BuildRevvyViewController.self)
+            navController?.pushViewController(onboarding, animated: true)
+        })
+    }
 }
 
 // MARK: - View lifecycle
@@ -43,10 +59,7 @@ extension SettingsViewController {
         let modal = ResetTutorialModalView.instatiate()
         modal.setup(with: SettingsKeys.Tutorial.successfulReset.translate().uppercased())
         presentModal(with: modal, closeHidden: true)
-        let defaults = UserDefaults.standard
-        let keys = UserDefaults.Keys.self
 
-        defaults.set(false, forKey: keys.userPropertiesSet)
         defaults.set(false, forKey: keys.buildRevvyPromptVisited)
         defaults.set(false, forKey: keys.revvyBuilt)
 

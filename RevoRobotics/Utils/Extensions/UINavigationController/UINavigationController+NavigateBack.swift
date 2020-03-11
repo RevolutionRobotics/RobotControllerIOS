@@ -16,4 +16,28 @@ extension UINavigationController {
             popToViewController(viewController, animated: true)
         }
     }
+
+    func pushViewController(viewController: UIViewController, animated: Bool, completion: @escaping Callback) {
+        pushViewController(viewController, animated: animated)
+
+        if let coordinator = transitionCoordinator, animated {
+            coordinator.animate(alongsideTransition: nil) { _ in
+                completion()
+            }
+        } else {
+            completion()
+        }
+    }
+
+    func popViewController(animated: Bool, completion: @escaping Callback) {
+        popViewController(animated: animated)
+
+        if let coordinator = transitionCoordinator, animated {
+            coordinator.animate(alongsideTransition: nil) { _ in
+                completion()
+            }
+        } else {
+            completion()
+        }
+    }
 }
