@@ -76,8 +76,7 @@ extension ChallengesViewController {
             self?.handleNavigateBack()
         }
         modal.nextCallback = { [weak self] in
-            self?.handleNavigateBack()
-            self?.showNextChallenge()
+            self?.handleNavigateBack(with: self?.showNextChallenge)
         }
         if currentChallenge + 1 == challengeCategory?.challenges.count {
             modal.isLastChallenge = true
@@ -85,11 +84,11 @@ extension ChallengesViewController {
         presentModal(with: modal, closeHidden: true)
     }
 
-    private func handleNavigateBack() {
+    private func handleNavigateBack(with callback: Callback? = nil) {
         updateProgress()
         dismissModalViewController()
-        navigationController?.popViewController(animated: false)
         challengesCollectionView.reloadData()
+        presentedViewController?.dismiss(animated: false, completion: callback)
     }
 
     private func updateProgress() {
