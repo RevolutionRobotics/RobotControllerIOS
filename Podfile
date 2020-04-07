@@ -31,6 +31,7 @@ target 'RevoRobotics' do
   # API communication
   pod 'Alamofire', '~> 5.0'
   pod 'SwiftyJSON', '~> 5.0'
+  pod 'PromiseKit', '~> 6.8'
   
   # Parental gate
   pod 'PMParentalGate'

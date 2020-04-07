@@ -82,6 +82,15 @@ PODS:
   - nanopb/encode (0.3.9011)
   - PieCharts (0.0.7)
   - PMParentalGate (1.0)
+  - PromiseKit (6.13.1):
+    - PromiseKit/CorePromise (= 6.13.1)
+    - PromiseKit/Foundation (= 6.13.1)
+    - PromiseKit/UIKit (= 6.13.1)
+  - PromiseKit/CorePromise (6.13.1)
+  - PromiseKit/Foundation (6.13.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.13.1):
+    - PromiseKit/CorePromise
   - PromisesObjC (1.2.8)
   - Realm (3.18.0):
     - Realm/Headers (= 3.18.0)
@@ -109,6 +118,7 @@ DEPENDENCIES:
   - Kingfisher (~> 5.3.1)
   - PieCharts (~> 0.0.7)
   - PMParentalGate
+  - PromiseKit (~> 6.8)
   - RealmSwift (~> 3.18.0)
   - RevolutionRoboticsBlockly (~> 0.3.1)
   - RevolutionRoboticsBluetooth (~> 0.1.3)
@@ -141,6 +151,7 @@ SPEC REPOS:
     - nanopb
     - PieCharts
     - PMParentalGate
+    - PromiseKit
     - PromisesObjC
     - Realm
     - RealmSwift
@@ -184,6 +195,7 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PieCharts: 30e50dfa7dc19e5b84e9878d32089673ef5d0453
   PMParentalGate: 9cf253ba14edcd9ff283677b70b1be9e56d7acef
+  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
   RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
@@ -195,6 +207,6 @@ SPEC CHECKSUMS:
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
 
-PODFILE CHECKSUM: 309d25642d81f644d5e3422ca034b8aac180e151
+PODFILE CHECKSUM: 65a1cd1409ed2eb744d041eb0c3fc8973fda6e9a
 
 COCOAPODS: 1.8.4

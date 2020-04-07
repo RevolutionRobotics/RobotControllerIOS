@@ -15,13 +15,6 @@ final class FirebaseService {
     // MARK: - Constants
     enum Constants {
         static let deviceNameKey = "robot_id"
-        #if TEST
-        static let apiUrl = "https://revolutionrobotics-afeb5.firebaseio.com/.json"
-        #elseif DEV
-        static let apiUrl = "https://revolutionroboticsdev.firebaseio.com/.json"
-        #else
-        static let apiUrl = "https://revolutionroboticsprod.firebaseio.com/.json"
-        #endif
     }
 
     // MARK: - Connection state
@@ -32,6 +25,7 @@ final class FirebaseService {
     // MARK: - Properties
     private let storageRef: StorageReference
     private let decoder = JSONDecoder()
+    private let apiFetchHelper = ApiFetchHelper()
 
     private var connectionState: ConnectionState = .offline
     private var jsonData: JSON?
@@ -44,8 +38,6 @@ final class FirebaseService {
 // MARK: - FirebaseServiceInterface
 extension FirebaseService: FirebaseServiceInterface {
     func prefetchData(onError: CallbackType<Error>?) {
-        let queue = DispatchQueue(label: "api", qos: .background, attributes: .concurrent)
-
         let userDefaults = UserDefaults.standard
         let jsonKey = UserDefaults.Keys.jsonCache
 
@@ -54,19 +46,12 @@ extension FirebaseService: FirebaseServiceInterface {
             parseData(onError: onError)
         }
 
-        AF.request(Constants.apiUrl).validate().responseJSON(queue: queue) { [weak self] response in
+        apiFetchHelper.fetchAll(callback: { [weak self] result in
             guard let `self` = self else { return }
-
-            switch response.result {
-            case .success(let data):
-                self.jsonData = JSON(data)
-                self.connectionState = .online
-                self.parseData(onError: onError)
-                userDefaults.set(self.jsonData?.rawString(), forKey: jsonKey)
-            case .failure(let error):
-                error.report()
-            }
-        }
+            self.connectionState = .online
+            self.jsonData = result
+            self.parseData(onError: onError)
+        })
     }
 
     func parseData(onError: CallbackType<Error>?) {
