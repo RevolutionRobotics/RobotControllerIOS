@@ -25,6 +25,9 @@ final class ApiFetchHelper {
         #endif
     }
 
+    // MARK: - Properties
+    private let userDefaults = UserDefaults.standard
+
     func fetchAll(callback: @escaping CallbackType<JSON>) {
         firstly {
             when(fulfilled:
@@ -59,26 +62,78 @@ final class ApiFetchHelper {
             print(error)
         }
     }
+}
 
+// MARK: - Private methods
+extension ApiFetchHelper {
     private func fetchPromise(with endPoint: String) -> Promise<JSON> {
         let queue = DispatchQueue(label: "api_\(endPoint)", qos: .background, attributes: .concurrent)
+        let cached = readCached(for: endPoint)
+
+        guard let url = URL(string: "\(Constants.apiUrl)/\(endPoint)") else {
+            fatalError("Failed to create url for endpoint: \(endPoint)")
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("max-age=0, public, must-revalidate", forHTTPHeaderField: "Cache-Control")
+        if let cachedEtag = userDefaults.string(forKey: etagKey(for: endPoint)), cached != nil {
+            request.setValue(cachedEtag, forHTTPHeaderField: "If-None-Match")
+        }
+        request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
 
         return Promise { seal in
-            AF.request("\(Constants.apiUrl)/\(endPoint)")
+            AF.request(request)
                 .validate(statusCode: 200..<400)
-                .responseJSON(queue: queue) { response in
-                    guard response.response?.statusCode != 304 else {
-                        seal.fulfill(JSON())
+                .responseJSON(queue: queue) { [weak self] response in
+                    if let cached = cached, response.response?.statusCode == 304 {
+                        seal.fulfill(cached)
                         return
                     }
 
                     switch response.result {
                     case .success(let data):
-                        seal.fulfill(JSON(data))
+                        let json = JSON(data)
+                        if
+                            let `self` = self,
+                            let etag = response.response?.allHeaderFields["Etag"] as? String {
+                            self.userDefaults.set(etag, forKey: self.etagKey(for: endPoint))
+                            self.cacheData(for: endPoint, data: json.rawString())
+                        }
+
+                        seal.fulfill(json)
                     case .failure(let error):
-                        seal.reject(error)
+                        if let cached = cached {
+                            seal.fulfill(cached)
+                        } else {
+                            seal.reject(error)
+                        }
                     }
                 }
         }
+    }
+
+    private func cacheData(for endPoint: String, data: String?) {
+        guard let data = data else { return }
+
+        let key = cacheKey(for: endPoint)
+        userDefaults.set(data, forKey: key)
+    }
+
+    private func readCached(for endPoint: String) -> JSON? {
+        let key = cacheKey(for: endPoint)
+        guard let jsonString = userDefaults.string(forKey: key) else {
+            return nil
+        }
+
+        return JSON(jsonString)
+    }
+
+    private func etagKey(for object: String) -> String {
+        return "etag_\(object)"
+    }
+
+    private func cacheKey(for object: String) -> String {
+        return "cached_\(object)"
     }
 }

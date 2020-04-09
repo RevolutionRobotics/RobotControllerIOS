@@ -8,7 +8,6 @@
 
 import Foundation
 import Firebase
-import Alamofire
 import SwiftyJSON
 
 final class FirebaseService {
