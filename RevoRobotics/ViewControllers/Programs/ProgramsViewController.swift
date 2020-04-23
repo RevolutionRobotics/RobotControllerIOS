@@ -366,7 +366,7 @@ extension ProgramsViewController {
             mapping: ControllerButtonMappingDataModel())
 
         controller.backgroundProgramBindings.append(binding)
-        controller.joystickPriority = 100
+        controller.drivetrainPriority = 100
 
         let data = ConfigurationJSONData(
             configuration: config,

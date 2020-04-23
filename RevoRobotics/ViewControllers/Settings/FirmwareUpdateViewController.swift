@@ -75,11 +75,11 @@ extension FirmwareUpdateViewController {
         if Reachability.isConnectedToNetwork() {
             self.firebaseService.getFirmwareUpdate(completion: { result in
                 switch result {
-                case .success(let updates):
-                    if self.currentFirmware != updates.first?.filename {
-                        modal.status = .updateNeeded((updates.first?.filename)!)
-                        self.updateURL = (updates.first?.url)!
-                        self.updateVersion = (updates.first?.filename)!
+                case .success(let update):
+                    if self.currentFirmware != update.filename {
+                        modal.status = .updateNeeded(update.filename)
+                        self.updateURL = update.url
+                        self.updateVersion = update.filename
                     } else {
                         modal.status = .updated
                     }

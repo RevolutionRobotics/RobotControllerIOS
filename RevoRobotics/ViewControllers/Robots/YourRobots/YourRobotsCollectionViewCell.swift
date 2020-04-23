@@ -96,7 +96,7 @@ extension YourRobotsCollectionViewCell {
             robotImageView.image = image
         } else {
             if !robot.remoteId.isEmpty {
-                robotImageView.downloadImage(googleStorageURL: robot.customImage)
+                robotImageView.downloadImage(from: robot.customImage)
             } else {
                 robotImageView.image = Image.Common.imagePlaceholder
             }

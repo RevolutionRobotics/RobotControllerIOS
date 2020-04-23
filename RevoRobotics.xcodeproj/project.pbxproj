@@ -272,7 +272,7 @@
 		D031333F228EA66100704989 /* MostRecentProgramsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D031333D228EA66100704989 /* MostRecentProgramsViewController.xib */; };
 		D037D915233A07D800DF76E9 /* BuildRevvyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D037D914233A07D800DF76E9 /* BuildRevvyViewController.swift */; };
 		D037D917233A086900DF76E9 /* BuildRevvyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D037D916233A086900DF76E9 /* BuildRevvyViewController.xib */; };
-		D0398A46243C7F8C007A7417 /* ApiFetchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0398A45243C7F8C007A7417 /* ApiFetchHelper.swift */; };
+		D0398A46243C7F8C007A7417 /* ApiFetchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0398A45243C7F8C007A7417 /* ApiFetchHandler.swift */; };
 		D03B824323D607F8002AE192 /* ChallengeDetailButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03B824223D607F8002AE192 /* ChallengeDetailButtonContent.swift */; };
 		D03B824523D60811002AE192 /* ChallengeDetailButtonContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03B824423D60811002AE192 /* ChallengeDetailButtonContent.xib */; };
 		D03BA8532276F323005B3E33 /* PartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8512276F323005B3E33 /* PartView.swift */; };
@@ -677,7 +677,7 @@
 		D031333D228EA66100704989 /* MostRecentProgramsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MostRecentProgramsViewController.xib; sourceTree = "<group>"; };
 		D037D914233A07D800DF76E9 /* BuildRevvyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildRevvyViewController.swift; sourceTree = "<group>"; };
 		D037D916233A086900DF76E9 /* BuildRevvyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuildRevvyViewController.xib; sourceTree = "<group>"; };
-		D0398A45243C7F8C007A7417 /* ApiFetchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiFetchHelper.swift; sourceTree = "<group>"; };
+		D0398A45243C7F8C007A7417 /* ApiFetchHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiFetchHandler.swift; sourceTree = "<group>"; };
 		D03B824223D607F8002AE192 /* ChallengeDetailButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailButtonContent.swift; sourceTree = "<group>"; };
 		D03B824423D60811002AE192 /* ChallengeDetailButtonContent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailButtonContent.xib; sourceTree = "<group>"; };
 		D03BA8512276F323005B3E33 /* PartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartView.swift; sourceTree = "<group>"; };
@@ -1417,7 +1417,7 @@
 				09C387592270A7100097619D /* FirebaseError.swift */,
 				D08C1CE1226478200052EE1F /* FirebaseService.swift */,
 				2A77320E2264A79900D7F38D /* FirebaseServiceInterface.swift */,
-				D0398A45243C7F8C007A7417 /* ApiFetchHelper.swift */,
+				D0398A45243C7F8C007A7417 /* ApiFetchHandler.swift */,
 			);
 			path = FirebaseService;
 			sourceTree = "<group>";
@@ -2817,7 +2817,7 @@
 				D06C327322899F60005534C0 /* FirmwareUpdateViewController.swift in Sources */,
 				2ADE8C442271A6B000ECEC72 /* BuildProgressBar.swift in Sources */,
 				2A5A07EB22DDC9B3002B3EE3 /* LocalizedText.swift in Sources */,
-				D0398A46243C7F8C007A7417 /* ApiFetchHelper.swift in Sources */,
+				D0398A46243C7F8C007A7417 /* ApiFetchHandler.swift in Sources */,
 				091B98AB229835DA00DCEEF4 /* ProgramSorter.swift in Sources */,
 				2AB7ACEE22BB992000309234 /* ButtonControllerAssignmentJSONData.swift in Sources */,
 				096333F62289B9710029D87B /* PadButton.swift in Sources */,

@@ -91,7 +91,8 @@ extension RealmConnector: RealmConnectorInterface {
         }
     }
 
-    func delete<T: Object>(object: T) {
+    func delete<T: Object>(object: T?) {
+        guard let object = object else { return }
         realm.refresh()
         do {
             try self.realm.write {

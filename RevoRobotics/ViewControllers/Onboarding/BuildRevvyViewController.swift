@@ -12,7 +12,7 @@ import os
 final class BuildRevvyViewController: BaseViewController {
     // MARK: - Constants
     enum Constants {
-        static let revvyId = "c92b9a90-e069-11e9-9d36-2a2ae2dbcce4"
+        static let revvyId = "revvy"
     }
 
     // MARK: - Outlets
@@ -88,98 +88,58 @@ extension BuildRevvyViewController {
                 }
 
                 completion(revvy)
-            case .failure:
+            case .failure(let error):
+                print(error)
                 os_log("Error: Failed to fetch Revvy from Firebase!")
             }
         }
     }
 
-    private func createNewRobot(using dataModel: Robot) {
-        firebaseService.getConfigurations { [weak self] result in
-            switch result {
-            case .success(let remoteConfigurations):
-                self?.firebaseService.getControllers(completion: { [weak self] result in
-                    switch result {
-                    case .success(let remoteControllers):
-                        self?.fetchPrograms(for: dataModel.id, callback: { [weak self] programs in
-                            self?.saveRevvyDataModel(
-                                using: dataModel,
-                                remoteConfigurations: remoteConfigurations,
-                                remoteControllers: remoteControllers,
-                                programs: programs)
-                        })
-                    case .failure:
-                        os_log("Failed to retrieve controllers!")
-                    }
-                })
-            case .failure:
-                os_log("Failed to retrieve configurations!")
-            }
-        }
-    }
+    private func saveRevvyDataModel(using dataModel: Robot) {
+        let configId = UUID().uuidString
 
-    private func fetchPrograms(for robotId: String, callback: @escaping CallbackType<[Program]>) {
-        firebaseService.getRobotPrograms(for: robotId, completion: { result in
-            switch result {
-            case .success(let programs):
-                callback(programs.compactMap({ $0 }))
-            case .failure:
-                os_log("Failed to retrieve programs for robot!")
-            }
-        })
-    }
+        let localController = ControllerDataModel(
+            controller: dataModel.controller,
+            localConfigurationId: configId)
 
-    private func saveRevvyDataModel(
-        using dataModel: Robot,
-        remoteConfigurations: [Configuration],
-        remoteControllers: [Controller],
-        programs: [Program]
-    ) {
+        let remoteConfiguration = Configuration(
+            id: configId,
+            controller: dataModel.controller.type.rawValue,
+            mapping: dataModel.portMapping)
+
+        let config = ConfigurationDataModel(
+            id: configId,
+            remoteConfiguration: remoteConfiguration)
+
         let revvyDataModel = UserRobot(
             id: UUID().uuidString,
             remoteId: dataModel.id,
             buildStatus: .completed,
             actualBuildStep: -1,
             lastModified: Date(),
-            configId: UUID().uuidString,
+            configId: configId,
             customName: dataModel.name.text,
             customImage: dataModel.coverImage,
             customDescription: dataModel.description.text)
 
-        guard let remoteConfiguration = remoteConfigurations.first(where: {
-            $0.id == dataModel.configurationId
-        }) else { return }
-
-        let localConfiguration = ConfigurationDataModel(
-            id: revvyDataModel.configId,
-            remoteConfiguration: remoteConfiguration)
-        let controllers = remoteControllers
-            .map({ ControllerDataModel(controller: $0, localConfigurationId: localConfiguration.id) })
-
-        localConfiguration.controller = controllers.first(where: { $0.type == ControllerType.gamer.rawValue })?.id ?? ""
-
         let userDefaults = UserDefaults.standard
         let revvyBuiltKey = UserDefaults.Keys.revvyBuilt
         let allPrograms = realmService.getPrograms()
-            + programs.map({ ProgramDataModel(program: $0, robotId: revvyDataModel.id) })
+            + dataModel.programs.map({ ProgramDataModel(program: $0, robotId: revvyDataModel.id) })
 
         if !userDefaults.bool(forKey: revvyBuiltKey) {
-            realmService.saveControllers(controllers)
-            realmService.saveConfigurations([localConfiguration])
+            realmService.saveConfigurations([config])
             realmService.savePrograms(programs: allPrograms)
             realmService.saveRobot(revvyDataModel, shouldUpdate: true)
             userDefaults.set(true, forKey: revvyBuiltKey)
         }
 
-        if let selectedController = controllers.first(where: {
-            $0.id == localConfiguration.controller
-        }) {
-            guard !skippedOnboarding else {
-                navigationController?.popToRootViewController(animated: true)
-                return
-            }
-            navigateToPlayController(with: revvyDataModel, controller: selectedController)
+        guard !skippedOnboarding else {
+            navigationController?.popToRootViewController(animated: true)
+            return
         }
+
+        navigateToPlayController(with: revvyDataModel, controller: localController)
     }
 
     private func navigateToPlayController(with robot: UserRobot, controller: ControllerDataModel) {
@@ -198,7 +158,7 @@ extension BuildRevvyViewController {
         skippedOnboarding = true
         logEvent(named: "skip_onboarding")
         getRevvyDataModel(completion: { [weak self] revvy in
-            self?.createNewRobot(using: revvy)
+            self?.saveRevvyDataModel(using: revvy)
         })
     }
 
@@ -206,7 +166,7 @@ extension BuildRevvyViewController {
         savePromptVisited()
         logEvent(named: "build_basic_robot_offline")
         getRevvyDataModel(completion: { [weak self] revvy in
-            self?.createNewRobot(using: revvy)
+            self?.saveRevvyDataModel(using: revvy)
         })
     }
 

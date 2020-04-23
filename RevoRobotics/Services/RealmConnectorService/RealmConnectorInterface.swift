@@ -17,6 +17,6 @@ protocol RealmConnectorInterface {
     func find(type: Object.Type, predicate: NSPredicate) -> [Object]
     func save<T: Object>(object: T, shouldUpdate: Bool)
     func save<T: Object>(objects: [T], shouldUpdate: Bool)
-    func delete<T: Object>(object: T)
+    func delete<T: Object>(object: T?)
     func delete<T: Object>(objects: [T])
 }

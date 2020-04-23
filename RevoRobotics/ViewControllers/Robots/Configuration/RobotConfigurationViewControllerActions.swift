@@ -203,8 +203,7 @@ extension RobotConfigurationViewController {
         let controllerId = UUID().uuidString
         let controller = ControllerDataModel(
             id: controllerId,
-            configurationId:
-            configId,
+            configurationId: configId,
             type: ControllerType.gamer.rawValue,
             mapping: defaultMapping
         )

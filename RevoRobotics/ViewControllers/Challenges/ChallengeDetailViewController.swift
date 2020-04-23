@@ -33,10 +33,10 @@ extension ChallengeDetailViewController {
 
     private func setupProgressBar() {
         guard let challenge = challenge else { return }
-        progressBar.numberOfSteps = challenge.challengeSteps.count - 1
+        progressBar.numberOfSteps = challenge.steps.count - 1
         progressBar.currentStep = 0
-        if challenge.challengeSteps.count - 2 >= 1 {
-            progressBar.markers = Array(1...challenge.challengeSteps.count - 2)
+        if challenge.steps.count - 2 >= 1 {
+            progressBar.markers = Array(1...challenge.steps.count - 2)
         } else {
             progressBar.markers = []
         }
@@ -49,7 +49,7 @@ extension ChallengeDetailViewController {
             self.progressLabel.currentStep = challengeStep + 1
         }
         progressBar.buildFinished = challengeFinished
-        setupProgressLabel(with: challenge.challengeSteps.count)
+        setupProgressLabel(with: challenge.steps.count)
     }
 
     private func setupProgressLabel(with challengeStepCount: Int) {
@@ -58,20 +58,16 @@ extension ChallengeDetailViewController {
     }
 
     private func findChallengeStep(at index: Int) -> ChallengeStep? {
-        guard
-            let steps = challenge?.challengeSteps,
-            let stepKey = steps.keys.first(where: {
-                steps[$0]?.order == index + 1 })
-        else {
+        guard let step = challenge?.steps[index] else {
             return nil
         }
 
-        return steps[stepKey]
+        return step
     }
 
     private func setupContent(for step: Int) {
         guard let challengeStep = findChallengeStep(at: step) else { return }
-        switch challengeStep.challengeType {
+        switch challengeStep.type {
         case .horizontal:
             setupDetailContent(with: challengeStep, on: ChallengeDetailHorizontalContent.instatiate())
         case .vertical:

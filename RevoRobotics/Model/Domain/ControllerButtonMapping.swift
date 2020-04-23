@@ -15,6 +15,6 @@ struct ControllerButtonMapping: Decodable {
     let b6: ProgramBinding?
 
     func programIds() -> [String?] {
-        return [b1?.programId, b2?.programId, b3?.programId, b4?.programId, b5?.programId, b6?.programId]
+        return [b1?.program, b2?.program, b3?.program, b4?.program, b5?.program, b6?.program]
     }
 }

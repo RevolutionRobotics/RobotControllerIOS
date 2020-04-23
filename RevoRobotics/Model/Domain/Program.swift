@@ -9,12 +9,11 @@
 struct Program: Decodable, Equatable, Hashable {
     let id: String
     let name: LocalizedText
-    let xml: String
+    let blocklyXml: String
     let python: String
     let description: LocalizedText
     let variables: [String]?
     let lastModified: Double
-    let robotId: String
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

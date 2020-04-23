@@ -11,6 +11,6 @@ struct ChallengeCategory: Decodable, FirebaseOrderable {
     let name: LocalizedText
     let image: String
     let description: LocalizedText
-    let challenges: [String: Challenge]
+    let challenges: [Challenge]
     var order: Int
 }

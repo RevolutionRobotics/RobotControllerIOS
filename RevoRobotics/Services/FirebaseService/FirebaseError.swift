@@ -13,6 +13,7 @@ enum FirebaseError: Error {
     case decodeFailed(String)
     case arrayDecodeFailed(String)
     case imageURLDownloadFailed(String)
+    case firmwareDownloadFailed(String)
     case invalidImageURL
     case invalidRobotId
 }

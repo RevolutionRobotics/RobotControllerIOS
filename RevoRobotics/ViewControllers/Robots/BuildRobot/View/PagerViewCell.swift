@@ -29,7 +29,7 @@ final class PagerViewCell: UICollectionViewCell {
 extension PagerViewCell {
     func setup(with url: String, imageInsets: UIEdgeInsets?) {
         zoomableImageView.resetZoom()
-        zoomableImageView.imageView.downloadImage(googleStorageURL: url)
+        zoomableImageView.imageView.downloadImage(from: url)
 
         let parentFrame = zoomableImageView.frame
         let insets = imageInsets ?? .zero

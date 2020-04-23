@@ -1,5 +1,5 @@
 //
-//  ApiFetchHelper.swift
+//  ApiFetchHandler.swift
 //  RevoRobotics
 //
 //  Created by Pável Áron on 2020. 04. 07..
@@ -10,7 +10,7 @@ import PromiseKit
 import SwiftyJSON
 import Alamofire
 
-final class ApiFetchHelper {
+final class ApiFetchHandler {
     // MARK: - Constants
     enum Constants {
         static let apiPath = "api/v1"
@@ -28,19 +28,21 @@ final class ApiFetchHelper {
     // MARK: - Properties
     private let userDefaults = UserDefaults.standard
 
-    func fetchAll(callback: @escaping CallbackType<JSON>) {
+    func fetchAll(callback: @escaping CallbackType<[String: JSON]>) {
         firstly {
             when(fulfilled:
                  fetchPromise(with: "robots"),
                  fetchPromise(with: "challenges"),
-                 fetchPromise(with: "firmware"))
+                 fetchPromise(with: "firmware"),
+                 fetchPromise(with: "versionData"))
         }
-        .done { robots, challenges, firmware in
-            let result = JSON([
+        .done { robots, challenges, firmware, versionData in
+            let result = [
                 "robots": robots,
                 "challenges": challenges,
-                "firmware": firmware
-            ])
+                "firmware": firmware,
+                "versionData": versionData
+            ]
 
             callback(result)
         }
@@ -65,7 +67,7 @@ final class ApiFetchHelper {
 }
 
 // MARK: - Private methods
-extension ApiFetchHelper {
+extension ApiFetchHandler {
     private func fetchPromise(with endPoint: String) -> Promise<JSON> {
         let queue = DispatchQueue(label: "api_\(endPoint)", qos: .background, attributes: .concurrent)
         let cached = readCached(for: endPoint)
@@ -126,7 +128,7 @@ extension ApiFetchHelper {
             return nil
         }
 
-        return JSON(jsonString)
+        return JSON(parseJSON: jsonString)
     }
 
     private func etagKey(for object: String) -> String {

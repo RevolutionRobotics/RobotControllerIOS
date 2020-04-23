@@ -7,6 +7,6 @@
 //
 
 struct ProgramBinding: Decodable {
-    let programId: String
+    let program: String
     let priority: Int
 }

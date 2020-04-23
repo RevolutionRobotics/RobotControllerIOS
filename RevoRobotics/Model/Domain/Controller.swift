@@ -7,13 +7,8 @@
 //
 
 struct Controller: Decodable {
-    let id: String
-    let name: LocalizedText
     let type: ControllerType
-    let configurationId: String
-    let joystickPriority: Int
-    let description: LocalizedText
-    let lastModified: Double
-    let mapping: ControllerButtonMapping?
-    let backgroundProgramBindings: [ProgramBinding]?
+    let drivetrainPriority: Int
+    let buttons: ControllerButtonMapping?
+    let backgroundPrograms: [ProgramBinding]?
 }

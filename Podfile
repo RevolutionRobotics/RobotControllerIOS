@@ -25,7 +25,6 @@ target 'RevoRobotics' do
   # Storage
   pod 'RealmSwift', '~> 3.18.0'
   pod 'Firebase/Core'
-  pod 'Firebase/Storage'
   pod 'Firebase/Analytics'
   
   # API communication

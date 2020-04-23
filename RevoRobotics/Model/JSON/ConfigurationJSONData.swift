@@ -54,7 +54,7 @@ struct ConfigurationJSONData: Encodable {
                                                       sensors: sensors ?? Constants.emptySensorCollection)
 
         let controllerData = BlocklyListAnalogElementJSONData.joystick(type: controller.type,
-                                                                       priority: controller.joystickPriority)
+                                                                       priority: controller.drivetrainPriority)
 
         var buttonPrograms: [BlocklyListProgramElementJSONData] = []
         var backgroundPrograms: [BlocklyListProgramElementJSONData] = []

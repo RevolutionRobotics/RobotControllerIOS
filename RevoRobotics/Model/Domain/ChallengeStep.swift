@@ -6,14 +6,13 @@
 //  Copyright © 2019. Revolution Robotics. All rights reserved.
 //
 
-struct ChallengeStep: Decodable, FirebaseOrderable {
+struct ChallengeStep: Decodable {
     let id: String
     let title: LocalizedText
-    let description: LocalizedText
+    let text: LocalizedText
     let image: String
-    let parts: [String: Part]?
-    let challengeType: ChallengeType
+    let parts: [Part]?
+    let type: ChallengeType
     let buttonText: LocalizedText?
     let buttonUrl: String?
-    var order: Int
 }

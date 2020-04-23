@@ -7,7 +7,7 @@
 //
 
 struct BuildStep: Decodable, Equatable {
-    let robotId: String
+    let id: String
     let image: String
     let partImage: String?
     let partImage2: String?

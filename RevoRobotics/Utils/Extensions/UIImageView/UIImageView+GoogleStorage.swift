@@ -7,57 +7,27 @@
 //
 
 import UIKit
-import Firebase
 import Kingfisher
 import os
 
 extension UIImageView {
-    func downloadImage(googleStorageURL: String?) {
-        guard let googleStorageURL = googleStorageURL else { return }
+    func downloadImage(from imageUrl: String?) {
+        guard let imageUrl = imageUrl else { return }
 
-        if ImageCache.default.isCached(forKey: googleStorageURL) {
-            retrieveImageFromCache(key: googleStorageURL)
+        if ImageCache.default.isCached(forKey: imageUrl) {
+            retrieveImageFromCache(key: imageUrl)
         } else {
-            fetchImageFromFirebase(googleStorageURL: googleStorageURL)
+            guard let url = URL(string: imageUrl) else { return }
+
+            let resource = ImageResource(downloadURL: url, cacheKey: imageUrl)
+            kf.setImage(with: resource, placeholder: nil, options: [.targetCache(ImageCache.default)])
+            resetZoom()
         }
     }
 }
 
 // MARK: - Private extensions
 extension UIImageView {
-    private func fetchImageFromFirebase(googleStorageURL: String) {
-        self.kf.indicatorType = .activity
-        (self.kf.indicator?.view as? UIActivityIndicatorView)?.color = .white
-        getImageURL(of: googleStorageURL) { [weak self] result in
-            switch result {
-            case .success(let imageURL):
-                let resource = ImageResource(downloadURL: imageURL, cacheKey: googleStorageURL)
-                self?.kf.setImage(with: resource, placeholder: nil, options: [.targetCache(ImageCache.default)])
-                self?.resetZoom()
-            case .failure:
-                os_log("Error: Could not fetch image from Firebase!")
-                self?.image = Image.Common.imagePlaceholder
-            }
-        }
-    }
-
-    private func getImageURL(of googleStorageURL: String, completion: CallbackType<Result<URL, FirebaseError>>?) {
-        Storage.storage().reference(forURL: googleStorageURL).downloadURL { url, error in
-            guard error == nil else {
-                completion?(.failure(FirebaseError.imageURLDownloadFailed(error!.localizedDescription)))
-                error?.report()
-                return
-            }
-
-            guard let url = url else {
-                completion?(.failure(FirebaseError.invalidImageURL))
-                return
-            }
-
-            completion?(.success(url))
-        }
-    }
-
     private func retrieveImageFromCache(key: String) {
         ImageCache.default.retrieveImageInDiskCache(
             forKey: key,
