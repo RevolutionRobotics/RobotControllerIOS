@@ -12,6 +12,11 @@ struct Robot: Decodable, FirebaseOrderable {
     let description: LocalizedText
     let coverImage: String
     let buildTime: String
-    let configurationId: String
+    let complexity: String
+    let compatibility: [String]
+    let portMapping: PortMapping
+    let controller: Controller
+    let buildSteps: [BuildStep]
+    let programs: [Program]
     var order: Int
 }

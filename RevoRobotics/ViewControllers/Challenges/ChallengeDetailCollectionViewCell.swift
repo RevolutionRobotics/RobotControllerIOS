@@ -17,7 +17,7 @@ final class ChallengeDetailCollectionViewCell: UICollectionViewCell {
 // MARK: - Setup
 extension ChallengeDetailCollectionViewCell {
     func setup(wiht part: Part) {
-        partImageView.downloadImage(googleStorageURL: part.image)
+        partImageView.downloadImage(from: part.image)
         partDescriptionLabel.text = part.name.text
     }
 }

@@ -193,9 +193,7 @@ extension ProgramPriorityViewController {
             guard let `self` = self else { return }
 
             controller.name = name ?? ""
-            controller.controllerDescription = description ?? ""
-            controller.lastModified = Date()
-            controller.joystickPriority =
+            controller.drivetrainPriority =
                 (self.orderedPrograms.firstIndex(of: (self.drivePlaceholder)!))!
 
             let viewModel = self.controllerViewModel

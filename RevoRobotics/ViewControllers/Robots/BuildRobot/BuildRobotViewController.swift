@@ -22,7 +22,7 @@ class BuildRobotViewController: BaseViewController {
     var realmService: RealmServiceInterface!
     var remoteRobotDataModel: Robot? {
         didSet {
-            fetchBuildSteps()
+            steps = remoteRobotDataModel?.buildSteps ?? []
         }
     }
     var onboardingInProgress = false
@@ -277,20 +277,6 @@ extension BuildRobotViewController {
         presentDisconnectModal()
     }
 
-    private func fetchBuildSteps() {
-        firebaseService.getBuildSteps(for: remoteRobotDataModel?.id, completion: { [weak self] result in
-            switch result {
-            case .success(let steps):
-                self?.steps = steps.sorted(by: { $0.stepNumber < $1.stepNumber })
-                self?.currentStep = steps[self?.storedRobotDataModel?.actualBuildStep ?? 0]
-                guard let loaded = self?.isViewLoaded, loaded == true else { return }
-                self?.refreshViews()
-            case .failure:
-                os_log("Error: Failed to fetch build steps from Firebase!")
-            }
-        })
-    }
-
     private func setupPartsView() {
         if currentStep?.partImage == nil && currentStep?.partImage2 == nil {
             partStackView.isHidden = true
@@ -318,52 +304,41 @@ extension BuildRobotViewController {
                                 croppedCorners: [.topRight, .bottomLeft])
     }
 
-    private func createNewRobot(remoteConfigurations: [Configuration], remoteControllers: [Controller], step: Int) {
-        guard
-            let remoteId = remoteRobotDataModel?.id,
-            let remoteConfiguration =
-            remoteConfigurations.first(where: { $0.id == remoteRobotDataModel?.configurationId })
-        else { return }
+    private func createNewRobot(step: Int) {
+        guard let remoteRobot = remoteRobotDataModel else { return }
 
         let robotId = UUID().uuidString
         let configId = UUID().uuidString
-        let localConfiguration = ConfigurationDataModel(id: configId, remoteConfiguration: remoteConfiguration)
-
-        let controllers = remoteControllers
-            .map({ ControllerDataModel(controller: $0, localConfigurationId: localConfiguration.id) })
-
-        localConfiguration.controller = controllers.first(where: {
-            $0.remoteId == remoteConfiguration.controller })?.id ?? ""
 
         let savedPrograms = realmService.getPrograms()
-        firebaseService.getRobotPrograms(for: remoteId, completion: { [weak self] result in
-            switch result {
-            case .success(let programs):
-                let fetchedPrograms: [ProgramDataModel] = programs.compactMap({ program in
-                    guard let program = program else { return nil }
-                    return ProgramDataModel(program: program, robotId: robotId)
-                })
-                self?.realmService.savePrograms(programs: savedPrograms + fetchedPrograms)
-            case .failure:
-                os_log("Error: Failed to fetch programs from Firebase!")
-            }
-        })
+        let remotePrograms = remoteRobot.programs
+            .compactMap({ ProgramDataModel(program: $0, robotId: robotId) })
 
-        realmService.saveControllers(controllers)
-        realmService.saveConfigurations([localConfiguration])
+        let storedController = ControllerDataModel(controller: remoteRobot.controller, localConfigurationId: configId)
+        let storedPortMapping = PortMappingDataModel(remoteMapping: remoteRobot.portMapping)
+        let storedConfiguration = ConfigurationDataModel(
+            id: configId,
+            controller: storedController.id,
+            mapping: storedPortMapping)
 
         storedRobotDataModel = UserRobot(
             id: robotId,
-            remoteId: remoteId,
+            remoteId: remoteRobot.id,
             buildStatus: .inProgress,
             actualBuildStep: step,
             lastModified: Date(),
             configId: configId,
-            customName: remoteRobotDataModel?.name.text,
-            customImage: remoteRobotDataModel?.coverImage,
-            customDescription: remoteRobotDataModel?.description.text)
+            customName: remoteRobot.name.text,
+            customImage: remoteRobot.coverImage,
+            customDescription: remoteRobot.description.text)
 
-        realmService.saveRobot(storedRobotDataModel!, shouldUpdate: true)
+        guard let storedRobot = storedRobotDataModel else { return }
+
+        realmService.savePrograms(programs: savedPrograms + remotePrograms)
+        realmService.saveControllers([storedController])
+        realmService.saveConfigurations([storedConfiguration])
+        realmService.saveRobot(storedRobot, shouldUpdate: true)
+
         logEvent(named: "start_basic_robot", params: [
             "id": robotId
         ])
@@ -373,30 +348,9 @@ extension BuildRobotViewController {
         }
     }
 
-    private func createNewRobot(step: Int) {
-        firebaseService.getConfigurations(completion: { [weak self] result in
-            switch result {
-            case .success(let remoteConfigurations):
-                self?.firebaseService.getControllers(completion: { [weak self] result in
-                    switch result {
-                    case .success(let remoteControllers):
-                        self?.createNewRobot(remoteConfigurations: remoteConfigurations,
-                                             remoteControllers: remoteControllers,
-                                             step: step)
-                    case .failure:
-                        os_log("Failed to retrieve controllers!")
-                    }
-                })
-            case .failure:
-                os_log("Failed to retrieve configurations!")
-            }
-        })
-    }
-
     private func updateStoredRobot(step: Int) {
         guard let robot = storedRobotDataModel else {
             createNewRobot(step: step)
-
             return
         }
         realmService.updateObject {

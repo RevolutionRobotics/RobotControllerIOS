@@ -168,7 +168,6 @@ extension PadConfigurationViewController {
         realmService.updateObject(closure: { [weak self] in
             guard let `self` = self else { return }
 
-            selectedController.lastModified = Date()
             switch buttonNumber {
             case 1:
                 selectedController.mapping?.b1 = self.viewModel.b1Binding
@@ -357,9 +356,8 @@ extension PadConfigurationViewController {
     }
 
     private func setupViewModel() {
-        viewModel.joystickPriority = selectedController?.joystickPriority ?? 0
+        viewModel.joystickPriority = selectedController?.drivetrainPriority ?? 0
         viewModel.name = selectedController?.name ?? ""
-        viewModel.customDesctiprion = selectedController?.controllerDescription ?? ""
         viewModel.id = selectedController?.id ?? UUID().uuidString
         viewModel.configurationId = configurationId ?? ""
         viewModel.type = controllerType ?? .gamer

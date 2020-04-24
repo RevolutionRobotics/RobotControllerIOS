@@ -34,7 +34,7 @@ extension ChallengesViewController {
         super.viewDidLoad()
         guard let category = challengeCategory else { return }
 
-        challenges = Array(category.challenges.values)
+        challenges = category.challenges
             .sorted(by: { $0.order < $1.order })
         navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         navigationBar.setup(title: category.name.text, delegate: self)

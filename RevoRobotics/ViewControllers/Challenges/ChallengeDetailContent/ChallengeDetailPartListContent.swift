@@ -31,10 +31,7 @@ extension ChallengeDetailPartListContent {
             return []
         }
 
-        let orderable: [FirebaseOrderable] = Array(parts.values)
-        let ordered = orderable.sorted(by: { $0.order < $1.order }) as? [Part]
-
-        return ordered ?? []
+        return parts.sorted(by: { $0.order < $1.order })
     }
 }
 

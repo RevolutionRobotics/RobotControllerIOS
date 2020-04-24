@@ -90,6 +90,7 @@ extension RobotConfigurationViewController {
         }
 
         let controllerType = realmService.getController(id: configuration?.controller)?.type
+
         controller = ControllerDataModel(
             id: configuration?.controller ?? UUID().uuidString,
             configurationId: configuration?.id ?? UUID().uuidString,

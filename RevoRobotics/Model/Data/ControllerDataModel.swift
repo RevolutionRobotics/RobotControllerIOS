@@ -11,13 +11,10 @@ import RealmSwift
 final class ControllerDataModel: Object {
     // MARK: - Properties
     @objc dynamic var id: String = ""
-    @objc dynamic var remoteId: String = ""
     @objc dynamic var configurationId: String = ""
-    @objc dynamic var joystickPriority: Int = 0
+    @objc dynamic var drivetrainPriority: Int = 0
     @objc dynamic var name: String = ""
     @objc dynamic var type: String = ""
-    @objc dynamic var controllerDescription: String = ""
-    @objc dynamic var lastModified: Date = Date()
     @objc dynamic var mapping: ControllerButtonMappingDataModel?
     var backgroundProgramBindings: List<ProgramBindingDataModel> = List<ProgramBindingDataModel>()
 
@@ -26,20 +23,16 @@ final class ControllerDataModel: Object {
         self.init()
 
         self.id = UUID().uuidString
-        self.remoteId = controller.id
         self.configurationId = localConfigurationId
-        self.name = controller.name.text
         self.type = controller.type.rawValue
-        self.joystickPriority = controller.joystickPriority
-        self.controllerDescription = controller.description.text
-        self.lastModified = Date(timeIntervalSince1970: controller.lastModified)
+        self.drivetrainPriority = controller.drivetrainPriority
 
-        if let controllerMapping = controller.mapping {
+        if let controllerMapping = controller.buttons {
             self.mapping = ControllerButtonMappingDataModel(mapping: controllerMapping)
         }
 
         let list = List<ProgramBindingDataModel>()
-        controller.backgroundProgramBindings?.forEach { binding in
+        controller.backgroundPrograms?.forEach { binding in
             guard let dataModel = ProgramBindingDataModel(binding: binding) else { return }
             list.append(dataModel)
         }
@@ -52,7 +45,6 @@ final class ControllerDataModel: Object {
         self.id = id ?? UUID().uuidString
         self.configurationId = configurationId
         self.type = type
-        self.lastModified = Date()
         self.mapping = mapping
         backgroundProgramBindings = List<ProgramBindingDataModel>()
     }

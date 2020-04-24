@@ -29,13 +29,11 @@ final class ProgramDataModel: Object {
         self.customDescription = program.description.text
         self.lastModified = Date(timeIntervalSince1970: program.lastModified)
         self.robotId = robotId
-        self.xml = program.xml
+        self.xml = program.blocklyXml
         self.python = program.python
 
         let list = List<String>()
-        program.variables?.forEach { variable in
-            list.append(variable)
-        }
+        program.variables?.forEach { list.append($0) }
         variableNames = list
     }
 

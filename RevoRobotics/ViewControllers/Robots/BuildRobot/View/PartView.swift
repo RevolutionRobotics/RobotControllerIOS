@@ -30,6 +30,6 @@ extension PartView {
         }
         isHidden = false
         partImageView.image = nil
-        partImageView.downloadImage(googleStorageURL: urlString)
+        partImageView.downloadImage(from: urlString)
     }
 }

@@ -19,7 +19,7 @@ final class ProgramBindingDataModel: Object {
         guard let binding = binding else { return nil }
         self.init()
 
-        self.programId = binding.programId
+        self.programId = binding.program
         self.priority = binding.priority
     }
 
