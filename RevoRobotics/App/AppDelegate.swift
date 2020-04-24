@@ -84,14 +84,20 @@ extension AppDelegate {
 // MARK: - Prefetch data
 extension AppDelegate {
     private func fetchFirebaseData() {
-        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+        DispatchQueue.global(qos: .userInteractive).async {
             let firebaseService = AppContainer.shared.container.unwrappedResolve(FirebaseServiceInterface.self)
-            firebaseService.prefetchData(onError: nil)
-            DispatchQueue.main.async { [weak self] in
+            firebaseService.prefetchData(onError: { error in
+                guard error == nil else {
+                    error?.report()
+                    return
+                }
+
                 #if !targetEnvironment(simulator)
-                self?.checkMinVersion(using: firebaseService)
+                DispatchQueue.main.async { [weak self] in
+                    self?.checkMinVersion(using: firebaseService)
+                }
                 #endif
-            }
+            })
         }
     }
 

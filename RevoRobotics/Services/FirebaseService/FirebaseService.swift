@@ -32,7 +32,7 @@ final class FirebaseService {
 
 // MARK: - FirebaseServiceInterface
 extension FirebaseService: FirebaseServiceInterface {
-    func prefetchData(onError: CallbackType<Error>?) {
+    func prefetchData(onError: CallbackType<Error?>?) {
         apiFetchHandler.fetchAll(callback: { [weak self] result in
             guard let `self` = self else { return }
             self.connectionState = .online
@@ -41,13 +41,13 @@ extension FirebaseService: FirebaseServiceInterface {
         })
     }
 
-    func parseData(onError: CallbackType<Error>?) {
+    func parseData(onError: CallbackType<Error?>?) {
         getMinVersion(completion: nil)
         getRobots(completion: { result in
             switch result {
-            case .success: break
+            case .success:
+                onError?(nil)
             case .failure(let error):
-                error.report()
                 print(error)
                 onError?(error)
             }
