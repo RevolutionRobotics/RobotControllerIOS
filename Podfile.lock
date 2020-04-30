@@ -99,6 +99,7 @@ PODS:
   - SwiftyJSON (5.0.0)
   - Swinject (2.6.2)
   - WKWebViewJavascriptBridge (1.2.0)
+  - ZIPFoundation (0.9.11)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0)
@@ -118,6 +119,7 @@ DEPENDENCIES:
   - SwiftLint (~> 0.31.0)
   - SwiftyJSON (~> 5.0)
   - Swinject (~> 2.6.0)
+  - ZIPFoundation (~> 0.9)
 
 SPEC REPOS:
   trunk:
@@ -150,6 +152,7 @@ SPEC REPOS:
     - SwiftyJSON
     - Swinject
     - WKWebViewJavascriptBridge
+    - ZIPFoundation
 
 EXTERNAL SOURCES:
   SideMenu:
@@ -192,7 +195,8 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
+  ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: 0cf600b140a2f31cb3a1d10b486150a721194e5d
+PODFILE CHECKSUM: df9ec20542861c364268c3b3a21c839bfc394dfd
 
 COCOAPODS: 1.8.4

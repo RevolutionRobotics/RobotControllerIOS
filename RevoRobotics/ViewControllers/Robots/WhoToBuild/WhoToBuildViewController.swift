@@ -38,6 +38,12 @@ final class WhoToBuildViewController: BaseViewController {
             }
         }
     }
+
+    private var savedImages: [String: Bool] {
+        return robots
+            .compactMap({ $0 })
+            .reduce(into: [String: Bool]()) { $0[$1.id] = checkImages(for: $1) }
+    }
 }
 
 // MARK: - Private methods
@@ -66,6 +72,23 @@ extension WhoToBuildViewController {
         loadingIndicator.stopAnimating()
         collectionView.isHidden = false
     }
+
+    private func checkImages(for robot: Robot) -> Bool {
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        else {
+            return false
+        }
+
+        let target = documentsDirectory
+            .appendingPathComponent(ZipType.robots.rawValue, isDirectory: true)
+            .appendingPathComponent(robot.id, isDirectory: true)
+
+        do {
+            return try target.checkResourceIsReachable()
+        } catch {
+            return false
+        }
+    }
 }
 
 // MARK: - Actions
@@ -79,7 +102,8 @@ extension WhoToBuildViewController {
     }
 
     @IBAction private func builYourOwnButtonTapped(_ sender: Any) {
-        let configureScreen = AppContainer.shared.container.unwrappedResolve(RobotConfigurationViewController.self)
+        let configureScreen = AppContainer.shared.container
+            .unwrappedResolve(RobotConfigurationViewController.self)
         navigationController?.pushViewController(configureScreen, animated: true)
     }
 }
@@ -123,8 +147,9 @@ extension WhoToBuildViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: WhoToBuildCollectionViewCell
         if let robot = robots[indexPath.row] {
+            let hasImages = savedImages[robot.id] ?? false
             cell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-            cell.configure(with: robot)
+            cell.configure(with: robot, savedImages: hasImages)
         } else {
             guard let newCell = collectionView.dequeueReusableCell(withReuseIdentifier: newCellReuseId, for: indexPath)
                 as? WhoToBuildCollectionViewCell else {

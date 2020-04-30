@@ -17,6 +17,7 @@ struct Robot: Decodable, FirebaseOrderable {
     let portMapping: PortMapping
     let controller: Controller
     let buildSteps: [BuildStep]
+    let buildStepsArchive: String
     let programs: [Program]
     var order: Int
 }

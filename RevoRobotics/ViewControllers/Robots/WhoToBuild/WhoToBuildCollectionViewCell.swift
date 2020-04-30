@@ -37,22 +37,35 @@ final class WhoToBuildCollectionViewCell: ResizableCell {
     private var baseNameFontSize: CGFloat = 0
     private var baseBuildTimeFontSize: CGFloat = 0
 
+    private var savedImages = false
+    private var newCell = false
+
+//    private var savedImages: Bool = false {
+//        didSet {
+//            backgroundImageView.image = cellBackground
+//        }
+//    }
+//
+
     override var isCentered: Bool {
         didSet {
-            backgroundImageView.image = isCentered ? Image.BuildRobot.cellRedBorder : Image.BuildRobot.cellWhiteBorder
+            backgroundImageView.image = cellBackground(savedImages: savedImages)
         }
     }
 }
 
 // MARK: - Public methods
 extension WhoToBuildCollectionViewCell {
-    func configure(with robot: Robot) {
+    func configure(with robot: Robot, savedImages: Bool) {
         robotNameLabel.text = robot.name.text
         buildTimeLabel.text = robot.buildTime
-        robotImageView.downloadImage(from: robot.coverImage)
+        robotImageView.downloadImage(from: robot.coverImage, grayScaled: !savedImages)
+        backgroundImageView.image = cellBackground(savedImages: savedImages)
+        self.savedImages = savedImages
     }
 
     func configureNew() {
+        newCell = true
         clockImageView.isHidden = true
         robotNameLabel.text = RobotsKeys.Configure.title.translate()
         robotImageView.image = UIImage(named: "build-your-own")?.rescaleContent(to: 0.75)
@@ -65,18 +78,6 @@ extension WhoToBuildCollectionViewCell {
         robotNameLabel.font = robotNameLabel.font.withSize(baseNameFontSize * multiplier * multiplier)
         buildTimeLabel.font = buildTimeLabel.font.withSize(buildTimeLabelFontSize(multiplier: multiplier,
                                                                                   text: buildTimeLabel.text))
-    }
-
-    private func buildTimeLabelFontSize(multiplier: CGFloat, text: String?) -> CGFloat {
-        guard let text = text, text.count > 3 else { return baseBuildTimeFontSize * multiplier * multiplier }
-
-        if UIScreen.main.bounds.size.height == Constants.iPhoneSEScreenHeight {
-            return baseBuildTimeFontSize * multiplier * multiplier * Constants.iPhoneSEFontSizeMultiplier
-        } else if UIScreen.main.bounds.size.height == Constants.iPhone8ScreenHeight {
-            return baseBuildTimeFontSize * multiplier * multiplier * Constants.iPhone8FontSizeMultiplier
-        } else {
-            return baseBuildTimeFontSize * multiplier * multiplier
-        }
     }
 }
 
@@ -101,6 +102,35 @@ extension WhoToBuildCollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        backgroundImageView.image = Image.BuildRobot.cellWhiteBorder
+        backgroundImageView.image = savedImages || newCell
+            ? Image.BuildRobot.cellWhiteBorder
+            : Image.YourRobots.cellWhiteBorderEditable
+    }
+}
+
+// MRAK: - Private methods
+extension WhoToBuildCollectionViewCell {
+    private func cellBackground(savedImages: Bool) -> UIImage? {
+        let activeBackground = savedImages || newCell
+            ? Image.BuildRobot.cellRedBorder
+            : Image.YourRobots.cellRedBorderEditable
+
+        let inactiveBackground = savedImages || newCell
+            ? Image.BuildRobot.cellWhiteBorder
+            : Image.YourRobots.cellWhiteBorderEditable
+
+        return isCentered ? activeBackground : inactiveBackground
+    }
+
+    private func buildTimeLabelFontSize(multiplier: CGFloat, text: String?) -> CGFloat {
+        guard let text = text, text.count > 3 else { return baseBuildTimeFontSize * multiplier * multiplier }
+
+        if UIScreen.main.bounds.size.height == Constants.iPhoneSEScreenHeight {
+            return baseBuildTimeFontSize * multiplier * multiplier * Constants.iPhoneSEFontSizeMultiplier
+        } else if UIScreen.main.bounds.size.height == Constants.iPhone8ScreenHeight {
+            return baseBuildTimeFontSize * multiplier * multiplier * Constants.iPhone8FontSizeMultiplier
+        } else {
+            return baseBuildTimeFontSize * multiplier * multiplier
+        }
     }
 }

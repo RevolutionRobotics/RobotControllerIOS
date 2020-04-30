@@ -23,6 +23,7 @@ target 'RevoRobotics' do
   pod 'ContextMenu'
 
   # Storage
+  pod 'ZIPFoundation', '~> 0.9'
   pod 'RealmSwift', '~> 3.18.0'
   pod 'Firebase/Core'
   pod 'Firebase/Analytics'
