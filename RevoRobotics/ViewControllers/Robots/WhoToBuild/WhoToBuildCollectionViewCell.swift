@@ -40,13 +40,6 @@ final class WhoToBuildCollectionViewCell: ResizableCell {
     private var savedImages = false
     private var newCell = false
 
-//    private var savedImages: Bool = false {
-//        didSet {
-//            backgroundImageView.image = cellBackground
-//        }
-//    }
-//
-
     override var isCentered: Bool {
         didSet {
             backgroundImageView.image = cellBackground(savedImages: savedImages)

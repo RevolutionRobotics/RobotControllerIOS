@@ -94,6 +94,8 @@ extension BuildRobotViewController {
         let storedBuildStep = storedRobotDataModel?.actualBuildStep ?? 0
         buildProgressBar.numberOfSteps = steps.count - 1
         buildProgressBar.currentStep = storedBuildStep
+        
+        pagerView.robotId = storedRobotDataModel?.remoteId
         pagerView.items = steps.map({ $0.image })
 
         pagerView.imageInsets = UIEdgeInsets(

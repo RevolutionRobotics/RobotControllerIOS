@@ -17,6 +17,8 @@ final class PagerView: UIView {
     // MARK: - Properties
     var imageInsets: UIEdgeInsets?
     var pageSelectedCallback: CallbackType<Int>?
+    var robotId: String?
+
     var items: [String] = [] {
         didSet {
             collectionView.reloadData()
@@ -84,13 +86,32 @@ extension PagerView: UICollectionViewDataSource {
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let index = indexPath.row
+
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: Constants.cellReuseIdentifier,
             for: indexPath) as? PagerViewCell else {
                 fatalError("Failed to dequeue pager view cell")
         }
-        cell.setup(with: items[indexPath.row], imageInsets: imageInsets)
 
+        guard
+            let robotId = robotId,
+            let currentFile = URL(string: items[index])?.pathComponents.last
+        else {
+            fatalError("Failed to parse URL for build step for: \(items[index])")
+        }
+
+        let savedImage = FileManager.documentsDirectory
+            .appendingPathComponent(ZipType.robots.rawValue, isDirectory: true)
+            .appendingPathComponent(robotId)
+            .appendingPathComponent(currentFile)
+
+        if FileManager.default.fileExists(atPath: savedImage.path) {
+            cell.setupSaved(with: savedImage.path, imageInsets: imageInsets)
+            return cell
+        }
+
+        cell.setup(with: items[index], imageInsets: imageInsets)
         return cell
     }
 }
