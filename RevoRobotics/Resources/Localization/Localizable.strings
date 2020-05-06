@@ -17,6 +17,7 @@
 "done" = "Done";
 "no" = "No";
 "cancel" = "Cancel";
+"download" = "Download";
 "card_create" = "Create!";
 
 // MARK: - Onboarding
@@ -63,6 +64,8 @@
 "configure_controller_tab_title" = "Controller";
 "controller_choose_this" = "Choose this!";
 "controller_selected" = "Play!";
+"modal_zip_download_title" = "Downloading robot";
+"modal_zip_downloiad_message" = "Please wait";
 "error_variable_already_in_use" = "Variable name is already in use.";
 "error_variable_empty" = "Variable name cannot be empty.";
 

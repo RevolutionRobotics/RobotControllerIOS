@@ -29,6 +29,8 @@ final class WhoToBuildCollectionViewCell: ResizableCell {
     @IBOutlet private weak var clockImageView: UIImageView!
     @IBOutlet private weak var clockImageLeadingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var clockImageBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var downloadLabelContainer: UIStackView!
+    @IBOutlet private weak var downloadLabel: UILabel!
 
     // MARK: - Properties
     private var baseHeightMultiplier: CGFloat = 0
@@ -37,22 +39,31 @@ final class WhoToBuildCollectionViewCell: ResizableCell {
     private var baseNameFontSize: CGFloat = 0
     private var baseBuildTimeFontSize: CGFloat = 0
 
+    private var savedImages = false
+    private var newCell = false
+
     override var isCentered: Bool {
         didSet {
-            backgroundImageView.image = isCentered ? Image.BuildRobot.cellRedBorder : Image.BuildRobot.cellWhiteBorder
+            backgroundImageView.image = cellBackground(savedImages: savedImages)
         }
     }
 }
 
 // MARK: - Public methods
 extension WhoToBuildCollectionViewCell {
-    func configure(with robot: Robot) {
+    func configure(with robot: Robot, savedImages: Bool) {
         robotNameLabel.text = robot.name.text
         buildTimeLabel.text = robot.buildTime
-        robotImageView.downloadImage(from: robot.coverImage)
+        downloadLabel.text = CommonKeys.download.translate().uppercased()
+
+        robotImageView.downloadImage(from: robot.coverImage, grayScaled: !savedImages)
+        backgroundImageView.image = cellBackground(savedImages: savedImages)
+        setCellState(isDownloaded: savedImages)
+        self.savedImages = savedImages
     }
 
     func configureNew() {
+        newCell = true
         clockImageView.isHidden = true
         robotNameLabel.text = RobotsKeys.Configure.title.translate()
         robotImageView.image = UIImage(named: "build-your-own")?.rescaleContent(to: 0.75)
@@ -65,18 +76,6 @@ extension WhoToBuildCollectionViewCell {
         robotNameLabel.font = robotNameLabel.font.withSize(baseNameFontSize * multiplier * multiplier)
         buildTimeLabel.font = buildTimeLabel.font.withSize(buildTimeLabelFontSize(multiplier: multiplier,
                                                                                   text: buildTimeLabel.text))
-    }
-
-    private func buildTimeLabelFontSize(multiplier: CGFloat, text: String?) -> CGFloat {
-        guard let text = text, text.count > 3 else { return baseBuildTimeFontSize * multiplier * multiplier }
-
-        if UIScreen.main.bounds.size.height == Constants.iPhoneSEScreenHeight {
-            return baseBuildTimeFontSize * multiplier * multiplier * Constants.iPhoneSEFontSizeMultiplier
-        } else if UIScreen.main.bounds.size.height == Constants.iPhone8ScreenHeight {
-            return baseBuildTimeFontSize * multiplier * multiplier * Constants.iPhone8FontSizeMultiplier
-        } else {
-            return baseBuildTimeFontSize * multiplier * multiplier
-        }
     }
 }
 
@@ -100,7 +99,44 @@ extension WhoToBuildCollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        let isDownloaded = savedImages || newCell
 
-        backgroundImageView.image = Image.BuildRobot.cellWhiteBorder
+        setCellState(isDownloaded: isDownloaded)
+        backgroundImageView.image = isDownloaded
+            ? Image.BuildRobot.cellWhiteBorder
+            : Image.BuildRobot.cellDownloadWhite
+    }
+}
+
+// MRAK: - Private methods
+extension WhoToBuildCollectionViewCell {
+    private func setCellState(isDownloaded: Bool) {
+        downloadLabelContainer.isHidden = isDownloaded
+        buildTimeLabel.isHidden = !isDownloaded
+        clockImageView.isHidden = !isDownloaded
+    }
+
+    private func cellBackground(savedImages: Bool) -> UIImage? {
+        let activeBackground = savedImages || newCell
+            ? Image.BuildRobot.cellRedBorder
+            : Image.BuildRobot.cellDownloadRed
+
+        let inactiveBackground = savedImages || newCell
+            ? Image.BuildRobot.cellWhiteBorder
+            : Image.BuildRobot.cellDownloadWhite
+
+        return isCentered ? activeBackground : inactiveBackground
+    }
+
+    private func buildTimeLabelFontSize(multiplier: CGFloat, text: String?) -> CGFloat {
+        guard let text = text, text.count > 3 else { return baseBuildTimeFontSize * multiplier * multiplier }
+
+        if UIScreen.main.bounds.size.height == Constants.iPhoneSEScreenHeight {
+            return baseBuildTimeFontSize * multiplier * multiplier * Constants.iPhoneSEFontSizeMultiplier
+        } else if UIScreen.main.bounds.size.height == Constants.iPhone8ScreenHeight {
+            return baseBuildTimeFontSize * multiplier * multiplier * Constants.iPhone8FontSizeMultiplier
+        } else {
+            return baseBuildTimeFontSize * multiplier * multiplier
+        }
     }
 }

@@ -9,6 +9,11 @@
 import PromiseKit
 import SwiftyJSON
 import Alamofire
+import ZIPFoundation
+
+enum ZipType: String {
+    case robots, challenges
+}
 
 final class ApiFetchHandler {
     // MARK: - Constants
@@ -63,6 +68,44 @@ final class ApiFetchHandler {
             error.report()
             print(error)
         }
+    }
+
+    func fetchZip(from urlString: String, type: ZipType, id: String, callback: @escaping Callback) {
+        guard
+            let url = URL(string: urlString),
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        else { return }
+
+        let queue = DispatchQueue(label: "zip_\(id)", qos: .background, attributes: .concurrent)
+        let target = documentsDirectory
+            .appendingPathComponent(type.rawValue, isDirectory: true)
+            .appendingPathComponent(id, isDirectory: true)
+
+        AF.request(url)
+            .validate()
+            .responseData(queue: queue) { response in
+                switch response.result {
+                case .success(let data):
+                    guard let archive = Archive(data: data, accessMode: .read) else {
+                        return
+                    }
+
+                    do {
+                        try archive.forEach({ entry in
+                            _ = try archive.extract(entry, to: target.appendingPathComponent(entry.path))
+                        })
+                    } catch let error {
+                        print(error.localizedDescription)
+                    }
+                case .failure(let error):
+                    error.report()
+                    print(error.localizedDescription)
+                }
+
+                DispatchQueue.main.async {
+                    callback()
+                }
+            }
     }
 }
 

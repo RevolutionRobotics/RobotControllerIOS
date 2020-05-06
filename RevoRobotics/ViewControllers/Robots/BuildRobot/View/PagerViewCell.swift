@@ -31,6 +31,17 @@ extension PagerViewCell {
         zoomableImageView.resetZoom()
         zoomableImageView.imageView.downloadImage(from: url)
 
+        setupInsets(with: imageInsets)
+    }
+
+    func setupSaved(with imageUrl: String, imageInsets: UIEdgeInsets?) {
+        zoomableImageView.resetZoom()
+        zoomableImageView.imageView.image = UIImage(contentsOfFile: imageUrl)
+
+        setupInsets(with: imageInsets)
+    }
+
+    private func setupInsets(with imageInsets: UIEdgeInsets?) {
         let parentFrame = zoomableImageView.frame
         let insets = imageInsets ?? .zero
 

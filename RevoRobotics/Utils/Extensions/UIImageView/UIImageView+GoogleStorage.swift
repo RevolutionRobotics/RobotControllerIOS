@@ -11,16 +11,21 @@ import Kingfisher
 import os
 
 extension UIImageView {
-    func downloadImage(from imageUrl: String?) {
+    func downloadImage(from imageUrl: String?, grayScaled: Bool = false) {
         guard let imageUrl = imageUrl else { return }
 
         if ImageCache.default.isCached(forKey: imageUrl) {
-            retrieveImageFromCache(key: imageUrl)
+            retrieveImageFromCache(key: imageUrl, grayScaled: grayScaled)
         } else {
             guard let url = URL(string: imageUrl) else { return }
 
             let resource = ImageResource(downloadURL: url, cacheKey: imageUrl)
             kf.setImage(with: resource, placeholder: nil, options: [.targetCache(ImageCache.default)])
+
+            if grayScaled {
+                image = image?.noir
+            }
+
             resetZoom()
         }
     }
@@ -28,14 +33,14 @@ extension UIImageView {
 
 // MARK: - Private extensions
 extension UIImageView {
-    private func retrieveImageFromCache(key: String) {
+    private func retrieveImageFromCache(key: String, grayScaled: Bool) {
         ImageCache.default.retrieveImageInDiskCache(
             forKey: key,
             completionHandler: { [weak self] result in
                 switch result {
                 case .success(let image):
                     DispatchQueue.main.async {
-                        self?.image = image
+                        self?.image = grayScaled ? image?.noir : image
                         self?.resetZoom()
                     }
                 case .failure:
