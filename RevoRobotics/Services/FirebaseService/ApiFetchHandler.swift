@@ -70,7 +70,7 @@ final class ApiFetchHandler {
         }
     }
 
-    func fetchZip(from urlString: String, type: ZipType, id: String) {
+    func fetchZip(from urlString: String, type: ZipType, id: String, callback: @escaping Callback) {
         guard
             let url = URL(string: urlString),
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
@@ -100,6 +100,10 @@ final class ApiFetchHandler {
                 case .failure(let error):
                     error.report()
                     print(error.localizedDescription)
+                }
+
+                DispatchQueue.main.async {
+                    callback()
                 }
             }
     }

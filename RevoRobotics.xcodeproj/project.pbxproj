@@ -379,6 +379,8 @@
 		D0BF25732283101000F08C9C /* CommunityModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF25722283100F00F08C9C /* CommunityModalViewController.swift */; };
 		D0D00FE822AFA84C00274241 /* ButtonlessProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D00FE622AFA84C00274241 /* ButtonlessProgramsViewController.swift */; };
 		D0D00FE922AFA84C00274241 /* ButtonlessProgramsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D00FE722AFA84C00274241 /* ButtonlessProgramsViewController.xib */; };
+		D0DF6E3424617D7B00526FFD /* ZipDownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DF6E3324617D7A00526FFD /* ZipDownloadView.swift */; };
+		D0DF6E362462269C00526FFD /* ZipDownloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0DF6E352462269C00526FFD /* ZipDownloadView.xib */; };
 		D0E3F88422B3E9ED00B4D9F2 /* TextInputModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3F88322B3E9ED00B4D9F2 /* TextInputModalView.xib */; };
 		D0E3F88822B786B800B4D9F2 /* ProgramListModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3F88722B786B800B4D9F2 /* ProgramListModalView.swift */; };
 		D0E3F88A22B786BF00B4D9F2 /* ProgramListModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3F88922B786BF00B4D9F2 /* ProgramListModalView.xib */; };
@@ -786,6 +788,8 @@
 		D0BF25722283100F00F08C9C /* CommunityModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityModalViewController.swift; sourceTree = "<group>"; };
 		D0D00FE622AFA84C00274241 /* ButtonlessProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonlessProgramsViewController.swift; sourceTree = "<group>"; };
 		D0D00FE722AFA84C00274241 /* ButtonlessProgramsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonlessProgramsViewController.xib; sourceTree = "<group>"; };
+		D0DF6E3324617D7A00526FFD /* ZipDownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipDownloadView.swift; sourceTree = "<group>"; };
+		D0DF6E352462269C00526FFD /* ZipDownloadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZipDownloadView.xib; sourceTree = "<group>"; };
 		D0E3F88322B3E9ED00B4D9F2 /* TextInputModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextInputModalView.xib; sourceTree = "<group>"; };
 		D0E3F88722B786B800B4D9F2 /* ProgramListModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramListModalView.swift; sourceTree = "<group>"; };
 		D0E3F88922B786BF00B4D9F2 /* ProgramListModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramListModalView.xib; sourceTree = "<group>"; };
@@ -1875,6 +1879,7 @@
 		2AFAA10E22662FF6002BE0A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D0DF6E3224617D4700526FFD /* ZipDownloadView */,
 				2ADE8C422271A67800ECEC72 /* BuildProgressBar */,
 				09FB0D7222677BF500735B74 /* Button */,
 				D0BA305822784CA900DA35D2 /* CollectionView */,
@@ -2221,6 +2226,15 @@
 			path = Community;
 			sourceTree = "<group>";
 		};
+		D0DF6E3224617D4700526FFD /* ZipDownloadView */ = {
+			isa = PBXGroup;
+			children = (
+				D0DF6E3324617D7A00526FFD /* ZipDownloadView.swift */,
+				D0DF6E352462269C00526FFD /* ZipDownloadView.xib */,
+			);
+			path = ZipDownloadView;
+			sourceTree = "<group>";
+		};
 		D0E3F88622B782E200B4D9F2 /* ProgramsModal */ = {
 			isa = PBXGroup;
 			children = (
@@ -2483,6 +2497,7 @@
 				D075EA3522C4FCDE0003C183 /* ChallengeDetailZoomableContent.xib in Resources */,
 				0941075F2297E889000A658A /* ProgramSelectorViewController.xib in Resources */,
 				0938897E22B24DD900292B32 /* robot.mp3 in Resources */,
+				D0DF6E362462269C00526FFD /* ZipDownloadView.xib in Resources */,
 				0939A38F2278440A005EE307 /* SensorConfigViewController.xib in Resources */,
 				D0241A1622B3BDD6005E8DB2 /* CodePreviewModalView.xib in Resources */,
 				0964798E22689DEC00F68456 /* ModalViewController.xib in Resources */,
@@ -2832,6 +2847,7 @@
 				D06C32772289BAE9005534C0 /* CheckForUpdateModalView.swift in Sources */,
 				D0313332228D5CBA00704989 /* Challenge.swift in Sources */,
 				D0313334228D5CBA00704989 /* Program.swift in Sources */,
+				D0DF6E3424617D7B00526FFD /* ZipDownloadView.swift in Sources */,
 				D0899C6E22A6BCB900DB6F97 /* ChallengesCollectionViewEvenCell.swift in Sources */,
 				D0313336228D5CBA00704989 /* ChallengeStep.swift in Sources */,
 				D058288923913E2C00AF42B1 /* ProgramsViewController+BlocklyBridgeDelegate.swift in Sources */,

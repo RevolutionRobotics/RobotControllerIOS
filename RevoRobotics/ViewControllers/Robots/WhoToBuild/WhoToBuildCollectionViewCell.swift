@@ -29,6 +29,8 @@ final class WhoToBuildCollectionViewCell: ResizableCell {
     @IBOutlet private weak var clockImageView: UIImageView!
     @IBOutlet private weak var clockImageLeadingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var clockImageBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var downloadLabelContainer: UIStackView!
+    @IBOutlet private weak var downloadLabel: UILabel!
 
     // MARK: - Properties
     private var baseHeightMultiplier: CGFloat = 0
@@ -52,8 +54,11 @@ extension WhoToBuildCollectionViewCell {
     func configure(with robot: Robot, savedImages: Bool) {
         robotNameLabel.text = robot.name.text
         buildTimeLabel.text = robot.buildTime
+        downloadLabel.text = CommonKeys.download.translate().uppercased()
+
         robotImageView.downloadImage(from: robot.coverImage, grayScaled: !savedImages)
         backgroundImageView.image = cellBackground(savedImages: savedImages)
+        setCellState(isDownloaded: savedImages)
         self.savedImages = savedImages
     }
 
@@ -94,23 +99,31 @@ extension WhoToBuildCollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        let isDownloaded = savedImages || newCell
 
-        backgroundImageView.image = savedImages || newCell
+        setCellState(isDownloaded: isDownloaded)
+        backgroundImageView.image = isDownloaded
             ? Image.BuildRobot.cellWhiteBorder
-            : Image.YourRobots.cellWhiteBorderEditable
+            : Image.BuildRobot.cellDownloadWhite
     }
 }
 
 // MRAK: - Private methods
 extension WhoToBuildCollectionViewCell {
+    private func setCellState(isDownloaded: Bool) {
+        downloadLabelContainer.isHidden = isDownloaded
+        buildTimeLabel.isHidden = !isDownloaded
+        clockImageView.isHidden = !isDownloaded
+    }
+
     private func cellBackground(savedImages: Bool) -> UIImage? {
         let activeBackground = savedImages || newCell
             ? Image.BuildRobot.cellRedBorder
-            : Image.YourRobots.cellRedBorderEditable
+            : Image.BuildRobot.cellDownloadRed
 
         let inactiveBackground = savedImages || newCell
             ? Image.BuildRobot.cellWhiteBorder
-            : Image.YourRobots.cellWhiteBorderEditable
+            : Image.BuildRobot.cellDownloadWhite
 
         return isCentered ? activeBackground : inactiveBackground
     }

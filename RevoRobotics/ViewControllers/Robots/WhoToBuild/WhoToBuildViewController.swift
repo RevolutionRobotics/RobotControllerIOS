@@ -135,6 +135,32 @@ extension WhoToBuildViewController {
         collectionView.register(WhoToBuildCollectionViewCell.self)
         collectionView.register(whoToBuildNib, forCellWithReuseIdentifier: newCellReuseId)
     }
+
+    private func downloadImages(for robot: Robot?) {
+        guard let robot = robot else { return }
+
+        showDownloadingModal()
+        ApiFetchHandler()
+            .fetchZip(from: robot.buildStepsArchive, type: .robots, id: robot.id, callback: { [weak self] in
+                guard let `self` = self else { return }
+                self.dismissModalViewController()
+                self.collectionView.reloadData()
+
+                if let index = self.robots.firstIndex(where: { $0?.id == robot.id }) {
+                    self.collectionView.refreshCollectionView(callback: { [weak self] in
+                        self?.collectionView.selectCell(at: index)
+                    })
+                }
+            })
+    }
+
+    private func showDownloadingModal() {
+        let zipDownloadView = ZipDownloadView.instatiate()
+        zipDownloadView.setup(
+            with: RobotsKeys.WhoToBuild.modalZipDownloadTitle.translate().uppercased(),
+            message: RobotsKeys.WhoToBuild.modalZipDownloadMessage.translate().uppercased())
+        presentModal(with: zipDownloadView, closeHidden: true)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -168,8 +194,10 @@ extension WhoToBuildViewController: UICollectionViewDataSource {
 // MARk: - RRCollectionViewDelegate
 extension WhoToBuildViewController: RRCollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard indexPath.row == 0 else {
-            selectedRobot = robots[indexPath.row]
+        let index = indexPath.row
+        selectedRobot = robots[index]
+
+        guard index == 0 else {
             navigateToBuildScreen()
             return
         }
@@ -187,6 +215,12 @@ extension WhoToBuildViewController: RRCollectionViewDelegate {
 // MARK: - Navigation
 extension WhoToBuildViewController {
     private func navigateToBuildScreen() {
+        guard let robotId = selectedRobot?.id else { return }
+        guard savedImages[robotId] ?? false else {
+            downloadImages(for: selectedRobot)
+            return
+        }
+
         let buildScreen = AppContainer.shared.container.unwrappedResolve(BuildRobotViewController.self)
         buildScreen.remoteRobotDataModel = selectedRobot
         navigationController?.pushViewController(buildScreen, animated: true)
