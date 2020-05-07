@@ -27,7 +27,7 @@ final class ChallengesCollectionViewOddCell: UICollectionViewCell {
             lineImageView.isHidden = isFirstItem
         }
     }
-    var progress: Progress = .unavailable
+    var progress: Progress = .available
 }
 
 // MARK: - Reuse
@@ -35,7 +35,7 @@ extension ChallengesCollectionViewOddCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        progress = .unavailable
+        progress = .available
         isFirstItem = false
     }
 }
@@ -47,22 +47,11 @@ extension ChallengesCollectionViewOddCell {
         challengeNumberLabel.text = "\(index)."
 
         switch progress {
-        case .unavailable:
-            setUnavailable()
         case .available:
             setAvailable()
         case .completed:
             setCompleted()
         }
-    }
-
-    private func setUnavailable() {
-        cardImageView.image = Image.Challenges.ChallengeInactiveCard
-        lineImageView.image = Image.Challenges.ChallengeGreyLine
-        challengeNumberLabel.textColor = .white
-        lineImageView.alpha = Constants.inactiveAlpha
-        nameLabel.alpha = Constants.inactiveAlpha
-        challengeNumberLabel.alpha = Constants.inactiveAlpha
     }
 
     private func setAvailable() {

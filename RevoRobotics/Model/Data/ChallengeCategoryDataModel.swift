@@ -11,14 +11,16 @@ import RealmSwift
 final class ChallengeCategoryDataModel: Object {
     // MARK: - Properties
     @objc dynamic var id: String = ""
-    @objc dynamic var progress: Int = 0
+    dynamic var progress: List<String> = List<String>()
 
     // MARK: - Initialization
     convenience init(id: String,
-                     progress: Int) {
+                     progress: [String]) {
         self.init()
         self.id = id
-        self.progress = progress
+
+        self.progress = List<String>()
+        self.progress.append(objectsIn: progress)
     }
 
     override static func primaryKey() -> String? {

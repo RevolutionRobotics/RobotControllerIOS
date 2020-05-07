@@ -86,6 +86,7 @@ extension ChallengeCategoriesViewController: UICollectionViewDataSource {
         let cell = challengesCollectionView.dequeueReusableCell(forIndexPath: indexPath)
             as ChallengeCategoryCollectionViewCell
         let category = realmService.getChallengeCategory(id: challengeCategories[indexPath.row].id)
+        cell.index = indexPath.row
         cell.setup(with: challengeCategories[indexPath.row], userCategory: category)
         return cell
     }
