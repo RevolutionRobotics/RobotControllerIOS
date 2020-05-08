@@ -61,7 +61,15 @@ extension ChallengesViewController {
                 .filter({ !$0.isCompleted && $0.order < progress })
 
             if !legacyUnsavedChallenges.isEmpty {
-                realmService.saveChallenges(legacyUnsavedChallenges)
+                let updatedChallenges = legacyUnsavedChallenges.map({
+                    ChallengeDataModel(
+                        id: $0.id,
+                        categoryId: $0.categoryId,
+                        isCompleted: true,
+                        order: $0.order)
+                })
+
+                realmService.saveChallenges(updatedChallenges)
             }
 
             logEvent(named: "continue_challenge", params: [
