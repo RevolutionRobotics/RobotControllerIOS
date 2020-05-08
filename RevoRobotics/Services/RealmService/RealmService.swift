@@ -171,6 +171,17 @@ extension RealmService: RealmServiceInterface {
         realmConnector.save(object: category, shouldUpdate: true)
     }
 
+    func saveChallenges(_ challenges: [ChallengeDataModel]) {
+        realmConnector.save(objects: challenges, shouldUpdate: true)
+    }
+
+    func getChallenges() -> [ChallengeDataModel] {
+        guard let challenges = realmConnector.findAll(type: ChallengeDataModel.self) as? [ChallengeDataModel] else {
+            return []
+        }
+        return challenges
+    }
+
     func getChallengeCategory(id: String?) -> ChallengeCategoryDataModel? {
         guard let categories = realmConnector.findAll(type: ChallengeCategoryDataModel.self)
             as? [ChallengeCategoryDataModel],

@@ -19,6 +19,7 @@ final class ChallengeCategoryCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Properties
     var index: Int = 0
+    var completedCount: Int = 0
 }
 
 // MARK: - Setup
@@ -26,12 +27,8 @@ extension ChallengeCategoryCollectionViewCell {
     func setup(with challengeCategory: ChallengeCategory, userCategory: ChallengeCategoryDataModel?) {
         categoryName.text = challengeCategory.name.text
         categoryImageView.downloadImage(from: challengeCategory.image)
-        guard let category = userCategory else {
-            progressView.progress = 0
-            categoryProgress.text = ChallengesKeys.Main.progress.translate(args: 0, challengeCategory.challenges.count)
-            return
-        }
-        if category.progress.count == challengeCategory.challenges.count {
+
+        if completedCount == challengeCategory.challenges.count {
             backgroundImageView.image = Image.Challenges.ChallengeCategoryCardGold
             cornerImageView.image = Image.Challenges.ChallengeCategoryCardGoldCorner
             categoryProgress.textColor = .black
@@ -40,9 +37,9 @@ extension ChallengeCategoryCollectionViewCell {
             cornerImageView.image = Image.Challenges.ChallengeCategoryCardGreyCorner
             categoryProgress.textColor = .white
         }
-        progressView.progress = Float(category.progress.count) / Float(challengeCategory.challenges.count)
+        progressView.progress = Float(completedCount) / Float(challengeCategory.challenges.count)
         categoryProgress.text =
-            ChallengesKeys.Main.progress.translate(args: category.progress.count, challengeCategory.challenges.count)
+            ChallengesKeys.Main.progress.translate(args: completedCount, challengeCategory.challenges.count)
     }
 }
 
