@@ -15,7 +15,11 @@ final class MenuViewController: BaseViewController {
     // MARK: - Constants
     enum Constants {
         static let onboardingCompletedProgress = 2
-        static let onboardingChallengeId = "ef504b31-d64f-4bfb-bd4b-5b96a9a0489f"
+        static let onboardingCategoryId = "ef504b31-d64f-4bfb-bd4b-5b96a9a0489f"
+        static let onboardingChallengeIds = [
+            "e32cbf06-3343-446b-a17f-af84e160cee5",
+            "ce95005e-16e1-4d7b-ac9c-b24ba9b6625f"
+        ]
     }
 
     // MARK: - Outlets
@@ -52,11 +56,11 @@ extension MenuViewController {
         super.viewDidAppear(animated)
         guard onboardingInProgress else { return }
 
-        if let onboarding = realmService.getChallengeCategory(id: Constants.onboardingChallengeId) {
-            if onboarding.progress < Constants.onboardingCompletedProgress {
-                setOnboardingCompletedProgress()
-            }
-        } else {
+        let onboardingProgress = realmService.getChallenges()
+            .filter({ Constants.onboardingChallengeIds.contains($0.id) && $0.isCompleted })
+            .count
+
+        if onboardingProgress < Constants.onboardingCompletedProgress {
             setOnboardingCompletedProgress()
         }
 
@@ -82,7 +86,7 @@ extension MenuViewController {
             switch result {
             case .success(let challengeCategories):
                 guard let onboardingChallenge = challengeCategories.first(where: {
-                    $0.id == Constants.onboardingChallengeId
+                    $0.id == Constants.onboardingCategoryId
                 }) else { return }
                 self?.navigationController?.pushViewController(challengesViewController, animated: true)
                 challengesViewController.setup(with: onboardingChallenge)
@@ -93,10 +97,19 @@ extension MenuViewController {
     }
 
     private func setOnboardingCompletedProgress() {
-        let onboardingCategory = ChallengeCategoryDataModel(
-            id: Constants.onboardingChallengeId,
-            progress: Constants.onboardingCompletedProgress)
-        realmService.saveChallengeCategory(onboardingCategory)
+        let onboardingChallenges: [ChallengeDataModel] = Constants.onboardingChallengeIds.compactMap({ challengeId in
+            guard let challenge = realmService.getChallenges().first(where: { $0.id == challengeId }) else {
+                return nil
+            }
+
+            return ChallengeDataModel(
+                id: challenge.id,
+                categoryId: challenge.categoryId,
+                isCompleted: true,
+                order: challenge.order)
+        })
+
+        realmService.saveChallenges(onboardingChallenges)
     }
 
     private func showOnboarding() {

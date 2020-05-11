@@ -28,6 +28,8 @@ protocol RealmServiceInterface: class {
 
     func getChallengeCategory(id: String?) -> ChallengeCategoryDataModel?
     func saveChallengeCategory(_ category: ChallengeCategoryDataModel)
+    func saveChallenges(_ challenges: [ChallengeDataModel])
+    func getChallenges() -> [ChallengeDataModel]
 
     func getPrograms() -> [ProgramDataModel]
     func getProgram(id: String?) -> ProgramDataModel?

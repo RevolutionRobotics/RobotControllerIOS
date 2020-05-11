@@ -22,7 +22,7 @@ final class ChallengesViewController: BaseViewController {
     // MARK: - Properties
     var realmService: RealmServiceInterface!
     private var challengeCategory: ChallengeCategory?
-    private var challenges: [Challenge]?
+    private var challenges: [ChallengeDataModel]?
     private var oneSitting = true
     private var progress: Int = 0
     private var currentChallenge: Int = 0
@@ -33,9 +33,10 @@ extension ChallengesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let category = challengeCategory else { return }
-
-        challenges = category.challenges
+        challenges = realmService.getChallenges()
+            .filter({ $0.categoryId == challengeCategory?.id })
             .sorted(by: { $0.order < $1.order })
+
         navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         navigationBar.setup(title: category.name.text, delegate: self)
         challengeDescription.attributedText = NSAttributedString.attributedString(from: category.description.text,
@@ -51,15 +52,42 @@ extension ChallengesViewController {
 extension ChallengesViewController {
     func setup(with challengeCategory: ChallengeCategory) {
         self.challengeCategory = challengeCategory
+
         if let category = realmService.getChallengeCategory(id: challengeCategory.id) {
             progress = category.progress
             oneSitting = false
+
+            let legacyUnsavedChallenges = realmService.getChallenges()
+                .filter({ !$0.isCompleted && $0.order < progress })
+
+            if !legacyUnsavedChallenges.isEmpty {
+                let updatedChallenges = legacyUnsavedChallenges.map({
+                    ChallengeDataModel(
+                        id: $0.id,
+                        categoryId: $0.categoryId,
+                        isCompleted: true,
+                        order: $0.order)
+                })
+
+                realmService.saveChallenges(updatedChallenges)
+            }
+
             logEvent(named: "continue_challenge", params: [
                 "id": challengeCategory.id
             ])
         } else {
             let category = ChallengeCategoryDataModel(id: challengeCategory.id, progress: 0)
             realmService.saveChallengeCategory(category)
+
+            let categotyChallenges = challengeCategory.challenges
+                .map({ ChallengeDataModel(
+                    id: $0.id,
+                    categoryId: challengeCategory.id,
+                    isCompleted: false,
+                    order: $0.order)
+                })
+            realmService.saveChallenges(categotyChallenges)
+
             logEvent(named: "start_new_challenge", params: [
                 "id": challengeCategory.id
             ])
@@ -92,19 +120,25 @@ extension ChallengesViewController {
     }
 
     private func updateProgress() {
-        if progress <= currentChallenge {
-            progress = currentChallenge + 1
-        }
-        guard let challengeCategory = challengeCategory else {
-            return
-        }
-        let category = ChallengeCategoryDataModel(id: challengeCategory.id, progress: progress)
-        realmService.saveChallengeCategory(category)
+        guard let challenge = challenges?[currentChallenge] else { return }
+
+        let updatedChallenge = ChallengeDataModel(
+                id: challenge.id,
+                categoryId: challenge.categoryId,
+                isCompleted: true,
+                order: challenge.order
+            )
+
+        realmService.saveChallenges([ updatedChallenge ])
     }
 
     private func showNextChallenge() {
         currentChallenge += 1
-        guard let challenge = challenges?[currentChallenge] else { return }
+        guard
+            let challengeDataModel = challenges?[currentChallenge],
+            let challenge = getChallenge(for: challengeDataModel.id)
+        else { return }
+
         let challengeDetailViewController =
             AppContainer.shared.container.unwrappedResolve(ChallengeDetailViewController.self)
         navigationController?.pushViewController(challengeDetailViewController, animated: true)
@@ -126,8 +160,10 @@ extension ChallengesViewController {
 // MARK: - UICollectionViewDelegate
 extension ChallengesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard progress >= indexPath.row,
-            let challenge = challenges?[indexPath.row] else { return }
+        guard
+            let challengeDataModel = challenges?[indexPath.row],
+            let challenge = getChallenge(for: challengeDataModel.id)
+        else { return }
         currentChallenge = indexPath.row
         let challengeDetailViewController =
             AppContainer.shared.container.unwrappedResolve(ChallengeDetailViewController.self)
@@ -150,14 +186,11 @@ extension ChallengesViewController: UICollectionViewDataSource {
         if indexPath.row % 2 != 0 {
             let cell: ChallengesCollectionViewEvenCell =
                 challengesCollectionView.dequeueReusableCell(forIndexPath: indexPath)
-            if progress == indexPath.row {
-                cell.progress = .available
-            }
-            if progress > indexPath.row {
-                cell.progress = .completed
-            }
 
-            if let challenge = challenges?[indexPath.row] {
+            if
+                let challengeDataModel = challenges?[indexPath.row],
+                let challenge = getChallenge(for: challengeDataModel.id) {
+                cell.progress = challengeDataModel.isCompleted ? .completed : .available
                 cell.setup(with: challenge, index: indexPath.row + 1)
                 cell.isFirstItem = indexPath.row == 0
             }
@@ -165,14 +198,11 @@ extension ChallengesViewController: UICollectionViewDataSource {
         } else {
             let cell: ChallengesCollectionViewOddCell =
                 challengesCollectionView.dequeueReusableCell(forIndexPath: indexPath)
-            if progress == indexPath.row {
-                cell.progress = .available
-            }
-            if progress > indexPath.row {
-                cell.progress = .completed
-            }
 
-            if let challenge = challenges?[indexPath.row] {
+            if
+                let challengeDataModel = challenges?[indexPath.row],
+                let challenge = getChallenge(for: challengeDataModel.id) {
+                cell.progress = challengeDataModel.isCompleted ? .completed : .available
                 cell.setup(with: challenge, index: indexPath.row + 1)
                 cell.isFirstItem = indexPath.row == 0
             }
@@ -191,5 +221,12 @@ extension ChallengesViewController {
     override func disconnected() {
         super.disconnected()
         navigationBar.bluetoothButtonState = .notConnected
+    }
+}
+
+// MARK: - Private methods
+extension ChallengesViewController {
+    private func getChallenge(for id: String) -> Challenge? {
+        return challengeCategory?.challenges.first(where: { $0.id == id })
     }
 }
