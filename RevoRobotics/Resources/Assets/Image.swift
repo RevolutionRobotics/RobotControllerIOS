@@ -127,6 +127,7 @@ enum Image {
         static let ChallengeCategoryCardGoldCorner = UIImage(named: "ChallengeCategoryCardGoldCorner")
         static let ChallengeCategoryCardGrey = UIImage(named: "ChallengeCategoryCardGrey")
         static let ChallengeCategoryCardGreyCorner = UIImage(named: "ChallengeCategoryCardGreyCorner")
+        static let ChallengeCategoryCardDownload = UIImage(named: "ChallengeCategoryCardDownload")
 
         static let ChallengeActiveCard = UIImage(named: "ChallengeActiveCard")
         static let ChallengeFinishedCard = UIImage(named: "ChallengeFinishedCard")

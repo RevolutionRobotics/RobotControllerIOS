@@ -16,6 +16,7 @@ final class ChallengeCategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var progressView: UIProgressView!
     @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var cornerImageView: UIImageView!
+    @IBOutlet private weak var downloadLabel: UILabel!
 
     // MARK: - Properties
     var index: Int = 0
@@ -26,6 +27,7 @@ final class ChallengeCategoryCollectionViewCell: UICollectionViewCell {
 extension ChallengeCategoryCollectionViewCell {
     func setup(with challengeCategory: ChallengeCategory, userCategory: ChallengeCategoryDataModel?) {
         categoryName.text = challengeCategory.name.text
+        categoryName.textColor = .white
         categoryImageView.downloadImage(from: challengeCategory.image)
 
         if completedCount == challengeCategory.challenges.count {
@@ -37,9 +39,25 @@ extension ChallengeCategoryCollectionViewCell {
             cornerImageView.image = Image.Challenges.ChallengeCategoryCardGreyCorner
             categoryProgress.textColor = .white
         }
+
+        cornerImageView.isHidden = false
+        progressView.isHidden = false
+        downloadLabel.isHidden = true
+
         progressView.progress = Float(completedCount) / Float(challengeCategory.challenges.count)
         categoryProgress.text =
             ChallengesKeys.Main.progress.translate(args: completedCount, challengeCategory.challenges.count)
+    }
+
+    func setupDownloadNeeded(with challengeCategory: ChallengeCategory) {
+        categoryName.text = challengeCategory.name.text
+        categoryName.textColor = .gray
+        categoryImageView.downloadImage(from: challengeCategory.image, grayScaled: true)
+
+        backgroundImageView.image = Image.Challenges.ChallengeCategoryCardDownload
+        cornerImageView.isHidden = true
+        progressView.isHidden = true
+        downloadLabel.isHidden = false
     }
 }
 
@@ -48,6 +66,7 @@ extension ChallengeCategoryCollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        downloadLabel.text = CommonKeys.download.translate().uppercased()
         layoutIfNeeded()
     }
 

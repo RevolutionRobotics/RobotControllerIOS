@@ -20,4 +20,5 @@ enum CommonKeys {
     static let parentalGateFailed = "error_parental_gate_failed"
     static let bluetoothErrorDescription = "error_bluetooth_description"
     static let bluetoothErrorSettings = "error_bluetooth_settings"
+    static let modalZipDownloadTitle = "modal_zip_download_title"
 }

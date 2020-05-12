@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,13 +62,25 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocM-Sn-gHk">
+                        <rect key="frame" x="33" y="117" width="100" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="0UJ-FY-Dat"/>
+                            <constraint firstAttribute="height" constant="20" id="Kkc-Yx-LrS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Jjv-9n-i0c" secondAttribute="bottom" id="7eE-xO-ej9"/>
+                <constraint firstItem="Jjv-9n-i0c" firstAttribute="leading" secondItem="ocM-Sn-gHk" secondAttribute="trailing" constant="3.5" id="8dn-pf-C5Q"/>
                 <constraint firstAttribute="trailing" secondItem="Jjv-9n-i0c" secondAttribute="trailing" constant="1" id="Dnd-vK-jIy"/>
                 <constraint firstItem="o5U-ih-htm" firstAttribute="centerY" secondItem="Jjv-9n-i0c" secondAttribute="centerY" id="Fvq-b7-flE"/>
                 <constraint firstItem="XHB-rn-YGb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="J4s-UY-zBh"/>
+                <constraint firstAttribute="bottom" secondItem="ocM-Sn-gHk" secondAttribute="bottom" constant="12" id="JMP-IU-Y5O"/>
                 <constraint firstItem="iZU-t5-zBc" firstAttribute="centerY" secondItem="kvT-hu-BBH" secondAttribute="centerY" id="L5q-dK-Kpb"/>
                 <constraint firstItem="o5U-ih-htm" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="100:162" id="ReV-mk-9Ic"/>
                 <constraint firstItem="kvT-hu-BBH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="T91-IP-NKa"/>
@@ -90,9 +102,10 @@
                 <outlet property="categoryName" destination="iZU-t5-zBc" id="7yc-5T-4tY"/>
                 <outlet property="categoryProgress" destination="u8e-Je-pif" id="JeQ-Yv-99k"/>
                 <outlet property="cornerImageView" destination="Jjv-9n-i0c" id="mzh-0G-qkG"/>
+                <outlet property="downloadLabel" destination="ocM-Sn-gHk" id="ViQ-t4-LQH"/>
                 <outlet property="progressView" destination="o5U-ih-htm" id="qVr-bY-wE8"/>
             </connections>
-            <point key="canvasLocation" x="124.6376811594203" y="130.58035714285714"/>
+            <point key="canvasLocation" x="124.6376811594203" y="130.24553571428572"/>
         </collectionViewCell>
     </objects>
     <resources>

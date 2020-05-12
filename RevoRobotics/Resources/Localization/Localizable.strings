@@ -19,6 +19,7 @@
 "cancel" = "Cancel";
 "download" = "Download";
 "card_create" = "Create!";
+"modal_zip_download_title" = "Please wait";
 
 // MARK: - Onboarding
 "onboarding_age_select_title" = "What's your date of birth?";
@@ -64,8 +65,7 @@
 "configure_controller_tab_title" = "Controller";
 "controller_choose_this" = "Choose this!";
 "controller_selected" = "Play!";
-"modal_zip_download_title" = "Downloading robot";
-"modal_zip_downloiad_message" = "Please wait";
+"modal_zip_download_robot" = "Downloading robot";
 "error_variable_already_in_use" = "Variable name is already in use.";
 "error_variable_empty" = "Variable name cannot be empty.";
 
@@ -195,6 +195,7 @@
 // MARK: - Challenges
 "challenges_screen_title" = "Challenges";
 "challenge_list_progress" = "%d/%d";
+"modal_zip_download_challenge" = "Downloading challenge";
 
 // MARK: - Community
 "screen_title" = "Community";
