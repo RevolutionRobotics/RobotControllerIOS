@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ChallengeDetailVerticalContent: UIView {
+final class ChallengeDetailVerticalContent: ChallengeStepView {
     // MARK: - Constants
     private enum Constants {
         static let fontSize: CGFloat = 18.0
@@ -21,9 +21,9 @@ final class ChallengeDetailVerticalContent: UIView {
 
 // MARK: - ChallengeDetailContent
 extension ChallengeDetailVerticalContent: ChallengeDetailContentProtocol {
-    func setup(with step: ChallengeStep) {
+    func setup(with step: ChallengeStep, challengeId: String) {
         descriptionLabel.attributedText = NSAttributedString
             .attributedString(from: step.text.text, fontSize: Constants.fontSize)
-        challengeImageView.downloadImage(from: step.image)
+        setupImage(for: step, in: challengeImageView, challengeId: challengeId)
     }
 }

@@ -144,9 +144,10 @@ extension WhoToBuildViewController {
             .fetchZip(from: robot.buildStepsArchive, type: .robots, id: robot.id, callback: { [weak self] error in
                 guard let `self` = self else { return }
                 self.dismissModalViewController()
-                guard error != nil else {
+                guard error == nil else {
                     error?.report()
-                    _ = UIAlertController.errorAlert(type: .network)
+                    let alert = UIAlertController.errorAlert(type: .network)
+                    self.present(alert, animated: true, completion: nil)
                     return
                 }
 

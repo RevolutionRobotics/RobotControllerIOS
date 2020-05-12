@@ -176,19 +176,25 @@ extension ChallengeCategoriesViewController {
             when(fulfilled: promises)
         }
         .done { [weak self] error in
+            guard let `self` = self else { return }
             guard error.allSatisfy({ $0 == nil }) else {
                 error.forEach { $0?.report() }
-                _ = UIAlertController.errorAlert(type: .network)
+                self.showNetworkError()
                 return
             }
 
-            self?.dismissModalViewController()
-            self?.challengesCollectionView.reloadData()
+            self.dismissModalViewController()
+            self.challengesCollectionView.reloadData()
         }
-        .catch { error in
+        .catch { [weak self] error in
             error.report()
-            _ = UIAlertController.errorAlert(type: .network)
+            self?.showNetworkError()
         }
+    }
+
+    private func showNetworkError() {
+        let alert = UIAlertController.errorAlert(type: .network)
+        present(alert, animated: true, completion: nil)
     }
 
     private func showDownloadingModal() {

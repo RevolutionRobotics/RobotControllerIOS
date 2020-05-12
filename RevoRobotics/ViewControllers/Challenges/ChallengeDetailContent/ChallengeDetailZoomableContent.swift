@@ -8,16 +8,16 @@
 
 import UIKit
 
-final class ChallengeDetailZoomableContent: UIView {
+final class ChallengeDetailZoomableContent: ChallengeStepView {
     // MARK: - Outlets
     @IBOutlet private weak var zoomableImageView: RRZoomableImageView!
 }
 
 // MARK: - ChallengeDetailContent
 extension ChallengeDetailZoomableContent: ChallengeDetailContentProtocol {
-    func setup(with step: ChallengeStep) {
+    func setup(with step: ChallengeStep, challengeId: String) {
         zoomableImageView.frame = bounds
         zoomableImageView.resizeImageView()
-        zoomableImageView.imageView.downloadImage(from: step.image)
+        setupImage(for: step, in: zoomableImageView.imageView, challengeId: challengeId)
     }
 }

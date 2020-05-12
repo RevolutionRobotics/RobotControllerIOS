@@ -24,7 +24,7 @@ final class ChallengeDetailButtonContent: UIView {
 
 // MARK: - ChallengeDetailContent
 extension ChallengeDetailButtonContent: ChallengeDetailContentProtocol {
-    func setup(with step: ChallengeStep) {
+    func setup(with step: ChallengeStep, challengeId: String) {
         descriptionLabel.attributedText = NSAttributedString
             .attributedString(from: step.text.text, fontSize: Constants.fontSize)
 
