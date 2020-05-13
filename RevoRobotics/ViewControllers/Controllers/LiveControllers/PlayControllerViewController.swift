@@ -30,17 +30,25 @@ final class PlayControllerViewController: BaseViewController {
     private var configurationAlreadySent: Bool = false
 
     override func backButtonDidTap() {
-        guard onboardingInProgress else {
-            super.backButtonDidTap()
-            return
-        }
-
         guard let menu = navigationController?.viewControllers
             .first(where: { $0 is MenuViewController }) as? MenuViewController
         else { return }
 
-        menu.onboardingInProgress = true
-        self.navigationController?.popToViewController(menu, animated: true)
+        menu.onboardingInProgress = onboardingInProgress
+        let confirmView = ConfirmModalView.instatiate()
+
+        confirmView.setup(
+            title: ControllerKeys.exitModalPrompt.translate().uppercased(),
+            subtitle: nil,
+            negativeButtonTitle: ControllerKeys.exitModalCancel.translate(),
+            positiveButtonTitle: ControllerKeys.exitModalLeave.translate())
+        confirmView.confirmSelected = { [weak self] confirmed in
+            self?.dismiss(animated: true, completion: { [weak self] in
+                guard confirmed else { return }
+                self?.leaveControllerScreen(to: menu)
+            })
+        }
+        presentModal(with: confirmView, onDismissed: nil)
     }
 }
 
@@ -94,6 +102,14 @@ extension PlayControllerViewController {
 
 // MARK: - Setup
 extension PlayControllerViewController {
+    private func leaveControllerScreen(to menu: MenuViewController) {
+        if onboardingInProgress {
+            navigationController?.popToViewController(menu, animated: true)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
+    }
+
     private func setupPadView() {
         guard let typeString = controllerDataModel?.type,
             let type = ControllerType(rawValue: typeString) else {

@@ -17,4 +17,7 @@ enum ControllerKeys {
     static let drive = "controller_setup_drive"
     static let new = "controller_new"
     static let create = "card_create"
+    static let exitModalPrompt = "controller_exit_modal_prompt"
+    static let exitModalLeave = "controller_exit_modal_leave"
+    static let exitModalCancel = "controller_exit_modal_cancel"
 }
