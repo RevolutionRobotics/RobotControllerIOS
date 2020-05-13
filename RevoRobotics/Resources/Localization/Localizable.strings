@@ -68,6 +68,8 @@
 "modal_zip_download_robot" = "Downloading robot";
 "error_variable_already_in_use" = "Variable name is already in use.";
 "error_variable_empty" = "Variable name cannot be empty.";
+"modal_zip_delete_error_title" = "Cannot delete robot!";
+"modal_zip_delete_error_text" = "You have an unfinished %@ in your robot list. Finish or delete it first!";
 
 // MARK: - Build robot
 "build_robot_turn_on_the_brain_instruction" = "To take control, switch the brain on";

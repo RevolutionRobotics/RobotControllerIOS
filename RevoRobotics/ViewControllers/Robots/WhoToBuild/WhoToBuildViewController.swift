@@ -89,6 +89,27 @@ extension WhoToBuildViewController {
             return false
         }
     }
+
+    private func deleteRobot(at index: Int) {
+        guard
+            let id = robots[index]?.id,
+            let documentsDirectory = FileManager.default
+                .urls(for: .documentDirectory, in: .userDomainMask)
+                .first
+        else { return }
+
+        let target = documentsDirectory
+            .appendingPathComponent(ZipType.robots.rawValue, isDirectory: true)
+            .appendingPathComponent(id, isDirectory: true)
+
+        do {
+            try? FileManager.default.removeItem(at: target)
+            collectionView.reloadData()
+            collectionView.refreshCollectionView(callback: { [weak self] in
+                self?.collectionView.selectCell(at: index)
+            })
+        }
+    }
 }
 
 // MARK: - Actions
@@ -168,6 +189,17 @@ extension WhoToBuildViewController {
             message: RobotsKeys.WhoToBuild.modalZipDownloadMessage.translate().uppercased())
         presentModal(with: zipDownloadView, closeHidden: true)
     }
+
+    private func showDeleteError(for name: String) {
+        let alertController = UIAlertController(title: RobotsKeys.WhoToBuild.deleteErrorTitle.translate(),
+                                                message: RobotsKeys.WhoToBuild.deleteErrorText.translate(args: name),
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: CommonKeys.errorOk.translate(), style: .default, handler: { _ in
+            alertController.dismiss(animated: true, completion: nil)
+        })
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -183,6 +215,18 @@ extension WhoToBuildViewController: UICollectionViewDataSource {
             let hasImages = savedImages[robot.id] ?? false
             cell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.configure(with: robot, savedImages: hasImages)
+            cell.onDeleteTapped = { [weak self] in
+                guard let `self` = self else { return }
+                let inProgress = self.realmService.getRobots()
+                    .filter({ $0.remoteId == robot.id && $0.buildStatus != BuildStatus.completed.rawValue })
+
+                guard inProgress.isEmpty else {
+                    self.showDeleteError(for: robot.name.text)
+                    return
+                }
+
+                self.deleteRobot(at: indexPath.row)
+            }
         } else {
             guard let newCell = collectionView.dequeueReusableCell(withReuseIdentifier: newCellReuseId, for: indexPath)
                 as? WhoToBuildCollectionViewCell else {

@@ -131,6 +131,10 @@ extension UIAlertController {
         let alertController = UIAlertController(title: CommonKeys.errorTitle.translate(),
                                                 message: RobotsKeys.YourRobots.noRobots.translate(),
                                                 preferredStyle: .alert)
+        let okAction = UIAlertAction(title: CommonKeys.errorOk.translate(), style: .default, handler: { _ in
+            alertController.dismiss(animated: true, completion: nil)
+        })
+        alertController.addAction(okAction)
         return alertController
     }
 }
