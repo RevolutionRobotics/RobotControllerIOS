@@ -147,7 +147,7 @@ extension WhoToBuildCollectionViewCell {
 
 // MARK: - Actions
 extension WhoToBuildCollectionViewCell {
-    @IBAction func deleteButtonTapped(_ sender: Any) {
+    @IBAction private func deleteButtonTapped(_ sender: Any) {
         onDeleteTapped?()
     }
 }

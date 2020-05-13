@@ -72,6 +72,18 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUC-ZA-XQM">
+                        <rect key="frame" x="205" y="20" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="Qvb-mg-sn8"/>
+                            <constraint firstAttribute="height" constant="25" id="tBu-Qg-slz"/>
+                        </constraints>
+                        <color key="tintColor" name="Red"/>
+                        <state key="normal" backgroundImage="deleteIconTemplate"/>
+                        <connections>
+                            <action selector="deleteButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="dG0-RG-798"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
@@ -82,8 +94,10 @@
                 <constraint firstItem="XHB-rn-YGb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="J4s-UY-zBh"/>
                 <constraint firstAttribute="bottom" secondItem="ocM-Sn-gHk" secondAttribute="bottom" constant="12" id="JMP-IU-Y5O"/>
                 <constraint firstItem="iZU-t5-zBc" firstAttribute="centerY" secondItem="kvT-hu-BBH" secondAttribute="centerY" id="L5q-dK-Kpb"/>
+                <constraint firstItem="RUC-ZA-XQM" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="QU8-pe-TU5"/>
                 <constraint firstItem="o5U-ih-htm" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="100:162" id="ReV-mk-9Ic"/>
                 <constraint firstItem="kvT-hu-BBH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="T91-IP-NKa"/>
+                <constraint firstAttribute="trailing" secondItem="RUC-ZA-XQM" secondAttribute="trailing" constant="20" id="TRL-rb-HYc"/>
                 <constraint firstItem="Jjv-9n-i0c" firstAttribute="width" secondItem="XHB-rn-YGb" secondAttribute="width" multiplier="75:167" id="TgD-aE-ZZB"/>
                 <constraint firstItem="XHB-rn-YGb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="UZW-qI-JZc"/>
                 <constraint firstAttribute="trailing" secondItem="XHB-rn-YGb" secondAttribute="trailing" id="Yde-yE-GzT"/>
@@ -102,6 +116,7 @@
                 <outlet property="categoryName" destination="iZU-t5-zBc" id="7yc-5T-4tY"/>
                 <outlet property="categoryProgress" destination="u8e-Je-pif" id="JeQ-Yv-99k"/>
                 <outlet property="cornerImageView" destination="Jjv-9n-i0c" id="mzh-0G-qkG"/>
+                <outlet property="deleteButton" destination="RUC-ZA-XQM" id="Xvx-Iv-x0r"/>
                 <outlet property="downloadLabel" destination="ocM-Sn-gHk" id="ViQ-t4-LQH"/>
                 <outlet property="progressView" destination="o5U-ih-htm" id="qVr-bY-wE8"/>
             </connections>
@@ -111,6 +126,7 @@
     <resources>
         <image name="ChallengeCategoryCardGrey" width="162" height="98"/>
         <image name="ChallengeCategoryCardGreyCorner" width="73" height="33"/>
+        <image name="deleteIconTemplate" width="16" height="16"/>
         <namedColor name="BlackTwo">
             <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
