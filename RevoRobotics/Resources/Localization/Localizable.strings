@@ -130,6 +130,9 @@
 "controller_new" = "New Controller";
 "controller_setup_empty" = "empty";
 "controller_setup_drive" = "drive";
+"controller_exit_modal_prompt" = "Would you like to leave the controller?";
+"controller_exit_modal_leave" = "Leave";
+"controller_exit_modal_cancel" = "Cancel";
 
 // MARK: - Programs
 "programs_screen_untitled" = "Untitled program";
