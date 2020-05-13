@@ -18,7 +18,7 @@ final class ChallengeDetailPartListContent: UIView {
 
 // MARK: - ChallengeDetailContent
 extension ChallengeDetailPartListContent: ChallengeDetailContentProtocol {
-    func setup(with step: ChallengeStep) {
+    func setup(with step: ChallengeStep, challengeId: String) {
         parts = sortParts(in: step)
         partsCollectionView.reloadData()
     }

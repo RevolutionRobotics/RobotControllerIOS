@@ -9,5 +9,5 @@
 import UIKit
 
 protocol ChallengeDetailContentProtocol: UIView {
-    func setup(with step: ChallengeStep)
+    func setup(with step: ChallengeStep, challengeId: String)
 }

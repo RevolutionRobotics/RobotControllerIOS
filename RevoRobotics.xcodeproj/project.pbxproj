@@ -329,6 +329,7 @@
 		D06C327422899F60005534C0 /* FirmwareUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C327222899F60005534C0 /* FirmwareUpdateViewController.xib */; };
 		D06C32772289BAE9005534C0 /* CheckForUpdateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C32762289BAE9005534C0 /* CheckForUpdateModalView.swift */; };
 		D06C32792289BAF1005534C0 /* CheckForUpdateModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C32782289BAF1005534C0 /* CheckForUpdateModalView.xib */; };
+		D06DAEBF246AFC1B00855B5E /* ChallengeStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06DAEBE246AFC1A00855B5E /* ChallengeStepView.swift */; };
 		D06F01D0228AFF8F00AF73E5 /* FirmwareDownloadModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06F01CF228AFF8F00AF73E5 /* FirmwareDownloadModalView.swift */; };
 		D06F01D2228AFFA600AF73E5 /* FirmwareDownloadModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModalView.xib */; };
 		D06F01D7228B0B5B00AF73E5 /* SuccessfulUpdateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModalView.swift */; };
@@ -738,6 +739,7 @@
 		D06C327222899F60005534C0 /* FirmwareUpdateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareUpdateViewController.xib; sourceTree = "<group>"; };
 		D06C32762289BAE9005534C0 /* CheckForUpdateModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForUpdateModalView.swift; sourceTree = "<group>"; };
 		D06C32782289BAF1005534C0 /* CheckForUpdateModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckForUpdateModalView.xib; sourceTree = "<group>"; };
+		D06DAEBE246AFC1A00855B5E /* ChallengeStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeStepView.swift; sourceTree = "<group>"; };
 		D06F01CF228AFF8F00AF73E5 /* FirmwareDownloadModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareDownloadModalView.swift; sourceTree = "<group>"; };
 		D06F01D1228AFFA600AF73E5 /* FirmwareDownloadModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareDownloadModalView.xib; sourceTree = "<group>"; };
 		D06F01D6228B0B5B00AF73E5 /* SuccessfulUpdateModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulUpdateModalView.swift; sourceTree = "<group>"; };
@@ -2140,6 +2142,7 @@
 				D075EA3422C4FCDE0003C183 /* ChallengeDetailZoomableContent.xib */,
 				D03B824223D607F8002AE192 /* ChallengeDetailButtonContent.swift */,
 				D03B824423D60811002AE192 /* ChallengeDetailButtonContent.xib */,
+				D06DAEBE246AFC1A00855B5E /* ChallengeStepView.swift */,
 			);
 			path = ChallengeDetailContent;
 			sourceTree = "<group>";
@@ -2646,6 +2649,7 @@
 				D0241A0A22B14337005E8DB2 /* ProgramsOrderTableViewCell.swift in Sources */,
 				2A227C7622B396390032948B /* ControllerViewModel.swift in Sources */,
 				0921710C22C20D7100F773B5 /* AlertModalView.swift in Sources */,
+				D06DAEBF246AFC1B00855B5E /* ChallengeStepView.swift in Sources */,
 				D0241A0622B14011005E8DB2 /* ProgramPriorityViewController.swift in Sources */,
 				094FC5D7228C3C600085B407 /* PlayablePadView.swift in Sources */,
 				D05C64DD225F592400B7BF4F /* Sensor.swift in Sources */,

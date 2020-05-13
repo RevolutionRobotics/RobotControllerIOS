@@ -10,5 +10,6 @@ struct Challenge: Decodable, FirebaseOrderable {
     let id: String
     let name: LocalizedText
     let steps: [ChallengeStep]
+    let stepsArchive: String
     var order: Int
 }

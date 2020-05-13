@@ -141,9 +141,16 @@ extension WhoToBuildViewController {
 
         showDownloadingModal()
         ApiFetchHandler()
-            .fetchZip(from: robot.buildStepsArchive, type: .robots, id: robot.id, callback: { [weak self] in
+            .fetchZip(from: robot.buildStepsArchive, type: .robots, id: robot.id, callback: { [weak self] error in
                 guard let `self` = self else { return }
                 self.dismissModalViewController()
+                guard error == nil else {
+                    error?.report()
+                    let alert = UIAlertController.errorAlert(type: .network)
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
+
                 self.collectionView.reloadData()
 
                 if let index = self.robots.firstIndex(where: { $0?.id == robot.id }) {
@@ -157,7 +164,7 @@ extension WhoToBuildViewController {
     private func showDownloadingModal() {
         let zipDownloadView = ZipDownloadView.instatiate()
         zipDownloadView.setup(
-            with: RobotsKeys.WhoToBuild.modalZipDownloadTitle.translate().uppercased(),
+            with: CommonKeys.modalZipDownloadTitle.translate().uppercased(),
             message: RobotsKeys.WhoToBuild.modalZipDownloadMessage.translate().uppercased())
         presentModal(with: zipDownloadView, closeHidden: true)
     }

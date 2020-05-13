@@ -90,10 +90,11 @@ extension ChallengeDetailViewController {
     }
 
     private func setupDetailContent(with step: ChallengeStep, on content: ChallengeDetailContentProtocol) {
+        guard let challengeId = challenge?.id else { return }
         contentView.removeAllSubViews()
         content.frame = contentView.bounds
         contentView.addSubview(content)
-        content.setup(with: step)
+        content.setup(with: step, challengeId: challengeId)
         navigationBar.setup(title: step.title.text, delegate: self)
     }
 }
