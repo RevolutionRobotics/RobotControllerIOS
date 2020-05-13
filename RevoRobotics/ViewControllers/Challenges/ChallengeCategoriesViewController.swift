@@ -112,12 +112,32 @@ extension ChallengeCategoriesViewController: UICollectionViewDataSource {
         cell.index = indexPath.row
         cell.completedCount = completedChallengeCount
         cell.setup(with: categoryItem, userCategory: category)
+        cell.onDeleteTapped = { [weak self] in
+            self?.deleteChallengecategory(at: indexPath.row)
+        }
+
         return cell
     }
 }
 
 // MARK: - Private fucntions
 extension ChallengeCategoriesViewController {
+    private func deleteChallengecategory(at index: Int) {
+        guard let documentsDirectory = FileManager.default
+            .urls(for: .documentDirectory, in: .userDomainMask).first
+        else { return }
+
+        let categoryDirectory = documentsDirectory.appendingPathComponent(ZipType.challenges.rawValue)
+        challengeCategories[index].challenges.forEach({ challenge in
+            let target = categoryDirectory.appendingPathComponent(challenge.id)
+            do {
+                try? FileManager.default.removeItem(at: target)
+            }
+        })
+
+        challengesCollectionView.reloadData()
+    }
+
     private func fetchChallenges() {
         firebaseService.getChallengeCategories { [weak self] result in
             switch result {

@@ -31,6 +31,7 @@ final class WhoToBuildCollectionViewCell: ResizableCell {
     @IBOutlet private weak var clockImageBottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var downloadLabelContainer: UIStackView!
     @IBOutlet private weak var downloadLabel: UILabel!
+    @IBOutlet private weak var deleteButton: UIButton!
 
     // MARK: - Properties
     private var baseHeightMultiplier: CGFloat = 0
@@ -42,6 +43,7 @@ final class WhoToBuildCollectionViewCell: ResizableCell {
     private var savedImages = false
     private var newCell = false
 
+    var onDeleteTapped: Callback?
     override var isCentered: Bool {
         didSet {
             backgroundImageView.image = cellBackground(savedImages: savedImages)
@@ -65,6 +67,7 @@ extension WhoToBuildCollectionViewCell {
     func configureNew() {
         newCell = true
         clockImageView.isHidden = true
+        deleteButton.isHidden = true
         robotNameLabel.text = RobotsKeys.Configure.title.translate()
         robotImageView.image = UIImage(named: "build-your-own")?.rescaleContent(to: 0.75)
         buildTimeLabel.text = nil
@@ -108,10 +111,11 @@ extension WhoToBuildCollectionViewCell {
     }
 }
 
-// MRAK: - Private methods
+// MARK: - Private methods
 extension WhoToBuildCollectionViewCell {
     private func setCellState(isDownloaded: Bool) {
         downloadLabelContainer.isHidden = isDownloaded
+        deleteButton.isHidden = !isDownloaded
         buildTimeLabel.isHidden = !isDownloaded
         clockImageView.isHidden = !isDownloaded
     }
@@ -138,5 +142,12 @@ extension WhoToBuildCollectionViewCell {
         } else {
             return baseBuildTimeFontSize * multiplier * multiplier
         }
+    }
+}
+
+// MARK: - Actions
+extension WhoToBuildCollectionViewCell {
+    @IBAction private func deleteButtonTapped(_ sender: Any) {
+        onDeleteTapped?()
     }
 }

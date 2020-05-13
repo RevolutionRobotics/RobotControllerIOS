@@ -28,6 +28,8 @@ enum RobotsKeys {
         static let buildNewButtonTitle = "who_to_build_build_new_button_title"
         static let searchingForRobotsTitle = "who_to_build_searching_title"
         static let modalZipDownloadMessage = "modal_zip_download_robot"
+        static let deleteErrorTitle = "modal_zip_delete_error_title"
+        static let deleteErrorText = "modal_zip_delete_error_text"
     }
 
     enum BuildRobot {

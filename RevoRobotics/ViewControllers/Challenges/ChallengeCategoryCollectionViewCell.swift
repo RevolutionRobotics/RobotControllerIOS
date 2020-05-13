@@ -17,10 +17,12 @@ final class ChallengeCategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var cornerImageView: UIImageView!
     @IBOutlet private weak var downloadLabel: UILabel!
+    @IBOutlet private weak var deleteButton: UIButton!
 
     // MARK: - Properties
     var index: Int = 0
     var completedCount: Int = 0
+    var onDeleteTapped: Callback?
 }
 
 // MARK: - Setup
@@ -42,6 +44,7 @@ extension ChallengeCategoryCollectionViewCell {
 
         cornerImageView.isHidden = false
         progressView.isHidden = false
+        deleteButton.isHidden = false
         downloadLabel.isHidden = true
 
         progressView.progress = Float(completedCount) / Float(challengeCategory.challenges.count)
@@ -57,6 +60,7 @@ extension ChallengeCategoryCollectionViewCell {
         backgroundImageView.image = Image.Challenges.ChallengeCategoryCardDownload
         cornerImageView.isHidden = true
         progressView.isHidden = true
+        deleteButton.isHidden = true
         downloadLabel.isHidden = false
     }
 }
@@ -81,5 +85,12 @@ extension ChallengeCategoryCollectionViewCell {
         maskLayer.frame = progressView.bounds
         maskLayer.path = maskLayerPath.cgPath
         progressView.layer.mask = maskLayer
+    }
+}
+
+// MARK: - Actions
+extension ChallengeCategoryCollectionViewCell {
+    @IBAction private func deleteButtonTapped(_ sender: Any) {
+        onDeleteTapped?()
     }
 }
