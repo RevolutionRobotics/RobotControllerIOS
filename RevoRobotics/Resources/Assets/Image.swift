@@ -145,5 +145,6 @@ enum Image {
 
     static let downloadIcon = UIImage(named: "DownloadIcon")
     static let retryIcon = UIImage(named: "RetryIcon")
+    static let renameIcon = UIImage(named: "EditRobot")
     static let tickIcon = UIImage(named: "TickWhiteIcon")
 }

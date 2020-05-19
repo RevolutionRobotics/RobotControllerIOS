@@ -18,6 +18,7 @@ extension UIAlertController {
         case parentalGateFailed
         case deleteLastRobot
         case robotListEmpty
+        case robotRenameFailed
     }
 
     static func errorAlert(type: ErrorType) -> UIAlertController {
@@ -38,6 +39,8 @@ extension UIAlertController {
             return deleteLastRobotAlert()
         case .robotListEmpty:
             return robotListEmptyAlert()
+        case .robotRenameFailed:
+            return robotRenameFailedAlert()
         }
     }
 
@@ -130,6 +133,17 @@ extension UIAlertController {
     private static func robotListEmptyAlert() -> UIAlertController {
         let alertController = UIAlertController(title: CommonKeys.errorTitle.translate(),
                                                 message: RobotsKeys.YourRobots.noRobots.translate(),
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: CommonKeys.errorOk.translate(), style: .default, handler: { _ in
+            alertController.dismiss(animated: true, completion: nil)
+        })
+        alertController.addAction(okAction)
+        return alertController
+    }
+
+    private static func robotRenameFailedAlert() -> UIAlertController {
+        let alertController = UIAlertController(title: CommonKeys.errorTitle.translate(),
+                                                message: FirmwareUpdateKeys.Modal.changeRobotNameError.translate(),
                                                 preferredStyle: .alert)
         let okAction = UIAlertAction(title: CommonKeys.errorOk.translate(), style: .default, handler: { _ in
             alertController.dismiss(animated: true, completion: nil)

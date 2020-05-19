@@ -18,6 +18,7 @@ final class CheckForUpdateModalView: UIView {
 
     // MARK: - Outlets
     @IBOutlet private weak var button: RRButton!
+    @IBOutlet private weak var buttonRename: RRButton!
     @IBOutlet private weak var brainIDLabel: UILabel!
     @IBOutlet private weak var versionLabel: UILabel!
     @IBOutlet private weak var updateView: UIView!
@@ -35,6 +36,7 @@ final class CheckForUpdateModalView: UIView {
 
     // MARK: - Callback
     var buttonHandler: CallbackType<Status>?
+    var renameButtonHandler: CallbackType<String>?
 
     // MARK: - Properties
     var brainId: String = "" {
@@ -116,6 +118,10 @@ extension CheckForUpdateModalView {
             button.setImage(Image.retryIcon, for: .normal)
             brainIDLabel.text = ModalKeys.FirmwareUpdate.loading.translate()
 
+            buttonRename.setBorder(fillColor: .clear, strokeColor: .white)
+            buttonRename.setImage(Image.renameIcon, for: .normal)
+            buttonRename.setTitle(FirmwareUpdateKeys.Modal.rename.translate(), for: .normal)
+
         case .updateNeeded(let version):
             loadingIndicator.isHidden = true
             devInfoView.isHidden = true
@@ -139,5 +145,9 @@ extension CheckForUpdateModalView {
 extension CheckForUpdateModalView {
     @IBAction private func buttonTapped(_ sender: RRButton) {
         buttonHandler?(status)
+    }
+
+    @IBAction private func renameButtonTapped(_ sender: Any) {
+        renameButtonHandler?(brainId)
     }
 }

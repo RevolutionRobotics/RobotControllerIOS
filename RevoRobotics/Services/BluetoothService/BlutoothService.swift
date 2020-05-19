@@ -104,6 +104,10 @@ final class BluetoothService: BluetoothServiceInterface {
         })
     }
 
+    func setSystemId(to id: String, onCompleted: Callback?, onError: CallbackType<Error>?) {
+        deviceInfo.setSystemId(id: id, onCompleted: onCompleted, onError: onError)
+    }
+
     // MARK: - Device info
     func getPrimaryBatteryPercentage(onCompleted: CallbackType<Result<Int, Error>>?) {
         batteryInfo.getPrimaryBatteryPercentage(onComplete: { onCompleted?(.success($0)) },
