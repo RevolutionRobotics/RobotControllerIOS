@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,43 +14,33 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="RevoRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="aboutButton" destination="o1C-89-2Zz" id="xxa-So-qgm"/>
                 <outlet property="firmwareButton" destination="oNR-5c-6Tc" id="ok8-zS-R3V"/>
                 <outlet property="navigationBar" destination="1bL-oA-zJf" id="VHR-wp-iw4"/>
                 <outlet property="resetButton" destination="tSM-wl-8Xi" id="4Va-Sn-H1C"/>
+                <outlet property="serverLocationButton" destination="jKN-jp-wQD" id="egd-Vt-Hrg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1bL-oA-zJf" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="896" height="71"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1bL-oA-zJf" customClass="RRNavigationBar" customModule="RevoRobotics" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="71"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="71" id="IQR-0l-pyd"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64N-RU-QcB">
-                    <rect key="frame" x="58" y="71" width="780" height="343"/>
+                    <rect key="frame" x="58" y="71" width="364" height="249"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSM-wl-8Xi" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="90.5" width="780" height="46"/>
-                            <color key="backgroundColor" name="Black"/>
-                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
-                            <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Reset tutorial" image="ResetIcon"/>
-                            <connections>
-                                <action selector="resetButtonTapped:" destination="-1" eventType="touchUpInside" id="WH9-Dw-4rI"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNR-5c-6Tc" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="148.5" width="780" height="46"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNR-5c-6Tc" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="68" width="364" height="46"/>
                             <color key="backgroundColor" name="Black"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="46" id="53T-D8-LmQ"/>
@@ -65,8 +53,23 @@
                                 <action selector="firmwareButtonTapped:" destination="-1" eventType="touchUpInside" id="GBg-5J-8wU"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1C-89-2Zz" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="206.5" width="780" height="46"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKN-jp-wQD" userLabel="Server location" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="122" width="364" height="46"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="46" id="JK2-h8-13e"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Server location:" image="WebIcon"/>
+                            <connections>
+                                <action selector="serverLocationTapped:" destination="-1" eventType="touchUpInside" id="bHl-ug-p16"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1C-89-2Zz" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="176" width="364" height="46"/>
                             <color key="backgroundColor" name="Black"/>
                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
                             <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -76,11 +79,23 @@
                                 <action selector="aboutButtonTapped:" destination="-1" eventType="touchUpInside" id="PgW-i5-9if"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSM-wl-8Xi" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="14" width="364" height="46"/>
+                            <color key="backgroundColor" name="Black"/>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Reset tutorial" image="ResetIcon"/>
+                            <connections>
+                                <action selector="resetButtonTapped:" destination="-1" eventType="touchUpInside" id="WH9-Dw-4rI"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="o1C-89-2Zz" firstAttribute="top" secondItem="oNR-5c-6Tc" secondAttribute="bottom" constant="12" id="0el-tB-QkA"/>
-                        <constraint firstItem="oNR-5c-6Tc" firstAttribute="top" secondItem="tSM-wl-8Xi" secondAttribute="bottom" constant="12" id="1kz-SK-Axj"/>
+                        <constraint firstItem="jKN-jp-wQD" firstAttribute="top" secondItem="oNR-5c-6Tc" secondAttribute="bottom" constant="8" id="0el-tB-QkA"/>
+                        <constraint firstItem="oNR-5c-6Tc" firstAttribute="top" secondItem="tSM-wl-8Xi" secondAttribute="bottom" constant="8" id="1kz-SK-Axj"/>
+                        <constraint firstItem="jKN-jp-wQD" firstAttribute="leading" secondItem="oNR-5c-6Tc" secondAttribute="leading" id="5km-t4-GC0"/>
                         <constraint firstAttribute="trailing" secondItem="oNR-5c-6Tc" secondAttribute="trailing" id="9MU-od-1NI"/>
                         <constraint firstAttribute="trailing" secondItem="tSM-wl-8Xi" secondAttribute="trailing" id="A1N-4y-AN7"/>
                         <constraint firstItem="tSM-wl-8Xi" firstAttribute="leading" secondItem="64N-RU-QcB" secondAttribute="leading" id="TP2-W1-7du"/>
@@ -88,8 +103,10 @@
                         <constraint firstItem="o1C-89-2Zz" firstAttribute="leading" secondItem="64N-RU-QcB" secondAttribute="leading" id="blg-Dy-4Sc"/>
                         <constraint firstAttribute="trailing" secondItem="o1C-89-2Zz" secondAttribute="trailing" id="d4v-Wm-H34"/>
                         <constraint firstItem="o1C-89-2Zz" firstAttribute="height" secondItem="oNR-5c-6Tc" secondAttribute="height" id="fIC-xY-8aq"/>
+                        <constraint firstItem="jKN-jp-wQD" firstAttribute="trailing" secondItem="oNR-5c-6Tc" secondAttribute="trailing" id="ftD-fW-iE5"/>
+                        <constraint firstItem="o1C-89-2Zz" firstAttribute="top" secondItem="jKN-jp-wQD" secondAttribute="bottom" constant="8" id="rNf-me-IAQ"/>
                         <constraint firstItem="oNR-5c-6Tc" firstAttribute="leading" secondItem="64N-RU-QcB" secondAttribute="leading" id="tUI-Ef-xkF"/>
-                        <constraint firstItem="oNR-5c-6Tc" firstAttribute="centerY" secondItem="64N-RU-QcB" secondAttribute="centerY" id="vm2-fg-TMM"/>
+                        <constraint firstItem="oNR-5c-6Tc" firstAttribute="centerY" secondItem="64N-RU-QcB" secondAttribute="centerY" constant="-33.5" id="vm2-fg-TMM"/>
                     </constraints>
                 </view>
             </subviews>
@@ -104,12 +121,14 @@
                 <constraint firstItem="64N-RU-QcB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="58" id="tjt-Kn-lgB"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="155"/>
         </view>
     </objects>
     <resources>
         <image name="AboutIcon" width="16" height="16"/>
         <image name="ResetIcon" width="16" height="16"/>
         <image name="RetryIcon" width="16" height="16"/>
+        <image name="WebIcon" width="20" height="20"/>
         <namedColor name="Black">
             <color red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

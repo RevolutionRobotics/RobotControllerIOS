@@ -11,7 +11,16 @@ enum SettingsKeys {
         static let title = "settings_screen_title"
         static let resetTutorial = "settings_reset_turorial"
         static let firmwareUpdate = "settings_firmware_update"
+        static let serverLocation = "settings_server_location"
         static let aboutApplication = "settings_about_application"
+    }
+
+    enum Modal {
+        static let serverLocationTitle = "modal_select_server_location"
+        static let serverLocationGlobal = "modal_server_location_global"
+        static let serverLocationChina = "modal_server_location_china"
+        static let alertUpdatedTitle = "alert_updated_title"
+        static let alertUpdatedText = "alert_updated_text"
     }
 
     enum Firmware {

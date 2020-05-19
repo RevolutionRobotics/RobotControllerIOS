@@ -18,5 +18,6 @@ extension UserDefaults {
         static let buildRevvyPromptVisited = "buildRevvyPromptVisited"
         static let revvyBuilt = "revvyBuilt"
         static let mostRecentProgram = "mostRecentProgram"
+        static let selectedServer = "selectedServer"
     }
 }

@@ -290,6 +290,9 @@
 		D03F1F9123D741BC009AC6D6 /* FirmwareUpdateModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03F1F9023D741BC009AC6D6 /* FirmwareUpdateModalView.xib */; };
 		D03F1F9323D8A6AA009AC6D6 /* FirmwareUpdateKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F1F9223D8A6AA009AC6D6 /* FirmwareUpdateKeys.swift */; };
 		D03F1F9523E18693009AC6D6 /* FirmwareVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F1F9423E18693009AC6D6 /* FirmwareVersion.swift */; };
+		D04647622474000C005CD3DA /* Locale+Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04647612474000C005CD3DA /* Locale+Server.swift */; };
+		D0464764247405C9005CD3DA /* ServerSelectionModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0464763247405C9005CD3DA /* ServerSelectionModalView.swift */; };
+		D0464766247405F2005CD3DA /* ServerSelectionModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0464765247405F2005CD3DA /* ServerSelectionModalView.xib */; };
 		D0489346238D63CE000FC5A2 /* PagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489345238D63CE000FC5A2 /* PagerView.swift */; };
 		D0489348238EACBD000FC5A2 /* PagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489347238EACBD000FC5A2 /* PagerViewCell.swift */; };
 		D049871C2387E5B300136AC8 /* UpdateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049871A2387E5B300136AC8 /* UpdateModalView.swift */; };
@@ -702,6 +705,9 @@
 		D03F1F9023D741BC009AC6D6 /* FirmwareUpdateModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirmwareUpdateModalView.xib; sourceTree = "<group>"; };
 		D03F1F9223D8A6AA009AC6D6 /* FirmwareUpdateKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateKeys.swift; sourceTree = "<group>"; };
 		D03F1F9423E18693009AC6D6 /* FirmwareVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareVersion.swift; sourceTree = "<group>"; };
+		D04647612474000C005CD3DA /* Locale+Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Server.swift"; sourceTree = "<group>"; };
+		D0464763247405C9005CD3DA /* ServerSelectionModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectionModalView.swift; sourceTree = "<group>"; };
+		D0464765247405F2005CD3DA /* ServerSelectionModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServerSelectionModalView.xib; sourceTree = "<group>"; };
 		D0489345238D63CE000FC5A2 /* PagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerView.swift; sourceTree = "<group>"; };
 		D0489347238EACBD000FC5A2 /* PagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewCell.swift; sourceTree = "<group>"; };
 		D049871A2387E5B300136AC8 /* UpdateModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateModalView.swift; sourceTree = "<group>"; };
@@ -1961,6 +1967,7 @@
 		D008E03A2260AAF500089DC7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D04647602473FFEB005CD3DA /* Locale */,
 				D0714446237F03BC00ADB612 /* Error */,
 				D06C326E2289955F005534C0 /* Bundle */,
 				2ADE8C302270A6BB00ECEC72 /* Container */,
@@ -2051,6 +2058,14 @@
 			path = Modal;
 			sourceTree = "<group>";
 		};
+		D04647602473FFEB005CD3DA /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				D04647612474000C005CD3DA /* Locale+Server.swift */,
+			);
+			path = Locale;
+			sourceTree = "<group>";
+		};
 		D04987192387E55600136AC8 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
@@ -2114,6 +2129,8 @@
 				2A78389022C106C000423991 /* UpdatingFirmwareModalView.xib */,
 				D03AC66B246D5FDD004FCC27 /* RenameModalView.swift */,
 				D03AC66D246D6579004FCC27 /* RenameModalView.xib */,
+				D0464763247405C9005CD3DA /* ServerSelectionModalView.swift */,
+				D0464765247405F2005CD3DA /* ServerSelectionModalView.xib */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -2421,6 +2438,7 @@
 				094FC5E3228C3D5E0085B407 /* DriverPadView.xib in Resources */,
 				0938897622B24DD900292B32 /* lion.mp3 in Resources */,
 				0972844622B3BDEF007A7FE1 /* VariableContextModalView.xib in Resources */,
+				D0464766247405F2005CD3DA /* ServerSelectionModalView.xib in Resources */,
 				D0899C6A22A6BCB900DB6F97 /* ChallengeCategoriesViewController.xib in Resources */,
 				D0A1108E227B18510064FBB6 /* ControllerInfoModalView.xib in Resources */,
 				2AB8F95322888AF300D7D93C /* ConfigurationView.xib in Resources */,
@@ -2760,6 +2778,7 @@
 				D0241A1922B3E93E005E8DB2 /* TextInputModalView.swift in Sources */,
 				D05C64E1225F5C9900B7BF4F /* Motor.swift in Sources */,
 				FE4B16202277406D00CAA083 /* RRSegmentedControl.swift in Sources */,
+				D04647622474000C005CD3DA /* Locale+Server.swift in Sources */,
 				D03F1F8F23D741B1009AC6D6 /* FirmwareUpdateModalView.swift in Sources */,
 				D008E03E2260AAF500089DC7 /* UIViewController+NibLoadable.swift in Sources */,
 				2A9F52022265DAC900F9F651 /* AppContainer.swift in Sources */,
@@ -2859,6 +2878,7 @@
 				D001FCB722A951FC004C49F3 /* ChallengesCollectionViewOddCell.swift in Sources */,
 				D008E0392260979400089DC7 /* FirebaseData.swift in Sources */,
 				2AA0751E230D8EB000631A62 /* String+Replace.swift in Sources */,
+				D0464764247405C9005CD3DA /* ServerSelectionModalView.swift in Sources */,
 				2ADF1F75224AB3B400CC721F /* AppDelegate.swift in Sources */,
 				D06C32772289BAE9005534C0 /* CheckForUpdateModalView.swift in Sources */,
 				D0313332228D5CBA00704989 /* Challenge.swift in Sources */,
