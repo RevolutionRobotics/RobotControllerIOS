@@ -96,6 +96,11 @@
 "firmware_update_needed_title" = "Please update your robot in order to use it with the current app version";
 "firmware_update_update_button" = "Update";
 "firmware_update_continue_button" = "Not now";
+"firmware_manage" = "Manage";
+"firmware_change_robot_name" = "Enter new robot name";
+"firmware_change_robot_name_hint" = "Robot name";
+"firmware_change_robot_name_error" = "Failed to rename robot";
+"firmware_robot_rename" = "Rename";
 
 // MARK: - Configure
 "configure_camera_permission_title" = "Permission for camera usage required";

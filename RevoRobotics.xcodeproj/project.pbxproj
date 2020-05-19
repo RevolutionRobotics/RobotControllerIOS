@@ -273,6 +273,8 @@
 		D037D915233A07D800DF76E9 /* BuildRevvyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D037D914233A07D800DF76E9 /* BuildRevvyViewController.swift */; };
 		D037D917233A086900DF76E9 /* BuildRevvyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D037D916233A086900DF76E9 /* BuildRevvyViewController.xib */; };
 		D0398A46243C7F8C007A7417 /* ApiFetchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0398A45243C7F8C007A7417 /* ApiFetchHandler.swift */; };
+		D03AC66C246D5FDD004FCC27 /* RenameModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03AC66B246D5FDD004FCC27 /* RenameModalView.swift */; };
+		D03AC66E246D6579004FCC27 /* RenameModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03AC66D246D6579004FCC27 /* RenameModalView.xib */; };
 		D03B824323D607F8002AE192 /* ChallengeDetailButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03B824223D607F8002AE192 /* ChallengeDetailButtonContent.swift */; };
 		D03B824523D60811002AE192 /* ChallengeDetailButtonContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03B824423D60811002AE192 /* ChallengeDetailButtonContent.xib */; };
 		D03BA8532276F323005B3E33 /* PartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BA8512276F323005B3E33 /* PartView.swift */; };
@@ -682,6 +684,8 @@
 		D037D914233A07D800DF76E9 /* BuildRevvyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildRevvyViewController.swift; sourceTree = "<group>"; };
 		D037D916233A086900DF76E9 /* BuildRevvyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuildRevvyViewController.xib; sourceTree = "<group>"; };
 		D0398A45243C7F8C007A7417 /* ApiFetchHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiFetchHandler.swift; sourceTree = "<group>"; };
+		D03AC66B246D5FDD004FCC27 /* RenameModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameModalView.swift; sourceTree = "<group>"; };
+		D03AC66D246D6579004FCC27 /* RenameModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RenameModalView.xib; sourceTree = "<group>"; };
 		D03B824223D607F8002AE192 /* ChallengeDetailButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailButtonContent.swift; sourceTree = "<group>"; };
 		D03B824423D60811002AE192 /* ChallengeDetailButtonContent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailButtonContent.xib; sourceTree = "<group>"; };
 		D03BA8512276F323005B3E33 /* PartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartView.swift; sourceTree = "<group>"; };
@@ -2108,6 +2112,8 @@
 				D06F01D8228B0B6300AF73E5 /* SuccessfulUpdateModalView.xib */,
 				2A78388E22C106A000423991 /* UpdatingFirmwareModalView.swift */,
 				2A78389022C106C000423991 /* UpdatingFirmwareModalView.xib */,
+				D03AC66B246D5FDD004FCC27 /* RenameModalView.swift */,
+				D03AC66D246D6579004FCC27 /* RenameModalView.xib */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -2384,6 +2390,7 @@
 				D0E3F88A22B786BF00B4D9F2 /* ProgramListModalView.xib in Resources */,
 				2AA926D722773DC1000FAA98 /* SideButton.xib in Resources */,
 				0972844022B3950D007A7FE1 /* DriveDirectionSelectorModalView.xib in Resources */,
+				D03AC66E246D6579004FCC27 /* RenameModalView.xib in Resources */,
 				0938897A22B24DD900292B32 /* yee_haw.mp3 in Resources */,
 				D0B2A736227C7CF1004473EC /* ControllerCollectionViewCell.xib in Resources */,
 				D03BA8612277384A005B3E33 /* ConnectionModalView.xib in Resources */,
@@ -2617,6 +2624,7 @@
 				2A77320A2264A32D00D7F38D /* ServiceAssembly.swift in Sources */,
 				D097C8D223731A4B003048B5 /* RobotSelectorTableViewCell.swift in Sources */,
 				09105AA02280581F00AB7B72 /* PortConfigurationItemView.swift in Sources */,
+				D03AC66C246D5FDD004FCC27 /* RenameModalView.swift in Sources */,
 				D075EA2B22C4FB510003C183 /* ChallengeDetailPartListContent.swift in Sources */,
 				2AB7ACD922BA64B300309234 /* ConfigurationJSONData.swift in Sources */,
 				2A7DDB1022856DC200891DA6 /* PortMappingDataModel.swift in Sources */,

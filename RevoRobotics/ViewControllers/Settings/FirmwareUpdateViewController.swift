@@ -33,6 +33,7 @@ extension FirmwareUpdateViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        checkForUpdatesLabel.text = FirmwareUpdateKeys.Modal.manage.translate()
         navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         navigationBar.setup(title: SettingsKeys.Firmware.title.translate(), delegate: self)
         brainIDTitleLabel.text = ModalKeys.FirmwareUpdate.loading.translate()
@@ -254,17 +255,41 @@ extension FirmwareUpdateViewController {
         dismissModalViewController()
         presentConnectModal()
     }
-}
 
-// MARK: - Actions
-extension FirmwareUpdateViewController {
-    @IBAction private func checkForUpdatesButtonTapped(_ sender: Any) {
+    private func showRenameModal(with name: String) {
+        let renameModal = RenameModalView.instatiate()
+        renameModal.setup(with: name)
+        renameModal.renameTappedCallback = { [weak self] newName in
+            guard let `self` = self else { return }
+            self.dismissModalViewController()
+            self.bluetoothService.setSystemId(to: newName, onCompleted: nil, onError: { [weak self] _ in
+                let alert = UIAlertController.errorAlert(type: .robotRenameFailed)
+                self?.present(alert, animated: true, completion: nil)
+            })
+        }
+        presentModal(with: renameModal)
+    }
+
+    private func showUpdateModal() {
         let checkForUpdatesModal = CheckForUpdateModalView.instatiate()
         checkForUpdatesModal.brainId = brainId
         addButtonHandler(to: checkForUpdatesModal)
         getDeviceInfo(for: checkForUpdatesModal)
 
+        checkForUpdatesModal.renameButtonHandler = { [weak self] name in
+            guard let `self` = self else { return }
+            self.dismissModalViewController()
+            self.showRenameModal(with: name)
+        }
+
         presentModal(with: checkForUpdatesModal)
+    }
+}
+
+// MARK: - Actions
+extension FirmwareUpdateViewController {
+    @IBAction private func checkForUpdatesButtonTapped(_ sender: Any) {
+        showUpdateModal()
     }
 }
 

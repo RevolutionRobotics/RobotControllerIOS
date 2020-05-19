@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +16,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirmwareUpdateViewController" customModule="RevolutionRobotics" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirmwareUpdateViewController" customModule="RevoRobotics" customModuleProvider="target">
             <connections>
                 <outlet property="brainIDTitleLabel" destination="JUr-Cr-oOD" id="jnS-1b-z5s"/>
                 <outlet property="brainImageView" destination="rTG-Zi-k90" id="bBE-it-PBI"/>
@@ -37,14 +35,14 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GlowBackground" translatesAutoresizingMaskIntoConstraints="NO" id="QSa-6f-ZCU">
                     <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aH-S3-hff" customClass="RRNavigationBar" customModule="RevolutionRobotics" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aH-S3-hff" customClass="RRNavigationBar" customModule="RevoRobotics" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="896" height="71"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="71" id="eKN-6S-Dn9"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EbQ-zZ-TWB" customClass="SideButton" customModule="RevolutionRobotics" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EbQ-zZ-TWB" customClass="SideButton" customModule="RevoRobotics" customModuleProvider="target">
                     <rect key="frame" x="767" y="354" width="129" height="54"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -61,19 +59,19 @@
                                 <constraint firstAttribute="width" secondItem="DTo-L5-mvE" secondAttribute="height" multiplier="213:224" id="dl9-I8-iYf"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="brain id" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUr-Cr-oOD" userLabel="brainIdLabel">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="brain id" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUr-Cr-oOD" userLabel="brainIdLabel">
                             <rect key="frame" x="110" y="32" width="62.5" height="19"/>
                             <fontDescription key="fontDescription" name="Jura-Bold" family="Jura" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="BrainPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="rTG-Zi-k90">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" ambiguous="YES" image="BrainPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="rTG-Zi-k90">
                             <rect key="frame" x="40" y="67" width="202" height="162"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDo-yx-W5B">
                             <rect key="frame" x="0.0" y="245" width="282" height="52"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check for updates" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckd-Uc-xcQ">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckd-Uc-xcQ">
                                     <rect key="frame" x="16" y="17.5" width="250" height="17"/>
                                     <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -139,7 +137,7 @@
         </view>
     </objects>
     <resources>
-        <image name="BrainPlaceholder" width="94" height="62"/>
+        <image name="BrainPlaceholder" width="456.5" height="202"/>
         <image name="FirmwareCardRedBorder" width="213" height="224"/>
         <image name="GlowBackground" width="568" height="320"/>
     </resources>

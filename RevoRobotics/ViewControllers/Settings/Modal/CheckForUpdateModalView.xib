@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -25,12 +23,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CheckForUpdateModalView" customModule="RevolutionRobotics" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CheckForUpdateModalView" customModule="RevoRobotics" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dle-jn-rYv" customClass="RRButton" customModule="RevolutionRobotics" customModuleProvider="target">
-                    <rect key="frame" x="4" y="190" width="452" height="46"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dle-jn-rYv" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
+                    <rect key="frame" x="4" y="190" width="224" height="46"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="EO4-1d-4F4"/>
                     </constraints>
@@ -153,12 +151,24 @@
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="emO-PI-5r5">
                     <rect key="frame" x="424" y="203" width="20" height="20"/>
                 </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BE-S8-vjR" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
+                    <rect key="frame" x="232" y="190" width="224" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="u0Q-2e-Edq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow Medium" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Rename" image="EditRobot"/>
+                    <connections>
+                        <action selector="renameButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="d98-MU-eRK"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Dle-jn-rYv" secondAttribute="bottom" constant="4" id="7ya-m0-s0R"/>
                 <constraint firstItem="kzo-WZ-idh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="34" id="CX0-pN-4id"/>
-                <constraint firstAttribute="trailing" secondItem="Dle-jn-rYv" secondAttribute="trailing" constant="4" id="Dv6-mS-Eiz"/>
                 <constraint firstAttribute="trailing" secondItem="emO-PI-5r5" secondAttribute="trailing" constant="16" id="ELG-DA-gEa"/>
                 <constraint firstItem="iZR-Tv-6om" firstAttribute="top" secondItem="fvo-Zw-Opl" secondAttribute="bottom" constant="32" id="Iz6-83-fmW"/>
                 <constraint firstItem="emO-PI-5r5" firstAttribute="centerY" secondItem="Dle-jn-rYv" secondAttribute="centerY" id="L5q-bL-dZR"/>
@@ -166,19 +176,24 @@
                 <constraint firstItem="Dle-jn-rYv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="NHF-hx-Z4R"/>
                 <constraint firstItem="kzo-WZ-idh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="P8V-3y-tti"/>
                 <constraint firstItem="kzo-WZ-idh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="PhQ-KO-ViJ"/>
+                <constraint firstAttribute="bottom" secondItem="7BE-S8-vjR" secondAttribute="bottom" constant="4" id="Tgi-tC-xGq"/>
+                <constraint firstAttribute="trailing" secondItem="7BE-S8-vjR" secondAttribute="trailing" constant="4" id="WO1-7F-LvE"/>
                 <constraint firstAttribute="trailing" secondItem="jDP-hC-J5B" secondAttribute="trailing" constant="16" id="be7-02-ZQ8"/>
                 <constraint firstItem="jDP-hC-J5B" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="ffe-7N-5LH"/>
+                <constraint firstItem="7BE-S8-vjR" firstAttribute="leading" secondItem="Dle-jn-rYv" secondAttribute="trailing" constant="4" id="gZS-92-kEC"/>
                 <constraint firstAttribute="trailing" secondItem="kzo-WZ-idh" secondAttribute="trailing" constant="12" id="j2f-Dc-8Vu"/>
                 <constraint firstItem="iZR-Tv-6om" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="j2f-Gj-37K"/>
                 <constraint firstItem="fvo-Zw-Opl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="mDP-DU-u0Q"/>
                 <constraint firstItem="fvo-Zw-Opl" firstAttribute="top" secondItem="kzo-WZ-idh" secondAttribute="bottom" constant="16" id="o5A-v4-T1S"/>
                 <constraint firstItem="fvo-Zw-Opl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qqm-tG-o4a"/>
                 <constraint firstAttribute="trailing" secondItem="fvo-Zw-Opl" secondAttribute="trailing" constant="12" id="sqo-O4-2UC"/>
+                <constraint firstItem="7BE-S8-vjR" firstAttribute="width" secondItem="Dle-jn-rYv" secondAttribute="width" id="vfN-dv-G2U"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="brainIDLabel" destination="kzo-WZ-idh" id="c4J-li-iam"/>
                 <outlet property="button" destination="Dle-jn-rYv" id="p4u-cf-c1O"/>
+                <outlet property="buttonRename" destination="7BE-S8-vjR" id="Cwz-be-pKy"/>
                 <outlet property="devInfoView" destination="jDP-hC-J5B" id="Ve7-0X-BDn"/>
                 <outlet property="hardwareVersionLabel" destination="rVq-Rc-SWT" id="fJy-OH-Sks"/>
                 <outlet property="loadingIndicator" destination="emO-PI-5r5" id="nja-iz-IyM"/>
@@ -197,6 +212,7 @@
     </objects>
     <resources>
         <image name="AlertIcon" width="18" height="18"/>
+        <image name="EditRobot" width="16" height="16"/>
         <image name="RetryIcon" width="16" height="16"/>
     </resources>
 </document>
