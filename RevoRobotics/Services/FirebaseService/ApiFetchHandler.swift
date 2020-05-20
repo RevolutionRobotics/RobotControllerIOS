@@ -26,8 +26,10 @@ final class ApiFetchHandler {
         #elseif DEV
         static let apiUrl = "https://api-test.revolutionrobotics.org/\(apiPath)"
         #else
-        static let apiUrl = "https://api-test.revolutionrobotics.org/\(apiPath)"
+        static let apiUrl = "https://api-global.revolutionrobotics.org/\(apiPath)"
         #endif
+
+        static let apiUrlAsia = "https://api-asia.revolutionrobotics.org:5000/\(apiPath)"
     }
 
     // MARK: - Properties
@@ -116,7 +118,15 @@ extension ApiFetchHandler {
         let queue = DispatchQueue(label: "api_\(endPoint)", qos: .background, attributes: .concurrent)
         let cached = readCached(for: endPoint)
 
-        guard let url = URL(string: "\(Constants.apiUrl)/\(endPoint)") else {
+        #if DEV || TEST
+        let urlBase = Constants.apiUrl
+        #else
+        let urlBase = Locale.current.userRegion == Locale.Server.global
+            ? Constants.apiUrl
+            : Constants.apiUrlAsia
+        #endif
+
+        guard let url = URL(string: "\(urlBase)/\(endPoint)") else {
             fatalError("Failed to create url for endpoint: \(endPoint)")
         }
 

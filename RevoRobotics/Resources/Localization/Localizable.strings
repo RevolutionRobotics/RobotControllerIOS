@@ -190,6 +190,7 @@
 "settings_screen_title" = "Settings";
 "settings_reset_turorial" = "Reset onboarding";
 "settings_firmware_update" = "Firmware update";
+"settings_server_location" = "Server location: %@";
 "settings_about_application" = "About application";
 "tutorial_reset_success" = "successful onboarding reset";
 "about_screen_title" = "About application";
@@ -198,6 +199,11 @@
 "about_privacy_policy_button_title" = "Privacy policy";
 "about_terms_conditions_button_title" = "Terms & conditions";
 "about_version" = "Version %@";
+"modal_select_server_location" = "Select server location";
+"modal_server_location_global" = "Global";
+"modal_server_location_china" = "Mainland China";
+"alert_updated_title" = "Server location updated!";
+"alert_updated_text" = "Please restart the app for changes to take effect";
 
 "firmware_screen_title" = "Firmware update";
 "firmware_new_connection_button" = "connect to new brain";

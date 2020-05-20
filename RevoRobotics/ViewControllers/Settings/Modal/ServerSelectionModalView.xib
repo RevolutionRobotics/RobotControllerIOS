@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jura-Regular.ttf">
+            <string>Jura-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KVn-Uh-4g5" userLabel="Server Selection Modal View" customClass="ServerSelectionModalView" customModule="RevoRobotics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3R-F4-eKA" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
+                    <rect key="frame" x="4" y="190" width="452" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="Nqm-KD-n9L"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="18"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Mainland China"/>
+                    <connections>
+                        <action selector="chinaSelected:" destination="KVn-Uh-4g5" eventType="touchUpInside" id="Muv-34-mvS"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT SERVER LOCATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFC-AK-Nhh">
+                    <rect key="frame" x="20" y="37" width="420" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="QvM-wj-dRB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gw2-yl-yCA" customClass="RRButton" customModule="RevoRobotics" customModuleProvider="target">
+                    <rect key="frame" x="4" y="136" width="452" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="eqs-r8-KzO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Jura-Regular" family="Jura" pointSize="18"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Global"/>
+                    <connections>
+                        <action selector="globalSelected:" destination="KVn-Uh-4g5" eventType="touchUpInside" id="qiM-EQ-fgL"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="ga2-Jn-lgr" firstAttribute="trailing" secondItem="RFC-AK-Nhh" secondAttribute="trailing" constant="20" id="9bE-Im-3Bw"/>
+                <constraint firstAttribute="bottom" secondItem="T3R-F4-eKA" secondAttribute="bottom" constant="4" id="A5N-Ag-iQa"/>
+                <constraint firstItem="T3R-F4-eKA" firstAttribute="top" secondItem="gw2-yl-yCA" secondAttribute="bottom" constant="8" id="Bii-DX-cfD"/>
+                <constraint firstItem="T3R-F4-eKA" firstAttribute="leading" secondItem="KVn-Uh-4g5" secondAttribute="leading" constant="4" id="Ddv-La-B3l"/>
+                <constraint firstItem="RFC-AK-Nhh" firstAttribute="leading" secondItem="ga2-Jn-lgr" secondAttribute="leading" constant="20" id="Osp-7H-Ot8"/>
+                <constraint firstItem="gw2-yl-yCA" firstAttribute="leading" secondItem="T3R-F4-eKA" secondAttribute="leading" id="QZA-LB-9bH"/>
+                <constraint firstItem="gw2-yl-yCA" firstAttribute="trailing" secondItem="T3R-F4-eKA" secondAttribute="trailing" id="QzN-gS-zIO"/>
+                <constraint firstAttribute="trailing" secondItem="T3R-F4-eKA" secondAttribute="trailing" constant="4" id="lkR-ae-C1v"/>
+                <constraint firstItem="RFC-AK-Nhh" firstAttribute="top" secondItem="KVn-Uh-4g5" secondAttribute="top" constant="37" id="rOr-JK-4gx"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="ga2-Jn-lgr"/>
+            <connections>
+                <outlet property="chinaButton" destination="T3R-F4-eKA" id="yXe-od-xCk"/>
+                <outlet property="globalButton" destination="gw2-yl-yCA" id="8LM-2l-8Gj"/>
+                <outlet property="titleLabel" destination="RFC-AK-Nhh" id="upg-82-zYZ"/>
+            </connections>
+            <point key="canvasLocation" x="95.652173913043484" y="75"/>
+        </view>
+    </objects>
+</document>
