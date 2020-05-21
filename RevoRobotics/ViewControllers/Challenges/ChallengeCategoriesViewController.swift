@@ -96,12 +96,6 @@ extension ChallengeCategoriesViewController: UICollectionViewDataSource {
             as ChallengeCategoryCollectionViewCell
         let categoryItem = challengeCategories[indexPath.row]
 
-        let missingImages = self.checkMissingImages(for: categoryItem)
-        guard missingImages.isEmpty else {
-            cell.setupDownloadNeeded(with: categoryItem)
-            return cell
-        }
-
         let categoryId = categoryItem.id
         let category = realmService.getChallengeCategory(id: categoryId)
 
@@ -111,7 +105,14 @@ extension ChallengeCategoriesViewController: UICollectionViewDataSource {
 
         cell.index = indexPath.row
         cell.completedCount = completedChallengeCount
-        cell.setup(with: categoryItem, userCategory: category)
+
+        let missingImages = self.checkMissingImages(for: categoryItem)
+        if missingImages.isEmpty {
+            cell.setup(with: categoryItem, userCategory: category)
+        } else {
+            cell.setupDownloadNeeded(with: categoryItem)
+        }
+
         cell.onDeleteTapped = { [weak self] in
             self?.deleteChallengecategory(at: indexPath.row)
         }
