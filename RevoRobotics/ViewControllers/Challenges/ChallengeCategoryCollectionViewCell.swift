@@ -47,9 +47,7 @@ extension ChallengeCategoryCollectionViewCell {
         deleteButton.isHidden = false
         downloadLabel.isHidden = true
 
-        progressView.progress = Float(completedCount) / Float(challengeCategory.challenges.count)
-        categoryProgress.text =
-            ChallengesKeys.Main.progress.translate(args: completedCount, challengeCategory.challenges.count)
+        setupCounterView(for: challengeCategory)
     }
 
     func setupDownloadNeeded(with challengeCategory: ChallengeCategory) {
@@ -62,6 +60,8 @@ extension ChallengeCategoryCollectionViewCell {
         progressView.isHidden = true
         deleteButton.isHidden = true
         downloadLabel.isHidden = false
+
+        setupCounterView(for: challengeCategory)
     }
 }
 
@@ -92,5 +92,14 @@ extension ChallengeCategoryCollectionViewCell {
 extension ChallengeCategoryCollectionViewCell {
     @IBAction private func deleteButtonTapped(_ sender: Any) {
         onDeleteTapped?()
+    }
+}
+
+// MARK: - Private methods
+extension ChallengeCategoryCollectionViewCell {
+    private func setupCounterView(for challengeCategory: ChallengeCategory) {
+        progressView.progress = Float(completedCount) / Float(challengeCategory.challenges.count)
+        categoryProgress.text =
+            ChallengesKeys.Main.progress.translate(args: completedCount, challengeCategory.challenges.count)
     }
 }
