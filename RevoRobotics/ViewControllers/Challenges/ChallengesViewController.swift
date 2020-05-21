@@ -97,11 +97,14 @@ extension ChallengesViewController {
     private func setupModal() {
         let modal = ChallengeFinishedModalView.instatiate()
         modal.homeCallback = { [weak self] in
-            self?.updateProgress()
-            self?.popToRootViewController(animated: true)
+            guard let `self` = self else { return }
+            self.updateProgress()
+            self.popToRootViewController(animated: true)
         }
         modal.listCallback = { [weak self] in
-            self?.handleNavigateBack()
+            guard let `self` = self else { return }
+            self.dismissModalViewController()
+            self.navigationController?.popViewController(animated: true)
         }
         modal.nextCallback = { [weak self] in
             self?.handleNavigateBack(with: self?.showNextChallenge)
