@@ -121,7 +121,7 @@ extension ApiFetchHandler {
         #if DEV || TEST
         let urlBase = Constants.apiUrl
         #else
-        let urlBase = Locale.current.userRegion == Locale.Server.global
+        let urlBase = Locale.current.userRegion == Locale.Server.global.rawValue
             ? Constants.apiUrl
             : Constants.apiUrlAsia
         #endif
