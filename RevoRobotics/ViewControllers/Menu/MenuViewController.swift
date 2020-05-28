@@ -105,6 +105,7 @@ extension MenuViewController {
             return ChallengeDataModel(
                 id: challenge.id,
                 categoryId: challenge.categoryId,
+                isDraft: challenge.isDraft,
                 isCompleted: true,
                 order: challenge.order)
         })

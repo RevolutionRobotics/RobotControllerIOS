@@ -13,13 +13,15 @@ final class ChallengeDataModel: Object {
     @objc dynamic var id: String = ""
     @objc dynamic var categoryId: String = ""
     @objc dynamic var isCompleted: Bool = false
+    @objc dynamic var isDraft: Bool = false
     @objc dynamic var order: Int = 0
 
     // MARK: - Initialization
-    convenience init(id: String, categoryId: String, isCompleted: Bool, order: Int) {
+    convenience init(id: String, categoryId: String, isDraft: Bool, isCompleted: Bool, order: Int) {
         self.init()
         self.id = id
         self.categoryId = categoryId
+        self.isDraft = isDraft
         self.isCompleted = isCompleted
         self.order = order
     }

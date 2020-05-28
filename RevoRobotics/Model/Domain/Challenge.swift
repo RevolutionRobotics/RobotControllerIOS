@@ -11,5 +11,6 @@ struct Challenge: Decodable, FirebaseOrderable {
     let name: LocalizedText
     let steps: [ChallengeStep]
     let stepsArchive: String
+    let draft: Bool?
     var order: Int
 }
