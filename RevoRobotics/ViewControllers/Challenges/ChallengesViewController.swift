@@ -33,9 +33,15 @@ extension ChallengesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let category = challengeCategory else { return }
+        #if PROD
+        challenges = realmService.getChallenges()
+            .filter({ $0.categoryId == challengeCategory?.id && !$0.isDraft })
+            .sorted(by: { $0.order < $1.order })
+        #else
         challenges = realmService.getChallenges()
             .filter({ $0.categoryId == challengeCategory?.id })
             .sorted(by: { $0.order < $1.order })
+        #endif
 
         navigationBar.bluetoothButtonState = bluetoothService.connectedDevice != nil ? .connected : .notConnected
         navigationBar.setup(title: category.name.text, delegate: self)
@@ -65,6 +71,7 @@ extension ChallengesViewController {
                     ChallengeDataModel(
                         id: $0.id,
                         categoryId: $0.categoryId,
+                        isDraft: $0.isDraft,
                         isCompleted: true,
                         order: $0.order)
                 })
@@ -83,6 +90,7 @@ extension ChallengesViewController {
                 .map({ ChallengeDataModel(
                     id: $0.id,
                     categoryId: challengeCategory.id,
+                    isDraft: $0.draft == true,
                     isCompleted: false,
                     order: $0.order)
                 })
@@ -128,6 +136,7 @@ extension ChallengesViewController {
         let updatedChallenge = ChallengeDataModel(
                 id: challenge.id,
                 categoryId: challenge.categoryId,
+                isDraft: challenge.isDraft,
                 isCompleted: true,
                 order: challenge.order
             )
