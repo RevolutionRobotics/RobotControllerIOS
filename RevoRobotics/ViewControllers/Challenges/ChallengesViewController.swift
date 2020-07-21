@@ -111,7 +111,9 @@ extension ChallengesViewController {
         }
         modal.listCallback = { [weak self] in
             guard let `self` = self else { return }
+            self.updateProgress()
             self.dismissModalViewController()
+            self.challengesCollectionView.reloadData()
             self.navigationController?.popViewController(animated: true)
         }
         modal.nextCallback = { [weak self] in
