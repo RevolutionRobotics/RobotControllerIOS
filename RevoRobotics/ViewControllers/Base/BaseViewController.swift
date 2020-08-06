@@ -318,21 +318,22 @@ extension BaseViewController {
                 let firmwareUpdateModal = FirmwareUpdateModalView.instatiate()
                 firmwareUpdateModal.updatePressedCallback = { [weak self] in
                     guard let `self` = self else { return }
-                    self.dismissModalViewController()
 
                     let updateViewController = AppContainer
                         .shared
                         .container
                         .unwrappedResolve(FirmwareUpdateViewController.self)
 
-                    self.navigationController?
-                        .pushViewController(updateViewController, animated: true)
+                    self.presentedViewController?.dismiss(animated: true, completion: { [weak self] in
+                        self?.navigationController?.pushViewController(updateViewController, animated: true)
+                    })
                 }
                 firmwareUpdateModal.continuePressedCallback = { [weak self] in
                     guard let `self` = self else { return }
                     self.dismissModalViewController()
                     self.robotSoftwareApproved()
                 }
+
                 presentModal(with: firmwareUpdateModal, closeHidden: true)
             } else {
                 let connectionModal = ConnectionModalView.instatiate()
