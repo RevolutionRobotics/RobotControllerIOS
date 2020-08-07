@@ -27,7 +27,7 @@ final class ProgramDataModel: Object {
         self.remoteId = program.id
         self.name = program.name.text
         self.customDescription = program.description.text
-        self.lastModified = Date(timeIntervalSince1970: program.lastModified)
+        self.lastModified = Date(timeIntervalSince1970: program.lastModified / 1000.0)
         self.robotId = robotId
         self.xml = program.blocklyXml
         self.python = program.python
