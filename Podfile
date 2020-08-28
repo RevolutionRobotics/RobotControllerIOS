@@ -25,7 +25,7 @@ target 'RevoRobotics' do
   # Storage
   pod 'ZIPFoundation', '~> 0.9'
   pod 'RealmSwift', '~> 3.18.0'
-  pod 'Firebase/Core'
+  pod 'Firebase/CoreOnly'
   pod 'Firebase/Analytics'
   
   # API communication
