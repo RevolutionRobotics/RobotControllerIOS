@@ -1,47 +1,53 @@
 PODS:
   - Alamofire (5.2.2)
   - ContextMenu (0.4.0)
-  - Crashlytics (3.14.0):
-    - Fabric (~> 1.10.2)
-  - CryptoSwift (1.3.1)
-  - Fabric (1.10.2)
-  - Firebase/Analytics (6.31.0):
+  - CryptoSwift (1.3.2)
+  - Firebase/Analytics (6.33.0):
     - Firebase/Core
-  - Firebase/Core (6.31.0):
+  - Firebase/Core (6.33.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.8.0)
-  - Firebase/CoreOnly (6.31.0):
-    - FirebaseCore (= 6.10.1)
-  - FirebaseAnalytics (6.8.0):
+    - FirebaseAnalytics (= 6.8.3)
+  - Firebase/CoreOnly (6.33.0):
+    - FirebaseCore (= 6.10.3)
+  - Firebase/Crashlytics (6.33.0):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 4.6.1)
+  - FirebaseAnalytics (6.8.3):
     - FirebaseCore (~> 6.10)
     - FirebaseInstallations (~> 1.6)
-    - GoogleAppMeasurement (= 6.8.0)
+    - GoogleAppMeasurement (= 6.8.3)
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
     - GoogleUtilities/MethodSwizzler (~> 6.7)
     - GoogleUtilities/Network (~> 6.7)
     - "GoogleUtilities/NSData+zlib (~> 6.7)"
     - nanopb (~> 1.30906.0)
-  - FirebaseCore (6.10.1):
+  - FirebaseCore (6.10.3):
     - FirebaseCoreDiagnostics (~> 1.6)
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/Logger (~> 6.7)
-  - FirebaseCoreDiagnostics (1.6.0):
-    - GoogleDataTransport (~> 7.2)
+  - FirebaseCoreDiagnostics (1.7.0):
+    - GoogleDataTransport (~> 7.4)
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/Logger (~> 6.7)
     - nanopb (~> 1.30906.0)
+  - FirebaseCrashlytics (4.6.1):
+    - FirebaseCore (~> 6.10)
+    - FirebaseInstallations (~> 1.6)
+    - GoogleDataTransport (~> 7.2)
+    - nanopb (~> 1.30906.0)
+    - PromisesObjC (~> 1.2)
   - FirebaseInstallations (1.7.0):
     - FirebaseCore (~> 6.10)
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/UserDefaults (~> 6.7)
     - PromisesObjC (~> 1.2)
-  - GoogleAppMeasurement (6.8.0):
+  - GoogleAppMeasurement (6.8.3):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
     - GoogleUtilities/MethodSwizzler (~> 6.7)
     - GoogleUtilities/Network (~> 6.7)
     - "GoogleUtilities/NSData+zlib (~> 6.7)"
     - nanopb (~> 1.30906.0)
-  - GoogleDataTransport (7.3.0):
+  - GoogleDataTransport (7.4.0):
     - nanopb (~> 1.30906.0)
   - GoogleUtilities/AppDelegateSwizzler (6.7.2):
     - GoogleUtilities/Environment
@@ -99,10 +105,9 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.0)
   - ContextMenu
-  - Crashlytics (~> 3.14.0)
-  - Fabric (~> 1.10.2)
   - Firebase/Analytics
   - Firebase/CoreOnly
+  - Firebase/Crashlytics
   - Kingfisher (~> 5.3.1)
   - PieCharts (~> 0.0.7)
   - PMParentalGate
@@ -120,13 +125,12 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - ContextMenu
-    - Crashlytics
     - CryptoSwift
-    - Fabric
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
     - FirebaseCoreDiagnostics
+    - FirebaseCrashlytics
     - FirebaseInstallations
     - GoogleAppMeasurement
     - GoogleDataTransport
@@ -160,16 +164,15 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   ContextMenu: f835e09a93f1c28c631b76ee94396d9570397fd1
-  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
-  CryptoSwift: f12f037f6d0fcd6d48c96db0071b653de64e6c4d
-  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
-  Firebase: 87483fa19acfdf99244523f2389e931927b91457
-  FirebaseAnalytics: 0ca9aa2af7cc4dc92392b7a78bfc49feaa2eb60f
-  FirebaseCore: 6fb954e350af0885803d5aa49865d15d9a6b264c
-  FirebaseCoreDiagnostics: 7415bfb3883b3500c5a95c42b6ba66baae78f600
+  CryptoSwift: 093499be1a94b0cae36e6c26b70870668cb56060
+  Firebase: 8db6f2d1b2c5e2984efba4949a145875a8f65fe5
+  FirebaseAnalytics: 5dd088bd2e67bb9d13dbf792d1164ceaf3052193
+  FirebaseCore: d889d9e12535b7f36ac8bfbf1713a0836a3012cd
+  FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
+  FirebaseCrashlytics: 5777d3462fb8c3ab9e80a2473bd7d667a2e8411c
   FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
-  GoogleAppMeasurement: ecc30d0ab5b66d7d18e85ce1b8e2b345db60626d
-  GoogleDataTransport: e85fb700c9b027079ce182c3d08e12e0f9618bb4
+  GoogleAppMeasurement: 966e88df9d19c15715137bb2ddaf52373f111436
+  GoogleDataTransport: b7f406340a291370045a270c599e53c6fa6ec20f
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
@@ -188,6 +191,6 @@ SPEC CHECKSUMS:
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
   ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: 4eb4a650ba1ac2f15f9afb6ed575557c2fd4f950
+PODFILE CHECKSUM: 659c3134546e8dbf98737fa2c2853d644bbf3133
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.0.rc.1

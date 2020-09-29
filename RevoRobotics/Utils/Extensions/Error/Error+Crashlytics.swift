@@ -6,10 +6,10 @@
 //  Copyright © 2019. Revolution Robotics. All rights reserved.
 //
 
-import Crashlytics
+import Firebase
 
 extension Error {
     func report() {
-        Crashlytics.sharedInstance().recordError(self)
+        Crashlytics.crashlytics().record(error: self)
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Fabric
 import Firebase
 import Kingfisher
 import os

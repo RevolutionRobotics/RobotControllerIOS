@@ -12,10 +12,6 @@ target 'RevoRobotics' do
   # Dependency injection
   pod 'Swinject', '~> 2.6.0'
 
-  # Release management
-  pod 'Fabric', '~> 1.10.2'
-  pod 'Crashlytics', '~> 3.14.0'
-
   # UI
   pod 'Kingfisher', '~> 5.3.1'
   pod 'SideMenu', :git => 'https://github.com/stelabouras/SideMenu.git', :branch => 'upgrade/xcode-10.2'
@@ -25,8 +21,11 @@ target 'RevoRobotics' do
   # Storage
   pod 'ZIPFoundation', '~> 0.9'
   pod 'RealmSwift', '~> 3.18.0'
+  
+  # Firebase
   pod 'Firebase/CoreOnly'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
   
   # API communication
   pod 'Alamofire', '~> 5.0'
