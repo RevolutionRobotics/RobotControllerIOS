@@ -33,6 +33,12 @@ extension ChallengesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let category = challengeCategory else { return }
+
+        let savedChallenges = realmService.getChallenges()
+        if category.challenges.count != savedChallenges.count {
+            saveNewChallenges(challenges: category.challenges, savedChallenges: savedChallenges)
+        }
+
         #if PROD
         challenges = realmService.getChallenges()
             .filter({ $0.categoryId == challengeCategory?.id && !$0.isDraft })
@@ -242,5 +248,23 @@ extension ChallengesViewController {
 extension ChallengesViewController {
     private func getChallenge(for id: String) -> Challenge? {
         return challengeCategory?.challenges.first(where: { $0.id == id })
+    }
+
+    private func saveNewChallenges(challenges: [Challenge], savedChallenges: [ChallengeDataModel]) {
+        guard let category = challengeCategory else { return }
+
+        let newChallenges: [ChallengeDataModel] = challenges
+            .filter({ challenge in
+                return !savedChallenges.contains(where: { $0.id == challenge.id })
+            })
+            .map({ ChallengeDataModel(
+                    id: $0.id,
+                    categoryId: category.id,
+                    isDraft: $0.draft == true,
+                    isCompleted: false,
+                    order: $0.order)
+            })
+
+        realmService.saveChallenges(newChallenges)
     }
 }
