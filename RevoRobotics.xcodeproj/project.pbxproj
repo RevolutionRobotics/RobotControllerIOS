@@ -325,6 +325,7 @@
 		D05C64E1225F5C9900B7BF4F /* Motor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64E0225F5C9900B7BF4F /* Motor.swift */; };
 		D05C64E5225F5DEE00B7BF4F /* PortMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64E4225F5DEE00B7BF4F /* PortMapping.swift */; };
 		D05C64E7225F5E3600B7BF4F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C64E6225F5E3600B7BF4F /* Configuration.swift */; };
+		D0642DA725DE7D5E00B8B1A0 /* UIImage+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0642DA625DE7D5E00B8B1A0 /* UIImage+Rotation.swift */; };
 		D06C3267228570FF005534C0 /* ResetTutorialModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C3266228570FF005534C0 /* ResetTutorialModalView.swift */; };
 		D06C326922857107005534C0 /* ResetTutorialModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06C326822857107005534C0 /* ResetTutorialModalView.xib */; };
 		D06C326C22857A80005534C0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C326A22857A80005534C0 /* AboutViewController.swift */; };
@@ -754,6 +755,7 @@
 		D05C64E0225F5C9900B7BF4F /* Motor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motor.swift; sourceTree = "<group>"; };
 		D05C64E4225F5DEE00B7BF4F /* PortMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortMapping.swift; sourceTree = "<group>"; };
 		D05C64E6225F5E3600B7BF4F /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		D0642DA625DE7D5E00B8B1A0 /* UIImage+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Rotation.swift"; sourceTree = "<group>"; };
 		D06C3266228570FF005534C0 /* ResetTutorialModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetTutorialModalView.swift; sourceTree = "<group>"; };
 		D06C326822857107005534C0 /* ResetTutorialModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetTutorialModalView.xib; sourceTree = "<group>"; };
 		D06C326A22857A80005534C0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -1793,6 +1795,7 @@
 			children = (
 				2AFAA11122663111002BE0A2 /* UIImage+Color.swift */,
 				D0714444237EDD3C00ADB612 /* UIImage+Size.swift */,
+				D0642DA625DE7D5E00B8B1A0 /* UIImage+Rotation.swift */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -2789,6 +2792,7 @@
 				0972844422B3BDCB007A7FE1 /* VariableContextModalView.swift in Sources */,
 				D08C1CF022648F990052EE1F /* UIView+Crop.swift in Sources */,
 				2AD858E02296B9EB0082CDC0 /* ControllerDataModel.swift in Sources */,
+				D0642DA725DE7D5E00B8B1A0 /* UIImage+Rotation.swift in Sources */,
 				D04F9A92237C311E00D82D24 /* ProgramListTableViewCell.swift in Sources */,
 				D0E3F88822B786B800B4D9F2 /* ProgramListModalView.swift in Sources */,
 				2AF8C75F2280659000CE1ACB /* FileManager+Documents.swift in Sources */,
