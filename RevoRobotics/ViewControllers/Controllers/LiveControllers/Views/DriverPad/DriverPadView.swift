@@ -47,7 +47,6 @@ extension DriverPadView {
 extension DriverPadView {
     @IBAction private func xAxisReset(_ slider: UISlider) {
         xAxisPositionChanged?(CGFloat(Constants.defaultSliderValue))
-
         resetValue(in: slider)
     }
 
@@ -77,12 +76,11 @@ extension DriverPadView {
         slider.setThumbImage(Image.Controller.padButtonBackground, for: .normal)
         slider.setThumbImage(Image.Controller.padButtonBackground, for: .highlighted)
 
-        let imageView = UIImageView(image: Image.Controller.directionSlider)
-        imageView.transform = CGAffineTransform(rotationAngle: Constants.rotationAngle)
-        slider.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.centerXAnchor.constraint(equalTo: slider.centerXAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: slider.centerYAnchor).isActive = true
+        let sliderBg = Image.Controller.directionSlider?.rotate(radians: Float(Constants.rotationAngle))
+        slider.setMinimumTrackImage(sliderBg, for: .normal)
+        slider.setMaximumTrackImage(sliderBg, for: .normal)
+
+        resetValue(in: slider)
     }
 
     private func resetValue(in slider: UISlider) {

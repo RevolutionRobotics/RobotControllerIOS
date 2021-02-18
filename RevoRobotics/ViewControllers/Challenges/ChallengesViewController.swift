@@ -36,7 +36,7 @@ extension ChallengesViewController {
 
         let savedChallenges = realmService.getChallenges()
         if category.challenges.count != savedChallenges.count {
-            saveNewChallenges(challenges: category.challenges, savedChallenges: savedChallenges)
+            saveNewChallenges(savedChallenges: savedChallenges)
         }
 
         #if PROD
@@ -250,10 +250,10 @@ extension ChallengesViewController {
         return challengeCategory?.challenges.first(where: { $0.id == id })
     }
 
-    private func saveNewChallenges(challenges: [Challenge], savedChallenges: [ChallengeDataModel]) {
+    private func saveNewChallenges(savedChallenges: [ChallengeDataModel]) {
         guard let category = challengeCategory else { return }
 
-        let newChallenges: [ChallengeDataModel] = challenges
+        let newChallenges: [ChallengeDataModel] = category.challenges
             .filter({ challenge in
                 return !savedChallenges.contains(where: { $0.id == challenge.id })
             })
